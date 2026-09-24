@@ -36,9 +36,9 @@ covers what survived out of sample, what didn't, and why.
   the extreme top of the ranking. In 2026 that tail edge vanished, and the locked
   rule lost 22% vs SPY per trade.
 - **The model could often tell which company it was reading, and what came next.**
-  91% of the "anonymized" evidence packs still carried a direct identifier. Even
-  after a strict scrub, Claude Haiku 4.5 named 53% of companies from MD&A prose
-  alone. Given only a company's name and filing date, Haiku's guesses separated
+  91% of the "anonymized" evidence packs still carried a direct identifier. With
+  every name word stripped, Claude Haiku 4.5 still named 50 of 80 (62.5%) 2011–24
+  companies from 10,000 characters of MD&A. Given only a company's name and filing date, Haiku's guesses separated
   historical winners from losers (AUC 0.65, p = 0.007) but not 2026 ones (0.56).
   Its explanations cited events that happened after the filing, such as "COVID-19"
   for a February 2020 10-K. Leakage through the model's own weights can't be ruled
@@ -157,12 +157,13 @@ be taken at face value.
 | --- | --- |
 | Pre-registered blind re-score ([protocol](protocols/blind_rescore.md)): 110 cases re-run with names, tickers, EINs, and file numbers scrubbed | Signal unchanged (Spearman 0.39 → 0.39, AUC 0.70 → 0.71). Verdict *GENUINE* for the name/ticker channel. |
 | Redaction audit of all 10,875 evidence packs ([`redaction_audit.py`](src/redaction_audit.py)) | 91% still contain a direct identifier. The distinctive name word survives in 61% of packs that have one (for example, "Nabors" 126 times after "NABORS INDUSTRIES LTD" was redacted). The cover-page address survives in 85%. |
-| Re-identification probe, Claude Haiku 4.5 from memory ([`results/memorization_probe`](results/memorization_probe/table.md)): 48 fully scrubbed 4.5k-char MD&A excerpts | Named 53% of 2011–2024 companies (AMD, Best Buy, Wynn, Amarin…). With only the excerpt to go on, outcome recall was at chance: 3 of 11 directional calls right, P(+20%) AUC 0.45. |
+| Identification probe ([`identification_probe.py`](src/identification_probe.py), [answers](results/identification_probe/table.md)): 100 Haiku agents, one case each in a fresh context, given 10,000 characters of MD&A with every name word, ticker, URL, and tax ID stripped. Same 100 cases as the recall probe. | Named **50 of 80** 2011–24 companies (62.5%, 95% CI 52–72%; 66% within its top 3), and 10 of 20 from 2026. The giveaways were products, drugs, subsidiaries, mines, and former names: "NVX-CoV2373" (Novavax), "nusinersen … Akcea" (Ionis, named as its old name Isis), "Palmarejo, Kensington, Rochester" (Coeur). Its confidence ranked right vs wrong answers almost perfectly (AUC 0.95). Many misses had the right clues but the wrong name, so this is a floor. An earlier 48-case batch got 53% from 4,500 characters. |
 | Named-recall probe ([`recall_probe.py`](src/recall_probe.py), [answers](results/recall_probe/table.md)): 100 Haiku agents, one case each in a fresh context, given only company, ticker, and filing date. 80 extreme 2011–2024 moves, 20 in 2026. | 2011–24: P(outperform) AUC **0.65** [0.54, 0.75], permutation p = 0.007; 0.72 for large, liquid names vs 0.58 for small. 2026 controls: 0.56 [0.31, 0.80]. On the same cases the filing-reading forecaster scored 0.69 historically vs 0.54 in 2026. Haiku's name-only guesses correlated 0.34 with its forecasts historically, and −0.02 in 2026. |
 
 The blind test rules out leakage through explicit identifiers. It cannot rule out
-recognition through business descriptions or addresses, and the first probe shows
-that channel is wide open even for a small model.
+recognition through business descriptions or addresses, and the identification
+probe shows that channel is wide open even for a small model reading a fraction of
+the evidence the forecaster saw.
 
 The recall probe exposes a second channel that no redaction can close: the date.
 Haiku never claimed to remember a specific 90-day move. But its notes describe
@@ -198,6 +199,18 @@ bound on its real skill.
    [`protocols/century_typesafe.md`](protocols/century_typesafe.md) is
    pre-registered and paused at 100 of about 49k judgments).
 
+## Known issues
+
+- **Shared tickers in the symbol resolver.** The identification probe surfaced 23
+  filings from AR Capital-family non-traded REITs and partnerships (2014–16) that
+  inherited the ticker ARCT, most likely from the XBRL file-name fallback. ARCT now
+  belongs to Arcturus Therapeutics, so those cases were scored on another
+  security's prices. Eleven entities filing on 2014-11-14 all show the same +66%
+  outcome. None of them entered the P(+20%) rule's 270 backtest trades. Four sat
+  in the recall probe; excluding them moves its AUC from 0.65 to 0.66. More
+  broadly, 467 cases (4.8%) share a ticker with another filer in the same year.
+  Some are legitimate co-registrants; the rest need a CIK-level price map.
+
 ## Repository map
 
 ```
@@ -209,7 +222,8 @@ src/
                                           causal portfolio simulation, blocked placebos, locked rules
   live_predictions.py, live_outcomes.py   live 2026 cohort: board and grading
   llm_incremental_value.py                LLM vs mechanical features, walk-forward
-  forecast_audit.py, redaction_audit.py, memorization_probe.py, recall_probe.py, blind_rescore.py
+  forecast_audit.py, redaction_audit.py, identification_probe.py, recall_probe.py,
+  memorization_probe.py, blind_rescore.py
                                           leakage and calibration audits
   pipeline_monitor.py                     read-only HTTP monitor for cloud runs
   ...                                     side experiments (below)
@@ -220,7 +234,7 @@ docs/           case study (index.html), figures/, notes/ research log, week-one
 reports/        standalone HTML research reports
 sites/          Next.js/vinext front-ends for the results
 cloud/, scripts/  Azure VM, Docker, and supervisor scripts for the century run
-tests/          292 offline tests with committed fixtures
+tests/          295 offline tests with committed fixtures
 ```
 
 Run data (about 11 GB of filing packs, LLM outputs, and caches under `lab_runs/`
@@ -230,10 +244,11 @@ and `research/`) is not committed.
 
 ```bash
 pip install -r requirements.txt
-python -m pytest -q                         # 292 offline tests
+python -m pytest -q                         # 295 offline tests
 python src/forecast_audit.py                # rebuilds the audit from data/audit_inputs/
 python src/memorization_probe.py            # rescores the re-identification probe
 python src/recall_probe.py score --probe-dir results/recall_probe --results results/recall_probe
+python src/identification_probe.py score --probe-dir results/identification_probe
 ```
 
 The full pipeline needs an OpenRouter key (`OPENROUTER_API_KEY`) and a

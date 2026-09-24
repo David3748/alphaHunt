@@ -22,9 +22,9 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 SITE = ROOT / "sites/strategy-site/public/data"
 
-PROBE_ROWS = {  # a mix of hits, misses and the 2026 control, in display order
-    "P08": "Advanced Micro Devices", "P31": "Best Buy", "P40": "Wynn Resorts", "P42": "Amarin",
-    "P25": "Cliffs Natural Resources", "P48": "Rambus", "P29": "Porch Group", "P22": "Iridium (2026 control)",
+IDENT_ROWS = {  # hits, a rename, near-misses with the right clues, and a 2026 filing, in display order
+    "I001": "Novavax", "I030": "Ionis Pharmaceuticals", "I075": "Coeur Mining", "I097": "Kosmos Energy",
+    "I023": "VivoSim Labs (2026)", "I031": "Altisource Portfolio Solutions", "I054": "CEL-SCI", "I088": "Zoom Video",
 }
 PERIOD_LABELS = {
     "2009-2018 historical holdout": "2009–18 holdout",
@@ -47,9 +47,9 @@ def data() -> dict:
     periods = audit["periods"]
     with (ROOT / "data/audit_inputs/dataset.csv").open() as fh:
         century = [float(r["excess"]) for r in csv.DictReader(fh) if r["cohort"] == "century" and r["excess"]]
-    probe = load(ROOT / "results/memorization_probe/summary.json")
-    by_item = {r["item"]: r for r in probe["rows"]}
-    cen = probe["century_2011_2024"]
+    ident = load(ROOT / "results/identification_probe/summary.json")
+    by_item = {r["item"]: r for r in ident["rows"]}
+    cen = ident["historical_2011_2024"]
     red = load(ROOT / "results/redaction_audit/summary.json")["all"]
     ridge = audit["incremental_value_ridge"]["fwd_2021_2025"]
     recall = load(ROOT / "results/recall_probe/summary.json")
@@ -114,12 +114,12 @@ def data() -> dict:
                        for key, name in (("COEUR D ALENE MINES CORP", "Coeur d’Alene Mines"),
                                          ("Kosmos Energy Ltd.", "Kosmos Energy"),
                                          ("Baker Hughes Co", "Baker Hughes"))]},
-        "probe": {"idRate": cen["identification_rate"],
-                  "recallN": cen["identified_with_directional_recall"],
-                  "recallRight": round(cen["recall_direction_accuracy"] * cen["identified_with_directional_recall"]),
-                  "rows": [{"company": name, "filed": by_item[i]["cutoff"], "excess": by_item[i]["excess"],
-                            "guess": by_item[i]["company_guess"], "recall": by_item[i]["recall"]}
-                           for i, name in PROBE_ROWS.items()]},
+        "probe": {"idRate": cen["top1_rate"], "top3Rate": cen["top3_rate"], "confAuc": cen["confidence_auc"],
+                  "live": ident["control_2026"]["top1_rate"], "n": cen["n"],
+                  "rows": [{"company": name, "filed": by_item[i]["filed"], "hit": by_item[i]["top1"],
+                            "guess": by_item[i]["company_guess"], "conf": by_item[i]["confidence"],
+                            "clue": by_item[i]["clue"]}
+                           for i, name in IDENT_ROWS.items()]},
     }
 
 

@@ -411,7 +411,7 @@ def build(df: pd.DataFrame) -> dict:
                      for m in ("M0_mech", "M1_mech_llm", "M2_llm", "raw_p20")}
             for period in ("fwd_2021_2025", "live_2026") if period in ridge}
         report["causal_portfolios"] = inc.get("portfolio_causal_top_decile", {})
-    for name in ("redaction_audit", "memorization_probe", "recall_probe"):
+    for name in ("redaction_audit", "memorization_probe", "recall_probe", "identification_probe"):
         path = ROOT / "results" / name / "summary.json"
         if path.exists():
             summary = json.loads(path.read_text())
@@ -488,6 +488,13 @@ def markdown(r: dict) -> str:
               f"{pct(c['recall_direction_accuracy'])} of the {c['identified_with_directional_recall']} cases where it "
               f"offered one, and its P(+20%) did not separate winners from losers (AUC {c['p_beat20_auc_winners_vs_losers']:.2f}; "
               f"2026 control {lvc['p_beat20_auc_winners_vs_losers']:.2f})."]
+    ip_ = r.get("identification_probe")
+    if ip_:
+        h, c = ip_["historical_2011_2024"], ip_["control_2026"]
+        L += [f"- Identification probe (100 fresh Haiku contexts, 10k chars of strictly scrubbed MD&A each): named the "
+              f"company in {h['top1']} of {h['n']} 2011-2024 filings ({pct(h['top1_rate'], digits=1)}, 95% CI {pct(h['top1_ci'][0])}-{pct(h['top1_ci'][1])}) "
+              f"(top-3 {pct(h['top3_rate'])}) and {pct(c['top1_rate'])} of 2026 filings; its confidence separated hits "
+              f"from misses with AUC {h['confidence_auc']:.2f}."]
     rp = r.get("recall_probe")
     if rp:
         h, c, d = rp["historical_2011_2024"], rp["control_2026"], rp.get("diagnostics", {})

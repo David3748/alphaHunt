@@ -993,6 +993,134 @@
    "historical_auc_by_liquidity": {
     "large": 0.7243107769423559,
     "small": 0.5839598997493735
+   },
+   "historical_excluding_mismapped_tickers": {
+    "n": 76,
+    "auc_p_outperform": 0.6573111573111573,
+    "ox_p20_auc": 0.7162162162162162
+   }
+  }
+ },
+ "identification_probe": {
+  "answered": 100,
+  "missing": [],
+  "excerpt_chars": 10000,
+  "manual_overrides": {
+   "I023": "Organovo Holdings renamed itself VivoSim Labs in 2025; the excerpt says 'formerly known as'",
+   "I030": "Isis Pharmaceuticals renamed itself Ionis in December 2015",
+   "I040": "D-Wave Systems is D-Wave Quantum's operating company and former name",
+   "I065": "Dronedek Corporation is Arrive AI's former name, stated in the excerpt",
+   "I077": "Healthcare Trust, Inc. is the renamed ARC Healthcare Trust II, a sibling of Trust III"
+  },
+  "all": {
+   "n": 100,
+   "top1": 60,
+   "top1_rate": 0.6,
+   "top1_ci": [
+    0.5020007846184025,
+    0.6906002538863971
+   ],
+   "top3": 64,
+   "top3_rate": 0.64,
+   "top3_ci": [
+    0.542352199811621,
+    0.7272892540950986
+   ],
+   "mean_confidence": 0.6807000000000001,
+   "confidence_auc": 0.95,
+   "confidence_brier": 0.10205900000000001,
+   "confident_wrong": 8
+  },
+  "historical_2011_2024": {
+   "n": 80,
+   "top1": 50,
+   "top1_rate": 0.625,
+   "top1_ci": [
+    0.515485228513904,
+    0.7230598374199522
+   ],
+   "top3": 53,
+   "top3_rate": 0.6625,
+   "top3_ci": [
+    0.5535631838362329,
+    0.7565454018777802
+   ],
+   "mean_confidence": 0.7070000000000001,
+   "confidence_auc": 0.9383333333333334,
+   "confidence_brier": 0.10890249999999999,
+   "confident_wrong": 7
+  },
+  "control_2026": {
+   "n": 20,
+   "top1": 10,
+   "top1_rate": 0.5,
+   "top1_ci": [
+    0.2992949144298199,
+    0.7007050855701801
+   ],
+   "top3": 11,
+   "top3_rate": 0.55,
+   "top3_ci": [
+    0.3420820083075997,
+    0.7418049791429071
+   ],
+   "mean_confidence": 0.5755,
+   "confidence_auc": 0.99,
+   "confidence_brier": 0.07468499999999999,
+   "confident_wrong": 1
+  },
+  "historical_by_era": {
+   "2011-2017": {
+    "n": 40,
+    "top1": 27,
+    "top1_rate": 0.675,
+    "top1_ci": [
+     0.52017458088898,
+     0.7991568303733828
+    ],
+    "top3": 28,
+    "top3_rate": 0.7,
+    "top3_ci": [
+     0.545696893456796,
+     0.8192532908430471
+    ],
+    "mean_confidence": 0.725,
+    "confidence_auc": 0.9173789173789174,
+    "confidence_brier": 0.106975,
+    "confident_wrong": 2
+   },
+   "2018-2024": {
+    "n": 40,
+    "top1": 23,
+    "top1_rate": 0.575,
+    "top1_ci": [
+     0.42194800436059987,
+     0.7149083147518411
+    ],
+    "top3": 25,
+    "top3_rate": 0.625,
+    "top3_ci": [
+     0.47032160054531913,
+     0.7577722646420829
+    ],
+    "mean_confidence": 0.6890000000000001,
+    "confidence_auc": 0.9616368286445013,
+    "confidence_brier": 0.11082999999999998,
+    "confident_wrong": 5
+   }
+  },
+  "chain_historical": {
+   "identified_from_text": {
+    "n": 50,
+    "winners": 24,
+    "recall_auc": 0.5681089743589743,
+    "ox_p20_auc": 0.7435897435897436
+   },
+   "not_identified": {
+    "n": 26,
+    "winners": 13,
+    "recall_auc": 0.8402366863905325,
+    "ox_p20_auc": 0.6923076923076923
    }
   }
  },

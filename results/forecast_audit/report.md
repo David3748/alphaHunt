@@ -38,5 +38,6 @@ Probability that 12 trades drawn independently from the backtest ledger average 
 
 - 92% of the 9,879 century evidence packs still contain a direct identifier after issuer redaction: the company's distinctive name word survives in 61% of packs that have one, and the cover-page address in 86%.
 - With every name token and the ticker scrubbed, Claude Haiku 4.5 named 19/36 historical companies from 4.5k characters of MD&A alone (53%), but its recalled post-filing direction was right in only 27% of the 11 cases where it offered one, and its P(+20%) did not separate winners from losers (AUC 0.45; 2026 control 0.47).
+- Identification probe (100 fresh Haiku contexts, 10k chars of strictly scrubbed MD&A each): named the company in 50 of 80 2011-2024 filings (62.5%, 95% CI 52%-72%) (top-3 66%) and 50% of 2026 filings; its confidence separated hits from misses with AUC 0.94.
 - Given only the company name, ticker and filing date (100 fresh Haiku contexts, one case each), Haiku's P(outperform) separated 2011-2024 winners from losers with AUC 0.65 [0.54, 0.75], permutation p = 0.007; on 2026 controls AUC 0.56 [0.31, 0.80]. It never claimed a specific memory of the window.
 - On the same cases the filing-reading forecaster's P(+20%) had AUC 0.69 (historical) vs 0.54 (2026), and Haiku's name-only guesses correlated 0.34 with it historically vs -0.02 in 2026.

@@ -210,6 +210,11 @@
   "historical_auc_by_liquidity": {
    "large": 0.7243107769423559,
    "small": 0.5839598997493735
+  },
+  "historical_excluding_mismapped_tickers": {
+   "n": 76,
+   "auc_p_outperform": 0.6573111573111573,
+   "ox_p20_auc": 0.7162162162162162
   }
  },
  "rows": [

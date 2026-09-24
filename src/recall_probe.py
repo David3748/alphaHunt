@@ -241,6 +241,11 @@ def score(probe_dir: Path, results: Path) -> dict:
         diag["historical_auc_by_liquidity"] = {
             "large": auc([float(r["p_outperform"]) for r in big], [r["winner"] for r in big]),
             "small": auc([float(r["p_outperform"]) for r in small], [r["winner"] for r in small])}
+    # AR Capital-family filings mapped to ticker ARCT by the symbol resolver carry another security's prices
+    clean = [r for r in hist if not (r["ticker"] == "ARCT" and "arcturus" not in r["company"].lower())]
+    diag["historical_excluding_mismapped_tickers"] = {
+        "n": len(clean), "auc_p_outperform": auc([float(r["p_outperform"]) for r in clean], [r["winner"] for r in clean]),
+        "ox_p20_auc": auc([r["ox_p20"] for r in clean], [r["winner"] for r in clean])}
     out["diagnostics"] = diag
     results.mkdir(parents=True, exist_ok=True)
     (results / "summary.json").write_text(json.dumps({**out, "rows": rows}, indent=1), encoding="utf-8")

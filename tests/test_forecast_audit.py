@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import forecast_audit as fa
 import memorization_probe as mp
+import identification_probe as ip
 import recall_probe as rp
 import redaction_audit as ra
 
@@ -165,6 +166,25 @@ class TestRecallProbe(unittest.TestCase):
         lo, hi = rp.wilson(30, 40)
         self.assertLess(lo, 0.75)
         self.assertGreater(hi, 0.75)
+
+
+class TestIdentificationMatching(unittest.TestCase):
+    words = {"american", "realty", "capital", "first", "solar", "energy", "fuels", "clean", "mining", "mines"}
+
+    def test_same_company_under_common_variants(self):
+        self.assertTrue(ip.name_match("Netflix", "NETFLIX INC", self.words))
+        self.assertTrue(ip.name_match("Amarin Corporation", "AMARIN CORP PLC\\UK", self.words))
+        self.assertTrue(ip.name_match("Coeur Mining", "COEUR D ALENE MINES CORP", self.words))
+        self.assertTrue(ip.name_match("Clean Energy Fuels", "Clean Energy Fuels Corp.", self.words))
+
+    def test_different_companies_sharing_generic_words_do_not_match(self):
+        self.assertFalse(ip.name_match("American Realty Investors", "American Realty Capital Trust", self.words))
+        self.assertFalse(ip.name_match("First Solar", "First Energy", self.words))
+        self.assertFalse(ip.name_match(None, "NETFLIX INC", self.words))
+
+    def test_ticker_match_ignores_share_class_suffix(self):
+        self.assertTrue(ip.ticker_match("brk.b", "BRK"))
+        self.assertFalse(ip.ticker_match("", "AMD"))
 
 
 if __name__ == "__main__":
