@@ -184,7 +184,7 @@ pre{background:var(--card);border:1px solid var(--line);border-radius:10px;paddi
 .updated{color:var(--dim);font-size:11px;text-align:right;margin-top:10px}
 </style></head><body><div class="wrap">
 <h1>alpha miner <span id="phase" class="badge waiting">…</span></h1>
-<div class="sub" id="sub">40.125.84.81:8081 · lab_runs/unstructured_proto</div>
+<div class="sub" id="sub">port 8081 · lab_runs/unstructured_proto</div>
 <div class="cards">
 <div class="card"><div class="n" id="extracted">–</div><div class="t">LLM extractions</div></div>
 <div class="card"><div class="n" id="pulled">–</div><div class="t">records pulled</div></div>

@@ -382,7 +382,7 @@ Experiment reconciliation:
 
 ## Rebuild and verification commands
 
-Run from `/Users/davidl/Documents/alphaHunt`:
+Run from the repository root:
 
 ```bash
 python3 -m py_compile src/temporal_store.py
