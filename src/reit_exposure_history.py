@@ -21,7 +21,7 @@ import os
 import re
 import time
 from dataclasses import asdict, dataclass
-from io import StringIO
+from io import BytesIO, StringIO
 from pathlib import Path
 from typing import Iterable, Mapping
 from urllib.parse import urlparse
@@ -214,7 +214,7 @@ def extract_property_tables(html: str, filing: FilingRecord,
     """
     try:
         # Bytes allow lxml to handle SEC's XML encoding declarations.
-        tables = pd.read_html(html.encode("utf-8"), flavor="lxml")
+        tables = pd.read_html(BytesIO(html.encode("utf-8")), flavor="lxml")
     except (ValueError, ImportError):
         tables = []
     soup = BeautifulSoup(html, "html.parser")
