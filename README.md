@@ -13,6 +13,9 @@ LLM backtest is easy to fool.
 The backtest was spectacular, and **the live test failed**. The rest of this README
 covers what survived out of sample, what didn't, and why.
 
+**Interactive case study:** [david3748.github.io/alphaHunt](https://david3748.github.io/alphaHunt/)
+(built from this repo's results by [`docs/case-study/build.py`](docs/case-study/build.py)).
+
 ![tests](https://github.com/David3748/alphaHunt/actions/workflows/tests.yml/badge.svg)
 
 ## TL;DR
@@ -197,7 +200,7 @@ src/
 protocols/      frozen pre-registrations, copied verbatim from each run
 results/        small committed outputs (audit reports, probe answers)
 data/           reference data and the audit input snapshot
-docs/figures/   charts used here; docs/notes/ research log; docs/week-one/ first write-up
+docs/           case study (index.html), figures/, notes/ research log, week-one/ first write-up
 reports/        standalone HTML research reports
 sites/          Next.js/vinext front-ends for the results
 cloud/, scripts/  Azure VM, Docker, and supervisor scripts for the century run

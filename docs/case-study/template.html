@@ -1,0 +1,599 @@
+<title>alphaHunt</title>
+<meta name="description" content="LLM agents read SEC filings and forecast which beaten-down stocks beat the market. The backtest returned 710x; the live test lost. What the model already knew.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+:root {
+  --ground: #f2f4f6;
+  --paper: #ffffff;
+  --ink: #12151a;
+  --ink-2: #434b57;
+  --muted: #6f7988;
+  --rule: #d6dbe2;
+  --grid: #e7eaee;
+  --axis: #bcc3cc;
+  --blue: #2a78d6;
+  --blue-wash: rgba(42, 120, 214, 0.10);
+  --orange: #eb6834;
+  --redact: #12151a;
+  --redact-ink: #12151a;
+  --mark: #ffe16b;
+  --mark-ink: #12151a;
+  --tip: #12151a;
+  --tip-ink: #ffffff;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #0d1014;
+    --paper: #151a21;
+    --ink: #e8ecf1;
+    --ink-2: #b2bbc7;
+    --muted: #818b9a;
+    --rule: #2a313b;
+    --grid: #20262e;
+    --axis: #3a424d;
+    --blue: #3987e5;
+    --blue-wash: rgba(57, 135, 229, 0.14);
+    --orange: #e0652f;
+    --redact: #d4dae2;
+    --redact-ink: #d4dae2;
+    --mark: #f5d45a;
+    --mark-ink: #12151a;
+    --tip: #e8ecf1;
+    --tip-ink: #12151a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #0d1014;
+  --paper: #151a21;
+  --ink: #e8ecf1;
+  --ink-2: #b2bbc7;
+  --muted: #818b9a;
+  --rule: #2a313b;
+  --grid: #20262e;
+  --axis: #3a424d;
+  --blue: #3987e5;
+  --blue-wash: rgba(57, 135, 229, 0.14);
+  --orange: #e0652f;
+  --redact: #d4dae2;
+  --redact-ink: #d4dae2;
+  --mark: #f5d45a;
+  --mark-ink: #12151a;
+  --tip: #e8ecf1;
+  --tip-ink: #12151a;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 16.5px/1.62 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 1060px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 72px; }
+.col { max-width: 690px; }
+a { color: var(--blue); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+p { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* masthead */
+.mast { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-bottom: 14px; border-bottom: 1px solid var(--rule);
+  font: 500 12px/1.4 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.mast a { color: var(--muted); text-transform: none; letter-spacing: 0.02em; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 40px; align-items: start; padding-block: 40px 28px; }
+h1 { font: 600 clamp(30px, 4.6vw, 46px)/1.12 var(--serif); letter-spacing: -0.012em; margin: 0 0 18px; text-wrap: balance; }
+.lede { font-size: 18.5px; line-height: 1.55; color: var(--ink-2); }
+.byline { margin-top: 18px; font: 400 13px/1.5 var(--mono); color: var(--muted); }
+
+.exhibit { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; }
+.exhibit-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid var(--rule);
+  font: 500 11.5px/1.4 var(--mono); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.exhibit-body { padding: 18px 18px 16px; }
+.filing { font: 400 15.5px/1.75 var(--serif); color: var(--ink); }
+.redact { display: inline-block; width: 5.4em; height: 1.05em; vertical-align: -0.16em; background: var(--redact); border-radius: 1px; position: relative; }
+.redact span { position: absolute; left: -9999px; }
+.leak { background: var(--mark); color: var(--mark-ink); padding: 0 0.12em; border-radius: 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.exhibit-note { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--rule); font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+
+/* ledger of key figures */
+.ledger { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+.ledger div { padding: 14px 16px 14px 0; display: flex; flex-direction: column; gap: 4px; }
+.ledger div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.ledger b { font: 500 26px/1.1 var(--serif); font-variant-numeric: lining-nums; }
+.ledger span { font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+.ledger .tag { font: 500 11px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+/* items */
+section.item { padding-top: 56px; display: flex; flex-direction: column; gap: 18px; }
+.item-no { font: 500 12px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+.item-no::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+h2 { font: 600 clamp(24px, 3vw, 31px)/1.2 var(--serif); margin: 0; letter-spacing: -0.005em; text-wrap: balance; }
+h3 { font: 600 17px/1.35 var(--sans); margin: 0; }
+.kicker { font-size: 18px; line-height: 1.55; color: var(--ink-2); }
+.small { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+.def { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; padding: 16px 18px; background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; font-size: 15px; }
+.def dt { font: 500 12px/1.9 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.def dd { margin: 0; }
+
+/* pipeline */
+.flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.stage { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; padding: 12px 12px 14px; display: flex; flex-direction: column; gap: 6px; position: relative; }
+.stage b { font: 500 21px/1.15 var(--serif); }
+.stage .tag { font: 500 10.5px/1.3 var(--mono); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.stage p { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.stage:not(:last-child)::after { content: "→"; position: absolute; right: -10px; top: 50%; transform: translate(50%, -50%); font: 400 14px/1 var(--mono); color: var(--muted); }
+.lenses { display: flex; flex-wrap: wrap; gap: 4px; }
+.lenses i { font: normal 500 11px/1 var(--mono); padding: 4px 6px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-2); }
+
+.guards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+.guard { display: grid; grid-template-columns: 1fr; gap: 3px; padding: 12px 0; border-top: 1px solid var(--rule); }
+.guard h3 { font-size: 15px; }
+.guard p { font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+
+/* charts */
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--sans); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); padding: 0 0 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.key { width: 18px; height: 2px; border-radius: 1px; display: inline-block; }
+.key.dot { width: 9px; height: 9px; border-radius: 50%; }
+.key.dash { height: 0; border-top: 2px dotted var(--muted); }
+.tip { position: absolute; pointer-events: none; z-index: 5; background: var(--tip); color: var(--tip-ink); font: 400 12.5px/1.45 var(--sans); padding: 7px 9px; border-radius: 3px; white-space: nowrap; transform: translate(-50%, calc(-100% - 12px)); opacity: 0; transition: opacity .08s; }
+.tip b { font-weight: 600; }
+.tip.on { opacity: 1; }
+.fig-note { font-size: 13px; color: var(--muted); line-height: 1.5; padding-top: 10px; }
+
+/* tables */
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 500 11.5px/1.3 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); border-bottom-color: var(--ink); }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; }
+tr.em td { font-weight: 600; }
+code { font: 400 0.9em var(--mono); background: var(--paper); border: 1px solid var(--rule); padding: 0 4px; border-radius: 2px; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.callout { border-left: 3px solid var(--orange); padding: 4px 0 4px 16px; font: 500 18px/1.5 var(--serif); }
+.findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.finding { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.finding b { font: 500 30px/1 var(--serif); }
+.finding .tag { font: 500 11px/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.finding p { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+ol.lessons { margin: 0; padding: 0; list-style: none; counter-reset: l; display: flex; flex-direction: column; gap: 14px; }
+ol.lessons li { counter-increment: l; display: grid; grid-template-columns: 34px 1fr; gap: 4px; }
+ol.lessons li::before { content: counter(l); font: 500 14px/1.6 var(--mono); color: var(--muted); }
+ol.lessons li p { color: var(--ink-2); }
+ol.lessons li strong { color: var(--ink); font-weight: 600; }
+details { border-top: 1px solid var(--rule); padding-top: 10px; }
+summary { cursor: pointer; font: 500 13px/1.5 var(--mono); color: var(--ink-2); letter-spacing: 0.02em; }
+footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); display: flex; flex-wrap: wrap; gap: 8px 22px; font: 400 13px/1.5 var(--mono); color: var(--muted); }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .flow { grid-template-columns: minmax(0, 1fr); }
+  .stage:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -10px; transform: translate(50%, 50%); }
+  .two, .findings, .guards { grid-template-columns: minmax(0, 1fr); }
+  .ledger { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ledger div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .ledger div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+}
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+
+<div class="page">
+  <div class="mast">
+    <span>alphaHunt · research case study</span>
+    <span>LLM forecasting from SEC filings · September 2026</span>
+    <a href="https://github.com/David3748/alphaHunt">github.com/David3748/alphaHunt</a>
+  </div>
+
+  <header class="hero">
+    <div>
+      <h1>The backtest returned 710×. Run live, the same rule lost 22% a trade.</h1>
+      <p class="lede">LLM agents read the filings of beaten-down companies and forecast one number: the probability the stock beats the S&amp;P 500 by 20 points over the next 90 days. The evaluation harness was built to make cheating impossible. The model found a way in anyway. It could often tell which company it was reading.</p>
+      <p class="byline">David Lieman · 9,807 historical and 985 live forecasts · pre-registered rules</p>
+    </div>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit A · evidence pack as the model saw it</span><span>Form 10-Q · filed 2009-07-31</span></div>
+      <div class="exhibit-body">
+        <p class="filing">Unless the context requires otherwise, references in this Quarterly Report on Form 10-Q to “we,” “us,” “our,” “Company,” or “<mark class="leak">Nabors</mark>” means <span class="redact" role="img" aria-label="redacted issuer name"><span>[ISSUER]</span></span>. and, where the context requires, includes our subsidiaries. … <mark class="leak">Nabors</mark> is the largest land drilling contractor in the world…</p>
+        <p class="exhibit-note">The pipeline redacted the registrant name, <span class="num">“NABORS INDUSTRIES LTD”</span>, 29 times in this pack. Its short form survived <b class="num">126</b> times. Across all <span class="num" data-k="packs"></span> packs, <b class="num" data-k="anyIdPct"></b> still carry a name, address or ticker the model can read.</p>
+      </div>
+    </figure>
+  </header>
+
+  <div class="ledger">
+    <div><span class="tag">Backtest 2009–2026</span><b class="num">710×</b><span>strategy NAV vs <span class="num">10×</span> for SPY. Information ratio <span class="num" data-k="ir"></span>, blocked-placebo p = 0.002</span></div>
+    <div><span class="tag">Live 2026</span><b class="num" data-k="liveMean"></b><span>mean excess return per trade of the same locked rule (<span class="num" data-k="liveN"></span> trades, <span data-k="liveWin"></span> won)</span></div>
+    <div><span class="tag">What survived</span><b class="num" data-k="liveIC"></b><span>2026 rank correlation between forecast and return, as strong as any recent year</span></div>
+    <div><span class="tag">What leaked</span><b class="num" data-k="probeId"></b><span>of name-scrubbed filings a small model (Claude Haiku 4.5) could still identify</span></div>
+  </div>
+
+  <section class="item" id="question">
+    <div class="item-no">Item 1</div>
+    <h2>The question</h2>
+    <div class="col stack">
+      <p class="kicker">When a stock has already fallen 40% or more, the market has priced in a story. Its filings, including the liquidity runway, covenant headroom, backlog and footnotes, say whether that story is right. Reading them carefully is slow, and that is where an LLM should help.</p>
+      <dl class="def">
+        <dt>Forecast</dt><dd>P(stock’s 90-day return minus SPY’s ≥ +20 points)</dd>
+        <dt>Made at</dt><dd>The exact SEC acceptance time of the filing, using only documents public by then</dd>
+        <dt>Population</dt><dd>Every 10-K, 10-Q, 20-F and 40-F filed while the stock sat ≥40% below its 1-year high (price ≥ $1, ≥ $1M daily volume, one event per issuer per 180 days)</dd>
+        <dt>Base rate</dt><dd><span class="num" data-k="baseRate"></span> of these events clear +20 points. Most drawdowns keep drawing down.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="item" id="system">
+    <div class="item-no">Item 2</div>
+    <h2>The system: independent readers, one probability</h2>
+    <div class="flow">
+      <div class="stage"><span class="tag">Source</span><b class="num">350,456</b><p>SEC filings from 15,387 issuers, 2009–2025, pulled from EDGAR</p></div>
+      <div class="stage"><span class="tag">Point-in-time screen</span><b class="num">9,885</b><p>eligible events. Tickers from the filing’s own XBRL, delisted names kept in</p></div>
+      <div class="stage"><span class="tag">Specialist agents</span><div class="lenses"><i>liquidity</i><i>operations</i><i>catalysts</i><i>accounting</i><i>governance</i></div><p>each extracts claims that must quote the filing verbatim</p></div>
+      <div class="stage"><span class="tag">Synthesis ×2</span><b>P(+20%)</b><p>plus downside-tail and expected-excess forecasts, from independent replicates</p></div>
+      <div class="stage"><span class="tag">Locked rule</span><b class="num">~125k</b><p>LLM calls in total. Top-decile causal threshold, 90-day hold, 25 bp costs</p></div>
+    </div>
+    <div class="guards">
+      <div class="guard"><h3>No document from the future</h3><p>A bitemporal store records when each fact became public and when it was recorded. Every forecast is pinned to a hashed manifest that rejects anything accepted after its knowledge time.</p></div>
+      <div class="guard"><h3>No survivorship</h3><p>Eligibility never needs a future price. A delisted stock is marked to zero at its first missing close.</p></div>
+      <div class="guard"><h3>No forking paths</h3><p>Rules, cohorts and pass/fail gates were written down and frozen before outcomes were opened. 2019–20 was used for discovery and excluded from confirmation.</p></div>
+      <div class="guard"><h3>No luck by clustering</h3><p>500 placebos shuffle scores within calendar months, preserving regime timing, and are judged on 2009–18 and 2021–25 holdouts.</p></div>
+      <div class="guard"><h3>No expensive momentum screen</h3><p>Drawdown, momentum, volatility and size are first-class baselines in walk-forward models.</p></div>
+      <div class="guard"><h3>No hallucinated evidence</h3><p>Claims whose quote isn’t in the filing are dropped from forecast inputs. About two-thirds survive.</p></div>
+    </div>
+  </section>
+
+  <section class="item" id="backtest">
+    <div class="item-no">Item 3</div>
+    <h2>The backtest passed every gate</h2>
+    <p class="col kicker">Three LLM rules were frozen before the 2009–2025 outcomes were opened. All three passed both holdouts and the placebo test. The mechanical drawdown rule did not.</p>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit B · growth of $1, log scale</span><span>locked P(+20%) rule vs SPY</span></div>
+      <div class="exhibit-body">
+        <div class="legend"><span><i class="key" style="background:var(--blue)"></i>P(+20%) strategy, 10 slots, 25 bp per side</span><span><i class="key" style="background:var(--muted)"></i>SPY</span></div>
+        <div class="chart" id="c-equity"></div>
+      </div>
+    </figure>
+    <div class="two">
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Pre-registered rule</th><th class="r">IR 09–18</th><th class="r">IR 21–25</th><th class="r">Placebo p</th></tr></thead>
+          <tbody>
+            <tr class="em"><td>Mean P(+20%)</td><td class="r">1.07</td><td class="r">1.89</td><td class="r">0.002</td></tr>
+            <tr><td>Blend of four outputs</td><td class="r">0.97</td><td class="r">1.97</td><td class="r">0.002</td></tr>
+            <tr><td>Upside × drawdown</td><td class="r">1.18</td><td class="r">1.22</td><td class="r">0.002</td></tr>
+            <tr><td>Deepest drawdown (mechanical)</td><td class="r">0.22</td><td class="r">−0.38</td><td class="r">0.112</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stack">
+        <p class="small">In walk-forward models trained only on earlier years, the LLM’s outputs beat seven price features for 2021–25. The monthly rank IC was <b class="num" data-k="icLLM"></b> vs <b class="num" data-k="icMech"></b>, and the causal top-decile portfolio IR was <b class="num" data-k="irLLM"></b> vs <b class="num" data-k="irMech"></b>.</p>
+        <p class="small">By every test designed in advance, this was a real signal. The next test was the only one the model couldn’t have seen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="item" id="live">
+    <div class="item-no">Item 4</div>
+    <h2>The live test</h2>
+    <p class="col kicker">Every eligible 2026 filing (996 cases) was scored on 2026-08-24 with the same model, prompts and locked thresholds. Each trade was graded when its 90-day window closed.</p>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit C · 90-day excess return per trade</span><span>same locked P(+20%) rule</span></div>
+      <div class="exhibit-body">
+        <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>Backtest 2011–2025</span><span><i class="key dot" style="background:var(--orange)"></i>Live 2026</span><span><i class="key" style="background:var(--ink)"></i>mean and 95% CI</span></div>
+        <div class="chart" id="c-trades"></div>
+        <p class="fig-note">Hover a dot for the trade. Excess returns are clipped at −100% and +150% for display.</p>
+      </div>
+    </figure>
+    <div class="two">
+      <p class="callout">The worst run of 12 consecutive trades in fifteen years of backtest averaged <span class="num" data-k="worstRun"></span>, in Q4 2018. The live run averaged <span class="num" data-k="liveMean2"></span>.</p>
+      <div class="stack">
+        <p class="small">Twelve trades is a small sample, but it isn’t the only evidence. The other two locked rules also lost live. <span data-k="otherRules"></span></p>
+        <details><summary>The 12 live trades</summary><div class="tablewrap"><table id="t-live"><thead><tr><th>Ticker</th><th>Filed</th><th>Exit</th><th class="r">Excess vs SPY</th></tr></thead><tbody></tbody></table></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="item" id="survived">
+    <div class="item-no">Item 5</div>
+    <h2>The ranking survived. The tail didn’t.</h2>
+    <p class="col kicker">Across the whole cross-section, the forecasts still ordered stocks by future return in 2026. What vanished was the ability to pick out the few that jump 20 points, and that tail was the only part the trading rule used.</p>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit D · signal by filing year</span><span>95% bootstrap intervals over months</span></div>
+      <div class="exhibit-body">
+        <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>2011–2025: the model may know the outcome</span><span><i class="key dot" style="background:var(--orange)"></i>2026: after its training data</span></div>
+        <h3 style="font-size:14px;padding:4px 0 2px">Rank IC of P(+20%) vs 90-day excess return</h3>
+        <div class="chart" id="c-ic"></div>
+        <h3 style="font-size:14px;padding:14px 0 2px">+20-point hit rate, top quintile minus bottom quintile</h3>
+        <div class="chart" id="c-spread"></div>
+      </div>
+    </figure>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Period</th><th class="r">Cases</th><th class="r">Monthly IC</th><th class="r">AUC, +20 pt event</th><th class="r">Top-quintile hit rate</th><th class="r">Base rate</th></tr></thead>
+        <tbody id="t-periods"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="item" id="leak">
+    <div class="item-no">Item 6</div>
+    <h2>Did the model know which company it was reading?</h2>
+    <p class="col kicker">A forecaster trained on the internet has read about most of these companies, including what happened next. The pipeline tried to hide identities. Three tests measure how well that worked.</p>
+    <div class="findings">
+      <div class="finding"><span class="tag">Pre-registered blind re-score</span><b class="num">0.70 → 0.71</b><p>AUC on 110 cases re-run with names, tickers, EINs and file numbers scrubbed. The signal did not depend on those explicit identifiers.</p></div>
+      <div class="finding"><span class="tag">Redaction audit, all packs</span><b class="num" data-k="anyIdPct2"></b><p>still carry a direct identifier. The short name survives in <span class="num" data-k="namePct"></span> of packs that have one, and the cover-page address in <span class="num" data-k="addrPct"></span>.</p></div>
+      <div class="finding"><span class="tag">Re-identification probe</span><b class="num" data-k="probeId2"></b><p>of fully scrubbed MD&amp;A excerpts named correctly by Claude Haiku 4.5 from memory. Its recalled outcomes were at chance: <span class="num" data-k="probeRecall"></span> of directional calls right.</p></div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Scrubbed excerpt from</th><th>Filed</th><th class="r">90-day excess</th><th>Haiku’s guess</th><th>Recalled outcome</th></tr></thead>
+        <tbody id="t-probe"></tbody>
+      </table>
+    </div>
+    <p class="col small">The blind test rules out the easy channel. It can’t rule out recognition from business descriptions, subsidiaries or addresses, and the probe shows that channel is wide open even for a small model. A small model’s outcome recall was at chance, but that says little about a frontier model’s. Any LLM backtest on data from before the model’s training cutoff is an upper bound on its skill.</p>
+  </section>
+
+  <section class="item" id="calibration">
+    <div class="item-no">Item 7</div>
+    <h2>Are the probabilities probabilities?</h2>
+    <div class="two">
+      <figure class="exhibit" style="margin:0">
+        <div class="exhibit-head"><span>Exhibit E · reliability</span><span>deciles of forecast</span></div>
+        <div class="exhibit-body">
+          <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>2009–2025</span><span><i class="key dot" style="background:var(--orange)"></i>2026 live</span><span><i class="key dash"></i>perfectly calibrated</span></div>
+          <div class="chart" id="c-rel"></div>
+        </div>
+      </figure>
+      <div class="stack">
+        <p class="kicker">Not quite. The model is timid: every decile of its forecasts lands above the diagonal, so events it calls 10% happen about 15% of the time.</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Period</th><th class="r">Mean forecast</th><th class="r">Observed</th><th class="r">Brier skill</th><th class="r">After recalibration</th></tr></thead>
+            <tbody id="t-cal"></tbody>
+          </table>
+        </div>
+        <p class="small">Brier skill is measured against the base rate of strictly earlier years. Recalibration is a Platt scaling refit each year on past years only. It roughly doubles historical skill, from tiny to small. In 2026 no rescaling helps, because the forecasts stopped separating outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="item" id="next">
+    <div class="item-no">Item 8</div>
+    <h2>What I’d do differently</h2>
+    <ol class="lessons col">
+      <li><p><strong>Only score questions after the model’s cutoff.</strong> Use models with published training cutoffs, keep a rolling live cohort, and treat everything earlier as development data, however clean the pipeline.</p></li>
+      <li><p><strong>Make re-identification a gate, not a footnote.</strong> Before a case enters a backtest, an adversarial “name this company” model has to fail on the evidence. Neutralize subsidiaries, places and products, not just the registrant name.</p></li>
+      <li><p><strong>Separate leakage from regime.</strong> Seven of the 12 live losers came in February and March 2026, several of them software names. Sector-neutral scoring and more live months can tell a regime break apart from remembered history.</p></li>
+      <li><p><strong>Trade the part of the signal that generalizes.</strong> The information sits in the middle of the ranking. A quintile-spread or long/short book uses it. A top-decile long book depends on the tail.</p></li>
+      <li><p><strong>Treat calibration as its own model.</strong> Raw LLM probabilities are rank scores. A walk-forward recalibration layer, and ensembles across model families, should sit between the agents and any decision.</p></li>
+    </ol>
+  </section>
+
+  <footer>
+    <a href="https://github.com/David3748/alphaHunt">Code, protocols and tests</a>
+    <a href="https://github.com/David3748/alphaHunt/blob/main/results/forecast_audit/report.md">Full audit numbers</a>
+    <a href="https://github.com/David3748/alphaHunt/tree/main/protocols">Pre-registrations</a>
+    <span>Research code, not investment advice.</span>
+  </footer>
+</div>
+
+<script id="data" type="application/json">/*__DATA__*/</script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById("data").textContent);
+  const NS = "http://www.w3.org/2000/svg";
+  const pct = (x, d = 0, s = false) => (s && x > 0 ? "+" : x < 0 ? "−" : "") + Math.abs(x * 100).toFixed(d) + "%";
+  const fmt2 = (x) => (x < 0 ? "−" : "") + Math.abs(x).toFixed(2);
+
+  // ---- fill text slots
+  const K = {
+    packs: D.redaction.packs.toLocaleString("en-US"), anyIdPct: pct(D.redaction.anyId), anyIdPct2: pct(D.redaction.anyId),
+    namePct: pct(D.redaction.name), addrPct: pct(D.redaction.address),
+    ir: D.metrics.ir.toFixed(1), liveMean: pct(D.live.mean, 1, true), liveMean2: pct(D.live.mean, 1, true),
+    liveN: D.live.n, liveWin: `${D.live.wins} of ${D.live.n}`, liveIC: D.periods.live.ic.toFixed(2),
+    probeId: pct(D.probe.idRate), probeId2: pct(D.probe.idRate), probeRecall: `${D.probe.recallRight} of ${D.probe.recallN}`,
+    baseRate: pct(D.periods.fwd.base), worstRun: pct(D.worstRun, 1, true),
+    icLLM: D.incremental.icLLM.toFixed(2), icMech: D.incremental.icMech.toFixed(2),
+    irLLM: fmt2(D.incremental.irLLM), irMech: fmt2(D.incremental.irMech),
+    otherRules: D.otherRules.map(r => `${r.name}: ${pct(r.mean, 1, true)} over ${r.n} trades.`).join(" "),
+  };
+  document.querySelectorAll("[data-k]").forEach(el => { if (K[el.dataset.k] !== undefined) el.textContent = K[el.dataset.k]; });
+
+  // ---- tables
+  const row = (cells) => "<tr>" + cells.map(([v, r]) => `<td${r ? ' class="r"' : ""}>${v}</td>`).join("") + "</tr>";
+  document.querySelector("#t-live tbody").innerHTML = D.live.trades.map(t => row([[t.t], [t.f], [t.x_date], [pct(t.x, 1, true), 1]])).join("");
+  document.getElementById("t-periods").innerHTML = D.periodRows.map(p => row([[p.name], [p.n.toLocaleString("en-US"), 1], [p.ic.toFixed(2), 1], [p.auc.toFixed(2), 1], [pct(p.top), 1], [pct(p.base), 1]])).join("");
+  document.getElementById("t-cal").innerHTML = D.calRows.map(p => row([[p.name], [pct(p.fc, 1), 1], [pct(p.obs, 1), 1], [(p.bss >= 0 ? "+" : "−") + Math.abs(p.bss).toFixed(3), 1], [(p.bssR >= 0 ? "+" : "−") + Math.abs(p.bssR).toFixed(3), 1]])).join("");
+  const recallLabel = { strong_outperform: "strong outperform", outperform: "outperform", underperform: "underperform", strong_underperform: "strong underperform", no_memory: "no memory" };
+  document.getElementById("t-probe").innerHTML = D.probe.rows.map(r => row([[r.company], [r.filed], [pct(r.excess, 0, true), 1], [r.guess || "—"], [recallLabel[r.recall] || r.recall]])).join("");
+
+  // ---- chart kit
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  function el(tag, attrs, parent) {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function lin(d0, d1, r0, r1) { const f = (v) => r0 + (v - d0) / (d1 - d0) * (r1 - r0); f.inv = (p) => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+  function tipFor(box) {
+    let t = box.querySelector(".tip");
+    if (!t) { t = document.createElement("div"); t.className = "tip"; t.setAttribute("role", "status"); box.appendChild(t); }
+    return {
+      show(html, x, y) { t.innerHTML = html; t.style.left = x + "px"; t.style.top = y + "px"; t.classList.add("on"); },
+      hide() { t.classList.remove("on"); },
+    };
+  }
+  function frame(box, height, m) {
+    box.querySelectorAll("svg").forEach(s => s.remove());
+    const w = Math.max(280, box.clientWidth);
+    const svg = el("svg", { viewBox: `0 0 ${w} ${height}`, width: w, height, role: "img" });
+    box.insertBefore(svg, box.firstChild);
+    return { svg, w, h: height, x0: m.l, x1: w - m.r, y0: height - m.b, y1: m.t };
+  }
+  function text(svg, x, y, s, o = {}) {
+    const t = el("text", { x, y, fill: o.fill || css("--muted"), "font-size": o.size || 11.5, "text-anchor": o.anchor || "start", "dominant-baseline": o.base || "auto", "font-weight": o.weight || 400 }, svg);
+    t.textContent = s; return t;
+  }
+  function hgrid(f, ticks, y, fmt) {
+    ticks.forEach(v => {
+      el("line", { x1: f.x0, x2: f.x1, y1: y(v), y2: y(v), stroke: css("--grid"), "stroke-width": 1 }, f.svg);
+      text(f.svg, f.x0 - 8, y(v), fmt(v), { anchor: "end", base: "middle" });
+    });
+  }
+
+  // ---- Exhibit B: equity curve (log scale)
+  function equity() {
+    const box = document.getElementById("c-equity");
+    const narrow = box.clientWidth < 560;
+    const f = frame(box, narrow ? 260 : 330, { l: 44, r: narrow ? 44 : 56, t: 12, b: 28 });
+    const S = D.equity, t0 = Date.parse(S[0].d), t1 = Date.parse(S[S.length - 1].d);
+    const x = lin(t0, t1, f.x0, f.x1);
+    const ly = lin(Math.log10(0.8), Math.log10(1000), f.y0, f.y1), y = (v) => ly(Math.log10(v));
+    hgrid(f, [1, 10, 100, 1000], y, v => v + "×");
+    for (let yr = 2010; yr <= 2026; yr += narrow ? 4 : 2) text(f.svg, x(Date.parse(yr + "-01-01")), f.y0 + 18, yr, { anchor: "middle" });
+    el("line", { x1: f.x0, x2: f.x1, y1: f.y0, y2: f.y0, stroke: css("--axis") }, f.svg);
+    const path = (k) => S.map((p, i) => (i ? "L" : "M") + x(Date.parse(p.d)).toFixed(1) + "," + y(p[k]).toFixed(1)).join("");
+    el("path", { d: path("spy"), fill: "none", stroke: css("--muted"), "stroke-width": 2, "stroke-linejoin": "round" }, f.svg);
+    el("path", { d: path("nav"), fill: "none", stroke: css("--blue"), "stroke-width": 2, "stroke-linejoin": "round" }, f.svg);
+    const last = S[S.length - 1];
+    [["nav", css("--blue"), Math.floor(last.nav) + "×"], ["spy", css("--muted"), last.spy.toFixed(0) + "×"]].forEach(([k, c, lab]) => {
+      el("circle", { cx: x(t1), cy: y(last[k]), r: 4, fill: c, stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+      text(f.svg, x(t1) + 8, y(last[k]), lab, { base: "middle", fill: css("--ink"), weight: 600, size: 12 });
+    });
+    const cross = el("line", { y1: f.y1, y2: f.y0, stroke: css("--axis"), "stroke-width": 1, opacity: 0 }, f.svg);
+    const dots = ["nav", "spy"].map(k => el("circle", { r: 4.5, fill: k === "nav" ? css("--blue") : css("--muted"), stroke: css("--paper"), "stroke-width": 2, opacity: 0 }, f.svg));
+    const tip = tipFor(box);
+    const hit = el("rect", { x: f.x0, y: f.y1, width: f.x1 - f.x0, height: f.y0 - f.y1, fill: "transparent" }, f.svg);
+    const move = (ev) => {
+      const r = f.svg.getBoundingClientRect(), px = (ev.clientX - r.left) * (f.w / r.width);
+      const tt = x.inv(px); let i = 0, best = Infinity;
+      S.forEach((p, j) => { const d = Math.abs(Date.parse(p.d) - tt); if (d < best) { best = d; i = j; } });
+      const p = S[i], cx = x(Date.parse(p.d));
+      cross.setAttribute("x1", cx); cross.setAttribute("x2", cx); cross.setAttribute("opacity", 1);
+      dots[0].setAttribute("cx", cx); dots[0].setAttribute("cy", y(p.nav)); dots[0].setAttribute("opacity", 1);
+      dots[1].setAttribute("cx", cx); dots[1].setAttribute("cy", y(p.spy)); dots[1].setAttribute("opacity", 1);
+      tip.show(`<b>${p.d}</b><br>Strategy ${p.nav.toFixed(p.nav < 10 ? 2 : 0)}× · SPY ${p.spy.toFixed(2)}×`, cx * r.width / f.w, y(p.nav) * r.height / f.h);
+    };
+    hit.addEventListener("pointermove", move);
+    hit.addEventListener("pointerleave", () => { tip.hide(); cross.setAttribute("opacity", 0); dots.forEach(d => d.setAttribute("opacity", 0)); });
+  }
+
+  // ---- Exhibit C: per-trade strip
+  function trades() {
+    const box = document.getElementById("c-trades");
+    const narrow = box.clientWidth < 560;
+    const f = frame(box, narrow ? 250 : 230, { l: narrow ? 8 : 128, r: 16, t: 16, b: 30 });
+    const x = lin(-1, 1.5, f.x0, f.x1);
+    const rows = [
+      { key: "back", label: "Backtest 2011–25", sub: D.backtest.n + " trades", pts: D.backtest.trades, c: css("--blue"), stat: D.backtest },
+      { key: "live", label: "Live 2026", sub: D.live.n + " trades", pts: D.live.trades, c: css("--orange"), stat: D.live },
+    ];
+    const band = (f.y0 - f.y1) / 2;
+    [-1, -0.5, 0, 0.5, 1, 1.5].forEach(v => {
+      el("line", { x1: x(v), x2: x(v), y1: f.y1, y2: f.y0, stroke: v === 0 ? css("--axis") : css("--grid"), "stroke-width": 1 }, f.svg);
+      text(f.svg, x(v), f.y0 + 18, (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v * 100) + "%", { anchor: "middle" });
+    });
+    const tip = tipFor(box);
+    rows.forEach((row, ri) => {
+      const cy = f.y1 + band * ri + band * 0.58;
+      if (narrow) text(f.svg, f.x0, f.y1 + band * ri + 2, row.label + " · " + row.sub, { fill: css("--ink-2"), base: "hanging", size: 11.5 });
+      else { text(f.svg, 0, cy - 7, row.label, { fill: css("--ink"), base: "middle", size: 12.5, weight: 500 }); text(f.svg, 0, cy + 9, row.sub, { base: "middle" }); }
+      let seed = 7 + ri * 101; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+      row.pts.forEach(p => {
+        const cx = x(Math.max(-1, Math.min(1.5, p.x))), jy = cy + (rnd() - 0.5) * band * (row.key === "back" ? 0.5 : 0.36);
+        const dot = el("circle", { cx, cy: jy, r: row.key === "back" ? 3.6 : 5, fill: row.c, "fill-opacity": row.key === "back" ? 0.55 : 0.95, stroke: css("--paper"), "stroke-width": 1.2 }, f.svg);
+        const hit = el("circle", { cx, cy: jy, r: 8, fill: "transparent" }, f.svg);
+        hit.addEventListener("pointerenter", () => {
+          const r = f.svg.getBoundingClientRect();
+          dot.setAttribute("stroke", css("--ink")); dot.setAttribute("stroke-width", 1.5);
+          tip.show(`<b>${p.t}</b> · filed ${p.f}<br>excess vs SPY ${pct(p.x, 1, true)}`, cx * r.width / f.w, jy * r.height / f.h);
+        });
+        hit.addEventListener("pointerleave", () => { tip.hide(); dot.setAttribute("stroke", css("--paper")); dot.setAttribute("stroke-width", 1.2); });
+      });
+      const my = cy - band * 0.38;
+      el("line", { x1: x(row.stat.ci[0]), x2: x(row.stat.ci[1]), y1: my, y2: my, stroke: css("--ink"), "stroke-width": 2, "stroke-linecap": "round" }, f.svg);
+      el("rect", { x: x(row.stat.mean) - 4.5, y: my - 4.5, width: 9, height: 9, transform: `rotate(45 ${x(row.stat.mean)} ${my})`, fill: css("--ink") }, f.svg);
+      text(f.svg, x(row.stat.ci[1]) + 8, my, "mean " + pct(row.stat.mean, 1, true), { base: "middle", fill: css("--ink"), weight: 600, size: 12 });
+    });
+  }
+
+  // ---- Exhibit D: dot + whisker by year
+  function byYear(id, key, lo, hi, fmt, ticks) {
+    const box = document.getElementById(id);
+    const narrow = box.clientWidth < 560;
+    const f = frame(box, narrow ? 180 : 200, { l: 44, r: 10, t: 10, b: 26 });
+    const Y = D.byYear, n = Y.length;
+    const xs = (i) => f.x0 + (i + 0.5) * (f.x1 - f.x0) / n;
+    const y = lin(ticks[0], ticks[ticks.length - 1], f.y0, f.y1);
+    hgrid(f, ticks, y, fmt);
+    el("line", { x1: f.x0, x2: f.x1, y1: y(0), y2: y(0), stroke: css("--axis") }, f.svg);
+    const tip = tipFor(box);
+    Y.forEach((r, i) => {
+      const c = r.year === 2026 ? css("--orange") : css("--blue"), cx = xs(i);
+      if (!narrow || i % 2 === 1 || r.year === 2026) text(f.svg, cx, f.y0 + 17, narrow ? "’" + String(r.year).slice(2) : r.year, { anchor: "middle", fill: r.year === 2026 ? css("--ink") : css("--muted"), weight: r.year === 2026 ? 600 : 400 });
+      el("line", { x1: cx, x2: cx, y1: y(Math.max(r[lo], ticks[0])), y2: y(Math.min(r[hi], ticks[ticks.length - 1])), stroke: c, "stroke-width": 2, "stroke-linecap": "round", "stroke-opacity": 0.45 }, f.svg);
+      el("circle", { cx, cy: y(r[key]), r: 4.5, fill: c, stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+      const hit = el("rect", { x: cx - (f.x1 - f.x0) / n / 2, y: f.y1, width: (f.x1 - f.x0) / n, height: f.y0 - f.y1, fill: "transparent" }, f.svg);
+      hit.addEventListener("pointerenter", () => {
+        const b = f.svg.getBoundingClientRect();
+        tip.show(`<b>${r.year}</b> · ${r.n.toLocaleString("en-US")} cases, ${r.months} months<br>${fmt(r[key])} [${fmt(r[lo])}, ${fmt(r[hi])}]`, cx * b.width / f.w, y(r[key]) * b.height / f.h);
+      });
+      hit.addEventListener("pointerleave", () => tip.hide());
+    });
+  }
+
+  // ---- Exhibit E: reliability diagram
+  function reliability() {
+    const box = document.getElementById("c-rel");
+    const w = Math.max(280, box.clientWidth);
+    const f = frame(box, Math.min(360, w * 0.92), { l: 44, r: 12, t: 10, b: 34 });
+    const x = lin(0, 0.45, f.x0, f.x1), y = lin(0, 0.45, f.y0, f.y1);
+    const ticks = [0, 0.1, 0.2, 0.3, 0.4];
+    hgrid(f, ticks, y, v => Math.round(v * 100) + "%");
+    ticks.forEach(v => text(f.svg, x(v), f.y0 + 17, Math.round(v * 100) + "%", { anchor: "middle" }));
+    text(f.svg, (f.x0 + f.x1) / 2, f.h - 2, "forecast P(+20 points)", { anchor: "middle", size: 11 });
+    el("line", { x1: x(0), y1: y(0), x2: x(0.45), y2: y(0.45), stroke: css("--muted"), "stroke-width": 1.5, "stroke-dasharray": "1 4", "stroke-linecap": "round" }, f.svg);
+    const tip = tipFor(box);
+    [["hist", css("--blue"), "2009–2025"], ["live", css("--orange"), "2026 live"]].forEach(([k, c, name]) => {
+      const pts = D.reliability[k];
+      el("path", { d: pts.map((p, i) => (i ? "L" : "M") + x(p.forecast).toFixed(1) + "," + y(p.observed).toFixed(1)).join(""), fill: "none", stroke: c, "stroke-width": 2, "stroke-linejoin": "round" }, f.svg);
+      pts.forEach(p => {
+        el("line", { x1: x(p.forecast), x2: x(p.forecast), y1: y(p.ci[0]), y2: y(Math.min(0.45, p.ci[1])), stroke: c, "stroke-width": 1.5, "stroke-opacity": 0.35 }, f.svg);
+        el("circle", { cx: x(p.forecast), cy: y(p.observed), r: 4, fill: c, stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+        const hit = el("circle", { cx: x(p.forecast), cy: y(p.observed), r: 9, fill: "transparent" }, f.svg);
+        hit.addEventListener("pointerenter", () => {
+          const b = f.svg.getBoundingClientRect();
+          tip.show(`<b>${name}</b> · ${p.n} cases<br>forecast ${pct(p.forecast, 1)} → observed ${pct(p.observed, 1)}`, x(p.forecast) * b.width / f.w, y(p.observed) * b.height / f.h);
+        });
+        hit.addEventListener("pointerleave", () => tip.hide());
+      });
+    });
+  }
+
+  function draw() {
+    equity(); trades(); reliability();
+    byYear("c-ic", "ic", "lo", "hi", (v) => (v < 0 ? "−" : "") + Math.abs(v).toFixed(2), [-0.2, 0, 0.2, 0.4, 0.6]);
+    byYear("c-spread", "hs", "hslo", "hshi", (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(Math.round(v * 100)) + "%", [-0.2, 0, 0.2, 0.4, 0.6]);
+  }
+  draw();
+  let raf = 0, lastW = document.documentElement.clientWidth;
+  const redraw = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); };
+  window.addEventListener("resize", () => { const w = document.documentElement.clientWidth; if (w !== lastW) { lastW = w; redraw(); } });
+  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", redraw);
+  new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>

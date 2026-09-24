@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>alphaHunt</title>
+<meta name="description" content="LLM agents read SEC filings and forecast which beaten-down stocks beat the market. The backtest returned 710x; the live test lost. What the model already knew.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+:root {
+  --ground: #f2f4f6;
+  --paper: #ffffff;
+  --ink: #12151a;
+  --ink-2: #434b57;
+  --muted: #6f7988;
+  --rule: #d6dbe2;
+  --grid: #e7eaee;
+  --axis: #bcc3cc;
+  --blue: #2a78d6;
+  --blue-wash: rgba(42, 120, 214, 0.10);
+  --orange: #eb6834;
+  --redact: #12151a;
+  --redact-ink: #12151a;
+  --mark: #ffe16b;
+  --mark-ink: #12151a;
+  --tip: #12151a;
+  --tip-ink: #ffffff;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #0d1014;
+    --paper: #151a21;
+    --ink: #e8ecf1;
+    --ink-2: #b2bbc7;
+    --muted: #818b9a;
+    --rule: #2a313b;
+    --grid: #20262e;
+    --axis: #3a424d;
+    --blue: #3987e5;
+    --blue-wash: rgba(57, 135, 229, 0.14);
+    --orange: #e0652f;
+    --redact: #d4dae2;
+    --redact-ink: #d4dae2;
+    --mark: #f5d45a;
+    --mark-ink: #12151a;
+    --tip: #e8ecf1;
+    --tip-ink: #12151a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #0d1014;
+  --paper: #151a21;
+  --ink: #e8ecf1;
+  --ink-2: #b2bbc7;
+  --muted: #818b9a;
+  --rule: #2a313b;
+  --grid: #20262e;
+  --axis: #3a424d;
+  --blue: #3987e5;
+  --blue-wash: rgba(57, 135, 229, 0.14);
+  --orange: #e0652f;
+  --redact: #d4dae2;
+  --redact-ink: #d4dae2;
+  --mark: #f5d45a;
+  --mark-ink: #12151a;
+  --tip: #e8ecf1;
+  --tip-ink: #12151a;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 16.5px/1.62 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 1060px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 72px; }
+.col { max-width: 690px; }
+a { color: var(--blue); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+p { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* masthead */
+.mast { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-bottom: 14px; border-bottom: 1px solid var(--rule);
+  font: 500 12px/1.4 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.mast a { color: var(--muted); text-transform: none; letter-spacing: 0.02em; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 40px; align-items: start; padding-block: 40px 28px; }
+h1 { font: 600 clamp(30px, 4.6vw, 46px)/1.12 var(--serif); letter-spacing: -0.012em; margin: 0 0 18px; text-wrap: balance; }
+.lede { font-size: 18.5px; line-height: 1.55; color: var(--ink-2); }
+.byline { margin-top: 18px; font: 400 13px/1.5 var(--mono); color: var(--muted); }
+
+.exhibit { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; }
+.exhibit-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid var(--rule);
+  font: 500 11.5px/1.4 var(--mono); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.exhibit-body { padding: 18px 18px 16px; }
+.filing { font: 400 15.5px/1.75 var(--serif); color: var(--ink); }
+.redact { display: inline-block; width: 5.4em; height: 1.05em; vertical-align: -0.16em; background: var(--redact); border-radius: 1px; position: relative; }
+.redact span { position: absolute; left: -9999px; }
+.leak { background: var(--mark); color: var(--mark-ink); padding: 0 0.12em; border-radius: 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.exhibit-note { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--rule); font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+
+/* ledger of key figures */
+.ledger { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+.ledger div { padding: 14px 16px 14px 0; display: flex; flex-direction: column; gap: 4px; }
+.ledger div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.ledger b { font: 500 26px/1.1 var(--serif); font-variant-numeric: lining-nums; }
+.ledger span { font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+.ledger .tag { font: 500 11px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+/* items */
+section.item { padding-top: 56px; display: flex; flex-direction: column; gap: 18px; }
+.item-no { font: 500 12px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+.item-no::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+h2 { font: 600 clamp(24px, 3vw, 31px)/1.2 var(--serif); margin: 0; letter-spacing: -0.005em; text-wrap: balance; }
+h3 { font: 600 17px/1.35 var(--sans); margin: 0; }
+.kicker { font-size: 18px; line-height: 1.55; color: var(--ink-2); }
+.small { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+.def { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; padding: 16px 18px; background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; font-size: 15px; }
+.def dt { font: 500 12px/1.9 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.def dd { margin: 0; }
+
+/* pipeline */
+.flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.stage { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; padding: 12px 12px 14px; display: flex; flex-direction: column; gap: 6px; position: relative; }
+.stage b { font: 500 21px/1.15 var(--serif); }
+.stage .tag { font: 500 10.5px/1.3 var(--mono); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.stage p { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.stage:not(:last-child)::after { content: "→"; position: absolute; right: -10px; top: 50%; transform: translate(50%, -50%); font: 400 14px/1 var(--mono); color: var(--muted); }
+.lenses { display: flex; flex-wrap: wrap; gap: 4px; }
+.lenses i { font: normal 500 11px/1 var(--mono); padding: 4px 6px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-2); }
+
+.guards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+.guard { display: grid; grid-template-columns: 1fr; gap: 3px; padding: 12px 0; border-top: 1px solid var(--rule); }
+.guard h3 { font-size: 15px; }
+.guard p { font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+
+/* charts */
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--sans); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); padding: 0 0 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.key { width: 18px; height: 2px; border-radius: 1px; display: inline-block; }
+.key.dot { width: 9px; height: 9px; border-radius: 50%; }
+.key.dash { height: 0; border-top: 2px dotted var(--muted); }
+.tip { position: absolute; pointer-events: none; z-index: 5; background: var(--tip); color: var(--tip-ink); font: 400 12.5px/1.45 var(--sans); padding: 7px 9px; border-radius: 3px; white-space: nowrap; transform: translate(-50%, calc(-100% - 12px)); opacity: 0; transition: opacity .08s; }
+.tip b { font-weight: 600; }
+.tip.on { opacity: 1; }
+.fig-note { font-size: 13px; color: var(--muted); line-height: 1.5; padding-top: 10px; }
+
+/* tables */
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 500 11.5px/1.3 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); border-bottom-color: var(--ink); }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; }
+tr.em td { font-weight: 600; }
+code { font: 400 0.9em var(--mono); background: var(--paper); border: 1px solid var(--rule); padding: 0 4px; border-radius: 2px; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.callout { border-left: 3px solid var(--orange); padding: 4px 0 4px 16px; font: 500 18px/1.5 var(--serif); }
+.findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.finding { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.finding b { font: 500 30px/1 var(--serif); }
+.finding .tag { font: 500 11px/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.finding p { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+ol.lessons { margin: 0; padding: 0; list-style: none; counter-reset: l; display: flex; flex-direction: column; gap: 14px; }
+ol.lessons li { counter-increment: l; display: grid; grid-template-columns: 34px 1fr; gap: 4px; }
+ol.lessons li::before { content: counter(l); font: 500 14px/1.6 var(--mono); color: var(--muted); }
+ol.lessons li p { color: var(--ink-2); }
+ol.lessons li strong { color: var(--ink); font-weight: 600; }
+details { border-top: 1px solid var(--rule); padding-top: 10px; }
+summary { cursor: pointer; font: 500 13px/1.5 var(--mono); color: var(--ink-2); letter-spacing: 0.02em; }
+footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); display: flex; flex-wrap: wrap; gap: 8px 22px; font: 400 13px/1.5 var(--mono); color: var(--muted); }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .flow { grid-template-columns: minmax(0, 1fr); }
+  .stage:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -10px; transform: translate(50%, 50%); }
+  .two, .findings, .guards { grid-template-columns: minmax(0, 1fr); }
+  .ledger { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ledger div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .ledger div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+}
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+
+<div class="page">
+  <div class="mast">
+    <span>alphaHunt · research case study</span>
+    <span>LLM forecasting from SEC filings · September 2026</span>
+    <a href="https://github.com/David3748/alphaHunt">github.com/David3748/alphaHunt</a>
+  </div>
+
+  <header class="hero">
+    <div>
+      <h1>The backtest returned 710×. Run live, the same rule lost 22% a trade.</h1>
+      <p class="lede">LLM agents read the filings of beaten-down companies and forecast one number: the probability the stock beats the S&amp;P 500 by 20 points over the next 90 days. The evaluation harness was built to make cheating impossible. The model found a way in anyway. It could often tell which company it was reading.</p>
+      <p class="byline">David Lieman · 9,807 historical and 985 live forecasts · pre-registered rules</p>
+    </div>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit A · evidence pack as the model saw it</span><span>Form 10-Q · filed 2009-07-31</span></div>
+      <div class="exhibit-body">
+        <p class="filing">Unless the context requires otherwise, references in this Quarterly Report on Form 10-Q to “we,” “us,” “our,” “Company,” or “<mark class="leak">Nabors</mark>” means <span class="redact" role="img" aria-label="redacted issuer name"><span>[ISSUER]</span></span>. and, where the context requires, includes our subsidiaries. … <mark class="leak">Nabors</mark> is the largest land drilling contractor in the world…</p>
+        <p class="exhibit-note">The pipeline redacted the registrant name, <span class="num">“NABORS INDUSTRIES LTD”</span>, 29 times in this pack. Its short form survived <b class="num">126</b> times. Across all <span class="num" data-k="packs"></span> packs, <b class="num" data-k="anyIdPct"></b> still carry a name, address or ticker the model can read.</p>
+      </div>
+    </figure>
+  </header>
+
+  <div class="ledger">
+    <div><span class="tag">Backtest 2009–2026</span><b class="num">710×</b><span>strategy NAV vs <span class="num">10×</span> for SPY. Information ratio <span class="num" data-k="ir"></span>, blocked-placebo p = 0.002</span></div>
+    <div><span class="tag">Live 2026</span><b class="num" data-k="liveMean"></b><span>mean excess return per trade of the same locked rule (<span class="num" data-k="liveN"></span> trades, <span data-k="liveWin"></span> won)</span></div>
+    <div><span class="tag">What survived</span><b class="num" data-k="liveIC"></b><span>2026 rank correlation between forecast and return, as strong as any recent year</span></div>
+    <div><span class="tag">What leaked</span><b class="num" data-k="probeId"></b><span>of name-scrubbed filings a small model (Claude Haiku 4.5) could still identify</span></div>
+  </div>
+
+  <section class="item" id="question">
+    <div class="item-no">Item 1</div>
+    <h2>The question</h2>
+    <div class="col stack">
+      <p class="kicker">When a stock has already fallen 40% or more, the market has priced in a story. Its filings, including the liquidity runway, covenant headroom, backlog and footnotes, say whether that story is right. Reading them carefully is slow, and that is where an LLM should help.</p>
+      <dl class="def">
+        <dt>Forecast</dt><dd>P(stock’s 90-day return minus SPY’s ≥ +20 points)</dd>
+        <dt>Made at</dt><dd>The exact SEC acceptance time of the filing, using only documents public by then</dd>
+        <dt>Population</dt><dd>Every 10-K, 10-Q, 20-F and 40-F filed while the stock sat ≥40% below its 1-year high (price ≥ $1, ≥ $1M daily volume, one event per issuer per 180 days)</dd>
+        <dt>Base rate</dt><dd><span class="num" data-k="baseRate"></span> of these events clear +20 points. Most drawdowns keep drawing down.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="item" id="system">
+    <div class="item-no">Item 2</div>
+    <h2>The system: independent readers, one probability</h2>
+    <div class="flow">
+      <div class="stage"><span class="tag">Source</span><b class="num">350,456</b><p>SEC filings from 15,387 issuers, 2009–2025, pulled from EDGAR</p></div>
+      <div class="stage"><span class="tag">Point-in-time screen</span><b class="num">9,885</b><p>eligible events. Tickers from the filing’s own XBRL, delisted names kept in</p></div>
+      <div class="stage"><span class="tag">Specialist agents</span><div class="lenses"><i>liquidity</i><i>operations</i><i>catalysts</i><i>accounting</i><i>governance</i></div><p>each extracts claims that must quote the filing verbatim</p></div>
+      <div class="stage"><span class="tag">Synthesis ×2</span><b>P(+20%)</b><p>plus downside-tail and expected-excess forecasts, from independent replicates</p></div>
+      <div class="stage"><span class="tag">Locked rule</span><b class="num">~125k</b><p>LLM calls in total. Top-decile causal threshold, 90-day hold, 25 bp costs</p></div>
+    </div>
+    <div class="guards">
+      <div class="guard"><h3>No document from the future</h3><p>A bitemporal store records when each fact became public and when it was recorded. Every forecast is pinned to a hashed manifest that rejects anything accepted after its knowledge time.</p></div>
+      <div class="guard"><h3>No survivorship</h3><p>Eligibility never needs a future price. A delisted stock is marked to zero at its first missing close.</p></div>
+      <div class="guard"><h3>No forking paths</h3><p>Rules, cohorts and pass/fail gates were written down and frozen before outcomes were opened. 2019–20 was used for discovery and excluded from confirmation.</p></div>
+      <div class="guard"><h3>No luck by clustering</h3><p>500 placebos shuffle scores within calendar months, preserving regime timing, and are judged on 2009–18 and 2021–25 holdouts.</p></div>
+      <div class="guard"><h3>No expensive momentum screen</h3><p>Drawdown, momentum, volatility and size are first-class baselines in walk-forward models.</p></div>
+      <div class="guard"><h3>No hallucinated evidence</h3><p>Claims whose quote isn’t in the filing are dropped from forecast inputs. About two-thirds survive.</p></div>
+    </div>
+  </section>
+
+  <section class="item" id="backtest">
+    <div class="item-no">Item 3</div>
+    <h2>The backtest passed every gate</h2>
+    <p class="col kicker">Three LLM rules were frozen before the 2009–2025 outcomes were opened. All three passed both holdouts and the placebo test. The mechanical drawdown rule did not.</p>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit B · growth of $1, log scale</span><span>locked P(+20%) rule vs SPY</span></div>
+      <div class="exhibit-body">
+        <div class="legend"><span><i class="key" style="background:var(--blue)"></i>P(+20%) strategy, 10 slots, 25 bp per side</span><span><i class="key" style="background:var(--muted)"></i>SPY</span></div>
+        <div class="chart" id="c-equity"></div>
+      </div>
+    </figure>
+    <div class="two">
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Pre-registered rule</th><th class="r">IR 09–18</th><th class="r">IR 21–25</th><th class="r">Placebo p</th></tr></thead>
+          <tbody>
+            <tr class="em"><td>Mean P(+20%)</td><td class="r">1.07</td><td class="r">1.89</td><td class="r">0.002</td></tr>
+            <tr><td>Blend of four outputs</td><td class="r">0.97</td><td class="r">1.97</td><td class="r">0.002</td></tr>
+            <tr><td>Upside × drawdown</td><td class="r">1.18</td><td class="r">1.22</td><td class="r">0.002</td></tr>
+            <tr><td>Deepest drawdown (mechanical)</td><td class="r">0.22</td><td class="r">−0.38</td><td class="r">0.112</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stack">
+        <p class="small">In walk-forward models trained only on earlier years, the LLM’s outputs beat seven price features for 2021–25. The monthly rank IC was <b class="num" data-k="icLLM"></b> vs <b class="num" data-k="icMech"></b>, and the causal top-decile portfolio IR was <b class="num" data-k="irLLM"></b> vs <b class="num" data-k="irMech"></b>.</p>
+        <p class="small">By every test designed in advance, this was a real signal. The next test was the only one the model couldn’t have seen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="item" id="live">
+    <div class="item-no">Item 4</div>
+    <h2>The live test</h2>
+    <p class="col kicker">Every eligible 2026 filing (996 cases) was scored on 2026-08-24 with the same model, prompts and locked thresholds. Each trade was graded when its 90-day window closed.</p>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit C · 90-day excess return per trade</span><span>same locked P(+20%) rule</span></div>
+      <div class="exhibit-body">
+        <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>Backtest 2011–2025</span><span><i class="key dot" style="background:var(--orange)"></i>Live 2026</span><span><i class="key" style="background:var(--ink)"></i>mean and 95% CI</span></div>
+        <div class="chart" id="c-trades"></div>
+        <p class="fig-note">Hover a dot for the trade. Excess returns are clipped at −100% and +150% for display.</p>
+      </div>
+    </figure>
+    <div class="two">
+      <p class="callout">The worst run of 12 consecutive trades in fifteen years of backtest averaged <span class="num" data-k="worstRun"></span>, in Q4 2018. The live run averaged <span class="num" data-k="liveMean2"></span>.</p>
+      <div class="stack">
+        <p class="small">Twelve trades is a small sample, but it isn’t the only evidence. The other two locked rules also lost live. <span data-k="otherRules"></span></p>
+        <details><summary>The 12 live trades</summary><div class="tablewrap"><table id="t-live"><thead><tr><th>Ticker</th><th>Filed</th><th>Exit</th><th class="r">Excess vs SPY</th></tr></thead><tbody></tbody></table></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="item" id="survived">
+    <div class="item-no">Item 5</div>
+    <h2>The ranking survived. The tail didn’t.</h2>
+    <p class="col kicker">Across the whole cross-section, the forecasts still ordered stocks by future return in 2026. What vanished was the ability to pick out the few that jump 20 points, and that tail was the only part the trading rule used.</p>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit D · signal by filing year</span><span>95% bootstrap intervals over months</span></div>
+      <div class="exhibit-body">
+        <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>2011–2025: the model may know the outcome</span><span><i class="key dot" style="background:var(--orange)"></i>2026: after its training data</span></div>
+        <h3 style="font-size:14px;padding:4px 0 2px">Rank IC of P(+20%) vs 90-day excess return</h3>
+        <div class="chart" id="c-ic"></div>
+        <h3 style="font-size:14px;padding:14px 0 2px">+20-point hit rate, top quintile minus bottom quintile</h3>
+        <div class="chart" id="c-spread"></div>
+      </div>
+    </figure>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Period</th><th class="r">Cases</th><th class="r">Monthly IC</th><th class="r">AUC, +20 pt event</th><th class="r">Top-quintile hit rate</th><th class="r">Base rate</th></tr></thead>
+        <tbody id="t-periods"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="item" id="leak">
+    <div class="item-no">Item 6</div>
+    <h2>Did the model know which company it was reading?</h2>
+    <p class="col kicker">A forecaster trained on the internet has read about most of these companies, including what happened next. The pipeline tried to hide identities. Three tests measure how well that worked.</p>
+    <div class="findings">
+      <div class="finding"><span class="tag">Pre-registered blind re-score</span><b class="num">0.70 → 0.71</b><p>AUC on 110 cases re-run with names, tickers, EINs and file numbers scrubbed. The signal did not depend on those explicit identifiers.</p></div>
+      <div class="finding"><span class="tag">Redaction audit, all packs</span><b class="num" data-k="anyIdPct2"></b><p>still carry a direct identifier. The short name survives in <span class="num" data-k="namePct"></span> of packs that have one, and the cover-page address in <span class="num" data-k="addrPct"></span>.</p></div>
+      <div class="finding"><span class="tag">Re-identification probe</span><b class="num" data-k="probeId2"></b><p>of fully scrubbed MD&amp;A excerpts named correctly by Claude Haiku 4.5 from memory. Its recalled outcomes were at chance: <span class="num" data-k="probeRecall"></span> of directional calls right.</p></div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Scrubbed excerpt from</th><th>Filed</th><th class="r">90-day excess</th><th>Haiku’s guess</th><th>Recalled outcome</th></tr></thead>
+        <tbody id="t-probe"></tbody>
+      </table>
+    </div>
+    <p class="col small">The blind test rules out the easy channel. It can’t rule out recognition from business descriptions, subsidiaries or addresses, and the probe shows that channel is wide open even for a small model. A small model’s outcome recall was at chance, but that says little about a frontier model’s. Any LLM backtest on data from before the model’s training cutoff is an upper bound on its skill.</p>
+  </section>
+
+  <section class="item" id="calibration">
+    <div class="item-no">Item 7</div>
+    <h2>Are the probabilities probabilities?</h2>
+    <div class="two">
+      <figure class="exhibit" style="margin:0">
+        <div class="exhibit-head"><span>Exhibit E · reliability</span><span>deciles of forecast</span></div>
+        <div class="exhibit-body">
+          <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>2009–2025</span><span><i class="key dot" style="background:var(--orange)"></i>2026 live</span><span><i class="key dash"></i>perfectly calibrated</span></div>
+          <div class="chart" id="c-rel"></div>
+        </div>
+      </figure>
+      <div class="stack">
+        <p class="kicker">Not quite. The model is timid: every decile of its forecasts lands above the diagonal, so events it calls 10% happen about 15% of the time.</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Period</th><th class="r">Mean forecast</th><th class="r">Observed</th><th class="r">Brier skill</th><th class="r">After recalibration</th></tr></thead>
+            <tbody id="t-cal"></tbody>
+          </table>
+        </div>
+        <p class="small">Brier skill is measured against the base rate of strictly earlier years. Recalibration is a Platt scaling refit each year on past years only. It roughly doubles historical skill, from tiny to small. In 2026 no rescaling helps, because the forecasts stopped separating outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="item" id="next">
+    <div class="item-no">Item 8</div>
+    <h2>What I’d do differently</h2>
+    <ol class="lessons col">
+      <li><p><strong>Only score questions after the model’s cutoff.</strong> Use models with published training cutoffs, keep a rolling live cohort, and treat everything earlier as development data, however clean the pipeline.</p></li>
+      <li><p><strong>Make re-identification a gate, not a footnote.</strong> Before a case enters a backtest, an adversarial “name this company” model has to fail on the evidence. Neutralize subsidiaries, places and products, not just the registrant name.</p></li>
+      <li><p><strong>Separate leakage from regime.</strong> Seven of the 12 live losers came in February and March 2026, several of them software names. Sector-neutral scoring and more live months can tell a regime break apart from remembered history.</p></li>
+      <li><p><strong>Trade the part of the signal that generalizes.</strong> The information sits in the middle of the ranking. A quintile-spread or long/short book uses it. A top-decile long book depends on the tail.</p></li>
+      <li><p><strong>Treat calibration as its own model.</strong> Raw LLM probabilities are rank scores. A walk-forward recalibration layer, and ensembles across model families, should sit between the agents and any decision.</p></li>
+    </ol>
+  </section>
+
+  <footer>
+    <a href="https://github.com/David3748/alphaHunt">Code, protocols and tests</a>
+    <a href="https://github.com/David3748/alphaHunt/blob/main/results/forecast_audit/report.md">Full audit numbers</a>
+    <a href="https://github.com/David3748/alphaHunt/tree/main/protocols">Pre-registrations</a>
+    <span>Research code, not investment advice.</span>
+  </footer>
+</div>
+
+<script id="data" type="application/json">{"equity":[{"d":"2009-07-31","nav":1.0,"spy":1.0},{"d":"2009-08-07","nav":1.0,"spy":1.0242},{"d":"2009-08-14","nav":1.0001,"spy":1.02},{"d":"2009-08-21","nav":1.0001,"spy":1.0421},{"d":"2009-08-28","nav":1.0001,"spy":1.0463},{"d":"2009-09-04","nav":1.0002,"spy":1.0329},{"d":"2009-09-14","nav":1.0002,"spy":1.0655},{"d":"2009-09-21","nav":1.0002,"spy":1.0825},{"d":"2009-09-28","nav":1.0002,"spy":1.0811},{"d":"2009-10-05","nav":1.0002,"spy":1.0577},{"d":"2009-10-12","nav":1.0003,"spy":1.095},{"d":"2009-10-19","nav":1.0003,"spy":1.1164},{"d":"2009-10-26","nav":1.0003,"spy":1.0871},{"d":"2009-11-02","nav":1.0003,"spy":1.0608},{"d":"2009-11-09","nav":1.0003,"spy":1.1142},{"d":"2009-11-16","nav":1.0003,"spy":1.1309},{"d":"2009-11-23","nav":1.0003,"spy":1.1269},{"d":"2009-12-01","nav":1.0003,"spy":1.1318},{"d":"2009-12-08","nav":1.0003,"spy":1.1146},{"d":"2009-12-15","nav":1.0003,"spy":1.1323},{"d":"2009-12-22","nav":1.0003,"spy":1.1423},{"d":"2009-12-30","nav":1.0004,"spy":1.1503},{"d":"2010-01-07","nav":1.0004,"spy":1.1674},{"d":"2010-01-14","nav":1.0004,"spy":1.175},{"d":"2010-01-22","nav":1.0004,"spy":1.1165},{"d":"2010-01-29","nav":1.0004,"spy":1.0979},{"d":"2010-02-05","nav":1.0004,"spy":1.0904},{"d":"2010-02-12","nav":1.0004,"spy":1.1045},{"d":"2010-02-22","nav":1.0004,"spy":1.1364},{"d":"2010-03-01","nav":1.0005,"spy":1.1439},{"d":"2010-03-08","nav":1.0005,"spy":1.1682},{"d":"2010-03-15","nav":1.0005,"spy":1.1807},{"d":"2010-03-22","nav":1.0006,"spy":1.1969},{"d":"2010-03-29","nav":1.0006,"spy":1.2043},{"d":"2010-04-06","nav":1.0006,"spy":1.222},{"d":"2010-04-13","nav":1.0006,"spy":1.2301},{"d":"2010-04-20","nav":1.0007,"spy":1.2409},{"d":"2010-04-27","nav":1.0007,"spy":1.2163},{"d":"2010-05-04","nav":1.0007,"spy":1.2064},{"d":"2010-05-11","nav":1.0008,"spy":1.1891},{"d":"2010-05-18","nav":1.0008,"spy":1.1538},{"d":"2010-05-25","nav":1.0008,"spy":1.1068},{"d":"2010-06-02","nav":1.0008,"spy":1.1326},{"d":"2010-06-09","nav":1.0009,"spy":1.0887},{"d":"2010-06-16","nav":1.0009,"spy":1.1493},{"d":"2010-06-23","nav":1.0009,"spy":1.1266},{"d":"2010-06-30","nav":1.0009,"spy":1.0646},{"d":"2010-07-08","nav":1.001,"spy":1.1053},{"d":"2010-07-15","nav":1.001,"spy":1.1313},{"d":"2010-07-22","nav":1.001,"spy":1.129},{"d":"2010-07-29","nav":1.0011,"spy":1.1376},{"d":"2010-08-05","nav":1.0011,"spy":1.164},{"d":"2010-08-12","nav":1.0011,"spy":1.1204},{"d":"2010-08-19","nav":1.0011,"spy":1.1127},{"d":"2010-08-26","nav":1.0012,"spy":1.0854},{"d":"2010-09-02","nav":1.0012,"spy":1.1291},{"d":"2010-09-10","nav":1.0012,"spy":1.1498},{"d":"2010-09-17","nav":1.0012,"spy":1.1665},{"d":"2010-09-24","nav":1.0013,"spy":1.1906},{"d":"2010-10-01","nav":1.0013,"spy":1.1885},{"d":"2010-10-08","nav":1.0013,"spy":1.2085},{"d":"2010-10-15","nav":1.0014,"spy":1.2205},{"d":"2010-10-22","nav":1.0014,"spy":1.2272},{"d":"2010-10-29","nav":1.0014,"spy":1.2287},{"d":"2010-11-05","nav":1.0014,"spy":1.2726},{"d":"2010-11-12","nav":1.0015,"spy":1.2464},{"d":"2010-11-19","nav":1.0015,"spy":1.2474},{"d":"2010-11-29","nav":1.0015,"spy":1.2356},{"d":"2010-12-06","nav":1.0015,"spy":1.273},{"d":"2010-12-13","nav":1.0016,"spy":1.2916},{"d":"2010-12-20","nav":1.0016,"spy":1.2988},{"d":"2010-12-28","nav":1.0016,"spy":1.3117},{"d":"2011-01-04","nav":1.0016,"spy":1.3236},{"d":"2011-01-11","nav":1.0017,"spy":1.3283},{"d":"2011-01-19","nav":1.0017,"spy":1.3369},{"d":"2011-01-26","nav":1.0017,"spy":1.3517},{"d":"2011-02-02","nav":1.0018,"spy":1.3602},{"d":"2011-02-09","nav":1.0018,"spy":1.3788},{"d":"2011-02-16","nav":1.0018,"spy":1.3953},{"d":"2011-02-24","nav":1.0018,"spy":1.3648},{"d":"2011-03-03","nav":1.0019,"spy":1.3913},{"d":"2011-03-10","nav":1.0019,"spy":1.3545},{"d":"2011-03-17","nav":1.0019,"spy":1.3327},{"d":"2011-03-24","nav":1.0019,"spy":1.3704},{"d":"2011-03-31","nav":1.0019,"spy":1.3881},{"d":"2011-04-07","nav":1.0019,"spy":1.3958},{"d":"2011-04-14","nav":1.0019,"spy":1.3773},{"d":"2011-04-21","nav":1.002,"spy":1.4006},{"d":"2011-04-29","nav":1.002,"spy":1.4283},{"d":"2011-05-06","nav":1.002,"spy":1.405},{"d":"2011-05-13","nav":1.002,"spy":1.4033},{"d":"2011-05-20","nav":1.002,"spy":1.3988},{"d":"2011-05-27","nav":1.002,"spy":1.3978},{"d":"2011-06-06","nav":1.002,"spy":1.351},{"d":"2011-06-13","nav":1.002,"spy":1.3369},{"d":"2011-06-20","nav":1.002,"spy":1.3436},{"d":"2011-06-27","nav":1.002,"spy":1.3461},{"d":"2011-07-05","nav":1.002,"spy":1.4079},{"d":"2011-07-12","nav":1.002,"spy":1.3825},{"d":"2011-07-19","nav":1.002,"spy":1.3965},{"d":"2011-07-26","nav":1.002,"spy":1.4028},{"d":"2011-08-02","nav":1.002,"spy":1.3203},{"d":"2011-08-09","nav":1.002,"spy":1.236},{"d":"2011-08-16","nav":1.002,"spy":1.2582},{"d":"2011-08-23","nav":1.002,"spy":1.2251},{"d":"2011-08-30","nav":1.002,"spy":1.2802},{"d":"2011-09-07","nav":1.002,"spy":1.2656},{"d":"2011-09-14","nav":1.0021,"spy":1.2559},{"d":"2011-09-21","nav":1.0021,"spy":1.2334},{"d":"2011-09-28","nav":1.0021,"spy":1.2177},{"d":"2011-10-05","nav":1.0021,"spy":1.2101},{"d":"2011-10-12","nav":1.0021,"spy":1.277},{"d":"2011-10-19","nav":1.0021,"spy":1.281},{"d":"2011-10-26","nav":1.0021,"spy":1.3146},{"d":"2011-11-02","nav":1.0012,"spy":1.3113},{"d":"2011-11-09","nav":0.9797,"spy":1.3025},{"d":"2011-11-16","nav":0.9794,"spy":1.3122},{"d":"2011-11-23","nav":0.9373,"spy":1.2327},{"d":"2011-12-01","nav":0.976,"spy":1.3216},{"d":"2011-12-08","nav":0.9852,"spy":1.3109},{"d":"2011-12-15","nav":0.9633,"spy":1.2921},{"d":"2011-12-22","nav":0.9726,"spy":1.3332},{"d":"2011-12-30","nav":0.971,"spy":1.3357},{"d":"2012-01-09","nav":1.0046,"spy":1.3625},{"d":"2012-01-17","nav":1.0211,"spy":1.3765},{"d":"2012-01-24","nav":1.0547,"spy":1.3991},{"d":"2012-01-31","nav":1.0472,"spy":1.3976},{"d":"2012-02-07","nav":1.0797,"spy":1.4345},{"d":"2012-02-14","nav":1.0734,"spy":1.4388},{"d":"2012-02-22","nav":1.0793,"spy":1.4477},{"d":"2012-02-29","nav":1.0779,"spy":1.4583},{"d":"2012-03-07","nav":1.0583,"spy":1.4441},{"d":"2012-03-14","nav":1.0735,"spy":1.489},{"d":"2012-03-21","nav":1.1226,"spy":1.4988},{"d":"2012-03-28","nav":1.1147,"spy":1.5015},{"d":"2012-04-04","nav":1.0985,"spy":1.495},{"d":"2012-04-12","nav":1.0886,"spy":1.4836},{"d":"2012-04-19","nav":1.0865,"spy":1.4721},{"d":"2012-04-26","nav":1.1131,"spy":1.4982},{"d":"2012-05-03","nav":1.1199,"spy":1.4885},{"d":"2012-05-10","nav":1.1217,"spy":1.454},{"d":"2012-05-17","nav":1.0903,"spy":1.3988},{"d":"2012-05-24","nav":1.0971,"spy":1.4167},{"d":"2012-06-01","nav":1.1011,"spy":1.37},{"d":"2012-06-08","nav":1.1159,"spy":1.4228},{"d":"2012-06-15","nav":1.1334,"spy":1.4413},{"d":"2012-06-22","nav":1.1287,"spy":1.434},{"d":"2012-06-29","nav":1.144,"spy":1.4624},{"d":"2012-07-09","nav":1.1467,"spy":1.454},{"d":"2012-07-16","nav":1.1441,"spy":1.4552},{"d":"2012-07-23","nav":1.1372,"spy":1.4515},{"d":"2012-07-30","nav":1.1321,"spy":1.4901},{"d":"2012-08-06","nav":1.1232,"spy":1.5002},{"d":"2012-08-13","nav":1.1358,"spy":1.5125},{"d":"2012-08-20","nav":1.15,"spy":1.5278},{"d":"2012-08-27","nav":1.1497,"spy":1.5208},{"d":"2012-09-04","nav":1.1545,"spy":1.5153},{"d":"2012-09-11","nav":1.1902,"spy":1.5463},{"d":"2012-09-18","nav":1.1933,"spy":1.5754},{"d":"2012-09-25","nav":1.187,"spy":1.5566},{"d":"2012-10-02","nav":1.1968,"spy":1.5609},{"d":"2012-10-09","nav":1.1846,"spy":1.5577},{"d":"2012-10-16","nav":1.1593,"spy":1.5721},{"d":"2012-10-23","nav":1.1626,"spy":1.5276},{"d":"2012-11-01","nav":1.1815,"spy":1.5429},{"d":"2012-11-08","nav":1.1844,"spy":1.4911},{"d":"2012-11-15","nav":1.1955,"spy":1.4659},{"d":"2012-11-23","nav":1.2283,"spy":1.5269},{"d":"2012-11-30","nav":1.2493,"spy":1.5355},{"d":"2012-12-07","nav":1.2337,"spy":1.5383},{"d":"2012-12-14","nav":1.2403,"spy":1.535},{"d":"2012-12-21","nav":1.2603,"spy":1.5534},{"d":"2012-12-31","nav":1.2593,"spy":1.5492},{"d":"2013-01-08","nav":1.2703,"spy":1.5834},{"d":"2013-01-15","nav":1.2548,"spy":1.5999},{"d":"2013-01-23","nav":1.2416,"spy":1.625},{"d":"2013-01-30","nav":1.255,"spy":1.6326},{"d":"2013-02-06","nav":1.2684,"spy":1.6444},{"d":"2013-02-13","nav":1.2687,"spy":1.6552},{"d":"2013-02-21","nav":1.2685,"spy":1.6364},{"d":"2013-02-28","nav":1.2769,"spy":1.6493},{"d":"2013-03-07","nav":1.286,"spy":1.6838},{"d":"2013-03-14","nav":1.277,"spy":1.705},{"d":"2013-03-21","nav":1.2625,"spy":1.6867},{"d":"2013-03-28","nav":1.274,"spy":1.712},{"d":"2013-04-05","nav":1.2645,"spy":1.6955},{"d":"2013-04-12","nav":1.2785,"spy":1.7352},{"d":"2013-04-19","nav":1.2756,"spy":1.699},{"d":"2013-04-26","nav":1.2886,"spy":1.7291},{"d":"2013-05-03","nav":1.2923,"spy":1.7633},{"d":"2013-05-10","nav":1.3098,"spy":1.7856},{"d":"2013-05-17","nav":1.3494,"spy":1.8242},{"d":"2013-05-24","nav":1.3572,"spy":1.8064},{"d":"2013-06-03","nav":1.3514,"spy":1.7959},{"d":"2013-06-10","nav":1.3527,"spy":1.8008},{"d":"2013-06-17","nav":1.3486,"spy":1.7969},{"d":"2013-06-24","nav":1.3421,"spy":1.7253},{"d":"2013-07-01","nav":1.3467,"spy":1.7725},{"d":"2013-07-09","nav":1.3457,"spy":1.8139},{"d":"2013-07-16","nav":1.3573,"spy":1.8402},{"d":"2013-07-23","nav":1.3577,"spy":1.858},{"d":"2013-07-30","nav":1.3602,"spy":1.852},{"d":"2013-08-06","nav":1.3638,"spy":1.8645},{"d":"2013-08-13","nav":1.3717,"spy":1.8632},{"d":"2013-08-20","nav":1.367,"spy":1.8189},{"d":"2013-08-27","nav":1.3672,"spy":1.7942},{"d":"2013-09-04","nav":1.3809,"spy":1.8208},{"d":"2013-09-11","nav":1.3809,"spy":1.8609},{"d":"2013-09-18","nav":1.3809,"spy":1.901},{"d":"2013-09-25","nav":1.3809,"spy":1.866},{"d":"2013-10-02","nav":1.3809,"spy":1.8675},{"d":"2013-10-09","nav":1.3809,"spy":1.828},{"d":"2013-10-16","nav":1.381,"spy":1.8994},{"d":"2013-10-23","nav":1.381,"spy":1.927},{"d":"2013-10-30","nav":1.381,"spy":1.946},{"d":"2013-11-06","nav":1.381,"spy":1.9557},{"d":"2013-11-13","nav":1.5304,"spy":1.9691},{"d":"2013-11-20","nav":1.4879,"spy":1.97},{"d":"2013-11-27","nav":1.4864,"spy":1.9993},{"d":"2013-12-05","nav":1.4573,"spy":1.9752},{"d":"2013-12-12","nav":1.4427,"spy":1.9663},{"d":"2013-12-19","nav":1.4587,"spy":2.0034},{"d":"2013-12-27","nav":1.5211,"spy":2.0404},{"d":"2014-01-06","nav":1.5261,"spy":2.0239},{"d":"2014-01-13","nav":1.5282,"spy":2.0165},{"d":"2014-01-21","nav":1.5703,"spy":2.0441},{"d":"2014-01-28","nav":1.5629,"spy":1.9874},{"d":"2014-02-04","nav":1.5348,"spy":1.9466},{"d":"2014-02-11","nav":1.5094,"spy":2.0197},{"d":"2014-02-19","nav":1.5094,"spy":2.0312},{"d":"2014-02-26","nav":1.5094,"spy":2.0515},{"d":"2014-03-05","nav":1.5095,"spy":2.0837},{"d":"2014-03-12","nav":1.5095,"spy":2.0785},{"d":"2014-03-19","nav":1.5091,"spy":2.0716},{"d":"2014-03-26","nav":1.5375,"spy":2.0619},{"d":"2014-04-02","nav":1.5391,"spy":2.1055},{"d":"2014-04-09","nav":1.5424,"spy":2.0856},{"d":"2014-04-16","nav":1.5232,"spy":2.0749},{"d":"2014-04-24","nav":1.5299,"spy":2.0938},{"d":"2014-05-01","nav":1.5384,"spy":2.0994},{"d":"2014-05-08","nav":1.513,"spy":2.0921},{"d":"2014-05-15","nav":1.4881,"spy":2.089},{"d":"2014-05-22","nav":1.5064,"spy":2.1134},{"d":"2014-05-30","nav":1.5374,"spy":2.1479},{"d":"2014-06-06","nav":1.5207,"spy":2.178},{"d":"2014-06-13","nav":1.5313,"spy":2.1641},{"d":"2014-06-20","nav":1.5734,"spy":2.1947},{"d":"2014-06-27","nav":1.5799,"spy":2.1933},{"d":"2014-07-07","nav":1.5926,"spy":2.2123},{"d":"2014-07-14","nav":1.5601,"spy":2.2133},{"d":"2014-07-21","nav":1.5416,"spy":2.2104},{"d":"2014-07-28","nav":1.8401,"spy":2.2155},{"d":"2014-08-04","nav":1.9234,"spy":2.1717},{"d":"2014-08-11","nav":1.9848,"spy":2.1707},{"d":"2014-08-18","nav":1.982,"spy":2.2106},{"d":"2014-08-25","nav":1.9964,"spy":2.2424},{"d":"2014-09-02","nav":2.0309,"spy":2.247},{"d":"2014-09-09","nav":2.0331,"spy":2.2326},{"d":"2014-09-16","nav":2.0331,"spy":2.2455},{"d":"2014-09-23","nav":2.0331,"spy":2.2282},{"d":"2014-09-30","nav":2.0331,"spy":2.2171},{"d":"2014-10-07","nav":2.0331,"spy":2.1748},{"d":"2014-10-14","nav":2.0331,"spy":2.1122},{"d":"2014-10-21","nav":2.0332,"spy":2.1839},{"d":"2014-10-28","nav":2.0332,"spy":2.2327},{"d":"2014-11-04","nav":2.0115,"spy":2.2627},{"d":"2014-11-11","nav":2.0194,"spy":2.2977},{"d":"2014-11-18","nav":2.1204,"spy":2.3131},{"d":"2014-11-25","nav":2.1737,"spy":2.3307},{"d":"2014-12-03","nav":2.0629,"spy":2.3394},{"d":"2014-12-10","nav":2.0258,"spy":2.2862},{"d":"2014-12-17","nav":2.0442,"spy":2.2708},{"d":"2014-12-24","nav":2.1232,"spy":2.351},{"d":"2015-01-02","nav":2.2575,"spy":2.3245},{"d":"2015-01-09","nav":2.4373,"spy":2.3112},{"d":"2015-01-16","nav":2.3447,"spy":2.2815},{"d":"2015-01-26","nav":2.3584,"spy":2.3247},{"d":"2015-02-02","nav":2.3499,"spy":2.2848},{"d":"2015-02-09","nav":2.3919,"spy":2.3155},{"d":"2015-02-17","nav":2.4394,"spy":2.3775},{"d":"2015-02-24","nav":2.446,"spy":2.3967},{"d":"2015-03-03","nav":2.4578,"spy":2.3889},{"d":"2015-03-10","nav":2.4219,"spy":2.3194},{"d":"2015-03-17","nav":2.4285,"spy":2.3531},{"d":"2015-03-24","nav":2.4577,"spy":2.3734},{"d":"2015-03-31","nav":2.4789,"spy":2.3462},{"d":"2015-04-08","nav":2.5121,"spy":2.3639},{"d":"2015-04-15","nav":2.588,"spy":2.3917},{"d":"2015-04-22","nav":2.5472,"spy":2.394},{"d":"2015-04-29","nav":2.5849,"spy":2.3933},{"d":"2015-05-06","nav":2.5585,"spy":2.3645},{"d":"2015-05-13","nav":2.5393,"spy":2.3871},{"d":"2015-05-20","nav":2.5531,"spy":2.4196},{"d":"2015-05-28","nav":2.548,"spy":2.4148},{"d":"2015-06-04","nav":2.6301,"spy":2.3883},{"d":"2015-06-11","nav":2.6412,"spy":2.4053},{"d":"2015-06-18","nav":2.6622,"spy":2.4184},{"d":"2015-06-25","nav":2.6933,"spy":2.3968},{"d":"2015-07-02","nav":2.7007,"spy":2.3677},{"d":"2015-07-10","nav":2.6642,"spy":2.3697},{"d":"2015-07-17","nav":2.7202,"spy":2.4268},{"d":"2015-07-24","nav":2.6733,"spy":2.3756},{"d":"2015-07-31","nav":2.6462,"spy":2.4041},{"d":"2015-08-07","nav":2.6458,"spy":2.375},{"d":"2015-08-14","nav":2.6505,"spy":2.3918},{"d":"2015-08-21","nav":2.6099,"spy":2.2594},{"d":"2015-08-28","nav":2.6233,"spy":2.276},{"d":"2015-09-04","nav":2.6035,"spy":2.1996},{"d":"2015-09-14","nav":2.6171,"spy":2.2387},{"d":"2015-09-21","nav":2.6597,"spy":2.2555},{"d":"2015-09-28","nav":2.6419,"spy":2.1584},{"d":"2015-10-05","nav":2.7012,"spy":2.2785},{"d":"2015-10-12","nav":2.7248,"spy":2.3135},{"d":"2015-10-19","nav":2.7217,"spy":2.3348},{"d":"2015-10-26","nav":2.7363,"spy":2.3765},{"d":"2015-11-02","nav":2.7136,"spy":2.4154},{"d":"2015-11-09","nav":2.7023,"spy":2.3889},{"d":"2015-11-16","nav":2.6632,"spy":2.3606},{"d":"2015-11-23","nav":2.8004,"spy":2.4002},{"d":"2015-12-01","nav":2.8944,"spy":2.4187},{"d":"2015-12-08","nav":2.7682,"spy":2.3759},{"d":"2015-12-15","nav":2.751,"spy":2.3538},{"d":"2015-12-22","nav":2.8245,"spy":2.3502},{"d":"2015-12-30","nav":2.8729,"spy":2.3782},{"d":"2016-01-07","nav":2.6334,"spy":2.241},{"d":"2016-01-14","nav":2.4288,"spy":2.2166},{"d":"2016-01-22","nav":2.2407,"spy":2.2003},{"d":"2016-01-29","nav":2.3362,"spy":2.2372},{"d":"2016-02-05","nav":2.2897,"spy":2.1706},{"d":"2016-02-12","nav":2.2793,"spy":2.1554},{"d":"2016-02-22","nav":2.4332,"spy":2.2495},{"d":"2016-02-29","nav":2.4984,"spy":2.2354},{"d":"2016-03-07","nav":2.754,"spy":2.3166},{"d":"2016-03-14","nav":2.6483,"spy":2.3386},{"d":"2016-03-21","nav":2.7074,"spy":2.3759},{"d":"2016-03-29","nav":2.7199,"spy":2.3811},{"d":"2016-04-05","nav":2.7314,"spy":2.3703},{"d":"2016-04-12","nav":2.8491,"spy":2.3904},{"d":"2016-04-19","nav":2.9512,"spy":2.4366},{"d":"2016-04-26","nav":3.0685,"spy":2.4252},{"d":"2016-05-03","nav":2.996,"spy":2.3932},{"d":"2016-05-10","nav":2.9069,"spy":2.4198},{"d":"2016-05-17","nav":2.8818,"spy":2.378},{"d":"2016-05-24","nav":2.9459,"spy":2.413},{"d":"2016-06-01","nav":2.9372,"spy":2.4409},{"d":"2016-06-08","nav":2.9959,"spy":2.4653},{"d":"2016-06-15","nav":2.8868,"spy":2.4116},{"d":"2016-06-22","nav":2.8983,"spy":2.4283},{"d":"2016-06-29","nav":2.9127,"spy":2.4115},{"d":"2016-07-07","nav":2.9555,"spy":2.445},{"d":"2016-07-14","nav":3.0831,"spy":2.5218},{"d":"2016-07-21","nav":3.0465,"spy":2.5236},{"d":"2016-07-28","nav":3.0945,"spy":2.5294},{"d":"2016-08-04","nav":3.1003,"spy":2.5252},{"d":"2016-08-11","nav":3.1121,"spy":2.5514},{"d":"2016-08-18","nav":3.1719,"spy":2.5538},{"d":"2016-08-25","nav":3.1576,"spy":2.5403},{"d":"2016-09-01","nav":3.177,"spy":2.5367},{"d":"2016-09-09","nav":3.1281,"spy":2.4887},{"d":"2016-09-16","nav":3.1207,"spy":2.5023},{"d":"2016-09-23","nav":3.0722,"spy":2.5331},{"d":"2016-09-30","nav":3.1017,"spy":2.5367},{"d":"2016-10-07","nav":3.0524,"spy":2.5219},{"d":"2016-10-14","nav":2.9969,"spy":2.4994},{"d":"2016-10-21","nav":3.027,"spy":2.5095},{"d":"2016-10-28","nav":2.9871,"spy":2.4926},{"d":"2016-11-04","nav":2.9598,"spy":2.4458},{"d":"2016-11-11","nav":3.2539,"spy":2.5381},{"d":"2016-11-18","nav":3.4321,"spy":2.5625},{"d":"2016-11-28","nav":3.3708,"spy":2.5857},{"d":"2016-12-05","nav":3.458,"spy":2.5918},{"d":"2016-12-12","nav":3.4629,"spy":2.6534},{"d":"2016-12-19","nav":3.5335,"spy":2.6605},{"d":"2016-12-27","nav":3.5705,"spy":2.6693},{"d":"2017-01-04","nav":3.6814,"spy":2.6729},{"d":"2017-01-11","nav":3.7071,"spy":2.6791},{"d":"2017-01-19","nav":3.8426,"spy":2.665},{"d":"2017-01-26","nav":3.8387,"spy":2.7054},{"d":"2017-02-02","nav":3.7939,"spy":2.687},{"d":"2017-02-09","nav":3.8224,"spy":2.7203},{"d":"2017-02-16","nav":3.8228,"spy":2.7689},{"d":"2017-02-24","nav":3.8232,"spy":2.7928},{"d":"2017-03-03","nav":3.8617,"spy":2.8126},{"d":"2017-03-10","nav":3.7975,"spy":2.804},{"d":"2017-03-17","nav":3.75,"spy":2.8084},{"d":"2017-03-24","nav":3.7359,"spy":2.7708},{"d":"2017-03-31","nav":3.7613,"spy":2.7931},{"d":"2017-04-07","nav":3.7203,"spy":2.7867},{"d":"2017-04-17","nav":3.7007,"spy":2.7792},{"d":"2017-04-24","nav":3.7472,"spy":2.81},{"d":"2017-05-01","nav":3.8758,"spy":2.8279},{"d":"2017-05-08","nav":3.7807,"spy":2.8395},{"d":"2017-05-15","nav":3.8099,"spy":2.8471},{"d":"2017-05-22","nav":4.0522,"spy":2.8379},{"d":"2017-05-30","nav":4.3153,"spy":2.8613},{"d":"2017-06-06","nav":4.3638,"spy":2.8816},{"d":"2017-06-13","nav":4.3619,"spy":2.8975},{"d":"2017-06-20","nav":4.3542,"spy":2.8933},{"d":"2017-06-27","nav":4.4794,"spy":2.8733},{"d":"2017-07-05","nav":4.554,"spy":2.8904},{"d":"2017-07-12","nav":4.5216,"spy":2.9052},{"d":"2017-07-19","nav":4.6497,"spy":2.9406},{"d":"2017-07-26","nav":4.6335,"spy":2.9459},{"d":"2017-08-02","nav":4.7366,"spy":2.946},{"d":"2017-08-09","nav":4.5942,"spy":2.9437},{"d":"2017-08-16","nav":4.5405,"spy":2.94},{"d":"2017-08-23","nav":4.5024,"spy":2.9117},{"d":"2017-08-30","nav":4.4679,"spy":2.929},{"d":"2017-09-07","nav":4.5234,"spy":2.9392},{"d":"2017-09-14","nav":4.5828,"spy":2.9775},{"d":"2017-09-21","nav":4.5698,"spy":2.984},{"d":"2017-09-28","nav":4.5964,"spy":2.9954},{"d":"2017-10-05","nav":4.5109,"spy":3.047},{"d":"2017-10-12","nav":4.5075,"spy":3.0468},{"d":"2017-10-19","nav":4.4907,"spy":3.0605},{"d":"2017-10-26","nav":4.5226,"spy":3.0585},{"d":"2017-11-02","nav":4.5078,"spy":3.0821},{"d":"2017-11-09","nav":4.363,"spy":3.089},{"d":"2017-11-16","nav":4.3939,"spy":3.0944},{"d":"2017-11-24","nav":4.4849,"spy":3.1152},{"d":"2017-12-01","nav":4.5395,"spy":3.1643},{"d":"2017-12-08","nav":4.4663,"spy":3.1768},{"d":"2017-12-15","nav":4.4461,"spy":3.2051},{"d":"2017-12-22","nav":4.465,"spy":3.2171},{"d":"2018-01-02","nav":4.4817,"spy":3.2323},{"d":"2018-01-09","nav":4.4301,"spy":3.3017},{"d":"2018-01-17","nav":4.4661,"spy":3.3626},{"d":"2018-01-24","nav":4.5896,"spy":3.4056},{"d":"2018-01-31","nav":4.6182,"spy":3.3902},{"d":"2018-02-07","nav":4.5816,"spy":3.219},{"d":"2018-02-14","nav":4.587,"spy":3.2421},{"d":"2018-02-22","nav":4.6121,"spy":3.2519},{"d":"2018-03-01","nav":4.6029,"spy":3.2194},{"d":"2018-03-08","nav":4.6428,"spy":3.2964},{"d":"2018-03-15","nav":4.6518,"spy":3.3072},{"d":"2018-03-22","nav":4.6121,"spy":3.1836},{"d":"2018-03-29","nav":4.5999,"spy":3.1774},{"d":"2018-04-06","nav":4.5973,"spy":3.1359},{"d":"2018-04-13","nav":4.6759,"spy":3.2015},{"d":"2018-04-20","nav":4.6596,"spy":3.2191},{"d":"2018-04-27","nav":4.6398,"spy":3.2185},{"d":"2018-05-04","nav":4.7835,"spy":3.212},{"d":"2018-05-11","nav":4.8246,"spy":3.2945},{"d":"2018-05-18","nav":4.7417,"spy":3.2761},{"d":"2018-05-25","nav":4.7723,"spy":3.286},{"d":"2018-06-04","nav":4.7955,"spy":3.3192},{"d":"2018-06-11","nav":4.8192,"spy":3.3634},{"d":"2018-06-18","nav":4.7994,"spy":3.3543},{"d":"2018-06-25","nav":4.701,"spy":3.2868},{"d":"2018-07-02","nav":4.7101,"spy":3.2973},{"d":"2018-07-10","nav":4.8038,"spy":3.3827},{"d":"2018-07-17","nav":4.7847,"spy":3.4017},{"d":"2018-07-24","nav":4.7787,"spy":3.4155},{"d":"2018-07-31","nav":4.6813,"spy":3.4121},{"d":"2018-08-07","nav":4.8161,"spy":3.4637},{"d":"2018-08-14","nav":4.8155,"spy":3.4433},{"d":"2018-08-21","nav":4.8306,"spy":3.4729},{"d":"2018-08-28","nav":5.0448,"spy":3.5163},{"d":"2018-09-05","nav":5.1174,"spy":3.5055},{"d":"2018-09-12","nav":5.1212,"spy":3.5066},{"d":"2018-09-19","nav":5.0225,"spy":3.5321},{"d":"2018-09-26","nav":6.9341,"spy":3.5317},{"d":"2018-10-03","nav":7.1467,"spy":3.5542},{"d":"2018-10-10","nav":6.9877,"spy":3.3907},{"d":"2018-10-17","nav":7.5572,"spy":3.4168},{"d":"2018-10-24","nav":7.5726,"spy":3.2325},{"d":"2018-10-31","nav":7.646,"spy":3.2972},{"d":"2018-11-07","nav":7.8599,"spy":3.4237},{"d":"2018-11-14","nav":7.629,"spy":3.292},{"d":"2018-11-21","nav":7.455,"spy":3.2289},{"d":"2018-11-29","nav":7.8114,"spy":3.338},{"d":"2018-12-07","nav":7.4346,"spy":3.2112},{"d":"2018-12-14","nav":7.3176,"spy":3.1734},{"d":"2018-12-21","nav":6.6562,"spy":2.9497},{"d":"2018-12-31","nav":7.1741,"spy":3.0627},{"d":"2019-01-08","nav":7.7933,"spy":3.1466},{"d":"2019-01-15","nav":7.9258,"spy":3.1905},{"d":"2019-01-23","nav":7.887,"spy":3.228},{"d":"2019-01-30","nav":8.316,"spy":3.2791},{"d":"2019-02-06","nav":8.291,"spy":3.3423},{"d":"2019-02-13","nav":8.2957,"spy":3.3699},{"d":"2019-02-21","nav":8.4433,"spy":3.3997},{"d":"2019-02-28","nav":8.332,"spy":3.4151},{"d":"2019-03-07","nav":8.0889,"spy":3.3701},{"d":"2019-03-14","nav":8.3719,"spy":3.4455},{"d":"2019-03-21","nav":8.6591,"spy":3.5046},{"d":"2019-03-28","nav":8.3061,"spy":3.4551},{"d":"2019-04-04","nav":8.5425,"spy":3.5348},{"d":"2019-04-11","nav":8.5567,"spy":3.5475},{"d":"2019-04-18","nav":8.2711,"spy":3.5697},{"d":"2019-04-26","nav":8.1323,"spy":3.6115},{"d":"2019-05-03","nav":7.9634,"spy":3.6191},{"d":"2019-05-10","nav":7.5451,"spy":3.5461},{"d":"2019-05-17","nav":7.4332,"spy":3.5183},{"d":"2019-05-24","nav":7.1408,"spy":3.4806},{"d":"2019-06-03","nav":7.0612,"spy":3.3796},{"d":"2019-06-10","nav":7.0644,"spy":3.5568},{"d":"2019-06-17","nav":7.0769,"spy":3.5617},{"d":"2019-06-24","nav":7.0913,"spy":3.6319},{"d":"2019-07-01","nav":7.1543,"spy":3.6569},{"d":"2019-07-09","nav":7.195,"spy":3.6758},{"d":"2019-07-16","nav":7.2629,"spy":3.7078},{"d":"2019-07-23","nav":7.328,"spy":3.7109},{"d":"2019-07-30","nav":7.4338,"spy":3.7194},{"d":"2019-08-06","nav":7.2765,"spy":3.5596},{"d":"2019-08-13","nav":7.3953,"spy":3.6184},{"d":"2019-08-20","nav":7.2573,"spy":3.588},{"d":"2019-08-27","nav":7.0405,"spy":3.5481},{"d":"2019-09-04","nav":7.0828,"spy":3.6368},{"d":"2019-09-11","nav":7.6105,"spy":3.7136},{"d":"2019-09-18","nav":7.6183,"spy":3.7241},{"d":"2019-09-25","nav":7.4184,"spy":3.6981},{"d":"2019-10-02","nav":6.9716,"spy":3.5793},{"d":"2019-10-09","nav":6.8684,"spy":3.6192},{"d":"2019-10-16","nav":6.9557,"spy":3.7078},{"d":"2019-10-23","nav":7.2794,"spy":3.7262},{"d":"2019-10-30","nav":7.3064,"spy":3.7791},{"d":"2019-11-06","nav":7.2606,"spy":3.8159},{"d":"2019-11-13","nav":7.3386,"spy":3.8407},{"d":"2019-11-20","nav":7.0766,"spy":3.8615},{"d":"2019-11-27","nav":7.5003,"spy":3.92},{"d":"2019-12-05","nav":7.6122,"spy":3.877},{"d":"2019-12-12","nav":8.2471,"spy":3.9405},{"d":"2019-12-19","nav":8.2308,"spy":3.9874},{"d":"2019-12-27","nav":8.202,"spy":4.0314},{"d":"2020-01-06","nav":8.2486,"spy":4.0412},{"d":"2020-01-13","nav":8.4514,"spy":4.095},{"d":"2020-01-21","nav":8.9846,"spy":4.1368},{"d":"2020-01-28","nav":9.1798,"spy":4.0818},{"d":"2020-02-04","nav":9.3011,"spy":4.1089},{"d":"2020-02-11","nav":9.4084,"spy":4.1863},{"d":"2020-02-19","nav":9.4962,"spy":4.2247},{"d":"2020-02-26","nav":9.2929,"spy":3.8896},{"d":"2020-03-04","nav":9.3589,"spy":3.9066},{"d":"2020-03-11","nav":9.3531,"spy":3.4258},{"d":"2020-03-18","nav":7.7381,"spy":2.9968},{"d":"2020-03-25","nav":9.4723,"spy":3.0997},{"d":"2020-04-01","nav":9.4826,"spy":3.0917},{"d":"2020-04-08","nav":10.1364,"spy":3.4418},{"d":"2020-04-16","nav":11.3735,"spy":3.5055},{"d":"2020-04-23","nav":11.4242,"spy":3.5053},{"d":"2020-04-30","nav":12.64,"spy":3.6484},{"d":"2020-05-07","nav":12.5874,"spy":3.6133},{"d":"2020-05-14","nav":14.1959,"spy":3.5792},{"d":"2020-05-21","nav":14.7415,"spy":3.7037},{"d":"2020-05-29","nav":15.1424,"spy":3.8223},{"d":"2020-06-05","nav":15.1045,"spy":4.0109},{"d":"2020-06-12","nav":14.9487,"spy":3.8209},{"d":"2020-06-19","nav":14.8804,"spy":3.8936},{"d":"2020-06-26","nav":14.91,"spy":3.7852},{"d":"2020-07-06","nav":14.8607,"spy":3.9997},{"d":"2020-07-13","nav":14.8106,"spy":3.9718},{"d":"2020-07-20","nav":14.7905,"spy":4.0914},{"d":"2020-07-27","nav":14.8414,"spy":4.0775},{"d":"2020-08-03","nav":14.9285,"spy":4.1478},{"d":"2020-08-10","nav":16.1202,"spy":4.2333},{"d":"2020-08-17","nav":15.9773,"spy":4.2628},{"d":"2020-08-24","nav":15.8713,"spy":4.3261},{"d":"2020-08-31","nav":16.5292,"spy":4.4067},{"d":"2020-09-08","nav":16.928,"spy":4.2036},{"d":"2020-09-15","nav":16.7222,"spy":4.2914},{"d":"2020-09-22","nav":16.0709,"spy":4.1835},{"d":"2020-09-29","nav":16.0521,"spy":4.2097},{"d":"2020-10-06","nav":16.361,"spy":4.2422},{"d":"2020-10-13","nav":16.5888,"spy":4.4347},{"d":"2020-10-20","nav":16.5385,"spy":4.3492},{"d":"2020-10-27","nav":16.4541,"spy":4.2838},{"d":"2020-11-03","nav":17.5492,"spy":4.2561},{"d":"2020-11-10","nav":20.2866,"spy":4.4842},{"d":"2020-11-17","nav":21.8467,"spy":4.5676},{"d":"2020-11-24","nav":24.0793,"spy":4.6005},{"d":"2020-12-02","nav":23.5138,"spy":4.6457},{"d":"2020-12-09","nav":24.8173,"spy":4.6465},{"d":"2020-12-16","nav":24.5169,"spy":4.6885},{"d":"2020-12-23","nav":24.4432,"spy":4.6754},{"d":"2020-12-31","nav":24.5003,"spy":4.7557},{"d":"2021-01-08","nav":26.3294,"spy":4.8496},{"d":"2021-01-15","nav":26.5939,"spy":4.7788},{"d":"2021-01-25","nav":25.1727,"spy":4.8894},{"d":"2021-02-01","nav":24.4874,"spy":4.7856},{"d":"2021-02-08","nav":24.7039,"spy":4.9672},{"d":"2021-02-16","nav":24.7041,"spy":4.99},{"d":"2021-02-23","nav":25.2807,"spy":4.9289},{"d":"2021-03-02","nav":25.3977,"spy":4.9167},{"d":"2021-03-09","nav":25.5148,"spy":4.9247},{"d":"2021-03-16","nav":25.8366,"spy":5.0359},{"d":"2021-03-23","nav":25.0493,"spy":4.9706},{"d":"2021-03-30","nav":25.8701,"spy":5.0373},{"d":"2021-04-07","nav":25.8074,"spy":5.1887},{"d":"2021-04-14","nav":25.9771,"spy":5.2507},{"d":"2021-04-21","nav":25.508,"spy":5.3097},{"d":"2021-04-28","nav":26.4713,"spy":5.3266},{"d":"2021-05-05","nav":25.7135,"spy":5.3056},{"d":"2021-05-12","nav":24.4499,"spy":5.1736},{"d":"2021-05-19","nav":25.6334,"spy":5.2432},{"d":"2021-05-26","nav":29.1858,"spy":5.348},{"d":"2021-06-03","nav":32.1143,"spy":5.3441},{"d":"2021-06-10","nav":35.0179,"spy":5.4059},{"d":"2021-06-17","nav":37.8427,"spy":5.385},{"d":"2021-06-24","nav":36.9611,"spy":5.4427},{"d":"2021-07-01","nav":38.4825,"spy":5.5109},{"d":"2021-07-09","nav":38.7142,"spy":5.5761},{"d":"2021-07-16","nav":37.1581,"spy":5.5225},{"d":"2021-07-23","nav":39.9728,"spy":5.6327},{"d":"2021-07-30","nav":30.9469,"spy":5.6143},{"d":"2021-08-06","nav":31.5507,"spy":5.6653},{"d":"2021-08-13","nav":31.1261,"spy":5.7092},{"d":"2021-08-20","nav":30.7055,"spy":5.6764},{"d":"2021-08-27","nav":33.8373,"spy":5.7647},{"d":"2021-09-03","nav":34.7604,"spy":5.8009},{"d":"2021-09-13","nav":33.6379,"spy":5.7177},{"d":"2021-09-20","nav":33.9647,"spy":5.5749},{"d":"2021-09-27","nav":38.232,"spy":5.6854},{"d":"2021-10-04","nav":36.0382,"spy":5.5056},{"d":"2021-10-11","nav":37.4778,"spy":5.5833},{"d":"2021-10-18","nav":40.4681,"spy":5.7438},{"d":"2021-10-25","nav":41.9271,"spy":5.8512},{"d":"2021-11-01","nav":42.7546,"spy":5.9089},{"d":"2021-11-08","nav":44.9258,"spy":6.0231},{"d":"2021-11-15","nav":42.5588,"spy":6.0038},{"d":"2021-11-22","nav":42.4344,"spy":6.0056},{"d":"2021-11-30","nav":41.3115,"spy":5.8513},{"d":"2021-12-07","nav":40.9428,"spy":6.0147},{"d":"2021-12-14","nav":41.3233,"spy":5.9515},{"d":"2021-12-21","nav":42.0598,"spy":5.9686},{"d":"2021-12-29","nav":41.7481,"spy":6.1544},{"d":"2022-01-05","nav":42.2955,"spy":6.0371},{"d":"2022-01-12","nav":42.9501,"spy":6.0712},{"d":"2022-01-20","nav":40.6072,"spy":5.7583},{"d":"2022-01-27","nav":39.3098,"spy":5.5584},{"d":"2022-02-03","nav":40.5058,"spy":5.7564},{"d":"2022-02-10","nav":42.712,"spy":5.7915},{"d":"2022-02-17","nav":42.3051,"spy":5.6334},{"d":"2022-02-25","nav":42.2762,"spy":5.6423},{"d":"2022-03-04","nav":43.9942,"spy":5.5704},{"d":"2022-03-11","nav":46.9442,"spy":5.4144},{"d":"2022-03-18","nav":46.2148,"spy":5.7474},{"d":"2022-03-25","nav":47.583,"spy":5.853},{"d":"2022-04-01","nav":48.9474,"spy":5.856},{"d":"2022-04-08","nav":47.3742,"spy":5.7868},{"d":"2022-04-18","nav":46.13,"spy":5.6627},{"d":"2022-04-25","nav":43.6588,"spy":5.5404},{"d":"2022-05-02","nav":45.2835,"spy":5.359},{"d":"2022-05-09","nav":39.5072,"spy":5.1481},{"d":"2022-05-16","nav":42.0574,"spy":5.1729},{"d":"2022-05-23","nav":43.8524,"spy":5.1319},{"d":"2022-05-31","nav":47.0243,"spy":5.3389},{"d":"2022-06-07","nav":48.9395,"spy":5.3753},{"d":"2022-06-14","nav":46.875,"spy":4.8339},{"d":"2022-06-22","nav":47.7405,"spy":4.8616},{"d":"2022-06-29","nav":49.8295,"spy":4.9388},{"d":"2022-07-07","nav":50.2278,"spy":5.0511},{"d":"2022-07-14","nav":48.9041,"spy":4.9073},{"d":"2022-07-21","nav":50.7078,"spy":5.1784},{"d":"2022-07-28","nav":50.9522,"spy":5.2729},{"d":"2022-08-04","nav":51.7554,"spy":5.3781},{"d":"2022-08-11","nav":53.5633,"spy":5.4537},{"d":"2022-08-18","nav":54.7077,"spy":5.5563},{"d":"2022-08-25","nav":56.1558,"spy":5.4475},{"d":"2022-09-01","nav":51.2894,"spy":5.1476},{"d":"2022-09-09","nav":54.3195,"spy":5.2798},{"d":"2022-09-16","nav":51.6882,"spy":5.0272},{"d":"2022-09-23","nav":46.9141,"spy":4.7976},{"d":"2022-09-30","nav":47.6468,"spy":4.6571},{"d":"2022-10-07","nav":53.4633,"spy":4.7303},{"d":"2022-10-14","nav":52.5345,"spy":4.663},{"d":"2022-10-21","nav":54.4679,"spy":4.8802},{"d":"2022-10-28","nav":57.7136,"spy":5.0723},{"d":"2022-11-04","nav":59.303,"spy":4.9071},{"d":"2022-11-11","nav":64.9394,"spy":5.196},{"d":"2022-11-18","nav":65.2785,"spy":5.1637},{"d":"2022-11-28","nav":65.0775,"spy":5.1621},{"d":"2022-12-05","nav":67.9631,"spy":5.2101},{"d":"2022-12-12","nav":67.7893,"spy":5.2018},{"d":"2022-12-19","nav":64.0088,"spy":4.9777},{"d":"2022-12-27","nav":65.1273,"spy":4.9958},{"d":"2023-01-04","nav":66.1599,"spy":5.0267},{"d":"2023-01-11","nav":69.8912,"spy":5.1807},{"d":"2023-01-19","nav":70.774,"spy":5.0906},{"d":"2023-01-26","nav":74.0003,"spy":5.3016},{"d":"2023-02-02","nav":76.2467,"spy":5.4592},{"d":"2023-02-09","nav":73.2187,"spy":5.3323},{"d":"2023-02-16","nav":73.9803,"spy":5.3479},{"d":"2023-02-24","nav":73.2225,"spy":5.192},{"d":"2023-03-03","nav":74.4466,"spy":5.2943},{"d":"2023-03-10","nav":69.873,"spy":5.0548},{"d":"2023-03-17","nav":72.1054,"spy":5.1278},{"d":"2023-03-24","nav":73.6011,"spy":5.2035},{"d":"2023-03-31","nav":77.5949,"spy":5.3829},{"d":"2023-04-10","nav":77.0284,"spy":5.3857},{"d":"2023-04-17","nav":82.427,"spy":5.4427},{"d":"2023-04-24","nav":81.2953,"spy":5.4255},{"d":"2023-05-01","nav":85.7511,"spy":5.4633},{"d":"2023-05-08","nav":99.3042,"spy":5.4269},{"d":"2023-05-15","nav":91.1253,"spy":5.4305},{"d":"2023-05-22","nav":93.6819,"spy":5.5065},{"d":"2023-05-30","nav":93.8941,"spy":5.5247},{"d":"2023-06-06","nav":101.6916,"spy":5.6279},{"d":"2023-06-13","nav":113.1132,"spy":5.7414},{"d":"2023-06-21","nav":119.4795,"spy":5.74},{"d":"2023-06-28","nav":121.4227,"spy":5.7592},{"d":"2023-07-06","nav":120.5997,"spy":5.8023},{"d":"2023-07-13","nav":124.7135,"spy":5.933},{"d":"2023-07-20","nav":123.2054,"spy":5.9676},{"d":"2023-07-27","nav":127.0175,"spy":5.9717},{"d":"2023-08-03","nav":127.6557,"spy":5.9235},{"d":"2023-08-10","nav":123.1123,"spy":5.8848},{"d":"2023-08-17","nav":121.5333,"spy":5.7579},{"d":"2023-08-24","nav":123.1565,"spy":5.7658},{"d":"2023-08-31","nav":126.8696,"spy":5.9434},{"d":"2023-09-08","nav":126.5723,"spy":5.8797},{"d":"2023-09-15","nav":123.4696,"spy":5.8719},{"d":"2023-09-22","nav":119.3489,"spy":5.7004},{"d":"2023-09-29","nav":117.8136,"spy":5.6615},{"d":"2023-10-06","nav":115.9901,"spy":5.6888},{"d":"2023-10-13","nav":113.7704,"spy":5.7147},{"d":"2023-10-20","nav":112.004,"spy":5.5782},{"d":"2023-10-27","nav":110.0215,"spy":5.439},{"d":"2023-11-03","nav":126.029,"spy":5.757},{"d":"2023-11-10","nav":117.5515,"spy":5.8354},{"d":"2023-11-17","nav":133.1708,"spy":5.9702},{"d":"2023-11-27","nav":133.722,"spy":6.0191},{"d":"2023-12-04","nav":146.564,"spy":6.0483},{"d":"2023-12-11","nav":144.8254,"spy":6.1185},{"d":"2023-12-18","nav":151.7268,"spy":6.2761},{"d":"2023-12-26","nav":155.2797,"spy":6.325},{"d":"2024-01-03","nav":158.9085,"spy":6.2338},{"d":"2024-01-10","nav":168.6689,"spy":6.3371},{"d":"2024-01-18","nav":161.2323,"spy":6.3362},{"d":"2024-01-25","nav":171.0743,"spy":6.4896},{"d":"2024-02-01","nav":175.4767,"spy":6.5052},{"d":"2024-02-08","nav":175.2743,"spy":6.6264},{"d":"2024-02-15","nav":176.9284,"spy":6.6755},{"d":"2024-02-23","nav":173.3171,"spy":6.7532},{"d":"2024-03-01","nav":174.051,"spy":6.8197},{"d":"2024-03-08","nav":172.9902,"spy":6.8046},{"d":"2024-03-15","nav":169.7749,"spy":6.8006},{"d":"2024-03-22","nav":173.9559,"spy":6.9524},{"d":"2024-04-01","nav":174.3024,"spy":6.965},{"d":"2024-04-08","nav":176.7568,"spy":6.9191},{"d":"2024-04-15","nav":171.6315,"spy":6.7288},{"d":"2024-04-22","nav":172.4116,"spy":6.6657},{"d":"2024-04-29","nav":178.1139,"spy":6.8036},{"d":"2024-05-06","nav":185.1365,"spy":6.8905},{"d":"2024-05-13","nav":207.9938,"spy":6.9484},{"d":"2024-05-20","nav":218.6104,"spy":7.0704},{"d":"2024-05-28","nav":221.4714,"spy":7.0671},{"d":"2024-06-04","nav":259.4396,"spy":7.0481},{"d":"2024-06-11","nav":262.6454,"spy":7.1623},{"d":"2024-06-18","nav":263.8977,"spy":7.3162},{"d":"2024-06-26","nav":259.705,"spy":7.3},{"d":"2024-07-03","nav":258.4217,"spy":7.3796},{"d":"2024-07-11","nav":267.9228,"spy":7.4468},{"d":"2024-07-18","nav":274.7595,"spy":7.3956},{"d":"2024-07-25","nav":298.7791,"spy":7.205},{"d":"2024-08-01","nav":309.0075,"spy":7.2665},{"d":"2024-08-08","nav":312.3908,"spy":7.1011},{"d":"2024-08-15","nav":315.2119,"spy":7.4011},{"d":"2024-08-22","nav":311.5169,"spy":7.4433},{"d":"2024-08-29","nav":319.9614,"spy":7.4718},{"d":"2024-09-06","nav":304.7744,"spy":7.2311},{"d":"2024-09-13","nav":318.6886,"spy":7.5208},{"d":"2024-09-20","nav":326.3626,"spy":7.6276},{"d":"2024-09-27","nav":318.5246,"spy":7.6708},{"d":"2024-10-04","nav":323.6968,"spy":7.6911},{"d":"2024-10-11","nav":399.0232,"spy":7.7797},{"d":"2024-10-18","nav":427.5809,"spy":7.8469},{"d":"2024-10-25","nav":424.6672,"spy":7.7724},{"d":"2024-11-01","nav":444.5844,"spy":7.665},{"d":"2024-11-08","nav":460.5394,"spy":8.0295},{"d":"2024-11-15","nav":450.773,"spy":7.8625},{"d":"2024-11-22","nav":457.1251,"spy":7.9935},{"d":"2024-12-02","nav":457.9675,"spy":8.1025},{"d":"2024-12-09","nav":467.7573,"spy":8.1166},{"d":"2024-12-16","nav":449.8797,"spy":8.1449},{"d":"2024-12-23","nav":437.5628,"spy":8.0094},{"d":"2024-12-31","nav":428.1651,"spy":7.8934},{"d":"2025-01-08","nav":440.6753,"spy":7.9393},{"d":"2025-01-16","nav":429.689,"spy":7.9683},{"d":"2025-01-24","nav":457.6481,"spy":8.1882},{"d":"2025-01-31","nav":444.9564,"spy":8.1054},{"d":"2025-02-07","nav":443.3413,"spy":8.0913},{"d":"2025-02-14","nav":450.6986,"spy":8.2115},{"d":"2025-02-24","nav":456.2703,"spy":8.0433},{"d":"2025-03-03","nav":454.3168,"spy":7.8623},{"d":"2025-03-10","nav":451.0679,"spy":7.55},{"d":"2025-03-17","nav":484.8166,"spy":7.6385},{"d":"2025-03-24","nav":496.0789,"spy":7.755},{"d":"2025-03-31","nav":445.1163,"spy":7.5566},{"d":"2025-04-07","nav":416.1041,"spy":6.8135},{"d":"2025-04-14","nav":449.5247,"spy":7.2828},{"d":"2025-04-22","nav":455.3649,"spy":7.1224},{"d":"2025-04-29","nav":482.484,"spy":7.4881},{"d":"2025-05-06","nav":498.9082,"spy":7.5486},{"d":"2025-05-13","nav":549.0405,"spy":7.9274},{"d":"2025-05-20","nav":572.669,"spy":8.0086},{"d":"2025-05-28","nav":552.3946,"spy":7.9394},{"d":"2025-06-04","nav":590.7491,"spy":8.0502},{"d":"2025-06-11","nav":595.0864,"spy":8.1236},{"d":"2025-06-18","nav":597.255,"spy":8.0706},{"d":"2025-06-26","nav":597.7516,"spy":8.29},{"d":"2025-07-03","nav":598.2506,"spy":8.4725},{"d":"2025-07-11","nav":598.7545,"spy":8.4492},{"d":"2025-07-18","nav":599.2574,"spy":8.5028},{"d":"2025-07-25","nav":599.7609,"spy":8.6318},{"d":"2025-08-01","nav":600.2651,"spy":8.4234},{"d":"2025-08-08","nav":597.4223,"spy":8.6329},{"d":"2025-08-15","nav":598.9998,"spy":8.7177},{"d":"2025-08-22","nav":607.8394,"spy":8.743},{"d":"2025-08-29","nav":609.6397,"spy":8.7395},{"d":"2025-09-08","nav":608.9352,"spy":8.7907},{"d":"2025-09-15","nav":611.855,"spy":8.9544},{"d":"2025-09-22","nav":610.2308,"spy":9.0598},{"d":"2025-09-29","nav":612.6894,"spy":9.0169},{"d":"2025-10-06","nav":615.8285,"spy":9.1246},{"d":"2025-10-13","nav":614.8826,"spy":9.0082},{"d":"2025-10-20","nav":658.42,"spy":9.1204},{"d":"2025-10-27","nav":651.5668,"spy":9.3098},{"d":"2025-11-03","nav":661.0444,"spy":9.284},{"d":"2025-11-10","nav":664.2075,"spy":9.2581},{"d":"2025-11-17","nav":661.2986,"spy":9.0439},{"d":"2025-11-24","nav":669.7787,"spy":9.0855},{"d":"2025-12-02","nav":678.431,"spy":9.2594},{"d":"2025-12-09","nav":716.5986,"spy":9.2799},{"d":"2025-12-16","nav":693.6623,"spy":9.2232},{"d":"2025-12-23","nav":696.6247,"spy":9.3743},{"d":"2025-12-31","nav":756.3197,"spy":9.292},{"d":"2026-01-08","nav":727.5551,"spy":9.3955},{"d":"2026-01-15","nav":723.968,"spy":9.4327},{"d":"2026-01-23","nav":728.8689,"spy":9.3917},{"d":"2026-01-30","nav":705.4051,"spy":9.429},{"d":"2026-02-06","nav":698.395,"spy":9.4106},{"d":"2026-02-13","nav":701.7687,"spy":9.2897},{"d":"2026-02-23","nav":702.2695,"spy":9.2984},{"d":"2026-03-02","nav":702.7694,"spy":9.3528},{"d":"2026-03-09","nav":703.2698,"spy":9.2423},{"d":"2026-03-16","nav":703.7721,"spy":9.1164},{"d":"2026-03-23","nav":704.2764,"spy":8.9548},{"d":"2026-03-30","nav":704.7818,"spy":8.6349},{"d":"2026-04-07","nav":705.2862,"spy":9.0073},{"d":"2026-04-14","nav":705.7901,"spy":9.4888},{"d":"2026-04-21","nav":706.2953,"spy":9.6202},{"d":"2026-04-28","nav":706.7991,"spy":9.7242},{"d":"2026-05-05","nav":707.3022,"spy":9.8892},{"d":"2026-05-12","nav":707.8073,"spy":10.0861},{"d":"2026-05-19","nav":708.3116,"spy":10.0253},{"d":"2026-05-27","nav":708.8143,"spy":10.2539},{"d":"2026-06-03","nav":709.3208,"spy":10.3056},{"d":"2026-06-10","nav":709.8313,"spy":9.9119},{"d":"2026-06-17","nav":710.3419,"spy":10.1241},{"d":"2026-06-22","nav":710.5479,"spy":10.1972}],"metrics":{"ir":1.4182584928963768,"cagr":0.47505378074578686},"backtest":{"n":270,"mean":0.24670333333333336,"ci":[0.17664038888888894,0.32944988888888893],"trades":[{"t":"IMAX","f":"2011-10-27","x":0.0481},{"t":"BAC","f":"2011-11-03","x":0.0861},{"t":"LNC","f":"2011-11-03","x":0.1164},{"t":"MS","f":"2011-11-07","x":0.1294},{"t":"SHAW","f":"2011-12-21","x":0.0397},{"t":"MOS","f":"2012-01-04","x":-0.0861},{"t":"AMRN","f":"2012-02-29","x":0.3824},{"t":"DXCM","f":"2012-05-02","x":0.1157},{"t":"CRK","f":"2012-05-04","x":-0.0398},{"t":"PPC","f":"2012-07-27","x":-0.0509},{"t":"WNC","f":"2012-08-02","x":0.1445},{"t":"BZH","f":"2012-08-03","x":0.3942},{"t":"SRPT","f":"2012-11-07","x":0.159},{"t":"BYD","f":"2012-11-08","x":0.3},{"t":"MNST","f":"2012-11-09","x":-0.0365},{"t":"HLF","f":"2013-02-19","x":0.2474},{"t":"HALO","f":"2013-03-01","x":0.208},{"t":"CRUS","f":"2013-05-29","x":0.2315},{"t":"VNDA","f":"2013-11-08","x":0.6762},{"t":"SUPN","f":"2013-11-13","x":0.2103},{"t":"NUS","f":"2014-03-18","x":0.0194},{"t":"BBY","f":"2014-03-28","x":0.1295},{"t":"ALNY","f":"2014-05-09","x":0.0399},{"t":"MELI","f":"2014-05-09","x":0.236},{"t":"PBYI","f":"2014-05-12","x":2.506},{"t":"VEEV","f":"2014-06-06","x":0.3578},{"t":"RGR","f":"2014-10-29","x":-0.0328},{"t":"RNG","f":"2014-11-03","x":0.1054},{"t":"EXEL","f":"2014-11-04","x":0.1056},{"t":"GERN","f":"2014-11-05","x":0.24},{"t":"CDE","f":"2014-11-05","x":0.9195},{"t":"HALO","f":"2014-11-10","x":0.5104},{"t":"AAOI","f":"2014-11-12","x":-0.1752},{"t":"ARWR","f":"2014-11-25","x":0.3117},{"t":"HP","f":"2015-02-06","x":0.1082},{"t":"VNOM","f":"2015-02-20","x":0.0303},{"t":"REI","f":"2015-03-16","x":0.3423},{"t":"VNDA","f":"2015-05-07","x":0.2356},{"t":"AKBA","f":"2015-05-11","x":0.2161},{"t":"NHTC","f":"2015-07-28","x":0.1398},{"t":"RYAM","f":"2015-10-29","x":-0.2473},{"t":"CDE","f":"2015-11-02","x":-0.1521},{"t":"CENX","f":"2015-11-04","x":0.0843},{"t":"SRPT","f":"2015-11-05","x":-0.4203},{"t":"CORT","f":"2015-11-06","x":-0.1357},{"t":"DECK","f":"2015-11-09","x":0.0174},{"t":"HOV","f":"2015-12-18","x":-0.1586},{"t":"RGLD","f":"2016-02-04","x":0.5656},{"t":"MBUU","f":"2016-02-04","x":-0.0922},{"t":"BZH","f":"2016-02-04","x":-0.0146},{"t":"CNX","f":"2016-02-05","x":0.5181},{"t":"KMT","f":"2016-02-08","x":0.1393},{"t":"NBIX","f":"2016-02-11","x":0.079},{"t":"VRNS","f":"2016-02-12","x":0.2334},{"t":"VNDA","f":"2016-02-12","x":-0.076},{"t":"ZG","f":"2016-02-12","x":0.3912},{"t":"COLL","f":"2016-03-18","x":-0.1491},{"t":"FCX","f":"2016-05-10","x":0.0802},{"t":"TREE","f":"2016-05-10","x":0.5021},{"t":"MU","f":"2016-07-06","x":0.4884},{"t":"GTN","f":"2016-08-04","x":-0.2398},{"t":"LXU","f":"2016-08-08","x":-0.4638},{"t":"PCRX","f":"2016-11-02","x":0.0617},{"t":"RIG","f":"2016-11-02","x":0.3208},{"t":"CXW","f":"2016-11-03","x":1.0178},{"t":"GNK","f":"2016-11-04","x":0.5648},{"t":"ACAD","f":"2016-11-07","x":0.3347},{"t":"IONS","f":"2016-11-09","x":0.1035},{"t":"LXU","f":"2017-02-27","x":-0.1849},{"t":"SRPT","f":"2017-02-28","x":-0.053},{"t":"PBYI","f":"2017-05-10","x":1.5475},{"t":"LULU","f":"2017-06-01","x":0.0415},{"t":"BOOT","f":"2017-06-07","x":0.3175},{"t":"GPRO","f":"2017-08-04","x":-0.0737},{"t":"DXCM","f":"2017-11-01","x":0.1196},{"t":"CECO","f":"2017-11-02","x":-0.5729},{"t":"RARE","f":"2017-11-03","x":-0.0599},{"t":"OFG","f":"2017-11-08","x":0.3272},{"t":"OSIS","f":"2018-02-06","x":0.1629},{"t":"CHRS","f":"2018-03-08","x":0.3896},{"t":"OLED","f":"2018-05-03","x":-0.0799},{"t":"ALNY","f":"2018-05-04","x":-0.1158},{"t":"UCTT","f":"2018-05-09","x":-0.2643},{"t":"GERN","f":"2018-07-31","x":-0.5229},{"t":"AMRN","f":"2018-08-01","x":6.5914},{"t":"UNM","f":"2018-10-25","x":-0.0009},{"t":"VICR","f":"2018-10-26","x":0.297},{"t":"HUN","f":"2018-10-30","x":0.0182},{"t":"AMD","f":"2018-10-31","x":0.1579},{"t":"SEDG","f":"2018-11-02","x":0.1614},{"t":"KURA","f":"2018-11-05","x":0.3728},{"t":"FLNT","f":"2018-11-08","x":0.3584},{"t":"HRI","f":"2018-11-08","x":0.0428},{"t":"LGND","f":"2018-11-08","x":-0.2435},{"t":"COLL","f":"2018-11-08","x":-0.0042},{"t":"EXTR","f":"2019-01-30","x":-0.1811},{"t":"SKY","f":"2019-02-06","x":0.0027},{"t":"PTEN","f":"2019-02-13","x":-0.1097},{"t":"SM","f":"2019-02-21","x":-0.2186},{"t":"NVDA","f":"2019-02-21","x":-0.0888},{"t":"ARLO","f":"2019-02-22","x":-0.0428},{"t":"GTE","f":"2019-02-27","x":-0.1377},{"t":"MDGL","f":"2019-02-27","x":-0.296},{"t":"URGN","f":"2019-02-28","x":-0.097},{"t":"PBYI","f":"2019-03-01","x":-0.6153},{"t":"RH","f":"2019-06-13","x":0.4719},{"t":"MU","f":"2019-06-26","x":0.2737},{"t":"STAA","f":"2019-07-31","x":-0.2337},{"t":"SSTI","f":"2019-08-06","x":-0.4246},{"t":"IRMD","f":"2019-08-07","x":0.0724},{"t":"MRNA","f":"2019-08-08","x":0.2512},{"t":"VERI","f":"2019-08-08","x":-0.5339},{"t":"AEO","f":"2019-09-05","x":-0.0995},{"t":"OLLI","f":"2019-09-06","x":-0.0832},{"t":"INSM","f":"2019-10-30","x":0.0679},{"t":"SXC","f":"2019-11-05","x":-0.0133},{"t":"VKTX","f":"2019-11-05","x":-0.1897},{"t":"PAYS","f":"2019-11-06","x":-0.334},{"t":"PCG","f":"2019-11-07","x":1.7203},{"t":"SRPT","f":"2019-11-07","x":0.1776},{"t":"IIPR","f":"2019-11-07","x":0.046},{"t":"KALA","f":"2019-11-07","x":0.5852},{"t":"SIG","f":"2019-12-05","x":0.3043},{"t":"DFIN","f":"2020-02-26","x":-0.0133},{"t":"UPWK","f":"2020-03-02","x":0.4912},{"t":"APT","f":"2020-03-10","x":0.0455},{"t":"PTGX","f":"2020-03-10","x":1.0683},{"t":"AQST","f":"2020-03-11","x":1.4151},{"t":"BXC","f":"2020-03-11","x":0.4775},{"t":"MCRI","f":"2020-03-12","x":0.6025},{"t":"ADMA","f":"2020-03-13","x":0.1736},{"t":"FLGT","f":"2020-03-13","x":0.6571},{"t":"SSTI","f":"2020-03-13","x":-0.3944},{"t":"DLTH","f":"2020-06-05","x":0.4744},{"t":"M","f":"2020-07-02","x":-0.2386},{"t":"CULP","f":"2020-07-17","x":0.2871},{"t":"FCFS","f":"2020-07-27","x":-0.1233},{"t":"VNOM","f":"2020-08-05","x":-0.3135},{"t":"GNW","f":"2020-08-05","x":0.8491},{"t":"RCUS","f":"2020-08-06","x":-0.0892},{"t":"HAL","f":"2020-10-23","x":0.3462},{"t":"NOV","f":"2020-10-27","x":0.3371},{"t":"VLO","f":"2020-10-28","x":0.4534},{"t":"TAP","f":"2020-10-29","x":0.5079},{"t":"HGV","f":"2020-10-29","x":0.2905},{"t":"LBRT","f":"2020-10-30","x":0.6709},{"t":"AA","f":"2020-10-30","x":0.2705},{"t":"HWC","f":"2020-11-05","x":0.4673},{"t":"LNC","f":"2020-11-05","x":0.2714},{"t":"HII","f":"2020-11-05","x":-0.0259},{"t":"PBF","f":"2021-02-18","x":0.1831},{"t":"HRMY","f":"2021-03-25","x":-0.0618},{"t":"FUTU","f":"2021-03-26","x":0.3887},{"t":"NRIX","f":"2021-04-13","x":-0.2875},{"t":"XPEV","f":"2021-04-16","x":0.2001},{"t":"ANVS","f":"2021-05-06","x":0.6215},{"t":"PACB","f":"2021-05-06","x":0.357},{"t":"ACMR","f":"2021-05-07","x":0.3034},{"t":"MP","f":"2021-05-13","x":0.4585},{"t":"PI","f":"2021-07-28","x":0.222},{"t":"PBF","f":"2021-08-04","x":0.5878},{"t":"VERI","f":"2021-08-05","x":0.376},{"t":"MIRM","f":"2021-08-05","x":0.0462},{"t":"AXSM","f":"2021-08-09","x":0.7607},{"t":"MARA","f":"2021-08-13","x":0.6276},{"t":"SOFI","f":"2021-08-16","x":0.6109},{"t":"LOVE","f":"2021-09-09","x":0.1681},{"t":"BTU","f":"2021-11-05","x":0.0763},{"t":"VERU","f":"2021-12-02","x":-0.1506},{"t":"UEC","f":"2021-12-15","x":0.2005},{"t":"AEHR","f":"2022-01-14","x":-0.2631},{"t":"OIS","f":"2022-02-22","x":0.4867},{"t":"TPL","f":"2022-02-23","x":0.4262},{"t":"MNKD","f":"2022-02-24","x":0.7514},{"t":"AXSM","f":"2022-03-01","x":-0.151},{"t":"SRG","f":"2022-03-16","x":-0.3163},{"t":"BIDU","f":"2022-03-28","x":0.1968},{"t":"PDD","f":"2022-04-25","x":0.6518},{"t":"YALA","f":"2022-04-25","x":0.2669},{"t":"HTHT","f":"2022-04-27","x":0.3701},{"t":"TCOM","f":"2022-04-27","x":0.2496},{"t":"DECK","f":"2022-05-27","x":0.2101},{"t":"HRI","f":"2022-07-21","x":0.133},{"t":"RYAAY","f":"2022-07-25","x":-0.1076},{"t":"DXCM","f":"2022-07-28","x":0.3075},{"t":"OII","f":"2022-07-29","x":0.4208},{"t":"RCL","f":"2022-07-29","x":0.5474},{"t":"REPL","f":"2022-08-04","x":0.0305},{"t":"BTU","f":"2022-08-04","x":0.3342},{"t":"EGY","f":"2022-08-10","x":0.0579},{"t":"M","f":"2022-08-26","x":0.3059},{"t":"HOV","f":"2022-09-06","x":0.1686},{"t":"MNSO","f":"2022-10-19","x":1.7748},{"t":"HIW","f":"2022-10-25","x":0.0024},{"t":"ULCC","f":"2022-10-26","x":-0.0155},{"t":"THC","f":"2022-10-28","x":0.1471},{"t":"LSCC","f":"2022-11-01","x":0.4193},{"t":"CRSP","f":"2022-11-01","x":-0.1562},{"t":"UVE","f":"2022-11-02","x":0.1907},{"t":"BKD","f":"2022-11-08","x":-0.5111},{"t":"WDAY","f":"2022-11-29","x":0.1282},{"t":"GTLB","f":"2022-12-06","x":0.1885},{"t":"EBS","f":"2023-03-01","x":-0.3321},{"t":"IBRX","f":"2023-03-01","x":0.3003},{"t":"RIOT","f":"2023-03-02","x":0.9098},{"t":"VERA","f":"2023-03-28","x":1.211},{"t":"CCL","f":"2023-03-29","x":0.5159},{"t":"IRON","f":"2023-03-31","x":1.1227},{"t":"LI","f":"2023-04-21","x":0.5339},{"t":"TSLA","f":"2023-04-24","x":0.5504},{"t":"VRNS","f":"2023-05-02","x":0.2663},{"t":"VICR","f":"2023-05-03","x":0.9859},{"t":"GTLB","f":"2023-06-06","x":0.0176},{"t":"LOVE","f":"2023-06-09","x":-0.0209},{"t":"ROOT","f":"2023-08-02","x":-0.139},{"t":"TGTX","f":"2023-08-04","x":0.0448},{"t":"MDGL","f":"2023-08-08","x":-0.1026},{"t":"AMSC","f":"2023-08-09","x":-0.1442},{"t":"S","f":"2023-08-31","x":0.0941},{"t":"ARR","f":"2023-10-25","x":0.2997},{"t":"CFR","f":"2023-10-26","x":0.011},{"t":"RMD","f":"2023-10-27","x":0.1952},{"t":"NWL","f":"2023-10-27","x":0.0715},{"t":"DYN","f":"2023-10-30","x":1.6683},{"t":"FSLR","f":"2023-10-31","x":-0.1228},{"t":"HIMS","f":"2023-11-06","x":0.0963},{"t":"CHRS","f":"2023-11-06","x":-0.3141},{"t":"AXGN","f":"2023-11-07","x":0.6694},{"t":"PHR","f":"2023-12-06","x":0.2826},{"t":"TGTX","f":"2024-02-29","x":-0.0818},{"t":"GPCR","f":"2024-03-08","x":0.4611},{"t":"ZIM","f":"2024-03-13","x":0.7278},{"t":"VNET","f":"2024-04-26","x":0.1968},{"t":"PTON","f":"2024-05-02","x":-0.0961},{"t":"RKLB","f":"2024-05-06","x":0.1701},{"t":"GH","f":"2024-05-09","x":0.331},{"t":"NVAX","f":"2024-05-10","x":0.2932},{"t":"ASTS","f":"2024-05-15","x":4.132},{"t":"RELY","f":"2024-07-31","x":0.0392},{"t":"ACMR","f":"2024-08-07","x":-0.1449},{"t":"SRRK","f":"2024-08-08","x":2.5095},{"t":"CGEM","f":"2024-08-08","x":-0.1111},{"t":"TARS","f":"2024-08-08","x":0.6217},{"t":"TALK","f":"2024-08-08","x":0.814},{"t":"SLDB","f":"2024-08-13","x":-0.4412},{"t":"TEAM","f":"2024-08-16","x":0.447},{"t":"LULU","f":"2024-08-29","x":0.1636},{"t":"ROOT","f":"2024-10-30","x":0.2712},{"t":"GOGO","f":"2024-11-05","x":-0.0016},{"t":"HRTX","f":"2024-11-12","x":0.2801},{"t":"LXRX","f":"2024-11-13","x":-0.3748},{"t":"SGMT","f":"2024-11-14","x":-0.1419},{"t":"ENTA","f":"2024-11-27","x":-0.0342},{"t":"CROX","f":"2025-02-13","x":0.108},{"t":"TSHA","f":"2025-02-26","x":0.6107},{"t":"STRL","f":"2025-02-26","x":0.5697},{"t":"VERA","f":"2025-02-28","x":0.0988},{"t":"CELH","f":"2025-03-03","x":0.4405},{"t":"SPIR","f":"2025-03-03","x":0.0118},{"t":"RGTI","f":"2025-03-07","x":0.3581},{"t":"URGN","f":"2025-03-10","x":-0.4332},{"t":"CRDO","f":"2025-03-10","x":0.5576},{"t":"SIG","f":"2025-03-19","x":0.3946},{"t":"ACHV","f":"2025-08-07","x":0.7928},{"t":"GKOS","f":"2025-10-31","x":0.3314},{"t":"KVUE","f":"2025-11-03","x":0.0691},{"t":"KROS","f":"2025-11-05","x":0.0895},{"t":"GRND","f":"2025-11-06","x":-0.3555},{"t":"MP","f":"2025-11-07","x":-0.0429},{"t":"OMER","f":"2025-11-13","x":0.4367}]},"live":{"n":12,"mean":-0.2185,"ci":[-0.3701666666666667,-0.055322916666666826],"wins":2,"trades":[{"t":"REPL","f":"2026-02-03","x_date":"2026-05-04","x":-0.634},{"t":"DT","f":"2026-02-09","x_date":"2026-05-11","x":0.044000000000000004},{"t":"INTU","f":"2026-02-26","x_date":"2026-05-28","x":-0.335},{"t":"RCKT","f":"2026-02-26","x_date":"2026-05-28","x":-0.5},{"t":"FMC","f":"2026-02-27","x_date":"2026-05-28","x":-0.17800000000000002},{"t":"WIX","f":"2026-03-05","x_date":"2026-06-04","x":-0.557},{"t":"IMRX","f":"2026-03-06","x_date":"2026-06-04","x":-0.289},{"t":"VRDN","f":"2026-05-05","x_date":"2026-08-03","x":-0.02},{"t":"ZG","f":"2026-05-06","x_date":"2026-08-05","x":-0.217},{"t":"ALDX","f":"2026-05-07","x_date":"2026-08-06","x":-0.126},{"t":"OMEX","f":"2026-05-12","x_date":"2026-08-11","x":-0.25},{"t":"GWRE","f":"2026-06-05","x_date":"2026-09-03","x":0.44}]},"worstRun":-0.16933333333333334,"otherRules":[{"name":"Upside \u00d7 drawdown","mean":-0.1344705882352941,"n":34},{"name":"Blend of four outputs","mean":-0.019642857142857146,"n":28}],"byYear":[{"year":2011,"n":78,"months":3,"ic":0.27757219116683435,"lo":0.11699893279050085,"hi":0.36487012708882993,"hs":0.16666666666666666,"hslo":0.07142857142857142,"hshi":0.23839285714285685},{"year":2012,"n":125,"months":5,"ic":0.03324243551469922,"lo":-0.24786674061901506,"hi":0.28278830888102113,"hs":0.17777777777777778,"hslo":0.0,"hshi":0.3171167247386759},{"year":2013,"n":81,"months":4,"ic":0.529809049553896,"lo":0.3452645095574283,"hi":0.7480185662965971,"hs":0.5,"hslo":0.21321428571428572,"hshi":0.7146205357142856},{"year":2014,"n":186,"months":6,"ic":-0.04083735524867974,"lo":-0.31804615439926415,"hi":0.23948965035517925,"hs":-0.059113300492610876,"hslo":-0.1355944311536417,"hshi":0.055637254901960705},{"year":2015,"n":306,"months":9,"ic":0.14187473430412514,"lo":0.0410795580893931,"hi":0.24117267489470157,"hs":0.1562940016896649,"hslo":0.020715841976375687,"hshi":0.3256236786469344},{"year":2016,"n":440,"months":7,"ic":0.11326462325327588,"lo":0.027717120426664316,"hi":0.20172788108959835,"hs":0.11361161524500907,"hslo":-0.02935579511258296,"hshi":0.2935816649104318},{"year":2017,"n":195,"months":8,"ic":0.1868223561377931,"lo":0.07843633226159624,"hi":0.28234242495916106,"hs":0.060130718954248374,"hslo":-0.019499999999999997,"hshi":0.1852067183462532},{"year":2018,"n":343,"months":8,"ic":0.14281979880957785,"lo":0.05886589817026027,"hi":0.25180875353141013,"hs":-0.03539253539253537,"hslo":-0.09526455026455026,"hshi":0.01667656406825024},{"year":2019,"n":505,"months":11,"ic":0.09917910717668564,"lo":-0.055873205805807,"hi":0.23140316218238025,"hs":0.08843537414965985,"hslo":-0.02998744819565253,"hshi":0.19711268356412254},{"year":2020,"n":1129,"months":9,"ic":0.18214596210137962,"lo":0.05887425533488755,"hi":0.2903128774265933,"hs":0.1688043976179569,"hslo":0.09525722893515655,"hshi":0.29646154538610076},{"year":2021,"n":802,"months":11,"ic":0.2156215957758633,"lo":0.051260456658703664,"hi":0.3979444173221164,"hs":0.15711054464510105,"hslo":0.08038671913730872,"hshi":0.24669456803682185},{"year":2022,"n":1862,"months":12,"ic":0.23086356297026098,"lo":0.11055360201081067,"hi":0.3400656178079008,"hs":0.23201209569831904,"hslo":0.11487479670624644,"hshi":0.3144899938488304},{"year":2023,"n":1191,"months":11,"ic":0.276466104822182,"lo":0.2179086454566466,"hi":0.3332810591909896,"hs":0.24506125151749253,"hslo":0.08450794116923666,"hshi":0.33875005111695256},{"year":2024,"n":977,"months":11,"ic":0.3087667681298703,"lo":0.19526732174285413,"hi":0.40771194426823726,"hs":0.19718665555471376,"hslo":0.11267528246401484,"hshi":0.26499303268240043},{"year":2025,"n":1583,"months":12,"ic":0.1877128442711928,"lo":0.04752465655734694,"hi":0.3282298242018989,"hs":0.08852433794257361,"hslo":0.026991833030853018,"hshi":0.1319062678815527},{"year":2026,"n":985,"months":6,"ic":0.28198072672298063,"lo":0.15347587747652908,"hi":0.4427326717481784,"hs":0.03284150404569253,"hslo":-0.08166833166833168,"hshi":0.185704054241572}],"periods":{"live":{"ic":0.28198072672298063},"fwd":{"base":0.20903436320995208}},"periodRows":[{"name":"2009\u201318 holdout","n":1758,"ic":0.1516000605777306,"auc":0.6045153791130186,"top":0.2676767676767677,"base":0.20477815699658702},{"name":"2019\u201320 discovery","n":1634,"ic":0.13651419189279795,"auc":0.6186479245812986,"top":0.3812316715542522,"base":0.3017135862913097},{"name":"2021\u201325 holdout","n":6415,"ic":0.24267221127902666,"auc":0.6340685622322063,"top":0.29283018867924526,"base":0.18659392049883086},{"name":"2026 live","n":985,"ic":0.28198072672298063,"auc":0.5140863356053229,"top":0.21465968586387435,"base":0.19796954314720813}],"calRows":[{"name":"2009\u201318","fc":0.13301418439716312,"obs":0.20954223081882656,"bss":0.013827575903352263,"bssR":0.029244236583820804},{"name":"2019\u201320","fc":0.16154834761321912,"obs":0.3017135862913097,"bss":-0.0006326264464653342,"bssR":0.05461618646291044},{"name":"2021\u201325","fc":0.11947622759158223,"obs":0.18659392049883086,"bss":0.02311609164997841,"bssR":0.0534048456599624},{"name":"2026","fc":0.10948223350253808,"obs":0.19796954314720813,"bss":-0.05603380654551482,"bssR":-0.01907737306811641}],"reliability":{"hist":[{"forecast":0.06132008154943935,"observed":0.1162079510703364,"n":981,"ci":[0.09763363834695067,0.13777640119646423]},{"forecast":0.08094291539245667,"observed":0.14271151885830785,"n":981,"ci":[0.12221509706690832,0.1659953115917024]},{"forecast":0.09308358817533129,"observed":0.14475025484199797,"n":981,"ci":[0.12411733219487482,0.1681546433187509]},{"forecast":0.10105504587155965,"observed":0.15086646279306828,"n":981,"ci":[0.12983278972919812,0.17462388634947276]},{"forecast":0.10909276248725794,"observed":0.1671763506625892,"n":981,"ci":[0.14513413056783436,0.19181508035095707]},{"forecast":0.11801732925586139,"observed":0.20489296636085627,"n":981,"ci":[0.18080920222998095,0.23127899550658906]},{"forecast":0.12908766564729865,"observed":0.2069317023445464,"n":981,"ci":[0.18274783627647773,0.23340192831510737]},{"forecast":0.14485714285714288,"observed":0.24387755102040817,"n":980,"ci":[0.21802561586960015,0.2717296455464653]},{"forecast":0.18269387755102043,"observed":0.3010204081632653,"n":980,"ci":[0.27312369860892793,0.3304710263955851]},{"forecast":0.273015306122449,"observed":0.4122448979591837,"n":980,"ci":[0.3818268503837343,0.4433482591054356]}],"live":[{"forecast":0.054242424242424245,"observed":0.13131313131313133,"n":99,"ci":[0.07837166925941867,0.2117988453961293]},{"forecast":0.07217171717171716,"observed":0.21212121212121213,"n":99,"ci":[0.14313429916193274,0.302615280774591]},{"forecast":0.08499999999999999,"observed":0.25252525252525254,"n":99,"ci":[0.17729258424187705,0.34624652833513464]},{"forecast":0.09676767676767677,"observed":0.20202020202020202,"n":99,"ci":[0.13475627715378938,0.29154591962261234]},{"forecast":0.10277777777777777,"observed":0.18181818181818182,"n":99,"ci":[0.11821769885745204,0.2691897315987058]},{"forecast":0.11224489795918367,"observed":0.17346938775510204,"n":98,"ci":[0.11122039941721075,0.26035271019614964]},{"forecast":0.12061224489795919,"observed":0.15306122448979592,"n":98,"ci":[0.0950059903962593,0.23729043856793613]},{"forecast":0.13035714285714284,"observed":0.25510204081632654,"n":98,"ci":[0.17917341706740808,0.34950641514261227]},{"forecast":0.14295918367346938,"observed":0.25510204081632654,"n":98,"ci":[0.17917341706740808,0.34950641514261227]},{"forecast":0.17908163265306126,"observed":0.16326530612244897,"n":98,"ci":[0.10306715625004181,0.24886761303873606]}]},"incremental":{"icLLM":0.29951187338670854,"icMech":0.13267720296631239,"irLLM":0.5912383335163287,"irMech":-0.13256174641100235},"redaction":{"packs":10875,"anyId":0.914,"name":0.6062,"address":0.8528},"probe":{"idRate":0.528,"recallN":11,"recallRight":3,"rows":[{"company":"Advanced Micro Devices","filed":"2013-02-21","excess":0.44227902881800696,"guess":"Advanced Micro Devices","recall":"underperform"},{"company":"Best Buy","filed":"2012-12-05","excess":0.4422468032165321,"guess":"Best Buy","recall":"underperform"},{"company":"Wynn Resorts","filed":"2018-11-07","excess":0.359118679930289,"guess":"Wynn Resorts","recall":"underperform"},{"company":"Amarin","filed":"2012-02-29","excess":0.3823688691911613,"guess":"Amarin Corporation","recall":"no_memory"},{"company":"Cliffs Natural Resources","filed":"2013-02-12","excess":-0.32580828950459173,"guess":"Cliffs Natural Resources","recall":"underperform"},{"company":"Rambus","filed":"2011-08-05","excess":0.4984456157550168,"guess":"Nvidia Corporation","recall":"no_memory"},{"company":"Porch Group","filed":"2022-03-16","excess":-0.5221025815538033,"guess":"Angi Inc.","recall":"underperform"},{"company":"Iridium (2026 control)","filed":"2026-02-12","excess":0.8436295097366218,"guess":"Iridium Communications","recall":"no_memory"}]}}</script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById("data").textContent);
+  const NS = "http://www.w3.org/2000/svg";
+  const pct = (x, d = 0, s = false) => (s && x > 0 ? "+" : x < 0 ? "−" : "") + Math.abs(x * 100).toFixed(d) + "%";
+  const fmt2 = (x) => (x < 0 ? "−" : "") + Math.abs(x).toFixed(2);
+
+  // ---- fill text slots
+  const K = {
+    packs: D.redaction.packs.toLocaleString("en-US"), anyIdPct: pct(D.redaction.anyId), anyIdPct2: pct(D.redaction.anyId),
+    namePct: pct(D.redaction.name), addrPct: pct(D.redaction.address),
+    ir: D.metrics.ir.toFixed(1), liveMean: pct(D.live.mean, 1, true), liveMean2: pct(D.live.mean, 1, true),
+    liveN: D.live.n, liveWin: `${D.live.wins} of ${D.live.n}`, liveIC: D.periods.live.ic.toFixed(2),
+    probeId: pct(D.probe.idRate), probeId2: pct(D.probe.idRate), probeRecall: `${D.probe.recallRight} of ${D.probe.recallN}`,
+    baseRate: pct(D.periods.fwd.base), worstRun: pct(D.worstRun, 1, true),
+    icLLM: D.incremental.icLLM.toFixed(2), icMech: D.incremental.icMech.toFixed(2),
+    irLLM: fmt2(D.incremental.irLLM), irMech: fmt2(D.incremental.irMech),
+    otherRules: D.otherRules.map(r => `${r.name}: ${pct(r.mean, 1, true)} over ${r.n} trades.`).join(" "),
+  };
+  document.querySelectorAll("[data-k]").forEach(el => { if (K[el.dataset.k] !== undefined) el.textContent = K[el.dataset.k]; });
+
+  // ---- tables
+  const row = (cells) => "<tr>" + cells.map(([v, r]) => `<td${r ? ' class="r"' : ""}>${v}</td>`).join("") + "</tr>";
+  document.querySelector("#t-live tbody").innerHTML = D.live.trades.map(t => row([[t.t], [t.f], [t.x_date], [pct(t.x, 1, true), 1]])).join("");
+  document.getElementById("t-periods").innerHTML = D.periodRows.map(p => row([[p.name], [p.n.toLocaleString("en-US"), 1], [p.ic.toFixed(2), 1], [p.auc.toFixed(2), 1], [pct(p.top), 1], [pct(p.base), 1]])).join("");
+  document.getElementById("t-cal").innerHTML = D.calRows.map(p => row([[p.name], [pct(p.fc, 1), 1], [pct(p.obs, 1), 1], [(p.bss >= 0 ? "+" : "−") + Math.abs(p.bss).toFixed(3), 1], [(p.bssR >= 0 ? "+" : "−") + Math.abs(p.bssR).toFixed(3), 1]])).join("");
+  const recallLabel = { strong_outperform: "strong outperform", outperform: "outperform", underperform: "underperform", strong_underperform: "strong underperform", no_memory: "no memory" };
+  document.getElementById("t-probe").innerHTML = D.probe.rows.map(r => row([[r.company], [r.filed], [pct(r.excess, 0, true), 1], [r.guess || "—"], [recallLabel[r.recall] || r.recall]])).join("");
+
+  // ---- chart kit
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  function el(tag, attrs, parent) {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function lin(d0, d1, r0, r1) { const f = (v) => r0 + (v - d0) / (d1 - d0) * (r1 - r0); f.inv = (p) => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+  function tipFor(box) {
+    let t = box.querySelector(".tip");
+    if (!t) { t = document.createElement("div"); t.className = "tip"; t.setAttribute("role", "status"); box.appendChild(t); }
+    return {
+      show(html, x, y) { t.innerHTML = html; t.style.left = x + "px"; t.style.top = y + "px"; t.classList.add("on"); },
+      hide() { t.classList.remove("on"); },
+    };
+  }
+  function frame(box, height, m) {
+    box.querySelectorAll("svg").forEach(s => s.remove());
+    const w = Math.max(280, box.clientWidth);
+    const svg = el("svg", { viewBox: `0 0 ${w} ${height}`, width: w, height, role: "img" });
+    box.insertBefore(svg, box.firstChild);
+    return { svg, w, h: height, x0: m.l, x1: w - m.r, y0: height - m.b, y1: m.t };
+  }
+  function text(svg, x, y, s, o = {}) {
+    const t = el("text", { x, y, fill: o.fill || css("--muted"), "font-size": o.size || 11.5, "text-anchor": o.anchor || "start", "dominant-baseline": o.base || "auto", "font-weight": o.weight || 400 }, svg);
+    t.textContent = s; return t;
+  }
+  function hgrid(f, ticks, y, fmt) {
+    ticks.forEach(v => {
+      el("line", { x1: f.x0, x2: f.x1, y1: y(v), y2: y(v), stroke: css("--grid"), "stroke-width": 1 }, f.svg);
+      text(f.svg, f.x0 - 8, y(v), fmt(v), { anchor: "end", base: "middle" });
+    });
+  }
+
+  // ---- Exhibit B: equity curve (log scale)
+  function equity() {
+    const box = document.getElementById("c-equity");
+    const narrow = box.clientWidth < 560;
+    const f = frame(box, narrow ? 260 : 330, { l: 44, r: narrow ? 44 : 56, t: 12, b: 28 });
+    const S = D.equity, t0 = Date.parse(S[0].d), t1 = Date.parse(S[S.length - 1].d);
+    const x = lin(t0, t1, f.x0, f.x1);
+    const ly = lin(Math.log10(0.8), Math.log10(1000), f.y0, f.y1), y = (v) => ly(Math.log10(v));
+    hgrid(f, [1, 10, 100, 1000], y, v => v + "×");
+    for (let yr = 2010; yr <= 2026; yr += narrow ? 4 : 2) text(f.svg, x(Date.parse(yr + "-01-01")), f.y0 + 18, yr, { anchor: "middle" });
+    el("line", { x1: f.x0, x2: f.x1, y1: f.y0, y2: f.y0, stroke: css("--axis") }, f.svg);
+    const path = (k) => S.map((p, i) => (i ? "L" : "M") + x(Date.parse(p.d)).toFixed(1) + "," + y(p[k]).toFixed(1)).join("");
+    el("path", { d: path("spy"), fill: "none", stroke: css("--muted"), "stroke-width": 2, "stroke-linejoin": "round" }, f.svg);
+    el("path", { d: path("nav"), fill: "none", stroke: css("--blue"), "stroke-width": 2, "stroke-linejoin": "round" }, f.svg);
+    const last = S[S.length - 1];
+    [["nav", css("--blue"), Math.floor(last.nav) + "×"], ["spy", css("--muted"), last.spy.toFixed(0) + "×"]].forEach(([k, c, lab]) => {
+      el("circle", { cx: x(t1), cy: y(last[k]), r: 4, fill: c, stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+      text(f.svg, x(t1) + 8, y(last[k]), lab, { base: "middle", fill: css("--ink"), weight: 600, size: 12 });
+    });
+    const cross = el("line", { y1: f.y1, y2: f.y0, stroke: css("--axis"), "stroke-width": 1, opacity: 0 }, f.svg);
+    const dots = ["nav", "spy"].map(k => el("circle", { r: 4.5, fill: k === "nav" ? css("--blue") : css("--muted"), stroke: css("--paper"), "stroke-width": 2, opacity: 0 }, f.svg));
+    const tip = tipFor(box);
+    const hit = el("rect", { x: f.x0, y: f.y1, width: f.x1 - f.x0, height: f.y0 - f.y1, fill: "transparent" }, f.svg);
+    const move = (ev) => {
+      const r = f.svg.getBoundingClientRect(), px = (ev.clientX - r.left) * (f.w / r.width);
+      const tt = x.inv(px); let i = 0, best = Infinity;
+      S.forEach((p, j) => { const d = Math.abs(Date.parse(p.d) - tt); if (d < best) { best = d; i = j; } });
+      const p = S[i], cx = x(Date.parse(p.d));
+      cross.setAttribute("x1", cx); cross.setAttribute("x2", cx); cross.setAttribute("opacity", 1);
+      dots[0].setAttribute("cx", cx); dots[0].setAttribute("cy", y(p.nav)); dots[0].setAttribute("opacity", 1);
+      dots[1].setAttribute("cx", cx); dots[1].setAttribute("cy", y(p.spy)); dots[1].setAttribute("opacity", 1);
+      tip.show(`<b>${p.d}</b><br>Strategy ${p.nav.toFixed(p.nav < 10 ? 2 : 0)}× · SPY ${p.spy.toFixed(2)}×`, cx * r.width / f.w, y(p.nav) * r.height / f.h);
+    };
+    hit.addEventListener("pointermove", move);
+    hit.addEventListener("pointerleave", () => { tip.hide(); cross.setAttribute("opacity", 0); dots.forEach(d => d.setAttribute("opacity", 0)); });
+  }
+
+  // ---- Exhibit C: per-trade strip
+  function trades() {
+    const box = document.getElementById("c-trades");
+    const narrow = box.clientWidth < 560;
+    const f = frame(box, narrow ? 250 : 230, { l: narrow ? 8 : 128, r: 16, t: 16, b: 30 });
+    const x = lin(-1, 1.5, f.x0, f.x1);
+    const rows = [
+      { key: "back", label: "Backtest 2011–25", sub: D.backtest.n + " trades", pts: D.backtest.trades, c: css("--blue"), stat: D.backtest },
+      { key: "live", label: "Live 2026", sub: D.live.n + " trades", pts: D.live.trades, c: css("--orange"), stat: D.live },
+    ];
+    const band = (f.y0 - f.y1) / 2;
+    [-1, -0.5, 0, 0.5, 1, 1.5].forEach(v => {
+      el("line", { x1: x(v), x2: x(v), y1: f.y1, y2: f.y0, stroke: v === 0 ? css("--axis") : css("--grid"), "stroke-width": 1 }, f.svg);
+      text(f.svg, x(v), f.y0 + 18, (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v * 100) + "%", { anchor: "middle" });
+    });
+    const tip = tipFor(box);
+    rows.forEach((row, ri) => {
+      const cy = f.y1 + band * ri + band * 0.58;
+      if (narrow) text(f.svg, f.x0, f.y1 + band * ri + 2, row.label + " · " + row.sub, { fill: css("--ink-2"), base: "hanging", size: 11.5 });
+      else { text(f.svg, 0, cy - 7, row.label, { fill: css("--ink"), base: "middle", size: 12.5, weight: 500 }); text(f.svg, 0, cy + 9, row.sub, { base: "middle" }); }
+      let seed = 7 + ri * 101; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+      row.pts.forEach(p => {
+        const cx = x(Math.max(-1, Math.min(1.5, p.x))), jy = cy + (rnd() - 0.5) * band * (row.key === "back" ? 0.5 : 0.36);
+        const dot = el("circle", { cx, cy: jy, r: row.key === "back" ? 3.6 : 5, fill: row.c, "fill-opacity": row.key === "back" ? 0.55 : 0.95, stroke: css("--paper"), "stroke-width": 1.2 }, f.svg);
+        const hit = el("circle", { cx, cy: jy, r: 8, fill: "transparent" }, f.svg);
+        hit.addEventListener("pointerenter", () => {
+          const r = f.svg.getBoundingClientRect();
+          dot.setAttribute("stroke", css("--ink")); dot.setAttribute("stroke-width", 1.5);
+          tip.show(`<b>${p.t}</b> · filed ${p.f}<br>excess vs SPY ${pct(p.x, 1, true)}`, cx * r.width / f.w, jy * r.height / f.h);
+        });
+        hit.addEventListener("pointerleave", () => { tip.hide(); dot.setAttribute("stroke", css("--paper")); dot.setAttribute("stroke-width", 1.2); });
+      });
+      const my = cy - band * 0.38;
+      el("line", { x1: x(row.stat.ci[0]), x2: x(row.stat.ci[1]), y1: my, y2: my, stroke: css("--ink"), "stroke-width": 2, "stroke-linecap": "round" }, f.svg);
+      el("rect", { x: x(row.stat.mean) - 4.5, y: my - 4.5, width: 9, height: 9, transform: `rotate(45 ${x(row.stat.mean)} ${my})`, fill: css("--ink") }, f.svg);
+      text(f.svg, x(row.stat.ci[1]) + 8, my, "mean " + pct(row.stat.mean, 1, true), { base: "middle", fill: css("--ink"), weight: 600, size: 12 });
+    });
+  }
+
+  // ---- Exhibit D: dot + whisker by year
+  function byYear(id, key, lo, hi, fmt, ticks) {
+    const box = document.getElementById(id);
+    const narrow = box.clientWidth < 560;
+    const f = frame(box, narrow ? 180 : 200, { l: 44, r: 10, t: 10, b: 26 });
+    const Y = D.byYear, n = Y.length;
+    const xs = (i) => f.x0 + (i + 0.5) * (f.x1 - f.x0) / n;
+    const y = lin(ticks[0], ticks[ticks.length - 1], f.y0, f.y1);
+    hgrid(f, ticks, y, fmt);
+    el("line", { x1: f.x0, x2: f.x1, y1: y(0), y2: y(0), stroke: css("--axis") }, f.svg);
+    const tip = tipFor(box);
+    Y.forEach((r, i) => {
+      const c = r.year === 2026 ? css("--orange") : css("--blue"), cx = xs(i);
+      if (!narrow || i % 2 === 1 || r.year === 2026) text(f.svg, cx, f.y0 + 17, narrow ? "’" + String(r.year).slice(2) : r.year, { anchor: "middle", fill: r.year === 2026 ? css("--ink") : css("--muted"), weight: r.year === 2026 ? 600 : 400 });
+      el("line", { x1: cx, x2: cx, y1: y(Math.max(r[lo], ticks[0])), y2: y(Math.min(r[hi], ticks[ticks.length - 1])), stroke: c, "stroke-width": 2, "stroke-linecap": "round", "stroke-opacity": 0.45 }, f.svg);
+      el("circle", { cx, cy: y(r[key]), r: 4.5, fill: c, stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+      const hit = el("rect", { x: cx - (f.x1 - f.x0) / n / 2, y: f.y1, width: (f.x1 - f.x0) / n, height: f.y0 - f.y1, fill: "transparent" }, f.svg);
+      hit.addEventListener("pointerenter", () => {
+        const b = f.svg.getBoundingClientRect();
+        tip.show(`<b>${r.year}</b> · ${r.n.toLocaleString("en-US")} cases, ${r.months} months<br>${fmt(r[key])} [${fmt(r[lo])}, ${fmt(r[hi])}]`, cx * b.width / f.w, y(r[key]) * b.height / f.h);
+      });
+      hit.addEventListener("pointerleave", () => tip.hide());
+    });
+  }
+
+  // ---- Exhibit E: reliability diagram
+  function reliability() {
+    const box = document.getElementById("c-rel");
+    const w = Math.max(280, box.clientWidth);
+    const f = frame(box, Math.min(360, w * 0.92), { l: 44, r: 12, t: 10, b: 34 });
+    const x = lin(0, 0.45, f.x0, f.x1), y = lin(0, 0.45, f.y0, f.y1);
+    const ticks = [0, 0.1, 0.2, 0.3, 0.4];
+    hgrid(f, ticks, y, v => Math.round(v * 100) + "%");
+    ticks.forEach(v => text(f.svg, x(v), f.y0 + 17, Math.round(v * 100) + "%", { anchor: "middle" }));
+    text(f.svg, (f.x0 + f.x1) / 2, f.h - 2, "forecast P(+20 points)", { anchor: "middle", size: 11 });
+    el("line", { x1: x(0), y1: y(0), x2: x(0.45), y2: y(0.45), stroke: css("--muted"), "stroke-width": 1.5, "stroke-dasharray": "1 4", "stroke-linecap": "round" }, f.svg);
+    const tip = tipFor(box);
+    [["hist", css("--blue"), "2009–2025"], ["live", css("--orange"), "2026 live"]].forEach(([k, c, name]) => {
+      const pts = D.reliability[k];
+      el("path", { d: pts.map((p, i) => (i ? "L" : "M") + x(p.forecast).toFixed(1) + "," + y(p.observed).toFixed(1)).join(""), fill: "none", stroke: c, "stroke-width": 2, "stroke-linejoin": "round" }, f.svg);
+      pts.forEach(p => {
+        el("line", { x1: x(p.forecast), x2: x(p.forecast), y1: y(p.ci[0]), y2: y(Math.min(0.45, p.ci[1])), stroke: c, "stroke-width": 1.5, "stroke-opacity": 0.35 }, f.svg);
+        el("circle", { cx: x(p.forecast), cy: y(p.observed), r: 4, fill: c, stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+        const hit = el("circle", { cx: x(p.forecast), cy: y(p.observed), r: 9, fill: "transparent" }, f.svg);
+        hit.addEventListener("pointerenter", () => {
+          const b = f.svg.getBoundingClientRect();
+          tip.show(`<b>${name}</b> · ${p.n} cases<br>forecast ${pct(p.forecast, 1)} → observed ${pct(p.observed, 1)}`, x(p.forecast) * b.width / f.w, y(p.observed) * b.height / f.h);
+        });
+        hit.addEventListener("pointerleave", () => tip.hide());
+      });
+    });
+  }
+
+  function draw() {
+    equity(); trades(); reliability();
+    byYear("c-ic", "ic", "lo", "hi", (v) => (v < 0 ? "−" : "") + Math.abs(v).toFixed(2), [-0.2, 0, 0.2, 0.4, 0.6]);
+    byYear("c-spread", "hs", "hslo", "hshi", (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(Math.round(v * 100)) + "%", [-0.2, 0, 0.2, 0.4, 0.6]);
+  }
+  draw();
+  let raf = 0, lastW = document.documentElement.clientWidth;
+  const redraw = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); };
+  window.addEventListener("resize", () => { const w = document.documentElement.clientWidth; if (w !== lastW) { lastW = w; redraw(); } });
+  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", redraw);
+  new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>
+
+</html>
