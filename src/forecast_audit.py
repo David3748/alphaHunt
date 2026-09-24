@@ -253,7 +253,7 @@ def _style(ax, t):
     ax.set_axisbelow(True)
 
 
-def figures(yearly: pd.DataFrame, rel: dict, trades: dict, out_dir: Path) -> list[str]:
+def figures(yearly: pd.DataFrame, rel: dict, trades: dict, out_dir: Path, cutoff: dict | None = None) -> list[str]:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -353,6 +353,44 @@ def figures(yearly: pd.DataFrame, rel: dict, trades: dict, out_dir: Path) -> lis
         fig.savefig(path, bbox_inches="tight", transparent=True, metadata={"Date": None})
         plt.close(fig)
         written.append(str(path))
+
+        # 4. before/after-cutoff probe: AUC in vs after Haiku's training data, per scorer
+        if cutoff:
+            fig, ax = plt.subplots(figsize=(8, 3.0))
+            fig.patch.set_alpha(0)
+            _style(ax, t)
+            ax.grid(axis="y", visible=False)
+            ax.grid(axis="x", color=t["grid"], linewidth=0.8)
+            ax.axvline(0.5, color=t["axis"], linewidth=1)
+            ax.text(0.5, 2.62, "chance", ha="center", fontsize=8, color=t["muted"])
+            rows = [("Haiku reading the\nscrubbed filing", "haiku_p_outperform"),
+                    ("Backtest forecaster\n(Ox Alpha)", "ox_p20_backtest_forecaster"),
+                    ("Price features only\n(cannot remember)", "mechanical_walk_forward_model")]
+            for y, (label, key) in zip((2, 1, 0), rows):
+                a, z = cutoff["by_scorer"][key]["in_training"]["auc"], cutoff["by_scorer"][key]["after_training"]["auc"]
+                ax.annotate("", xy=(z + 0.012, y), xytext=(a - 0.012, y),
+                            arrowprops={"arrowstyle": "-|>", "color": t["muted"], "linewidth": 1.5})
+                ax.plot(a, y, "o", color=t["s1"], markersize=9, markeredgecolor=t["surface"], markeredgewidth=1.5)
+                ax.plot(z, y, "o", color=t["s2"], markersize=9, markeredgecolor=t["surface"], markeredgewidth=1.5)
+                ax.text(a, y + 0.22, f"{a:.2f}", fontsize=8.5, color=t["ink2"], ha="center")
+                ax.text(z, y + 0.22, f"{z:.2f}", fontsize=8.5, color=t["ink2"], ha="center")
+            ax.set_yticks([2, 1, 0])
+            ax.set_yticklabels([r[0] for r in rows], fontsize=8.5, color=t["ink2"])
+            ax.set_ylim(-0.55, 2.85)
+            ax.set_xlim(0.4, 0.8)
+            ax.set_xlabel("AUC, 90-day winners (beat SPY by 25+ pp) vs losers (trailed by 25+), 50 filings per period",
+                          fontsize=8.5)
+            dd = cutoff["difference_in_differences"]["haiku_vs_mechanical"]
+            ax.set_title(f"All three lose about as much skill across the cutoff (Haiku minus price model: {dd['point']:+.2f})",
+                         loc="left", fontsize=10.5, color=t["ink"], pad=22)
+            handles = [ax.plot([], [], "o", color=t["s1"], label="2023-24 filings: outcome in Haiku's training data")[0],
+                       ax.plot([], [], "o", color=t["s2"], label="Aug 2025 on: outcome after it")[0]]
+            ax.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.0, 1.0), frameon=False, fontsize=8.5,
+                      labelcolor=t["ink2"], ncol=2, borderaxespad=0.1)
+            path = out_dir / f"cutoff_probe-{mode}.svg"
+            fig.savefig(path, bbox_inches="tight", transparent=True, metadata={"Date": None})
+            plt.close(fig)
+            written.append(str(path))
     return written
 
 
@@ -411,7 +449,8 @@ def build(df: pd.DataFrame) -> dict:
                      for m in ("M0_mech", "M1_mech_llm", "M2_llm", "raw_p20")}
             for period in ("fwd_2021_2025", "live_2026") if period in ridge}
         report["causal_portfolios"] = inc.get("portfolio_causal_top_decile", {})
-    for name in ("redaction_audit", "memorization_probe", "recall_probe", "identification_probe"):
+    for name in ("redaction_audit", "memorization_probe", "recall_probe", "identification_probe", "cutoff_probe",
+                 "ticker_audit"):
         path = ROOT / "results" / name / "summary.json"
         if path.exists():
             summary = json.loads(path.read_text())
@@ -508,6 +547,44 @@ def markdown(r: dict) -> str:
                   f"{d['historical']['ox_p20_auc_same_cases']:.2f} (historical) vs {d['control_2026']['ox_p20_auc_same_cases']:.2f} "
                   f"(2026), and Haiku's name-only guesses correlated {d['historical']['spearman_haiku_name_only_vs_ox_filing']:.2f} "
                   f"with it historically vs {d['control_2026']['spearman_haiku_name_only_vs_ox_filing']:.2f} in 2026."]
+    cp_ = r.get("cutoff_probe")
+    if cp_:
+        b = cp_["by_scorer"]
+        rows = [("Haiku reading the scrubbed filing, P(outperform)", "haiku_p_outperform"),
+                ("Backtest forecaster (Ox), P(+20%)", "ox_p20_backtest_forecaster"),
+                ("Mechanical walk-forward model (price features only)", "mechanical_walk_forward_model")]
+        dd = cp_["difference_in_differences"]["haiku_vs_mechanical"]
+        L += ["", "## Does the backtest overstate skill? Before/after the training cutoff", "",
+              f"{cp_['answered']} fresh Haiku contexts, one filing each, under the backtest's own leakage instruction: "
+              "50 filings from 2023-01 to 2024-09 (outcome inside Haiku's training data) and 50 from 2025-08 on "
+              "(outcome after it); each arm 25 stocks that beat SPY by 25+ points over 90 days and 25 that trailed by 25+.", "",
+              "| Scorer | AUC in training [95% CI] | AUC after training [95% CI] | Drop [95% CI] |",
+              "| --- | --- | --- | --- |"]
+        for label, key in rows:
+            a, z, g = b[key]["in_training"], b[key]["after_training"], b[key]["gap"]
+            L.append(f"| {label} | {a['auc']:.2f} [{a['ci'][0]:.2f}, {a['ci'][1]:.2f}] | {z['auc']:.2f} "
+                     f"[{z['ci'][0]:.2f}, {z['ci'][1]:.2f}] | {g['point']:+.2f} [{g['ci'][0]:+.2f}, {g['ci'][1]:+.2f}] |")
+        ex = cp_.get("excluding_flagged_tickers", {})
+        L += ["", f"Difference-in-differences, Haiku minus the mechanical model: {dd['point']:+.2f} "
+              f"[{dd['ci'][0]:+.2f}, {dd['ci'][1]:+.2f}] (paired bootstrap). A model that cannot remember anything lost as "
+              "much skill across the cutoff as Haiku did, so on this sample the drop is the period, not memory. "
+              "The interval is wide: the probe rules out only a very large memorization effect."
+              + (f" Dropping the {len(ex['dropped'])} cases priced on another filer's ticker gives "
+                 f"{ex['did_haiku_vs_mechanical']['point']:+.2f}." if ex else "")]
+    ta_ = r.get("ticker_audit")
+    if ta_:
+        fl = ta_["owner_flags"]
+        n = fl["probable"] + fl["possible"]
+        m = ta_["metric_sensitivity"]
+        L += ["", "## Data quality: cases priced on another company's stock", "",
+              f"{n} of {ta_['cases']:,} cases ({n / ta_['cases']:.1%}) carry a ticker that another CIK reports as its own "
+              f"({fl['probable']} probable, {fl['possible']} possible), mostly from the resolver's file-name fallback; "
+              f"{ta_['owner_flags_by_ticker'].get('F', 0)} filings from unrelated small companies were priced as Ford (F). "
+              f"Flagged backtest trades: {len(ta_['backtest_trades_flagged'])} of {ta_['backtest_trades']} (a subsidiary "
+              f"priced on its parent); flagged live trades: {len(ta_['live_trades_flagged'])} of {ta_['live_trades']}. "
+              "Without any flagged case, monthly IC is "
+              + ", ".join(f"{v['without_any_flag']['monthly_ic']:.3f} (was {v['all']['monthly_ic']:.3f}) for {k}"
+                          for k, v in m.items()) + ". Details: `results/ticker_audit/report.md`."]
     return "\n".join(L) + "\n"
 
 
@@ -535,7 +612,8 @@ def main() -> int:
         live = [t["excess_pct"] / 100 for t in lv["live"]["p20"]["trades"]]
         trades = {"backtest": back, "live": live, "backtest_raw": back, "live_raw": live,
                   "ci_backtest": lv["backtest_p20_2011_2025"]["mean_ci"], "ci_live": lv["live"]["p20"]["mean_ci"]}
-        for path in figures(pd.DataFrame(report["by_year"]), report["reliability"], trades, args.figures):
+        for path in figures(pd.DataFrame(report["by_year"]), report["reliability"], trades, args.figures,
+                            cutoff=report.get("cutoff_probe")):
             print("wrote", path)
     print((args.out / "report.md").read_text())
     return 0

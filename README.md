@@ -38,11 +38,23 @@ covers what survived out of sample, what didn't, and why.
 - **The model could often tell which company it was reading, and what came next.**
   91% of the "anonymized" evidence packs still carried a direct identifier. With
   every name word stripped, Claude Haiku 4.5 still named 50 of 80 (62.5%) 2011–24
-  companies from 10,000 characters of MD&A. Given only a company's name and filing date, Haiku's guesses separated
-  historical winners from losers (AUC 0.65, p = 0.007) but not 2026 ones (0.56).
+  companies from 10,000 characters of MD&A. Given only a company's name and filing
+  date, Haiku's guesses separated historical winners from losers (AUC 0.65,
+  p = 0.007) but not 2026 ones (0.56).
   Its explanations cited events that happened after the filing, such as "COVID-19"
   for a February 2020 10-K. Leakage through the model's own weights can't be ruled
   out for any year before its training cutoff.
+- **But memory doesn't explain the collapse on its own.** In a controlled
+  before/after test, Haiku reading scrubbed filings lost skill across its training
+  cutoff (AUC 0.63 → 0.50). On the same cases, a price-only model that can't
+  remember anything lost just as much (0.66 → 0.54), so the difference-in-differences
+  is +0.02 [−0.27, +0.32]. Without that control, the naive comparison would have
+  looked like proof of memorization. The later period was simply harder.
+- **The audit also caught a data bug.** A file-name fallback in the ticker resolver
+  priced 4.1% of cases on another company's stock: 166 filings from unrelated small
+  companies were priced as Ford. It touched 1 of the 270 backtest trades (a
+  subsidiary priced on its parent) and none of the live trades, and removing the
+  affected cases raises the historical IC.
 - **The probabilities are poorly calibrated.** Forecasts average 11–13%, while the
   event happens 19–21% of the time. Brier skill over a base-rate forecast is about
   +0.02, and walk-forward Platt scaling only brings it to about +0.05.
@@ -69,12 +81,14 @@ flowchart LR
 - **Population.** A case is every 10-K, 10-Q, 20-F, or 40-F filed while the stock
   sat 40%+ below its one-year high, with liquidity filters known at the time. At
   most one event per issuer per 180 days. Tickers come from the filing's own XBRL,
-  not today's ticker map. Delisted names stay in and are marked to zero at the
-  first gap (conservative bound).
+  not today's ticker map (its dei:TradingSymbol, or failing that its file name; see
+  [Known issues](#known-issues)). Delisted names stay in and are marked to zero at
+  the first gap (conservative bound).
 - **Agents.** Five specialist lenses extract exact-quote-grounded claims. Claims
-  whose quote isn't in the filing are rejected (about two-thirds survive). Two independent
-  syntheses then produce the probabilities. The model was a stealth model served through OpenRouter as "Ox Alpha";
-  its identity and training cutoff are undisclosed. About 125,000 LLM calls in total.
+  whose quote isn't in the filing are rejected (about two-thirds survive). Two
+  independent syntheses then produce the probabilities. The model was a stealth
+  model served through OpenRouter as "Ox Alpha"; its identity and training cutoff
+  are undisclosed. About 125,000 LLM calls in total.
 - **Trading rule.** Buy when a new score reaches the 90th percentile of *strictly
   earlier* scores (after a 50-case warmup). Enter at the first close after SEC
   acceptance and hold 90 days, with ten 10%-NAV slots, 25 bp per side, T-bills on
@@ -89,8 +103,9 @@ flowchart LR
 | Garden of forking paths | Rules, cohorts, and pass/fail gates frozen in writing before outcomes were opened; exploratory findings labeled as such | [`protocols/`](protocols/) |
 | Luck and regime clustering | 500 placebos shuffling scores within calendar-month blocks; separate 2009–18 and 2021–25 holdouts; 2019–20 kept as discovery only | [`century_hypotheses.py`](src/century_hypotheses.py), [`sealed_safety_eval.py`](src/sealed_safety_eval.py) |
 | "An LLM is an expensive momentum screen" | Mechanical baselines (drawdown, momentum, volatility, size) as first-class comparators, walk-forward | [`llm_incremental_value.py`](src/llm_incremental_value.py) |
-| The model already knows the answer | Blind re-score, redaction audit, re-identification probe, live post-cutoff cohort | [`blind_rescore.py`](src/blind_rescore.py), [`redaction_audit.py`](src/redaction_audit.py), [`memorization_probe.py`](src/memorization_probe.py) |
+| The model already knows the answer | Blind re-score, redaction audit, identification and recall probes, a before/after-cutoff test with a mechanical control, live post-cutoff cohort | [`blind_rescore.py`](src/blind_rescore.py), [`redaction_audit.py`](src/redaction_audit.py), [`identification_probe.py`](src/identification_probe.py), [`recall_probe.py`](src/recall_probe.py), [`cutoff_probe.py`](src/cutoff_probe.py) |
 | Hallucinated evidence | Exact-quote grounding against the source filing; ungrounded claims are kept for audit but excluded from forecast inputs | [`comprehensive_lab.py`](src/comprehensive_lab.py) |
+| Pricing the wrong security | Every case's ticker checked against the CIK that reports it as its own dei:TradingSymbol; flagged cases dropped as a sensitivity check | [`ticker_audit.py`](src/ticker_audit.py) |
 
 ## Results
 
@@ -174,9 +189,39 @@ what the market did after the filing:
 - "Late 2020 saw oil price recovery with vaccine optimism" (Baker Hughes, filed
   2020-10-23, +48%)
 
-A filing's date and industry are enough to recall the regime that followed. Any
-backtest of an LLM forecaster on data from before its training cutoff is an upper
-bound on its real skill.
+A filing's date and industry are enough to recall the regime that followed. So a
+backtest of an LLM forecaster on data from before its training cutoff can't be taken
+at face value. How much it overstates skill is a separate question.
+
+### 6. Memory or market? A before/after-cutoff test
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/cutoff_probe-dark.svg">
+  <img alt="AUC before vs after Haiku's training cutoff: Haiku 0.63 to 0.50, backtest forecaster 0.72 to 0.57, price-only model 0.66 to 0.54" src="docs/figures/cutoff_probe-light.svg">
+</picture>
+
+[`cutoff_probe.py`](src/cutoff_probe.py) ([answers](results/cutoff_probe/table.md))
+keeps the model, prompt, and evidence fixed and changes only whether the outcome is
+in the model's training data. 100 fresh Haiku contexts each forecast one filing from
+10,000 characters of name-scrubbed MD&A, under the backtest forecaster's own
+instruction to use nothing but the excerpt:
+
+- 50 filings from January 2023 to September 2024, whose 90-day outcomes are in
+  Haiku's training data;
+- 50 filings from August 2025 on, whose outcomes come after it.
+
+Each period has 25 stocks that beat SPY by 25+ points and 25 that trailed by 25+.
+
+Haiku's AUC fell from 0.63 to 0.50, which on its own looks like memorization. But
+on the same cases the backtest forecaster fell by as much (0.72 → 0.57), and so did
+a walk-forward model on price features alone (0.66 → 0.54), which cannot know the
+future. The difference-in-differences against that model is +0.02 [−0.27, +0.32].
+No rationale named its company or cited a later event.
+
+With 50 filings per period, the test rules out only a large memorization effect.
+It does show that the period after the cutoff was harder for every scorer. So the
+live collapse is at least partly the market, and a before/after comparison means
+little without a control that can't remember anything.
 
 ## Next steps
 
@@ -188,9 +233,11 @@ bound on its real skill.
    adversarial "name this company" model must fail on the evidence pack.
    Neutralize addresses, segment names, and product names, not just the
    registrant name.
-3. **Separate leakage from regime.** Seven of the 12 live losers came in
-   February–March 2026, several of them software stocks. Use sector-neutral
-   evaluation and more live months to tell a regime break from memorized history.
+3. **Separate leakage from regime at scale.** Seven of the 12 live losers came in
+   February–March 2026, several of them software stocks. The before/after test
+   above is the right design, but at 50 filings per period its interval is ±0.3
+   AUC. Run it with the production forecaster on about 1,000 filings, with
+   sector-neutral scoring and more live months.
 4. **Forecast the whole distribution, not just the tail.** The signal lives in
    the middle of the ranking. A long/short or quintile-spread construction uses
    it. A top-decile long-only rule depends on the tail.
@@ -201,15 +248,30 @@ bound on its real skill.
 
 ## Known issues
 
-- **Shared tickers in the symbol resolver.** The identification probe surfaced 23
-  filings from AR Capital-family non-traded REITs and partnerships (2014–16) that
-  inherited the ticker ARCT, most likely from the XBRL file-name fallback. ARCT now
-  belongs to Arcturus Therapeutics, so those cases were scored on another
-  security's prices. Eleven entities filing on 2014-11-14 all show the same +66%
-  outcome. None of them entered the P(+20%) rule's 270 backtest trades. Four sat
-  in the recall probe; excluding them moves its AUC from 0.65 to 0.66. More
-  broadly, 467 cases (4.8%) share a ticker with another filer in the same year.
-  Some are legitimate co-registrants; the rest need a CIK-level price map.
+- **Some cases were priced on another company's stock.** When a filing has no
+  dei:TradingSymbol, the resolver falls back to the XBRL file name (`gogo-20251231.xml`
+  → GOGO). That's usually the issuer's own ticker, but not for shells, non-traded
+  funds, and subsidiaries. The identification probe first surfaced it: 23 AR
+  Capital-family REITs from 2014–16 inherited ARCT (Arcturus Therapeutics today),
+  and eleven of them show the same +66% outcome on one date.
+  [`ticker_audit.py`](src/ticker_audit.py) ([report](results/ticker_audit/report.md))
+  then checked every case against the CIK that reports each ticker as its own:
+
+  - 446 of 10,787 cases (4.1%) are flagged, 316 of them probably mis-priced.
+  - 166 filings from unrelated small companies were priced as Ford: their filing
+    agent names XBRL files like `f10q0919_company_htm.xml`, and the fallback keeps
+    only the letters before the first digit. Others include Ridgewood Energy's S, U,
+    and W funds (priced as SentinelOne, Unity, and Wayfair) and Go Go Buyers
+    (priced as Gogo).
+  - Only one of the 270 backtest trades is flagged, and none of the 74 live trades.
+    The flagged backtest trade is PBF Holding, a subsidiary priced on its parent.
+  - Dropping every flagged case moves the monthly IC from 0.15 to 0.19 (2009–18),
+    0.24 to 0.25 (2021–25), and 0.28 to 0.275 (2026).
+  - The probes report the same check. The recall AUC stays 0.65, and the cutoff
+    test's difference-in-differences goes from +0.02 to +0.03.
+
+  The fix is a CIK-keyed security master that never infers a ticker from a file
+  name.
 
 ## Repository map
 
@@ -223,8 +285,9 @@ src/
   live_predictions.py, live_outcomes.py   live 2026 cohort: board and grading
   llm_incremental_value.py                LLM vs mechanical features, walk-forward
   forecast_audit.py, redaction_audit.py, identification_probe.py, recall_probe.py,
-  memorization_probe.py, blind_rescore.py
+  cutoff_probe.py, memorization_probe.py, blind_rescore.py
                                           leakage and calibration audits
+  ticker_audit.py                         which cases were priced on another company's stock
   pipeline_monitor.py                     read-only HTTP monitor for cloud runs
   ...                                     side experiments (below)
 protocols/      frozen pre-registrations, copied verbatim from each run
@@ -234,7 +297,7 @@ docs/           case study (index.html), figures/, notes/ research log, week-one
 reports/        standalone HTML research reports
 sites/          Next.js/vinext front-ends for the results
 cloud/, scripts/  Azure VM, Docker, and supervisor scripts for the century run
-tests/          295 offline tests with committed fixtures
+tests/          299 offline tests with committed fixtures
 ```
 
 Run data (about 11 GB of filing packs, LLM outputs, and caches under `lab_runs/`
@@ -244,11 +307,13 @@ and `research/`) is not committed.
 
 ```bash
 pip install -r requirements.txt
-python -m pytest -q                         # 295 offline tests
+python -m pytest -q                         # 299 offline tests
 python src/forecast_audit.py                # rebuilds the audit from data/audit_inputs/
 python src/memorization_probe.py            # rescores the re-identification probe
 python src/recall_probe.py score --probe-dir results/recall_probe --results results/recall_probe
 python src/identification_probe.py score --probe-dir results/identification_probe
+python src/cutoff_probe.py score --probe-dir results/cutoff_probe
+python src/ticker_audit.py                  # needs the local run data (lab_runs/)
 ```
 
 The full pipeline needs an OpenRouter key (`OPENROUTER_API_KEY`) and a

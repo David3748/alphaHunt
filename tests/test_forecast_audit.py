@@ -1,4 +1,4 @@
-"""Offline tests for the leakage/calibration audit, redaction audit and memorization probe."""
+"""Offline tests for the leakage/calibration audit, redaction audit, the Haiku probes and the ticker audit."""
 
 import sys
 import unittest
@@ -14,6 +14,8 @@ import memorization_probe as mp
 import identification_probe as ip
 import recall_probe as rp
 import redaction_audit as ra
+import cutoff_probe as cp
+import ticker_audit as ta
 
 
 def synthetic(n_per_month=40, years=range(2010, 2015), seed=0):
@@ -185,6 +187,57 @@ class TestIdentificationMatching(unittest.TestCase):
     def test_ticker_match_ignores_share_class_suffix(self):
         self.assertTrue(ip.ticker_match("brk.b", "BRK"))
         self.assertFalse(ip.ticker_match("", "AMD"))
+
+
+class TestCutoffProbe(unittest.TestCase):
+    @staticmethod
+    def arm(n, informative):
+        """Rows with a Haiku score and a mechanical score; each either separates winners perfectly
+        (AUC 1) or is constant (AUC 0.5)."""
+        return [{"winner": i % 2 == 0,
+                 "p_outperform": (60 if i % 2 == 0 else 40) if informative["haiku"] else 50,
+                 "mech_model": (1.0 if i % 2 == 0 else -1.0) if informative["mech"] else 0.0} for i in range(n)]
+
+    def test_a_drop_shared_with_the_mechanical_model_cancels(self):
+        pre = self.arm(40, {"haiku": True, "mech": True})
+        post = self.arm(40, {"haiku": False, "mech": False})
+        self.assertAlmostEqual(cp.gap(pre, post, "p_outperform", draws=200)["point"], 0.5)
+        d = cp.did(pre, post, "p_outperform", "mech_model", draws=200)
+        self.assertAlmostEqual(d["point"], 0.0)
+        self.assertEqual(d["ci"], [0.0, 0.0])
+
+    def test_a_drop_only_the_llm_shows_is_attributed_to_it(self):
+        pre = self.arm(40, {"haiku": True, "mech": False})
+        post = self.arm(40, {"haiku": False, "mech": False})
+        d = cp.did(pre, post, "p_outperform", "mech_model", draws=200)
+        self.assertAlmostEqual(d["point"], 0.5)
+        self.assertGreater(d["ci"][0], 0.0)
+
+
+class TestTickerAudit(unittest.TestCase):
+    def test_file_name_ticker_owned_by_another_filer_is_a_collision(self):
+        rows = [{"cik": "1", "company": "GOGO INC.", "symbol": "GOGO", "symbol_source": "dei_fact",
+                 "status": "cooldown_180d", "filed": "20260301"},
+                {"cik": "2", "company": "GO GO BUYERS, INC.", "symbol": "GOGO", "symbol_source": "instance_stem",
+                 "status": "eligible", "filed": "20260414"},
+                {"cik": "3", "company": "TECOGEN INC.", "symbol": "TGEN", "symbol_source": "instance_stem",
+                 "status": "eligible", "filed": "20260319"}]
+        out = {r["company"]: r for r in ta.live_stem_collisions(rows)}
+        self.assertTrue(out["GO GO BUYERS, INC."]["collision"])
+        self.assertEqual(out["GO GO BUYERS, INC."]["priced_as"], ["GOGO INC."])
+        self.assertFalse(out["TECOGEN INC."]["collision"])
+
+    def test_owner_flags_tiers(self):
+        cases = [{"case_id": "ford", "ticker": "F", "cutoff": "2022-05-10", "cik": "37996", "company": "FORD MOTOR CO"},
+                 {"case_id": "shell", "ticker": "F", "cutoff": "2022-05-16", "cik": "999", "company": "NUTRIBAND"},
+                 {"case_id": "old_alcoa", "ticker": "AA", "cutoff": "2016-02-19", "cik": "4281", "company": "ALCOA INC."},
+                 {"case_id": "no_owner", "ticker": "ZZZZ", "cutoff": "2012-01-05", "cik": "5", "company": "DELISTED CO"}]
+        owners = {"F": {"37996"}, "AA": {"1675149"}}
+        flags = ta.owner_flags(cases, owners)
+        self.assertNotIn("ford", flags)
+        self.assertEqual(flags["shell"]["tier"], "probable")      # the owner filed the same year
+        self.assertEqual(flags["old_alcoa"]["tier"], "possible")  # ticker reassigned later: not proof
+        self.assertNotIn("no_owner", flags)
 
 
 if __name__ == "__main__":

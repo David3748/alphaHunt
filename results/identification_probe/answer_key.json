@@ -9,7 +9,8 @@
   "filed": "2021-05-10",
   "cohort": "historical",
   "excess": 0.4715111609038931,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I002",
@@ -21,7 +22,8 @@
   "filed": "2026-02-12",
   "cohort": "control_2026",
   "excess": -0.8192396587437398,
-  "excerpt_chars": 9977
+  "excerpt_chars": 9977,
+  "ticker_flag": null
  },
  {
   "item": "I003",
@@ -33,7 +35,8 @@
   "filed": "2015-03-13",
   "cohort": "historical",
   "excess": 0.5196113713283441,
-  "excerpt_chars": 9980
+  "excerpt_chars": 9980,
+  "ticker_flag": null
  },
  {
   "item": "I004",
@@ -45,7 +48,8 @@
   "filed": "2018-09-24",
   "cohort": "historical",
   "excess": -0.496146332734528,
-  "excerpt_chars": 10008
+  "excerpt_chars": 10008,
+  "ticker_flag": null
  },
  {
   "item": "I005",
@@ -57,7 +61,8 @@
   "filed": "2019-08-08",
   "cohort": "historical",
   "excess": 0.7890352021214373,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I006",
@@ -69,7 +74,8 @@
   "filed": "2020-03-02",
   "cohort": "historical",
   "excess": -0.46746145284491203,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I007",
@@ -81,7 +87,8 @@
   "filed": "2024-04-09",
   "cohort": "historical",
   "excess": -0.5290817179468823,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": "probable"
  },
  {
   "item": "I008",
@@ -93,7 +100,8 @@
   "filed": "2012-08-07",
   "cohort": "historical",
   "excess": -0.46537301204251713,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I009",
@@ -105,7 +113,8 @@
   "filed": "2026-03-18",
   "cohort": "control_2026",
   "excess": -0.5256878057770826,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I010",
@@ -117,7 +126,8 @@
   "filed": "2016-02-26",
   "cohort": "historical",
   "excess": 0.5322999137873532,
-  "excerpt_chars": 10009
+  "excerpt_chars": 10009,
+  "ticker_flag": null
  },
  {
   "item": "I011",
@@ -129,7 +139,8 @@
   "filed": "2019-11-07",
   "cohort": "historical",
   "excess": 0.43502968353811866,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I012",
@@ -141,7 +152,8 @@
   "filed": "2017-06-07",
   "cohort": "historical",
   "excess": 0.31747317182354085,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I013",
@@ -153,7 +165,8 @@
   "filed": "2014-05-09",
   "cohort": "historical",
   "excess": -0.4033801429191667,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I014",
@@ -165,7 +178,8 @@
   "filed": "2024-05-09",
   "cohort": "historical",
   "excess": -0.3718486582790743,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I015",
@@ -177,7 +191,8 @@
   "filed": "2017-02-27",
   "cohort": "historical",
   "excess": -0.3899525579079598,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I016",
@@ -189,7 +204,8 @@
   "filed": "2026-02-26",
   "cohort": "control_2026",
   "excess": 0.30932537284444894,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I017",
@@ -201,7 +217,8 @@
   "filed": "2016-02-26",
   "cohort": "historical",
   "excess": 0.7534973583170375,
-  "excerpt_chars": 10114
+  "excerpt_chars": 10114,
+  "ticker_flag": null
  },
  {
   "item": "I018",
@@ -213,7 +230,8 @@
   "filed": "2011-10-25",
   "cohort": "historical",
   "excess": 0.35716706409461785,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I019",
@@ -225,7 +243,8 @@
   "filed": "2022-10-27",
   "cohort": "historical",
   "excess": 0.49934184958220706,
-  "excerpt_chars": 9998
+  "excerpt_chars": 9998,
+  "ticker_flag": null
  },
  {
   "item": "I020",
@@ -237,7 +256,8 @@
   "filed": "2022-05-13",
   "cohort": "historical",
   "excess": -0.6561478488982635,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I021",
@@ -249,7 +269,8 @@
   "filed": "2019-11-06",
   "cohort": "historical",
   "excess": -0.3749560065284756,
-  "excerpt_chars": 9997
+  "excerpt_chars": 9997,
+  "ticker_flag": null
  },
  {
   "item": "I022",
@@ -261,7 +282,8 @@
   "filed": "2012-08-14",
   "cohort": "historical",
   "excess": -0.4991399786322962,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I023",
@@ -273,7 +295,8 @@
   "filed": "2026-02-11",
   "cohort": "control_2026",
   "excess": -0.41194473713515267,
-  "excerpt_chars": 10005
+  "excerpt_chars": 10005,
+  "ticker_flag": null
  },
  {
   "item": "I024",
@@ -285,7 +308,8 @@
   "filed": "2020-02-18",
   "cohort": "historical",
   "excess": -0.5416339103117445,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I025",
@@ -297,7 +321,8 @@
   "filed": "2020-10-23",
   "cohort": "historical",
   "excess": 0.480329490694432,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I026",
@@ -309,7 +334,8 @@
   "filed": "2014-11-14",
   "cohort": "historical",
   "excess": 1.1343554726821212,
-  "excerpt_chars": 9964
+  "excerpt_chars": 9964,
+  "ticker_flag": "possible"
  },
  {
   "item": "I027",
@@ -321,7 +347,8 @@
   "filed": "2012-11-08",
   "cohort": "historical",
   "excess": 0.3203481042583065,
-  "excerpt_chars": 10005
+  "excerpt_chars": 10005,
+  "ticker_flag": null
  },
  {
   "item": "I028",
@@ -333,7 +360,8 @@
   "filed": "2024-08-06",
   "cohort": "historical",
   "excess": 0.6795573181475092,
-  "excerpt_chars": 9999
+  "excerpt_chars": 9999,
+  "ticker_flag": null
  },
  {
   "item": "I029",
@@ -345,7 +373,8 @@
   "filed": "2014-05-12",
   "cohort": "historical",
   "excess": -0.33233213415539287,
-  "excerpt_chars": 10004
+  "excerpt_chars": 10004,
+  "ticker_flag": null
  },
  {
   "item": "I030",
@@ -357,7 +386,8 @@
   "filed": "2016-02-26",
   "cohort": "historical",
   "excess": -0.44096549874526125,
-  "excerpt_chars": 10021
+  "excerpt_chars": 10021,
+  "ticker_flag": null
  },
  {
   "item": "I031",
@@ -369,7 +399,8 @@
   "filed": "2015-04-23",
   "cohort": "historical",
   "excess": 0.3704710881783786,
-  "excerpt_chars": 9986
+  "excerpt_chars": 9986,
+  "ticker_flag": null
  },
  {
   "item": "I032",
@@ -381,7 +412,8 @@
   "filed": "2018-08-08",
   "cohort": "historical",
   "excess": 0.6017520380689996,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I033",
@@ -393,7 +425,8 @@
   "filed": "2023-05-08",
   "cohort": "historical",
   "excess": 0.8404890932525537,
-  "excerpt_chars": 10006
+  "excerpt_chars": 10006,
+  "ticker_flag": null
  },
  {
   "item": "I034",
@@ -405,7 +438,8 @@
   "filed": "2013-02-27",
   "cohort": "historical",
   "excess": 0.5411452900138902,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I035",
@@ -417,7 +451,8 @@
   "filed": "2026-06-05",
   "cohort": "control_2026",
   "excess": 0.8654580555465416,
-  "excerpt_chars": 9997
+  "excerpt_chars": 9997,
+  "ticker_flag": null
  },
  {
   "item": "I036",
@@ -429,7 +464,8 @@
   "filed": "2026-02-26",
   "cohort": "control_2026",
   "excess": -0.3049364993378637,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I037",
@@ -441,7 +477,8 @@
   "filed": "2022-04-27",
   "cohort": "historical",
   "excess": 1.2590138734950465,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I038",
@@ -453,7 +490,8 @@
   "filed": "2013-03-29",
   "cohort": "historical",
   "excess": -0.36424663594634177,
-  "excerpt_chars": 9797
+  "excerpt_chars": 9797,
+  "ticker_flag": null
  },
  {
   "item": "I039",
@@ -465,7 +503,8 @@
   "filed": "2015-11-05",
   "cohort": "historical",
   "excess": -0.3644830371483131,
-  "excerpt_chars": 10115
+  "excerpt_chars": 10115,
+  "ticker_flag": null
  },
  {
   "item": "I040",
@@ -477,7 +516,8 @@
   "filed": "2026-02-26",
   "cohort": "control_2026",
   "excess": 0.4672672824858761,
-  "excerpt_chars": 10009
+  "excerpt_chars": 10009,
+  "ticker_flag": null
  },
  {
   "item": "I041",
@@ -489,7 +529,8 @@
   "filed": "2013-05-14",
   "cohort": "historical",
   "excess": -0.33049549350018503,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": "possible"
  },
  {
   "item": "I042",
@@ -501,7 +542,8 @@
   "filed": "2013-11-14",
   "cohort": "historical",
   "excess": 0.6586387455764515,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I043",
@@ -513,7 +555,8 @@
   "filed": "2026-05-11",
   "cohort": "control_2026",
   "excess": 0.9925289957432435,
-  "excerpt_chars": 10006
+  "excerpt_chars": 10006,
+  "ticker_flag": null
  },
  {
   "item": "I044",
@@ -525,7 +568,8 @@
   "filed": "2018-05-09",
   "cohort": "historical",
   "excess": -0.3479055390680028,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I045",
@@ -537,7 +581,8 @@
   "filed": "2021-05-06",
   "cohort": "historical",
   "excess": 2.4737086963178148,
-  "excerpt_chars": 9995
+  "excerpt_chars": 9995,
+  "ticker_flag": null
  },
  {
   "item": "I046",
@@ -549,7 +594,8 @@
   "filed": "2017-03-15",
   "cohort": "historical",
   "excess": -0.3586275071182664,
-  "excerpt_chars": 9999
+  "excerpt_chars": 9999,
+  "ticker_flag": null
  },
  {
   "item": "I047",
@@ -561,7 +607,8 @@
   "filed": "2026-03-26",
   "cohort": "control_2026",
   "excess": -0.24610102504253117,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I048",
@@ -573,7 +620,8 @@
   "filed": "2017-11-08",
   "cohort": "historical",
   "excess": 0.6439770249675392,
-  "excerpt_chars": 9987
+  "excerpt_chars": 9987,
+  "ticker_flag": null
  },
  {
   "item": "I049",
@@ -585,7 +633,8 @@
   "filed": "2015-11-06",
   "cohort": "historical",
   "excess": 0.5219350438445264,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I050",
@@ -597,7 +646,8 @@
   "filed": "2026-02-13",
   "cohort": "control_2026",
   "excess": -0.3102655651749685,
-  "excerpt_chars": 9988
+  "excerpt_chars": 9988,
+  "ticker_flag": null
  },
  {
   "item": "I051",
@@ -609,7 +659,8 @@
   "filed": "2021-03-01",
   "cohort": "historical",
   "excess": -0.5344096220359056,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I052",
@@ -621,7 +672,8 @@
   "filed": "2026-03-10",
   "cohort": "control_2026",
   "excess": 0.8648049596591267,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I053",
@@ -633,7 +685,8 @@
   "filed": "2026-05-15",
   "cohort": "control_2026",
   "excess": -0.9700227955962504,
-  "excerpt_chars": 10048
+  "excerpt_chars": 10048,
+  "ticker_flag": null
  },
  {
   "item": "I054",
@@ -645,7 +698,8 @@
   "filed": "2024-08-14",
   "cohort": "historical",
   "excess": -0.5304534581974059,
-  "excerpt_chars": 10032
+  "excerpt_chars": 10032,
+  "ticker_flag": null
  },
  {
   "item": "I055",
@@ -657,7 +711,8 @@
   "filed": "2026-02-17",
   "cohort": "control_2026",
   "excess": -0.2958652755873885,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I056",
@@ -669,7 +724,8 @@
   "filed": "2014-05-13",
   "cohort": "historical",
   "excess": -0.608457126862358,
-  "excerpt_chars": 9999
+  "excerpt_chars": 9999,
+  "ticker_flag": null
  },
  {
   "item": "I057",
@@ -681,7 +737,8 @@
   "filed": "2020-04-30",
   "cohort": "historical",
   "excess": 0.35715112808576044,
-  "excerpt_chars": 10005
+  "excerpt_chars": 10005,
+  "ticker_flag": null
  },
  {
   "item": "I058",
@@ -693,7 +750,8 @@
   "filed": "2026-04-15",
   "cohort": "control_2026",
   "excess": 0.29880757614401077,
-  "excerpt_chars": 10038
+  "excerpt_chars": 10038,
+  "ticker_flag": null
  },
  {
   "item": "I059",
@@ -705,7 +763,8 @@
   "filed": "2018-08-09",
   "cohort": "historical",
   "excess": 0.3035346781202263,
-  "excerpt_chars": 10004
+  "excerpt_chars": 10004,
+  "ticker_flag": null
  },
  {
   "item": "I060",
@@ -717,7 +776,8 @@
   "filed": "2021-11-08",
   "cohort": "historical",
   "excess": -0.46871058021835454,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I061",
@@ -729,7 +789,8 @@
   "filed": "2011-07-29",
   "cohort": "historical",
   "excess": 0.3156256758679934,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I062",
@@ -741,7 +802,8 @@
   "filed": "2016-04-26",
   "cohort": "historical",
   "excess": -0.445025026731239,
-  "excerpt_chars": 10134
+  "excerpt_chars": 10134,
+  "ticker_flag": null
  },
  {
   "item": "I063",
@@ -753,7 +815,8 @@
   "filed": "2013-02-21",
   "cohort": "historical",
   "excess": -0.3863951207708597,
-  "excerpt_chars": 10003
+  "excerpt_chars": 10003,
+  "ticker_flag": null
  },
  {
   "item": "I064",
@@ -765,7 +828,8 @@
   "filed": "2026-02-27",
   "cohort": "control_2026",
   "excess": 0.5348036797924263,
-  "excerpt_chars": 9975
+  "excerpt_chars": 9975,
+  "ticker_flag": null
  },
  {
   "item": "I065",
@@ -777,7 +841,8 @@
   "filed": "2026-04-15",
   "cohort": "control_2026",
   "excess": -0.7054434019376045,
-  "excerpt_chars": 10020
+  "excerpt_chars": 10020,
+  "ticker_flag": null
  },
  {
   "item": "I066",
@@ -789,7 +854,8 @@
   "filed": "2023-05-05",
   "cohort": "historical",
   "excess": 0.43629496458655725,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I067",
@@ -801,7 +867,8 @@
   "filed": "2026-03-25",
   "cohort": "control_2026",
   "excess": 1.1212937084721282,
-  "excerpt_chars": 9979
+  "excerpt_chars": 9979,
+  "ticker_flag": null
  },
  {
   "item": "I068",
@@ -813,7 +880,8 @@
   "filed": "2022-04-28",
   "cohort": "historical",
   "excess": -0.48297710835279883,
-  "excerpt_chars": 10004
+  "excerpt_chars": 10004,
+  "ticker_flag": null
  },
  {
   "item": "I069",
@@ -825,7 +893,8 @@
   "filed": "2012-11-05",
   "cohort": "historical",
   "excess": 0.37342109161854964,
-  "excerpt_chars": 9999
+  "excerpt_chars": 9999,
+  "ticker_flag": null
  },
  {
   "item": "I070",
@@ -837,7 +906,8 @@
   "filed": "2015-05-15",
   "cohort": "historical",
   "excess": -0.3226582935608724,
-  "excerpt_chars": 9978
+  "excerpt_chars": 9978,
+  "ticker_flag": "possible"
  },
  {
   "item": "I071",
@@ -849,7 +919,8 @@
   "filed": "2018-03-15",
   "cohort": "historical",
   "excess": 0.6378909410940949,
-  "excerpt_chars": 10002
+  "excerpt_chars": 10002,
+  "ticker_flag": null
  },
  {
   "item": "I072",
@@ -861,7 +932,8 @@
   "filed": "2012-05-04",
   "cohort": "historical",
   "excess": -0.3115868016576815,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I073",
@@ -873,7 +945,8 @@
   "filed": "2013-03-05",
   "cohort": "historical",
   "excess": 0.4505520773862193,
-  "excerpt_chars": 10007
+  "excerpt_chars": 10007,
+  "ticker_flag": null
  },
  {
   "item": "I074",
@@ -885,7 +958,8 @@
   "filed": "2022-11-08",
   "cohort": "historical",
   "excess": 0.32921801637872905,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I075",
@@ -897,7 +971,8 @@
   "filed": "2019-05-01",
   "cohort": "historical",
   "excess": 0.39332013362393137,
-  "excerpt_chars": 10026
+  "excerpt_chars": 10026,
+  "ticker_flag": null
  },
  {
   "item": "I076",
@@ -909,7 +984,8 @@
   "filed": "2016-11-10",
   "cohort": "historical",
   "excess": -0.4640391144613697,
-  "excerpt_chars": 9931
+  "excerpt_chars": 9931,
+  "ticker_flag": "possible"
  },
  {
   "item": "I077",
@@ -921,7 +997,8 @@
   "filed": "2014-11-14",
   "cohort": "historical",
   "excess": 0.6626973277211858,
-  "excerpt_chars": 9878
+  "excerpt_chars": 9878,
+  "ticker_flag": "possible"
  },
  {
   "item": "I078",
@@ -933,7 +1010,8 @@
   "filed": "2012-08-03",
   "cohort": "historical",
   "excess": -0.34882909943795803,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I079",
@@ -945,7 +1023,8 @@
   "filed": "2014-11-14",
   "cohort": "historical",
   "excess": 0.6626973277211858,
-  "excerpt_chars": 9934
+  "excerpt_chars": 9934,
+  "ticker_flag": "possible"
  },
  {
   "item": "I080",
@@ -957,7 +1036,8 @@
   "filed": "2019-05-09",
   "cohort": "historical",
   "excess": -0.31533421814980933,
-  "excerpt_chars": 9591
+  "excerpt_chars": 9591,
+  "ticker_flag": null
  },
  {
   "item": "I081",
@@ -969,7 +1049,8 @@
   "filed": "2023-07-25",
   "cohort": "historical",
   "excess": -0.48187186609087496,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I082",
@@ -981,7 +1062,8 @@
   "filed": "2026-02-26",
   "cohort": "control_2026",
   "excess": -0.6308237698019734,
-  "excerpt_chars": 10039
+  "excerpt_chars": 10039,
+  "ticker_flag": null
  },
  {
   "item": "I083",
@@ -993,7 +1075,8 @@
   "filed": "2023-11-02",
   "cohort": "historical",
   "excess": -0.34305769830075705,
-  "excerpt_chars": 10007
+  "excerpt_chars": 10007,
+  "ticker_flag": null
  },
  {
   "item": "I084",
@@ -1005,7 +1088,8 @@
   "filed": "2012-11-07",
   "cohort": "historical",
   "excess": 0.5043584784972714,
-  "excerpt_chars": 9998
+  "excerpt_chars": 9998,
+  "ticker_flag": null
  },
  {
   "item": "I085",
@@ -1017,7 +1101,8 @@
   "filed": "2022-03-01",
   "cohort": "historical",
   "excess": -0.40089287589198497,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I086",
@@ -1029,7 +1114,8 @@
   "filed": "2018-11-07",
   "cohort": "historical",
   "excess": -0.40808329728082726,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I087",
@@ -1041,7 +1127,8 @@
   "filed": "2024-08-08",
   "cohort": "historical",
   "excess": 0.4327802479078777,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I088",
@@ -1053,7 +1140,8 @@
   "filed": "2021-11-23",
   "cohort": "historical",
   "excess": -0.3104586235893966,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I089",
@@ -1065,7 +1153,8 @@
   "filed": "2020-04-24",
   "cohort": "historical",
   "excess": 0.5246859977221763,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I090",
@@ -1077,7 +1166,8 @@
   "filed": "2019-10-31",
   "cohort": "historical",
   "excess": -0.4222162670887091,
-  "excerpt_chars": 10006
+  "excerpt_chars": 10006,
+  "ticker_flag": null
  },
  {
   "item": "I091",
@@ -1089,7 +1179,8 @@
   "filed": "2026-05-20",
   "cohort": "control_2026",
   "excess": 0.2337149295147487,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I092",
@@ -1101,7 +1192,8 @@
   "filed": "2017-11-07",
   "cohort": "historical",
   "excess": -0.5846054161019211,
-  "excerpt_chars": 10012
+  "excerpt_chars": 10012,
+  "ticker_flag": null
  },
  {
   "item": "I093",
@@ -1113,7 +1205,8 @@
   "filed": "2026-03-24",
   "cohort": "control_2026",
   "excess": 1.4179276506810956,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I094",
@@ -1125,7 +1218,8 @@
   "filed": "2023-08-08",
   "cohort": "historical",
   "excess": -0.4381617785685732,
-  "excerpt_chars": 10002
+  "excerpt_chars": 10002,
+  "ticker_flag": null
  },
  {
   "item": "I095",
@@ -1137,7 +1231,8 @@
   "filed": "2016-02-26",
   "cohort": "historical",
   "excess": 0.33318241264343595,
-  "excerpt_chars": 9995
+  "excerpt_chars": 9995,
+  "ticker_flag": null
  },
  {
   "item": "I096",
@@ -1149,7 +1244,8 @@
   "filed": "2011-10-27",
   "cohort": "historical",
   "excess": 0.3467644167199071,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I097",
@@ -1161,7 +1257,8 @@
   "filed": "2020-02-25",
   "cohort": "historical",
   "excess": -0.44270500416955216,
-  "excerpt_chars": 10004
+  "excerpt_chars": 10004,
+  "ticker_flag": null
  },
  {
   "item": "I098",
@@ -1173,7 +1270,8 @@
   "filed": "2021-08-13",
   "cohort": "historical",
   "excess": 0.8236288452548932,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I099",
@@ -1185,7 +1283,8 @@
   "filed": "2015-07-30",
   "cohort": "historical",
   "excess": -0.31903319508642747,
-  "excerpt_chars": 10000
+  "excerpt_chars": 10000,
+  "ticker_flag": null
  },
  {
   "item": "I100",
@@ -1197,6 +1296,7 @@
   "filed": "2017-10-27",
   "cohort": "historical",
   "excess": 0.34153199246136223,
-  "excerpt_chars": 10157
+  "excerpt_chars": 10157,
+  "ticker_flag": null
  }
 ]

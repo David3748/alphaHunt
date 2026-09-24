@@ -41,3 +41,19 @@ Probability that 12 trades drawn independently from the backtest ledger average 
 - Identification probe (100 fresh Haiku contexts, 10k chars of strictly scrubbed MD&A each): named the company in 50 of 80 2011-2024 filings (62.5%, 95% CI 52%-72%) (top-3 66%) and 50% of 2026 filings; its confidence separated hits from misses with AUC 0.94.
 - Given only the company name, ticker and filing date (100 fresh Haiku contexts, one case each), Haiku's P(outperform) separated 2011-2024 winners from losers with AUC 0.65 [0.54, 0.75], permutation p = 0.007; on 2026 controls AUC 0.56 [0.31, 0.80]. It never claimed a specific memory of the window.
 - On the same cases the filing-reading forecaster's P(+20%) had AUC 0.69 (historical) vs 0.54 (2026), and Haiku's name-only guesses correlated 0.34 with it historically vs -0.02 in 2026.
+
+## Does the backtest overstate skill? Before/after the training cutoff
+
+100 fresh Haiku contexts, one filing each, under the backtest's own leakage instruction: 50 filings from 2023-01 to 2024-09 (outcome inside Haiku's training data) and 50 from 2025-08 on (outcome after it); each arm 25 stocks that beat SPY by 25+ points over 90 days and 25 that trailed by 25+.
+
+| Scorer | AUC in training [95% CI] | AUC after training [95% CI] | Drop [95% CI] |
+| --- | --- | --- | --- |
+| Haiku reading the scrubbed filing, P(outperform) | 0.63 [0.48, 0.78] | 0.50 [0.34, 0.65] | +0.14 [-0.08, +0.36] |
+| Backtest forecaster (Ox), P(+20%) | 0.72 [0.57, 0.86] | 0.57 [0.42, 0.73] | +0.15 [-0.07, +0.36] |
+| Mechanical walk-forward model (price features only) | 0.66 [0.50, 0.82] | 0.54 [0.38, 0.71] | +0.12 [-0.11, +0.35] |
+
+Difference-in-differences, Haiku minus the mechanical model: +0.02 [-0.27, +0.32] (paired bootstrap). A model that cannot remember anything lost as much skill across the cutoff as Haiku did, so on this sample the drop is the period, not memory. The interval is wide: the probe rules out only a very large memorization effect. Dropping the 3 cases priced on another filer's ticker gives +0.03.
+
+## Data quality: cases priced on another company's stock
+
+446 of 10,787 cases (4.1%) carry a ticker that another CIK reports as its own (316 probable, 130 possible), mostly from the resolver's file-name fallback; 166 filings from unrelated small companies were priced as Ford (F). Flagged backtest trades: 1 of 270 (a subsidiary priced on its parent); flagged live trades: 0 of 74. Without any flagged case, monthly IC is 0.192 (was 0.152) for 2009-2018 historical holdout, 0.145 (was 0.137) for 2019-2020 discovery, 0.251 (was 0.243) for 2021-2025 forward holdout, 0.275 (was 0.282) for 2026 live (post-cutoff). Details: `results/ticker_audit/report.md`.

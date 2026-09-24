@@ -3,7 +3,8 @@
 
 Every number on the page comes from files in this repository:
 results/forecast_audit/report.json, results/redaction_audit/summary.json,
-results/memorization_probe/summary.json, data/audit_inputs/dataset.csv and the
+results/memorization_probe/summary.json, results/cutoff_probe/summary.json,
+results/ticker_audit/summary.json, data/audit_inputs/dataset.csv and the
 strategy-site exports. Writes docs/index.html (GitHub Pages) and, with
 --fragment, a body-only copy for hosts that supply their own <head>.
 
@@ -53,6 +54,8 @@ def data() -> dict:
     red = load(ROOT / "results/redaction_audit/summary.json")["all"]
     ridge = audit["incremental_value_ridge"]["fwd_2021_2025"]
     recall = load(ROOT / "results/recall_probe/summary.json")
+    cut = load(ROOT / "results/cutoff_probe/summary.json")
+    tick = load(ROOT / "results/ticker_audit/summary.json")
     sys.path.insert(0, str(ROOT / "src"))
     import recall_probe as rp
 
@@ -114,6 +117,19 @@ def data() -> dict:
                        for key, name in (("COEUR D ALENE MINES CORP", "Coeur d’Alene Mines"),
                                          ("Kosmos Energy Ltd.", "Kosmos Energy"),
                                          ("Baker Hughes Co", "Baker Hughes"))]},
+        "cutoff": {
+            "rows": [{"label": label, "sub": sub, "pre": cut["by_scorer"][key]["in_training"]["auc"],
+                      "preCi": cut["by_scorer"][key]["in_training"]["ci"],
+                      "post": cut["by_scorer"][key]["after_training"]["auc"],
+                      "postCi": cut["by_scorer"][key]["after_training"]["ci"]}
+                     for label, sub, key in (("Haiku", "reads the scrubbed filing", "haiku_p_outperform"),
+                                             ("Ox", "the backtest’s forecaster", "ox_p20_backtest_forecaster"),
+                                             ("Price features only", "can’t remember anything", "mechanical_walk_forward_model"))],
+            "did": cut["difference_in_differences"]["haiku_vs_mechanical"]["point"],
+            "didCi": cut["difference_in_differences"]["haiku_vs_mechanical"]["ci"]},
+        "tickers": {"share": sum(tick["owner_flags"].values()) / tick["cases"], "ford": tick["owner_flags_by_ticker"].get("F", 0),
+                    "backtest": len(tick["backtest_trades_flagged"]), "backtestN": tick["backtest_trades"],
+                    "live": len(tick["live_trades_flagged"]), "liveN": tick["live_trades"]},
         "probe": {"idRate": cen["top1_rate"], "top3Rate": cen["top3_rate"], "confAuc": cen["confidence_auc"],
                   "live": ident["control_2026"]["top1_rate"], "n": cen["n"],
                   "rows": [{"company": name, "filed": by_item[i]["filed"], "hit": by_item[i]["top1"],

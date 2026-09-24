@@ -364,7 +364,18 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); 
         <div id="quotes" class="stack" style="gap:10px"></div>
       </div>
     </div>
-    <p class="col small">A filing’s date and industry are enough to recall what the market did next, and no redaction removes them. Any LLM backtest on data from before the model’s training cutoff is an upper bound on its skill.</p>
+    <p class="col small">A filing’s date and industry are enough to recall what the market did next, and no redaction removes them. So an LLM backtest on data from before the model’s training cutoff can’t be taken at face value. How much it overstates skill is a separate question, and answering it needs a control.</p>
+
+    <h3 style="font:600 20px/1.3 var(--serif);padding-top:10px">Memory or market?</h3>
+    <p class="col small">The last test holds the model, the prompt and the evidence fixed and changes only whether the outcome is in Haiku’s training data. One hundred fresh Haiku contexts each forecast one filing from 10,000 scrubbed characters of MD&amp;A, under the backtest forecaster’s own instruction to use nothing but the excerpt. Fifty filings are from 2023 to September 2024, so their 90-day outcomes are in Haiku’s training data. The other fifty are from August 2025 on. Each half has 25 stocks that beat SPY by 25+ points and 25 that trailed by 25+.</p>
+    <figure class="exhibit" style="margin:0">
+      <div class="exhibit-head"><span>Exhibit G · skill before and after Haiku’s training cutoff</span><span>AUC, same 100 filings</span></div>
+      <div class="exhibit-body">
+        <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>2023–24 filings: outcome in training data</span><span><i class="key dot" style="background:var(--orange)"></i>Aug 2025 on: outcome after it</span></div>
+        <div class="chart" id="c-cutoff"></div>
+        <p class="exhibit-note">On its own, Haiku’s drop looks like memorization. But a model built only on price features, which can’t know the future, dropped as much on the same filings. The difference-in-differences is <b class="num" data-k="did"></b> [<span class="num" data-k="didCi"></span>]. No rationale named its company or cited a later event. With 50 filings per period, the test rules out only a large memory effect. What it does show is that the months after the cutoff were harder for every scorer, so the live collapse is at least partly the market.</p>
+      </div>
+    </figure>
   </section>
 
   <section class="item" id="calibration">
@@ -397,9 +408,9 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); 
     <ol class="lessons col">
       <li><p><strong>Only score questions after the model’s cutoff.</strong> Use models with published training cutoffs, keep a rolling live cohort, and treat everything earlier as development data, however clean the pipeline. Redaction can’t close the date channel.</p></li>
       <li><p><strong>Make re-identification a gate, not a footnote.</strong> Before a case enters a backtest, an adversarial “name this company” model has to fail on the evidence. Neutralize subsidiaries, places and products, not just the registrant name.</p></li>
-      <li><p><strong>Separate leakage from regime.</strong> Seven of the 12 live losers came in February and March 2026, several of them software names. Sector-neutral scoring and more live months can tell a regime break apart from remembered history.</p></li>
+      <li><p><strong>Separate leakage from regime, at scale.</strong> Seven of the 12 live losers came in February and March 2026, several of them software names. Exhibit G’s design is the right one, but with 50 filings per period its interval spans ±0.3 AUC. Run it with the production forecaster on about a thousand filings, with sector-neutral scoring.</p></li>
       <li><p><strong>Trade the part of the signal that generalizes.</strong> The information sits in the middle of the ranking. A quintile-spread or long/short book uses it. A top-decile long book depends on the tail.</p></li>
-      <li><p><strong>Use the model to audit the data.</strong> The identification probe exposed a symbol-resolution bug: 23 filings from non-traded REITs inherited the ticker ARCT and were scored on another company’s prices. None reached the backtest’s trades, but 4.8% of cases share a ticker with another filer and need a CIK-level price map.</p></li>
+      <li><p><strong>Use the model to audit the data.</strong> The identification probe exposed a symbol-resolution bug: 23 non-traded REITs had inherited the ticker ARCT and were scored on another company’s prices. A full audit then found <span class="num" data-k="tickShare"></span> of cases priced on the wrong stock. These included <span class="num" data-k="tickFord"></span> small companies priced as Ford, because their filing agent names files “f10q…” and the resolver fell back to the file name. <span data-k="tickTrades"></span> The fix is a CIK-keyed security master.</p></li>
       <li><p><strong>Treat calibration as its own model.</strong> Raw LLM probabilities are rank scores. A walk-forward recalibration layer, and ensembles across model families, should sit between the agents and any decision.</p></li>
     </ol>
   </section>
@@ -419,6 +430,7 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); 
   const NS = "http://www.w3.org/2000/svg";
   const pct = (x, d = 0, s = false) => (s && x > 0 ? "+" : x < 0 ? "−" : "") + Math.abs(x * 100).toFixed(d) + "%";
   const fmt2 = (x) => (x < 0 ? "−" : "") + Math.abs(x).toFixed(2);
+  const sgn2 = (x) => (x < 0 ? "−" : "+") + Math.abs(x).toFixed(2);
 
   // ---- fill text slots
   const K = {
@@ -433,6 +445,9 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); 
     otherRules: D.otherRules.map(r => `${r.name}: ${pct(r.mean, 1, true)} over ${r.n} trades.`).join(" "),
     recallP: D.recall.pValue.toFixed(3), recallLarge: D.recall.large.toFixed(2), recallSmall: D.recall.small.toFixed(2),
     rhoHist: fmt2(D.recall.rhoHist), rhoCtrl: fmt2(D.recall.rhoCtrl),
+    did: sgn2(D.cutoff.did), didCi: `${sgn2(D.cutoff.didCi[0])}, ${sgn2(D.cutoff.didCi[1])}`,
+    tickShare: pct(D.tickers.share, 1), tickFord: D.tickers.ford,
+    tickTrades: `It touched ${D.tickers.backtest} of ${D.tickers.backtestN} backtest trades (a subsidiary priced on its parent) and ${D.tickers.live ? D.tickers.live : "none"} of the ${D.tickers.liveN} live trades.`,
   };
   document.querySelectorAll("[data-k]").forEach(el => { if (K[el.dataset.k] !== undefined) el.textContent = K[el.dataset.k]; });
 
@@ -641,8 +656,44 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); 
     });
   }
 
+  // ---- Exhibit G: AUC before vs after Haiku's training cutoff, per scorer
+  function cutoffChart() {
+    const box = document.getElementById("c-cutoff");
+    const narrow = box.clientWidth < 520;
+    const rows = D.cutoff.rows;
+    const rowH = narrow ? 64 : 54;
+    const f = frame(box, 30 + rows.length * rowH, { l: narrow ? 10 : 190, r: 24, t: 6, b: 26 });
+    const x = lin(0.3, 0.9, f.x0, f.x1);
+    [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].forEach(v => {
+      el("line", { x1: x(v), x2: x(v), y1: f.y1, y2: f.y0, stroke: v === 0.5 ? css("--axis") : css("--grid"), "stroke-width": v === 0.5 ? 1.5 : 1 }, f.svg);
+      text(f.svg, x(v), f.y0 + 17, v === 0.5 ? "0.5 chance" : v.toFixed(1), { anchor: "middle", fill: v === 0.5 ? css("--ink-2") : css("--muted") });
+    });
+    const tip = tipFor(box);
+    const step = (f.y0 - f.y1) / rows.length;
+    rows.forEach((r, i) => {
+      const cy = f.y1 + step * (i + 0.5) + (narrow ? 9 : 4);
+      if (narrow) text(f.svg, f.x0, cy - 22, r.label + " · " + r.sub, { size: 11, fill: css("--ink-2") });
+      else { text(f.svg, 0, cy - 7, r.label, { size: 12, fill: css("--ink"), base: "middle", weight: 500 });
+             text(f.svg, 0, cy + 9, r.sub, { size: 11, base: "middle" }); }
+      el("line", { x1: x(r.post) + 7, x2: x(r.pre) - 7, y1: cy, y2: cy, stroke: css("--muted"), "stroke-width": 2, "stroke-linecap": "round" }, f.svg);
+      el("path", { d: `M${x(r.post) + 7},${cy} l7,-4.5 l0,9 z`, fill: css("--muted") }, f.svg);
+      el("circle", { cx: x(r.pre), cy, r: 6, fill: css("--blue"), stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+      el("circle", { cx: x(r.post), cy, r: 6, fill: css("--orange"), stroke: css("--paper"), "stroke-width": 2 }, f.svg);
+      text(f.svg, x(r.pre), cy - 12, r.pre.toFixed(2), { anchor: "middle", fill: css("--ink"), weight: 600, size: 11.5 });
+      text(f.svg, x(r.post), cy - 12, r.post.toFixed(2), { anchor: "middle", fill: css("--ink"), weight: 600, size: 11.5 });
+      text(f.svg, (x(r.pre) + x(r.post)) / 2, cy + 17, "−" + (r.pre - r.post).toFixed(2), { anchor: "middle", size: 11 });
+      const hit = el("rect", { x: f.x0, y: cy - step / 2, width: f.x1 - f.x0, height: step, fill: "transparent" }, f.svg);
+      hit.addEventListener("pointerenter", () => {
+        const b = f.svg.getBoundingClientRect();
+        tip.show(`<b>${r.label}</b> · ${r.sub}<br>2023–24: ${r.pre.toFixed(2)} [${r.preCi[0].toFixed(2)}, ${r.preCi[1].toFixed(2)}]<br>Aug 2025 on: ${r.post.toFixed(2)} [${r.postCi[0].toFixed(2)}, ${r.postCi[1].toFixed(2)}]`,
+                 x(r.post) * b.width / f.w, cy * b.height / f.h);
+      });
+      hit.addEventListener("pointerleave", () => tip.hide());
+    });
+  }
+
   function draw() {
-    equity(); trades(); reliability(); recallChart();
+    equity(); trades(); reliability(); recallChart(); cutoffChart();
     byYear("c-ic", "ic", "lo", "hi", (v) => (v < 0 ? "−" : "") + Math.abs(v).toFixed(2), [-0.2, 0, 0.2, 0.4, 0.6]);
     byYear("c-spread", "hs", "hslo", "hshi", (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(Math.round(v * 100)) + "%", [-0.2, 0, 0.2, 0.4, 0.6]);
   }

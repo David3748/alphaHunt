@@ -995,9 +995,9 @@
     "small": 0.5839598997493735
    },
    "historical_excluding_mismapped_tickers": {
-    "n": 76,
-    "auc_p_outperform": 0.6573111573111573,
-    "ox_p20_auc": 0.7162162162162162
+    "n": 73,
+    "auc_p_outperform": 0.6471471471471472,
+    "ox_p20_auc": 0.7128378378378378
    }
   }
  },
@@ -1121,6 +1121,672 @@
     "winners": 13,
     "recall_auc": 0.8402366863905325,
     "ox_p20_auc": 0.6923076923076923
+   }
+  }
+ },
+ "cutoff_probe": {
+  "answered": 100,
+  "missing": [],
+  "threshold": 0.25,
+  "arms": {
+   "in_training": [
+    "2023-01-01",
+    "2024-09-30"
+   ],
+   "after_training": [
+    "2025-08-01",
+    "2026-12-31"
+   ]
+  },
+  "by_scorer": {
+   "haiku_p_outperform": {
+    "in_training": {
+     "n": 50,
+     "auc": 0.6344,
+     "ci": [
+      0.47997999999999996,
+      0.7808
+     ],
+     "p_value": 0.05658868226354729
+    },
+    "after_training": {
+     "n": 50,
+     "auc": 0.496,
+     "ci": [
+      0.3352,
+      0.652
+     ],
+     "p_value": 0.5158968206358728
+    },
+    "gap": {
+     "point": 0.13839999999999997,
+     "ci": [
+      -0.08218521083542941,
+      0.35617357182024073
+     ],
+     "share_of_draws_above_zero": 0.8925
+    }
+   },
+   "haiku_p_beat20": {
+    "in_training": {
+     "n": 50,
+     "auc": 0.5584,
+     "ci": [
+      0.3904,
+      0.71682
+     ],
+     "p_value": 0.235752849430114
+    },
+    "after_training": {
+     "n": 50,
+     "auc": 0.5392,
+     "ci": [
+      0.38,
+      0.6976
+     ],
+     "p_value": 0.32833433313337335
+    },
+    "gap": {
+     "point": 0.019199999999999995,
+     "ci": [
+      -0.20474336959496442,
+      0.23911094315306275
+     ],
+     "share_of_draws_above_zero": 0.5535
+    }
+   },
+   "haiku_expected_excess": {
+    "in_training": {
+     "n": 50,
+     "auc": 0.5472,
+     "ci": [
+      0.3784,
+      0.7072
+     ],
+     "p_value": 0.28174365126974604
+    },
+    "after_training": {
+     "n": 50,
+     "auc": 0.356,
+     "ci": [
+      0.20478000000000002,
+      0.5136400000000001
+     ],
+     "p_value": 0.9618076384723055
+    },
+    "gap": {
+     "point": 0.19120000000000004,
+     "ci": [
+      -0.041029971203409114,
+      0.4180278048994082
+     ],
+     "share_of_draws_above_zero": 0.95225
+    }
+   },
+   "ox_p20_backtest_forecaster": {
+    "in_training": {
+     "n": 50,
+     "auc": 0.72,
+     "ci": [
+      0.57036,
+      0.8576
+     ],
+     "p_value": 0.004399120175964807
+    },
+    "after_training": {
+     "n": 50,
+     "auc": 0.5712,
+     "ci": [
+      0.4168,
+      0.73282
+     ],
+     "p_value": 0.20135972805438912
+    },
+    "gap": {
+     "point": 0.14879999999999993,
+     "ci": [
+      -0.07293625680674116,
+      0.35878139461113595
+     ],
+     "share_of_draws_above_zero": 0.9055
+    }
+   },
+   "mechanical_walk_forward_model": {
+    "in_training": {
+     "n": 50,
+     "auc": 0.6624,
+     "ci": [
+      0.504,
+      0.816
+     ],
+     "p_value": 0.02399520095980804
+    },
+    "after_training": {
+     "n": 50,
+     "auc": 0.544,
+     "ci": [
+      0.3776,
+      0.7072
+     ],
+     "p_value": 0.29834033193361326
+    },
+    "gap": {
+     "point": 0.11839999999999995,
+     "ci": [
+      -0.10665190332927661,
+      0.34776895020438514
+     ],
+     "share_of_draws_above_zero": 0.84825
+    }
+   },
+   "deeper_drawdown": {
+    "in_training": {
+     "n": 50,
+     "auc": 0.4272,
+     "ci": [
+      0.2736,
+      0.5888
+     ],
+     "p_value": 0.8136372725454909
+    },
+    "after_training": {
+     "n": 50,
+     "auc": 0.5376,
+     "ci": [
+      0.3664,
+      0.6944
+     ],
+     "p_value": 0.3209358128374325
+    },
+    "gap": {
+     "point": -0.11039999999999994,
+     "ci": [
+      -0.34344432493440347,
+      0.13071096126201376
+     ],
+     "share_of_draws_above_zero": 0.179
+    }
+   },
+   "momentum_6m": {
+    "in_training": {
+     "n": 50,
+     "auc": 0.4272,
+     "ci": [
+      0.2688,
+      0.5904
+     ],
+     "p_value": 0.8080383923215357
+    },
+    "after_training": {
+     "n": 50,
+     "auc": 0.4544,
+     "ci": [
+      0.296,
+      0.6128400000000002
+     ],
+     "p_value": 0.7118576284743051
+    },
+    "gap": {
+     "point": -0.027200000000000002,
+     "ci": [
+      -0.2578511463514275,
+      0.21317528335191394
+     ],
+     "share_of_draws_above_zero": 0.41725
+    }
+   }
+  },
+  "difference_in_differences": {
+   "haiku_vs_mechanical": {
+    "point": 0.020000000000000018,
+    "ci": [
+     -0.2703869047619047,
+     0.31971200684380036
+    ],
+    "share_of_draws_above_zero": 0.5505
+   },
+   "haiku_vs_ox": {
+    "point": -0.010399999999999965,
+    "ci": [
+     -0.2510905137509549,
+     0.23923321479030304
+    ],
+    "share_of_draws_above_zero": 0.467
+   }
+  },
+  "spearman_haiku_p_outperform_vs": {
+   "in_training": {
+    "ox_p20": 0.48216176042428205,
+    "mech_model": 0.16234451016488927
+   },
+   "after_training": {
+    "ox_p20": 0.28656775432592396,
+    "mech_model": 0.11708500191563141
+   }
+  },
+  "excluding_flagged_tickers": {
+   "dropped": [
+    "C001",
+    "C026",
+    "C031"
+   ],
+   "haiku_p_outperform": {
+    "in_training": 0.6391304347826087,
+    "after_training": 0.48583333333333334
+   },
+   "ox_p20_backtest_forecaster": {
+    "in_training": 0.7043478260869566,
+    "after_training": 0.5541666666666667
+   },
+   "mechanical_walk_forward_model": {
+    "in_training": 0.6869565217391305,
+    "after_training": 0.5616666666666666
+   },
+   "did_haiku_vs_mechanical": {
+    "point": 0.028007246376811512,
+    "ci": [
+     -0.26642035947356313,
+     0.32509889018271504
+    ],
+    "share_of_draws_above_zero": 0.56975
+   }
+  },
+  "mean_p_outperform_in_training": {
+   "winners": 37.92,
+   "losers": 33.92
+  },
+  "mean_p_outperform_after_training": {
+   "winners": 34.96,
+   "losers": 34.4
+  }
+ },
+ "ticker_audit": {
+  "cases": 10787,
+  "live_file_name_tickers": 22,
+  "live_file_name_collisions": [
+   {
+    "cik": "2089189",
+    "company": "BTCS LABS INC.",
+    "ticker": "BTCS",
+    "filed": "2026-01-16",
+    "priced_as": [
+     "BTCS INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1352190",
+    "company": "RIDGEWOOD ENERGY S FUND LLC",
+    "ticker": "S",
+    "filed": "2026-02-26",
+    "priced_as": [
+     "SENTINELONE, INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1377178",
+    "company": "RIDGEWOOD ENERGY U FUND LLC",
+    "ticker": "U",
+    "filed": "2026-02-26",
+    "priced_as": [
+     "UNITY SOFTWARE INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "2037804",
+    "company": "NEW MOUNTAIN PRIVATE CREDIT FUND",
+    "ticker": "NMG",
+    "filed": "2026-02-27",
+    "priced_as": [
+     "NOUVEAU MONDE GRAPHITE INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1925531",
+    "company": "NEW MOUNTAIN GUARDIAN IV BDC, L.L.C.",
+    "ticker": "NMG",
+    "filed": "2026-03-04",
+    "priced_as": [
+     "NOUVEAU MONDE GRAPHITE INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1976719",
+    "company": "NEW MOUNTAIN GUARDIAN IV INCOME FUND, L.L.C.",
+    "ticker": "NMG",
+    "filed": "2026-03-05",
+    "priced_as": [
+     "NOUVEAU MONDE GRAPHITE INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1327978",
+    "company": "ARES REAL ESTATE INCOME TRUST INC.",
+    "ticker": "ARE",
+    "filed": "2026-03-06",
+    "priced_as": [
+     "ALEXANDRIA REAL ESTATE EQUITIES, INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1702510",
+    "company": "CARLYLE CREDIT SOLUTIONS, INC.",
+    "ticker": "CARS",
+    "filed": "2026-03-18",
+    "priced_as": [
+     "CARS.COM INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1640967",
+    "company": "RISE COMPANIES CORP",
+    "ticker": "RC",
+    "filed": "2026-03-23",
+    "priced_as": [
+     "READY CAPITAL CORP"
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1911467",
+    "company": "CIRCLE ENERGY, INC./NV",
+    "ticker": "CRCL",
+    "filed": "2026-03-24",
+    "priced_as": [
+     "CIRCLE INTERNET GROUP, INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1948056",
+    "company": "KKR INFRASTRUCTURE CONGLOMERATE LLC",
+    "ticker": "KKR",
+    "filed": "2026-03-26",
+    "priced_as": [
+     "KKR & CO. INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1957845",
+    "company": "KKR PRIVATE EQUITY CONGLOMERATE LLC",
+    "ticker": "KKR",
+    "filed": "2026-03-26",
+    "priced_as": [
+     "KKR & CO. INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1935799",
+    "company": "BALLY'S CHICAGO, INC.",
+    "ticker": "BALY",
+    "filed": "2026-03-31",
+    "priced_as": [
+     "BALLY'S CORP"
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1842563",
+    "company": "GO GO BUYERS, INC.",
+    "ticker": "GOGO",
+    "filed": "2026-04-14",
+    "priced_as": [
+     "GOGO INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1409947",
+    "company": "RIDGEWOOD ENERGY W FUND LLC",
+    "ticker": "W",
+    "filed": "2026-05-05",
+    "priced_as": [
+     "WAYFAIR INC."
+    ],
+    "collision": true
+   },
+   {
+    "cik": "2016167",
+    "company": "TRANSIT PRO TECH INC.",
+    "ticker": "G",
+    "filed": "2026-05-15",
+    "priced_as": [
+     "GENPACT LTD"
+    ],
+    "collision": true
+   },
+   {
+    "cik": "1437750",
+    "company": "T-REX ACQUISITION CORP.",
+    "ticker": "TREX",
+    "filed": "2026-05-26",
+    "priced_as": [
+     "TREX CO INC"
+    ],
+    "collision": true
+   }
+  ],
+  "owner_flags": {
+   "probable": 316,
+   "possible": 130
+  },
+  "owner_flags_by_ticker": {
+   "F": 166,
+   "ARCT": 23,
+   "C": 17,
+   "AEI": 12,
+   "PBF": 11,
+   "NRG": 9,
+   "MARA": 8,
+   "WTI": 8,
+   "CLB": 7,
+   "ANGI": 6,
+   "CPA": 6,
+   "S": 6,
+   "U": 6,
+   "B": 5,
+   "HRI": 5,
+   "LUMN": 5,
+   "AA": 4,
+   "SOHU": 4,
+   "BVN": 4,
+   "REAL": 4,
+   "CVI": 4,
+   "SKIN": 4,
+   "DH": 4,
+   "ARE": 4,
+   "NMG": 4,
+   "AGI": 3,
+   "CLMT": 3,
+   "DK": 3,
+   "BBVA": 3,
+   "ACH": 3,
+   "MX": 3,
+   "TREX": 3,
+   "GOGO": 3,
+   "CARS": 3,
+   "GSM": 2,
+   "CIG": 2,
+   "WYNN": 2,
+   "ANDE": 2,
+   "FTI": 2,
+   "SXC": 2,
+   "ESI": 2,
+   "PKOH": 2,
+   "LQDA": 2,
+   "SBGI": 2,
+   "SAFE": 2,
+   "PNFP": 2,
+   "CD": 2,
+   "SAM": 2,
+   "HUT": 2,
+   "BTX": 2,
+   "Z": 2,
+   "VELO": 2,
+   "MPT": 2,
+   "MED": 2,
+   "AIRE": 2,
+   "RC": 2,
+   "KKR": 2,
+   "AMN": 1,
+   "RGP": 1,
+   "SGI": 1,
+   "ARCO": 1,
+   "TPC": 1,
+   "AXON": 1,
+   "FMC": 1,
+   "FBP": 1,
+   "ATI": 1,
+   "MTCH": 1,
+   "ASC": 1,
+   "AROC": 1,
+   "HIVE": 1,
+   "SPB": 1,
+   "GEN": 1,
+   "PBI": 1,
+   "ECPG": 1,
+   "IRD": 1,
+   "TTI": 1,
+   "JEF": 1,
+   "BHE": 1,
+   "RLJ": 1,
+   "ITP": 1,
+   "LIVE": 1,
+   "COCO": 1,
+   "META": 1,
+   "BANC": 1,
+   "SPWR": 1,
+   "CCI": 1,
+   "D": 1,
+   "SIRI": 1,
+   "LION": 1,
+   "BTCS": 1,
+   "CRCL": 1,
+   "BALY": 1,
+   "W": 1,
+   "G": 1
+  },
+  "owner_flags_by_year": {
+   "2011": 4,
+   "2012": 7,
+   "2013": 5,
+   "2014": 21,
+   "2015": 29,
+   "2016": 30,
+   "2017": 1,
+   "2018": 11,
+   "2019": 7,
+   "2020": 38,
+   "2021": 17,
+   "2022": 194,
+   "2023": 30,
+   "2024": 18,
+   "2025": 17,
+   "2026": 17
+  },
+  "ford_example": [
+   "1847 Holdings LLC",
+   "AUGUSTA GOLD CORP.",
+   "AURA SYSTEMS INC",
+   "AVRA Medical Robotics, Inc.",
+   "Aeluma, Inc.",
+   "Aerkomm Inc.",
+   "Allarity Therapeutics, Inc.",
+   "Allegro Merger Corp.",
+   "American Cannabis Company, Inc.",
+   "Aspen-1 Acquisition Inc.",
+   "BANK OF CHILE",
+   "BOXSCORE BRANDS, INC."
+  ],
+  "backtest_trades": 270,
+  "backtest_trades_flagged": [
+   {
+    "ticker": "PBF",
+    "cutoff": "2021-08-04",
+    "company": "PBF Holding Co LLC",
+    "excess": 0.5878,
+    "tier": "probable"
+   }
+  ],
+  "live_trades": 74,
+  "live_trades_flagged": [],
+  "metric_sensitivity": {
+   "2009-2018 historical holdout": {
+    "all": {
+     "n": 1758,
+     "monthly_ic": 0.1516000605777306,
+     "auc_hit": 0.6045153791130186
+    },
+    "without_probable": {
+     "n": 1730,
+     "monthly_ic": 0.1518797703857491,
+     "auc_hit": 0.6036375181422351
+    },
+    "without_any_flag": {
+     "n": 1650,
+     "monthly_ic": 0.1920387221551947,
+     "auc_hit": 0.6172627393823106
+    }
+   },
+   "2019-2020 discovery": {
+    "all": {
+     "n": 1634,
+     "monthly_ic": 0.13651419189279795,
+     "auc_hit": 0.6186479245812986
+    },
+    "without_probable": {
+     "n": 1603,
+     "monthly_ic": 0.1418822440205248,
+     "auc_hit": 0.6232311473528748
+    },
+    "without_any_flag": {
+     "n": 1589,
+     "monthly_ic": 0.14520015276433268,
+     "auc_hit": 0.6225233402001288
+    }
+   },
+   "2021-2025 forward holdout": {
+    "all": {
+     "n": 6415,
+     "monthly_ic": 0.24267221127902666,
+     "auc_hit": 0.6340685622322063
+    },
+    "without_probable": {
+     "n": 6168,
+     "monthly_ic": 0.24684602824367832,
+     "auc_hit": 0.6279760174883134
+    },
+    "without_any_flag": {
+     "n": 6139,
+     "monthly_ic": 0.250946257304974,
+     "auc_hit": 0.6270769130806074
+    }
+   },
+   "2026 live (post-cutoff)": {
+    "all": {
+     "n": 985,
+     "monthly_ic": 0.28198072672298063,
+     "auc_hit": 0.5140863356053229
+    },
+    "without_probable": {
+     "n": 975,
+     "monthly_ic": 0.2713147306554062,
+     "auc_hit": 0.5119922911414126
+    },
+    "without_any_flag": {
+     "n": 968,
+     "monthly_ic": 0.27475053856587217,
+     "auc_hit": 0.5120412109940906
+    }
    }
   }
  },
