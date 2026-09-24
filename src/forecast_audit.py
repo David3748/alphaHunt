@@ -11,6 +11,8 @@ and used automatically when lab_runs/ is absent, e.g. in a fresh clone):
   synthesis fields, mechanical price features and the frozen-protocol 90-day
   excess return vs SPY (century 2009-2025 + matured live-2026 cases);
 - lab_runs/live_2026/outcomes_forward.json: graded live trades of the locked rules;
+- lab_runs/llm_incremental/walk_forward_ridge.csv: walk-forward ridge scores per case
+  (price features only, LLM outputs only, both), trained on strictly earlier years;
 - sites/strategy-site/public/data/p_plus20_trades.json: the backtest trade ledger
   of the same locked P(+20%) rule;
 - results/redaction_audit and results/memorization_probe summaries.
@@ -46,6 +48,8 @@ def _input(run_path: str, name: str) -> Path:
 DATASET = _input("lab_runs/llm_incremental/dataset.csv", "dataset.csv")
 INCREMENTAL = _input("lab_runs/llm_incremental/report.json", "llm_incremental_report.json")
 LIVE_TRADES = _input("lab_runs/live_2026/outcomes_forward.json", "live_outcomes_forward.json")
+WALK_FORWARD = _input("lab_runs/llm_incremental/walk_forward_ridge.csv", "walk_forward_scores.csv")
+WALK_FORWARD_COLS = ["case_id", "M0_mech", "M1_mech_llm", "M2_llm"]
 BACKTEST_TRADES = ROOT / "sites/strategy-site/public/data/p_plus20_trades.json"
 FORECASTS_MADE = "2026-08-24"  # live syntheses were generated 2026-08-24 (UTC)
 HIT = 0.20                     # the forecast event: beat SPY by >= 20 pp over 90 days
@@ -128,6 +132,54 @@ def signal_block(df: pd.DataFrame) -> dict:
             "monthly_ic_t": float(ics.mean() / se) if len(ics) > 1 else float("nan"),
             "monthly_ic_ci": bootstrap_ci(ics),
             "auc_hit": auc(df.p20, df.hit), **quintile_edge(df)}
+
+
+# ---------------------------------------------------------------- memory vs market
+
+def memory_vs_market(df: pd.DataFrame, scores: pd.DataFrame, draws: int = 1000, seed: int = 0) -> dict:
+    """Did the LLM lose more skill in 2026 than a walk-forward model on price features alone,
+    which cannot remember anything? Difference-in-differences, 2021-2025 vs 2026, with a
+    calendar-month block bootstrap (resampling the same months for both scorers)."""
+    d = df.drop(columns=[c for c in WALK_FORWARD_COLS[1:] if c in df.columns]).merge(
+        scores[WALK_FORWARD_COLS], on="case_id", how="inner")
+    pre, post = d[(d.cohort == "century") & (d.year >= 2021)], d[d.cohort == "live_2026"]
+    cols = {"llm_p20": "p20", "llm_walk_forward": "M2_llm", "mechanical_walk_forward": "M0_mech"}
+    out = {"n": {"2021-2025": int(len(pre)), "2026": int(len(post))}, "auc_hit": {}, "monthly_ic": {}}
+    for name, col in cols.items():
+        out["auc_hit"][name] = {"2021-2025": auc(pre[col], pre.hit), "2026": auc(post[col], post.hit)}
+        out["monthly_ic"][name] = {"2021-2025": float(monthly_ics(pre, col).mean()),
+                                   "2026": float(monthly_ics(post, col).mean())}
+        a, b = out["auc_hit"][name]["2021-2025"], out["auc_hit"][name]["2026"]
+        out["auc_hit"][name]["share_of_above_chance_skill_lost"] = (a - b) / (a - 0.5) if a > 0.5 else None
+
+    def ic_by_month(frame, col):
+        return {m: spearmanr(g[col], g["excess"]).statistic for m, g in frame.groupby("month")
+                if len(g) >= MIN_MONTH and g[col].nunique() > 1}
+    ic = {(p, c): ic_by_month(f, c) for p, f in (("pre", pre), ("post", post)) for c in ("p20", "M0_mech")}
+    months = {p: sorted(set(ic[(p, "p20")]) & set(ic[(p, "M0_mech")])) for p in ("pre", "post")}
+    groups = {p: {m: g for m, g in f.groupby("month")} for p, f in (("pre", pre), ("post", post))}
+
+    def auc_did(a, b):
+        return (auc(a.p20, a.hit) - auc(b.p20, b.hit)) - (auc(a.M0_mech, a.hit) - auc(b.M0_mech, b.hit))
+
+    def ic_did(mp, mq):
+        mean = lambda p, c, ms: float(np.mean([ic[(p, c)][m] for m in ms]))
+        return (mean("pre", "p20", mp) - mean("post", "p20", mq)) - (mean("pre", "M0_mech", mp) - mean("post", "M0_mech", mq))
+
+    rng = np.random.default_rng(seed)
+    boots = {"auc": [], "ic": []}
+    all_months = {p: sorted(groups[p]) for p in groups}
+    for _ in range(draws):
+        ma = rng.choice(all_months["pre"], len(all_months["pre"]))
+        mb = rng.choice(all_months["post"], len(all_months["post"]))
+        boots["auc"].append(auc_did(pd.concat([groups["pre"][m] for m in ma]), pd.concat([groups["post"][m] for m in mb])))
+        boots["ic"].append(ic_did(rng.choice(months["pre"], len(months["pre"])), rng.choice(months["post"], len(months["post"]))))
+    point = {"auc": auc_did(pre, post), "ic": ic_did(months["pre"], months["post"])}
+    out["difference_in_differences_llm_p20_vs_mechanical"] = {
+        k: {"point": float(point[k]), "ci": [float(np.percentile(v, 2.5)), float(np.percentile(v, 97.5))],
+            "share_of_draws_above_zero": float(np.mean(np.array(v) > 0))} for k, v in boots.items()}
+    out["months"] = {"2021-2025": len(all_months["pre"]), "2026": len(all_months["post"])}
+    return out
 
 
 # ---------------------------------------------------------------- calibration
@@ -457,6 +509,8 @@ def build(df: pd.DataFrame) -> dict:
             report[name] = {k: v for k, v in summary.items() if k != "rows"}
     if LIVE_TRADES.exists() and BACKTEST_TRADES.exists():
         report["live_vs_backtest"] = live_vs_backtest()
+    if WALK_FORWARD.exists():
+        report["memory_vs_market"] = memory_vs_market(df, pd.read_csv(WALK_FORWARD, usecols=WALK_FORWARD_COLS))
     return report
 
 
@@ -571,6 +625,25 @@ def markdown(r: dict) -> str:
               "The interval is wide: the probe rules out only a very large memorization effect."
               + (f" Dropping the {len(ex['dropped'])} cases priced on another filer's ticker gives "
                  f"{ex['did_haiku_vs_mechanical']['point']:+.2f}." if ex else "")]
+    mm = r.get("memory_vs_market")
+    if mm:
+        a, ic, dd = mm["auc_hit"], mm["monthly_ic"], mm["difference_in_differences_llm_p20_vs_mechanical"]
+        L += ["", "## Memory or market, on the full cohorts", "",
+              f"The same comparison on every case: {mm['n']['2021-2025']:,} filings from 2021-2025 vs {mm['n']['2026']:,} "
+              "live 2026 filings, scored by the LLM and by walk-forward ridge models trained on strictly earlier years.", "",
+              "| Scorer | AUC (+20 pp) 2021-25 | AUC 2026 | Share of above-chance skill lost | Monthly IC 2021-25 | IC 2026 |",
+              "| --- | ---: | ---: | ---: | ---: | ---: |"]
+        for name, label in (("llm_p20", "LLM P(+20%)"), ("llm_walk_forward", "Walk-forward model on LLM outputs"),
+                            ("mechanical_walk_forward", "Walk-forward model on price features")):
+            lost = a[name]["share_of_above_chance_skill_lost"]
+            L.append(f"| {label} | {a[name]['2021-2025']:.3f} | {a[name]['2026']:.3f} | {pct(lost) if lost is not None else 'n/a'} | "
+                     f"{ic[name]['2021-2025']:.3f} | {ic[name]['2026']:.3f} |")
+        L += ["", f"Difference-in-differences, LLM P(+20%) minus the price model (calendar-month block bootstrap, "
+              f"{mm['months']['2026']} live months): ranking IC {dd['ic']['point']:+.3f} [{dd['ic']['ci'][0]:+.3f}, {dd['ic']['ci'][1]:+.3f}]; "
+              f"tail AUC {dd['auc']['point']:+.3f} [{dd['auc']['ci'][0]:+.3f}, {dd['auc']['ci'][1]:+.3f}], "
+              f"{pct(dd['auc']['share_of_draws_above_zero'])} of draws above zero. The ranking held for both scorers. In the tail, "
+              "the LLM lost more AUC points than the price model, but both lost most of their above-chance skill, and the price "
+              "model had little to lose: an additive reading leaves room for memory, a proportional one does not."]
     ta_ = r.get("ticker_audit")
     if ta_:
         fl = ta_["owner_flags"]
@@ -600,6 +673,8 @@ def main() -> int:
                           (LIVE_TRADES, "live_outcomes_forward.json")):
             if src.parent != SNAPSHOT:
                 (SNAPSHOT / name).write_bytes(src.read_bytes())
+        if WALK_FORWARD.parent != SNAPSHOT:
+            pd.read_csv(WALK_FORWARD, usecols=WALK_FORWARD_COLS).to_csv(SNAPSHOT / "walk_forward_scores.csv", index=False)
     df = load()
     report = build(df)
     args.out.mkdir(parents=True, exist_ok=True)

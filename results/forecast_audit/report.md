@@ -54,6 +54,18 @@ Probability that 12 trades drawn independently from the backtest ledger average 
 
 Difference-in-differences, Haiku minus the mechanical model: +0.02 [-0.27, +0.32] (paired bootstrap). A model that cannot remember anything lost as much skill across the cutoff as Haiku did, so on this sample the drop is the period, not memory. The interval is wide: the probe rules out only a very large memorization effect. Dropping the 3 cases priced on another filer's ticker gives +0.03.
 
+## Memory or market, on the full cohorts
+
+The same comparison on every case: 6,415 filings from 2021-2025 vs 985 live 2026 filings, scored by the LLM and by walk-forward ridge models trained on strictly earlier years.
+
+| Scorer | AUC (+20 pp) 2021-25 | AUC 2026 | Share of above-chance skill lost | Monthly IC 2021-25 | IC 2026 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| LLM P(+20%) | 0.634 | 0.514 | 89% | 0.243 | 0.282 |
+| Walk-forward model on LLM outputs | 0.579 | 0.485 | 119% | 0.297 | 0.324 |
+| Walk-forward model on price features | 0.543 | 0.503 | 93% | 0.124 | 0.154 |
+
+Difference-in-differences, LLM P(+20%) minus the price model (calendar-month block bootstrap, 6 live months): ranking IC -0.009 [-0.151, +0.119]; tail AUC +0.080 [-0.016, +0.136], 95% of draws above zero. The ranking held for both scorers. In the tail, the LLM lost more AUC points than the price model, but both lost most of their above-chance skill, and the price model had little to lose: an additive reading leaves room for memory, a proportional one does not.
+
 ## Data quality: cases priced on another company's stock
 
 446 of 10,787 cases (4.1%) carry a ticker that another CIK reports as its own (316 probable, 130 possible), mostly from the resolver's file-name fallback; 166 filings from unrelated small companies were priced as Ford (F). Flagged backtest trades: 1 of 270 (a subsidiary priced on its parent); flagged live trades: 0 of 74. Without any flagged case, monthly IC is 0.192 (was 0.152) for 2009-2018 historical holdout, 0.145 (was 0.137) for 2019-2020 discovery, 0.251 (was 0.243) for 2021-2025 forward holdout, 0.275 (was 0.282) for 2026 live (post-cutoff). Details: `results/ticker_audit/report.md`.

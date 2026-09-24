@@ -44,12 +44,15 @@ covers what survived out of sample, what didn't, and why.
   Its explanations cited events that happened after the filing, such as "COVID-19"
   for a February 2020 10-K. Leakage through the model's own weights can't be ruled
   out for any year before its training cutoff.
-- **But memory doesn't explain the collapse on its own.** In a controlled
-  before/after test, Haiku reading scrubbed filings lost skill across its training
-  cutoff (AUC 0.63 → 0.50). On the same cases, a price-only model that can't
-  remember anything lost just as much (0.66 → 0.54), so the difference-in-differences
-  is +0.02 [−0.27, +0.32]. Without that control, the naive comparison would have
-  looked like proof of memorization. The later period was simply harder.
+- **Memory is not the whole story.** In a controlled before/after test, Haiku
+  reading scrubbed filings lost skill across its training cutoff (AUC 0.63 → 0.50).
+  But a price-only model that can't remember anything lost as much on the same cases
+  (0.66 → 0.54): difference-in-differences +0.02 [−0.27, +0.32]. On the full
+  cohorts, the LLM's ranking held in 2026, and so did the price model's. Only in the
+  tail did the LLM lose more, 0.08 AUC [−0.02, +0.14] beyond the price model. Even
+  there, both lost about 90% of their above-chance tail skill. Without these
+  controls, the naive before/after comparison would have looked like proof of
+  memorization.
 - **The audit also caught a data bug.** A file-name fallback in the ticker resolver
   priced 4.1% of cases on another company's stock: 166 filings from unrelated small
   companies were priced as Ford. It touched 1 of the 270 backtest trades (a
@@ -172,7 +175,7 @@ be taken at face value.
 | --- | --- |
 | Pre-registered blind re-score ([protocol](protocols/blind_rescore.md)): 110 cases re-run with names, tickers, EINs, and file numbers scrubbed | Signal unchanged (Spearman 0.39 → 0.39, AUC 0.70 → 0.71). Verdict *GENUINE* for the name/ticker channel. |
 | Redaction audit of all 10,875 evidence packs ([`redaction_audit.py`](src/redaction_audit.py)) | 91% still contain a direct identifier. The distinctive name word survives in 61% of packs that have one (for example, "Nabors" 126 times after "NABORS INDUSTRIES LTD" was redacted). The cover-page address survives in 85%. |
-| Identification probe ([`identification_probe.py`](src/identification_probe.py), [answers](results/identification_probe/table.md)): 100 Haiku agents, one case each in a fresh context, given 10,000 characters of MD&A with every name word, ticker, URL, and tax ID stripped. Same 100 cases as the recall probe. | Named **50 of 80** 2011–24 companies (62.5%, 95% CI 52–72%; 66% within its top 3), and 10 of 20 from 2026. The giveaways were products, drugs, subsidiaries, mines, and former names: "NVX-CoV2373" (Novavax), "nusinersen … Akcea" (Ionis, named as its old name Isis), "Palmarejo, Kensington, Rochester" (Coeur). Its confidence ranked right vs wrong answers almost perfectly (AUC 0.95). Many misses had the right clues but the wrong name, so this is a floor. An earlier 48-case batch got 53% from 4,500 characters. |
+| Identification probe ([`identification_probe.py`](src/identification_probe.py), [answers](results/identification_probe/table.md)): 100 Haiku agents, one case each in a fresh context, given 10,000 characters of MD&A with every name word, ticker, URL, and tax ID stripped. Same 100 cases as the recall probe. | Named **50 of 80** 2011–24 companies (62.5%, 95% CI 52–72%; 66% within its top 3), and 10 of 20 from 2026. The giveaways were products, drugs, subsidiaries, mines, and former names: "NVX-CoV2373" (Novavax), "nusinersen … Akcea" (Ionis, named as its old name Isis), "Palmarejo, Kensington, Rochester" (Coeur). Its confidence ranked right vs wrong answers almost perfectly (AUC 0.94). Many misses had the right clues but the wrong name, so this is a floor. An earlier 48-case batch got 53% from 4,500 characters. |
 | Named-recall probe ([`recall_probe.py`](src/recall_probe.py), [answers](results/recall_probe/table.md)): 100 Haiku agents, one case each in a fresh context, given only company, ticker, and filing date. 80 extreme 2011–2024 moves, 20 in 2026. | 2011–24: P(outperform) AUC **0.65** [0.54, 0.75], permutation p = 0.007; 0.72 for large, liquid names vs 0.58 for small. 2026 controls: 0.56 [0.31, 0.80]. On the same cases the filing-reading forecaster scored 0.69 historically vs 0.54 in 2026. Haiku's name-only guesses correlated 0.34 with its forecasts historically, and −0.02 in 2026. |
 
 The blind test rules out leakage through explicit identifiers. It cannot rule out
@@ -219,9 +222,25 @@ future. The difference-in-differences against that model is +0.02 [−0.27, +0.3
 No rationale named its company or cited a later event.
 
 With 50 filings per period, the test rules out only a large memorization effect.
-It does show that the period after the cutoff was harder for every scorer. So the
-live collapse is at least partly the market, and a before/after comparison means
-little without a control that can't remember anything.
+It does show that the period after the cutoff was harder for every scorer.
+
+The same comparison on the full cohorts (6,415 filings from 2021–25 vs 985 live)
+uses the walk-forward price model as the control:
+
+| Scorer | AUC (+20 pp), 2021–25 → 2026 | Monthly IC, 2021–25 → 2026 |
+| --- | --- | --- |
+| LLM P(+20%) | 0.63 → 0.51 | 0.24 → 0.28 |
+| Walk-forward model on price features | 0.54 → 0.50 | 0.12 → 0.15 |
+
+- **Ranking:** the LLM's ranking held, just as the price model's did. The
+  difference-in-differences is −0.01 [−0.15, +0.12].
+- **Tail:** the LLM lost 0.08 more AUC [−0.02, +0.14] (month-block bootstrap, 95%
+  of draws above zero). Both lost about 90% of their above-chance tail skill, and
+  the price model had little to lose. An additive reading leaves room for memory;
+  a proportional one doesn't.
+
+So the live collapse is at least partly the market. A before/after comparison
+means little without a control that can't remember anything.
 
 ## Next steps
 
@@ -297,7 +316,7 @@ docs/           case study (index.html), figures/, notes/ research log, week-one
 reports/        standalone HTML research reports
 sites/          Next.js/vinext front-ends for the results
 cloud/, scripts/  Azure VM, Docker, and supervisor scripts for the century run
-tests/          299 offline tests with committed fixtures
+tests/          300 offline tests with committed fixtures
 ```
 
 Run data (about 11 GB of filing packs, LLM outputs, and caches under `lab_runs/`
@@ -307,7 +326,7 @@ and `research/`) is not committed.
 
 ```bash
 pip install -r requirements.txt
-python -m pytest -q                         # 299 offline tests
+python -m pytest -q                         # 300 offline tests
 python src/forecast_audit.py                # rebuilds the audit from data/audit_inputs/
 python src/memorization_probe.py            # rescores the re-identification probe
 python src/recall_probe.py score --probe-dir results/recall_probe --results results/recall_probe

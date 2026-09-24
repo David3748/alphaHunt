@@ -240,5 +240,35 @@ class TestTickerAudit(unittest.TestCase):
         self.assertNotIn("no_owner", flags)
 
 
+class TestMemoryVsMarket(unittest.TestCase):
+    @staticmethod
+    def frame(seed=0):
+        """Months 2021-2025 where the LLM separates +20 pp hits and the price model is noise; in 2026
+        both are noise. The LLM should lose more tail skill than the price model."""
+        rng = np.random.default_rng(seed)
+        rows = []
+        for year in list(range(2021, 2026)) + [2026]:
+            for month in range(1, 13 if year < 2026 else 7):
+                for i in range(30):
+                    hit = i % 3 == 0
+                    rows.append({"case_id": f"{year}{month:02d}{i}", "cohort": "live_2026" if year == 2026 else "century",
+                                 "cutoff": f"{year}-{month:02d}-15", "excess": (0.4 if hit else -0.1) + rng.normal(0, 0.02),
+                                 "p20": (30.0 if hit else 10.0) if year < 2026 else float(rng.uniform(5, 35)),
+                                 "M0_mech": float(rng.normal()), "M1_mech_llm": 0.0, "M2_llm": 0.0})
+        df = pd.DataFrame(rows)
+        df["year"], df["month"] = df.cutoff.str[:4].astype(int), df.cutoff.str[:7]
+        df["hit"] = (df.excess >= fa.HIT).astype(int)
+        return df
+
+    def test_llm_specific_tail_loss_is_detected(self):
+        df = self.frame()
+        out = fa.memory_vs_market(df, df[fa.WALK_FORWARD_COLS], draws=60)
+        self.assertEqual(out["n"], {"2021-2025": 1800, "2026": 180})
+        self.assertAlmostEqual(out["auc_hit"]["llm_p20"]["2021-2025"], 1.0)
+        dd = out["difference_in_differences_llm_p20_vs_mechanical"]["auc"]
+        self.assertGreater(dd["point"], 0.3)
+        self.assertGreater(dd["ci"][0], 0.0)
+
+
 if __name__ == "__main__":
     unittest.main()

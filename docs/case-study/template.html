@@ -373,7 +373,7 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); 
       <div class="exhibit-body">
         <div class="legend"><span><i class="key dot" style="background:var(--blue)"></i>2023–24 filings: outcome in training data</span><span><i class="key dot" style="background:var(--orange)"></i>Aug 2025 on: outcome after it</span></div>
         <div class="chart" id="c-cutoff"></div>
-        <p class="exhibit-note">On its own, Haiku’s drop looks like memorization. But a model built only on price features, which can’t know the future, dropped as much on the same filings. The difference-in-differences is <b class="num" data-k="did"></b> [<span class="num" data-k="didCi"></span>]. No rationale named its company or cited a later event. With 50 filings per period, the test rules out only a large memory effect. What it does show is that the months after the cutoff were harder for every scorer, so the live collapse is at least partly the market.</p>
+        <p class="exhibit-note">On its own, Haiku’s drop looks like memorization. But a model built only on price features, which can’t know the future, dropped as much on the same filings. The difference-in-differences is <b class="num" data-k="did"></b> [<span class="num" data-k="didCi"></span>]. No rationale named its company or cited a later event. With 50 filings per period, the test rules out only a large memory effect. What it does show is that the months after the cutoff were harder for every scorer. On all <span class="num" data-k="fullN"></span> filings from 2021 on, the LLM’s ranking held in 2026, as the price model’s did. Only in the tail did the LLM lose more, <span class="num" data-k="fullDid"></span> AUC [<span class="num" data-k="fullCi"></span>] beyond the price model, and both lost about <span class="num" data-k="fullLost"></span> of their above-chance tail skill. So the live collapse is at least partly the market.</p>
       </div>
     </figure>
   </section>
@@ -446,6 +446,9 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--ink); 
     recallP: D.recall.pValue.toFixed(3), recallLarge: D.recall.large.toFixed(2), recallSmall: D.recall.small.toFixed(2),
     rhoHist: fmt2(D.recall.rhoHist), rhoCtrl: fmt2(D.recall.rhoCtrl),
     did: sgn2(D.cutoff.did), didCi: `${sgn2(D.cutoff.didCi[0])}, ${sgn2(D.cutoff.didCi[1])}`,
+    fullN: D.cutoff.full.n.toLocaleString("en-US"), fullDid: D.cutoff.full.did.toFixed(2),
+    fullCi: `${sgn2(D.cutoff.full.ci[0])}, ${sgn2(D.cutoff.full.ci[1])}`,
+    fullLost: pct(Math.round((D.cutoff.full.lostLLM + D.cutoff.full.lostMech) / 2 * 10) / 10),
     tickShare: pct(D.tickers.share, 1), tickFord: D.tickers.ford,
     tickTrades: `It touched ${D.tickers.backtest} of ${D.tickers.backtestN} backtest trades (a subsidiary priced on its parent) and ${D.tickers.live ? D.tickers.live : "none"} of the ${D.tickers.liveN} live trades.`,
   };
