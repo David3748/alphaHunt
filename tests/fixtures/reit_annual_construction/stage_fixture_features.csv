@@ -1,0 +1,6 @@
+aoi,date,valid_pixel_fraction,vegetation_fraction,bare_soil_fraction,impervious_fraction,roof_fraction,built_up_fraction,built_up_area_km2
+fixture,2020-12-31T00:00:00Z,0.98,0.70,0.05,0.10,0.05,0.10,1.0
+fixture,2021-12-31T00:00:00Z,0.98,0.45,0.24,0.13,0.08,0.13,1.3
+fixture,2022-12-31T00:00:00Z,0.98,0.40,0.27,0.22,0.16,0.22,2.2
+fixture,2023-12-31T00:00:00Z,0.98,0.25,0.12,0.48,0.38,0.48,4.8
+fixture,2024-12-31T00:00:00Z,0.98,0.30,0.06,0.60,0.58,0.60,6.0

@@ -1,0 +1,53 @@
+{
+  "description": "Point-in-time supply-minus-demand features and footprint property-type baseline for satellite REIT research",
+  "supply_demand": {
+    "growth_periods": 1,
+    "availability_lag_months": 12,
+    "demand_weights": {
+      "population_growth": 0.6,
+      "night_lights_growth": 0.4
+    },
+    "signal": "demand_minus_supply",
+    "required_columns": ["period", "geo", "built_up_km2", "population"],
+    "optional_columns": ["night_lights"],
+    "sources": {
+      "built_up": {
+        "name": "Global Human Settlement Layer (GHSL) built-up surface",
+        "url": "https://ghsl.jrc.ec.europa.eu/ghs_bu.php",
+        "limitation": "R2025A is a reprocessed historical product; it is not a point-in-time data vintage."
+      },
+      "population": {
+        "name": "World Bank World Development Indicators, SP.POP.TOTL",
+        "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json",
+        "limitation": "National population is a coarse demand proxy for metro-level property demand."
+      },
+      "night_lights": {
+        "name": "NASA Black Marble / VIIRS annual nighttime lights composites",
+        "url": "https://blackmarble.gsfc.nasa.gov/",
+        "limitation": "Cloud, sensor, saturation, stray-light and urban composition changes can bias growth; use stable annual composites and revisions manifest."
+      }
+    }
+  },
+  "property_types": {
+    "classes": ["apartment", "logistics", "office", "retail", "data_center", "self_storage", "unknown"],
+    "features": {
+      "numeric": [
+        "footprint_area_m2", "height_m", "floor_count", "compactness",
+        "parking_area_ratio", "roof_unit_count", "window_density",
+        "building_age_years", "has_substation", "has_cooling_plant"
+      ],
+      "categorical": ["poi_category", "land_use"]
+    },
+    "labeling_protocol": [
+      "Freeze imagery and parcel/POI versions by snapshot date.",
+      "Sample buildings stratified by city, size and candidate class.",
+      "Have two reviewers label use from imagery plus parcel/POI evidence; adjudicate disagreements.",
+      "Keep cities out of validation when possible to measure geographic transfer, not memorization."
+    ],
+    "limitations": [
+      "Footprint geometry alone cannot reliably identify use; the rule scores are an auditable bootstrap.",
+      "Data centers and self-storage are especially confusable with warehouses; require power/cooling or parcel evidence.",
+      "REIT holdings may be mixed-use, leased to another use, or outside the observed footprint snapshot."
+    ]
+  }
+}

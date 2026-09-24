@@ -1,0 +1,53 @@
+{
+  "run_dir": "lab_runs/unstructured_proto",
+  "drive_remote": "gdrive:alphaHunt/unstructured_proto",
+  "model": "stealth/ox-alpha",
+  "llm_concurrency": 256,
+  "data_concurrency": 16,
+  "max_llm_calls": 12000,
+  "zstd_level": 6,
+  "sources": {
+    "noaa_storms": {
+      "enabled": true,
+      "csv_url_template": "https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/StormEvents_details-ftp_v1.0_d{YEAR}_c{CUTDATE}.csv.gz",
+      "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "sample_max": 5000
+    },
+    "usda_segments": {
+      "enabled": true,
+      "use_existing_cases": true,
+      "sample_max": 500
+    },
+    "departures_8k": {
+      "enabled": true,
+      "use_existing_filings": true,
+      "sample_max": 300
+    },
+    "wikipedia": {
+      "enabled": true,
+      "wikidata_sparql": "https://query.wikidata.org/sparql",
+      "pageviews_api": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user",
+      "sample_max": 500
+    },
+    "steam": {
+      "enabled": true,
+      "sample_max": 300
+    },
+    "cpsc": {
+      "enabled": true,
+      "api_url": "https://www.saferproducts.gov/RestWebServices/Recall",
+      "sample_max": 300
+    },
+    "fda_recalls": {
+      "enabled": true,
+      "drug_api": "https://api.fda.gov/drug/enforcement.json",
+      "device_api": "https://api.fda.gov/device/enforcement.json",
+      "sample_max": 500
+    },
+    "sbir": {
+      "enabled": true,
+      "csv_url": "https://data.www.sbir.gov/mod_awarddatapublic/award_data.csv",
+      "sample_max": 500
+    }
+  }
+}

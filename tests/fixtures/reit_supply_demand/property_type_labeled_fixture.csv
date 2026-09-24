@@ -1,0 +1,13 @@
+building_id,footprint_area_m2,height_m,floor_count,compactness,parking_area_ratio,roof_unit_count,window_density,building_age_years,has_substation,has_cooling_plant,poi_category,land_use,property_type
+A1,2600,20,5,0.64,0.15,0,0.45,12,0,0,apartment,residential,apartment
+A2,3800,23,6,0.60,0.10,0,0.50,8,0,0,multi-family,residential,apartment
+L1,15000,10,1,0.82,0.20,2,0.05,5,0,0,warehouse,industrial,logistics
+L2,9000,8,1,0.76,0.18,1,0.05,15,0,0,distribution,industrial,logistics
+O1,7000,28,8,0.58,0.12,0,0.65,10,0,0,office,commercial,office
+O2,5500,22,6,0.55,0.10,0,0.60,20,0,0,business,commercial,office
+R1,6000,9,2,0.55,0.42,0,0.22,7,0,0,retail,commercial,retail
+R2,4000,7,1,0.60,0.35,0,0.18,18,0,0,supermarket,retail,retail
+D1,10000,13,2,0.82,0.08,4,0.02,4,1,1,data center,industrial,data_center
+D2,7500,11,3,0.78,0.06,3,0.02,6,1,1,server,utility,data_center
+S1,4500,12,3,0.80,0.12,0,0.08,9,0,0,self-storage,commercial,self_storage
+S2,3000,9,2,0.74,0.10,0,0.06,16,0,0,storage,commercial,self_storage

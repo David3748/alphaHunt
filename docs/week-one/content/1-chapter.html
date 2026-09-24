@@ -1,0 +1,16 @@
+<h2><span class="chap">Chapter 1 · The idea</span><br>Every "GPT picks stocks" demo is broken by construction</h2>
+<p>An LLM asked about a company's 2015 annual report has almost certainly seen what happened in 2016.
+It knows which names went bankrupt, which got acquired, which ten-baggerged. Ask it to analyze the filing
+and you're not testing reading comprehension — you're testing recall wearing foresight's clothes.</p>
+<p>There are four ways to cheat without meaning to:</p>
+<p><strong>Input lookahead</strong> — evidence contains documents filed after decision time.
+<strong>Parametric leakage</strong> — training data already holds the outcome.
+<strong>Survivorship</strong> — the universe is today's listings; the failures that would have punished
+the strategy were quietly deleted. <strong>Selection</strong> — try twenty rules, publish the winner.</p>
+<p>So before running a single model call, I built the thing that makes cheating checkable.
+Filings carry their exact SEC acceptance timestamps in a bitemporal store. Every prediction references an
+immutable manifest that rejects any document the market couldn't have seen yet. Blobs are SHA-256-addressed,
+so nothing mutates silently. Protocols get written to disk <em>before</em> outcomes exist; amendments are
+separate frozen documents, and whatever period they peeked at gets excluded from their confirmatory claims.
+Significance testing shuffles scores within calendar months, which preserves regime timing while destroying
+ranking information, then reruns the whole portfolio simulation 500 times.</p>

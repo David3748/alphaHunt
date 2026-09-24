@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AlphaHunt research note comparing the historical forecasting record of UK market-implied rates and Bank of England model-based paths.">
+  <title>AlphaHunt — UK Rates: Market vs Model</title>
+  <style>
+    :root{
+      --ink:#17211d;--muted:#65706a;--paper:#f3f0e7;--card:#fffdf8;--line:#d8d3c7;
+      --green:#205f4d;--green2:#dceae3;--red:#a34335;--red2:#f2dfda;--gold:#b27b21;
+      --gold2:#f2e7d2;--blue:#315e74;--blue2:#dfe9ee;--navy:#183e33;--shadow:0 16px 38px rgba(24,62,51,.10)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:radial-gradient(circle at 4% 0,rgba(32,95,77,.13),transparent 31rem),radial-gradient(circle at 96% 3%,rgba(178,123,33,.12),transparent 29rem),var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:#245e4f;text-decoration-thickness:1px;text-underline-offset:3px}
+    main{width:min(1180px,calc(100% - 36px));margin:auto;padding:50px 0 72px}
+    h1,h2,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+    h1{font-size:clamp(42px,6.5vw,78px);line-height:.95;letter-spacing:-.048em;margin:9px 0 16px;max-width:900px}
+    h2{font-size:31px;line-height:1.08;margin:0}
+    h3{margin:0 0 9px;font-size:15px;letter-spacing:.07em;text-transform:uppercase}
+    p{margin:0 0 14px}
+    ul{padding-left:19px;margin:10px 0}
+    li{margin:7px 0}
+    header{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:28px}
+    .eyebrow{color:var(--green);font-size:12px;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+    .dek{max-width:900px;color:var(--muted);font-size:18px;margin:0}
+    .stamp{text-align:right;color:var(--muted);font-size:12px;white-space:nowrap}
+    .stamp strong{color:var(--ink);font-size:14px}
+    nav{position:sticky;top:0;z-index:5;margin:18px 0 0;padding:10px 14px;background:rgba(243,240,231,.92);border:1px solid rgba(216,211,199,.85);border-radius:999px;backdrop-filter:blur(10px);overflow-x:auto;white-space:nowrap}
+    nav a{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;margin-right:18px;color:var(--muted)}
+    nav a:hover{color:var(--green)}
+    .hero{margin:24px 0 34px;background:var(--navy);color:white;border-radius:20px;padding:28px 30px;display:grid;grid-template-columns:175px 1fr;gap:28px;align-items:center;box-shadow:var(--shadow)}
+    .hero-score{text-align:center;border-right:1px solid rgba(255,255,255,.2);padding-right:27px}
+    .hero-score b{display:block;font:58px/.95 Georgia,serif;color:#d9e9b5}
+    .hero-score span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#c9dad2}
+    .hero strong{font:26px/1.12 Georgia,serif;font-weight:500}
+    .hero p{color:#dce8e2;margin:8px 0 0;max-width:800px}
+    .section{margin-top:45px;scroll-margin-top:65px}
+    .section-title{display:flex;justify-content:space-between;gap:20px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px}
+    .section-title span{color:var(--muted);font-size:11px;text-align:right}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+    .card,.panel{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:21px;box-shadow:0 5px 16px rgba(24,62,51,.035)}
+    .card small{display:block;color:var(--muted);font-size:9px;font-weight:850;letter-spacing:.10em;text-transform:uppercase}
+    .card .big{display:block;font:40px/1 Georgia,serif;margin:8px 0 8px}
+    .card p,.panel p{font-size:13px;color:var(--muted)}
+    .accent-green{border-top:5px solid var(--green)}.accent-red{border-top:5px solid var(--red)}.accent-gold{border-top:5px solid var(--gold)}.accent-blue{border-top:5px solid var(--blue)}
+    .callout{border-radius:15px;padding:18px 20px;margin-top:16px;font-size:14px}
+    .callout.green{background:var(--green2);border-left:4px solid var(--green)}
+    .callout.gold{background:var(--gold2);border-left:4px solid var(--gold)}
+    .callout.red{background:var(--red2);border-left:4px solid var(--red)}
+    .callout strong{display:block;margin-bottom:4px}
+    .equation{background:#eef0e9;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;font:24px/1.3 Georgia,serif;margin:14px 0}
+    .equation span{display:block;font:11px/1.4 Inter,sans-serif;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+    .metric-compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:17px;align-items:center;margin-top:12px}
+    .scorebox{padding:19px;border-radius:15px;text-align:center;background:var(--blue2)}
+    .scorebox.model{background:var(--green2)}
+    .scorebox small{display:block;font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .scorebox b{font:44px/1 Georgia,serif;display:block;margin:7px 0}.vs{text-align:center;color:var(--muted);font:22px Georgia,serif}
+    .bar{height:9px;background:#e4dfd3;border-radius:99px;overflow:hidden;margin-top:9px}.bar div{height:100%;border-radius:inherit;background:var(--blue)}.model .bar div{background:var(--green)}
+    .fine{font-size:11px;color:var(--muted)}
+    .table-wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:17px;padding:0 17px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{text-align:left;vertical-align:top;padding:13px 10px;border-bottom:1px solid var(--line)}
+    tr:last-child td{border-bottom:0}
+    th{font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+    .winner{font-size:9px;text-transform:uppercase;letter-spacing:.07em;font-weight:850;white-space:nowrap}.winner.market{color:var(--blue)}.winner.model{color:var(--green)}.winner.mixed{color:var(--gold)}
+    .chart-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;overflow:hidden}
+    .evidence-chart{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;overflow:hidden}.evidence-chart img{display:block;width:100%;height:auto;margin:auto}.evidence-chart.loss img{max-width:880px}.evidence-chart.paths img{max-width:425px}.chart-explain{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:13px}.chart-explain div{border-radius:11px;padding:12px;font-size:11px;color:var(--muted)}.chart-explain strong{display:block;font-size:12px;color:var(--ink);margin-bottom:3px}.positive{background:var(--green2)}.neutral{background:#ece9e0}.negative{background:var(--red2)}
+    .chart-head{display:flex;justify-content:space-between;gap:20px;margin-bottom:7px}.chart-head b{font:22px Georgia,serif}.chart-head span{color:var(--muted);font-size:11px;text-align:right}
+    svg{width:100%;height:auto;display:block}.axis{stroke:#cfc9bd;stroke-width:1}.grid{stroke:#ded9ce;stroke-width:1;stroke-dasharray:3 5}.market-line{fill:none;stroke:var(--blue);stroke-width:4}.actual-line{fill:none;stroke:var(--green);stroke-width:4}.over-line{fill:none;stroke:var(--red);stroke-width:4}.dot-market{fill:var(--blue)}.dot-actual{fill:var(--green)}.dot-over{fill:var(--red)}.svg-label{font:12px Inter,sans-serif;fill:#65706a}.svg-value{font:700 12px Inter,sans-serif;fill:#17211d}.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:11px;font-size:11px;color:var(--muted)}.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px;border-radius:3px}.legend .m{background:var(--blue)}.legend .a{background:var(--green)}.legend .o{background:var(--red)}
+    .timeline{display:grid;grid-template-columns:120px 1fr;gap:0}.year{font:22px Georgia,serif;color:var(--green);padding:15px 18px 15px 0;border-right:1px solid var(--line)}.event{padding:15px 0 15px 21px;border-bottom:1px solid var(--line);position:relative}.event:before{content:"";position:absolute;left:-5px;top:23px;width:9px;height:9px;border-radius:50%;background:var(--green)}.event:last-child{border-bottom:0}.event b{display:block}.event span{color:var(--muted);font-size:12px}
+    .decision{background:var(--navy);color:white;border-radius:18px;padding:24px;display:grid;grid-template-columns:1.05fr .95fr;gap:26px}.decision h3{color:#d9e9b5}.decision p{color:#dce8e2;font-size:13px}.checklist{display:grid;gap:8px}.check{display:grid;grid-template-columns:20px 1fr;gap:9px;color:#e5eee9;font-size:13px}.check i{width:17px;height:17px;border-radius:50%;background:#d9e9b5;color:var(--navy);font-style:normal;font-weight:900;font-size:11px;text-align:center;line-height:17px}
+    .sources{columns:2;column-gap:36px}.sources li{break-inside:avoid;font-size:12px;color:var(--muted);margin-bottom:10px}
+    footer{border-top:1px solid var(--line);margin-top:45px;padding-top:18px;color:var(--muted);font-size:11px}
+    @media(max-width:900px){header,.hero,.grid-3,.grid-2,.decision{grid-template-columns:1fr}.stamp{text-align:left}.hero-score{text-align:left;border-right:0;border-bottom:1px solid rgba(255,255,255,.2);padding:0 0 18px}.sources{columns:1}.chart-explain{grid-template-columns:1fr}}
+    @media(max-width:600px){main{width:min(100% - 24px,1180px);padding-top:32px}.metric-compare{grid-template-columns:1fr}.vs{font-size:14px}.section-title,.chart-head{display:block}.section-title span,.chart-head span{display:block;text-align:left;margin-top:5px}.timeline{grid-template-columns:76px 1fr}.year{font-size:18px}.hero{padding:23px}.card,.panel,.chart-card{padding:17px}nav{border-radius:14px}.table-wrap table{min-width:780px}}
+    @media print{body{background:white}main{width:100%;padding:18px}.card,.panel,.chart-card,.hero,.decision{break-inside:avoid;box-shadow:none}nav{display:none}a{color:inherit}.section{margin-top:29px}}
+  </style>
+</head>
+<body><main>
+  <header>
+    <div>
+      <div class="eyebrow">AlphaHunt / UK short rates</div>
+      <h1>Market versus model</h1>
+      <p class="dek">A historical audit of who has predicted the UK policy path better, why the answer changes by regime, and what that means for receiving the current SONIA hike premium.</p>
+    </div>
+    <div class="stamp">Research note<br><strong>28 August 2026</strong><br>Information set through July MPC</div>
+  </header>
+
+  <nav aria-label="Report sections">
+    <a href="#verdict">Verdict</a><a href="#objects">What is compared</a><a href="#backtest">Backtest</a><a href="#errors">Error time series</a><a href="#twenties">2020s paths</a><a href="#decision-stack">Decision stack</a><a href="#history">History</a><a href="#episodes">Episodes</a><a href="#today">Today</a><a href="#trade">Trade map</a><a href="#sources">Sources</a>
+  </nav>
+
+  <section class="hero" id="verdict">
+    <div class="hero-score"><b>13%</b><span>lower 3Y forecast error</span></div>
+    <div><strong>The model wins the long sample; the market wins the regime change.</strong><p>A model-based neutral-rate forecast produced a 2.51pp UK three-year RMS forecast error versus 2.89pp for the raw market forward. That is useful evidence, not a knockout: the models were superior in false-normalisation episodes, while the market captured the 2021–23 inflation-driven hiking cycle far earlier.</p></div>
+  </section>
+
+  <section class="section" id="objects">
+    <div class="section-title"><h2>First, separate three different objects</h2><span>Most apparent disagreements come from comparing unlike things</span></div>
+    <div class="grid-3">
+      <article class="card accent-blue"><small>01 / Tradable price</small><span class="big">OIS curve</span><p>A risk-neutral price for future overnight rates. It contains the probability-weighted rate path, term/risk premium, skew and hedging pressure. It is executable, but it is not a pure forecast.</p></article>
+      <article class="card accent-green"><small>02 / Expected path</small><span class="big">ATSM + surveys</span><p>The Bank staff's new short-end term-structure model uses OIS plus MaPS and Consensus forecasts to estimate the physical expected path and the residual premium. It is a decomposition, not an MPC commitment.</p></article>
+      <article class="card accent-gold"><small>03 / Conditional forecast</small><span class="big">MPC projection</span><p>The Monetary Policy Report traditionally conditions growth and inflation on the market curve. It asks what the economy does if the priced curve occurs; it does not publish the Committee's preferred rate path.</p></article>
+    </div>
+    <div class="equation">OIS forward = expected future Bank Rate + risk premium + distributional effects<span>The wedge is potentially the trade—but only the OIS leg is directly monetisable</span></div>
+    <div class="callout gold"><strong>Terminology trap</strong>The July 2026 Bank model is not the same model used in the long historical backtest. The live model is a new survey-anchored short-end term-structure model. The historical test uses a model-based nominal neutral rate—real r* plus trend inflation—against a three-year government-liability forward. They answer related, but not identical, questions.</div>
+  </section>
+
+  <section class="section" id="backtest">
+    <div class="section-title"><h2>The closest quantitative scorecard</h2><span>UK, recursive real-time-style exercise; January 1972–May 2025</span></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Three-year out-of-sample RMSFE</h3>
+        <div class="metric-compare">
+          <div class="scorebox"><small>Market 3Y forward</small><b>2.89</b><span class="fine">percentage points</span><div class="bar"><div style="width:100%"></div></div></div>
+          <div class="vs">versus</div>
+          <div class="scorebox model"><small>r* + inflation trend</small><b>2.51</b><span class="fine">percentage points</span><div class="bar"><div style="width:86.9%"></div></div></div>
+        </div>
+        <p class="fine" style="margin-top:13px">450 recursive forecasts. The model reduced RMSFE by 0.38pp, or 13.1%. In-sample RMSE was similarly 2.88pp for the market benchmark and 2.49pp for the model.</p>
+      </div>
+      <div class="panel">
+        <h3>What the statistic does—and does not—prove</h3>
+        <ul>
+          <li><strong>It supports:</strong> market forwards are not unbiased medium-horizon forecasts; slow-moving neutral-rate anchors add information.</li>
+          <li><strong>It does not support:</strong> blindly trading every curve/model wedge. A 2.51pp RMSFE remains large.</li>
+          <li><strong>It is not a P&amp;L test:</strong> forecast accuracy ignores carry, roll, timing, margin and adverse mark-to-market.</li>
+          <li><strong>It is horizon-specific:</strong> a three-year result cannot be transplanted mechanically to a six- or twelve-month SONIA trade.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout green"><strong>Cleanest conclusion</strong>On average, the model was better. Economically, the edge came from refusing to assume that rates must quickly return to the previous regime. Statistically, the advantage is meaningful but too modest to treat the model as an oracle.</div>
+  </section>
+
+  <section class="section" id="errors">
+    <div class="section-title"><h2>The forecast error through time</h2><span>This is the test the headline RMSFE was summarising</span></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>The policy-expectations regression</h3>
+        <div class="equation">i<sub>t+36</sub> = α<sub>t</sub> + i*<sub>t</sub> + u<sub>t+36</sub><span>Recursive expanding-window forecast; slope constrained to one</span></div>
+        <p>The target is the realised UK short rate 36 months later. The competing predictor is either the model-based nominal neutral rate, <strong>r* + trend inflation</strong>, or a market-based rate. Each forecast generates an error:</p>
+        <div class="equation" style="font-size:20px">e<sub>j,t</sub> = forecast<sub>j,t</sub> − Bank Rate<sub>t+36</sub><span>j = model or market</span></div>
+        <p>The plotted fluctuation statistic is a rolling, normalised loss differential versus the three-year instantaneous forward:</p>
+        <div class="equation" style="font-size:20px">d<sub>t</sub> = e²<sub>market,t</sub> − e²<sub>model,t</sub><span>Positive means the model made the smaller squared error</span></div>
+      </div>
+      <div class="evidence-chart paths">
+        <div class="chart-head"><b>Successive curves versus Bank Rate</b><span>UK, 2005–May 2025</span></div>
+        <img src="assets/uk_rates_charts/uk_policy_forward_curves_plot.png" alt="Bank Rate and selected April OIS instantaneous forward curves for the UK from 2005 to 2025">
+        <p class="fine" style="margin-top:12px">Black is realised Bank Rate; grey lines are selected April OIS forward curves; red is the latest June 2025 curve. The repeated post-GFC upward arcs are the false-normalisation error in visual form. Source: Taylor, Brandt and Dotta (2025), Chart 1; Bloomberg and BoE calculations.</p>
+      </div>
+    </div>
+
+    <div class="evidence-chart loss" style="margin-top:17px">
+      <div class="chart-head"><b>Rolling relative forecast loss</b><span>UK out-of-sample errors, approximately 1988–2022<br>three-year horizon</span></div>
+      <img src="assets/uk_rates_charts/uk_relative_forecast_loss.png" alt="Giacomini-Rossi fluctuation test statistics for UK out-of-sample forecast errors showing model performance relative to the three-year market forward">
+      <div class="chart-explain">
+        <div class="positive"><strong>Above zero: model wins</strong>The r* plus trend-inflation lines have lower local squared forecast loss than the three-year market forward.</div>
+        <div class="neutral"><strong>Outside black lines: significant</strong>Crossing roughly ±3.4 rejects equal predictive accuracy at the 5% level for the paper's narrow rolling window.</div>
+        <div class="negative"><strong>Below zero: market wins</strong>The sharp fall at the right edge is the 2021–22 inflation regime break, when neutral-rate models adjusted too slowly.</div>
+      </div>
+      <p class="fine" style="margin-top:12px"><strong>Line key:</strong> blue = recursive r* + trend inflation; yellow = fixed-intercept r* + trend inflation; red = ten-year-forward trend alternative. The benchmark for every line is the instantaneous three-year forward. Source image: Taylor, Brandt and Dotta (2025), Chart 3. No values have been reverse-engineered or smoothed by AlphaHunt.</p>
+    </div>
+
+    <div class="callout green"><strong>What the lines add</strong>The model's average advantage is not stable alpha. It was decisively better around the early-1990s disinflation and the global financial crisis, roughly tied for long stretches, then worse during the 2021–22 lift-off. That time variation is the core evidence for making the current receiver conditional on the inflation regime.</div>
+  </section>
+
+  <section class="section" id="twenties">
+    <div class="section-title"><h2>Actual, market and formula forecasts on one chart</h2><span>The direct 2020s comparison</span></div>
+    <div class="evidence-chart" style="background:var(--navy);border-color:#294d43">
+      <div class="chart-head" style="color:white"><b>UK Bank Rate and competing predicted paths</b><span style="color:#bed0c8">Percent; 2005–2026, with the 2020s at right</span></div>
+      <img src="assets/uk_rates_charts/boe_chart4_uk_market_model.png" alt="Historical UK Bank Rate with successive three-year market curves and recursive and fixed-parameter model forecasts">
+    </div>
+    <div class="grid-3" style="margin-top:13px">
+      <article class="card accent-green"><small>Realised rate / white</small><span class="big">Actual</span><p>Bank Rate fell to 0.10% in March 2020, rose to 5.25% by August 2023, then declined to 3.75% by December 2025.</p></article>
+      <article class="card accent-blue"><small>OIS paths / grey</small><span class="big">Market</span><p>Each grey arc is the contemporaneous three-year market curve. In the 2020s the curves first missed lift-off, then caught the tightening regime, then repeatedly embedded a medium-term “swoosh” higher.</p></article>
+      <article class="card accent-gold"><small>r* + π* / aqua and orange</small><span class="big">Formula</span><p>Aqua is the recursively estimated three-year-ahead model forecast through 2022; orange uses fixed parameters through 2025. Both anchor the medium-term rate below the late market curves.</p></article>
+    </div>
+    <div class="callout gold"><strong>How to read the 2020s portion</strong>The formula was badly late to the inflation-driven lift-off: its rate forecast stayed near zero just as the realised path accelerated upward. Once policy reached 5.25%, the relationship reversed—the market curves continued to price a higher medium-term path, while the formula settled near roughly 3%. This is the regime-dependence in one picture.</div>
+
+    <div class="evidence-chart" style="margin-top:17px;background:var(--navy);border-color:#294d43">
+      <div class="chart-head" style="color:white"><b>Current path: market versus model and surveys</b><span style="color:#bed0c8">As of 4 June 2026; percent</span></div>
+      <img src="assets/uk_rates_charts/boe_chart5_latest_ois_model.png" alt="June 2026 UK OIS market curve, model-implied Bank Rate expectations and April and June Market Participants Survey expectations">
+    </div>
+    <div class="chart-explain">
+      <div class="negative"><strong>Purple: tradable market curve</strong>Rises from 3.75% toward about 4.30% in 2027, then remains above 4.15% into 2028.</div>
+      <div class="positive"><strong>Aqua: formula/model path</strong>Bars remain broadly flat near 3.75% initially, then drift toward about 3.50% by spring 2028.</div>
+      <div class="neutral"><strong>Orange: participant modes</strong>June MaPS holds 3.75% to spring 2027, then falls to 3.25%; April MaPS was more dovish earlier.</div>
+    </div>
+    <p class="fine" style="margin-top:11px">Both charts are reproduced from Alan Taylor's June 2026 Bank of England speech, “Central reservations,” Charts 4 and 5. The historical formula is the r* plus trend-inflation model from Taylor, Brandt and Dotta (2025); the current aqua bars use the newer survey-anchored short-end term-structure model. They should not be treated as the same specification.</p>
+  </section>
+
+  <section class="section" id="decision-stack">
+    <div class="section-title"><h2>What actually goes into the decision</h2><span>Latest official data available on 28 August 2026</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Input</th><th>Latest reading</th><th>Why the MPC cares</th><th>Current signal</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Headline CPI</strong></td><td>2.9% y/y in July, up from 2.6%; gas prices rose 14.7% m/m after the Ofgem cap reset.</td><td>Raises the visible inflation rate and can alter household expectations and wage bargaining even though policy cannot produce gas.</td><td><span class="winner market">Hawkish first round</span></td></tr>
+        <tr><td><strong>Core and services CPI</strong></td><td>Core CPI 2.6%, unchanged; services CPI eased to 3.4% from 3.6%.</td><td>Best near-term test of whether the energy shock is spreading into domestic prices.</td><td><span class="winner model">Dovish / improving</span></td></tr>
+        <tr><td><strong>Wage growth</strong></td><td>Private-sector regular pay 2.8%; whole-economy regular pay 3.5%. DMP firms report 4.0% and expect 3.4% next year.</td><td>Wages drive services costs and persistence. A renewed wage-price loop is the cleanest reason to hike.</td><td><span class="winner model">Near target-consistent</span></td></tr>
+        <tr><td><strong>Labour-market slack</strong></td><td>Unemployment 4.9%; 707,000 vacancies; 2.5 unemployed people per vacancy; July payrolls down about 94,000 y/y.</td><td>More slack reduces worker bargaining power, wage pressure and firms' ability to pass through costs.</td><td><span class="winner model">Dovish</span></td></tr>
+        <tr><td><strong>Activity and demand</strong></td><td>Q2 GDP +0.4% q/q; consumption +0.3%; business investment +1.7%. BoE still expects subdued growth through early 2027.</td><td>Strong demand lets firms protect margins by raising prices; weak demand forces more of the energy shock into margins and real incomes.</td><td><span class="winner mixed">Mixed</span></td></tr>
+        <tr><td><strong>Inflation expectations</strong></td><td>DMP one-year CPI expectation 3.4%; three-year 2.8%. Firms' year-ahead own-price expectation 3.9%.</td><td>The MPC can look through a temporary supply shock only while medium-term expectations stay anchored.</td><td><span class="winner mixed">Near-term high; medium anchored</span></td></tr>
+        <tr><td><strong>Energy persistence</strong></td><td>July MaPS assumption: Brent near $80 in three months and $70 in twelve months. Energy remains above pre-conflict levels and volatile.</td><td>Duration matters more than the initial jump: persistence raises the chance of repeated price resets and second-round effects.</td><td><span class="winner market">Main upside tail</span></td></tr>
+        <tr><td><strong>Financial conditions</strong></td><td>By June, two-year OIS was about 70bp above pre-war and quoted two-year mortgage rates about 80bp higher.</td><td>A higher curve tightens the economy before the MPC acts; that can reduce the need for a delivered hike.</td><td><span class="winner model">Self-tightening</span></td></tr>
+        <tr><td><strong>Fiscal and sterling</strong></td><td>BoE projects increasing fiscal drag on the output gap; sterling is a live import-price transmission channel.</td><td>Fiscal restraint lowers demand. Sterling weakness would do the opposite by lifting imported inflation.</td><td><span class="winner mixed">Fiscal dovish; FX conditional</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout gold"><strong>The decision variable is propagation, not July CPI by itself</strong>The MPC is effectively asking whether higher energy prices merely reduce household real income or instead change wage demands, services pricing and inflation expectations. The first outcome supports holding; the second supports hiking.</div>
+
+    <div class="section-title" style="margin-top:30px"><h2>What the formula says—and how</h2><span>Two related models, two horizons</span></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Medium horizon: neutral-rate formula</h3>
+        <div class="equation">i*<sub>t</sub> = r*<sub>t</sub> + π*<sub>t</sub><span>Nominal neutral rate = real neutral rate + trend inflation</span></div>
+        <div class="equation" style="font-size:20px">Bank Rate<sub>t+36</sub> = α<sub>t</sub> + i*<sub>t</sub> + u<sub>t+36</sub><span>Recursive expanding-window regression; slope fixed at one</span></div>
+        <p>The slow-moving r* estimate captures structural saving, investment, productivity and global-rate forces; π* captures the inflation trend rather than today's energy print. The fitted intercept corrects the average bias. On the latest historical chart, the fixed-parameter path converges toward roughly <strong>3.0%–3.25%</strong>, close to the Bank staff's 3% nominal-neutral anchor.</p>
+      </div>
+      <div class="panel">
+        <h3>Short horizon: OIS decomposition</h3>
+        <div class="equation">OIS<sub>t,h</sub> = E<sup>P</sup><sub>t</sub>[Bank Rate<sub>t+h</sub>] + λ<sub>t,h</sub><span>Expected rate under the physical measure + risk premium</span></div>
+        <p>The 2026 staff model fits multiple OIS maturities with a richer factor structure and uses MaPS plus Consensus forecasts as noisy observations of genuine expectations. The difference between fitted OIS and the physical expected path is assigned mainly to the premium.</p>
+        <p><strong>Current message:</strong> Bank Rate broadly flat near 3.75% over the next year, then drifting down toward roughly 3.5%. The model does not say a hike is impossible; it says the upward curve is mostly compensation for uncertainty rather than the central expected path.</p>
+      </div>
+    </div>
+    <div class="callout red"><strong>Model limitation</strong>The formula deliberately looks through temporary shocks. That is its advantage in a 2010-style episode and its weakness in a 2021-style regime change. Survey anchoring also means the short-end model is not independent of market economists' beliefs.</div>
+
+    <div class="section-title" style="margin-top:30px"><h2>Bank guidance versus market pricing</h2><span>The disagreement is smaller—and more technical—than it first appears</span></div>
+    <div class="grid-3">
+      <article class="card accent-green"><small>MPC / reaction function</small><span class="big">6–3 hold</span><p>The Committee held at 3.75%; three members wanted 4.00%. Formal guidance is conditional: scale and duration of energy, financial conditions and propagation into wages/prices determine the required stance. There is no promised path.</p></article>
+      <article class="card accent-gold"><small>Survey / modal belief</small><span class="big">Hold → cut</span><p>July MaPS median: 3.75% through April 2027, 3.50% by June/July 2027 and 3.25% by end-2027. Respondents put 71% probability on 3.75% after September and 24.7% on 4.00%.</p></article>
+      <article class="card accent-blue"><small>Tradable price / risk-neutral</small><span class="big">Upward</span><p>The OIS curve rose from 3.75% toward roughly 4.3% in 2027 in the June chart. In the Alphahunt August snapshot, year-end SONIA remained near 4.0%. This is expressed through MPC-dated SONIA OIS, short-sterling futures and options.</p></article>
+    </div>
+
+    <div class="grid-2" style="margin-top:17px">
+      <div class="panel"><h3>Why the market curve is higher</h3><ol>
+        <li><strong>Mean versus mode:</strong> MaPS reports the most likely outcome; OIS prices a probability-weighted mean. A 20%–30% hike tail lifts the mean even when “hold” is modal.</li>
+        <li><strong>Risk premium:</strong> receivers require compensation for an energy-driven upside tail that is painful and correlated with other portfolio losses.</li>
+        <li><strong>Positive skew:</strong> the potential hiking tail is larger than the near-term cutting tail.</li>
+        <li><strong>Real policy dissent:</strong> three of nine MPC members already preferred a hike, so this is not a purely technical premium.</li>
+        <li><strong>Hedging flows:</strong> mortgage lenders, issuers and investors pay fixed when rate volatility rises, mechanically lifting OIS.</li>
+      </ol></div>
+      <div class="panel"><h3>Why the wedge can still be tradable</h3><ol>
+        <li><strong>Financial conditions do some MPC work:</strong> higher OIS already raises mortgages and corporate borrowing costs.</li>
+        <li><strong>Domestic data are not validating the tail:</strong> services inflation is easing, private pay is 2.8%, vacancies are falling and expected employment growth is negative.</li>
+        <li><strong>Energy is doing most of the headline damage:</strong> July's CPI increase was heavily affected by the price-cap reset.</li>
+        <li><strong>The premium can decay without a cut:</strong> a hold plus quiet wages is enough for the distribution to narrow.</li>
+      </ol></div>
+    </div>
+    <div class="callout green"><strong>One-sentence synthesis</strong>The Bank is saying “hold unless the energy shock propagates”; the modal forecaster says “it probably will not”; the model says “the central path is flat”; and the market says “the upside tail is sufficiently costly that receivers must be paid roughly a hike to own it.”</div>
+  </section>
+
+  <section class="section" id="history">
+    <div class="section-title"><h2>Regime-by-regime record</h2><span>Score the forecast available then—not the best vintage selected afterward</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Episode</th><th>What the curve said</th><th>What happened</th><th>Verdict</th><th>Weight for today</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Post-GFC, 2009–16</strong></td><td>Repeatedly embedded a return toward the old, higher-rate regime.</td><td>Bank Rate stayed at 0.50% from March 2009 to August 2016.</td><td><span class="winner model">Model wins</span></td><td>High: archetypal false-normalisation bias, though the effective lower bound amplified it.</td></tr>
+        <tr><td><strong>Energy/VAT scare, 2010–13</strong></td><td>From 0.50%, priced 0.70% end-2011, 1.20% end-2012 and 1.90% end-2013.</td><td>Bank Rate remained 0.50% throughout; weak demand dominated temporary inflation.</td><td><span class="winner model">Model / dovish view</span></td><td>Very high: closest energy-shock parallel.</td></tr>
+        <tr><td><strong>Gradual tightening, 2018–19</strong></td><td>After the August 2018 hike to 0.75%, priced about 1.40% in three years.</td><td>No further pre-Covid hikes; rates collapsed to 0.10% during the pandemic.</td><td><span class="winner mixed">Curve too high</span></td><td>Low-medium: Covid makes the realised miss an unfair forecast test.</td></tr>
+        <tr><td><strong>Inflation breakout, 2021–22</strong></td><td>The curve repriced sharply upward as inflation persistence became evident.</td><td>Bank Rate rose from 0.10% in 2021 to 3.50% by December 2022.</td><td><span class="winner market">Market wins</span></td><td>Very high as the main warning against slow-moving models.</td></tr>
+        <tr><td><strong>November 2022 vintage</strong></td><td>Priced a 5.25% peak in 2023 Q3; MaPS median central peak was 4.50%.</td><td>Bank Rate reached 5.25% in August 2023.</td><td><span class="winner market">Market exact</span></td><td>High: upside risk premium contained genuine information.</td></tr>
+        <tr><td><strong>July/August 2023 vintage</strong></td><td>Priced a peak just over 6% and nearly 5.5% on average over three years.</td><td>The delivered peak remained 5.25%; cuts started in August 2024.</td><td><span class="winner model">Market overshoots</span></td><td>High: even correct regime calls can become crowded late.</td></tr>
+        <tr><td><strong>2024–26 “swoosh”</strong></td><td>Medium-dated forwards repeatedly rose above plausible neutral-rate estimates.</td><td>Bank Rate fell from 5.25% to 3.75% by December 2025 and was held through July 2026.</td><td><span class="winner model">Model so far</span></td><td>High, but current episode is incomplete and cannot yet be finally scored.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="section" id="episodes">
+    <div class="section-title"><h2>Two episodes that frame the present</h2><span>2010 is the receiver case; 2021–23 is the invalidation case</span></div>
+    <div class="grid-2">
+      <article class="chart-card">
+        <div class="chart-head"><b>2010 curve: hikes that never arrived</b><span>Bank Rate, percent<br>November 2010 OIS conditioning path</span></div>
+        <svg viewBox="0 0 520 290" role="img" aria-label="November 2010 market curve rising to 1.9 percent by end 2013 while actual Bank Rate stayed at 0.5 percent">
+          <line class="axis" x1="52" y1="240" x2="490" y2="240"/><line class="axis" x1="52" y1="28" x2="52" y2="240"/>
+          <line class="grid" x1="52" y1="190" x2="490" y2="190"/><line class="grid" x1="52" y1="140" x2="490" y2="140"/><line class="grid" x1="52" y1="90" x2="490" y2="90"/><line class="grid" x1="52" y1="40" x2="490" y2="40"/>
+          <text class="svg-label" x="17" y="244">0.0</text><text class="svg-label" x="17" y="194">0.5</text><text class="svg-label" x="17" y="144">1.0</text><text class="svg-label" x="17" y="94">1.5</text><text class="svg-label" x="17" y="44">2.0</text>
+          <text class="svg-label" x="52" y="267">2010 Q4</text><text class="svg-label" x="181" y="267">2011 Q4</text><text class="svg-label" x="317" y="267">2012 Q4</text><text class="svg-label" x="445" y="267">2013 Q4</text>
+          <polyline class="market-line" points="65,190 95,190 125,190 155,180 195,170 225,160 255,150 285,130 325,120 355,100 385,80 420,70 470,50"/>
+          <polyline class="actual-line" points="65,190 470,190"/>
+          <circle class="dot-market" cx="470" cy="50" r="5"/><circle class="dot-actual" cx="470" cy="190" r="5"/>
+          <text class="svg-value" x="438" y="40">1.90%</text><text class="svg-value" x="438" y="211">0.50%</text>
+        </svg>
+        <div class="legend"><span><i class="m"></i>Market path</span><span><i class="a"></i>Actual Bank Rate</span></div>
+        <div class="callout green"><strong>Why the curve failed</strong>Domestic gas prices were assumed to rise roughly 10%, inflation remained above target and a hike dissenter existed—but credit, money growth and private demand were weak. First-round inflation never became a rate cycle.</div>
+      </article>
+      <article class="chart-card">
+        <div class="chart-head"><b>2022–23: right regime, wrong late price</b><span>Expected versus delivered peak<br>Bank Rate, percent</span></div>
+        <svg viewBox="0 0 520 290" role="img" aria-label="November 2022 market expected a 5.25 percent peak matching actual, while August 2023 market expected over 6 percent">
+          <line class="axis" x1="52" y1="240" x2="490" y2="240"/><line class="axis" x1="52" y1="28" x2="52" y2="240"/>
+          <line class="grid" x1="52" y1="205" x2="490" y2="205"/><line class="grid" x1="52" y1="170" x2="490" y2="170"/><line class="grid" x1="52" y1="135" x2="490" y2="135"/><line class="grid" x1="52" y1="100" x2="490" y2="100"/><line class="grid" x1="52" y1="65" x2="490" y2="65"/>
+          <text class="svg-label" x="21" y="244">3.0</text><text class="svg-label" x="21" y="209">3.5</text><text class="svg-label" x="21" y="174">4.0</text><text class="svg-label" x="21" y="139">4.5</text><text class="svg-label" x="21" y="104">5.0</text><text class="svg-label" x="21" y="69">5.5</text><text class="svg-label" x="21" y="34">6.0</text>
+          <text class="svg-label" x="72" y="267">Nov 2022 OIS</text><text class="svg-label" x="225" y="267">Actual peak</text><text class="svg-label" x="380" y="267">Aug 2023 OIS</text>
+          <line class="market-line" x1="118" y1="83" x2="118" y2="240"/><circle class="dot-market" cx="118" cy="83" r="7"/>
+          <line class="actual-line" x1="273" y1="83" x2="273" y2="240"/><circle class="dot-actual" cx="273" cy="83" r="7"/>
+          <line class="over-line" x1="430" y1="25" x2="430" y2="240"/><circle class="dot-over" cx="430" cy="25" r="7"/>
+          <text class="svg-value" x="93" y="69">5.25%</text><text class="svg-value" x="248" y="69">5.25%</text><text class="svg-value" x="402" y="16">&gt;6.0%</text>
+        </svg>
+        <div class="legend"><span><i class="m"></i>Nov-22 market</span><span><i class="a"></i>Delivered</span><span><i class="o"></i>Aug-23 market</span></div>
+        <div class="callout red"><strong>Why the model failed, then the curve overshot</strong>Slow-moving neutral-rate models missed a structural inflation break and accelerating wages. Once the hiking regime was obvious, the curve kept extrapolating persistence and priced insurance after most of the move had already occurred.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><h2>Why each forecasting method fails</h2><span>The errors are systematic enough to form a regime checklist</span></div>
+    <div class="grid-2">
+      <div class="panel"><h3>Raw market curve failure modes</h3><ul>
+        <li><strong>Risk-premium contamination:</strong> payer demand lifts forwards even if the modal forecast is unchanged.</li>
+        <li><strong>Skew:</strong> a small probability of aggressive hikes can lift the probability-weighted mean above the most likely outcome.</li>
+        <li><strong>False normalisation:</strong> forwards gravitate toward yesterday's regime after structural breaks.</li>
+        <li><strong>Late-cycle extrapolation:</strong> once inflation momentum is visible, the market can price too much persistence.</li>
+        <li><strong>Technical pressure:</strong> mortgage hedging, issuance and positioning can move OIS independently of economists' modal path.</li>
+      </ul></div>
+      <div class="panel"><h3>Model and survey failure modes</h3><ul>
+        <li><strong>Slow state variables:</strong> r* and trend inflation do not react quickly to a regime-changing supply shock.</li>
+        <li><strong>Survey anchoring:</strong> the 2026 ATSM partly inherits the beliefs and biases of MaPS and Consensus participants.</li>
+        <li><strong>Model specification:</strong> estimated premia are sensitive to factors, sample period and Gaussian assumptions.</li>
+        <li><strong>Modal blindness:</strong> the most likely path can ignore a costly but meaningful right tail.</li>
+        <li><strong>No live record:</strong> the exact short-end model was only published in July 2026.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section class="section" id="today">
+    <div class="section-title"><h2>The current UK setup</h2><span>Latest official evidence versus the tradable Alphahunt snapshot</span></div>
+    <div class="grid-3">
+      <article class="card accent-green"><small>Policy</small><span class="big">3.75%</span><p>Bank Rate has been unchanged since December 2025. The July 2026 vote was 6–3, with three members preferring a 25bp hike.</p></article>
+      <article class="card accent-red"><small>Indicative curve</small><span class="big">~4.00%</span><p>Alphahunt's 28 August snapshot has year-end SONIA near one full hike above spot. Refresh with executable prices before trading.</p></article>
+      <article class="card accent-gold"><small>Model + survey</small><span class="big">Broadly flat</span><p>The July MPR says staff's expected one-year path is broadly flat; MaPS similarly expected no change until June 2027 before declines later.</p></article>
+    </div>
+    <div class="timeline" style="margin-top:18px">
+      <div class="year">Feb 2026</div><div class="event"><b>Pre-conflict curve priced cuts</b><span>The February MPR market path implied Bank Rate around 3.3% in 2026 H2.</span></div>
+      <div class="year">Apr 2026</div><div class="event"><b>Energy shock reversed the curve</b><span>The 15-day OIS path rose toward 4.2% in early 2027, while April MaPS still expected unchanged rates through 2026.</span></div>
+      <div class="year">Jul 2026</div><div class="event"><b>Risk premium became the dominant wedge</b><span>The forward curve was about 77bp above its pre-conflict level on average over three years. The Bank's model attributed much of the upward short-end slope to risk premia.</span></div>
+      <div class="year">Now</div><div class="event"><b>The premium is still observable, but the MPC split is real</b><span>Domestic wage pressures have eased and downside CPI surprises appeared, yet three members judged that risk management warranted an immediate hike.</span></div>
+    </div>
+    <div class="callout gold"><strong>Interpretation</strong>The market/model gap is not simply “market expects one hike, Bank expects none.” A better reading is: the modal path is a hold, while the tradable curve charges receivers for a positively skewed distribution in which renewed energy stress and second-round effects force hikes.</div>
+  </section>
+
+  <section class="section" id="trade">
+    <div class="section-title"><h2>Trade map: what history implies</h2><span>Translate forecast evidence into a position, not a slogan</span></div>
+    <div class="decision">
+      <div>
+        <h3>Base case: receive the excess hike premium, conditionally</h3>
+        <p>The 2010 analogue and the long-run backtest favor fading the upward OIS slope if domestic inflation remains target-consistent. But the 2022 precedent argues against sizing the position as though the model path were known. The premium is compensation for a genuine asymmetric tail and can widen before it converges.</p>
+        <p><strong style="color:white">Preferred expression:</strong> receive Dec-26 SONIA or 6m6m, sized to survive a temporary repricing above 4%. Options or limited-loss structures are preferable if implied volatility is not prohibitively rich.</p>
+      </div>
+      <div class="checklist">
+        <div class="check"><i>✓</i><span><strong>Stay in</strong> if private wage growth and services inflation keep decelerating.</span></div>
+        <div class="check"><i>✓</i><span><strong>Stay in</strong> if energy inflation remains first-round and inflation expectations stay anchored.</span></div>
+        <div class="check"><i>!</i><span><strong>Reduce</strong> if sterling weakness broadens import-price pressure.</span></div>
+        <div class="check"><i>!</i><span><strong>Exit / invalidate</strong> if wages, services prices and expectations reaccelerate together.</span></div>
+        <div class="check"><i>!</i><span><strong>Do not chase</strong> once most of the 25bp premium has collapsed without a fresh catalyst.</span></div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:17px">
+      <article class="card"><small>Bull case for receivers</small><span class="big">2010</span><p>External price shock, weak domestic demand, limited second rounds. Hike insurance decays and the forward rolls down toward an unchanged fixing.</p></article>
+      <article class="card"><small>Central case</small><span class="big">Hold</span><p>No delivered hike, but uncertainty stays elevated. Carry and convergence accrue unevenly; the trade works better with patience and controlled DV01.</p></article>
+      <article class="card"><small>Bear case for receivers</small><span class="big">2022</span><p>Energy shock alters wages and price-setting. The three hawkish votes become a majority and the curve's right tail migrates into the modal path.</p></article>
+    </div>
+    <div class="callout red"><strong>The non-obvious risk</strong>Even if the eventual Bank Rate path is flat, the trade can lose first because risk premia are not required to mean-revert on your schedule. Forecast accuracy is not equivalent to mark-to-market profitability.</div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><h2>Bottom line</h2></div>
+    <div class="grid-3">
+      <article class="card accent-green"><small>Historical answer</small><span class="big">Model</span><p>Better on average at the three-year horizon, with about 13% lower RMS forecast error.</p></article>
+      <article class="card accent-red"><small>Regime answer</small><span class="big">It depends</span><p>Markets dominate when inflation changes regime; models dominate when curves price false normalisation or late-cycle insurance.</p></article>
+      <article class="card accent-gold"><small>Current answer</small><span class="big">Receive, sized</span><p>The evidence favors fading the hike premium, but only while second-round indicators remain quiet and the position can survive premium widening.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="sources">
+    <div class="section-title"><h2>Sources and audit trail</h2><span>Primary sources unless otherwise noted</span></div>
+    <ol class="sources">
+      <li><a href="https://www.bankofengland.co.uk/bank-insights/2026/bank-rate-expectations-uk-curve-following-the-war-in-iran">Bank of England, “Bank Rate expectations in the UK curve following the war in Iran,” 17 July 2026</a>. Methodology and current OIS decomposition.</li>
+      <li><a href="https://www.bankofengland.co.uk/monetary-policy-report/2026/july-2026">Bank of England, July 2026 Monetary Policy Report</a>. Current curve, risk-premium assessment and survey path.</li>
+      <li><a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/july-2026">Bank of England, July 2026 MPC summary and minutes</a>. 3.75% decision and 6–3 vote.</li>
+      <li><a href="https://www.bankofengland.co.uk/speech/2026/june/alan-taylor-speech-at-the-barclays-and-centre-for-economic-policy-research">Alan Taylor, “Central reservations,” June 2026</a>. Market-curve “swoosh,” neutral-rate anchor and forecast-conditioning critique. Views are the author's, not MPC consensus.</li>
+      <li><a href="https://www.ecb.europa.eu/pub/pdf/sintra/ecb.forumcentbankpub2025_Taylor_paper.en.pdf">Taylor, Brandt and Dotta, “Does r* predict policy rates?” 2025</a>. UK three-year forecast comparison and RMSFE statistics.</li>
+      <li><a href="https://www.bankofengland.co.uk/-/media/boe/files/inflation-report/2010/november-2010.pdf">Bank of England, November 2010 Inflation Report</a>. Quarterly OIS conditioning path and energy assumptions.</li>
+      <li><a href="https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp">Bank of England, official Bank Rate history</a>. Delivered policy-rate sequence.</li>
+      <li><a href="https://www.bankofengland.co.uk/inflation-report/2018/november-2018/global-economic-and-financial-market-developments">Bank of England, November 2018 Inflation Report</a>. Market path to approximately 1.4% at three years.</li>
+      <li><a href="https://www.bankofengland.co.uk/monetary-policy-report/2022/november-2022">Bank of England, November 2022 Monetary Policy Report</a>. 5.25% market-implied peak and 4.5% MaPS central peak.</li>
+      <li><a href="https://www.bankofengland.co.uk/monetary-policy-report/2023/august-2023">Bank of England, August 2023 Monetary Policy Report</a>. Market-implied peak just above 6%.</li>
+      <li><a href="https://www.bankofengland.co.uk/working-paper/2008/measuring-monetary-policy-expectations-from-financial-market-instruments">Bank of England Working Paper 343, 2008</a>. Historical warning that no single market-extraction technique is uniformly reliable.</li>
+      <li><a href="https://www.bankofengland.co.uk/working-paper/2018/overnight-index-swap-market-based-measures-of-monetary-policy-expectations">Bank of England Working Paper 709, 2018</a>. Evidence that short OIS measures expectations well in ordinary periods; expectation measurement is not realised-rate forecasting.</li>
+      <li><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/july2026">ONS, Consumer price inflation: July 2026</a>. Headline, core, services and energy-price-cap data.</li>
+      <li><a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/uklabourmarket/latest">ONS, Labour market overview: August 2026</a>. Pay, payroll and labour-market indicators.</li>
+      <li><a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/jobsandvacanciesintheuk/latest">ONS, Vacancies and jobs: August 2026</a>. Vacancies and unemployment-to-vacancy ratio.</li>
+      <li><a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpfirstquarterlyestimateuk/apriltojune2026">ONS, GDP first quarterly estimate: April–June 2026</a>. GDP, consumption and business-investment growth.</li>
+      <li><a href="https://www.bankofengland.co.uk/decision-maker-panel/2026/july-2026">Bank of England Decision Maker Panel: July 2026</a>. Firms' price, wage, employment and inflation expectations.</li>
+      <li><a href="https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-july-2026">Bank of England Market Participants Survey: July 2026</a>. Modal Bank Rate path, probabilities and macro assumptions.</li>
+    </ol>
+  </section>
+
+  <footer>AlphaHunt research — information only, not individualized investment advice. Levels labelled “indicative” are not executable quotes. OIS and futures are leveraged instruments; verify live curve, fixing dates, DV01, convexity, margin, collateral, carry, roll and transaction costs before implementation. Historical forecast accuracy does not guarantee trading profitability.</footer>
+</main></body>
+</html>

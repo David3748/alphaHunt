@@ -1,0 +1,1825 @@
+{
+  "generatedAt": "2026-08-22T22:37:02.331Z",
+  "source": "fresh_confirmation",
+  "sealedAvailable": false,
+  "strategyName": "Safety-first · causal expanding threshold",
+  "strategyDescription": "Among severe-drawdown filing events, buy only candidates whose model-implied downside-tail risk clears a threshold estimated from prior signals. Equal-sized positions enter after the filing and hold for 90 days.",
+  "execution": {
+    "entry": "first adjusted close after filing date",
+    "holding_days": 90,
+    "max_positions": 10,
+    "cost_bps_per_side": 10,
+    "idle_cash": "historical 13-week Treasury yield (^IRX)",
+    "sizing": "each new position targets 10% of current NAV"
+  },
+  "metrics": {
+    "cagr": 0.14501249969755658,
+    "sharpe": 1.5255573164853236,
+    "maxDrawdown": -0.06607247564136298,
+    "trades": 10,
+    "winRate": 1,
+    "terminalReturn": 0.4775675702532267,
+    "averageExposure": 0.0920956996540016,
+    "start": "2021-03-26",
+    "end": "2024-02-12"
+  },
+  "dates": [
+    "2022-05-11",
+    "2022-05-25",
+    "2022-07-28",
+    "2022-07-29",
+    "2022-10-26",
+    "2022-11-01",
+    "2022-11-03",
+    "2022-11-04",
+    "2023-04-24",
+    "2023-10-31"
+  ],
+  "trades": [
+    {
+      "id": "ceff257e45c605a4d89e96f2",
+      "ticker": "XERS",
+      "company": "Xeris Biopharma Holdings, Inc.",
+      "signalDate": "2022-05-11",
+      "entryDate": "2022-05-12",
+      "exitDate": "2022-08-10",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": false,
+      "downsideProbability": 20,
+      "safetyScore": 80,
+      "expectedExcessReturn": -1,
+      "positiveProbability": 36,
+      "stockReturn": 0.11842109803677991,
+      "benchmarkReturn": 0.05298189747672288,
+      "excessReturn": 0.06214655799579272,
+      "thesis": "Xeris enters the window deeply depressed (-66% from 1-year high, $1.52) with genuinely strong commercial traction: Q1'22 product revenue more than doubled YoY to $21.9M (~172% growth) on the Strongbridge merger and Recorlev launch, with healthy ~72% gross margin and receivables tracking sales. However, the rerating case fails the near-term test. Operating losses widened to $(29.1)M as SG&A nearly doubled to $35.9M, operating cash burn doubled to $(48.4)M/quarter against only ~$132M liquidity (~5-6 quarters runway), long-term debt rose to $137.6M with lender warrants, and a fresh $75M ATM (~40.8M potential shares) sits registered over the stock. The company explicitly warns of additional dilutive capital needs. In a risk-off small-cap biotech tape, the dilution/burn overhang should dominate the revenue momentum within 90 days; there is no dated hard catalyst in the filings to force a rerating. Cheapness here reflects a real financing gap, not mispricing.",
+      "catalyst": "Recorlev launch acceleration and sequential product revenue beats demonstrating operating leverage toward cash-flow breakeven, reducing perceived need for near-term equity issuance; any favorable repricing of the Hayfin facility would remove the dilution discount.",
+      "invalidation": "Thesis invalidated if quarterly revenue decelerates sequentially, if the ATM is executed aggressively below $1.84, if covenant pressure forces distressed refinancing terms, or if intangible impairment signals emerge on the $128.7M acquisition-related balance.",
+      "evidence": [
+        {
+          "role": "operations",
+          "semantic_key": "q1_2022_product_revenue_growth",
+          "why": "Q1'22 net product revenue of $21.9M vs $8.1M YoY (~172% growth) with ~72% gross margin shows genuine commercial traction (Gvoke/Keveyis/Recorlev) — the only credible basis for a rerating thesis."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "cash_and_investments_q1_2022",
+          "why": "~$132M cash + short-term investments against ~$48M/quarter operating burn gives roughly 5-6 quarters of runway — survivable but not comfortable, and management itself expects continued losses."
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "atm_dilution",
+          "why": "$75M ATM program (~40.8M shares possible at $1.84, above current price but capping upside) plus recent 8.5% single-quarter share count growth makes dilution the dominant near-term mechanism working against excess return."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "long_term_debt_balance",
+          "why": "Long-term debt jumped to $137.6M from $88.1M with lender warrants attached and a $1.3M extinguishment loss; leverage now roughly equals total liquidity, so refinancing risk compounds the equity overhang."
+        },
+        {
+          "role": "governance",
+          "semantic_key": "share_count_growth_dilution",
+          "why": "Share count grew from 124.9M to 135.5M in one quarter via an equity offering with warrants — confirms management will fund the gap with equity, validating skepticism about near-term per-share value accretion."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "q1_2022_product_revenue_growth",
+          "why": "~172% YoY product revenue growth to $21.9M with ~72% gross margin is the core bull case: commercial traction exists and could drive a rerating if sustained."
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-05-11",
+          "accession": "0001867096-22-000063",
+          "url": "https://www.sec.gov/Archives/edgar/data/1867096/000186709622000063/"
+        },
+        {
+          "form": "424B5",
+          "filed": "2022-05-11",
+          "accession": "0001193125-22-147610",
+          "url": "https://www.sec.gov/Archives/edgar/data/1867096/000119312522147610/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-05-11",
+          "accession": "0001867096-22-000056",
+          "url": "https://www.sec.gov/Archives/edgar/data/1867096/000186709622000056/"
+        },
+        {
+          "form": "10-K",
+          "filed": "2022-03-11",
+          "accession": "0001867096-22-000040",
+          "url": "https://www.sec.gov/Archives/edgar/data/1867096/000186709622000040/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-03-10",
+          "accession": "0001867096-22-000033",
+          "url": "https://www.sec.gov/Archives/edgar/data/1867096/000186709622000033/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0001867096-22-000063",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "ac1b80a3aa81a73c8300d01c",
+      "ticker": "DKS",
+      "company": "DICK'S SPORTING GOODS, INC.",
+      "signalDate": "2022-05-25",
+      "entryDate": "2022-05-26",
+      "exitDate": "2022-08-24",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": true,
+      "downsideProbability": 16,
+      "safetyScore": 84,
+      "expectedExcessReturn": 8,
+      "positiveProbability": 56,
+      "stockReturn": 0.32203930525268065,
+      "benchmarkReturn": 0.02176412235632741,
+      "excessReturn": 0.293879160880965,
+      "thesis": "DKS screens as a deeply discounted, financially sound retailer where the bad news is disclosed and substantially priced. Entry at ~$76 following a -44% drawdown from the 1-year high embeds recession-grade assumptions: Q1 comps of -8.4% (stimulus lapping, fitness/outdoor normalization) are known, yet merchandise margins expanded +143 bps, evidencing real pricing power and promotional discipline. The balance sheet is a fortress — $2.25B cash, $1.58B undrawn revolver, covenant compliant — which both caps downside and funds ongoing buybacks/dividends into weakness. The principal fundamental risks are the +40% YoY inventory build ($2.82B) and the swing to -$60.3M operating cash flow, which raise markdown risk into H2; however, management's stated intent to cash-settle the $475M converts (with bond-hedge offset) removes most dilution economics, and the dual-class control means no takeover/speculation premium is needed for the value case. At roughly 7-8x normalized EPS (FY22 guide implies ~$9-10.50 EPS area vs. $76 price), the market is paying little for a structurally advantaged market-share consolidator. A credible rerating mechanism exists: any stabilization in comps or demonstrated inventory/markdown control at the Q2 print would force upward revision of trough-earnings assumptions, while the cash-rich balance sheet makes permanent capital impairment unlikely. Cheapness alone is not sufficient here — but cheapness plus intact unit economics (+143 bps merch margin), fortress liquidity, and a dated catalyst (Q2 results, June dividend payment) meets the bar for a long candidate with moderate sizing.",
+      "catalyst": "Q2 FY2022 print demonstrating markdown discipline and sequential inventory normalization against easy comparisons; continued opportunistic buybacks at depressed prices; progress converting the deep-in-the-money converts to cash settlement (bond hedge offsets dilution) shrinking the share-count overhang; dividend continuation signaling management confidence despite the negative OCF quarter.",
+      "invalidation": "Q2 evidence of promotional escalation and merchandise-margin give-back (margin gains reversing below prior year), inventory still rising YoY into H2, or a renewed double-digit comp decline indicating structural share loss rather than stimulus lapping. A second consecutive large negative operating-cash-flow quarter that forces curtailment of buybacks/dividend would remove the capital-return floor.",
+      "evidence": [
+        {
+          "role": "operations",
+          "semantic_key": "merchandise_margin_up",
+          "why": "+143 bps merchandise margin shows pricing power and promotional discipline intact even as comps fall — supports the thesis that margin, not just sales, can hold up and drive a rerating."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "cash_on_hand",
+          "why": "$2.25B cash plus $1.58B undrawn revolver and covenant compliance make bankruptcy/distress scenarios implausible, capping fundamental downside for a stock already down ~44% from its 1-year high."
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "inventory_build_yoy",
+          "why": "+40% YoY inventory build is the primary near-term risk: forced clearance would erode the merchandise-margin gains and repeat the 2015-2017 value-destroying cycle; this is what keeps sizing moderate rather than aggressive."
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "q1_fy22_net_sales_decline",
+          "why": "-7.5% sales/-8.4% comps quantify how much demand normalization is already in the run-rate; the bear case is largely disclosed and, at ~7-8x normalized EPS, plausibly discounted."
+        },
+        {
+          "role": "governance",
+          "semantic_key": "dividend_declared",
+          "why": "Dividend declared May 24 alongside buybacks signals management conviction in cash generation; sustained shareholder returns into weakness historically mark troughs for well-capitalized retailers."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "merchandise_margin_up",
+          "why": "+143 bps merchandise margin despite -8.4% comps evidences full-price selling discipline and differentiated assortment — the key indicator that the margin structure is not collapsing and supports a normalized-EPS re-rating"
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-05-25",
+          "accession": "0001089063-22-000072",
+          "url": "https://www.sec.gov/Archives/edgar/data/1089063/000108906322000072/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-05-25",
+          "accession": "0001089063-22-000067",
+          "url": "https://www.sec.gov/Archives/edgar/data/1089063/000108906322000067/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-04-06",
+          "accession": "0001193125-22-096758",
+          "url": "https://www.sec.gov/Archives/edgar/data/1089063/000119312522096758/"
+        },
+        {
+          "form": "10-K",
+          "filed": "2022-03-23",
+          "accession": "0001089063-22-000031",
+          "url": "https://www.sec.gov/Archives/edgar/data/1089063/000108906322000031/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-03-21",
+          "accession": "0001089063-22-000027",
+          "url": "https://www.sec.gov/Archives/edgar/data/1089063/000108906322000027/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0001089063-22-000072",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "1c6fdb46b0507e66ae56389e",
+      "ticker": "DXCM",
+      "company": "DEXCOM INC",
+      "signalDate": "2022-07-28",
+      "entryDate": "2022-07-29",
+      "exitDate": "2022-10-27",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": true,
+      "downsideProbability": 14.5,
+      "safetyScore": 85.5,
+      "expectedExcessReturn": 9,
+      "positiveProbability": 58,
+      "stockReturn": 0.2501218119068003,
+      "benchmarkReturn": -0.06893540779967544,
+      "excessReturn": 0.34268000564006895,
+      "thesis": "DexCom enters the window down ~47% from its 1-year high at $82.08, a valuation reset driven by 2022's growth-stock de-rating rather than demand failure: Q2 2022 revenue grew 17% YoY to $696.2M (H1 +20%) and FY2022 guidance of 17-19% growth was maintained. The bear case is real but cost-side — gross margin compressed ~550bps (64.6% vs 70.1%) and operating income fell 24% on SG&A growing 33% — which is a margin story, not a franchise story, for a category-leading CGM franchise. The credible near-term rerating mechanism is the $700M buyback authorized July 26, 2022 (two days before entry), a fresh, dated management signal deployed into a ~47% drawdown, combined with a fortress balance sheet ($2.75B unrestricted cash/securities, quick ratio 4.11, undrawn revolver, H1 operating cash flow of $243.8M vs $89.4M prior year) that removes financing risk while sentiment mean-reverts. Cheapness alone is not the argument — the argument is intact ~18% top-line growth, a fresh capital-return catalyst, and a balance sheet that makes the downside case one of multiple drift rather than distress. Margin compression and $1.97B of convertible notes (2023/2025 maturities) plus Verily share issuance cap upside and warrant a moderate-conviction position rather than a high-conviction one.",
+      "catalyst": "No dated catalyst identified.",
+      "invalidation": "Thesis fails if the next quarter shows gross margin below ~63% or revenue growth decelerating below the 17% guided floor (evidence the drawdown reflects fundamental erosion, not multiple compression), or if the $700M buyback is not being executed — signaling management itself does not view the stock as undervalued. A broad de-rating of high-multiple growth names on further rate shocks would also invalidate the rerating mechanism.",
+      "evidence": [
+        {
+          "role": "governance",
+          "semantic_key": "board_share_repurchase_700m",
+          "why": "Fresh $700M buyback authorized two days before cutoff is a concrete, dated management signal of undervaluation and a direct bid under the stock during the 90-day window"
+        },
+        {
+          "role": "operations",
+          "semantic_key": "q2_2022_revenue_growth",
+          "why": "17-20% revenue growth with reiterated FY2022 guidance (17-19%) shows demand intact; the drawdown is multiple compression, not demand destruction"
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "q2_operating_income_decline",
+          "why": "GAAP operating income -24% YoY and ~550bps gross margin compression are the key bear facts; they cap conviction and argue for sizing discipline rather than rejection"
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "cash_and_marketable_securities_total",
+          "why": "$2.75B unrestricted cash/securities, $243.8M H1 operating cash flow, and undrawn revolver make balance-sheet/financing stress an unlikely driver of downside"
+        },
+        {
+          "role": "governance",
+          "semantic_key": "convertible_notes_maturities",
+          "why": "$1.97B converts (2023/2025) plus up to 5.15M Verily shares create dilution overhang that tempers the rerating thesis"
+        },
+        {
+          "role": "operations",
+          "semantic_key": "q2_2022_revenue_growth",
+          "why": "Q2 revenue +17% YoY ($696.2M) and H1 +20% confirm demand for the core CGM franchise remains intact despite macro pressure"
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-07-28",
+          "accession": "0001093557-22-000146",
+          "url": "https://www.sec.gov/Archives/edgar/data/1093557/000109355722000146/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-07-28",
+          "accession": "0001093557-22-000142",
+          "url": "https://www.sec.gov/Archives/edgar/data/1093557/000109355722000142/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-07-28",
+          "accession": "0001093557-22-000145",
+          "url": "https://www.sec.gov/Archives/edgar/data/1093557/000109355722000145/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-07-08",
+          "accession": "0001193125-22-190521",
+          "url": "https://www.sec.gov/Archives/edgar/data/1093557/000119312522190521/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-06-10",
+          "accession": "0001193125-22-171920",
+          "url": "https://www.sec.gov/Archives/edgar/data/1093557/000119312522171920/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0001093557-22-000146",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "fe37952ff459050a2718a35b",
+      "ticker": "RCL",
+      "company": "ROYAL CARIBBEAN CRUISES LTD",
+      "signalDate": "2022-07-29",
+      "entryDate": "2022-08-01",
+      "exitDate": "2022-10-30",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": false,
+      "downsideProbability": 18,
+      "safetyScore": 82,
+      "expectedExcessReturn": 11.5,
+      "positiveProbability": 55.5,
+      "stockReturn": 0.40597936266412704,
+      "benchmarkReturn": -0.07115675418434753,
+      "excessReturn": 0.5136885249453294,
+      "thesis": "Royal Caribbean enters August 2022 down ~60% from its 1-year high (~$34.80 entry), pricing substantial distress. The filings show a genuine demand-led inflection: full fleet back in service, Q2 revenue of $2.18B (vs $51M prior year), operating loss narrowed ~79% YoY, and — most importantly — customer deposits up ~$1.0B in six months to $4.17B, a hard-cash leading indicator that forward bookings are funding operations ahead of delivery. This creates a credible near-term rerating mechanism: each quarter of rising occupancy compounds operating leverage on a fixed cost/debt base, so even modest beats on bookings can drive large equity moves in a name this depressed. Against this, the balance sheet is genuinely fragile: $23.2B total debt vs $3.4B equity, $5.5B current maturities against $3.3B liquidity, revolvers mostly utilized, covenant waivers expiring through Q4 2022, dividend/buyback bans, and a ~$3.2B June 2023 wall dependent on a conditional MS backstop. However, within a 90-day horizon the maturity wall is largely outside the window, the backstop plus the expiring-but-drawable $0.7B term loan provide a bridge, and management asserts covenant compliance for twelve months. The dominant 90-day driver is therefore the bookings/revenue trajectory, not solvency. Skeptical discount applied: GAAP losses persist, interest expense ($303M/qtr) still exceeds operating loss, fuel/food inflation pressures unit economics, and the Havana Docks damages trial (Sept 2022) is unquantifiable — hence only a modestly positive expected excess rather than conviction sizing. Cheapness alone would not qualify this; the deposit build plus fleet-wide revenue ramp is the qualifying rerating catalyst, and the -60% drawdown entry suggests much distress is priced.",
+      "catalyst": "Q3/Q4 2022 earnings showing accelerating bookings (customer deposits) driving revenue ramp toward breakeven; successful draw of the $0.7B term loan before Aug 12, 2022 and early progress on the MS backstop/refinancing path de-risking the June 2023 maturity wall; September Havana Docks damages trial resolving an unquantified legal overhang.",
+      "invalidation": "Booking/deposit momentum stalls (customer deposits flatten or decline next quarter); term loan not drawn by Aug 12, 2022 or backstop conditions fail; covenant waiver extension negotiations deteriorate; fuel inflation pushes breakeven occupancy out of reach; adverse Havana Docks damages materially above expectations.",
+      "evidence": [
+        {
+          "role": "operations",
+          "semantic_key": "customer_deposits_build_booking_demand",
+          "why": "+$1.0B customer deposit build in six months ($3.16B -> $4.17B) is the strongest quote-grounded leading indicator of forward demand and the core of the rerating thesis"
+        },
+        {
+          "role": "operations",
+          "semantic_key": "q2_2022_total_revenue_recovery",
+          "why": "Revenue rebound to $2.18B with full fleet in service and narrowing losses demonstrates the operating-leverage inflection that could drive estimate revisions"
+        },
+        {
+          "role": "governance",
+          "semantic_key": "liquidity_3_3bn_vs_maturities",
+          "why": "$3.3B liquidity vs ~$3.2B June 2023 maturities quantifies the key downside constraint that caps position sizing"
+        },
+        {
+          "role": "governance",
+          "semantic_key": "total_debt_23_2bn",
+          "why": "$23.2B total debt against $3.4B equity makes the equity a leveraged option on the recovery; supports both upside torque and tail-risk discounting"
+        },
+        {
+          "role": "governance",
+          "semantic_key": "covenant_waivers_q4_2022_expiry",
+          "why": "Covenant waivers expiring through Q4 2022 plus dividend/buyback bans define the window of financial-constraint risk during the holding period"
+        },
+        {
+          "role": "operations",
+          "semantic_key": "customer_deposits_build_booking_demand",
+          "why": "+$1.0B H1 deposit build to $4.17B is the strongest forward-demand signal; it funds operations interest-free and anchors the demand-inflection thesis that could drive an equity re-rating."
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-07-29",
+          "accession": "0000884887-22-000028",
+          "url": "https://www.sec.gov/Archives/edgar/data/884887/000088488722000028/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-07-28",
+          "accession": "0000884887-22-000023",
+          "url": "https://www.sec.gov/Archives/edgar/data/884887/000088488722000023/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-06-03",
+          "accession": "0001104659-22-068159",
+          "url": "https://www.sec.gov/Archives/edgar/data/884887/000110465922068159/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-05-05",
+          "accession": "0000884887-22-000015",
+          "url": "https://www.sec.gov/Archives/edgar/data/884887/000088488722000015/"
+        },
+        {
+          "form": "10-Q",
+          "filed": "2022-05-05",
+          "accession": "0000884887-22-000018",
+          "url": "https://www.sec.gov/Archives/edgar/data/884887/000088488722000018/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0000884887-22-000028",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "fb71840b8842f00614c4e836",
+      "ticker": "CLF",
+      "company": "CLEVELAND-CLIFFS INC.",
+      "signalDate": "2022-10-26",
+      "entryDate": "2022-10-27",
+      "exitDate": "2023-01-25",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": false,
+      "downsideProbability": 17,
+      "safetyScore": 83,
+      "expectedExcessReturn": 6,
+      "positiveProbability": 53.5,
+      "stockReturn": 0.4514738142009307,
+      "benchmarkReturn": 0.05804955480465179,
+      "excessReturn": 0.3718391616061092,
+      "thesis": "Cleveland-Cliffs enters the window at $13.91, ~55% below its 1-year high, after a genuinely brutal Q3: operating income collapsed to $187M from $1,649M YoY as HRC fell below $800/ton (lowest since Dec 2020) and COGS rose 26% against flat ASPs. The bear case is fully grounded in filings, not narrative. However, the setup resembles a levered cyclical trading at trough-cycle economics with a survivable balance sheet: $2,244M ABL availability, zero debt maturities until 2025, total principal debt cut from $5,369M to $4,535M (including notes repurchased at 92% of par), nine-month FCF of roughly $1.2B, and covenant compliance with the springing FCCR not applicable. Demand mix is not uniformly weak — automotive revenue rose 51% YoY and stainless/electrical grew — so the collapse is concentrated in spot HRC and the distributor channel, which are the most mean-reverting components. The ratified 47-month USW agreement removes strike risk, and the Medicare Advantage switch lowers OPEB costs from 1/1/2023. With spot pricing already at prior-trough levels and sentiment washed out (-55% drawdown), incremental news skews positive: any HRC stabilization or demand recovery produces outsized equity beta from this base. This is a credible rerating mechanism (price normalization off trough levels plus demonstrated balance-sheet repair), not mere cheapness. Risks are real: only $56M cash, $481M net ABL draw YTD funding working capital, inventory build of $348M into falling prices, pension credits and a ~5.7% Q3 tax rate flattering net income, and impairment flags on idled facilities. Position sizing must respect that a further leg down in steel would extend losses even if insolvency risk is remote.",
+      "catalyst": "Steel price stabilization from deeply depressed levels (HRC <$800/ton, lowest since Dec 2020) driving order-book normalization and sentiment reversal; USW labor ratification (10/1/2022) removing strike risk into 2023; continued discounted debt repurchases and buybacks signaling management confidence; Medicare Advantage retiree cost savings effective 1/1/2023.",
+      "invalidation": "HRC breaking decisively below $700/ton with no stabilization, distributor-channel demand continuing to erode while automotive contracts reprice lower, ABL borrowings climbing materially beyond $2,090M toward borrowing-base limits, or suspension of buybacks/deleveraging indicating internal cash-flow stress.",
+      "evidence": [
+        {
+          "role": "accounting",
+          "semantic_key": "q3_operating_income_collapse",
+          "why": "Q3 operating income of $187M vs $1,649M YoY confirms the cycle has inflected hard negative — the bear case is real, not a valuation mirage; caps conviction and position sizing."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "abl_availability",
+          "why": "$2,244M available ABL capacity plus covenant compliance means the company can survive a prolonged trough without dilution or distress — the key downside-tolerance condition for a levered cyclical."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "no_near_term_maturities",
+          "why": "No debt maturities until 2025 ($2,090M ABL) eliminates refinancing risk within the forecast window, making the equity a call option on steel-price recovery rather than a solvency bet."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "hrc_price_decline",
+          "why": "HRC below $800/ton, lowest since Dec 2020, indicates spot pricing is already at/near prior-cycle trough levels — limited incremental price downside embedded in entry valuation."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "automotive_demand_strength",
+          "why": "Automotive revenue +51% YoY ($1,734M vs $1,149M) shows contract-priced, higher-margin demand remains resilient even as spot/distributor channel collapses — supports a floor under cash generation."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "debt_repurchases_discount",
+          "why": "$348M of senior notes repurchased at 92% of par evidences both management's view that debt is cheap and market stress being opportunistically monetized — accretive to equity if the cycle turns."
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-10-26",
+          "accession": "0000764065-22-000154",
+          "url": "https://www.sec.gov/Archives/edgar/data/764065/000076406522000154/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-10-25",
+          "accession": "0000764065-22-000151",
+          "url": "https://www.sec.gov/Archives/edgar/data/764065/000076406522000151/"
+        },
+        {
+          "form": "10-Q",
+          "filed": "2022-07-26",
+          "accession": "0000764065-22-000132",
+          "url": "https://www.sec.gov/Archives/edgar/data/764065/000076406522000132/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-07-22",
+          "accession": "0000764065-22-000128",
+          "url": "https://www.sec.gov/Archives/edgar/data/764065/000076406522000128/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-05-06",
+          "accession": "0000764065-22-000101",
+          "url": "https://www.sec.gov/Archives/edgar/data/764065/000076406522000101/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0000764065-22-000154",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "774cc1ec935ce6562cf87155",
+      "ticker": "FORM",
+      "company": "FORMFACTOR INC",
+      "signalDate": "2022-11-01",
+      "entryDate": "2022-11-02",
+      "exitDate": "2023-01-31",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": true,
+      "downsideProbability": 16,
+      "safetyScore": 84,
+      "expectedExcessReturn": 0.5,
+      "positiveProbability": 44,
+      "stockReturn": 0.4650424299218563,
+      "benchmarkReturn": 0.07351751557027963,
+      "excessReturn": 0.36471218091265967,
+      "thesis": "FormFactor enters the window down ~57% from its 1-year high with a fortress balance sheet (~$252M cash+securities vs ~$17M debt, $111M nine-month OCF) but sharply deteriorating operating momentum: Q3 FY22 revenue -4.8% YoY, gross margin compressed from ~42% to ~34%, operating income down ~83% YoY, corroborated by an out-of-plan $5.9M inventory impairment, rising excess/obsolete provisions against a growing inventory balance, and a fresh ~13% workforce reduction announced 2022-10-25 explicitly tied to reduced Probe Cards demand. The cheapness is real (net cash ~$3.25/share, ~17% of the $18.88 entry price) but it is not a rerating mechanism: there are no dated product/revenue catalysts, the buyback has only $27.5M remaining (~2% of market cap), customer concentration (Intel 17%, SK Hynix 10.7%) ties results to the same semiconductor/memory downturn causing the miss, and the December 2022 restructuring completion is a cost response, not a demand inflection. Deep cyclicals at this stage of a downturn can bounce with the tape, which keeps this off 'reject', but the filing evidence supports continued estimate cuts and no identified near-term positive surprise — insufficient for a long candidate under the stated bar.",
+      "catalyst": "No dated catalyst identified.",
+      "invalidation": "Thesis would flip toward long-candidate if evidence emerged of bookings/backlog stabilization in Probe Cards, completion of the December 2022 restructuring without further charges, inventory drawdown confirming the write-down was conservative, or a disclosed share-repurchase acceleration that converts the net cash position into per-share support.",
+      "evidence": [
+        {
+          "role": "operations",
+          "semantic_key": "q3_operating_income_drop",
+          "why": "Q3 operating income fell to $4.0M from $23.3M YoY on revenue -4.8% — earnings power collapsing into the forecast window"
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "inventory_impairment_out_of_plan",
+          "why": "$5.9M out-of-plan inventory impairment plus rising E&O provisions ($16.1M vs $11.6M) against an inventory build to $132M signal demand visibility worse than management's original restructuring estimate"
+        },
+        {
+          "role": "catalysts",
+          "semantic_key": "new_restructuring_oct2022",
+          "why": "~13% workforce cut announced 10/25/2022 confirms active demand deterioration in Probe Cards rather than a completed reset; savings arrive only as revenue risk persists"
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "cash_and_securities_total",
+          "why": "$251.6M cash+securities vs ~$17.4M term loans and $111M nine-month OCF caps downside and rules out balance-sheet distress — necessary but not sufficient for a long"
+        },
+        {
+          "role": "governance",
+          "semantic_key": "customer_concentration",
+          "why": "Top customers ~27.7% of Q3 revenue (Intel 17.0%, SK Hynix 10.7%) and one customer 18.1% of AR concentrate exposure to the same memory/foundry capex downturn driving the miss"
+        },
+        {
+          "role": "operations",
+          "semantic_key": "q3_operating_income_drop",
+          "why": "Q3 operating income $4.0M vs $23.3M YoY on revenue -4.8% and gross margin compression (~34% vs ~42%) shows earnings power collapsing into the forecast window"
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-11-01",
+          "accession": "0001039399-22-000099",
+          "url": "https://www.sec.gov/Archives/edgar/data/1039399/000103939922000099/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-10-26",
+          "accession": "0001039399-22-000096",
+          "url": "https://www.sec.gov/Archives/edgar/data/1039399/000103939922000096/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-09-28",
+          "accession": "0001039399-22-000088",
+          "url": "https://www.sec.gov/Archives/edgar/data/1039399/000103939922000088/"
+        },
+        {
+          "form": "10-Q",
+          "filed": "2022-08-02",
+          "accession": "0001039399-22-000076",
+          "url": "https://www.sec.gov/Archives/edgar/data/1039399/000103939922000076/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-07-27",
+          "accession": "0001039399-22-000073",
+          "url": "https://www.sec.gov/Archives/edgar/data/1039399/000103939922000073/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0001039399-22-000099",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "9778df46fbedcdfadcaabf6a",
+      "ticker": "NLY",
+      "company": "ANNALY CAPITAL MANAGEMENT INC",
+      "signalDate": "2022-11-03",
+      "entryDate": "2022-11-04",
+      "exitDate": "2023-02-02",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": true,
+      "downsideProbability": 16.5,
+      "safetyScore": 83.5,
+      "expectedExcessReturn": 10.5,
+      "positiveProbability": 60,
+      "stockReturn": 0.3725109272534508,
+      "benchmarkReturn": 0.09654962896524655,
+      "excessReturn": 0.25166330004471726,
+      "thesis": "Annaly (NLY) enters November 2022 at ~$10.93 post-reverse-split, roughly 0.47x the $23.2/share book value implied by $10.87B equity over 467.9M shares, after a -42% drawdown from its 1-year high and a Q3 economic return of -11.7%. The dominant driver is a -$5.4B AOCI swing (from +$0.96B at year-end 2021) — unrealized marks on the agency portfolio, not credit losses — meaning roughly half of book value is recoverable if rates stabilize or mortgage spreads tighten from historically wide levels. The rerating mechanism is credible and near-term: agency mREIT equities historically snap back violently from spread wides, and the Q3 loss (-$0.70/share, funding costs up ~8x YoY compressing NII to $278M) represents peak-bad news rather than a deteriorating credit franchise. Supporting factors: completed CRE exit and MML sale (majority transferred Q3, remainder by end of Q4 2022) simplify the story to a pure-play agency portfolio with ~$1.9B cash proceeds; $2.6B of equity raised in nine months plus the expanded $1.5B ATM provide capital buffers; MSR income grew to $66.7M from $14.9M; and $5.2B of nine-month operating cash flow evidences functioning liquidity. Cheapness alone is insufficient, but here cheapness is paired with a specific mark-to-market reversal mechanism. Key risks that temper sizing: economic leverage of 7.1:1 with $54B of short-term repo funding leaves the equity exposed to further spread widening or repo market stress, and the unused buyback alongside continued ATM capacity signals management will issue equity rather than defend book. Net: asymmetric setup — deep discount to recoverable book with a defined catalyst window, against a genuine but survivable funding tail.",
+      "catalyst": "Completion of the Middle Market Lending sale by end of Q4 2022 finalizes the pivot to a pure-play agency portfolio; any stabilization or decline in rates/mortgage spreads drives AOCI reversal and book-value recovery, with Q3's -11.7% economic return marking a likely capitulation point at ~0.47x book.",
+      "invalidation": "Renewed Fed hawkishness driving rates and mortgage spreads to new wides, another quarter of double-digit negative economic return, forced deleveraging via asset sales at wide spreads, or resumption of below-book equity issuance would invalidate the book-value recovery thesis.",
+      "evidence": [
+        {
+          "role": "accounting",
+          "semantic_key": "aoci_negative_5.4b",
+          "why": "AOCI of -$5.43B equals roughly half of the $10.87B equity base; these are unrealized AFS marks that mechanically reverse if rates fall or mortgage spreads tighten, providing a direct book-value recovery lever at ~0.47x book."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "negative_economic_return_q3",
+          "why": "Q3 -11.7% economic return on top of a -42% drawdown from the 1-year high signals peak pessimism/capitulation in agency MBS spreads — historically the setup for sharp mREIT reratings when spreads normalize."
+        },
+        {
+          "role": "governance",
+          "semantic_key": "leverage_rise_gaap_economic",
+          "why": "Economic leverage of 7.1:1 and economic capital ratio of 11.8% is the key tail risk: further spread widening or repo margin calls could force deleveraging at depressed prices; caps position sizing."
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "atm_1.5b_program",
+          "why": "Expanded $1.5B ATM at $17.61 (well above the ~$10.93 entry) is dilution but also accretive-to-book issuance capacity; issuance above book would be rare here, so near-term dilution risk is limited at current prices."
+        },
+        {
+          "role": "catalysts",
+          "semantic_key": "mml_sale_completion_q4_2022",
+          "why": "MML sale completion by end of Q4 2022 (following the CRE exit) simplifies the story to a pure-play agency REIT with ~$1.9B cash proceeds supporting liquidity and reducing credit-portfolio noise."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "funding_cost_surge",
+          "why": "8x YoY interest expense surge compressing NII to $278M is the bear case already priced in; it also means earnings estimates are reset low, so any funding-cost relief is upside to expectations."
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-11-03",
+          "accession": "0001628280-22-028205",
+          "url": "https://www.sec.gov/Archives/edgar/data/1043219/000162828022028205/"
+        },
+        {
+          "form": "424B5",
+          "filed": "2022-11-03",
+          "accession": "0001193125-22-277043",
+          "url": "https://www.sec.gov/Archives/edgar/data/1043219/000119312522277043/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-10-26",
+          "accession": "0001628280-22-027068",
+          "url": "https://www.sec.gov/Archives/edgar/data/1043219/000162828022027068/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-10-26",
+          "accession": "0001628280-22-027069",
+          "url": "https://www.sec.gov/Archives/edgar/data/1043219/000162828022027069/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-10-26",
+          "accession": "0001628280-22-027077",
+          "url": "https://www.sec.gov/Archives/edgar/data/1043219/000162828022027077/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0001628280-22-028205",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "86960a184e37d73629439291",
+      "ticker": "GTES",
+      "company": "Gates Industrial Corp Ltd.",
+      "signalDate": "2022-11-04",
+      "entryDate": "2022-11-07",
+      "exitDate": "2023-02-05",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": true,
+      "downsideProbability": 14.5,
+      "safetyScore": 85.5,
+      "expectedExcessReturn": 2.75,
+      "positiveProbability": 48,
+      "stockReturn": 0.22341377066560764,
+      "benchmarkReturn": 0.10197105296801379,
+      "excessReturn": 0.11020499800834505,
+      "thesis": "Gates Industrial (GTES) screens optically cheap after a -42% drawdown from its 1-year high, but the Q3 FY2022 10-Q shows genuine earnings-quality deterioration rather than pure sentiment weakness: nine-month operating cash flow collapsed to $18.8M from $213.5M on a $147.2M receivables build (partly masked by a $99.1M factoring program), gross profit fell ~9% YoY, Adjusted EBITDA margin compressed, and net debt rose to $2.1B while management spent $175.8M on buybacks. Offsetting this, core revenue grew +7.6% in Q3 (FX-masked), Fluid Power was strong (+12.1%), management claims price/cost positivity with margin neutrality targeted by end of 2022, China is recovering, and covenant compliance is affirmed with modest near-term maturities — so distress risk is low. However, the entry price ($11.19) already embeds a ~7% post-earnings gap above the pre-cutoff close, meaning the market has partially rewarded the print; chasing that gap with deteriorating cash conversion and no disclosed near-term catalyst offers no credible rerating mechanism within 90 days. Cheapness alone is insufficient per mandate. Watch for Q4 FY2022 delivery on margin neutrality and working-capital normalization before considering a long.",
+      "catalyst": "No funded near-term catalyst in filings; potential positive re-rating only if Q4 FY2022 results (due early Feb 2023) show working-capital normalization restoring cash conversion plus delivered Adjusted EBITDA margin neutrality, alongside continued China/Fluid Power momentum.",
+      "invalidation": "Thesis invalidated if Q4 FY2022 results fail to restore operating cash conversion (OCF remains far below prior year without factoring support), margins miss the end-of-2022 neutrality target, or receivables terms with the extended-payment aftermarket customer deteriorate further; also invalidated by renewed cyclical downturn in industrial/aftermarket demand.",
+      "evidence": [
+        {
+          "role": "accounting",
+          "semantic_key": "operating_cash_flow_collapse",
+          "why": "Nine-month OCF of $18.8M vs $213.5M YoY, driven by AR build and inventory accumulation, partly masked by $99.1M factoring — the single most important negative for earnings quality and any value thesis."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "adj_ebitda_margin_compression",
+          "why": "Adjusted EBITDA margin fell to 20.6% from 21.3% (Q3) and 19.3% from 22.4% (9M) with $18.7M impairments/LIFO charges; confirms real cost pressure beneath flat reported sales."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "price_cost_positive",
+          "why": "Management states price/cost positive on a dollar basis and targets Adjusted EBITDA margin neutrality by end of 2022 — the main fundamental support for a margin-stabilization thesis."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "china_recovery",
+          "why": "China business recovering with acceleration in Q3, supporting core revenue growth (+7.6% Q3) that FX masks — a genuine but slow-building demand tailwind."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "net_debt_increase",
+          "why": "Net debt rose to $2,118.4M from $1,921.0M while cash fell to $395.3M and $175.8M went to buybacks — capital allocation at odds with cash generation, limiting balance-sheet flexibility."
+        },
+        {
+          "role": "catalysts",
+          "semantic_key": "covenant_compliance",
+          "why": "Affirmed covenant compliance with only $28.2M current debt portion and Euro Term Loan not due until March 2024 — makes near-term distress unlikely and bounds downside tail risk."
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2022-11-04",
+          "accession": "0001718512-22-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1718512/000171851222000058/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-11-04",
+          "accession": "0001718512-22-000055",
+          "url": "https://www.sec.gov/Archives/edgar/data/1718512/000171851222000055/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-10-26",
+          "accession": "0001718512-22-000051",
+          "url": "https://www.sec.gov/Archives/edgar/data/1718512/000171851222000051/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2022-08-05",
+          "accession": "0001718512-22-000045",
+          "url": "https://www.sec.gov/Archives/edgar/data/1718512/000171851222000045/"
+        },
+        {
+          "form": "10-Q",
+          "filed": "2022-08-05",
+          "accession": "0001718512-22-000049",
+          "url": "https://www.sec.gov/Archives/edgar/data/1718512/000171851222000049/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0001718512-22-000058",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "8448abe500a0ea29acc70808",
+      "ticker": "TSLA",
+      "company": "Tesla, Inc.",
+      "signalDate": "2023-04-24",
+      "entryDate": "2023-04-25",
+      "exitDate": "2023-07-24",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": true,
+      "downsideProbability": 16,
+      "safetyScore": 84,
+      "expectedExcessReturn": 2.5,
+      "positiveProbability": 46.5,
+      "stockReturn": 0.6746125637947404,
+      "benchmarkReturn": 0.1226535988662032,
+      "excessReturn": 0.4916556322323955,
+      "thesis": "Tesla enters the window having just reported Q1'23 results that confirm a deliberate price-cut strategy: revenue grew +24% YoY ($23.3B vs $18.8B) but gross profit fell ~17% ($4.5B vs $5.5B) and operating cash flow dropped 37% ($2.5B vs $4.0B), with management explicitly flagging continued pricing/order-rate pressure on operating margin. The stock sits ~53% below its 1-year high, so substantial de-rating has occurred, and the balance sheet is genuinely fortress-like ($22.4B cash+ST investments, $1.77B debt, covenant compliance, favorable going-private verdict). However, the filing record contains no dated near-term catalyst, unit economics are deteriorating rather than stabilizing, regulatory credit contribution remains material (~20% of operating income), inventory is building, capex guidance of $7-9B/year implies negative FCF at current run-rates, and unresolved Musk-related litigation (2018 CEO award rescission decision pending; SolarCity appeal argued March 2023) creates binary headline risk. The rerating mechanism would require demonstrated margin stabilization from volume capture — which the filings do not yet evidence. Cheapness relative to prior valuation is not sufficient; this is a watch, not a long candidate.",
+      "catalyst": "No dated hard catalyst disclosed within 90-180 days in the supplied filings. Potential soft rerating triggers: evidence of automotive gross margin stabilization as price cuts convert to volume, continued Megapack/energy storage scaling (Shanghai Megafactory announcement), and resolution clarity on the pending Delaware rulings — none of which is confirmed by a dated event in the record.",
+      "invalidation": "Thesis invalidated if Q2 2023 results show further sequential automotive gross margin erosion without commensurate volume gains, or if OCF decline accelerates alongside continued inventory build — confirming a structural price-war regime rather than a temporary demand-support action. A negative Delaware ruling on the 2018 CEO performance award would also invalidate on governance grounds.",
+      "evidence": [
+        {
+          "role": "operations",
+          "semantic_key": "auto_cogs_up_sharply",
+          "why": "Automotive COGS +39% vs revenue +18% YoY evidences price-cut-driven margin compression — the core bearish fact that blocks a long thesis without proof of stabilization."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "pricing_pressure_risk",
+          "why": "Management explicitly states macro trends 'will likely continue' to pressure pricing, order rates, and operating margin — forward-looking deterioration acknowledged in MD&A."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "cash_and_st_investments",
+          "why": "$22.4B cash + short-term investments against $1.77B total debt makes insolvency/dilution risk negligible, satisfying the tolerable-downside condition partially."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "energy_storage_growth",
+          "why": "Energy revenue more than doubled to $1,529M with announced Shanghai Megafactory — the most credible growth/rerating vector, though currently gross-profit-negative."
+        },
+        {
+          "role": "governance",
+          "semantic_key": "2018_ceo_performance_award_litigation",
+          "why": "Pending Delaware ruling seeking rescission of Musk's 2018 award is an unquantifiable headline/governance risk that could hit sentiment within the window."
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "ocf_decline_yoy",
+          "why": "OCF -37% YoY plus inventory build and $7-9B annual capex guidance implies negative free cash flow trajectory if trends persist, undermining the quality-of-growth story."
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2023-04-24",
+          "accession": "0000950170-23-013890",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000095017023013890/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2023-04-19",
+          "accession": "0001564590-23-005959",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000156459023005959/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2023-04-05",
+          "accession": "0001564590-23-005462",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000156459023005462/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2023-04-03",
+          "accession": "0001564590-23-005126",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000156459023005126/"
+        },
+        {
+          "form": "10-K",
+          "filed": "2023-01-31",
+          "accession": "0000950170-23-001409",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000095017023001409/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0000950170-23-013890",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    },
+    {
+      "id": "e036e7039f43fce39ac1dffa",
+      "ticker": "LSCC",
+      "company": "LATTICE SEMICONDUCTOR CORP",
+      "signalDate": "2023-10-31",
+      "entryDate": "2023-11-01",
+      "exitDate": "2024-01-30",
+      "holdingDays": 90,
+      "strategy": "Expanding safety threshold",
+      "causalSelected": true,
+      "alsoGlobalTopDecile": true,
+      "downsideProbability": 14.5,
+      "safetyScore": 85.5,
+      "expectedExcessReturn": 3.5,
+      "positiveProbability": 50.5,
+      "stockReturn": 0.16681927318317458,
+      "benchmarkReturn": 0.16704160190376793,
+      "excessReturn": -0.0001905062512173039,
+      "thesis": "Lattice Semiconductor enters November 2023 down ~43% from its 1-year high despite objectively strong trailing fundamentals: Q3 FY2023 revenue of $192.2M (+11.4% YoY), GAAP gross margin expanding to 70.0%, operating margin of 29.6%, nine-month OCF of $197.6M exceeding net income (high earnings quality), and a fully deleveraged balance sheet ($0 debt, $114.4M cash). The valuation reset, however, is not irrational: management's own Q4 guidance ($166–186M) implies a sequential revenue decline at midpoint, China revenue has fallen sharply both in dollars (-15.6% YoY) and mix (44%→34%), opex growth (R&D +20.8%) is absorbing gross-margin gains, and the distributor-heavy channel (90% of revenue; two distributors = 68% of AR) plus rising WIP inventory suggest end-demand is softening into the guide. The bull case rests on a dated near-term catalyst — the December Developers Conference launch of two Lattice Avant mid-range FPGAs — which could support a narrative rerate, and on downside protection from the debt-free, cash-generative model. But cheapness relative to its own history plus one product-launch event does not constitute a credible rerating mechanism while the company itself guides revenue down and its largest geographic market contracts. The setup is a high-quality business at a better price with unresolved cyclical timing; the asymmetry over exactly 90 days is roughly balanced with modest positive skew from the December catalyst and any broader semi-sector beta recovery, offset by guidance-decut risk and China drag. This warrants monitoring rather than initiation: wait for evidence that the Avant ramp or bookings stabilization converts the drawdown into a durable trough.",
+      "catalyst": "December 2023 Developers Conference launch of two new Lattice Avant mid-range FPGA family members (8-K EX-99.1 filed 2023-10-30), potentially re-rating the growth narrative if design-win traction is disclosed; secondary catalyst is Q4 earnings (early Feb 2024) confirming margin resilience through the demand trough.",
+      "invalidation": "Thesis invalidates if the December Avant launch passes without meaningful customer/design-win disclosure while channel checks or peer FPGA/semi prints confirm accelerating China/industrial inventory correction, or if Q4 results land below the $166M guidance floor — either would signal the drawdown reflects genuine terminal-growth impairment rather than sentiment.",
+      "evidence": [
+        {
+          "role": "catalysts",
+          "semantic_key": "q4_2023_revenue_guidance",
+          "why": "Q4 guide of $166–186M vs Q3 actual $192.2M implies ~4% sequential decline at midpoint — the primary near-term headwind that caps conviction on a fast rerating."
+        },
+        {
+          "role": "catalysts",
+          "semantic_key": "avant_product_launch_dec2023",
+          "why": "Dated December 2023 catalyst (two new Avant mid-range FPGAs at Developers Conference) provides a plausible near-term narrative event, though its revenue impact within 90 days is unquantified."
+        },
+        {
+          "role": "liquidity",
+          "semantic_key": "debt_zero",
+          "why": "Zero long-term debt after $130M repayment plus $114.4M cash makes bankruptcy/financing-stress tail risk negligible, supporting tolerable downside at a -43% drawdown price."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "china_exposure_declining",
+          "why": "China revenue fell to 34% of mix ($64.1M) from 44% ($75.9M) YoY with Asia overall down to 61% — an active demand headwind consistent with the softening WIP-heavy inventory mix and the de-rated stock."
+        },
+        {
+          "role": "accounting",
+          "semantic_key": "ocf_exceeds_net_income",
+          "why": "Nine-month OCF of $197.6M exceeding net income of $160.4M confirms high earnings quality — reported profitability is cash-backed, reducing risk that the fundamental story is an accounting artifact."
+        },
+        {
+          "role": "operations",
+          "semantic_key": "q3_revenue_growth_yoy",
+          "why": "Record Q3 revenue of $192.2M (+11.4% YoY) with nine-month +17% confirms the business is still growing into the drawdown, supporting a fundamental floor under the -43% price decline."
+        }
+      ],
+      "references": [
+        {
+          "form": "10-Q",
+          "filed": "2023-10-31",
+          "accession": "0001437749-23-029543",
+          "url": "https://www.sec.gov/Archives/edgar/data/855658/000143774923029543/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2023-10-30",
+          "accession": "0001437749-23-029395",
+          "url": "https://www.sec.gov/Archives/edgar/data/855658/000143774923029395/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2023-09-12",
+          "accession": "0001193125-23-232615",
+          "url": "https://www.sec.gov/Archives/edgar/data/855658/000119312523232615/"
+        },
+        {
+          "form": "10-Q",
+          "filed": "2023-08-01",
+          "accession": "0001437749-23-021434",
+          "url": "https://www.sec.gov/Archives/edgar/data/855658/000143774923021434/"
+        },
+        {
+          "form": "8-K",
+          "filed": "2023-07-31",
+          "accession": "0001437749-23-021167",
+          "url": "https://www.sec.gov/Archives/edgar/data/855658/000143774923021167/"
+        }
+      ],
+      "modelReplicates": 2,
+      "anchorForm": "10-Q",
+      "anchorAccession": "0001437749-23-029543",
+      "selectionNote": "Current listed ticker universe; historical survivorship bias remains."
+    }
+  ],
+  "portfolio": [
+    {
+      "date": "2021-03-26",
+      "nav": 1,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-04-05",
+      "nav": 1.0000022619068138,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-04-12",
+      "nav": 1.0000041666743424,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-04-19",
+      "nav": 1.0000064682732908,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-04-26",
+      "nav": 1.0000093651207367,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-05-03",
+      "nav": 1.0000108333893332,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-05-10",
+      "nav": 1.0000123810261263,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-05-17",
+      "nav": 0.9986104830316882,
+      "exposure": 0.10045854617855933,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-05-24",
+      "nav": 1.0079207658954021,
+      "exposure": 0.10432367240655446,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-06-01",
+      "nav": 1.0132689785044064,
+      "exposure": 0.11262866040709729,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-06-08",
+      "nav": 1.0174999291165348,
+      "exposure": 0.1146138534121108,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-06-15",
+      "nav": 1.0137915518417357,
+      "exposure": 0.1149026507159727,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-06-22",
+      "nav": 1.0253024134496296,
+      "exposure": 0.11676466428357078,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-06-29",
+      "nav": 1.0553567980916485,
+      "exposure": 0.14705162828065813,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-07-07",
+      "nav": 1.050838350116984,
+      "exposure": 0.14179032004397296,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-07-14",
+      "nav": 1.0430575471258712,
+      "exposure": 0.1416939251298721,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-07-21",
+      "nav": 1.0440748994094369,
+      "exposure": 0.13609249235121995,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-07-28",
+      "nav": 1.0662441109575034,
+      "exposure": 0.15140530262072055,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-08-04",
+      "nav": 1.0679607573598184,
+      "exposure": 0.15214949068093564,
+      "activePositions": 1
+    },
+    {
+      "date": "2021-08-11",
+      "nav": 1.057866990824558,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-08-18",
+      "nav": 1.0578776534950631,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-08-25",
+      "nav": 1.057887266783261,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-09-01",
+      "nav": 1.0578960405600204,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-09-09",
+      "nav": 1.0579042266855117,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-09-16",
+      "nav": 1.057911951087989,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-09-23",
+      "nav": 1.0579173246199012,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-09-30",
+      "nav": 1.0579229920462505,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-10-07",
+      "nav": 1.0579296670533804,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-10-14",
+      "nav": 1.0579382732551712,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-10-21",
+      "nav": 1.0579475512383787,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-10-28",
+      "nav": 1.0579580467916052,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-11-04",
+      "nav": 1.057967534862205,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-11-11",
+      "nav": 1.0579757215410421,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-11-18",
+      "nav": 1.0579843701009977,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-11-26",
+      "nav": 1.0579938164239304,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-12-03",
+      "nav": 1.0580031368785359,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-12-10",
+      "nav": 1.0580139268749307,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-12-17",
+      "nav": 1.0580232055217587,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2021-12-27",
+      "nav": 1.0580339537364554,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-01-03",
+      "nav": 1.0580421829148696,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-01-10",
+      "nav": 1.058058809395843,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-01-18",
+      "nav": 1.0580819441378315,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-01-25",
+      "nav": 1.0581145267446463,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-02-01",
+      "nav": 1.0581520651494456,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-02-08",
+      "nav": 1.0581943499170638,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-02-15",
+      "nav": 1.0582620844820778,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-02-23",
+      "nav": 1.0583362488923964,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-03-02",
+      "nav": 1.0584001705838917,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-03-09",
+      "nav": 1.0584686323655,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-03-16",
+      "nav": 1.058549322054738,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-03-23",
+      "nav": 1.0586396798719684,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-03-30",
+      "nav": 1.0587466404067516,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-04-06",
+      "nav": 1.0588610908062972,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-04-13",
+      "nav": 1.059004338928395,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-04-21",
+      "nav": 1.0591670237544064,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-04-28",
+      "nav": 1.0593359548574093,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-05-05",
+      "nav": 1.0595077297488684,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-05-12",
+      "nav": 1.059683443097821,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-05-19",
+      "nav": 1.059888204893731,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-05-26",
+      "nav": 1.0599949886364233,
+      "exposure": 0,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-06-03",
+      "nav": 1.0554375572777508,
+      "exposure": 0.09788130838602077,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-06-10",
+      "nav": 1.0521495993811434,
+      "exposure": 0.09571963904886391,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-06-17",
+      "nav": 1.0478182437138224,
+      "exposure": 0.08638442323297775,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-06-27",
+      "nav": 1.0566386217382162,
+      "exposure": 0.1001654806226297,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-07-05",
+      "nav": 1.0574689302822224,
+      "exposure": 0.09201225455983313,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-07-12",
+      "nav": 1.0624632331173518,
+      "exposure": 0.099442209171696,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-07-19",
+      "nav": 1.071946068458741,
+      "exposure": 0.10513754691531708,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-07-26",
+      "nav": 1.0698165389184724,
+      "exposure": 0.10960591026662425,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-08-02",
+      "nav": 1.082920201413292,
+      "exposure": 0.2135977895335377,
+      "activePositions": 2
+    },
+    {
+      "date": "2022-08-09",
+      "nav": 1.0849266715547496,
+      "exposure": 0.2256244630325086,
+      "activePositions": 2
+    },
+    {
+      "date": "2022-08-16",
+      "nav": 1.1113506966159212,
+      "exposure": 0.2314495465115599,
+      "activePositions": 2
+    },
+    {
+      "date": "2022-08-23",
+      "nav": 1.1001274941821078,
+      "exposure": 0.22663464301958294,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-08-30",
+      "nav": 1.099501919264034,
+      "exposure": 0.09913789005880401,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-09-07",
+      "nav": 1.1074279636562805,
+      "exposure": 0.09763985700186018,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-09-14",
+      "nav": 1.1108963857307073,
+      "exposure": 0.10518923888403785,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-09-21",
+      "nav": 1.1035168888008426,
+      "exposure": 0.10322830926615596,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-09-28",
+      "nav": 1.10266313673079,
+      "exposure": 0.09490855946994121,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-10-05",
+      "nav": 1.1134360986738658,
+      "exposure": 0.10690572746668892,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-10-12",
+      "nav": 1.1235583289770281,
+      "exposure": 0.11588762809337112,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-10-19",
+      "nav": 1.1223435907083357,
+      "exposure": 0.11298123961983184,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-10-26",
+      "nav": 1.1305299594736447,
+      "exposure": 0.11703852217689352,
+      "activePositions": 0
+    },
+    {
+      "date": "2022-11-02",
+      "nav": 1.1313078391136324,
+      "exposure": 0,
+      "activePositions": 1
+    },
+    {
+      "date": "2022-11-09",
+      "nav": 1.1368649638709265,
+      "exposure": 0.3048213138602222,
+      "activePositions": 3
+    },
+    {
+      "date": "2022-11-16",
+      "nav": 1.171062855531082,
+      "exposure": 0.3293888991293362,
+      "activePositions": 3
+    },
+    {
+      "date": "2022-11-23",
+      "nav": 1.1788397805991218,
+      "exposure": 0.32603024699624733,
+      "activePositions": 3
+    },
+    {
+      "date": "2022-12-01",
+      "nav": 1.188607731897648,
+      "exposure": 0.3300371229639673,
+      "activePositions": 3
+    },
+    {
+      "date": "2022-12-08",
+      "nav": 1.1853617791943762,
+      "exposure": 0.32630532306600607,
+      "activePositions": 3
+    },
+    {
+      "date": "2022-12-15",
+      "nav": 1.1798139318893555,
+      "exposure": 0.33319823655112524,
+      "activePositions": 3
+    },
+    {
+      "date": "2022-12-22",
+      "nav": 1.1764817479859482,
+      "exposure": 0.3283116537909165,
+      "activePositions": 3
+    },
+    {
+      "date": "2022-12-30",
+      "nav": 1.181976942857122,
+      "exposure": 0.3275830317402436,
+      "activePositions": 3
+    },
+    {
+      "date": "2023-01-09",
+      "nav": 1.2125113152122409,
+      "exposure": 0.3417953445999887,
+      "activePositions": 3
+    },
+    {
+      "date": "2023-01-17",
+      "nav": 1.2218487359075692,
+      "exposure": 0.34867239801573485,
+      "activePositions": 3
+    },
+    {
+      "date": "2023-01-24",
+      "nav": 1.2391136957157507,
+      "exposure": 0.3566871761862905,
+      "activePositions": 3
+    },
+    {
+      "date": "2023-01-31",
+      "nav": 1.2509711539533088,
+      "exposure": 0.22388864767128797,
+      "activePositions": 2
+    },
+    {
+      "date": "2023-02-07",
+      "nav": 1.2600429888020819,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-02-14",
+      "nav": 1.2611958498195133,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-02-22",
+      "nav": 1.2623641898993179,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-03-01",
+      "nav": 1.2635399789586217,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-03-08",
+      "nav": 1.2647307122785671,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-03-15",
+      "nav": 1.2659292477002353,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-03-22",
+      "nav": 1.2670574821100107,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-03-29",
+      "nav": 1.2682032760544493,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-04-05",
+      "nav": 1.2693701503412878,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-04-13",
+      "nav": 1.2705791820256545,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-04-20",
+      "nav": 1.2718253423914645,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-04-27",
+      "nav": 1.2725154815362902,
+      "exposure": 0.09600302958308031,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-05-04",
+      "nav": 1.2744482571749924,
+      "exposure": 0.09977027902717901,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-05-11",
+      "nav": 1.2842137808615466,
+      "exposure": 0.1040889878814825,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-05-18",
+      "nav": 1.2891676956797369,
+      "exposure": 0.10692755579097063,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-05-25",
+      "nav": 1.2963352396009133,
+      "exposure": 0.11176472826699585,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-06-02",
+      "nav": 1.3208585928972207,
+      "exposure": 0.12481766444797775,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-06-09",
+      "nav": 1.346114304020862,
+      "exposure": 0.1388537693243632,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-06-16",
+      "nav": 1.360048554303234,
+      "exposure": 0.1493057637869437,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-06-26",
+      "nav": 1.3457974312663106,
+      "exposure": 0.14952452966872642,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-07-03",
+      "nav": 1.3776586889278486,
+      "exposure": 0.15194694385479635,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-07-11",
+      "nav": 1.370915417151921,
+      "exposure": 0.15565358338051974,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-07-18",
+      "nav": 1.3907506006175008,
+      "exposure": 0.16551499731384323,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-07-25",
+      "nav": 1.3725772033734525,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-08-01",
+      "nav": 1.3740105108658176,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-08-08",
+      "nav": 1.3754446056758043,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-08-15",
+      "nav": 1.376883857280537,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-08-22",
+      "nav": 1.3783269663028512,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-08-29",
+      "nav": 1.3797787042431444,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-09-06",
+      "nav": 1.3812291216793824,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-09-13",
+      "nav": 1.382680789526178,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-09-20",
+      "nav": 1.3841358501323506,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-09-27",
+      "nav": 1.3855954654353086,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-10-04",
+      "nav": 1.3870582708966113,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-10-11",
+      "nav": 1.388527358263645,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-10-18",
+      "nav": 1.3899972847139181,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-10-25",
+      "nav": 1.3914618666081158,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2023-11-01",
+      "nav": 1.3927893619700893,
+      "exposure": 0,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-11-08",
+      "nav": 1.3963943687688376,
+      "exposure": 0.1014118225173096,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-11-15",
+      "nav": 1.4108017579522447,
+      "exposure": 0.10622169708176492,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-11-22",
+      "nav": 1.4055609052667504,
+      "exposure": 0.10433812564288458,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-11-30",
+      "nav": 1.408070329747086,
+      "exposure": 0.1068000113575536,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-12-07",
+      "nav": 1.4163087331091604,
+      "exposure": 0.10778102931476342,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-12-14",
+      "nav": 1.4386400602745901,
+      "exposure": 0.11672577923810343,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-12-21",
+      "nav": 1.4422676129964558,
+      "exposure": 0.12055450417889994,
+      "activePositions": 1
+    },
+    {
+      "date": "2023-12-29",
+      "nav": 1.4399054351837497,
+      "exposure": 0.12514557635466722,
+      "activePositions": 1
+    },
+    {
+      "date": "2024-01-08",
+      "nav": 1.434359563334732,
+      "exposure": 0.11511457651263564,
+      "activePositions": 1
+    },
+    {
+      "date": "2024-01-16",
+      "nav": 1.435440923774201,
+      "exposure": 0.11589066220148687,
+      "activePositions": 1
+    },
+    {
+      "date": "2024-01-23",
+      "nav": 1.4475787782341663,
+      "exposure": 0.12182483821722359,
+      "activePositions": 1
+    },
+    {
+      "date": "2024-01-30",
+      "nav": 1.431585055437928,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2024-02-06",
+      "nav": 1.4330643461676738,
+      "exposure": 0,
+      "activePositions": 0
+    },
+    {
+      "date": "2024-02-12",
+      "nav": 1.4342523389340427,
+      "exposure": 0,
+      "activePositions": 0
+    }
+  ],
+  "limitations": [
+    "Global top-decile selection uses the full future score distribution and is non-causal.",
+    "The expanding selectors are causal but have few trades after the warm-up.",
+    "Cases are a random sample from a current-listing universe, not a complete historical event stream.",
+    "Adjusted-close execution omits bid-ask spread, market impact, taxes, and intraday filing latency.",
+    "No delisted names are represented, so survivorship bias remains material."
+  ]
+}

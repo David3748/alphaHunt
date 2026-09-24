@@ -1,0 +1,25 @@
+{
+  "start_date": "2001-01-01",
+  "evaluation_start": "2004-01-31",
+  "holdout_start": "2021-01-31",
+  "transaction_cost_bps_per_turnover": 10.0,
+  "rv_lookback_months": 36,
+  "rv_min_months": 24,
+  "rv_smoothing_months": 3,
+  "weather_level_weeks": 12,
+  "weather_trajectory_weeks": 4,
+  "weather_information_lag_weeks": 4,
+  "cot_lookback_weeks": 156,
+  "cot_min_weeks": 104,
+  "cot_smoothing_weeks": 13,
+  "cot_publication_lag_days": 3,
+  "weights": {"relative_value": 0.50, "weather": 0.25, "positioning": 0.25},
+  "world_bank_url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
+  "cftc_url_template": "https://www.cftc.gov/files/dea/history/deacot{year}.zip",
+  "commodities": {
+    "coffee": {"world_bank_column": "Coffee, Arabica", "cftc_name": "COFFEE C"},
+    "sugar": {"world_bank_column": "Sugar, world", "cftc_name": "SUGAR NO. 11"},
+    "cocoa": {"world_bank_column": "Cocoa", "cftc_name": "COCOA"},
+    "cotton": {"world_bank_column": "Cotton, A Index", "cftc_name": "COTTON NO. 2"}
+  }
+}

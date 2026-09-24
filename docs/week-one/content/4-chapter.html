@@ -1,0 +1,59 @@
+<h2><span class="chap">Chapter 4 · The real test</span><br>Seventeen years, and the original strategy fails</h2>
+<p>2009–2025: 350,456 structured filings filtered to 9,885 eligible events, each read by five specialist
+lenses (liquidity, operations, catalysts, accounting, governance) and synthesized twice, roughly 69,000
+calls running unattended on a VM while I slept. The originally deployed score ran first against gates
+frozen weeks earlier.</p>
+<p><strong>It failed.</strong> Sharpe 0.74 versus a required 1.0. Max drawdown −31.8% versus −25%.
+Publishing that feels bad. It's also the point: the gates existed precisely so that moment would be
+a non-event instead of a temptation.</p>
+<p>Three replacement rules had been pre-registered before any outcome opened, tested only on holdout
+cohorts with discovery years excluded and Bonferroni correction across exactly three hypotheses:</p>
+<table>
+<thead><tr><th>Rule</th><th class="num">Clean IR</th><th class="num">Placebo p</th><th>Gate</th></tr></thead>
+<tbody>
+<tr><td>p(+20% excess)<sup>*</sup></td><td class="num">+1.53</td><td class="num">≲.002</td><td><span class="tag t-good">PASS</span></td></tr>
+<tr><td>Causal z-blend</td><td class="num">+1.52</td><td class="num">≲.002</td><td><span class="tag t-good">PASS</span></td></tr>
+<tr><td>Upside × drawdown</td><td class="num">+1.21</td><td class="num">≲.002</td><td><span class="tag t-good">PASS</span></td></tr>
+<tr><td>Mechanical: deepest drawdown</td><td class="num">−0.09</td><td class="num">.11</td><td><span class="tag t-bad">fail</span></td></tr>
+</tbody>
+</table>
+<p class="foot-note">* Model-assigned probability the issuer beats SPY by ≥20% over 90 days. Disclosure:
+these three were chosen after inspecting the 2019–20 run — which is exactly why that run doesn't count
+toward their confirmation.</p>
+<div class="pull">The row that matters is the mechanical baseline losing. "Buy whatever is crushed"
+earned −0.09 IR over seventeen years while the model's probability fields earned about +1.5.
+(IR is information ratio: excess return per unit of risk, exposures matched. Half a point is respectable;
+1.5 made me re-check my own code.) Whatever the signal is, it isn't repackaged dip-buying.</div>
+
+<p>And here is what that looks like as equity curves: every strategy run under the frozen
+conventions (next-close entry, 90-day holds, ten 10% slots, 25bp costs), rebased to $1 on July 1, 2009,
+against simply buying the S&amp;P 500 or 7–10 year Treasuries and doing nothing:</p>
+
+<figure>
+<svg id="chart-perf" class="chart" role="img" aria-label="Growth of one dollar versus SPY and bonds"></svg>
+<figcaption><b>Figure 5 — growth of $1, 2009–2026, log scale.</b> The confirmed p(+20%) rule (purple)
+compounds at <b>47%/yr simulated</b> with a −27% worst drawdown; SPY buy-and-hold does 15.1%/yr with −34%;
+7–10yr Treasuries do 2.6%/yr. The failed deployed rule (gray) roughly matched the index on raw return while
+taking worse risk for it — exactly why it failed its gates. All four series are price-only for stocks
+(dividends excluded) and use identical daily timestamps.</figcaption>
+<div class="legend">
+<span><i style="background:#B39DFF"></i>p(+20%) rule — confirmed</span>
+<span><i style="background:#6b7280"></i>deployed rule — failed gates</span>
+<span><i style="background:#3987e5"></i>SPY buy &amp; hold</span>
+<span><i style="background:#34d399"></i>IEF 7–10yr Treasuries</span></div>
+<table>
+<thead><tr><th>Metric</th><th class="num">p(+20%) rule</th><th class="num">Deployed (failed)</th><th class="num">SPY B&amp;H</th><th class="num">IEF B&amp;H</th></tr></thead>
+<tbody>
+<tr><td>CAGR</td><td class="num"><strong>47.0%</strong></td><td class="num">14.9%</td><td class="num">15.1%</td><td class="num">2.6%</td></tr>
+<tr><td>Annualized volatility</td><td class="num">27.6%</td><td class="num">19.6%</td><td class="num">17.1%</td><td class="num">6.6%</td></tr>
+<tr><td>Sharpe (vs zero)</td><td class="num">1.53</td><td class="num">0.81</td><td class="num">0.91</td><td class="num">0.43</td></tr>
+<tr><td>Max drawdown</td><td class="num">−26.9%</td><td class="num">−31.8%</td><td class="num">−33.7%</td><td class="num">−23.9%</td></tr>
+<tr><td>Trades taken</td><td class="num">269</td><td class="num">319</td><td class="num">1</td><td class="num">1</td></tr>
+</tbody>
+</table>
+<p class="foot-note">Read the fine print before screenshotting the purple line: these are point-in-time
+<em>simulations</em> under the stated conventions, on a universe whose eligibility requires crashes to fire,
+with no borrow/tax/capacity modeling, from a single closed-weight model that survived a blinding test but
+faces a negative live cohort (Chapter 7). 47% compounding is what the simulation printed; it is not an offer,
+a backtest you can buy, or a promise. The live cohort's first graded print was negative.</p>
+</figure>

@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")/.."
+
+case "${1:-}" in
+  -h|--help|status|preflight)
+    exec python3 src/century_pipeline.py --config "${CENTURY_CONFIG:-config/century.json}" "${1:-status}"
+    ;;
+esac
+
+if [ -z "${OPENROUTER_API_KEY:-}" ]; then
+  if [ ! -t 0 ]; then
+    printf "OPENROUTER_API_KEY is required for a non-interactive run\n" >&2
+    exit 2
+  fi
+  printf "OpenRouter API key: " >&2
+  stty -echo
+  IFS= read -r OPENROUTER_API_KEY
+  stty echo
+  printf "\n" >&2
+  export OPENROUTER_API_KEY
+fi
+
+exec python3 src/century_pipeline.py --config "${CENTURY_CONFIG:-config/century.json}" play "$@"

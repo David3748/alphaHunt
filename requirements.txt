@@ -1,0 +1,17 @@
+# Core pipeline, evaluation and tests
+duckdb==1.4.4
+numpy>=2,<3
+pandas>=2,<4
+scipy>=1.13
+scikit-learn>=1.5
+matplotlib>=3.8
+requests>=2.31
+beautifulsoup4>=4.12,<5
+lxml>=5,<7
+Pillow>=10
+pytest>=8
+
+# Side experiments only (crop / REIT backtests; TypeSafe evaluator)
+yfinance>=0.2
+msgspec>=0.18
+typesafe-sdk>=0.6

@@ -1,0 +1,10 @@
+period,geo,built_up_km2,population,night_lights
+2020,Metro_A,100,100000,50
+2021,Metro_A,104,103000,52
+2022,Metro_A,108,106500,54
+2020,Metro_B,100,100000,50
+2021,Metro_B,110,101000,50.5
+2022,Metro_B,121,102000,51
+2020,Metro_C,100,100000,50
+2021,Metro_C,102,104000,52.5
+2022,Metro_C,104,108000,55

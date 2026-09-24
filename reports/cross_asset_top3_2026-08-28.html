@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlphaHunt — Cross-Asset Top 3</title>
+  <style>
+    :root {
+      --ink: #17231d;
+      --muted: #68736d;
+      --paper: #f4f1e8;
+      --card: #fffdf7;
+      --line: #d9d5c9;
+      --green: #174f3b;
+      --green-2: #2f7c5c;
+      --amber: #c98427;
+      --red: #a74434;
+      --blue: #315f75;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 85% 0%, rgba(47,124,92,.12), transparent 28rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 58px 0 72px; }
+    header { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; border-bottom: 1px solid var(--line); padding-bottom: 30px; }
+    .eyebrow { color: var(--green-2); font-weight: 800; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
+    h1 { margin: 8px 0 10px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 6vw, 76px); line-height: .98; letter-spacing: -.035em; font-weight: 500; }
+    .dek { max-width: 770px; color: var(--muted); font-size: 18px; margin: 0; }
+    .stamp { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .verdict { margin: 28px 0 34px; background: var(--green); color: white; border-radius: 18px; padding: 24px 28px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; box-shadow: 0 14px 36px rgba(23,79,59,.16); }
+    .verdict .mark { font: 52px/1 Georgia, serif; color: #d3e4a3; }
+    .verdict strong { display: block; font-size: 21px; margin-bottom: 4px; }
+    .verdict p { margin: 0; color: #dfe9e3; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    article { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; position: relative; overflow: hidden; }
+    article::before { content: ""; position: absolute; inset: 0 0 auto; height: 5px; background: var(--green-2); }
+    article:nth-child(2)::before { background: var(--blue); }
+    article:nth-child(3)::before { background: var(--amber); }
+    .rank { display: flex; justify-content: space-between; align-items: baseline; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; }
+    .score { padding: 4px 8px; border-radius: 99px; background: #e7eee9; color: var(--green); letter-spacing: 0; }
+    h2 { font: 34px/1.05 Georgia, "Times New Roman", serif; margin: 20px 0 4px; font-weight: 500; }
+    .subtitle { color: var(--muted); margin-bottom: 20px; min-height: 48px; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 18px 0; }
+    .metric { padding: 13px 8px 13px 0; }
+    .metric:nth-child(even) { padding-left: 14px; border-left: 1px solid var(--line); }
+    .metric small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 10px; font-weight: 800; }
+    .metric b { font-size: 20px; font-variant-numeric: tabular-nums; }
+    .thesis { min-height: 116px; }
+    h3 { margin: 25px 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .13em; }
+    ul { padding-left: 18px; margin: 8px 0 0; }
+    li { margin: 7px 0; }
+    .risk { color: var(--red); }
+    .bar { height: 8px; background: #ebe8df; border-radius: 99px; overflow: hidden; margin-top: 14px; }
+    .bar span { display: block; height: 100%; background: var(--green-2); border-radius: inherit; }
+    .section { margin-top: 42px; }
+    .section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    .section-title h2 { margin: 0; font-size: 28px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    .table-wrap { width: 100%; overflow-x: auto; }
+    th, td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 10px; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .method { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .note { background: #ece8dc; border-radius: 14px; padding: 20px; color: #4d5751; }
+    a { color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    footer { color: var(--muted); border-top: 1px solid var(--line); margin-top: 42px; padding-top: 18px; font-size: 12px; }
+    @media (max-width: 900px) { .cards, .method { grid-template-columns: 1fr; } .subtitle, .thesis { min-height: auto; } header { grid-template-columns: 1fr; } .stamp { text-align: left; } }
+    @media print { body { background: white; } main { width: 100%; padding: 20px; } article, .verdict { break-inside: avoid; box-shadow: none; } a { color: inherit; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <div class="eyebrow">AlphaHunt / Cross-Asset Special Situations</div>
+      <h1>Top 3 convergence trades</h1>
+      <p class="dek">A deeper public-markets screen for observable value, a discount created by sentiment or structure, and a mechanism that forces the market to revisit that value.</p>
+    </div>
+    <div class="stamp">Research snapshot<br><strong>28 August 2026</strong><br>USD and GBP instruments</div>
+  </header>
+
+  <section class="verdict">
+    <div class="mark">3</div>
+    <div><strong>The best trade is NFJ, but the best hunting ground is broader.</strong><p>NFJ offers the cleanest near-term contract. BSL provides marked credit plus a term date. SERE offers the largest discount, but requires patience and underwriting of physical property sales.</p></div>
+  </section>
+
+  <section class="cards">
+    <article>
+      <div class="rank"><span>#1 · US closed-end fund</span><span class="score">8.4 / 10</span></div>
+      <h2>NFJ tender</h2>
+      <div class="subtitle">Virtus Dividend, Interest &amp; Premium Strategy Fund</div>
+      <div class="metrics">
+        <div class="metric"><small>Market / NAV</small><b>$15.59 / $16.66</b></div>
+        <div class="metric"><small>Current discount</small><b>6.4%</b></div>
+        <div class="metric"><small>Tender value*</small><b>$16.49</b></div>
+        <div class="metric"><small>Accepted-share upside</small><b>5.8%</b></div>
+      </div>
+      <p class="thesis">The board has approved a cash tender for up to 25% of outstanding shares at 99% of NAV, expected to commence around 1 September. The discount is observable daily and the consideration formula is contractual once definitive documents are filed.</p>
+      <h3>Catalyst</h3>
+      <ul><li>Definitive Schedule TO and tender launch expected around <strong>1 September 2026</strong>.</li><li>Activist agreement with Saba supports execution.</li></ul>
+      <h3 class="risk">What breaks it</h3>
+      <ul><li>Heavy oversubscription creates proration.</li><li>NAV falls before pricing; residual shares re-widen after the tender.</li></ul>
+      <div class="bar"><span style="width:84%"></span></div>
+    </article>
+
+    <article>
+      <div class="rank"><span>#2 · Senior-loan term fund</span><span class="score">7.7 / 10</span></div>
+      <h2>BSL term convergence</h2>
+      <div class="subtitle">Blackstone Senior Floating Rate 2027 Term Fund</div>
+      <div class="metrics">
+        <div class="metric"><small>Market / NAV</small><b>$12.97 / $13.47</b></div>
+        <div class="metric"><small>Current discount</small><b>3.7%</b></div>
+        <div class="metric"><small>Cash distribution</small><b>$0.088/mo</b></div>
+        <div class="metric"><small>Illustrative 9-mo return*</small><b>~10.0%</b></div>
+      </div>
+      <p class="thesis">BSL owns predominantly senior secured floating-rate loans whose values are marked regularly. Stable NAV plus nine monthly distributions and closure of the discount at the scheduled term date produces an illustrative 10% holding-period return.</p>
+      <h3>Catalyst</h3>
+      <ul><li>Scheduled dissolution on or about <strong>31 May 2027</strong>.</li><li>Portfolio naturally shortens as the term approaches.</li></ul>
+      <h3 class="risk">What breaks it</h3>
+      <ul><li>Shareholders approve another extension; the fund was extended once before.</li><li>Credit losses or spread widening overwhelm discount accretion; effective leverage is about 32%.</li></ul>
+      <div class="bar"><span style="width:77%;background:var(--blue)"></span></div>
+    </article>
+
+    <article>
+      <div class="rank"><span>#3 · UK property liquidation</span><span class="score">6.9 / 10</span></div>
+      <h2>SERE wind-down</h2>
+      <div class="subtitle">Schroder European Real Estate Investment Trust</div>
+      <div class="metrics">
+        <div class="metric"><small>Market / est. NAV</small><b>60.4p / 98.2p</b></div>
+        <div class="metric"><small>Current discount</small><b>38.5%</b></div>
+        <div class="metric"><small>80% NAV recovery</small><b>78.6p</b></div>
+        <div class="metric"><small>Upside at 80%</small><b>30.1%</b></div>
+      </div>
+      <p class="thesis">The board recommends a managed wind-down of 14 properties in France, Germany and the Netherlands. At the current price, investors can absorb roughly a 38% reduction from estimated NAV before losing money, although realization costs and time matter greatly.</p>
+      <h3>Catalyst</h3>
+      <ul><li>Shareholder vote on <strong>3 September 2026</strong>.</li><li>Asset sales and capital returns over an expected two-to-three-year process.</li></ul>
+      <h3 class="risk">What breaks it</h3>
+      <ul><li>The special resolution needs 75% of votes cast.</li><li>Property marks prove stale, sales take years, or French tax litigation consumes value.</li></ul>
+      <div class="bar"><span style="width:69%;background:var(--amber)"></span></div>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><h2>Payoff sensitivity</h2><span>Before tax, fees and FX</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Trade</th><th>Conservative case</th><th>Base case</th><th>Bull case</th><th>Timing</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NFJ</strong></td><td>33% acceptance × 5.8% = 1.9%, residual flat</td><td>50% acceptance = 2.9%, residual flat</td><td>Full position accepted = 5.8%</td><td>Weeks after tender launch</td></tr>
+        <tr><td><strong>BSL</strong></td><td>5% NAV decline: roughly 5% total return</td><td>Stable NAV: roughly 10%</td><td>Modest NAV recovery: low teens</td><td>About 9 months</td></tr>
+        <tr><td><strong>SERE</strong></td><td>70% of NAV realized: 68.8p, +13.9%</td><td>80% realized: 78.6p, +30.1%</td><td>90% realized: 88.4p, +46.4%</td><td>Two to three years</td></tr>
+      </tbody>
+    </table></div>
+    <p style="color:var(--muted);font-size:12px">*NFJ tender value uses 99% of the cited NAV and therefore changes daily. BSL return assumes nine $0.088 distributions, stable NAV, and dissolution at NAV; it is not a guaranteed yield. SERE outcomes apply realization percentages to the cited estimated NAV and ignore interim dividends, FX, taxes and further expenses.</p>
+  </section>
+
+  <section class="section method">
+    <div>
+      <div class="section-title"><h2>Selection and sizing</h2></div>
+      <p><strong>NFJ:</strong> 2–3% event position after definitive tender terms appear; do not pay through a roughly 4% discount without revising the proration model.</p>
+      <p><strong>BSL:</strong> 2% income/event position. Require an explicit plan to exit if the board proposes another extension.</p>
+      <p><strong>SERE:</strong> 0.5–1% only, assuming the account can trade London-listed shares and tolerate GBP/EUR exposure. It is an asset-liquidation investment, not short-duration arbitrage.</p>
+    </div>
+    <aside class="note">
+      <strong>Adversarial review</strong>
+      <p>GLM 5.3 Flash was used for independent cross-asset idea generation. Its suggestions were then checked against current filings and fund documents. Several apparent term-fund ideas were eliminated because the model supplied stale or incorrect termination assumptions.</p>
+      <p>SEIT was also excluded from the top three despite a roughly 54% headline discount: its NAV is stale, gearing is approximately 75% of NAV, portfolio companies require follow-on capital, and there is no sufficiently precise distribution timetable.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><h2>Primary sources</h2></div>
+    <ul>
+      <li><a href="https://ir.virtus.com/news/news-details/2026/Virtus-Dividend-Interest--Premium-Strategy-Fund-Announces-Tender-Offer/default.aspx">Virtus: NFJ tender announcement</a> and <a href="https://www.cefconnect.com/fund/NFJ?view=fund">NFJ price/NAV snapshot</a>.</li>
+      <li><a href="https://www.blackstone.com/fund/bsl-blackstone-senior-floating-rate-2027-term-fund/">Blackstone: BSL NAV, discount, distribution and term</a>.</li>
+      <li><a href="https://www.schroders.com/en-gb/uk/individual/funds-and-strategies/investment-trusts/schroder-european-real-estate-investment-trust/">Schroders: SERE wind-down documents</a>, <a href="https://www.lse.co.uk/rns/SERE/publication-of-circular-and-notice-of-gm-c6nhtmquy33ztq9.html">general-meeting timetable</a>, and <a href="https://www.fidelity.co.uk/factsheet-data/factsheet/GB00BY7R8K77-schroder-eurpn-real-est-inv-tst-plc/news-key-dates-and-documents">price/NAV snapshot</a>.</li>
+      <li><a href="https://www.investegate.co.uk/announcement/rns/sdcl-efficiency-income-trust--seit/results-for-the-year-ended-31-march-2026/9635404">SEIT annual results and wind-down risks</a>.</li>
+    </ul>
+  </section>
+
+  <footer>AlphaHunt research — information only, not individualized investment advice. Prices and NAVs are snapshots and must be refreshed before execution. Tender participation, foreign-market access, tax treatment and broker cutoffs vary by account.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "information_lag_weeks": 2,
+  "persistence_halflife_weeks": 8,
+  "seasonal_min_years": 5,
+  "rules": {
+    "coffee": {
+      "COFFEE_BRAZIL_MINAS": [
+        {"months": [9, 10, 11], "dry": 0.45, "heat": 0.25, "wet": 0.10},
+        {"months": [12, 1, 2, 3], "dry": 0.55, "heat": 0.30, "combo": 0.35},
+        {"months": [6, 7, 8], "cold": 1.00}
+      ],
+      "COFFEE_BRAZIL_ESPIRITO": [
+        {"months": [9, 10, 11], "dry": 0.45, "heat": 0.25},
+        {"months": [12, 1, 2, 3], "dry": 0.55, "heat": 0.30, "combo": 0.35}
+      ],
+      "COFFEE_BRAZIL_SAO_PAULO": [
+        {"months": [9, 10, 11], "dry": 0.45, "heat": 0.25, "wet": 0.10},
+        {"months": [12, 1, 2, 3], "dry": 0.55, "heat": 0.30, "combo": 0.35},
+        {"months": [6, 7, 8], "cold": 1.00}
+      ],
+      "COFFEE_VIETNAM": [{"months": [3, 4, 5, 6, 7, 8, 9], "dry": 0.65, "heat": 0.20, "combo": 0.30}],
+      "COFFEE_COLOMBIA": [{"months": [3, 4, 5, 9, 10, 11], "dry": 0.55, "heat": 0.25, "wet": 0.10}],
+      "COFFEE_INDONESIA": [{"months": [4, 5, 6, 7, 8, 9], "dry": 0.55, "heat": 0.25, "wet": 0.15}],
+      "COFFEE_ETHIOPIA": [{"months": [3, 4, 5, 6, 7, 8], "dry": 0.65, "heat": 0.25, "combo": 0.25}],
+      "COFFEE_HONDURAS": [{"months": [5, 6, 7, 8, 9], "dry": 0.60, "heat": 0.25, "combo": 0.25}],
+      "COFFEE_UGANDA": [{"months": [3, 4, 5, 9, 10, 11], "dry": 0.60, "heat": 0.25}]
+    },
+    "sugar": {
+      "SUGAR_BRAZIL_SAO_PAULO": [
+        {"months": [11, 12, 1, 2, 3], "dry": 0.60, "heat": 0.30, "combo": 0.30},
+        {"months": [4, 5, 6, 7, 8, 9, 10], "wet": 0.65}
+      ],
+      "SUGAR_INDIA_UP": [{"months": [6, 7, 8, 9, 10], "dry": 0.65, "heat": 0.25, "combo": 0.25}, {"months": [11, 12, 1, 2], "wet": 0.50}],
+      "SUGAR_INDIA_MAHARASHTRA": [{"months": [6, 7, 8, 9, 10], "dry": 0.65, "heat": 0.25, "combo": 0.25}, {"months": [11, 12, 1, 2], "wet": 0.50}],
+      "SUGAR_THAILAND": [{"months": [5, 6, 7, 8, 9, 10], "dry": 0.65, "heat": 0.25}, {"months": [12, 1, 2, 3], "wet": 0.50}],
+      "SUGAR_CHINA_GUANGXI": [{"months": [4, 5, 6, 7, 8, 9], "dry": 0.60, "heat": 0.30, "combo": 0.25}],
+      "SUGAR_PAKISTAN": [{"months": [4, 5, 6, 7, 8, 9], "dry": 0.65, "heat": 0.30, "combo": 0.30}],
+      "SUGAR_MEXICO": [{"months": [6, 7, 8, 9, 10], "dry": 0.60, "heat": 0.25}],
+      "SUGAR_AUSTRALIA": [{"months": [11, 12, 1, 2, 3, 4], "dry": 0.60, "heat": 0.25, "combo": 0.25}],
+      "SUGAR_OTHER_PROXY": [{"months": [11, 12, 1, 2, 3], "dry": 0.60, "heat": 0.25, "combo": 0.25}]
+    },
+    "cocoa": {
+      "COCOA_COTE_DIVOIRE": [{"months": [3, 4, 5, 6, 7, 8, 9], "dry": 0.70, "heat": 0.25, "combo": 0.35}, {"months": [10, 11], "wet": 0.25}],
+      "COCOA_GHANA": [{"months": [3, 4, 5, 6, 7, 8, 9], "dry": 0.70, "heat": 0.25, "combo": 0.35}, {"months": [10, 11], "wet": 0.25}],
+      "COCOA_ECUADOR": [{"months": [1, 2, 3, 4, 5, 6], "dry": 0.65, "heat": 0.25, "combo": 0.25}],
+      "COCOA_NIGERIA": [{"months": [3, 4, 5, 6, 7, 8, 9], "dry": 0.70, "heat": 0.25, "combo": 0.35}],
+      "COCOA_CAMEROON": [{"months": [3, 4, 5, 6, 7, 8, 9], "dry": 0.70, "heat": 0.25, "combo": 0.35}],
+      "COCOA_INDONESIA": [{"months": [4, 5, 6, 7, 8, 9], "dry": 0.65, "heat": 0.25, "combo": 0.25}],
+      "COCOA_OTHER_PROXY": [{"months": [3, 4, 5, 6, 7, 8, 9], "dry": 0.70, "heat": 0.25, "combo": 0.35}]
+    },
+    "cotton": {
+      "COTTON_US_TEXAS": [{"months": [6, 7, 8, 9], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [10, 11], "wet": 0.50}],
+      "COTTON_INDIA_GUJARAT": [{"months": [8, 9, 10], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [11, 12], "wet": 0.45}],
+      "COTTON_INDIA_MAHARASHTRA": [{"months": [8, 9, 10], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [11, 12], "wet": 0.45}],
+      "COTTON_CHINA_XINJIANG": [{"months": [6, 7, 8], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [9, 10], "wet": 0.40}],
+      "COTTON_BRAZIL_MATO_GROSSO": [{"months": [1, 2, 3, 4], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [6, 7, 8], "wet": 0.45}],
+      "COTTON_PAKISTAN": [{"months": [7, 8, 9], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [10, 11], "wet": 0.40}],
+      "COTTON_TURKEY": [{"months": [6, 7, 8], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [9, 10], "wet": 0.40}],
+      "COTTON_OTHER_PROXY": [{"months": [6, 7, 8, 9], "dry": 0.55, "heat": 0.30, "combo": 0.55}, {"months": [10, 11], "wet": 0.45}]
+    }
+  }
+}

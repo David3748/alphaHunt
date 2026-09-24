@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" role="img" aria-label="Distribution of per-trade excess vs SPY — 270 P(+20%) trades (mean +24.7%)">
+<rect width='1000' height='380' fill='#ffffff'/>
+<text x='500.0' y='20' text-anchor='middle' font-size='15' font-weight='bold' fill='#1a1a1a'>Distribution of per-trade excess vs SPY — 270 P(+20%) trades (mean +24.7%)</text>
+<rect x='65.0' y='285.0' width='36.2' height='51.0' fill='#b00020'/>
+<rect x='103.2' y='144.8' width='36.2' height='191.2' fill='#b00020'/>
+<rect x='141.5' y='30.0' width='36.2' height='306.0' fill='#0a7b2e'/>
+<rect x='179.8' y='132.0' width='36.2' height='204.0' fill='#0a7b2e'/>
+<rect x='218.0' y='278.6' width='36.2' height='57.4' fill='#0a7b2e'/>
+<rect x='256.2' y='316.9' width='36.2' height='19.1' fill='#0a7b2e'/>
+<rect x='294.5' y='329.6' width='36.2' height='6.4' fill='#0a7b2e'/>
+<rect x='332.8' y='323.2' width='36.2' height='12.8' fill='#0a7b2e'/>
+<rect x='371.0' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='409.2' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='447.5' y='329.6' width='36.2' height='6.4' fill='#0a7b2e'/>
+<rect x='485.8' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='524.0' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='562.2' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='600.5' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='638.8' y='332.8' width='36.2' height='3.2' fill='#0a7b2e'/>
+<rect x='677.0' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='715.2' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='753.5' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='791.8' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='830.0' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='868.2' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='906.5' y='336.0' width='36.2' height='0.0' fill='#0a7b2e'/>
+<rect x='944.8' y='332.8' width='36.2' height='3.2' fill='#0a7b2e'/>
+<line x1='142.4' y1='30' x2='142.4' y2='336' stroke='#1a1a1a' stroke-width='1.5'/>
+<text x='64' y='354' font-size='10' fill='#888888'>-62%</text>
+<text x='982' y='354' text-anchor='end' font-size='10' fill='#888888'>+659%</text>
+<text x='142.4' y='366' text-anchor='middle' font-size='10' fill='#888888'>0 (green = beat SPY, red = lagged)</text>
+</svg>

@@ -1,0 +1,14 @@
+[Unit]
+Description=alphaHunt century pipeline monitor
+After=network-online.target
+
+[Service]
+Type=simple
+User=azureuser
+WorkingDirectory=/opt/alphahunt
+ExecStart=/opt/alphahunt/.venv/bin/python /opt/alphahunt/src/pipeline_monitor.py --run-dir /opt/alphahunt/lab_runs/century_safety --source-dir /opt/alphahunt/lab_runs/century_safety_source --port 8080
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

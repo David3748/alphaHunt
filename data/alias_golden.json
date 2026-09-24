@@ -1,0 +1,416 @@
+[
+ {
+  "name": "Coinbase, Inc.",
+  "expected_ticker": "COIN",
+  "expected_cik": "0001679788",
+  "kind": "containment",
+  "note": "live failure: norm coinbase vs coinbase global Jaccard 0.50<0.60 -> containment fallback"
+ },
+ {
+  "name": "Coinbase Inc",
+  "expected_ticker": "COIN",
+  "expected_cik": "0001679788",
+  "kind": "containment",
+  "note": "no-comma variant"
+ },
+ {
+  "name": "Coinbase Global",
+  "expected_ticker": "COIN",
+  "expected_cik": "0001679788",
+  "kind": "exact",
+  "note": "short canonical form"
+ },
+ {
+  "name": "Coinbase Global, Inc.",
+  "expected_ticker": "COIN",
+  "expected_cik": "0001679788",
+  "kind": "exact",
+  "note": "SEC canonical title"
+ },
+ {
+  "name": "Compass",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "collision_null",
+  "note": "bare stem collides COMP (Compass, Inc.) vs CODI (Compass Diversified) -> null, full-name match required"
+ },
+ {
+  "name": "Compass, Inc.",
+  "expected_ticker": "COMP",
+  "expected_cik": "0001563190",
+  "kind": "exact",
+  "note": "full legal name with suffix resolves to COMP"
+ },
+ {
+  "name": "Compass Inc",
+  "expected_ticker": "COMP",
+  "expected_cik": "0001563190",
+  "kind": "exact",
+  "note": "no-comma variant -> COMP"
+ },
+ {
+  "name": "Compass Diversified Holdings",
+  "expected_ticker": "CODI",
+  "expected_cik": "0001345126",
+  "kind": "exact",
+  "note": "full name resolves to CODI (collision-guard demo counterpart)"
+ },
+ {
+  "name": "Compass Diversified",
+  "expected_ticker": "CODI",
+  "expected_cik": "0001345126",
+  "kind": "exact",
+  "note": "suffix-stripped full stem resolves to CODI"
+ },
+ {
+  "name": "Endo",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "collision_null",
+  "note": "bare stem collides ENDP (Endo International) vs JNJ subsidiary Ethicon Endo-Surgery -> null"
+ },
+ {
+  "name": "Endo International plc",
+  "expected_ticker": "ENDP",
+  "expected_cik": "0001593034",
+  "kind": "litigated",
+  "note": "delisted 2023 Ch.11 filer; CIK retained for litigation joins (not in active universe)"
+ },
+ {
+  "name": "Ethicon Endo-Surgery",
+  "expected_ticker": "JNJ",
+  "expected_cik": "0000200406",
+  "kind": "subsidiary",
+  "note": "J&J subsidiary named in device recalls; must map to JNJ not ENDP",
+  "parent_ticker": "JNJ",
+  "parent_cik": "0000200406"
+ },
+ {
+  "name": "Ethicon Inc.",
+  "expected_ticker": "JNJ",
+  "expected_cik": "0000200406",
+  "kind": "subsidiary",
+  "note": "J&J subsidiary alias",
+  "parent_ticker": "JNJ",
+  "parent_cik": "0000200406"
+ },
+ {
+  "name": "StoneCo Ltd.",
+  "expected_ticker": "STNE",
+  "expected_cik": "0001745431",
+  "kind": "smoke",
+  "note": "smoke case STNE: event-name join must resolve"
+ },
+ {
+  "name": "Red Cat Holdings, Inc.",
+  "expected_ticker": "RCAT",
+  "expected_cik": "0000748268",
+  "kind": "smoke",
+  "note": "smoke case RCAT: event-name join must resolve"
+ },
+ {
+  "name": "Organon & Co.",
+  "expected_ticker": "OGN",
+  "expected_cik": "0001821825",
+  "kind": "smoke",
+  "note": "smoke case OGN: event-name join must resolve"
+ },
+ {
+  "name": "DoubleVerify Holdings, Inc.",
+  "expected_ticker": "DV",
+  "expected_cik": "0001819928",
+  "kind": "smoke",
+  "note": "smoke case DV: event-name join must resolve"
+ },
+ {
+  "name": "ASTRAZENECA PLC",
+  "expected_ticker": "AZN",
+  "expected_cik": "0000901832",
+  "kind": "smoke",
+  "note": "smoke case AZN: event-name join must resolve"
+ },
+ {
+  "name": "Elevance Health, Inc.",
+  "expected_ticker": "ELV",
+  "expected_cik": "0001156039",
+  "kind": "smoke",
+  "note": "smoke case ELV: event-name join must resolve"
+ },
+ {
+  "name": "UroGen Pharma Ltd.",
+  "expected_ticker": "URGN",
+  "expected_cik": "0001668243",
+  "kind": "smoke",
+  "note": "smoke case URGN: event-name join must resolve"
+ },
+ {
+  "name": "Apple Inc.",
+  "expected_ticker": "AAPL",
+  "expected_cik": "0000320193",
+  "kind": "exact",
+  "note": "canonical anchor AAPL"
+ },
+ {
+  "name": "MICROSOFT CORP",
+  "expected_ticker": "MSFT",
+  "expected_cik": "0000789019",
+  "kind": "exact",
+  "note": "canonical anchor MSFT"
+ },
+ {
+  "name": "Tesla, Inc.",
+  "expected_ticker": "TSLA",
+  "expected_cik": "0001318605",
+  "kind": "exact",
+  "note": "canonical anchor TSLA"
+ },
+ {
+  "name": "Meta Platforms, Inc.",
+  "expected_ticker": "META",
+  "expected_cik": "0001326801",
+  "kind": "exact",
+  "note": "canonical anchor META"
+ },
+ {
+  "name": "AMAZON COM INC",
+  "expected_ticker": "AMZN",
+  "expected_cik": "0001018724",
+  "kind": "exact",
+  "note": "canonical anchor AMZN"
+ },
+ {
+  "name": "Alphabet Inc.",
+  "expected_ticker": "GOOGL",
+  "expected_cik": "0001652044",
+  "kind": "exact",
+  "note": "canonical anchor GOOGL"
+ },
+ {
+  "name": "NVIDIA CORP",
+  "expected_ticker": "NVDA",
+  "expected_cik": "0001045810",
+  "kind": "exact",
+  "note": "canonical anchor NVDA"
+ },
+ {
+  "name": "ELI LILLY & Co",
+  "expected_ticker": "LLY",
+  "expected_cik": "0000059478",
+  "kind": "exact",
+  "note": "canonical anchor LLY"
+ },
+ {
+  "name": "UNITEDHEALTH GROUP INC",
+  "expected_ticker": "UNH",
+  "expected_cik": "0000731766",
+  "kind": "exact",
+  "note": "canonical anchor UNH"
+ },
+ {
+  "name": "ExxonMobil Holdings Corp",
+  "expected_ticker": "XOM",
+  "expected_cik": "0002115436",
+  "kind": "exact",
+  "note": "canonical anchor XOM"
+ },
+ {
+  "name": "Walmart Inc.",
+  "expected_ticker": "WMT",
+  "expected_cik": "0000104169",
+  "kind": "exact",
+  "note": "canonical anchor WMT"
+ },
+ {
+  "name": "JPMORGAN CHASE & CO",
+  "expected_ticker": "JPM",
+  "expected_cik": "0000019617",
+  "kind": "exact",
+  "note": "canonical anchor JPM"
+ },
+ {
+  "name": "VISA INC.",
+  "expected_ticker": "V",
+  "expected_cik": "0001403161",
+  "kind": "exact",
+  "note": "canonical anchor V"
+ },
+ {
+  "name": "Mastercard Inc",
+  "expected_ticker": "MA",
+  "expected_cik": "0001141391",
+  "kind": "exact",
+  "note": "canonical anchor MA"
+ },
+ {
+  "name": "PROCTER & GAMBLE Co",
+  "expected_ticker": "PG",
+  "expected_cik": "0000080424",
+  "kind": "exact",
+  "note": "canonical anchor PG"
+ },
+ {
+  "name": "ORACLE CORP",
+  "expected_ticker": "ORCL",
+  "expected_cik": "0001341439",
+  "kind": "exact",
+  "note": "canonical anchor ORCL"
+ },
+ {
+  "name": "HOME DEPOT, INC.",
+  "expected_ticker": "HD",
+  "expected_cik": "0000354950",
+  "kind": "exact",
+  "note": "canonical anchor HD"
+ },
+ {
+  "name": "CHEVRON CORP",
+  "expected_ticker": "CVX",
+  "expected_cik": "0000093410",
+  "kind": "exact",
+  "note": "canonical anchor CVX"
+ },
+ {
+  "name": "AbbVie Inc.",
+  "expected_ticker": "ABBV",
+  "expected_cik": "0001551152",
+  "kind": "exact",
+  "note": "canonical anchor ABBV"
+ },
+ {
+  "name": "COCA COLA CO",
+  "expected_ticker": "KO",
+  "expected_cik": "0000021344",
+  "kind": "exact",
+  "note": "canonical anchor KO"
+ },
+ {
+  "name": "PEPSICO INC",
+  "expected_ticker": "PEP",
+  "expected_cik": "0000077476",
+  "kind": "exact",
+  "note": "canonical anchor PEP"
+ },
+ {
+  "name": "COSTCO WHOLESALE CORP /NEW",
+  "expected_ticker": "COST",
+  "expected_cik": "0000909832",
+  "kind": "exact",
+  "note": "canonical anchor COST"
+ },
+ {
+  "name": "THERMO FISHER SCIENTIFIC INC.",
+  "expected_ticker": "TMO",
+  "expected_cik": "0000097745",
+  "kind": "exact",
+  "note": "canonical anchor TMO"
+ },
+ {
+  "name": "Walt Disney Co",
+  "expected_ticker": "DIS",
+  "expected_cik": "0001744489",
+  "kind": "exact",
+  "note": "canonical anchor DIS"
+ },
+ {
+  "name": "Smith",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "surname_null",
+  "note": "bare officer surname: no force-map"
+ },
+ {
+  "name": "Garcia",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "surname_null",
+  "note": "bare officer surname: no force-map"
+ },
+ {
+  "name": "John Smith",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "surname_null",
+  "note": "person defendant without corporate suffix -> null"
+ },
+ {
+  "name": "Michael Johnson",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "surname_null",
+  "note": "person defendant sharing token with J&J -> null, not JNJ"
+ },
+ {
+  "name": "BlackRock Fund Advisors",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "fund_null",
+  "note": "fund vehicle shares stem with BLK issuer -> null (exact BlackRock, Inc. still -> BLK)"
+ },
+ {
+  "name": "Vanguard Municipal Bond Fund",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "fund_null",
+  "note": "registered fund -> null"
+ },
+ {
+  "name": "Sequoia Capital Growth Fund",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "fund_null",
+  "note": "private fund -> null"
+ },
+ {
+  "name": "Compass Growth Fund",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "fund_null",
+  "note": "fund + ambiguous stem -> null"
+ },
+ {
+  "name": "Endo Pharmaceuticals Inc.",
+  "expected_ticker": "ENDP",
+  "expected_cik": "0001593034",
+  "kind": "litigated",
+  "note": "full name with suffix resolves to ENDP despite bare-Endo guard"
+ },
+ {
+  "name": "Purdue Pharma LP",
+  "expected_ticker": null,
+  "expected_cik": null,
+  "kind": "litigated",
+  "note": "private opioid litigant, no CIK: must be null, never force-mapped"
+ },
+ {
+  "name": "Johnson & Johnson",
+  "expected_ticker": "JNJ",
+  "expected_cik": "0000200406",
+  "kind": "exact",
+  "note": "canonical JNJ anchor"
+ },
+ {
+  "name": "AstraZeneca Pharmaceuticals",
+  "expected_ticker": "AZN",
+  "expected_cik": "0000901832",
+  "kind": "containment",
+  "note": "subsidiary-style variant -> AZN"
+ },
+ {
+  "name": "Janssen Pharmaceuticals",
+  "expected_ticker": "JNJ",
+  "expected_cik": "0000200406",
+  "kind": "subsidiary",
+  "note": "J&J pharma subsidiary alias",
+  "parent_ticker": "JNJ",
+  "parent_cik": "0000200406"
+ },
+ {
+  "name": "Organon Pharma",
+  "expected_ticker": "OGN",
+  "expected_cik": "0001821825",
+  "kind": "subsidiary",
+  "note": "Organon subsidiary-style alias",
+  "parent_ticker": "OGN",
+  "parent_cik": "0001821825"
+ }
+]

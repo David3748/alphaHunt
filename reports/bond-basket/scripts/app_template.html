@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alpha Hunt — Daily observation · Hyperscaler bond basket</title>
+<style>
+:root { color-scheme: light;
+  --paper:#f7f5ef; --panel:#fdfcf8; --paper2:#f1eee6; --rule:#e1dbcd;
+  --ink:#232019; --muted:#6b6457; --faint:#a49d8d;
+  --accent:#9c3328; --pos:#3f6b46; --neg:#9c3328;
+  --ink-line:#2a261e; --warn:#7a8591; --fill-blue:#d6e3f3;
+  --msft:#8a9b6e; --aapl:#7a8591; --googl:#b5a06b; --amzn:#6e8f7f; --meta:#9c3328; --nvda:#5b6ea6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+main{max-width:1120px;margin:0 auto;padding:2.2rem 1.4rem 5rem}
+
+/* ---------- masthead ---------- */
+header.topbar{display:flex;justify-content:space-between;align-items:baseline;
+  gap:1rem;flex-wrap:wrap;padding-bottom:.7rem;border-bottom:1px solid var(--ink)}
+.brand{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.brand .rule{color:var(--faint);font-weight:400}
+#genmeta{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+
+.mast{padding:2.6rem 0 .4rem}
+.eyebrow{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin:0 0 1rem}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2.5rem;line-height:1.12;
+  font-weight:400;letter-spacing:-.01em;margin:0 0 .9rem}
+h1 em{font-style:italic;color:var(--muted)}
+.sub{font-family:Georgia,"Times New Roman",serif;color:var(--muted);
+  font-size:1.02rem;max-width:74ch;margin:.2rem 0 0;line-height:1.6}
+.sub b{color:var(--ink);font-weight:700}
+
+/* ---------- stats band ---------- */
+.stats{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:1.4rem 0}
+.stat{flex:1 1 150px;padding:.85rem 1.1rem .95rem;border-left:1px solid var(--rule);min-width:150px}
+.stat:first-child{border-left:none}
+.stat span{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:.15rem}
+.stat b{font-family:Georgia,"Times New Roman",serif;font-size:1.6rem;font-weight:400;display:block;letter-spacing:-.01em}
+.stat small{color:var(--faint);font-size:.66rem;letter-spacing:.02em}
+.stat .spark{float:right;margin:0 0 .2rem .5rem;opacity:.85}
+
+/* ---------- observations ---------- */
+.obs{margin:1.2rem 0 0;padding:.9rem 1.2rem;border-left:3px solid var(--ink);
+  font-family:Georgia,"Times New Roman",serif;font-size:.95rem;color:var(--muted);line-height:1.75;max-width:92ch}
+.obs b{color:var(--ink);font-weight:700}
+.obs .lab{display:block;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.6rem;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+
+/* ---------- sections ---------- */
+.card{margin:2.6rem 0}
+.card .fig{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);margin-bottom:.5rem}
+.card h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:1.3rem;margin:0 0 .2rem;letter-spacing:-.01em}
+.card .hint{font-size:.74rem;color:var(--faint);margin:.1rem 0 .9rem}
+.row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.grow{flex:1;min-width:0}
+.paper{background:var(--panel);border:1px solid var(--rule);padding:1.4rem 1.5rem;margin-top:.4rem}
+.paper h2{font-size:1.1rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+
+/* ---------- controls ---------- */
+.btn{background:none;border:none;border-bottom:1px solid transparent;color:var(--muted);
+  font-family:inherit;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.3rem .45rem;cursor:pointer;white-space:nowrap}
+.btn:hover{color:var(--ink)}
+.btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.btn.tick{display:inline-flex;align-items:center;gap:.35rem}
+.btn.tick i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.btn.tick.off{color:var(--faint)}
+.btn.tick.off i{opacity:.25}
+input[type=date]{background:none;border:none;border-bottom:1px solid var(--rule);color:var(--ink);
+  font-family:inherit;font-size:.78rem;padding:.2rem .1rem;letter-spacing:.03em}
+input[type=date]:focus{outline:none;border-bottom-color:var(--accent)}
+
+/* ---------- charts ---------- */
+.chart-wrap{position:relative;margin-top:.9rem}
+svg{display:block;width:100%;height:auto}
+.axis-text{fill:var(--faint);font-family:"Helvetica Neue",Arial,sans-serif;font-size:9px;letter-spacing:.04em}
+.axis-title{fill:var(--faint);font-family:"Helvetica Neue",Arial,sans-serif;font-size:8px;letter-spacing:.1em}
+.grid-line{stroke:var(--rule);stroke-width:1;opacity:.7}
+.zero-line{stroke:var(--ink);stroke-width:1;stroke-dasharray:2 4;opacity:.4}
+.cross{stroke:var(--accent);stroke-width:1;stroke-dasharray:3 3;opacity:.8}
+.sel-dot{fill:var(--accent);stroke:var(--panel);stroke-width:1.5}
+.band{fill:var(--ink);opacity:.05}
+.band-label{fill:var(--faint);font-family:"Helvetica Neue",Arial,sans-serif;font-size:8px;letter-spacing:.12em}
+.end-label{fill:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:12px}
+.tooltip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--rule);
+  padding:.5rem .7rem;font-size:.72rem;display:none;z-index:6;border-radius:2px;
+  box-shadow:0 6px 18px rgba(35,32,25,.10);max-width:260px}
+.tooltip b{font-family:Georgia,"Times New Roman",serif;font-size:.86rem;font-weight:400}
+.tooltip .row{display:flex;justify-content:space-between;gap:.8rem}
+.tooltip .row i{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:.35rem;vertical-align:middle}
+.legend{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.68rem;color:var(--faint);margin-top:.8rem;letter-spacing:.04em}
+.legend i{display:inline-block;width:16px;height:2px;margin-right:.4rem;vertical-align:middle}
+
+/* ---------- minimap ---------- */
+.mm-wrap{position:relative;margin-top:1.1rem;border-top:1px solid var(--rule);padding-top:.9rem}
+.mm-wrap .mm-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:.4rem}
+#mm{cursor:crosshair}
+.brush-rect{fill:var(--ink);opacity:.08;stroke:var(--accent);stroke-width:1;stroke-dasharray:2 2}
+
+/* ---------- weights ---------- */
+.weights{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));column-gap:2.4rem}
+.wrow{border-top:1px solid var(--rule);padding:.7rem .1rem}
+.wrow .name{font-family:Georgia,"Times New Roman",serif;font-size:.98rem;font-weight:700}
+.wrow .name i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:.45rem}
+.wrow .meta{font-size:.68rem;color:var(--faint);margin-top:.05rem;letter-spacing:.02em}
+.wrow .ctl{display:flex;align-items:center;gap:.9rem;margin-top:.5rem}
+.wrow input[type=range]{flex:1;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer;height:16px}
+.wrow input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--rule)}
+.wrow input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:9px;height:9px;
+  margin-top:-4px;border-radius:50%;background:var(--ink);border:none}
+.wrow input[type=range]::-moz-range-track{height:1px;background:var(--rule)}
+.wrow input[type=range]::-moz-range-thumb{width:9px;height:9px;border-radius:50%;background:var(--ink);border:none}
+.wrow output{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;min-width:3em;text-align:right}
+.chip{font-size:.58rem;letter-spacing:.08em;color:var(--faint);border:1px solid var(--rule);padding:.1em .5em;vertical-align:middle;margin-left:.4rem}
+.compbar{display:flex;width:100%;height:14px;border:1px solid var(--rule);overflow:hidden;margin-top:1rem}
+.compleg{display:flex;gap:1.1rem;flex-wrap:wrap;font-size:.64rem;color:var(--muted);margin-top:.5rem;letter-spacing:.04em}
+.compleg i{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:.35rem;vertical-align:middle}
+
+/* ---------- day inputs ---------- */
+.agg{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:.2rem 0 1.1rem}
+.agg div{flex:1 1 130px;padding:.6rem .9rem .7rem;border-left:1px solid var(--rule)}
+.agg div:first-child{border-left:none}
+.agg span{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:.1rem}
+.agg b{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:1.02rem}
+.drivers{font-family:Georgia,"Times New Roman",serif;font-size:.86rem;color:var(--muted);margin:.1rem 0 1rem;line-height:1.6}
+.drivers b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:.76rem}
+th,td{padding:.5rem .6rem;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--faint);font-weight:600;font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid var(--ink)}
+td:first-child{font-family:Georgia,"Times New Roman",serif;font-weight:700}
+td:first-child i{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:.4rem;vertical-align:middle}
+tr:hover td{background:var(--paper2)}
+td.bond{white-space:normal;min-width:10rem;font-family:inherit;font-weight:400}
+td.bond span{font-family:"Helvetica Neue",Arial,sans-serif}
+
+/* ---------- foot ---------- */
+.foot{margin-top:3.2rem;border-top:1px solid var(--rule);padding-top:1.4rem;
+  font-family:Georgia,"Times New Roman",serif;font-size:.78rem;color:var(--faint);max-width:88ch;line-height:1.8}
+.foot b{color:var(--muted);font-weight:700}
+.foot code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem}
+
+.pos{color:var(--pos)} .neg{color:var(--neg)}
+.muted{color:var(--muted)}
+.warn{color:var(--warn)}
+</style>
+</head>
+<body>
+<main>
+  <header class="topbar">
+    <div class="brand">Alpha&nbsp;Hunt <span class="rule">/</span> Daily Observation</div>
+    <div id="genmeta">—</div>
+  </header>
+
+  <section class="mast">
+    <p class="eyebrow">Hyperscaler credit · short-side excess return</p>
+    <h1>Short the basket,<br>hedge with <em>duration-matched Treasuries</em>.</h1>
+    <p class="sub">Cumulative excess return of shorting a weighted basket of long-dated 10Y/30Y bonds from MSFT, AAPL, GOOGL, AMZN, META and NVDA, against a same-tenor Treasury hedge. The trade isolates the basket&rsquo;s <b>credit-spread P&amp;L</b>: it earns when spreads widen and pays carry while they stay tight.</p>
+  </section>
+
+  <section class="stats" id="stats"></section>
+  <div class="obs" id="obs"><span class="lab">Observation</span>Loading&hellip;</div>
+
+  <section class="card">
+    <div class="fig">Figure I — The cumulative line</div>
+    <div class="paper">
+      <div class="row">
+        <div class="grow">
+          <h2>Cumulative excess return of the short basket</h2>
+          <div class="hint">Click any day to open its inputs. Grey bands mark the spread-widening regimes. Drag the strip below to zoom.</div>
+        </div>
+        <input type="date" id="fromD" aria-label="Range start">
+        <span class="muted" style="font-size:.72rem">→</span>
+        <input type="date" id="toD" aria-label="Range end">
+        <div style="display:flex;gap:.1rem" id="rangeBtns">
+          <button class="btn" data-r="1Y">1Y</button>
+          <button class="btn" data-r="3Y">3Y</button>
+          <button class="btn" data-r="5Y">5Y</button>
+          <button class="btn active" data-r="ALL">All</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:.1rem;margin-top:.8rem;flex-wrap:wrap" id="overlayBtns">
+        <span class="hint" style="align-self:center;margin-right:.4rem">Overlay</span>
+        <button class="btn" data-o="none">None</button>
+        <button class="btn active" data-o="sharpe">Rolling 12M Sharpe</button>
+        <button class="btn" data-o="oas">Basket OAS</button>
+        <button class="btn" data-o="yield">Basket yield</button>
+        <button class="btn" data-o="ty30">Treasury 30Y</button>
+      </div>
+      <div class="chart-wrap" id="chartWrap">
+        <svg id="chart" viewBox="0 0 940 360" preserveAspectRatio="none" role="img" aria-label="Cumulative excess return chart"></svg>
+        <div class="tooltip" id="tip"></div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="mm-wrap">
+        <div class="mm-label">Full history · drag to set the window</div>
+        <div class="chart-wrap"><svg id="mm" viewBox="0 0 940 84" preserveAspectRatio="none"></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="fig">Figure II — The cycles</div>
+    <div class="two">
+      <div class="paper">
+        <h2>Rolling 12-month excess return</h2>
+        <div class="hint">Trailing-252-day compounded excess. Green months are spread-widening regimes that paid; red months are tightening regimes that cost carry.</div>
+        <div class="chart-wrap" id="chartRollWrap">
+          <svg id="chartRoll" viewBox="0 0 940 210" preserveAspectRatio="none"></svg>
+          <div class="tooltip" id="tipRoll"></div>
+        </div>
+      </div>
+      <div class="paper">
+        <h2>Rolling 12-month Sharpe ratio</h2>
+        <div class="hint">Annualized Sharpe of the short basket&rsquo;s daily excess over the trailing 252 days. Above zero, the carry bleed is being more than repaid by spread moves.</div>
+        <div class="chart-wrap" id="chartSharpeWrap">
+          <svg id="chartSharpe" viewBox="0 0 940 210" preserveAspectRatio="none"></svg>
+          <div class="tooltip" id="tipSharpe"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="two">
+    <section class="card">
+      <div class="fig">Figure III — The levels</div>
+      <div class="paper">
+        <h2>Basket OAS vs the Treasury hedge</h2>
+        <div class="hint">Weighted spread (left axis) against the 30-year Treasury yield (right axis). Click to inspect a day.</div>
+        <div class="chart-wrap" id="chartLvlWrap">
+          <svg id="chartLvl" viewBox="0 0 940 230" preserveAspectRatio="none"></svg>
+          <div class="tooltip" id="tipLvl"></div>
+        </div>
+      </div>
+    </section>
+    <section class="card">
+      <div class="fig">Figure IV — The constituents</div>
+      <div class="paper">
+        <h2>Issuer credit spreads (OAS)</h2>
+        <div class="hint">Each name&rsquo;s OAS over its matched tenor. Toggle names; click to inspect a day.</div>
+        <div style="display:flex;gap:.1rem;flex-wrap:wrap;margin-bottom:.5rem" id="consToggles"></div>
+        <div class="chart-wrap" id="chartConsWrap">
+          <svg id="chartCons" viewBox="0 0 940 230" preserveAspectRatio="none"></svg>
+          <div class="tooltip" id="tipCons"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="card">
+    <div class="fig">Figure V — Attribution</div>
+    <div class="paper">
+      <h2>Who drove the result over the selected window</h2>
+      <div class="hint">Arithmetic contribution of each name to the window&rsquo;s short excess (weights applied). Hover a bar for the detail.</div>
+      <div class="chart-wrap" id="chartAttrWrap">
+        <svg id="chartAttr" viewBox="0 0 940 250" preserveAspectRatio="none"></svg>
+        <div class="tooltip" id="tipAttr"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="fig">Figure VI — The construction</div>
+    <div class="paper">
+      <h2>Basket weights</h2>
+      <div class="hint">Each issuer&rsquo;s weight; the basket rebalances to the normalized weights daily. A name set to zero is dropped for the whole window, and before its issuance date it is simply not yet in the index.</div>
+      <div class="weights" id="weights" style="margin-top:1rem"></div>
+      <div class="compbar" id="compBar"></div>
+      <div class="compleg" id="compLeg"></div>
+      <div style="margin-top:.9rem"><button class="btn" id="resetW">Reset to default weights</button></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="fig">Figure VII — The inputs for a given day</div>
+    <div class="paper">
+      <h2>Inputs for the selected day</h2>
+      <div class="hint" id="dayMeta">Click a point on the chart to load a day.</div>
+      <div class="drivers" id="drivers"></div>
+      <div class="agg" id="agg" style="margin-top:.9rem"></div>
+      <div style="overflow-x:auto"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="foot">
+    <p><b>Excess return definition.</b> Each bond is hedged with a same-tenor constant-maturity Treasury. Daily short excess per bond is the credit-index OAS excess: <b>spread P&amp;L = +duration × Δspread</b> (the short profits when spreads widen) <b>plus carry = −spread ÷ 1e4 ÷ 365</b> (the short pays the spread each day). Basket daily excess is the weighted sum across issuers, compounded over the selected window to give the cumulative line; Figure V attributes the window result arithmetically, so the bar sum approximates but need not equal the compounded total.</p>
+    <p><b>Data.</b> Treasury constant-maturity yields (10Y ^TNX, 30Y ^TYX) are <span class="muted">real market data</span>, daily closes from Yahoo Finance. Issuer OAS spreads are an <b>estimated model</b> — anchor curves in <code>bond-basket/scripts/build_data.py</code> calibrated to plausible historical levels (2020 COVID spike, 2022 rates repricing, 2025–26 AI-capex widening) plus small seeded daily noise. Replace the anchors with Finra/TRACE or Bloomberg marks for live tracking.</p>
+    <p><b>Representative instruments.</b> MSFT 4.500% ’40 · AAPL 3.850% ’43 · GOOGL 1.900% ’51 · AMZN 2.500% ’33 · META 3.850% ’47 · NVDA 3.200% ’35 (enters 2025-04-01). A research tool, not an investment recommendation.</p>
+  </section>
+</main>
+
+<script id="BOND_DATA" type="application/json">/*__BOND_DATA__*/</script>
+<script>
+"use strict";
+const DATA = JSON.parse(document.getElementById("BOND_DATA").textContent);
+
+// Hard palette for generated SVG attributes (avoids CSS var() in presentation
+// attributes, which some browsers don't resolve) — keep in sync with :root.
+const PAL = {
+  ink:"#232019", inkline:"#2a261e", fillblue:"#d6e3f3", warn:"#7a8591",
+  pos:"#3f6b46", neg:"#9c3328", accent:"#9c3328", faint:"#a49d8d",
+  msft:"#8a9b6e", aapl:"#7a8591", googl:"#b5a06b", amzn:"#6e8f7f", meta:"#9c3328", nvda:"#5b6ea6"
+};
+const IC = { MSFT:PAL.msft, AAPL:PAL.aapl, GOOGL:PAL.googl, AMZN:PAL.amzn, META:PAL.meta, NVDA:PAL.nvda };
+
+const fmtPct = (x, d=2) => (x === null || x === undefined) ? "—" : (x*100).toFixed(d) + "%";
+const fmtPctS = (x, d=2) => (x === null || x === undefined) ? "—" : ((x>=0?"+":"")+(x*100).toFixed(d)) + "%";
+const fmtBps = (x, d=0) => (x === null || x === undefined) ? "—" : x.toFixed(d) + " bps";
+const fmtY = (x, d=2) => (x === null || x === undefined) ? "—" : x.toFixed(d) + "%";
+const fd = (iso) => { const [y,m,d]=iso.split("-"); return new Date(+y,+m-1,+d); };
+const fmd = (iso) => fd(iso).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+
+const SYMS = Object.keys(DATA.bonds);
+const N = DATA.dates.length;
+const D2I = new Map(DATA.dates.map((d,i)=>[d,i]));
+function nearestIdx(iso) {
+  let lo = 0, hi = N - 1;
+  while (lo < hi) { const m = (lo + hi + 1) >> 1; if (DATA.dates[m] <= iso) lo = m; else hi = m - 1; }
+  return lo;
+}
+const BANDS = [
+  { label:"COVID",   from:"2020-02-20", to:"2020-12-31" },
+  { label:"2022 REPRICING", from:"2022-01-01", to:"2022-12-31" },
+  { label:"AI CAPEX", from:"2025-04-01", to:"2026-12-31" },
+];
+
+// ---------- state ----------
+let weights = {};
+let selIdx = N - 1;
+let fromIdx = 0, toIdx = N - 1;
+let overlay = "sharpe";
+let consHidden = new Set();
+let brush = { active:false, from:null, to:null };
+let cached = null, cacheSig = "";
+
+function sig() { return fromIdx + "|" + toIdx + "|" + SYMS.map(s=>weights[s].toFixed(4)).join(","); }
+
+function defaultWeights() {
+  const w = {};
+  for (const s of SYMS) w[s] = DATA.defaultWeights[s] ?? 0;
+  return w;
+}
+
+// ---------- computation ----------
+function compute() {
+  const s = sig();
+  if (cached && s === cacheSig) return cached;
+  const eff = SYMS.map(sym => {
+    const b = DATA.bonds[sym];
+    const arr = new Array(N).fill(0);
+    for (let i = b.startIndex; i < N; i++) {
+      if (weights[sym] > 0 && b.yield[i] != null) arr[i] = weights[sym];
+    }
+    return { sym, arr };
+  });
+  const wsum = new Array(N).fill(0);
+  for (const e of eff) for (let i = 0; i < N; i++) wsum[i] += e.arr[i];
+  for (const e of eff) for (let i = 0; i < N; i++) e.arr[i] = wsum[i] > 0 ? e.arr[i] / wsum[i] : 0;
+
+  const bYield = new Array(N).fill(null), bOas = new Array(N).fill(null), bDur = new Array(N).fill(null);
+  const bPnl = new Array(N).fill(null), bCarry = new Array(N).fill(null);
+  for (let i = 0; i < N; i++) {
+    let y=0, oas=0, d=0, pnl=0, car=0;
+    for (const e of eff) {
+      const b = DATA.bonds[e.sym];
+      if (e.arr[i] > 0) {
+        y += e.arr[i]*b.yield[i]; oas += e.arr[i]*b.spread[i]; d += e.arr[i]*b.duration[i];
+        pnl += e.arr[i]*b.spreadPnl[i]; car += e.arr[i]*b.carry[i];
+      }
+    }
+    if (wsum[i]>0) { bYield[i]=y; bOas[i]=oas; bDur[i]=d; bPnl[i]=pnl/100; bCarry[i]=car/100; }
+  }
+  const excess = bPnl.map((_,i)=>(bPnl[i]??0)+(bCarry[i]??0));
+  const cum = new Array(N).fill(0);
+  let c = 0;
+  for (let i = 0; i < N; i++) { if (i>=fromIdx) c = (1+c)*(1+excess[i])-1; cum[i]=c; }
+  // rolling 12M (trailing 252 trading days, independent of window)
+  const roll = new Array(N).fill(null);
+  const rollSharpe = new Array(N).fill(null);
+  for (let i = 251; i < N; i++) {
+    let r = 0, sum = 0;
+    for (let k=i-251;k<=i;k++) { r=(1+r)*(1+excess[k])-1; sum += excess[k]; }
+    roll[i] = r;
+    const m = sum/252;
+    let varr = 0;
+    for (let k=i-251;k<=i;k++) varr += (excess[k]-m)*(excess[k]-m);
+    const sd = Math.sqrt(varr/251);
+    rollSharpe[i] = sd > 1e-9 ? (m/sd)*Math.sqrt(252) : null;
+  }
+  // arithmetic cumulative contribution per issuer (for stacked attribution lines)
+  const contrib = {};
+  for (const sym of SYMS) contrib[sym] = new Array(N).fill(0);
+  {
+    const run = {}; for (const sym of SYMS) run[sym] = 0;
+    for (let i = 0; i < N; i++) {
+      if (i >= fromIdx) {
+        for (const e of eff) {
+          if (e.arr[i] > 0) run[e.sym] += e.arr[i] * DATA.bonds[e.sym].excess[i] / 100;
+        }
+      }
+      for (const sym of SYMS) contrib[sym][i] = run[sym];
+    }
+  }
+  // window arithmetic contributions (for attribution bars)
+  const winContrib = {};
+  for (const sym of SYMS) {
+    let v = 0;
+    for (let i = fromIdx; i <= toIdx; i++) {
+      const e = eff.find(x=>x.sym===sym);
+      if (e && e.arr[i] > 0) v += e.arr[i] * DATA.bonds[sym].excess[i] / 100;
+    }
+    winContrib[sym] = v;
+  }
+  const carrySum = bCarry.reduce((a,v,i)=> a + ((v!=null && i>=fromIdx && i<=toIdx)?v:0), 0);
+  cached = { eff, dW: eff, wsum, excess, cum, roll, rollSharpe, dd:null, bYield, bOas, bDur, bPnl, bCarry, contrib, winContrib, carrySum };
+  cacheSig = s;
+  return cached;
+}
+
+// ---------- renderers ----------
+const el = id => document.getElementById(id);
+const xMap = (i) => 58 + (i - fromIdx)/(toIdx-fromIdx||1) * (940 - 58 - 66);
+const yMap = (lo,hi,v,H,PT,PB) => H - PB - (v - lo)/(hi - lo) * (H - PT - PB);
+// Nice-number tick helpers (Bridgewater-style round axes)
+const niceStep = (min) => {
+  if (!(min > 0)) return 1;
+  const p = Math.pow(10, Math.floor(Math.log10(min)));
+  for (const m of [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8]) if (m * p >= min - 1e-12) return m * p;
+  return 10 * p;
+};
+const niceRange = (loD, hiD, targetTicks) => {
+  let l = Math.min(loD, 0), h = Math.max(hiD, 0);
+  if (h - l < 1e-12) h = l + 1;
+  const step = niceStep((h - l) / (targetTicks - 1));
+  return [Math.floor(l / step) * step, Math.ceil(h / step) * step, step];
+};
+
+function sparkSVG(series, color) {
+  const w=64,h=20,p=2;
+  const pts = [];
+  for (let i=fromIdx;i<=toIdx;i++){ const v=series[i]; if (v==null) continue;
+    const x=p+(i-fromIdx)/(toIdx-fromIdx||1)*(w-2*p); pts.push([x,v]); }
+  if (pts.length<2) return "";
+  let lo=Math.min(...pts.map(p=>p[1])), hi=Math.max(...pts.map(p=>p[1]));
+  if (hi-lo < 1e-9){ hi=lo+1; lo=lo-1; }
+  const d = pts.map(([x,v],k)=> (k?"L":"M") + x.toFixed(1) + " " + (h-p-(v-lo)/(hi-lo)*(h-2*p)).toFixed(1)).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}"><path d="${d}" fill="none" stroke="${color}" stroke-width="1.2"/></svg>`;
+}
+
+function renderStats() {
+  const C = compute();
+  const i0 = fromIdx, i1 = toIdx;
+  const total = C.cum[i1];
+  const days = i1 - i0;
+  const yrs = Math.max(days/252, 1/252);
+  const ann = Math.pow(1+total, 1/yrs) - 1;
+  const dd = new Array(N).fill(null);
+  let peak = 0, mdd = 0;
+  for (let i = i0; i <= i1; i++) { peak = Math.max(peak, C.cum[i]); dd[i] = C.cum[i]-peak; mdd = Math.min(mdd, dd[i]); }
+  const sOas = C.bOas[i1], sYld = C.bYield[i1];
+  const fmtSh = (x) => x==null || !isFinite(x) ? "—" : (x>=0?"+":"")+x.toFixed(2);
+  const stat = (l,v,s,h,sp,spc) => `<div class="stat"><span>${l}</span><b class="${s}">${v}</b>${sp?sparkSVG(sp,spc):""}<small>${h}</small></div>`;
+  const shp = C.rollSharpe[i1];
+  el("stats").innerHTML =
+    stat("Cumulative excess", fmtPctS(total), total>=0?"pos":"neg", `${fmd(DATA.dates[i0])} → ${fmd(DATA.dates[i1])}`, C.cum, total>=0?PAL.pos:PAL.neg) +
+    stat("Annualized excess", fmtPctS(ann), ann>=0?"pos":"neg", `${days} trading days`, C.roll, ann>=0?PAL.pos:PAL.neg) +
+    stat("Max drawdown", fmtPctS(mdd), "neg", "cumulative short excess", dd, PAL.neg) +
+    stat("Basket OAS", fmtBps(sOas), "", "weighted spread, latest", C.bOas, PAL.ink) +
+    stat("Basket yield", fmtY(sYld), "", "weighted YTM, latest", C.bYield, PAL.ink) +
+    stat("Rolling 12M Sharpe", fmtSh(shp), shp==null?"":(shp>=0?"pos":"neg"), "trailing 252-day", C.rollSharpe, shp==null?PAL.ink:(shp>=0?PAL.pos:PAL.neg)) +
+    stat("Day excess (latest)", fmtPctS(C.excess[i1],3), C.excess[i1]>=0?"pos":"neg", fmd(DATA.dates[i1]), C.excess, C.excess[i1]>=0?PAL.pos:PAL.neg);
+}
+
+function renderObs() {
+  const C = compute();
+  const i0 = fromIdx, i1 = toIdx;
+  const wsum = C.wsum[i1];
+  if (wsum <= 0) { el("obs").innerHTML = `<span class="lab">Observation</span>No basket positions — set weights in Figure VI to run the analysis.`; return; }
+  const total = C.cum[i1], ann = Math.pow(1+total, 1/Math.max((i1-i0)/252,1/252)) - 1;
+  let bi = i0, wi = i0;
+  for (let i=i0;i<=i1;i++){ if (C.excess[i] > C.excess[bi]) bi=i; if (C.excess[i] < C.excess[wi]) wi=i; }
+  let oas0 = null, oas1 = null;
+  for (let i = i0; i <= i1; i++) { if (C.bOas[i] != null) { oas0 = oas0 ?? C.bOas[i]; oas1 = C.bOas[i]; } }
+  const oasMove = oas0==null || oas1==null ? null : oas1 - oas0;
+  const dir = oasMove==null ? "" : (oasMove>=0 ? "widened" : "narrowed");
+  const contrib = Object.entries(C.winContrib).filter(([s,v])=>v!==0).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));
+  const top = contrib[0], bot = contrib.at(-1);
+  const carry = C.carrySum;
+  const nPos = (()=>{ let n=0; for(let i=i0;i<=i1;i++) if(C.excess[i]>0)n++; return n; })();
+  const pctPos = Math.round(100*nPos/(i1-i0+1));
+  let html = `<span class="lab">Observation</span>`;
+  html += `Over <b>${fmd(DATA.dates[i0])} → ${fmd(DATA.dates[i1])}</b> the short basket returned <b class="${total>=0?'pos':'neg'}">${fmtPctS(total)}</b> (${fmtPctS(ann)} annualized), a max drawdown of ${fmtPctS(mddOf())}. `;
+  html += `The position is a carry bleed — paying ≈${fmtPctS(carry,1)} over the window — made or broken by spread moves: the basket OAS ${dir} from ${oas0==null?"—":oas0.toFixed(0)} to ${oas1==null?"—":oas1.toFixed(0)} bps, so the short ${oasMove>=0?"collected":"gave back"} the widening. `;
+  if (top && bot) html += `Attribution is led by <b>${top[0]}</b> (${fmtPctS(top[1])}) and dragged by <b>${bot[0]}</b> (${fmtPctS(bot[1])}); `;
+  html += `${pctPos}% of trading days were positive. The best day was ${fmd(DATA.dates[bi])} (${fmtPctS(C.excess[bi],2)}), the worst ${fmd(DATA.dates[wi])} (${fmtPctS(C.excess[wi],2)}).`;
+  const shp = C.rollSharpe[i1];
+  if (shp != null && isFinite(shp)) html += ` Trailing 12-month Sharpe is <b class="${shp>=0?"pos":"neg"}">${(shp>=0?"+":"")+shp.toFixed(2)}</b>.`;
+  el("obs").innerHTML = html;
+  function mddOf(){ let p=0,m=0; for(let i=i0;i<=i1;i++){ p=Math.max(p,C.cum[i]); m=Math.min(m,C.cum[i]-p); } return m; }
+}
+
+function renderMain() {
+  const C = compute();
+  const W = 940, H = 360, PL = 58, PR = 66, PT = 14, PB = 26;
+  const i0 = fromIdx, i1 = toIdx;
+  const xs = xMap;
+  let dLo = 0, dHi = 0;
+  for (let i = i0; i <= i1; i++) { const v = C.cum[i]; if (v < dLo) dLo = v; if (v > dHi) dHi = v; }
+  let ovData = null, ovDLo = Infinity, ovDHi = -Infinity;
+  if (overlay === "sharpe") ovData = C.rollSharpe;
+  else if (overlay === "oas") ovData = C.bOas;
+  else if (overlay === "yield") ovData = C.bYield;
+  else if (overlay === "ty30") ovData = DATA.treasuries["30Y"];
+  if (ovData) { for (let i=i0;i<=i1;i++){ const v=ovData[i]; if (v==null||!isFinite(v)) continue; if (v<ovDLo) ovDLo=v; if (v>ovDHi) ovDHi=v; } }
+  if (ovData && !isFinite(ovDLo)) ovData = null;
+  // ----- scales: nice round ticks; zero-aligned shared gridlines for the
+// signed (Sharpe) overlay so both zeros sit on the same gridline -----
+  let lo, hi, ovLo = 0, ovHi = 1, stepL, stepR = 1, aligned = false, k1 = 0, K = 0;
+  if (ovData && overlay === "sharpe" && dLo < 0 && ovDLo < 0 && dHi > 0 && ovDHi > 0) {
+    const dL = Math.min(dLo,0), dH = Math.max(dHi,0), oL = Math.min(ovDLo,0), oH = Math.max(ovDHi,0);
+    let best = null;
+    for (const [a,b] of [[1,1],[2,1],[3,1],[2,2],[3,2],[4,1],[4,2],[5,2],[3,3],[4,3]]) {
+      const sL = Math.max(niceStep(-dL/a), niceStep(dH/b));
+      const sR = Math.max(niceStep(-oL/a), niceStep(oH/b));
+      const comp = Math.min((dH-dL)/((a+b)*sL), (oH-oL)/((a+b)*sR));
+      if (!best || comp > best.comp + 1e-9) best = {comp, a, b, sL, sR};
+    }
+    k1 = best.a; K = best.a + best.b;
+    lo = -best.a*best.sL; hi = best.b*best.sL; stepL = best.sL;
+    ovLo = -best.a*best.sR; ovHi = best.b*best.sR; stepR = best.sR;
+    aligned = true;
+  } else {
+    [lo, hi, stepL] = niceRange(dLo, dHi, 5);
+    if (ovData) {
+      const s2 = niceStep((ovDHi - ovDLo) / 3);
+      ovLo = Math.floor(ovDLo / s2) * s2; ovHi = Math.ceil(ovDHi / s2) * s2; stepR = s2;
+    }
+  }
+  const ys = (v) => H - PB - (v - lo)/(hi - lo)*(H - PT - PB);
+  const ysOv = (v) => H - PB - (v - ovLo)/(ovHi - ovLo)*(H - PT - PB);
+  let s = "";
+  // regime bands
+  for (const b of BANDS) {
+    const bi0 = nearestIdx(b.from), bi1 = nearestIdx(b.to);
+    const a = Math.max(bi0,i0), bb = Math.min(bi1,i1);
+    if (a > bb) continue;
+    s += `<rect class="band" x="${xs(a)}" y="${PT}" width="${xs(bb)-xs(a)}" height="${H-PT-PB}"/>`;
+    s += `<text class="band-label" x="${xs(a)+4}" y="${PT+9}">${b.label}</text>`;
+  }
+  // gridlines + axis labels
+  if (aligned) {
+    // one shared set of gridlines; zero sits on gridline k1 for BOTH axes
+    for (let g = 0; g <= K; g++) {
+      const y = H - PB - (g/K)*(H - PT - PB);
+      s += `<line class="grid-line" x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}"/>`;
+      const vl = lo + g*stepL, vr = ovLo + g*stepR;
+      s += `<text class="axis-text" x="${PL-7}" y="${y+3}" text-anchor="end">${(vl*100).toFixed(0)}%</text>`;
+      s += `<text class="axis-text" x="${W-PR+6}" y="${y+3}">${(vr>=0?"+":"")+vr.toFixed(stepR<1?1:0)}</text>`;
+    }
+  } else {
+    const n0 = Math.round(lo/stepL), n1 = Math.round(hi/stepL);
+    for (let n = n0; n <= n1; n++) {
+      const v = n*stepL, y = ys(v);
+      s += `<line class="grid-line" x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}"/>`;
+      s += `<text class="axis-text" x="${PL-7}" y="${y+3}" text-anchor="end">${(v*100).toFixed(0)}%</text>`;
+    }
+    if (ovData) {
+      const m0 = Math.round(ovLo/stepR), m1 = Math.round(ovHi/stepR);
+      for (let m = m0; m <= m1; m++) {
+        const v = m*stepR, y = ysOv(v);
+        const lab = overlay==="oas" ? v.toFixed(0)+"bp" : v.toFixed(stepR<1?1:0)+"%";
+        s += `<text class="axis-text" x="${W-PR+6}" y="${y+3}">${lab}</text>`;
+      }
+    }
+  }
+  s += `<line class="zero-line" x1="${PL}" y1="${ys(0)}" x2="${W-PR}" y2="${ys(0)}"/>`;
+  const ticks = 6;
+  for (let t = 0; t < ticks; t++) {
+    const i = Math.round(i0 + (i1-i0)*t/(ticks-1));
+    s += `<text class="axis-text" x="${xs(i)}" y="${H-PB+14}" text-anchor="middle">${DATA.dates[i].slice(0,4)}</text>`;
+  }
+  s += `<text class="axis-title" x="9" y="${H/2}" transform="rotate(-90 9 ${H/2})" text-anchor="middle">Cumulative excess, %</text>`;
+  if (ovData) {
+    const rlab = overlay==="sharpe" ? "Rolling 12M Sharpe" : overlay==="oas" ? "Basket OAS, bps" : overlay==="yield" ? "Basket yield, %" : "Treasury 30Y, %";
+    s += `<text class="axis-title" x="${W-PR+36}" y="${H/2}" transform="rotate(90 ${W-PR+36} ${H/2})" text-anchor="middle">${rlab}</text>`;
+  }
+  let line = "", area = "";
+  for (let i = i0; i <= i1; i++) {
+    const x = xs(i).toFixed(1), y = ys(C.cum[i]).toFixed(1);
+    line += (i===i0?"":", ") + x + "," + y;
+    area += (i===i0?"":", ") + x + "," + y;
+  }
+  s += `<polygon points="${xs(i0)},${ys(0)} ${area} ${xs(i1)},${ys(0)}" fill="${PAL.fillblue}" stroke="none"/>`;
+  s += `<polyline points="${line}" fill="none" stroke="${PAL.inkline}" stroke-width="1.7"/>`;
+  // end label
+  if (C.cum[i1] !== 0) {
+    s += `<circle cx="${xs(i1)}" cy="${ys(C.cum[i1])}" r="2.5" fill="${PAL.inkline}"/>`;
+    s += `<text class="end-label" x="${Math.min(xs(i1)+8, W-PR-60)}" y="${ys(C.cum[i1])-6}">${fmtPctS(C.cum[i1])}</text>`;
+  }
+  if (ovData) {
+    let ovLine = "";
+    for (let i = i0; i <= i1; i++) {
+      const v = ovData[i]; if (v == null) continue;
+      ovLine += (ovLine?",":"") + xs(i).toFixed(1) + "," + ysOv(v).toFixed(1);
+    }
+    if (ovLine) {
+      s += `<polyline points="${ovLine}" fill="none" stroke="${overlay==="sharpe"?PAL.ink:PAL.warn}" stroke-width="${overlay==="sharpe"?"3":"2"}" stroke-dasharray="${overlay==="sharpe"?"none":"4 3"}" opacity="1"/>`;
+    }
+  }
+  if (selIdx >= i0 && selIdx <= i1) {
+    s += `<line class="cross" x1="${xs(selIdx)}" y1="${PT}" x2="${xs(selIdx)}" y2="${H-PB}"/>`;
+    s += `<circle class="sel-dot" cx="${xs(selIdx)}" cy="${ys(C.cum[selIdx])}" r="4"/>`;
+  }
+  el("chart").innerHTML = s;
+  el("legend").innerHTML =
+    `<span><i style="background:${PAL.inkline}"></i>Cumulative short-basket excess return</span>` +
+    (ovData ? `<span><i style="background:${overlay==="sharpe"?PAL.ink:PAL.warn}"></i>${overlayLabel()}</span>` : "") +
+    `<span>${fmd(DATA.dates[i0])} → ${fmd(DATA.dates[i1])}</span>`;
+  renderMinimap();
+}
+
+function renderMinimap() {
+  const C = compute();
+  const W=940,H=84,PL=6,PR=6,PT=6,PB=14;
+  let lo=0,hi=0;
+  for (let i=0;i<N;i++){ const v=C.cum[i]; if(v<lo)lo=v; if(v>hi)hi=v; }
+  const span=(hi-lo)||1; lo-=span*0.02; hi+=span*0.02;
+  let s="";
+  for (let g=0;g<=2;g++){ const frac=g/2, v=lo+(hi-lo)*frac, y=H-PB-frac*(H-PT-PB);
+    s+=`<line class="grid-line" x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}"/>`;
+    s+=`<text class="axis-text" x="${PL}" y="${y+3}">${(v*100).toFixed(0)}%</text>`; }
+  s+=`<line class="zero-line" x1="${PL}" y1="${H-PB-(0-lo)/(hi-lo)*(H-PT-PB)}" x2="${W-PR}" y2="${H-PB-(0-lo)/(hi-lo)*(H-PT-PB)}"/>`;
+  let line="";
+  for (let i=0;i<N;i++){ const x=PL+(i/(N-1||1))*(W-PL-PR); const y=H-PB-(C.cum[i]-lo)/(hi-lo)*(H-PT-PB); line+=(i?",":"")+x.toFixed(1)+","+y.toFixed(1); }
+  s+=`<polyline points="${line}" fill="none" stroke="${PAL.inkline}" stroke-width="1" opacity="0.85"/>`;
+  const a=PL+(fromIdx/(N-1||1))*(W-PL-PR), b=PL+(toIdx/(N-1||1))*(W-PL-PR);
+  s+=`<rect class="brush-rect" x="${a}" y="${PT}" width="${b-a}" height="${H-PT-PB}"/>`;
+  el("mm").innerHTML=s;
+}
+
+function renderRoll() {
+  const C = compute();
+  const W=940,H=210,PL=58,PR=66,PT=8,PB=22;
+  const i0=fromIdx,i1=toIdx;
+  let m=0;
+  for(let i=i0;i<=i1;i++){ const v=C.roll[i]; if(v==null)continue; m=Math.max(m,Math.abs(v)); }
+  if(m<1e-6) m=0.02;
+  const st=niceStep(m/2);
+  const lo=-2*st, hi=2*st;   // symmetric nice steps, zero centered on a tick
+  const ys=(v)=>H-PB-(v-lo)/(hi-lo)*(H-PT-PB);
+  let s="";
+  for(let g=0;g<=4;g++){ const frac=g/4, v=lo+(hi-lo)*frac, y=ys(v);
+    s+=`<line class="grid-line" x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}"/>`;
+    s+=`<text class="axis-text" x="${PL-6}" y="${y+3}" text-anchor="end">${(v*100).toFixed(0)}%</text>`; }
+  s+=`<line class="zero-line" x1="${PL}" y1="${ys(0)}" x2="${W-PR}" y2="${ys(0)}"/>`;
+  const ticks=6;
+  for(let t=0;t<ticks;t++){ const i=Math.round(i0+(i1-i0)*t/(ticks-1));
+    s+=`<text class="axis-text" x="${xMap(i)}" y="${H-PB+13}" text-anchor="middle">${DATA.dates[i].slice(0,4)}</text>`; }
+  const bw=(W-PL-PR)/(i1-i0||1);
+  for(let i=i0;i<=i1;i++){ const v=C.roll[i]; if(v==null)continue;
+    const x=xMap(i)-bw*0.35, w=bw*0.7, y0=ys(0), y1=ys(v);
+    s+=`<rect x="${x}" y="${Math.min(y0,y1)}" width="${w}" height="${Math.max(1,Math.abs(y1-y0))}" fill="${v>=0?PAL.pos:PAL.neg}" opacity="0.75"/>`; }
+  el("chartRoll").innerHTML=s;
+}
+
+function renderSharpe() {
+  const C = compute();
+  const W=940,H=210,PL=58,PR=66,PT=8,PB=22;
+  const i0=fromIdx,i1=toIdx; const xs=xMap;
+  let m=0;
+  for(let i=i0;i<=i1;i++){ const v=C.rollSharpe[i]; if(v==null||!isFinite(v))continue; m=Math.max(m,Math.abs(v)); }
+  if(m<1e-6) m=0.5;
+  const st=niceStep(m/2);
+  const lo=-2*st, hi=2*st;   // symmetric nice steps, zero centered on a tick
+  const ys=(v)=>H-PB-(v-lo)/(hi-lo)*(H-PT-PB);
+  let s="";
+  for(let g=0;g<=4;g++){ const frac=g/4, v=lo+(hi-lo)*frac, y=ys(v);
+    s+=`<line class="grid-line" x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}"/>`;
+    s+=`<text class="axis-text" x="${PL-6}" y="${y+3}" text-anchor="end">${(v>=0?"+":"")+v.toFixed(1)}</text>`; }
+  s+=`<line class="zero-line" x1="${PL}" y1="${ys(0)}" x2="${W-PR}" y2="${ys(0)}"/>`;
+  const ticks=6;
+  for(let t=0;t<ticks;t++){ const i=Math.round(i0+(i1-i0)*t/(ticks-1));
+    s+=`<text class="axis-text" x="${xs(i)}" y="${H-PB+13}" text-anchor="middle">${DATA.dates[i].slice(0,4)}</text>`; }
+  let line="", first=null;
+  for(let i=i0;i<=i1;i++){ const v=C.rollSharpe[i]; if(v==null||!isFinite(v))continue;
+    if(first==null) first=i;
+    line+=(line?",":"")+xs(i).toFixed(1)+","+ys(v).toFixed(1); }
+  if(line){ s+=`<polyline points="${line}" fill="none" stroke="${PAL.ink}" stroke-width="3"/>`; }
+  if(selIdx>=i0&&selIdx<=i1 && C.rollSharpe[selIdx]!=null){ s+=`<circle cx="${xs(selIdx)}" cy="${ys(C.rollSharpe[selIdx])}" r="3" fill="${PAL.accent}"/>`; }
+  el("chartSharpe").innerHTML=s;
+}
+
+function renderLevels() {
+  const C = compute();
+  const W=940,H=230,PL=58,PR=66,PT=8,PB=22;
+  const i0=fromIdx,i1=toIdx;
+  const xs=xMap;
+  let oasLo=1e9,oasHi=-1e9, tyLo=1e9,tyHi=-1e9;
+  for(let i=i0;i<=i1;i++){ if(C.bOas[i]!=null){oasLo=Math.min(oasLo,C.bOas[i]);oasHi=Math.max(oasHi,C.bOas[i]);}
+    const t=DATA.treasuries["30Y"][i]; tyLo=Math.min(tyLo,t); tyHi=Math.max(tyHi,t); }
+  const so=niceStep((oasHi-oasLo)/3), stt=niceStep((tyHi-tyLo)/3);
+  oasLo=Math.floor(oasLo/so)*so; oasHi=Math.ceil(oasHi/so)*so;
+  tyLo=Math.floor(tyLo/stt)*stt; tyHi=Math.ceil(tyHi/stt)*stt;
+  const yO=(v)=>H-PB-(v-oasLo)/(oasHi-oasLo)*(H-PT-PB);
+  const yT=(v)=>H-PB-(v-tyLo)/(tyHi-tyLo)*(H-PT-PB);
+  let s="";
+  const n0=Math.round(oasLo/so), n1=Math.round(oasHi/so);
+  for(let n=n0;n<=n1;n++){
+    const vo=n*so, y=yO(vo);
+    s+=`<line class="grid-line" x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}"/>`;
+    s+=`<text class="axis-text" x="${PL-6}" y="${y+3}" text-anchor="end">${vo.toFixed(0)}</text>`; }
+  for(let m=Math.round(tyLo/stt);m<=Math.round(tyHi/stt);m++){
+    const vt=m*stt, y=yT(vt);
+    s+=`<text class="axis-text" x="${W-PR+6}" y="${y+3}">${vt.toFixed(1)}</text>`; }
+  s+=`<text class="axis-title" x="${PL}" y="${H-6}">OAS, bps</text><text class="axis-title" x="${W-PR}" y="${H-6}" text-anchor="end">30Y Treasury, %</text>`;
+  let l1="",l2="";
+  for(let i=i0;i<=i1;i++){
+    if(C.bOas[i]!=null) l1+=(l1?",":"")+xs(i).toFixed(1)+","+yO(C.bOas[i]).toFixed(1);
+    const t=DATA.treasuries["30Y"][i]; l2+=(l2?",":"")+xs(i).toFixed(1)+","+yT(t).toFixed(1); }
+  s+=`<polyline points="${l1}" fill="none" stroke="${PAL.warn}" stroke-width="1.5"/>`;
+  s+=`<polyline points="${l2}" fill="none" stroke="${PAL.inkline}" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.8"/>`;
+  if(selIdx>=i0&&selIdx<=i1){ s+=`<line class="cross" x1="${xs(selIdx)}" y1="${PT}" x2="${xs(selIdx)}" y2="${H-PB}"/>`; }
+  el("chartLvl").innerHTML=s;
+}
+
+function renderCons() {
+  const W=940,H=230,PL=58,PR=66,PT=8,PB=22;
+  const i0=fromIdx,i1=toIdx; const xs=xMap;
+  let lo=1e9,hi=-1e9;
+  for(const sym of SYMS){ if(consHidden.has(sym))continue;
+    const b=DATA.bonds[sym];
+    for(let i=Math.max(i0,b.startIndex);i<=i1;i++){ const v=b.spread[i]; if(v==null)continue; lo=Math.min(lo,v); hi=Math.max(hi,v); } }
+  if(lo>hi){lo=0;hi=100;}
+  const st=niceStep((hi-lo)/3);
+  lo=Math.floor(lo/st)*st; hi=Math.ceil(hi/st)*st;
+  const ys=(v)=>H-PB-(v-lo)/(hi-lo)*(H-PT-PB);
+  let s="";
+  for(let n=Math.round(lo/st);n<=Math.round(hi/st);n++){
+    const v=n*st, y=ys(v);
+    s+=`<line class="grid-line" x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}"/>`;
+    s+=`<text class="axis-text" x="${PL-6}" y="${y+3}" text-anchor="end">${v.toFixed(0)}</text>`; }
+  const ticks=6;
+  for(let t=0;t<ticks;t++){ const i=Math.round(i0+(i1-i0)*t/(ticks-1));
+    s+=`<text class="axis-text" x="${xs(i)}" y="${H-PB+13}" text-anchor="middle">${DATA.dates[i].slice(0,4)}</text>`; }
+  s+=`<text class="axis-title" x="${PL}" y="${H-6}">OAS, bps</text>`;
+  for(const sym of SYMS){ if(consHidden.has(sym))continue;
+    const b=DATA.bonds[sym]; let l="";
+    for(let i=Math.max(i0,b.startIndex);i<=i1;i++){ const v=b.spread[i]; if(v==null)continue;
+      l+=(l?",":"")+xs(i).toFixed(1)+","+ys(v).toFixed(1); }
+    if(l) s+=`<polyline points="${l}" fill="none" stroke="${IC[sym]}" stroke-width="1.4"/>`; }
+  if(selIdx>=i0&&selIdx<=i1){ s+=`<line class="cross" x1="${xs(selIdx)}" y1="${PT}" x2="${xs(selIdx)}" y2="${H-PB}"/>`; }
+  el("chartCons").innerHTML=s;
+}
+
+function renderAttr() {
+  const C = compute();
+  const W=940,H=250,PT=10,PB=14,PL=90;
+  const i0=fromIdx,i1=toIdx;
+  const items = SYMS.map(sym=>({sym, v:C.winContrib[sym], wavg: avgWeight(C,sym,i0,i1)})).filter(x=>x.v!==0 || x.wavg>0);
+  items.sort((a,b)=>Math.abs(b.v)-Math.abs(a.v));
+  const n=items.length||1;
+  const rows=Math.min(n,6);
+  const rowH=(H-PT-PB)/rows, Hmid=PT+(H-PT-PB)/2;
+  let m=0; for(const it of items) m=Math.max(m,Math.abs(it.v));
+  m=m||0.0001; const scale=(H-PT-PB)/2/m*0.92;
+  const WR=W-PL;
+  let s="";
+  s+=`<line class="zero-line" x1="${PL}" y1="${Hmid}" x2="${W-10}" y2="${Hmid}"/>`;
+  const Wmax=(W-10-PL);
+  s+=`<text class="axis-text" x="${PL-6}" y="${Hmid+3}" text-anchor="end">0</text>`;
+  for(const it of items){
+    const row=items.indexOf(it);
+    const cy=PT+rowH*(row+0.5);
+    const bw=Math.abs(it.v)*scale;
+    const x0 = it.v>=0 ? PL : PL-bw;
+    const x1 = it.v>=0 ? PL+bw : PL;
+    if(bw>0.5){ s+=`<rect x="${x0}" y="${cy-rowH*0.32}" width="${bw}" height="${rowH*0.64}" fill="${IC[it.sym]}" opacity="0.85" data-sym="${it.sym}"/>`; }
+    s+=`<text class="axis-text" x="${PL-8}" y="${cy+3}" text-anchor="end">${it.sym}</text>`;
+    s+=`<text class="axis-text" x="${it.v>=0?x1+6:x0-6}" y="${cy+3}" text-anchor="${it.v>=0?"start":"end"}" fill="${it.v>=0?PAL.pos:PAL.neg}">${fmtPctS(it.v,1)}</text>`;
+  }
+  el("chartAttr").innerHTML=s;
+  el("chartAttr").dataset.rows=rows;
+  el("chartAttr").dataset.items=JSON.stringify(items.map(it=>({sym:it.sym,v:it.v,wavg:it.wavg})));
+  function avgWeight(C,sym,i0,i1){ const e=C.eff.find(x=>x.sym===sym); if(!e) return 0; let s=0,n=0; for(let i=i0;i<=i1;i++){ if(e.arr[i]>0){s+=e.arr[i];n++;} } return n?s/n:0; }
+}
+
+function renderWeights() {
+  const host = el("weights"); host.innerHTML = "";
+  const order = SYMS.slice().sort((a,b)=>(weights[b]-weights[a]));
+  for (const sym of order) {
+    const b = DATA.bonds[sym];
+    const div = document.createElement("div"); div.className = "wrow";
+    div.innerHTML = `<div class="name"><i style="background:${IC[sym]}"></i>${sym} <span class="chip">${b.rating}</span></div>
+      <div class="meta">${b.name} · ${b.coupon.toFixed(3)}% ${b.tenor} · mat ${b.maturity}</div>
+      <div class="ctl"><input type="range" min="0" max="100" step="1" value="${Math.round(weights[sym]*100)}" data-sym="${sym}">
+      <output id="out-${sym}">${(weights[sym]*100).toFixed(0)}%</output></div>`;
+    host.appendChild(div);
+  }
+  host.querySelectorAll("input[type=range]").forEach(r => r.addEventListener("input", e => {
+    const sym = e.target.dataset.sym;
+    weights[sym] = (+e.target.value)/100;
+    el("out-"+sym).textContent = weights[sym]*100 >= 0.05 ? (weights[sym]*100).toFixed(0)+"%" : "0%";
+    refresh();
+  }));
+  el("resetW").onclick = () => { weights = defaultWeights(); renderWeights(); refresh(); };
+}
+
+function renderComp() {
+  const total = SYMS.reduce((a,s)=>a+weights[s],0) || 1e-9;
+  const order = SYMS.slice().sort((a,b)=>weights[b]-weights[a]);
+  let bar = "";
+  for (const sym of order) {
+    if (weights[sym] <= 0) continue;
+    bar += `<div style="width:${(weights[sym]/total*100).toFixed(2)}%;background:${IC[sym]}" title="${sym}"></div>`;
+  }
+  el("compBar").innerHTML = bar;
+  let leg = "";
+  for (const sym of order) {
+    if (weights[sym] <= 0) continue;
+    leg += `<span><i style="background:${IC[sym]}"></i>${sym} ${(weights[sym]/total*100).toFixed(0)}%</span>`;
+  }
+  el("compLeg").innerHTML = leg || `<span class="muted">No positions</span>`;
+}
+
+function renderConsToggles() {
+  const host = el("consToggles"); host.innerHTML = "";
+  for (const sym of SYMS) {
+    const b = document.createElement("button");
+    b.className = "btn tick" + (consHidden.has(sym)?" off":"");
+    b.dataset.sym = sym;
+    b.innerHTML = `<i style="background:${IC[sym]}"></i>${sym}`;
+    b.addEventListener("click", () => {
+      if (consHidden.has(sym)) consHidden.delete(sym); else consHidden.add(sym);
+      b.classList.toggle("off");
+      renderCons();
+    });
+    host.appendChild(b);
+  }
+}
+
+function renderDetail() {
+  const C = compute(); const i = selIdx; const day = DATA.dates[i];
+  const wsum = C.wsum[i];
+  el("dayMeta").innerHTML = `Showing inputs for <b>${fmd(day)}</b> · ${wsum>0 ? "basket live" : "no basket positions yet"}.`;
+  const agg = C.bYield[i], oas = C.bOas[i];
+  el("agg").innerHTML =
+    `<div><span>Basket yield</span><b>${agg==null?"—":agg.toFixed(2)+"%"}</b></div>` +
+    `<div><span>Basket OAS</span><b>${oas==null?"—":oas.toFixed(0)+" bps"}</b></div>` +
+    `<div><span>Spread P&amp;L (day)</span><b class="${(C.bPnl[i]??0)>=0?"pos":"neg"}">${fmtPctS(C.bPnl[i],3)}</b></div>` +
+    `<div><span>Carry (day)</span><b class="${(C.bCarry[i]??0)>=0?"pos":"neg"}">${fmtPctS(C.bCarry[i],3)}</b></div>` +
+    `<div><span>Short excess (day)</span><b class="${C.excess[i]>=0?"pos":"neg"}">${fmtPctS(C.excess[i],3)}</b></div>` +
+    `<div><span>Cumulative excess</span><b class="${C.cum[i]>=0?"pos":"neg"}">${fmtPctS(C.cum[i])}</b></div>` +
+    `<div><span>Wtd duration</span><b>${C.bDur[i]==null?"—":C.bDur[i].toFixed(1)}</b></div>` +
+    `<div><span>Treasury 10Y/30Y</span><b>${DATA.treasuries["10Y"][i].toFixed(2)}% / ${DATA.treasuries["30Y"][i].toFixed(2)}%</b></div>`;
+
+  // drivers narrative
+  const contribs = [];
+  for (const e of C.dW) {
+    const sym = e.sym; if (e.arr[i] <= 0) continue;
+    const b = DATA.bonds[sym];
+    contribs.push({ sym, v: e.arr[i]*(b.spreadPnl[i]+b.carry[i])/100, ds: b.dSpread[i], sp: b.spread[i] });
+  }
+  contribs.sort((a,b)=>Math.abs(b.v)-Math.abs(a.v));
+  if (contribs.length) {
+    const top = contribs[0], bot = contribs[contribs.length-1];
+    el("drivers").innerHTML =
+      `Drivers this day: <b class="${top.v>=0?"pos":"neg"}">${top.sym} ${fmtPctS(top.v,3)}</b> (OAS ${top.ds>=0?"+":""}${top.ds.toFixed(1)} bp)` +
+      (bot!==top ? ` and <b class="${bot.v>=0?"pos":"neg"}">${bot.sym} ${fmtPctS(bot.v,3)}</b> (OAS ${bot.ds>=0?"+":""}${bot.ds.toFixed(1)} bp)` : "") +
+      `. Weighted OAS is ${oas==null?"—":oas.toFixed(0)} bps.`;
+  } else {
+    el("drivers").innerHTML = "";
+  }
+
+  let head = "<tr><th>Issuer</th><th>Eff. weight</th><th>Bond</th><th>Tenor</th><th>Yield</th><th>OAS</th><th>Duration</th><th>Ind. price</th><th>Δ OAS</th><th>Spread P&amp;L</th><th>Carry</th><th>Short contrib.</th></tr>";
+  let body = "";
+  for (const e of C.dW) {
+    const sym = e.sym, b = DATA.bonds[sym], w = e.arr[i];
+    if (w <= 0) continue;
+    const y = b.yield[i], sp = b.spread[i], pr = b.price[i], du = b.duration[i];
+    const ds = b.dSpread[i], pnl = b.spreadPnl[i]/100, car = b.carry[i]/100;
+    const contrib = w*(pnl+car);
+    body += `<tr>
+      <td><i style="background:${IC[sym]}"></i>${sym} <span class="muted">${b.rating}</span></td>
+      <td>${(w*100).toFixed(1)}%</td>
+      <td class="bond">${b.coupon.toFixed(3)}% &nbsp;${b.maturity.slice(0,4)} <span class="muted">${b.name}</span></td>
+      <td>${b.tenor}</td>
+      <td>${y==null?"—":y.toFixed(2)+"%"}</td>
+      <td>${sp==null?"—":sp.toFixed(0)+" bp"}</td>
+      <td>${du==null?"—":du.toFixed(1)}</td>
+      <td>${pr==null?"—":pr.toFixed(2)}</td>
+      <td class="${ds==null?"":(ds>=0?"pos":"neg")}">${ds==null?"—":(ds>=0?"+":"")+ds.toFixed(1)+" bp"}</td>
+      <td class="${pnl>=0?"pos":"neg"}">${fmtPctS(pnl,3)}</td>
+      <td class="${car>=0?"pos":"neg"}">${fmtPctS(car,3)}</td>
+      <td class="${contrib>=0?"pos":"neg"}">${fmtPctS(contrib,3)}</td></tr>`;
+  }
+  el("tbl").innerHTML = `<thead>${head}</thead><tbody>${body}</tbody>`;
+}
+
+function overlayLabel() {
+  return overlay==="sharpe" ? "Rolling 12M Sharpe (right axis)" : overlay==="oas" ? "Basket OAS (right axis)" : overlay==="yield" ? "Basket yield (right axis)" : "Treasury 30Y yield (right axis)";
+}
+
+function refresh() {
+  renderStats(); renderObs(); renderMain(); renderRoll(); renderSharpe(); renderLevels(); renderCons(); renderAttr(); renderComp(); renderDetail();
+}
+
+// ---------- wiring ----------
+function wireTooltip(svgEl, tipEl, idxOfX, contentFor) {
+  svgEl.addEventListener("mousemove", ev => {
+    const r = svgEl.getBoundingClientRect();
+    const x = (ev.clientX - r.left) / r.width * 940;   // viewBox units
+    const i = idxOfX(x);
+    tipEl.style.display = "block";
+    tipEl.style.left = clamp((ev.clientX - r.left) + 12, 4, r.width - 160) + "px";
+    tipEl.style.top = "6px";
+    tipEl.innerHTML = contentFor(i);
+  });
+  svgEl.addEventListener("mouseleave", () => { tipEl.style.display = "none"; });
+}
+
+function wireChart() {
+  const svg = el("chart"), tip = el("tip");
+  const idxOfX = (x) => {
+    const PL=58,PR=66,W=940;
+    return clamp(Math.round(fromIdx + (x-PL)/(W-PL-PR)*(toIdx-fromIdx)), fromIdx, toIdx);
+  };
+  wireTooltip(svg, tip, idxOfX, i => {
+    const C = compute();
+    let topSym = "—", topV = -1;
+    for (const e of C.dW) {
+      if (e.arr[i]<=0) continue;
+      const v = e.arr[i]*(DATA.bonds[e.sym].spreadPnl[i]+DATA.bonds[e.sym].carry[i])/100;
+      if (Math.abs(v) > topV) { topV = Math.abs(v); topSym = e.sym; }
+    }
+    return `<b>${fmd(DATA.dates[i])}</b><br>
+      cumulative <b class="${C.cum[i]>=0?"pos":"neg"}">${fmtPctS(C.cum[i])}</b><br>
+      day excess <span class="${C.excess[i]>=0?"pos":"neg"}">${fmtPctS(C.excess[i],3)}</span> · spread P&amp;L ${fmtPctS(C.bPnl[i],3)} · carry ${fmtPctS(C.bCarry[i],3)}<br>
+      top driver <b>${topSym}</b>`;
+  });
+  svg.addEventListener("click", ev => {
+    const r = svg.getBoundingClientRect();
+    selIdx = idxOfX((ev.clientX - r.left) / r.width * 940); renderMain(); renderDetail();
+  });
+}
+
+function wireRoll() {
+  const svg = el("chartRoll"), tip = el("tipRoll");
+  const idxOfX = (x) => clamp(Math.round(fromIdx + (x-58)/(940-58-66)*(toIdx-fromIdx)), fromIdx, toIdx);
+  wireTooltip(svg, tip, idxOfX, i => {
+    const C = compute(); const v = C.roll[i];
+    return `<b>${fmd(DATA.dates[i])}</b><br>trailing 12M <b class="${(v??0)>=0?"pos":"neg"}">${v==null?"—":fmtPctS(v,2)}</b>`;
+  });
+  svg.addEventListener("click", ev => {
+    const r = svg.getBoundingClientRect();
+    selIdx = idxOfX((ev.clientX - r.left) / r.width * 940); renderMain(); renderDetail();
+  });
+}
+
+function wireSharpe() {
+  const svg = el("chartSharpe"), tip = el("tipSharpe");
+  const idxOfX = (x) => clamp(Math.round(fromIdx + (x-58)/(940-58-66)*(toIdx-fromIdx)), fromIdx, toIdx);
+  wireTooltip(svg, tip, idxOfX, i => {
+    const C = compute(); const v = C.rollSharpe[i];
+    return `<b>${fmd(DATA.dates[i])}</b><br>trailing 12M Sharpe <b class="${(v??0)>=0?"pos":"neg"}">${v==null||!isFinite(v)?"—":(v>=0?"+":"")+v.toFixed(2)}</b>`;
+  });
+  svg.addEventListener("click", ev => {
+    const r = svg.getBoundingClientRect();
+    selIdx = idxOfX((ev.clientX - r.left) / r.width * 940); renderSharpe(); renderMain(); renderDetail();
+  });
+}
+
+function wireLevels() {
+  const svg = el("chartLvl"), tip = el("tipLvl");
+  const idxOfX = (x) => clamp(Math.round(fromIdx + (x-58)/(940-58-66)*(toIdx-fromIdx)), fromIdx, toIdx);
+  wireTooltip(svg, tip, idxOfX, i => {
+    const C = compute();
+    return `<b>${fmd(DATA.dates[i])}</b><br>
+      basket OAS <b>${C.bOas[i]==null?"—":C.bOas[i].toFixed(0)+" bps"}</b><br>
+      30Y Treasury <b>${DATA.treasuries["30Y"][i].toFixed(2)}%</b>`;
+  });
+  svg.addEventListener("click", ev => {
+    const r = svg.getBoundingClientRect();
+    selIdx = idxOfX((ev.clientX - r.left) / r.width * 940); renderLevels(); renderMain(); renderDetail();
+  });
+}
+
+function wireCons() {
+  const svg = el("chartCons"), tip = el("tipCons");
+  const idxOfX = (x) => clamp(Math.round(fromIdx + (x-58)/(940-58-66)*(toIdx-fromIdx)), fromIdx, toIdx);
+  wireTooltip(svg, tip, idxOfX, i => {
+    let rows = "";
+    for (const sym of SYMS) {
+      if (consHidden.has(sym)) continue;
+      const sp = DATA.bonds[sym].spread[i];
+      if (sp == null) continue;
+      rows += `<div class="row"><span><i style="background:${IC[sym]}"></i>${sym}</span><span>${sp.toFixed(0)} bps</span></div>`;
+    }
+    return `<b>${fmd(DATA.dates[i])}</b>${rows}`;
+  });
+  svg.addEventListener("click", ev => {
+    const r = svg.getBoundingClientRect();
+    selIdx = idxOfX((ev.clientX - r.left) / r.width * 940); renderCons(); renderMain(); renderDetail();
+  });
+}
+
+function wireAttr() {
+  const svg = el("chartAttr"), tip = el("tipAttr");
+  const items = () => { try { return JSON.parse(svg.dataset.items||"[]"); } catch { return []; } };
+  const rows = () => +(svg.dataset.rows||0);
+  svg.addEventListener("mousemove", ev => {
+    const r = svg.getBoundingClientRect();
+    const H = 250, PT = 10, PB = 14, PL = 90;
+    const y = (ev.clientY - r.top) / r.height * H;
+    const rr = rows(); if (!rr) return;
+    const rowH = (H-PT-PB)/rr;
+    const k = Math.floor((y-PT)/rowH);
+    const it = items()[k];
+    if (!it) return;
+    tip.style.display = "block";
+    tip.style.left = clamp((ev.clientX - r.left) + 12, 4, r.width - 180) + "px";
+    tip.style.top = "6px";
+    tip.innerHTML = `<b>${it.sym}</b> — ${fmd(DATA.dates[toIdx])} window<br>
+      contribution <b class="${it.v>=0?"pos":"neg"}">${fmtPctS(it.v,2)}</b><br>
+      average weight ${(it.wavg*100).toFixed(1)}%`;
+  });
+  svg.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+}
+
+function wireMinimap() {
+  const svg = el("mm");
+  const idxOfX = (x) => {
+    const W=940, PL=6, PR=6;
+    return clamp(Math.round((x-PL)/(W-PL-PR)*(N-1)), 0, N-1);
+  };
+  svg.addEventListener("pointerdown", ev => {
+    const r = svg.getBoundingClientRect();
+    const i = idxOfX((ev.clientX - r.left) / r.width * 940);
+    brush = { active:true, from:i, to:i };
+    svg.setPointerCapture(ev.pointerId);
+    renderMinimap();
+  });
+  svg.addEventListener("pointermove", ev => {
+    if (!brush.active) return;
+    const r = svg.getBoundingClientRect();
+    const i = idxOfX((ev.clientX - r.left) / r.width * 940);
+    brush.to = i; renderMinimap();
+  });
+  svg.addEventListener("pointerup", ev => {
+    if (!brush.active) return;
+    const r = svg.getBoundingClientRect();
+    const i = idxOfX((ev.clientX - r.left) / r.width * 940);
+    brush.to = i;
+    const a = Math.min(brush.from, brush.to), b = Math.max(brush.from, brush.to);
+    brush.active = false;
+    setRange(a, b);
+  });
+}
+
+function init() {
+  weights = defaultWeights();
+  el("genmeta").textContent = `Generated ${new Date(DATA.generatedAt).toLocaleString()} · ${DATA.start} → ${DATA.end} · Treasuries: market data · Issuer spreads: model`;
+  renderWeights();
+  renderConsToggles();
+  el("fromD").value = DATA.dates[0]; el("toD").value = DATA.dates.at(-1);
+  const setRange = (i0, i1) => {
+    fromIdx = clamp(i0, 0, N-1); toIdx = clamp(i1, fromIdx, N-1);
+    el("fromD").value = DATA.dates[fromIdx]; el("toD").value = DATA.dates[toIdx];
+    if (selIdx < fromIdx) selIdx = fromIdx;
+    refresh();
+  };
+  window.setRange = setRange;
+  el("fromD").addEventListener("change", e => {
+    const t = fd(e.target.value); let i = 0; for (let k=0;k<N;k++){ if (fd(DATA.dates[k]) <= t) i = k; }
+    setRange(i, toIdx);
+  });
+  el("toD").addEventListener("change", e => {
+    const t = fd(e.target.value); let i = N-1; for (let k=N-1;k>=0;k--){ if (fd(DATA.dates[k]) >= t) i = k; }
+    setRange(fromIdx, i);
+  });
+  el("rangeBtns").querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    el("rangeBtns").querySelectorAll("button").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    const yrs = b.dataset.r === "ALL" ? null : +b.dataset.r.replace("Y","");
+    if (yrs) setRange(N - Math.round(yrs*252), N-1);
+    else setRange(0, N-1);
+  }));
+  el("overlayBtns").querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    el("overlayBtns").querySelectorAll("button").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    overlay = b.dataset.o; renderMain();
+  }));
+  wireChart(); wireRoll(); wireSharpe(); wireLevels(); wireCons(); wireAttr(); wireMinimap();
+  selIdx = N-1;
+  refresh();
+}
+init();
+</script>
+</body>
+</html>

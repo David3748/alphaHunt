@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>alphaHunt — All-Strategy Backtest Summary</title>
+<style>
+html{background:#ffffff;color-scheme:light}
+body{font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:1100px;margin:32px auto;padding:0 20px;background:#ffffff;color:#1a1a1a;line-height:1.5}
+h1{font-size:26px;margin-bottom:4px}h2{font-size:19px;margin:32px 0 8px;border-bottom:2px solid #111;padding-bottom:4px}
+.meta{color:#555;font-size:13px}.pass{color:#0a7b2e;font-weight:700}.fail{color:#b00020;font-weight:700}.warn{color:#8a5a00;font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0}th,td{border:1px solid #ddd;padding:6px 8px;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f4f4f4}
+code{background:#f4f4f4;padding:1px 5px;border-radius:4px;font-size:12.5px}pre{background:#f6f6f6;padding:12px;border-radius:6px;overflow:auto;font-size:12.5px}
+.card{border:1px solid #ddd;border-radius:8px;padding:12px 16px;margin:12px 0;background:#fafafa}
+.small{font-size:12.5px;color:#444}
+figure{margin:16px 0}figcaption{font-size:12.5px;color:#444;margin-top:4px}
+img.chart{width:100%;height:auto;border:1px solid #ddd;border-radius:6px;background:#fff}
+</style>
+</head>
+<body>
+<h1>alphaHunt — All-Strategy Backtest Summary</h1>
+<div class="meta">Generated 2026-09-03 (UTC) · Run from repo root · <code>python3 -m unittest discover -s tests</code>: <b>229/229 pass</b> · <code>src/strategy_experiments.py</code> re-ran offline just now (5/5 exps) · all other portfolio numbers read from committed artifacts (no live trading, research only).</div>
+
+<div class="card">
+<b>How to read this.</b> Primary frozen verdicts first (century locked secondaries, sealed safety). Then exploratory/sample-constrained results (safety_backtest n=8–20, fresh confirmation n=80+76, strategy_experiments dev/val splits). Then negative controls and new exclusion pipelines (avoid-lists only — <i>no PnL claimed</i>, paper counts only). Execution everywhere is next-session/acceptance-time entry, 90d holds, 10 slots @10% NAV, 25bp/side unless noted; benchmark is exposure-matched SPY/cash blend. Common gaps: current-listing survivorship bias, adjusted-close (no spread/impact), 90d = 100% short-term tax drag unmodeled.
+</div>
+
+<h2>Charts — excess returns (rendered from existing artifacts, light theme)</h2>
+<figure><img class="chart" src="charts/p_plus20_nav.svg" alt="P(+20%) NAV vs SPY 2009-2026"><figcaption><b>P(+20%) NAV vs SPY</b>, weekly 2009–2026 (log scale) — source <code>strategy-site/public/data/timeseries.json</code> (851 pts). ~×710 compounded, 47.5% CAGR, Sharpe 1.49, matched IR 1.42, 270 trades, maxDD −26.9%.</figcaption></figure>
+<figure><img class="chart" src="charts/sealed_nav.svg" alt="Sealed safety daily NAV vs SPY"><figcaption><b>Sealed safety daily NAV vs SPY</b> (log scale) — source <code>lab_runs/sealed_safety/sealed_daily_portfolio.csv</code> (626 sessions). 60 trades, CAGR +53.7%, maxDD −14.3%.</figcaption></figure>
+<figure><img class="chart" src="charts/safety_nav.svg" alt="Safety backtest NAV vs SPY"><figcaption><b>Safety backtest global-decile NAV vs SPY</b> (log scale) — source <code>lab_runs/safety_backtest/daily_portfolio.csv</code> (725 sessions). 8 trades, CAGR +13.3%, Sharpe 2.07 — tiny-n, exploratory.</figcaption></figure>
+<figure><img class="chart" src="charts/spans_beat.svg" alt="Span beat rates by entry year"><figcaption><b>Share of 90-day spans beating SPY by entry year</b> — source <code>strategy-site/public/data/spans.json</code>. Green = P(+20%) executed (188/270 = 69.6%); grey = all 9,885 eligible spans (44.8%). n = executed trades that year.</figcaption></figure>
+<figure><img class="chart" src="charts/trade_hist.svg" alt="Per-trade excess distribution"><figcaption><b>Per-trade excess vs SPY</b>, all 270 P(+20%) trades — source <code>strategy-site/public/data/p_plus20_trades.json</code> (field <code>excess_return</code>). Green = beat SPY, red = lagged.</figcaption></figure>
+
+<h2>1 · Century locked secondaries (frozen <code>CENTURY_HYPOTHESES.md</code>) — source <code>strategy-site/public/data/hypotheses.json</code></h2>
+<table>
+<tr><th>Rule</th><th>Hist 09–18 (tr/IR/excess)</th><th>Fwd 21–25 (tr/IR/excess)</th><th>Discovery 19–20</th><th>Blocked p</th><th>Gate</th></tr>
+<tr><td><code>p_plus20</code></td><td>95 / 1.07 / +19.2%</td><td>120 / 1.89 / +57.6%</td><td>55 / 1.19 / +30.9%</td><td>0.002</td><td class="pass">PASS</td></tr>
+<tr><td><code>causal_blend</code></td><td>95 / 0.97 / +15.5%</td><td>117 / 1.97 / +40.0%</td><td>57 / 0.98 / +25.5%</td><td>0.002</td><td class="pass">PASS</td></tr>
+<tr><td><code>upside_x_drawdown</code></td><td>95 / 1.18 / +22.3%</td><td>127 / 1.22 / +38.4%</td><td>55 / 1.83 / +57.2%</td><td>0.002</td><td class="pass">PASS</td></tr>
+<tr><td><code>safety</code> (deployed)</td><td>99 / 0.67 / +5.9%</td><td>157 / 0.14 / +2.7%</td><td>63 / 0.68 / +13.5%</td><td>0.006</td><td class="warn">— (not in family; ~zero fwd)</td></tr>
+<tr><td><code>deep_drawdown</code> (mech)</td><td>158 / 0.22 / +4.6%</td><td>170 / −0.38 / −26.2%</td><td>64 / 0.65 / +24.4%</td><td>0.112</td><td class="fail">FAIL fwd; maxDD −92%</td></tr>
+</table>
+<div class="small">Gate = positive matched excess in <i>both</i> clean cohorts + month-blocked placebo p&lt;0.0167 (Bonferroni-3). Full-period IRs: p_plus20 1.39, blend 1.32, upside 1.31, safety 0.44, deep −0.04. p's sit at the 500-draw floor — request ≥1000 draws for publication. Keep 2019–20 discovery-only; keep deep_drawdown as reported-not-tested comparator.</div>
+
+<h2>2 · Sealed safety validation — <code>lab_runs/sealed_safety/results.json</code> (60 trades)</h2>
+<table>
+<tr><th>Bound</th><th>Trades</th><th>CAGR</th><th>Sharpe (T-bill)</th><th>MaxDD</th><th>Matched IR</th><th>Matched excess ann.</th></tr>
+<tr><td>conservative (gaps→0)</td><td>60</td><td>+53.7%</td><td>1.81</td><td>−14.3%</td><td>1.27</td><td>+22.9%</td></tr>
+<tr><td>optimistic (gaps→last)</td><td>60</td><td>+53.7%</td><td>1.81</td><td>−14.3%</td><td>1.27</td><td>+22.9%</td></tr>
+</table>
+<div class="small">Causal expanding top-decile, warmup 50, acceptance-time next-session entry, 90d, 25bp. Frozen pass/fail checks live in <code>results.json → decision_checks</code>; read <code>report.md</code> for the sealed verdict. Caveat from review: eligibility acts as crash detector (98/188 signals Mar–May 2020); 90d sits on the hold-curve peak; score resolves to 64 distinct values with heavy ties.</div>
+
+<h2>3 · Safety backtest variants — <code>lab_runs/safety_backtest/results.json</code></h2>
+<table>
+<tr><th>Rule</th><th>Trades</th><th>CAGR</th><th>Sharpe</th><th>MaxDD</th><th>Matched IR</th><th>Win%</th><th>Mean trade</th></tr>
+<tr><td>global top decile (non-causal)</td><td>8</td><td>+13.3%</td><td>2.07</td><td>−2.1%</td><td>2.15</td><td>100%</td><td>+37.9%</td></tr>
+<tr><td>expanding decile w20 (causal)</td><td>10</td><td>+14.5%</td><td>1.53</td><td>−6.6%</td><td>1.66</td><td>100%</td><td>+34.2%</td></tr>
+<tr><td>expanding quintile w20</td><td>20</td><td>+22.4%</td><td>1.61</td><td>−9.1%</td><td>1.80</td><td>95%</td><td>+27.9%</td></tr>
+<tr><td>all events</td><td>68</td><td>+5.7%</td><td>0.24</td><td>−39.9%</td><td>−0.07</td><td>50%</td><td>+3.0%</td></tr>
+<tr><td>worst decile (neg control)</td><td>8</td><td>−1.9%</td><td>−0.30</td><td>−15.3%</td><td>−0.38</td><td>25%</td><td>−15.0%</td></tr>
+</table>
+<div class="small">Entry first close after filing date, 10bp/side, T-bill cash. Verdict in <code>report.md</code>: promising signal, not deployable — global rank is non-causal, causal has n=10, universe is current-listings only with future-price filtering. Sensitivity (holds 30–180 × delays 0/1/4 × costs 0–50bp), sizing, by-year, quintiles, leave-one-out, block/trade bootstraps and 2000 random baskets are inside <code>results.json</code>.</div>
+
+<h2>4 · Fresh confirmation (2021–23, pre-registered) — <code>lab_runs/fresh_confirmation/results.json</code></h2>
+<table>
+<tr><th>Strategy</th><th>N / basket</th><th>Basket mean</th><th>Median</th><th>Hit</th><th>Spread vs rest</th><th>p (perm, 1-sided)</th><th>Verdict</th></tr>
+<tr><td>safety_first</td><td>80 / 8 (TTD DXCM GTES LSCC FORM TSLA DKS NLY)</td><td>+29.1%</td><td>+31.8%</td><td>75%</td><td>+33.8pp</td><td>0.0029</td><td class="pass">CONFIRM (p&lt;0.025 Bonferroni-2)</td></tr>
+<tr><td>dilution_event_conditioned</td><td>76 / 8</td><td>+5.5%</td><td>+6.1%</td><td>25%</td><td>+9.3pp</td><td>0.171</td><td class="fail">NOT confirmed</td></tr>
+</table>
+<div class="small">Safety robustness: AUC 0.743, Spearman 0.484, positive means for baskets 4–20, replicate r=0.71. Limitation: current-listing universe → survivorship inflates longs. Research signal, not production.</div>
+
+<h2>5 · Strategy experiments — re-ran offline just now → <code>/tmp/strat_rerun.json</code> (matches committed <code>lab_runs/strategy_experiments/results.json</code>)</h2>
+<table>
+<tr><th>Experiment</th><th>Dev basket (n/mean/med/hit/spread/p)</th><th>Val basket (n/mean/med/hit/spread/p)</th></tr>
+<tr><td>baseline_probability</td><td>7 / −10.3% / −1.9% / 0% / −8.4pp / 0.733</td><td>4 (RKLB VSTM CHWY UI) / −2.6% / −0.5% / 0% / −0.3pp / 0.402</td></tr>
+<tr><td>safety_first</td><td>7 / +1.6% / −3.1% / 14% / +5.0pp / 0.333</td><td>4 / +9.0% / +14.2% / 25% / +12.7pp / 0.168</td></tr>
+<tr><td>catalyst_with_vetoes</td><td>7 / −0.2% / −2.8% / 14% / +3.0pp / 0.390</td><td>4 / −3.8% / −4.7% / 0% / −1.6pp / 0.439</td></tr>
+<tr><td>consensus_adjusted</td><td>7 / −18.2% / −11.5% / 0% / −17.3pp / 0.909</td><td>4 / −2.6% / −0.5% / 0% / −0.3pp / 0.402</td></tr>
+<tr><td>dilution_event_conditioned</td><td>9 / +19.6% / −3.6% / 22% / +15.3pp / 0.140</td><td>4 / +15.1% / +23.7% / 50% / +17.1pp / 0.180</td></tr>
+</table>
+<div class="small">Method: top-decile, legacy 62/38 long split, chronological 70/30 dilution split, 20k permutations, no costs. Decision carried forward: advance safety + dilution only to untouched sample (dilution then failed fresh confirmation above).</div>
+
+<h2>6 · Short leg + blind rescore</h2>
+<div class="card">Short leg (<code>lab_runs/short_leg/results.json</code>, n=1713, 25bp round-trip): V1 bottom-decile expected_excess mean −1.3% (perm p=0.152; 2019 +19.0% / 2020 −14.1%); V2 bottom-decile p_plus20 mean +9.2% (perm p=0.002 — bottom-decile still drifts <i>up</i> on average, median +16.8%). Bottom-decile as short is not supported; value is avoid-only. Full variants/buckets/by-year in artifact.<br><br>Blind rescore (<code>lab_runs/blind_rescore/results.json</code>, n=110): blind Spearman 0.393 vs identified 0.391, blind AUC 0.715 vs 0.701, agreement 0.836, gap CI95 [−0.108, +0.101] → verdict <span class="pass">GENUINE</span> (no ticker-identity bias).</div>
+
+<h2>7 · New Fidelity exclusion pipelines (built this week — avoid-lists, paper counts, no PnL)</h2>
+<table>
+<tr><th>Pipeline</th><th>Module</th><th>Tests</th><th>Live verified</th><th>Output / paper result</th></tr>
+<tr><td>openFDA Class I avoid (report-anchored T+1; 20d drug / 40d device)</td><td><code>src/fda_avoid.py</code></td><td>20/20</td><td>drug 1,739 (≥2006), device 3,625 (filter ≥2004); median initiation→report lag 139d</td><td>fixture build OK; tickers null until alias wired (by design)</td></tr>
+<tr><td>CPSC fire/burn avoid (string rule, ≥10k units, 40d)</td><td><code>src/cpsc_avoid.py</code></td><td>39/39</td><td>9,966-record dump; 1,372 kept live</td><td>fixture 3 exclusions / 6 rejects; ticker yield single-digit %</td></tr>
+<tr><td>8-K 5.02 stewardship-gap (no successor + no 30d CDX post → 90TD exclude)</td><td><code>src/stewardship_gap.py</code></td><td>30/30</td><td>EFTS 5.02 live; Greenhouse/Ashby live; CDX career-HTML PIT only</td><td>Jun-2026 pilot: 28 filings → 22 decisions, 0 excludes (15 comp-only, 7 successor-named)</td></tr>
+<tr><td>USITC §337 FR sweep (ladder complaint→institution→ID→final)</td><td><code>src/fr337.py</code></td><td>10/10</td><td>API total 4,964; 200-doc sample 53/47/42/17/9/32</td><td>events JSONL OK; respondent enrich via raw_text_url next</td></tr>
+<tr><td>Alias table v1 (golden 58) + tariff/rival/CDX stubs</td><td><code>src/alias_table.py</code>, <code>followon_*.py</code></td><td>14 + 24 pass</td><td>company_tickers offline; containment fix verified</td><td>miss 17%→0 on golden probe; rival map 8 verified entries</td></tr>
+<tr><td>Merger + paper-long</td><td><code>src/fidelity_exclusions.py</code> (+<code>backtest_signals --exclude/--paper-long</code>)</td><td>22/22</td><td>sample <code>strategy-site/public/data/exclusions.json</code> (6 windows)</td><td>smoke: 3 signals → 2 entered, 1 excluded; filter demo 1 skipped / 1 kept</td></tr>
+</table>
+<div class="small">Full suite 229/229 (70 pre-existing + 159 new). Refresh runbook: pull Wed after FDA Enforcement Report → rebuild Thu+1 (<code>fidelity_exclusions.py --fda … --cpsc … --gap502 … --s337 … --out exclusions.json --csv exclusions.csv</code>) → apply <code>event_date ≤ today ≤ window_end</code> skips + $3/$2M liquidity + 25% sector cap. <code>docs/EXCLUSIONS.md</code> has the manual steps. Rival-long / tariff-long / recovery-long remain mapping-only, explicitly no return claim.</div>
+
+<h2>7b · Exclusion-pipeline backtests (2026-09-03, subagent-run, trading-day convention, Yahoo v8 cached)</h2>
+<div class="small">Entry T+1 after event (≤7d gap else dropped); excess = stock − SPY over identical session windows. Full event tables: <code>/tmp/excl_backtest_fda_cpsc.json</code> (217 events) and <code>/tmp/excl_backtest_502_337.json</code>. Research only — these test the <i>avoid</i> thesis (excluded names should drift negative), not a tradable return.</div>
+<table>
+<tr><th>Leg</th><th>Hold</th><th>n (tickers)</th><th>Mean xs</th><th>Median xs</th><th>Neg-hit</th><th>t</th><th>Verdict</th></tr>
+<tr><td>FDA Class I (99 dev / 18 drug)</td><td>20d</td><td>117 (30)</td><td>+1.57%</td><td>+1.10%</td><td>43%</td><td>+1.85</td><td class="fail" rowspan="3">NO signal — wrong sign, sign flips across cuts</td></tr>
+<tr><td>FDA Class I</td><td>40d</td><td>117</td><td>+0.84%</td><td>+2.63%</td><td>38%</td><td>+0.60</td></tr>
+<tr><td>FDA Class I</td><td>60d</td><td>117</td><td>+2.37%</td><td>+0.10%</td><td>44%</td><td>+1.27</td></tr>
+<tr><td>CPSC fire/burn (60 tickers)</td><td>40d</td><td>100</td><td>+7.96%*</td><td>+0.73%</td><td>48%</td><td>+0.86</td><td class="fail" rowspan="3">NO signal — *+8% is one +900% penny-stock outlier (GTLL kettle recall); ex-it −1.05%, noise</td></tr>
+<tr><td>CPSC fire/burn</td><td>60d</td><td>100</td><td>+7.44%*</td><td>+0.01%</td><td>50%</td><td>+0.80</td></tr>
+<tr><td>CPSC fire/burn</td><td>90d</td><td>100</td><td>−1.74%</td><td>−1.52%</td><td>54%</td><td>−0.61</td></tr>
+<tr><td>5.02 all CEO/CFO departures</td><td>90d</td><td>33</td><td>−4.1%</td><td>−4.0%</td><td>61%</td><td>−1.09</td><td class="warn">null vs placebo (spread −4.5pp, t&lt;1.1)</td></tr>
+<tr><td>5.02 no-successor subset</td><td>90d</td><td>8</td><td>−10.6%</td><td>−11.8%</td><td>75%</td><td>−1.78</td><td class="warn">suggestive (−10.1pp vs matched placebo) but n=8 with 25–50% false triggers — NOT actionable</td></tr>
+<tr><td>337 institution respondents</td><td>60/90d</td><td>2</td><td>+2.2%/+21.3%</td><td>split sign</td><td>—</td><td>—</td><td class="fail">untestable — 4% respondent join yield (2 exact of 54)</td></tr>
+</table>
+<div class="small">Why the recall backtests disagree with the earlier pilot (−4.69pp/60d, t −3.5): the pilot used 22 mega-cap parents with clean joins; this run resolved 32.8% of FDA / 25.4% of kept CPSC events and the tail is ectopic microcaps — containment spot-audit <b>failed</b> (American Tack→AIG, Turbo Power→PSIX, DeVilbiss→AIRI, Global Marketing→GTLL). Entity resolution, not the thesis, is what failed. Other caveats: current-universe PIT leak (75 pre-IPO/spin recalls mapped onto future tickers, dropped for no PIT price), survivorship bias up (ENDP wipeout unmeasurable, Yahoo 404s), FDA sample device-heavy (drug n=18 uninterpretable), 5.02 header-verb FP (boilerplate "Item 5.02 Departure…" title trips the departure gate) + EFTS <code>forms=8-K,8-K/A</code> silently returns amendments only (first pass sampled 100% amendments; redone originals-only). 337 needs resolver work before any exclusion rule. Bugs filed in the JSONs.</div>
+
+<h2>8 · <code>backtest_signals.py</code> catalog status</h2>
+<div class="small">Default <code>--run-dir lab_runs/unstructured_proto</code> does not exist in this checkout → per-source backtests report <code>no_data</code> until an extraction run materializes <code>forensic/*.jsonl / *_resolved.jsonl / *_extracted.jsonl</code>. Composite + <code>--portfolio</code> sims and <code>--paper-long</code> paths are tested and working (see §7). Use <code>python3 src/backtest_signals.py --source fda_recalls --horizon 90</code> once <code>fda_resolved.jsonl</code> exists; same pattern for cpsc/sbir/departures/form4/comment_letters/formd.</div>
+
+<h2>Reproduce</h2>
+<pre>python3 -m unittest discover -s tests -v   # 229 pass
+python3 src/strategy_experiments.py --run-dir lab_runs/comprehensive_long --output /tmp/strat_rerun.json
+python3 -c "import json,pathlib;print(json.loads(pathlib.Path('lab_runs/sealed_safety/results.json').read_text())['bounds']['conservative'])"
+python3 src/backtest_signals.py --paper-long --signals strategy-site/public/data/exclusions.json --holds 90
+python3 src/fidelity_exclusions.py --help
+python3 /var/folders/c2/snp7_rtn7vz4kw_gl7lf23d00000gn/T/opencode/gen_charts.py   # regen charts/*.svg from committed artifacts</pre>
+<div class="meta">Artifacts referenced: <code>lab_runs/*/results.json</code>, <code>strategy-site/public/data/hypotheses.json</code>, <code>/tmp/strat_rerun.json</code> (fresh rerun), <code>lab_runs/stewardship_gap_mvp/</code>, <code>docs/EXCLUSIONS.md</code>, <code>/tmp/excl_backtest_fda_cpsc.json</code>, <code>/tmp/excl_backtest_502_337.json</code>. Nothing in <code>lab_runs/</code> or <code>research/</code> was overwritten by this summary run.</div>
+</body>
+</html>

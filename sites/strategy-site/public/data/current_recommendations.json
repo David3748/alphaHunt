@@ -1,0 +1,54 @@
+{
+  "status": "Four current ideas · model-qualified continuation pending",
+  "generated_at": "2026-08-23T18:30:00-04:00",
+  "signals": [
+    {
+      "ticker": "BCPC",
+      "company": "Balchem",
+      "filed": "2026-08-22",
+      "decision": "research long",
+      "method": "Primary-source event",
+      "expression": "Core long; add only on affirmative preliminary ruling",
+      "thesis": "The market appears to assign little value to Balchem’s choline-chloride trade case even though preliminary duties could improve pricing and margins in its Animal Nutrition & Health segment.",
+      "catalyst": "Commerce preliminary countervailing-duty determination expected around September–October 2026, followed by the preliminary antidumping determination.",
+      "invalidation": "A negative preliminary determination, a material delay, effective third-country substitution, or a close below the research stop invalidates the event thesis.",
+      "status": "Research long"
+    },
+    {
+      "ticker": "FSLR",
+      "company": "First Solar",
+      "filed": "2026-08-22",
+      "decision": "research long",
+      "method": "Policy event",
+      "expression": "Long FSLR; optional dollar-matched RUN hedge",
+      "thesis": "First Solar’s cadmium-telluride modules avoid polysilicon while the announced U.S. minimum import-price framework supports domestic module pricing; the initial price reaction had largely faded in the research snapshot.",
+      "catalyst": "Implementation guidance through the fall, the December 4 effective date, and the first post-policy module pricing and company guidance.",
+      "invalidation": "Broad exemptions, weakened minimum prices, demand destruction, or adverse company-specific execution would remove the expected relative advantage.",
+      "status": "Research long"
+    },
+    {
+      "ticker": "ZIM",
+      "company": "ZIM Integrated Shipping",
+      "filed": "2026-08-22",
+      "decision": "special situation",
+      "method": "Merger arbitrage",
+      "expression": "Small long, sized for a political binary",
+      "thesis": "The spread to the announced $35 cash consideration was wide enough to imply substantial break risk, while cash, earnings, and a possible alternative bidder may provide a better standalone floor than a typical merger arbitrage failure.",
+      "catalyst": "Israeli approval of the golden-share transfer, regulatory progress, and any updated closing guidance.",
+      "invalidation": "Government rejection, financing or regulatory failure, a collapse in freight rates, or evidence that standalone value is materially below the estimated floor.",
+      "status": "Binary · small size"
+    },
+    {
+      "ticker": "IBRX",
+      "company": "ImmunityBio",
+      "filed": "2026-08-22",
+      "decision": "watch / defined risk",
+      "method": "Clinical catalyst",
+      "expression": "Defined-risk long exposure only",
+      "thesis": "A stacked clinical and regulatory catalyst calendar can create upside, but the valuation, short interest, ownership concentration, and regulatory history make this a binary event rather than a conventional compounder long.",
+      "catalyst": "BCG-naive NMIBC data expected around Q4 2026–Q1 2027 and the January 6, 2027 regulatory decision cited in the source research.",
+      "invalidation": "Weak efficacy or safety data, adverse FDA communication, delayed timelines, or financing dilution.",
+      "status": "Watch · defined risk"
+    }
+  ]
+}

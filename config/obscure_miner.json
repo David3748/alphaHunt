@@ -1,0 +1,21 @@
+{
+  "run_dir": "lab_runs/obscure_miner",
+  "source_cases": "lab_runs/century_safety_source/cases.jsonl",
+  "model": "stealth/ox-alpha",
+  "max_issuers": 1500,
+  "articles_per_query": 10,
+  "documents_for_analysis": 12000,
+  "fetch_concurrency": 12,
+  "discovery_concurrency": 8,
+  "llm_concurrency": 128,
+  "discovery_providers": ["gdelt", "federal_register", "clinical_trials", "openfda_drug", "openfda_device", "news_rss"],
+  "drive_remote": "gdrive:alphaHunt/obscure_miner",
+  "query_families": {
+    "operations": ["contract award", "permit", "plant expansion", "plant closure", "production delay", "supplier", "customer"],
+    "regulatory": ["regulator", "inspection", "warning letter", "license", "environmental", "sanction", "recall"],
+    "innovation": ["patent", "clinical trial", "product launch", "technical documentation", "certification"],
+    "capital": ["lien", "lawsuit", "bankruptcy", "refinancing", "government grant", "procurement"],
+    "labor_local": ["hiring", "layoffs", "local news", "zoning", "construction", "property record"],
+    "counterparty": ["distributor", "supplier disclosure", "customer disclosure", "joint venture", "channel inventory"]
+  }
+}

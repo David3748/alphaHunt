@@ -1,0 +1,52 @@
+<h2><span class="chap">Chapter 6 · Case files</span><br>Two companies tell you what this actually looks like</h2>
+<p>Aggregates hide texture. Here are three names, chosen because each teaches something different.</p>
+
+<h3 style="font-family:Merriweather,serif;color:var(--head);font-size:1.05rem;margin:2.2rem 0 .4rem">Case file № 1 — DT: the one the model got right</h3>
+<p>Signal date February 9, 2026. Digital Ocean, down 46% from its high, scored 26.5 on p(+20%) against a
+21.5 threshold: top-decile conviction with a <code>long_candidate</code> decision. Entered the next session,
+held ninety days: <strong>+11.2% stock vs +6.8% SPY, +4.4% excess.</strong> The only graded winner in the
+lead rule's book. This is what a hit looks like: modest, fast, unremarkable. Most winning trades look like this;
+the fantasy version looks like the next case.</p>
+<figure>
+<svg id="chart-dt" class="chart" role="img" aria-label="DT price around its signal window"></svg>
+<figcaption><b>DT, entry → exit shaded.</b> The signal fired into continued weakness; the thesis was
+that the sell-off overshot the fundamentals. It did, barely — +4.4 points of excess is a rounding error
+away from nothing, which is what most real edge looks like at 90-day scale.</figcaption>
+</figure>
+
+<h3 style="font-family:Merriweather,serif;color:var(--head);font-size:1.05rem;margin:2.2rem 0 .4rem">Case file № 2 — WIX: the one that got away, badly</h3>
+<p>March 5, 2026. Wix, −58% from its high, score 27.0, model decision <code>long_candidate</code>.
+Third-highest conviction name in the book. Ninety days later: <strong>−42.8% stock vs +12.9% SPY,
+for −55.7 points of excess.</strong> This is what it means when people say single-name risk dwarfs ranking skill:
+the best-laid read on a quality franchise, timed one leg of a falling knife too early. Seven graded trades,
+one winner, mean −35%. The rule will live or die on the accumulating sample, not on either anecdote.
+But anecdotes are why position sizing exists.</p>
+<figure>
+<svg id="chart-wix" class="chart" role="img" aria-label="WIX price around its signal window"></svg>
+<figcaption><b>WIX, entry → exit shaded.</b> Bought the dip; the dip was load-bearing. Note the model
+saw genuine fundamentals here — the failure wasn't hallucination, it was timing plus a market that paid
+only for momentum that quarter.</figcaption>
+</figure>
+
+<h3 style="font-family:Merriweather,serif;color:var(--head);font-size:1.05rem;margin:2.2rem 0 .4rem">Case file № 3 — PRCT: the document nobody reads</h3>
+<p>A parallel crawler mined obscure public sources — GDELT, the Federal Register, ClinicalTrials.gov,
+openFDA — over issuers from the scored universe. Of 11,873 documents analyzed, an analyst→skeptic→consensus
+gate rejected 88%, kept 1,438 watches, and passed exactly <strong>one</strong> long candidate: PROCEPT
+BioRobotics, flagged via a November 2019 Federal Register rule (1.9 million characters of routine Medicare
+payment policy. The consensus record refused to trust the excerpt and demanded verification, so I pulled the
+full text:</p>
+<blockquote>"After consideration of the public comments we received, we believe the AquaBeam System meets
+the cost criterion and we are approving it for device pass-through payment status beginning in CY 2020."
+<cite>CY 2020 OPPS/ASC final rule, FR 2019-24138 — verified word-for-word, August 2026</cite></blockquote>
+<p>Buried reimbursement approval preceding an adoption inflection: the exact pattern the miner hunts,
+recovered end-to-end. Not tradable as history, since the document predates PRCT's IPO. But look where the
+stock went after listing, and where it stands now: down 78% from peak, HYDROS ramping, a prostate-cancer
+readout pending:</p>
+<figure>
+<svg id="chart-prct" class="chart" role="img" aria-label="PRCT price since IPO"></svg>
+<figcaption><b>PRCT since listing (series begins Sep 2021).</b> The 2019 CMS approval the miner surfaced preceded the
+commercial ramp that carried the stock to $99. It now trades at $21 — down 76% — on legacy-account softness,
+with the next-gen system out-utilizing the old fleet per account, strengthened AUA guidelines, WATER IV
+cancer-trial enrollment complete, and adjusted EBITDA guided positive in Q4 2026. The miner's full dossier
+lives in <code>dossiers/PRCT.md</code>.</figcaption>
+</figure>

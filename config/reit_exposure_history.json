@@ -1,0 +1,36 @@
+{
+  "sec": {
+    "user_agent_env": "ALPHAHUNT_SEC_USER_AGENT",
+    "min_interval_seconds": 0.2,
+    "cache_dir": "research/reit_exposure_history/sec_cache"
+  },
+  "issuers": {
+    "Prologis": {
+      "cik": "0001045609",
+      "forms": ["10-K"],
+      "start_date": "2019-01-01"
+    },
+    "Equity Residential": {
+      "cik": "0000906107",
+      "forms": ["10-K"],
+      "start_date": "2019-01-01"
+    }
+  },
+  "city_to_metro": {
+    "Atlanta": "Atlanta",
+    "Baltimore": "Baltimore",
+    "Boston": "Boston",
+    "Chicago": "Chicago",
+    "Dallas": "Dallas-Fort Worth",
+    "Denver": "Denver",
+    "Houston": "Houston",
+    "Los Angeles": "Los Angeles",
+    "Miami": "Miami",
+    "New York": "New York",
+    "Northern Virginia": "Washington DC",
+    "San Diego": "San Diego",
+    "San Francisco": "San Francisco Bay Area",
+    "Seattle": "Seattle",
+    "Washington": "Washington DC"
+  }
+}

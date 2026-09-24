@@ -1,0 +1,8 @@
+{
+  "_comment": "stewardship-gap ATS board map: TICKER -> ATS vendor + board token + human careers URL. board_token drives the LIVE boards-api check (forward-only, NON-PIT). careers_url drives the CDX career-HTML reconstruction (PIT). Tokens are public (embedded in careers pages). Do NOT add JSON-API backfill claims: Greenhouse boards-api / Ashby posting-api are current-state-only.",
+  "_example_TICKER": {
+    "vendor": "greenhouse",
+    "board_token": "examplecorp",
+    "careers_url": "https://example.com/careers"
+  }
+}

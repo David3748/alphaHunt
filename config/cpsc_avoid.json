@@ -1,0 +1,11 @@
+{
+  "note": "research artifact only — no live trading. CPSC fire/burn avoid-list (Theme 1, idea #3). Thresholds configurable here / via CLI; industry map is injected at call time, never stored.",
+  "endpoint": "https://www.saferproducts.gov/RestWebServices/Recall",
+  "note_pull": "full-dump endpoint ignores pagination params; single keyless GET (~27MB/~9966 records). Scratch network pulls belong in /tmp.",
+  "min_units": 10000,
+  "hold_days": 40,
+  "max_single_industry_pct": 0.05,
+  "hazard_pattern": "fire|burn|electrocut|electric\\s*shock|shock\\s*hazard (case-insensitive string match, no LLM)",
+  "snapshot_dir": "data/cpsc_avoid/snapshots",
+  "exclusion_list": "data/cpsc_avoid/cpsc_avoid_exclusion.jsonl"
+}

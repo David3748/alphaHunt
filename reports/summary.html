@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>alphaHunt — Event-Driven Trade Hunt Summary (Aug 21, 2026)</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 880px; margin: 0 auto; padding: 2rem 1.25rem; line-height: 1.55; }
+  h1 { font-size: 1.5rem; border-bottom: 2px solid #8884; padding-bottom: .4rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; }
+  th, td { border: 1px solid #8884; padding: .5rem .65rem; text-align: left; vertical-align: top; }
+  th { background: #88842218; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; background: #88882214; padding: .1em .35em; border-radius: 4px; }
+  pre { padding: .8rem 1rem; overflow-x: auto; }
+  .verdict { border-left: 4px solid #c88; padding: .6rem .9rem; background: #c882; margin: 1rem 0; }
+  .deliverable { border-left: 4px solid #8c8; padding: .6rem .9rem; background: #8c82; margin: 1rem 0; }
+  .muted { color: #888; font-size: .85rem; }
+  .pos { color: #2a7; font-weight: 600; }
+  .neg { color: #c55; font-weight: 600; }
+  .neu { color: #888; font-weight: 600; }
+  ul { padding-left: 1.3rem; }
+</style>
+</head>
+<body>
+
+<h1>alphaHunt — Event-Driven Trade Hunt Summary</h1>
+<p class="muted">Date: August 21, 2026 &nbsp;·&nbsp; Method: SEC EDGAR full-text sweep → primary-filing deal terms → SEC XBRL fundamentals → live price spread math</p>
+
+<h2>The Hunt — Four Event Classes Checked</h2>
+<table>
+  <tr><th>Ticker / Event</th><th>Deal Terms (from filings)</th><th>Math</th><th>Verdict</th></tr>
+  <tr>
+    <td><strong>TECH</strong><br>Merck KGaA cash deal</td>
+    <td>$73.00/sh cash; DEFM14A filed 8/20; vote imminent; close late '26/early '27</td>
+    <td>$72.32 mkt → <span class="pos">+0.94% gross</span>, ~2.4% annualized over 147d</td>
+    <td><span class="neu">Efficient</span> — spread too thin for retail execution</td>
+  </tr>
+  <tr>
+    <td><strong>TBPH</strong><br>Zymeworks + CVR</td>
+    <td>$17.00 cash + non-tradable CVR: 80% monetization proceeds, $50M on first US/EU sale, 10% net sales (10-yr tail)</td>
+    <td>$17.01 mkt trades <em>through</em> the cash leg → market values CVR ≈ $0</td>
+    <td><span class="neg">Thesis killed</span> — ampreloxetine <strong>failed</strong> Phase 3 CYPRESS (Mar 2026); near-zero CVR pricing is rational</td>
+  </tr>
+  <tr>
+    <td><strong>FULC</strong><br>Slate reverse merger (8/17)</td>
+    <td>$31.3M Fulcrum stub (5% of combined co) + $270M aggregate cash dividend; $350M Slate valuation; $245M PIPE; close Q4 '26</td>
+    <td>$301.3M ÷ 76,297,257 shares (SEC XBRL) = <strong>$3.95</strong> vs $3.83 mkt → <span class="pos">~3% spread</span></td>
+    <td><span class="neu">Fairly priced</span> — ~3% for multi-month vote/S-4/PIPE/split risk</td>
+  </tr>
+  <tr>
+    <td><strong>HOWL</strong><br>Ambros reverse merger (8/21)</td>
+    <td>All-stock exchange ratio, no fixed consideration</td>
+    <td>Not computable</td>
+    <td><span class="neu">No arb</span></td>
+  </tr>
+  <tr>
+    <td><strong>TALK</strong><br>UHS acquisition</td>
+    <td>$5.25/sh cash</td>
+    <td>Deal closed 8/17</td>
+    <td><span class="neg">Done</span></td>
+  </tr>
+</table>
+
+<h2>PDUFA / Binary-Event Screen</h2>
+<p>Pipeline names with FDA decisions pending (Pharvaris deucrictibant, Belite tinlarebant, Scholar Rock apitegromab, Cogent bezuclastinib, Immunome varegacestat, Camurus Oclaiz…): all liquid mid/large caps with options markets already pricing the binary. No near-cash micro-cap lottery tickets in the current window.</p>
+
+<div class="verdict">
+  <strong>Verdict:</strong> No mispriced event trade existed in this week's public window across four event classes. Free EV does not sit on public catalysts, and non-public info cannot be legally sourced — the verified answer, not a failure to look.
+</div>
+
+<h2>The Durable Edge — <code>alphahunt</code></h2>
+<div class="deliverable">
+  The manual hunt is now a repeatable tool in this repository:
+  <ul>
+    <li><code>src/alphahunt.py</code> — stdlib-only CLI: EDGAR full-text sweep with deal-bucket triage, Yahoo price feed, SEC XBRL shares lookup, gross/annualized spread math</li>
+    <li><strong>Insider-buy clusters</strong> — <code>insiders &lt;cik&gt;</code>: pulls Form 4s via submissions API, extracts only open-market purchases (transaction code P; excludes option exercises/sales), flags when ≥2 distinct insiders buy within a window</li>
+    <li><strong>Ownership watchlist</strong> — <code>activists --file watchlist.txt</code>: monitors SC 13D/G events for your names (market-wide sweeps aren't possible: EDGAR FTS doesn't index ownership forms and daily index files are access-restricted — verified empirically)</li>
+    <li><code>tests/test_alphahunt.py</code> — 16 regression tests encoding verified findings + Form 4 parsing/cluster logic</li>
+  </ul>
+  <p>Verification: <strong>16/16 tests OK</strong>; live Form 4 fetch+parse confirmed (AAPL, 21d); watchlist monitor live-confirmed.</p>
+  <pre>python3 src/alphahunt.py scan --days 7          # weekly EDGAR event sweep
+python3 src/alphahunt.py spread TICKER 73.00 --close 2027-01-15
+python3 src/alphahunt.py shares 1680581
+python3 src/alphahunt.py insiders 320193        # open-market buy clusters
+python3 src/alphahunt.py activists --file watchlist.txt</pre>
+</div>
+
+<p class="muted">Next "$MOD find" comes from process, not prediction: run <code>scan</code> weekly, verify deal terms in primary filings, and rank spreads before the crowd does. Not investment advice.</p>
+
+</body>
+</html>

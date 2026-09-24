@@ -1,0 +1,60 @@
+{
+  "start_year": 2001,
+  "max_completed_year": 2025,
+  "minimum_training_years": 5,
+  "transaction_cost_bps_per_turnover": 10.0,
+  "nass_bulk_url": "https://www.nass.usda.gov/datasets/qs.crops_20260903.txt.gz",
+  "power_parameters": ["PRECTOTCORR", "T2M_MAX", "T2M_MIN", "T2MDEW", "GWETROOT", "EVPTRNS", "ALLSKY_SFC_SW_DWN"],
+  "crops": {
+    "corn": {
+      "ticker": "corn",
+      "nass_commodity": "CORN",
+      "short_desc_contains": "CORN, GRAIN - YIELD",
+      "stages": {
+        "vegetative": ["05-01", "06-14"],
+        "flowering": ["06-15", "07-31"],
+        "grain_fill": ["08-01", "09-15"]
+      }
+    },
+    "soy": {
+      "ticker": "soy",
+      "nass_commodity": "SOYBEANS",
+      "short_desc_contains": "SOYBEANS - YIELD",
+      "stages": {
+        "vegetative": ["05-15", "06-30"],
+        "flowering_podset": ["07-01", "08-15"],
+        "seed_fill": ["08-16", "09-30"]
+      }
+    },
+    "wheat": {
+      "ticker": "wheat",
+      "nass_commodity": "WHEAT",
+      "short_desc_contains": "WHEAT - YIELD",
+      "stages": {
+        "vegetative": ["03-01", "04-30"],
+        "heading": ["05-01", "06-15"],
+        "grain_fill": ["06-16", "07-31"]
+      }
+    }
+  },
+  "states": {
+    "IA": {"lat": 42.0, "lon": -93.5, "corn": 0.20, "soy": 0.15, "wheat": 0.00, "ndvi_county_fips": "19169"},
+    "IL": {"lat": 40.0, "lon": -89.0, "corn": 0.18, "soy": 0.16, "wheat": 0.00, "ndvi_county_fips": "17113"},
+    "NE": {"lat": 41.5, "lon": -99.8, "corn": 0.13, "soy": 0.09, "wheat": 0.05, "ndvi_county_fips": "31185"},
+    "MN": {"lat": 46.0, "lon": -94.3, "corn": 0.11, "soy": 0.10, "wheat": 0.05, "ndvi_county_fips": "27129"},
+    "IN": {"lat": 40.0, "lon": -86.3, "corn": 0.10, "soy": 0.09, "wheat": 0.00, "ndvi_county_fips": "18007"},
+    "SD": {"lat": 44.4, "lon": -100.2, "corn": 0.08, "soy": 0.07, "wheat": 0.05, "ndvi_county_fips": "46099"},
+    "KS": {"lat": 38.5, "lon": -98.0, "corn": 0.07, "soy": 0.06, "wheat": 0.18, "ndvi_county_fips": "20191"},
+    "OH": {"lat": 40.3, "lon": -82.8, "corn": 0.06, "soy": 0.07, "wheat": 0.00, "ndvi_county_fips": "39037"},
+    "MO": {"lat": 38.5, "lon": -92.5, "corn": 0.04, "soy": 0.08, "wheat": 0.00, "ndvi_county_fips": "29195"},
+    "ND": {"lat": 47.5, "lon": -100.5, "corn": 0.03, "soy": 0.07, "wheat": 0.15, "ndvi_county_fips": "38017"},
+    "AR": {"lat": 35.0, "lon": -92.5, "corn": 0.00, "soy": 0.06, "wheat": 0.00, "ndvi_county_fips": "05093"},
+    "WA": {"lat": 47.4, "lon": -120.7, "corn": 0.00, "soy": 0.00, "wheat": 0.09, "ndvi_county_fips": "53075"},
+    "MT": {"lat": 47.0, "lon": -109.6, "corn": 0.00, "soy": 0.00, "wheat": 0.08, "ndvi_county_fips": "30015"},
+    "OK": {"lat": 35.5, "lon": -97.5, "corn": 0.00, "soy": 0.00, "wheat": 0.08, "ndvi_county_fips": "40047"},
+    "ID": {"lat": 44.2, "lon": -114.4, "corn": 0.00, "soy": 0.00, "wheat": 0.07, "ndvi_county_fips": "16069"},
+    "TX": {"lat": 32.8, "lon": -99.5, "corn": 0.00, "soy": 0.00, "wheat": 0.07, "ndvi_county_fips": "48357"},
+    "CO": {"lat": 39.0, "lon": -105.5, "corn": 0.00, "soy": 0.00, "wheat": 0.06, "ndvi_county_fips": "08063"},
+    "OR": {"lat": 44.0, "lon": -120.5, "corn": 0.00, "soy": 0.00, "wheat": 0.04, "ndvi_county_fips": "41059"}
+  }
+}

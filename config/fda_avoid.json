@@ -1,0 +1,12 @@
+{
+  "note": "research artifact only — no live trading. Thresholds configurable here / via CLI; PIT price+ADV inputs are injected at call time, never stored.",
+  "min_report_date": "2004-01-01",
+  "hold_days": {"drug": 20, "device": 40},
+  "min_price": 3.0,
+  "min_adv_usd": 2000000,
+  "page_limit": 100,
+  "drug_api": "https://api.fda.gov/drug/enforcement.json",
+  "device_api": "https://api.fda.gov/device/enforcement.json",
+  "snapshot_dir": "lab_runs/fda_avoid/snapshots",
+  "exclusion_list": "lab_runs/fda_avoid/fda_avoid_exclusion.jsonl"
+}

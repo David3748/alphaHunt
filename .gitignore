@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Run data: tens of GB of SEC filing packs, LLM outputs, price caches and the
+# DuckDB/blob store. Rebuilt by the pipelines; small summaries live in results/.
+lab_runs/
+research/
+dossiers/
+docs/week-one/qa/
+docs/week-one/cache/
+
+# Web front-ends: dependencies, builds, local hosting state
+node_modules/
+.next/
+dist/
+.wrangler/
+.vinext/
+.npm-cache/
+.openai/
+*.tsbuildinfo
+
+# Local tooling / OS
+.opencode/
+.claude/
+.DS_Store
+
+# Logs and secrets
+*.log
+.env
+.env.*
+*.pem
+*.key
+
+# Stub recreated at the old path by a stale local dev server (site lives in sites/)
+/strategy-site/
+
+# Third-party publications (not ours to redistribute); the report cites them
+reports/assets/uk_rates_charts/*.pdf
+reports/assets/uk_rates_charts/paper_p*.png
+reports/assets/uk_rates_charts/boe_chart4_market_model.png
+reports/assets/uk_rates_charts/uk_policy_forward_curves.png

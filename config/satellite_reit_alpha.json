@@ -1,0 +1,41 @@
+{
+  "start_date": "2010-10-31",
+  "evaluation_start": "2014-01-31",
+  "satellite_evaluation_start": "2011-01-31",
+  "validation_start": "2020-01-31",
+  "transaction_cost_bps_per_turnover": 20.0,
+  "satellite_operational_lag_months": 12,
+  "satellite_last_observed_epoch": 2020,
+  "major_city_count": 10,
+  "relative_value_lookback_months": 60,
+  "relative_value_min_months": 30,
+  "relative_value_smoothing_months": 3,
+  "momentum_lookback_months": 12,
+  "momentum_skip_months": 1,
+  "signal_weights": {
+    "satellite_supply": 0.5,
+    "relative_value": 0.3,
+    "momentum": 0.2
+  },
+  "transaction_currency": "USD-unhedged",
+  "core_universe": ["VNQ", "XRE.TO", "IUKP.L", "VAP.AX", "1343.T"],
+  "country_equity_benchmarks": {
+    "VNQ": "SPY",
+    "XRE.TO": "EWC",
+    "IUKP.L": "EWU",
+    "VAP.AX": "EWA",
+    "1343.T": "EWJ",
+    "C38U.SI": "EWS",
+    "0823.HK": "EWH"
+  },
+  "ghsl_statistics_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_WUP_MTUC_GLOBE_R2025A/V1-0/GHS_WUP_MTUC_GLOBE_R2025A_V1_0_statistics.zip",
+  "instruments": {
+    "VNQ": {"country": "United States of America", "label": "United States", "kind": "REIT ETF", "fx": null, "fx_mode": "none"},
+    "XRE.TO": {"country": "Canada", "label": "Canada", "kind": "REIT ETF", "fx": "CAD=X", "fx_mode": "divide"},
+    "IUKP.L": {"country": "United Kingdom", "label": "United Kingdom", "kind": "property ETF", "fx": "GBPUSD=X", "fx_mode": "multiply"},
+    "VAP.AX": {"country": "Australia", "label": "Australia", "kind": "property ETF", "fx": "AUDUSD=X", "fx_mode": "multiply"},
+    "1343.T": {"country": "Japan", "label": "Japan", "kind": "REIT ETF", "fx": "JPY=X", "fx_mode": "divide"},
+    "C38U.SI": {"country": "Singapore", "label": "Singapore", "kind": "listed REIT proxy", "fx": "SGD=X", "fx_mode": "divide"},
+    "0823.HK": {"country": "China, Hong Kong SAR", "label": "Hong Kong", "kind": "listed REIT proxy", "fx": "HKD=X", "fx_mode": "divide"}
+  }
+}

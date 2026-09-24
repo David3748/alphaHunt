@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>alphaHunt — the current pipeline</title>
+<style>
+:root, .viz-root {
+  color-scheme: light;
+  --surface-1:      #fcfcfb;
+  --plane:          #f9f9f7;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #898781;
+  --grid:           #e1e0d9;
+  --baseline:       #c3c2b7;
+  --border:         rgba(11,11,11,0.10);
+  --series-1:       #2a78d6;
+  --status-good:    #0ca30c;
+  --status-warning: #fab219;
+  --status-critical:#d03b3b;
+  --track:          #cde2fb;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])), :root:where(:not([data-theme="light"])) .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --plane:          #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1:       #3987e5;
+    --status-good:    #0ca30c;
+    --track:          #184f95;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--plane);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 2.5rem 1.25rem 5rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 62rem; margin: 0 auto; }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .4rem; letter-spacing: -0.02em; }
+h2 {
+  font-size: 1.15rem; margin: 3rem 0 .75rem; letter-spacing: -0.01em;
+  padding-bottom: .45rem; border-bottom: 1px solid var(--grid);
+}
+h3 { font-size: .95rem; margin: 1.75rem 0 .5rem; color: var(--text-secondary); }
+p { margin: .7rem 0; color: var(--text-secondary); max-width: 60ch; }
+p.lead { font-size: 1.02rem; color: var(--text-primary); max-width: 62ch; }
+code, .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .85em;
+}
+code { background: var(--surface-1); border: 1px solid var(--border); border-radius: 4px; padding: .1em .35em; }
+pre {
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
+  padding: .9rem 1rem; overflow-x: auto; font-size: .82rem; line-height: 1.55;
+  color: var(--text-primary);
+}
+pre code { background: none; border: none; padding: 0; }
+.sub { color: var(--text-muted); font-size: .85rem; margin-top: 0; }
+
+/* ---- stat tiles ---- */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: .75rem; margin: 1.5rem 0; }
+.tile {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: 10px; padding: .85rem .95rem;
+}
+.tile .label { font-size: .74rem; color: var(--text-muted); letter-spacing: .01em; }
+.tile .value { font-size: 1.65rem; font-weight: 600; line-height: 1.15; margin-top: .15rem; color: var(--text-primary); }
+.tile .note { font-size: .74rem; color: var(--text-secondary); margin-top: .15rem; }
+
+/* ---- stage flow ---- */
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: .35rem; margin: 1.25rem 0; }
+.step {
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
+  padding: .5rem .7rem; min-width: 6.6rem; flex: 1 1 6.6rem;
+}
+.step .n { font-size: .68rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.step .name { font-size: .85rem; font-weight: 600; color: var(--text-primary); }
+.step .what { font-size: .7rem; color: var(--text-secondary); line-height: 1.35; }
+.step.sealed { border-color: var(--status-good); border-width: 2px; }
+.arrow { align-self: center; color: var(--text-muted); font-size: .9rem; }
+
+/* ---- chart ---- */
+figure { margin: 1.25rem 0; }
+figcaption { font-size: .8rem; color: var(--text-muted); margin-top: .6rem; }
+.chart { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+.bar-row, .axis-row { display: grid; grid-template-columns: 13.5rem 1fr 4.2rem; gap: .75rem; align-items: center; }
+.bar-row { position: relative; padding: 3px 0; }
+.bar-row .cat { font-size: .78rem; color: var(--text-secondary); text-align: right; }
+.bar-row.keep .cat { color: var(--text-primary); font-weight: 600; }
+.track { position: relative; }
+.bar {
+  height: 16px; background: var(--series-1);
+  border-radius: 0 4px 4px 0; min-width: 2px;
+}
+.bar-row.keep .bar { background: var(--status-good); }
+.bar-val { font-size: .78rem; color: var(--text-secondary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bar-row.keep .bar-val { color: var(--text-primary); font-weight: 600; }
+.tt {
+  position: absolute; left: 14rem; bottom: 100%; z-index: 5;
+  background: var(--text-primary); color: var(--surface-1);
+  font-size: .74rem; line-height: 1.4; padding: .4rem .55rem; border-radius: 6px;
+  max-width: 22rem; opacity: 0; pointer-events: none; transition: opacity .1s;
+}
+.bar-row:hover .tt, .bar-row:focus-within .tt { opacity: 1; }
+.axis-row { margin-top: .5rem; }
+.axis { border-top: 1px solid var(--baseline); display: flex; justify-content: space-between; }
+.axis span { font-size: .7rem; color: var(--text-muted); font-variant-numeric: tabular-nums; padding-top: .2rem; }
+
+/* ---- tables ---- */
+table { border-collapse: collapse; width: 100%; font-size: .82rem; margin: .9rem 0; }
+th, td { border-bottom: 1px solid var(--grid); padding: .5rem .6rem; text-align: left; vertical-align: top; }
+th { color: var(--text-muted); font-weight: 600; font-size: .74rem; text-transform: uppercase; letter-spacing: .04em; }
+td { color: var(--text-secondary); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr:hover td { background: var(--surface-1); }
+details { margin: .75rem 0; }
+summary { cursor: pointer; font-size: .8rem; color: var(--text-muted); }
+
+/* ---- misc ---- */
+.pill { display: inline-block; font-size: .7rem; font-weight: 600; padding: .1em .55em; border-radius: 99px; border: 1px solid var(--border); }
+.pill.good { color: var(--status-good); }
+.pill.wait { color: var(--text-muted); }
+.pill.warn { color: var(--status-warning); }
+ul { color: var(--text-secondary); max-width: 62ch; padding-left: 1.15rem; }
+li { margin: .3rem 0; }
+.note-box {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-left: 3px solid var(--status-warning); border-radius: 8px;
+  padding: .8rem 1rem; margin: 1.25rem 0;
+}
+.note-box p { margin: .3rem 0; }
+.note-box strong { color: var(--text-primary); }
+footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--grid); font-size: .78rem; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<main>
+
+<h1>alphaHunt — the current pipeline</h1>
+<p class="sub">Generated 2026-08-22 · reflects <code>src/century_pipeline.py</code>, <code>config/century.json</code>, and the completed sealed 2019–2020 run</p>
+
+<p class="lead">
+alphaHunt turns the SEC structured-filing feed into a point-in-time research dataset and
+tests one specific hypothesis: that an LLM reading <em>only</em> what was public at a
+filing's acceptance time can tell apart severely drawn-down companies that are
+<em>safe</em> from those that are not. The pipeline is eight resumable stages behind one
+command, with the trading rule frozen in writing before any model runs and post-signal
+prices held shut until every forecast exists.
+</p>
+
+<h2>Headline: the one completed end-to-end run</h2>
+<p>
+The 2019–2020 sealed validation is the full pipeline executed once, start to finish,
+under a protocol frozen before the universe was built. It is the reference result.
+</p>
+
+<div class="tiles">
+  <div class="tile"><div class="label">Filings screened</div><div class="value">47,007</div><div class="note">7,475 issuers, 2019–2020</div></div>
+  <div class="tile"><div class="label">Eligible cases</div><div class="value">1,713</div><div class="note">3.6% of the population</div></div>
+  <div class="tile"><div class="label">Model calls</div><div class="value">11,991</div><div class="note">8,565 extract · 3,426 synth</div></div>
+  <div class="tile"><div class="label">Trades executed</div><div class="value">60</div><div class="note">188 selected, 128 capacity-skipped</div></div>
+  <div class="tile"><div class="label">T-bill Sharpe</div><div class="value">1.81</div><div class="note">CAGR +53.7% · max DD −14.3%</div></div>
+  <div class="tile"><div class="label">Placebo p</div><div class="value">0.0030</div><div class="note">1,000 random-score draws</div></div>
+</div>
+
+<h2>One command</h2>
+<p>
+Every stage checkpoints to <code>pipeline_state.json</code> and is safe to re-run. Stopping
+and restarting is the normal way to operate it; completed stages are skipped.
+</p>
+<pre><code>./play-century              # prompts for the API key without echoing; never writes it to disk
+./play-century status       # counts + completed stages, no key required
+python3 src/century_pipeline.py play --from-stage extract --through-stage evaluate</code></pre>
+
+<h2>The eight stages</h2>
+
+<div class="flow">
+  <div class="step"><div class="n">1</div><div class="name">enumerate</div><div class="what">SEC bulk ZIPs → filing population</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">2</div><div class="name">resolve</div><div class="what">XBRL dei facts → historical ticker</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">3</div><div class="name">preprice</div><div class="what">pre-signal price screen</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">4</div><div class="name">cases</div><div class="what">anchor filing → evidence pack</div></div>
+</div>
+<div class="flow">
+  <div class="step"><div class="n">5</div><div class="name">extract</div><div class="what">5 quote-grounded lenses</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">6</div><div class="name">synthesize</div><div class="what">2 independent 90-day forecasts</div></div>
+  <div class="arrow">→</div>
+  <div class="step sealed"><div class="n">7</div><div class="name">evaluate</div><div class="what">seal breaks here: prices open</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">8</div><div class="name">archive</div><div class="what">zstd + SHA-256 → Drive</div></div>
+</div>
+<p class="sub">Stage 7 is the only point at which any post-signal price is fetched. Nothing before it can see the future.</p>
+
+<table>
+<thead><tr><th>#</th><th>Stage</th><th>Runs</th><th>Writes</th><th>Completion gate</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td><strong>enumerate</strong></td>
+  <td>DERA financial-statement bulk ZIPs per year/quarter. Keeps <code>10-K / 10-Q / 20-F / 40-F</code> with <code>detail=1</code> and an XBRL instance; dedupes by accession.</td>
+  <td><code>filings.jsonl</code>, <code>enumeration.json</code></td>
+  <td>at least one filing</td></tr>
+<tr><td class="num">2</td><td><strong>resolve</strong></td>
+  <td>Pulls <code>dei</code> trading-symbol and exchange facts out of each XBRL instance — the identifier the filing itself asserted, not a current-listing lookup. Falls back to the instance filename stem.</td>
+  <td><code>symbols.jsonl</code>, <code>symbol_status.json</code></td>
+  <td>—</td></tr>
+<tr><td class="num">3</td><td><strong>preprice</strong></td>
+  <td>Daily bars strictly <em>before</em> the filing date. Applies the eligibility screen, then the 180-day per-issuer cooldown last, so cooldown never depends on a later outcome.</td>
+  <td><code>preprice.jsonl</code>, <code>preprice_status.json</code></td>
+  <td>—</td></tr>
+<tr><td class="num">4</td><td><strong>cases</strong></td>
+  <td>For each eligible filing, fetches SEC submissions history and builds the anchor primary document into a text pack (≤220k chars/filing, ≤700k total). Packs under 2k chars are rejected.</td>
+  <td><code>cases.jsonl</code> in <code>source_dir</code></td>
+  <td><code>case_build_status.json</code> exists</td></tr>
+<tr><td class="num">5</td><td><strong>extract</strong></td>
+  <td>Five specialist lenses per case, structured-output only, every claim carrying an exact quote copied from the supplied text.</td>
+  <td><code>extractions.jsonl</code>, <code>usage_extract.json</code></td>
+  <td>rows == cases × 5 × replicates</td></tr>
+<tr><td class="num">6</td><td><strong>synthesize</strong></td>
+  <td>Two independent long-only researchers read the redundant extractions and forecast 90-day excess return vs SPY. Replicates do not see each other.</td>
+  <td><code>syntheses.jsonl</code>, <code>usage_synthesize.json</code></td>
+  <td>rows == cases × 2</td></tr>
+<tr><td class="num">7</td><td><strong>evaluate</strong></td>
+  <td>Opens outcomes. Scores, applies the causal selection rule, simulates the portfolio under both terminal bounds, runs the sensitivity grid, bootstraps, and the random-score placebo.</td>
+  <td><code>results.json</code>, <code>report.md</code>, <code>sealed_daily_portfolio.csv</code></td>
+  <td><code>results.json</code> exists; locked checks recorded</td></tr>
+<tr><td class="num">8</td><td><strong>archive</strong></td>
+  <td>Zstandard-compresses the durable JSONL/results/protocol, records SHA-256 per file in a manifest, and <code>rclone copy --checksum</code> to the Drive remote. HTTP caches are not archived — they are reconstructible.</td>
+  <td><code>archives/…/manifest.json</code></td>
+  <td>manifest written &amp; uploaded</td></tr>
+</tbody>
+</table>
+
+<h2>What the screen throws away</h2>
+<p>
+Eligibility is the pipeline's most consequential step, and it uses only pre-signal
+information. A case survives when it has ≥120 prior closes, a pre-signal close ≥ $1,
+30-session average dollar volume ≥ $1M, a drawdown from the trailing 370-day high of
+−40% or worse, and no eligible filing from the same issuer in the prior 180 days.
+<strong>Future price availability is deliberately not a condition</strong> — that was the
+survivorship flaw in the earlier experiments this run was built to fix.
+</p>
+
+<figure>
+<div class="chart viz-root">
+  <div class="bar-row" tabindex="0"><div class="cat">No price history</div><div class="track"><div class="bar" style="width:100%"></div></div><span class="bar-val">21,093</span><div class="tt">44.9% of filings. Mostly issuers with no vendor coverage at all — funds, non-traded issuers, and securities whose historical symbol no longer resolves.</div></div>
+  <div class="bar-row" tabindex="0"><div class="cat">Drawdown better than −40%</div><div class="track"><div class="bar" style="width:60.0%"></div></div><span class="bar-val">12,666</span><div class="tt">26.9%. Not in distress at the filing date, so outside the hypothesis being tested.</div></div>
+  <div class="bar-row" tabindex="0"><div class="cat">ADV below $1M</div><div class="track"><div class="bar" style="width:24.0%"></div></div><span class="bar-val">5,055</span><div class="tt">10.8%. Too illiquid to execute the 10%-of-NAV position policy honestly.</div></div>
+  <div class="bar-row" tabindex="0"><div class="cat">Non-US or unknown exchange</div><div class="track"><div class="bar" style="width:21.5%"></div></div><span class="bar-val">4,536</span><div class="tt">9.6%. Vendor exchange is not in the accepted US-listed set.</div></div>
+  <div class="bar-row" tabindex="0"><div class="cat">180-day issuer cooldown</div><div class="track"><div class="bar" style="width:4.6%"></div></div><span class="bar-val">969</span><div class="tt">2.1%. Passed every market test, but the same issuer already produced an eligible signal within 180 days. Applied strictly in filing order.</div></div>
+  <div class="bar-row" tabindex="0"><div class="cat">Under 120 prior closes</div><div class="track"><div class="bar" style="width:2.1%"></div></div><span class="bar-val">449</span><div class="tt">1.0%. Too little pre-signal history to measure a drawdown against.</div></div>
+  <div class="bar-row" tabindex="0"><div class="cat">Unresolved identifier</div><div class="track"><div class="bar" style="width:1.3%"></div></div><span class="bar-val">271</span><div class="tt">0.6%. No usable filing-native ticker from either the dei facts or the instance stem.</div></div>
+  <div class="bar-row" tabindex="0"><div class="cat">Price below $1</div><div class="track"><div class="bar" style="width:1.2%"></div></div><span class="bar-val">255</span><div class="tt">0.5%. Sub-dollar names are excluded before any model sees them.</div></div>
+  <div class="bar-row keep" tabindex="0"><div class="cat">✓ Eligible → case built</div><div class="track"><div class="bar" style="width:8.1%"></div></div><span class="bar-val">1,713</span><div class="tt">3.6%. Every one of these became an evidence pack with zero build failures.</div></div>
+  <div class="axis-row"><div></div><div class="axis"><span>0</span><span>21,093 filings</span></div><div></div></div>
+</div>
+<figcaption>Disposition of all 47,007 detailed 2019–2020 filings. One measure, one series; hover or focus any row for the definition. Green marks the surviving cohort and is labeled, so the distinction never rests on color.</figcaption>
+</figure>
+
+<details>
+<summary>Table view</summary>
+<table>
+<thead><tr><th>Disposition</th><th class="num">Filings</th><th class="num">Share</th></tr></thead>
+<tbody>
+<tr><td>No price history</td><td class="num">21,093</td><td class="num">44.9%</td></tr>
+<tr><td>Drawdown better than −40%</td><td class="num">12,666</td><td class="num">26.9%</td></tr>
+<tr><td>ADV below $1M</td><td class="num">5,055</td><td class="num">10.8%</td></tr>
+<tr><td>Non-US or unknown exchange</td><td class="num">4,536</td><td class="num">9.6%</td></tr>
+<tr><td>180-day issuer cooldown</td><td class="num">969</td><td class="num">2.1%</td></tr>
+<tr><td>Under 120 prior closes</td><td class="num">449</td><td class="num">1.0%</td></tr>
+<tr><td>Unresolved identifier</td><td class="num">271</td><td class="num">0.6%</td></tr>
+<tr><td>Price below $1</td><td class="num">255</td><td class="num">0.5%</td></tr>
+<tr><td><strong>Eligible</strong></td><td class="num"><strong>1,713</strong></td><td class="num"><strong>3.6%</strong></td></tr>
+<tr><td>Total</td><td class="num">47,007</td><td class="num">100%</td></tr>
+</tbody>
+</table>
+</details>
+
+<h2>The model layer — seven calls per case</h2>
+<p>
+Each case costs five extraction calls plus two synthesis calls. Nothing in the prompt
+chain contains a price, a date after the cutoff, or an outcome. The evidence is the
+complete anchor primary filing as of its SEC acceptance time.
+</p>
+
+<h3>Five extraction lenses</h3>
+<p>
+Each lens receives a deterministic role-specific excerpt of the pack (term-weighted, so a
+700k-character 10-K still gives the liquidity reader the liquidity pages). All five run
+against the same case and are redundant by design.
+</p>
+<table>
+<thead><tr><th>Lens</th><th>Asked for</th></tr></thead>
+<tbody>
+<tr><td><strong>liquidity</strong></td><td>cash runway, free cash flow, debt and maturities, covenants, dilution capacity, financing dependence</td></tr>
+<tr><td><strong>operations</strong></td><td>revenue and margin direction, backlog quality, demand, customers, unit economics, operating leverage</td></tr>
+<tr><td><strong>catalysts</strong></td><td>specific funded events inside 90–180 days; dated catalysts separated from aspirations</td></tr>
+<tr><td><strong>accounting</strong></td><td>earnings quality, working capital, impairments, internal controls, auditor issues, non-GAAP adjustments</td></tr>
+<tr><td><strong>governance</strong></td><td>incentives, ownership, related parties, litigation, listing risk, management credibility</td></tr>
+</tbody>
+</table>
+<p>
+Every claim must carry a short <strong>exact quote</strong> copied from the supplied text.
+Quotes are re-verified against the source after the call by whitespace-normalized substring
+match; ungrounded claims are dropped rather than repaired. Historically that has accepted
+roughly 64–69% of proposed claims.
+</p>
+
+<h3>Two independent syntheses</h3>
+<p>
+Two long-only researchers read the redundant extractions and each return a structured
+forecast: probability of positive 90-day excess return, probability of +20%, expected excess
+return, a <strong>downside-tail probability</strong>, a decision, thesis, catalyst,
+invalidation condition, and evidence references back to specific claims. Replicates are
+explicitly told not to imitate a presumed consensus.
+</p>
+
+<h3>The score</h3>
+<pre><code>score = -mean(downside_tail_probability_pct across the 2 replicates) / 100</code></pre>
+<p>
+That is the whole ranking signal: <em>safety first</em>. Not upside, not expected return —
+the model's own estimate of how likely the tail is. A case with fewer than two valid
+syntheses is dropped, not imputed.
+</p>
+
+<h2>The frozen rule</h2>
+<p>
+<code>PROTOCOL.md</code> is written into the run directory before the first model call and is
+never rewritten if it already exists. Selection and execution are both fully specified there.
+</p>
+<table>
+<thead><tr><th>Element</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td>Selection</td><td>First 50 scores are warmup and select nothing. After that, accept a case if its score is at or above the <strong>expanding 90th percentile of strictly prior scores</strong> at its timestamp. Only past scores are ever in the threshold.</td></tr>
+<tr><td>Entry</td><td>Next eligible close after SEC acceptance. Same-day only if acceptance was before 16:00; otherwise the following session.</td></tr>
+<tr><td>Sizing</td><td>10% of current NAV per position, maximum 10 concurrent positions. Excess signals are skipped for capacity, not queued.</td></tr>
+<tr><td>Hold</td><td>90 calendar days, marked next-session daily.</td></tr>
+<tr><td>Costs &amp; cash</td><td>25 bp per side; idle cash accrues at the historical 13-week Treasury yield (<code>^IRX</code>).</td></tr>
+<tr><td>Benchmark</td><td>SPY, exposure-matched — the benchmark holds the same average capital exposure the strategy actually ran.</td></tr>
+<tr><td>Delisting</td><td>Two bounds reported side by side: <strong>conservative</strong> marks a terminal price gap to zero, <strong>optimistic</strong> carries the last close forward.</td></tr>
+</tbody>
+</table>
+
+<h2>Evaluation and the locked gates</h2>
+<p>
+Stage 7 is pass/fail against thresholds fixed in advance. It also reports the full
+sensitivity grid — 5 holds × 3 entry delays × 3 cost levels — plus annual cohorts, score
+quintiles, block and trade bootstraps, and a random-score placebo distribution.
+</p>
+<table>
+<thead><tr><th>Locked check</th><th>Threshold</th><th class="num">2019–2020 result</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Executed trades</td><td>≥ 30</td><td class="num">60</td><td><span class="pill good">PASS</span></td></tr>
+<tr><td>T-bill Sharpe</td><td>&gt; 1.0</td><td class="num">1.81</td><td><span class="pill good">PASS</span></td></tr>
+<tr><td>Exposure-matched IR</td><td>&gt; 0.5</td><td class="num">1.27</td><td><span class="pill good">PASS</span></td></tr>
+<tr><td>Max drawdown</td><td>better than −25%</td><td class="num">−14.3%</td><td><span class="pill good">PASS</span></td></tr>
+<tr><td>Positive signal years</td><td>≥ 60% (all, when ≤ 2 years)</td><td class="num">2 of 2</td><td><span class="pill good">PASS</span></td></tr>
+<tr><td>Random-score placebo</td><td>p &lt; 0.05, one-sided</td><td class="num">0.0030</td><td><span class="pill good">PASS</span></td></tr>
+<tr><td>Single-month concentration</td><td>no month &gt; 50% of excess profit</td><td class="num">41.5% (2020-11)</td><td><span class="pill good">PASS</span></td></tr>
+</tbody>
+</table>
+
+<p>Supporting statistics from the same run, none of which were gates:</p>
+<ul>
+<li>HAC excess <em>t</em> = 2.30, two-sided p = 0.021; SPY beta 0.50; annualized regression alpha +32.0%.</li>
+<li>Daily block bootstrap (5,000 draws, 20-session blocks): annualized excess 95% CI [+5.0%, +44.7%]; P(excess ≤ 0) = 0.006.</li>
+<li>Trade bootstrap (10,000 draws): mean trade return 95% CI [+12.9%, +32.2%]; P(mean ≤ 0) = 0.000.</li>
+<li>Trade win rate 71.7%; mean trade +22.1%, median +8.6% — the mean is well above the median, so a few large winners matter.</li>
+<li>Zero terminal history gaps, which is why the conservative and optimistic bounds are identical here.</li>
+</ul>
+
+<div class="note-box">
+<p><strong>Read the result with its limits.</strong> 60 trades over two years, with 2020 supplying
++49.0% CAGR against 2019's +4.1%, is a single favorable regime for a distressed-equity
+long. The pipeline removes the survivorship flaw at the <em>eligibility</em> step, but a
+Yahoo-sourced price layer still under-covers fully delisted securities — that is what the
+21,093 "no price history" rows partly represent, and it is why the two terminal bounds
+exist. This is a validated research signal on an out-of-sample population, not a deployable
+strategy.</p>
+</div>
+
+<h2>Where the run is now</h2>
+<p>
+The same eight stages are running unchanged over <strong>2009–2025</strong> on an Azure VM
+(<code>Standard_B4as_v2</code>, West US 2), started in tmux with the API key held only in
+process environment. A read-only monitor serves counts and log tails on port 8080,
+restricted to the launch IP.
+</p>
+<table>
+<thead><tr><th>Stage</th><th>State</th></tr></thead>
+<tbody>
+<tr><td>Provisioning, ingress lockdown, monitor, tmux launch</td><td><span class="pill good">done</span></td></tr>
+<tr><td>Structured SEC enumeration 2009–2025</td><td><span class="pill good">done · 350,456 filings</span></td></tr>
+<tr><td>Symbol resolution and pre-signal eligibility</td><td><span class="pill good">done · 9,885 eligible</span></td></tr>
+<tr><td>Filing packs, 5 extractors + 2 syntheses per case</td><td><span class="pill good">done · 49,425 + 19,770 calls</span></td></tr>
+<tr><td>Market-relative / Sharpe / HAC / bootstrap / placebo evaluation</td><td><span class="pill good">done · primary failed; p+20, blend, u×d confirmed</span></td></tr>
+<tr><td>Archive to Drive, verify manifest</td><td><span class="pill good">done · 804 MB zstd</span></td></tr>
+<tr><td>Live 2026 forward cohort (local)</td><td><span class="pill good">scored · 996 cases, board below</span></td></tr>
+<tr><td>Delete the VM after obscure-miner completes</td><td><span class="pill wait">pending</span></td></tr>
+<tr><td>2001–2008 filings</td><td><span class="pill warn">out of scope</span></td></tr>
+</tbody>
+</table>
+<p>
+The 2001–2008 gap is deliberate and stated rather than papered over: those filings predate
+XBRL, so there are no <code>dei</code> facts to resolve a filing-native ticker from. Covering
+them needs a historical security master that can map issuers to delisted symbols without
+consulting the present.
+</p>
+
+<h3>Configuration</h3>
+<p><code>config/century.json</code> drives the whole run; concurrency is the main tuning knob.</p>
+<table>
+<thead><tr><th>Key</th><th class="num">Value</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td><code>structured_start_year</code> / <code>end_year</code></td><td class="num">2009 / 2025</td><td>filing population bounds</td></tr>
+<tr><td><code>model</code></td><td class="num">stealth/ox-alpha</td><td>via OpenRouter, structured outputs</td></tr>
+<tr><td><code>llm_concurrency</code></td><td class="num">256</td><td>parallel extraction/synthesis calls</td></tr>
+<tr><td><code>resolve</code> / <code>price</code> / <code>filing</code> / <code>outcome</code> concurrency</td><td class="num">12 / 24 / 8 / 24</td><td>throttled against SEC and the price vendor</td></tr>
+<tr><td><code>extraction_replicates</code> / <code>synthesis_replicates</code></td><td class="num">1 / 2</td><td>7 calls per case</td></tr>
+<tr><td><code>placebo_draws</code></td><td class="num">250</td><td>raise only for a final deep audit</td></tr>
+<tr><td><code>drive_remote</code></td><td class="num">gdrive:alphaHunt/century_safety</td><td>checksum-verified rclone target</td></tr>
+</tbody>
+</table>
+
+<h2>Live predictions — 2026 forward cohort</h2>
+<p>
+The same pipeline, extended to filings accepted through June 30 2026 and scored locally:
+12,135 enumerated filings produced <strong>996 eligible events</strong>, each run through the
+five lenses and two independent syntheses (~7,000 calls). These are genuine forward
+predictions — no outcome exists yet for most of them. Thresholds are expanding top-decile
+quantiles calibrated causally on every strictly-earlier score from 2009–2025 plus earlier 2026
+cases, so nothing on this page reads its own future.
+</p>
+<table>
+<thead><tr><th>Rule</th><th class="num">Signals</th><th>Spread</th><th class="num">Median score</th></tr></thead>
+<tbody>
+<tr><td><code>p_plus20</code></td><td class="num">12</td><td>Feb–Jun, concentrated Feb/May</td><td class="num">24.0</td></tr>
+<tr><td><code>upside × drawdown</code></td><td class="num">34</td><td>Feb–Jun</td><td class="num">12.3</td></tr>
+<tr><td><code>causal blend</code></td><td class="num">29</td><td>Feb–Jun</td><td class="num">122.2</td></tr>
+</tbody>
+</table>
+<h3>The p+20 dozen</h3>
+<table>
+<thead><tr><th>Ticker</th><th>Cutoff</th><th class="num">Score (thr)</th><th class="num">Drawdown</th><th>Model decision</th></tr></thead>
+<tbody>
+<tr><td class="mono">RCKT</td><td>2026-02-26</td><td class="num">36.0 (21.0)</td><td class="num">−59%</td><td><span class="pill warn">watch</span></td></tr>
+<tr><td class="mono">VRDN</td><td>2026-05-05</td><td class="num">29.5 (21.0)</td><td class="num">−58%</td><td><span class="pill warn">watch</span></td></tr>
+<tr><td class="mono">WIX</td><td>2026-03-05</td><td class="num">27.0 (21.0)</td><td class="num">−58%</td><td><span class="pill good">long candidate</span></td></tr>
+<tr><td class="mono">DT</td><td>2026-02-09</td><td class="num">26.5 (21.5)</td><td class="num">−46%</td><td><span class="pill good">long candidate</span></td></tr>
+<tr><td class="mono">REPL</td><td>2026-02-03</td><td class="num">24.5 (21.5)</td><td class="num">−51%</td><td><span class="pill warn">watch</span></td></tr>
+<tr><td class="mono">ZG</td><td>2026-05-06</td><td class="num">24.5 (21.0)</td><td class="num">−49%</td><td><span class="pill good">long candidate</span></td></tr>
+<tr><td class="mono">FMC</td><td>2026-02-27</td><td class="num">23.5 (21.0)</td><td class="num">−66%</td><td><span class="pill warn">watch</span></td></tr>
+<tr><td class="mono">IMRX</td><td>2026-03-06</td><td class="num">23.0 (21.0)</td><td class="num">−46%</td><td><span class="pill good">long candidate</span></td></tr>
+<tr><td class="mono">ALDX</td><td>2026-05-07</td><td class="num">23.0 (21.0)</td><td class="num">−70%</td><td><span class="pill warn">watch</span></td></tr>
+<tr><td class="mono">INTU</td><td>2026-02-26</td><td class="num">22.0 (21.0)</td><td class="num">−53%</td><td><span class="pill good">long candidate</span></td></tr>
+<tr><td class="mono">GWRE</td><td>2026-06-05</td><td class="num">22.0 (21.0)</td><td class="num">−42%</td><td><span class="pill good">long candidate</span></td></tr>
+<tr><td class="mono">OMEX</td><td>2026-05-12</td><td class="num">21.0 (21.0)</td><td class="num">−72%</td><td><span class="pill warn">watch</span></td></tr>
+</tbody>
+</table>
+<p>
+All three rules converge on the same leaders — RCKT, VRDN, WIX, DT — which is rule agreement
+rather than rule noise. The February signals already have matured 90-day windows; materializing
+their outcomes is the first true out-of-sample check of the confirmed century rules.
+Full detail: <code>lab_runs/live_2026/predictions_board.md</code>,
+<code>predictions.json</code>, built by <code>src/live_predictions.py</code>. The companion
+<a href="miner.html">obscure-source miner page</a> covers non-filing evidence.
+</p>
+
+<h2>Where the results live afterward</h2>
+<p>
+JSONL is the run record; the bitemporal store in DuckDB is the queryable dataset.
+<code>src/sealed_safety_ingest.py</code> and <code>comprehensive_lab.py ingest</code> move
+cases, grounded claims, analyses, predictions, outcomes, and the backtest into
+<code>research/alphahunt.duckdb</code>, with large payloads as SHA-256 content-addressed
+blobs under <code>research/blobs/</code> and a Parquet mirror in <code>research/parquet/</code>.
+</p>
+<p>
+Every knowledge-bearing row separates <code>effective_at</code> (when the fact applies),
+<code>available_at</code> (when a market participant could know it), and
+<code>system_from</code> (when this database recorded it). Every prediction points at an
+immutable content-addressed input manifest, and a manifest <em>rejects</em> any document
+whose <code>available_at</code> is later than the prediction's knowledge time. That is the
+mechanism that makes a walk-forward backtest checkable rather than merely intended —
+the integrity validator re-hashes every blob and audits for manifest lookahead directly.
+</p>
+
+<h2>Key files</h2>
+<table>
+<thead><tr><th>Path</th><th>Role</th></tr></thead>
+<tbody>
+<tr><td><code>play-century</code></td><td>launcher; reads the key without echoing and never persists it</td></tr>
+<tr><td><code>src/century_pipeline.py</code></td><td>stage orchestration, state, verification gates, archive</td></tr>
+<tr><td><code>src/sealed_safety.py</code></td><td>stages 1–4: enumerate, resolve, preprice, build cases</td></tr>
+<tr><td><code>src/comprehensive_lab.py</code></td><td>stages 5–6: lens prompts, schemas, quote grounding, ingestion</td></tr>
+<tr><td><code>src/sealed_safety_eval.py</code></td><td>stage 7: outcomes, causal selection, portfolio sim, gates</td></tr>
+<tr><td><code>src/temporal_store.py</code></td><td>bitemporal DuckDB schema, manifests, validator, Parquet export</td></tr>
+<tr><td><code>src/pipeline_monitor.py</code></td><td>read-only HTTP progress monitor for a live run</td></tr>
+<tr><td><code>lab_runs/&lt;run&gt;/PROTOCOL.md</code></td><td>the frozen rule for that run; write-once</td></tr>
+<tr><td><code>CENTURY_RUNBOOK.md</code> · <code>PROGRESS.md</code></td><td>operations and the running handoff log</td></tr>
+</tbody>
+</table>
+
+<footer>
+Built from the repository as of 2026-08-24. Numbers on this page come from
+<code>lab_runs/sealed_safety/</code> (<code>results.json</code>, <code>preprice_status.json</code>,
+<code>enumeration.json</code>, <code>usage_*.json</code>), <code>config/century.json</code>,
+the century evaluation on the VM monitor, and <code>lab_runs/live_2026/</code>
+(<code>predictions.json</code>, <code>syntheses.jsonl</code>).
+</footer>
+
+</main>
+</body>
+</html>

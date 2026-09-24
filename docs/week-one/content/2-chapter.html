@@ -1,0 +1,79 @@
+<h2><span class="chap">Chapter 2 · The machine</span><br>Eight stages from raw SEC bytes to a graded prediction</h2>
+<p>The failures and the wins come later. First the machine itself, because the pipeline <em>is</em>
+the result: everything below executes as eight resumable stages, and every stage caches its output
+per-item. Interrupt a run and it picks up where it stopped, recomputing nothing, re-billing nothing.
+Here is the whole machine:</p>
+
+<figure>
+<svg id="chart-pipeline" class="chart" role="img" aria-label="Eight-stage pipeline diagram"></svg>
+<figcaption><b>Figure 2 — the century pipeline.</b> Stages 1–4 are pure data engineering against SEC
+servers; stage 5–6 are the model layer (~7 calls per event); stages 7–8 grade and freeze the record.
+Row counts shown are the actual century-run totals.</figcaption>
+</figure>
+
+<h3 style="font-family:Merriweather,serif;color:var(--head);font-size:1rem;margin:1.8rem 0 .4rem">Stages 1–4: building a universe that couldn't have been cherry-picked</h3>
+<p><strong>① Enumerate.</strong> The SEC publishes structured XBRL datasets quarterly. Every 10-K,
+10-Q, 20-F, and 40-F from 2009–2025 lands here: <strong>350,456 filings from 15,387 issuers</strong>,
+each carrying its acceptance timestamp to the second. No vendor lists, no "companies that exist today" —
+the population is whatever the regulator received.</p>
+<p><strong>② Resolve symbols.</strong> Filings don't contain tickers by default, so each filing's own
+XBRL instance is parsed for its <code>dei:TradingSymbol</code> fact — the ticker <em>that filing claimed
+at that moment</em>, which is how delisted-and-renamed companies stay reachable. 25,343 issuer/stem regimes
+resolved; anything unresolvable is discarded rather than guessed.</p>
+<p><strong>③ Preprice.</strong> Every symbol gets a 370-day daily price history ending at each filing's
+date. Then the eligibility gates bite: US-listed exchange, ≥120 prior closes, price ≥ $1, 30-day average
+dollar volume ≥ $1M, drawdown ≤ −40% from the one-year high, and one signal per issuer per 180 days.
+Note what's <em>not</em> a gate: any future outcome. Companies that later went bankrupt remain fully
+eligible — their filings just also tend to lack liquid histories, which the funnel shows honestly.</p>
+<p><strong>④ Build cases.</strong> Each eligible filing becomes an evidence pack: the primary document's
+text (up to ~220k characters), plus exact acceptance metadata, frozen into a content-addressed case.
+The model will never see anything but this snapshot.</p>
+
+<figure>
+<svg id="chart-funnel" class="chart" role="img" aria-label="Universe construction funnel"></svg>
+<figcaption><b>Figure 3 — where 350,456 filings become 9,885 events (2.8%).</b> Each bar is a rejection
+reason in the century run. The two largest cuts — missing price history and the drawdown gate itself —
+are exactly where dead and foreign companies live, which is why this page never counts them as near-misses.
+The drawdown gate itself removes 92,331 healthy-looking filings; cooldown dedupes repeat signals.</figcaption>
+</figure>
+
+<h3 style="font-family:Merriweather,serif;color:var(--head);font-size:1rem;margin:1.8rem 0 .4rem">Stages 5–6: the model layer — five specialists and a skeptic-by-construction synthesis</h3>
+<p><strong>⑤ Extract.</strong> Each case is read five times, once per lens, each seeing a different
+60,000-character window chosen by keyword targeting (the liquidity lens sees cash-runway language;
+governance sees director-dealing and listing-risk language). Every claim must carry an <em>exact verbatim
+quote</em>, verified programmatically against the source text. Ungrounded claims survive in the audit
+trail but are stripped before any downstream use. Grounding rates ran 65–75% depending on lens.</p>
+<p><strong>⑥ Synthesize.</strong> Two independent synthesis calls consume <em>only</em> the structured
+lens outputs — never raw text — and must emit calibrated fields: probability of beating SPY by 20%+ over
+90 days, probability of any positive excess, expected excess, downside-tail probability, a decision label,
+and thesis/catalyst/invalidation narratives. Independence matters: replicate disagreement gets measured
+instead of averaged away, which is how I know the score spread isn't noise-free theater.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(8.2rem,1fr));gap:.6rem;margin:1.4rem 0 .4rem">
+<div class="stat"><b style="font-size:.95rem">Liquidity</b><span>cash runway, debt maturities, covenants, dilution capacity · grounding 70%</span></div>
+<div class="stat"><b style="font-size:.95rem">Operations</b><span>margins, backlog, demand, unit economics · grounding 75%</span></div>
+<div class="stat"><b style="font-size:.95rem">Catalysts</b><span>funded, dated events within 90–180 days vs aspirations · grounding 68%</span></div>
+<div class="stat"><b style="font-size:.95rem">Accounting</b><span>earnings quality, restatements, auditor signals, recognition risk · grounding ~72%</span></div>
+<div class="stat"><b style="font-size:.95rem">Governance</b><span>incentives, related parties, litigation, listing risk · grounding 65%</span></div>
+</div>
+
+<h3 style="font-family:Merriweather,serif;color:var(--head);font-size:1rem;margin:1.8rem 0 .4rem">Stages 7–8: grading under oath</h3>
+<p><strong>⑦ Evaluate.</strong> Entry is the first tradable close <em>after</em> the SEC acceptance
+timestamp (same-day only if accepted before market close); exit is 90 calendar days later; costs are
+25bp per side; idle cash earns the 13-week T-bill yield; the benchmark is exposure-matched SPY
+(tuned to what the book actually holds, so style bets earn no phantom credit).
+Selection uses expanding top-decile thresholds computed only from strictly-earlier scores. Significance
+comes from month-blocked placebos: 500 shuffles that preserve exactly when signals could fire while
+destroying what the scores said.</p>
+<p><strong>⑧ Archive.</strong> Every artifact compresses into a checksummed manifest and syncs to cold
+storage: 4 GB of raw runs becomes 804 MB of zstd archives. Any number on this page can be regenerated
+from those archives byte-for-byte.</p>
+
+<figure>
+<svg id="chart-clock" class="chart" role="img" aria-label="Causality timeline"></svg>
+<figcaption><b>Figure 4 — the causality contract for a single event.</b> The manifest freezes at
+acceptance time; entry waits for the next close; grading waits ninety days; placebos can only shuffle
+scores among events that shared the same calendar. Nothing in the chain can see rightward.</figcaption>
+</figure>
+
+<p>That's the machine. What I did with it first was mostly embarrassing.</p>

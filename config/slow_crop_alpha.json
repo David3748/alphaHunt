@@ -1,0 +1,23 @@
+{
+  "evaluation_start": "2006-01-01",
+  "information_lag_weeks": 4,
+  "weather_level_weeks": 12,
+  "weather_trajectory_weeks": 4,
+  "rv_lookback_weeks": 156,
+  "rv_min_weeks": 78,
+  "rv_smoothing_weeks": 13,
+  "carry_source_url": "https://www.ers.usda.gov/media/6498/input-data-csv-file.csv?v=11049",
+  "carry_min_days_to_expiry": 28,
+  "carry_vol_lookback_weeks": 156,
+  "carry_vol_min_weeks": 78,
+  "carry_smoothing_weeks": 13,
+  "carry_overlay_weight": 0.25,
+  "yield_max_age_weeks": 26,
+  "transaction_cost_bps_per_turnover": 10.0,
+  "contract_roll_cost_bps": 2.0,
+  "weather_overlay_weight": 0.25,
+  "yield_overlay_weight": 0.25,
+  "weather_conflict_haircut": 0.75,
+  "stress_scale": 1.5,
+  "holdout_start": "2021-01-01"
+}

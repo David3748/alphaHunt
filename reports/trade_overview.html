@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>alphaHunt — Primary-Source Trade Research Overview</title>
+<style>
+  :root{
+    --bg:#0d1117; --card:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+    --green:#3fb950; --red:#f85149; --yellow:#d29922; --blue:#58a6ff; --purple:#bc8cff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.55;padding:2rem;max-width:1200px;margin:0 auto}
+  h1{font-size:1.8rem;margin-bottom:.25rem}
+  h2{font-size:1.3rem;margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+  h3{font-size:1.05rem;margin-bottom:.5rem}
+  .sub{color:var(--muted);margin-bottom:2rem}
+  .badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-right:.4rem}
+  .b-green{background:rgba(63,185,80,.15);color:var(--green);border:1px solid rgba(63,185,80,.4)}
+  .b-yellow{background:rgba(210,153,34,.15);color:var(--yellow);border:1px solid rgba(210,153,34,.4)}
+  .b-red{background:rgba(248,81,73,.15);color:var(--red);border:1px solid rgba(248,81,73,.4)}
+  .b-blue{background:rgba(88,166,255,.15);color:var(--blue);border:1px solid rgba(88,166,255,.4)}
+  .b-purple{background:rgba(188,140,255,.15);color:var(--purple);border:1px solid rgba(188,140,255,.4)}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+  .card h3{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem}
+  .ticker{font-family:ui-monospace,Menlo,monospace;color:var(--blue)}
+  .price{font-family:ui-monospace,monospace;color:var(--muted);font-size:.85rem;font-weight:400}
+  table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.88rem}
+  th,td{padding:.45rem .6rem;border:1px solid var(--border);text-align:left;vertical-align:top}
+  th{background:#1c2128;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .label{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin:.9rem 0 .25rem}
+  .priced{background:#1c1a10;border-left:3px solid var(--yellow);padding:.6rem .9rem;border-radius:0 6px 6px 0;margin:.4rem 0;font-size:.9rem}
+  .verdict{background:#0f1c14;border-left:3px solid var(--green);padding:.6rem .9rem;border-radius:0 6px 6px 0;margin-top:.6rem;font-size:.92rem}
+  .verdict.no{background:#1c0f10;border-left-color:var(--red)}
+  .verdict.warn{background:#1c1a10;border-left-color:var(--yellow)}
+  ul{margin:.4rem 0 .4rem 1.2rem}
+  li{margin:.2rem 0}
+  .muted{color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1rem 0}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem}
+  .kpi .n{font-size:1.3rem;font-weight:700;font-family:ui-monospace,monospace}
+  .kpi .l{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  code{background:#1c2128;padding:.1rem .35rem;border-radius:4px;font-size:.85em}
+  .foot{color:var(--muted);font-size:.8rem;margin-top:3rem;border-top:1px solid var(--border);padding-top:1rem}
+</style>
+</head>
+<body>
+
+<h1>alphaHunt — Primary-Source Trade Research</h1>
+<p class="sub">Deep-dive on 14 Hunterbrook-style leads mined from EDGAR, FERC, Federal Register, CourtListener, ClinicalTrials.gov, WARN notices, DoD contracts, muni disclosures & freight data · Compiled Aug 21–22, 2026 · <strong>Not investment advice. Verify everything before trading.</strong></p>
+
+<h2>Scoreboard</h2>
+<table>
+<tr><th>#</th><th>Idea</th><th>Source</th><th>What's priced in?</th><th>Conviction</th></tr>
+<tr><td>1</td><td><span class="ticker">BCPC</span> choline AD/CVD</td><td>Federal Register / USITC</td><td><strong>Nothing.</strong> Zero analyst mentions, 1.7% SI, run is all earnings</td><td><span class="badge b-green">High</span></td></tr>
+<tr><td>2</td><td><span class="ticker">FSLR</span>/<span class="ticker">RUN</span> polysilicon MIP</td><td>Proclamation 11052</td><td>FSLR pop fully round-tripped; RUN distressed but crowded short (27%)</td><td><span class="badge b-green">High</span></td></tr>
+<tr><td>3</td><td><span class="ticker">ZIM</span> $35 Hapag arb</td><td>Deal terms / Israeli politics</td><td>~47% break odds priced — genuine political risk, not neglect</td><td><span class="badge b-green">High</span></td></tr>
+<tr><td>4</td><td><span class="ticker">TEAD</span> v. Google</td><td>S.D.N.Y. docket</td><td>~Zero. Stock below pre-filing price; claim is free</td><td><span class="badge b-yellow">Lottery</span></td></tr>
+<tr><td>5</td><td><span class="ticker">IBRX</span> binary readout</td><td>ClinicalTrials.gov</td><td>Consensus already long (PT +64%); the binary itself is not priced</td><td><span class="badge b-yellow">Event</span></td></tr>
+<tr><td>6</td><td><span class="ticker">FLR</span> LAX dispute</td><td>L.A. Superior Court</td><td>Nothing — but market's right, EV small</td><td><span class="badge b-yellow">Watchlist</span></td></tr>
+<tr><td>7</td><td><span class="ticker">BA</span> bear strap AD</td><td>FAA / Fed Register</td><td>-3.3% one-day, recovered. <strong>No MAX cracks found.</strong> Short thesis weak</td><td><span class="badge b-red">Killed</span></td></tr>
+<tr><td>8</td><td><span class="ticker">GLDD</span> DoD awards</td><td>DoD announcements</td><td><strong>Moot</strong> — acquired by Saltchuk, delisted Apr 1 2026</td><td><span class="badge b-red">Dead</span></td></tr>
+<tr><td>9</td><td><span class="ticker">NCPL</span> SEC fraud</td><td>EDGAR / SEC LR-26607</td><td>-91% already; float worth ~$1M, no borrow, no options</td><td><span class="badge b-red">Unshortable</span></td></tr>
+<tr><td>10</td><td><span class="ticker">V</span>/<span class="ticker">NOW</span> WARN layoffs</td><td>CA EDD</td><td>Everything — subsumed in announced programs, stocks rallied through</td><td><span class="badge b-red">No edge</span></td></tr>
+<tr><td>11</td><td>Brightline→<span class="ticker">SIEGY</span>/<span class="ticker">ALO</span></td><td>EMMA / Fitch</td><td>Exposure immaterial (<0.5% of Siemens group)</td><td><span class="badge b-red">Skip</span></td></tr>
+<tr><td>12</td><td><span class="ticker">JSPR</span>/<span class="ticker">BOLD</span> registry signals</td><td>ClinicalTrials.gov</td><td>Shell pricing only</td><td><span class="badge b-purple">Micro</span></td></tr>
+</table>
+
+<h2>Tier 1 — Actionable Ideas</h2>
+
+<div class="card">
+<h3><span class="badge b-green">Top Pick</span> <span class="ticker">BCPC</span> — Balchem: Choline Chloride AD/CVD vs China <span class="price">$181.28 · 35.7x TTM · 1.7% SI</span></h3>
+
+<div class="label">Thesis</div>
+<p>Balchem's BCP Ingredients unit is the petitioner in AD/CVD cases (701-TA-798 / 731-TA-1794) against Chinese choline chloride with <strong>alleged dumping margins of 73–314%</strong>. ITC voted affirmative preliminary injury Aug 10. Commerce CVD prelim lands ~<strong>Sept 17 – Oct 2026</strong> — the moment cash deposits begin and Chinese imports choke off. The stock trades at all-time highs on earnings momentum with <strong>zero trade-case premium</strong>.</p>
+
+<div class="label">Key facts</div>
+<ul>
+<li>Petition filed Jun 24, 2026 · Commerce initiated Jul 14 (91 FR 45241) · ITC affirmative Aug 10 (91 FR 52349)</li>
+<li>Broad scope: all choline salts ≥30%, feed- AND human-grade, covers third-country processing of Chinese-origin</li>
+<li>Choline sits in Animal Nutrition & Health: $231M sales (22% of co), only 8.1% EFO margin vs 36% gross corporate-wide — the margin-recovery torque</li>
+<li>Illustrative sensitivity: restoring ANH toward corporate margins ≈ $40–60M incremental gross profit ≈ 15–20% EPS uplift</li>
+<li>Only 3 analysts cover; none mention the case. Q2 was a record beat</li>
+</ul>
+
+<div class="priced"><strong>What's priced in:</strong> Nothing of the trade case. The YTD run is fully explained by earnings beats — no step-change around petition/initiation/ITC-vote dates. Short interest falling. The 35x multiple is the real risk: you're paying up for a quality compounder, and the case is a free option on top. Precedent (GSM silicon metal vs China, 2013): re-rating happened at Commerce <em>prelims</em>, not final orders — final orders were sell-the-news.</div>
+
+<div class="label">Catalysts</div>
+<table>
+<tr><th>Date</th><th>Event</th></tr>
+<tr><td>~Sept 17 – Oct 2026</td><td><strong>Commerce CVD prelim</strong> — first cash-deposit trigger, the re-rating moment</td></tr>
+<tr><td>~Dec 1 – Jan 2027</td><td>Commerce AD prelim — second trigger</td></tr>
+<tr><td>~Jun–Jul 2027</td><td>Final orders — <em>exit by here</em>, trade is stale by then</td></tr>
+</table>
+
+<div class="label">Risks</div>
+<ul>
+<li>Negative Commerce prelim terminates the case (but nothing is priced in, so downside is modest)</li>
+<li>Third-country backfill escapes duties (though Chinese-origin processing in 3rd countries is in scope)</li>
+<li>35.7x P/E / 21.8x EV/EBITDA leaves no cushion for a macro de-rate</li>
+<li>Commerce date extensions are routine in NME cases</li>
+</ul>
+
+<div class="verdict"><strong>Trade:</strong> Core long at ~$181 sized as event-driven overlay. Add on affirmative CVD prelim. Stop: close below 200-DMA (~$166) or negative prelim. Scale out before final orders. Optional: sell ~$160 puts to get paid to wait. 1.7% SI = squeeze fuel on an affirmative prelim.</div>
+</div>
+
+<div class="card">
+<h3><span class="badge b-green">Pair Trade</span> <span class="ticker">FSLR</span> / <span class="ticker">RUN</span> — Section 232 Polysilicon MIP <span class="price">FSLR $214.28 · RUN $9.16</span></h3>
+
+<div class="label">Thesis</div>
+<p>Proclamation 11052 (signed Aug 6, published Aug 11, <strong>effective Dec 4, 2026</strong>): minimum import prices of $21/kg polysilicon and $0.38/W modules + 15% on derivatives, with an <strong>anti-stockpiling clause</strong> and grandfathering only for pre-Aug 6 fixed-price contracts. First Solar uses zero polysilicon (CdTe) and sells into a price-floored market — the cleanest winner. Sunrun buys c-Si modules with $15.2B debt and 0.09x interest coverage — the purest loser.</p>
+
+<div class="priced"><strong>What's priced in:</strong> The announcement moved everything, then <strong>fully round-tripped</strong>: FSLR +18.5% to $250 by Aug 7, back to $214 (+1.5% vs pre-announcement) — at <strong>10.2x forward earnings</strong> vs 25–35x in prior protected-market eras, the durable MIP benefit is priced at essentially zero. RUN -41% over 52 weeks with six PT cuts post-announcement — but 27% short interest means the incremental Dec 4 shock (module COGS +15–30%) hits an entity with no margin for error. Cheap ≠ safe; the shorts' squeeze point is Dec 4.</div>
+
+<div class="label">Catalysts</div>
+<ul>
+<li>Aug 24: FSLR class-action lead-plaintiff deadline (overhang clears)</li>
+<li>Aug 26–27: JKS/CSIQ prints (US backlog pricing color)</li>
+<li>Sept–Nov: Commerce implementation guidance, first onshoring-plan approvals; watch import front-running and anti-stockpiling designations</li>
+<li><strong>Dec 4: effective date</strong> — first certification math visible</li>
+<li>Jan–Feb 2027: first post-MIP module ASPs + FSLR Q4 guide = the real re-rating event</li>
+</ul>
+
+<div class="label">Risks</div>
+<ul>
+<li>Grandfathering + onshoring carve-outs + partner-country "equivalent action" deals can gut the remedy (the market's fade takes this seriously)</li>
+<li>Commerce can cut MIPs at discretion (clause 1b)</li>
+<li>Demand destruction from $0.38/W floors hits FSLR volumes too</li>
+<li>Crowded solar shorts (RUN 27%, CSIQ 29%) → prefer puts over naked shorts</li>
+</ul>
+
+<div class="verdict"><strong>Trade:</strong> Long FSLR / short RUN, 1:1 dollar-weighted (RUN via Jan '27 $8 puts given borrow/squeeze risk). Add FSLR on fade toward $200; cover RUN into any Dec 4 squeeze; hold FSLR through Feb 2027 guidance. Satellite: tiny <span class="ticker">DQ</span> long (trades at 0.04x book, below net cash, US price floor behind global poly) — deep-value call option only. Avoid REC Silicon (rights-issue meat grinder).</div>
+</div>
+
+<div class="card">
+<h3><span class="badge b-green">Merger Arb</span> <span class="ticker">ZIM</span> — $35 Hapag-Lloyd Cash Deal <span class="price">$28.25 · $6.75 spread (23.9%)</span></h3>
+
+<div class="label">Thesis</div>
+<p>Definitive all-cash deal at $35 (signed Feb 17, 2026 after bidding war — Hapag $35 beat Maersk $30; later Sakal bid $37.50, rejected). Shareholders approved overwhelmingly. Expected close late 2026. The wide spread prices a genuine political binary: Israel's golden-share transfer to FIMI requires government sign-off, and Netanyahu/Defense Minister Katz publicly urged the deal be scrapped (Hapag's shareholders include Qatar's SWF and Saudi PIF).</p>
+
+<div class="priced"><strong>What's priced in:</strong> At $28.25 with a $24 standalone value, the market prices ~47% break odds. This is <em>risk, not neglect</em> — the July 6 selloff on Katz's statement proves headlines move it ±8%. But the downside is better-cushioned than the spread implies: standalone ZIM just printed Q2 NI +170%, raised FY guidance ($2.0–2.4B EBITDA), holds $2.46B net cash (ex-leases), and a break reopens the special-dividend option. Maersk reportedly has a backup bid.</div>
+
+<div class="label">Catalysts & timeline</div>
+<ul>
+<li>Israeli cabinet decision on golden-share/FIMI structure — THE binary; any softening from Netanyahu/Katz narrows the spread fast</li>
+<li>Q3 earnings (~Nov 18) + CFO flagged board "may declare a dividend based on Q3 results"</li>
+<li>Transpac spot $7,472/FEU and rising — supports Q3/Q4 beats and the standalone floor</li>
+</ul>
+
+<div class="verdict"><strong>Trade:</strong> Long ZIM only (all-cash deal, nothing to hedge). Payoff: +24% on close by year-end vs -15–20% to a rate-supported $22–26 floor on break — positive skew if you assign >55–60% approval odds vs the ~47% priced. Size 2–4% NAV, scale in rather than full size pre-cabinet. Do not underwrite a dividend while the arb is on.</div>
+</div>
+
+<div class="card">
+<h3><span class="badge b-yellow">Lottery Ticket</span> <span class="ticker">TEAD</span> — Teads v. Google Antitrust Damages Suit <span class="price">$0.67 · ~$65M cap</span></h3>
+
+<div class="label">Thesis</div>
+<p>Teads (Outbrain/Teads combination) sued Google/Alphabet (S.D.N.Y., 1:26-cv-06591, filed Aug 3) for Sherman §2 damages, piggybacking on the government's ad-tech liability <em>win</em> (Judge Brinkema, E.D. Va.). Counsel: Kellogg Hansen / John Thorne — the same firm that won the government case. Teads is also in the related MDL (1:21-md-03010). Treble damages on years of suppressed publisher take-rates could plausibly be $1–5B against a $65M market cap.</p>
+
+<div class="priced"><strong>What's priced in:</strong> ~Zero. The filing-day +14.8% pop fully round-tripped; the stock ($0.67) is <strong>below the pre-filing close</strong> ($0.71) because the Aug 6 Q2 miss (revenue -17%, guidance suspended) wiped out the litigation premium. You're getting the claim for free. No options chain exists. Consensus Hold, PT $0.88.</div>
+
+<div class="label">The catch</div>
+<ul>
+<li><strong>Solvency dominates:</strong> $91M cash vs $645M debt, net loss -$529M TTM (incl. impairments), FCF -$46M, Altman Z 0.06, guidance suspended. Company may not survive the 3–7 year litigation timeline</li>
+<li>Realistic payout timeline: MTD denial ~2027 → discovery → trial 2029–31. Interim settlements plausible 2028–30 once MDL pressure builds (Google settled Play Store mid-trial; $1.4B to Texas pre-trial)</li>
+</ul>
+
+<div class="verdict"><strong>Trade:</strong> Size like a call option — assume 100% loss is the base case. 0.5–1% of portfolio max at $0.65–0.70 (below pre-filing price). Add triggers: MTD denial, any Google settlement framework with MDL co-plaintiffs, or a balance-sheet fix extending runway. Exit: distressed equity issuance, going-concern language, debt acceleration. A modest $300–500M settlement would be 5–8x the market cap.</div>
+</div>
+
+<div class="card">
+<h3><span class="badge b-yellow">Binary Event</span> <span class="ticker">IBRX</span> — ImmunityBio Readout Stack <span class="price">$7.79 · $8.3B cap · 32.8% SI</span></h3>
+
+<div class="label">Thesis</div>
+<p>Registry screening (ClinicalTrials.gov) flagged a stacked catalyst chain: pivotal BCG-naive NMIBC CIS trial (n=369, enrollment complete Feb 2026, est. primary completion Sept 30) with topline ~Q4'26–Q1'27, plus a <strong>Jan 6, 2027 PDUFA</strong> for the papillary sBLA. Commercial Anktiva is compounding (+92% Y/Y, 8 straight quarters of growth). The 32.8% short float makes both directions violent.</p>
+
+<div class="priced"><strong>What's priced in:</strong> A lot. YTD +293%; consensus Strong Buy, PT $12.75 (+64%); analysts assume papillary approval AND a competitive BCG-naive dataset. The launch story is in; <em>the binary itself is not</em>. Precedents: Feb '26 data milestone → ~40% single-day pop; Mar '26 FDA warning letter → -21–25% in one day. Rough framing: P(papillary approval) ~75–80%; P(BCG-naive readout supportive enough to file) ~55–60%; payoff ~+40–60% win / -25–35% fail.</div>
+
+<div class="verdict"><strong>Trade:</strong> Long-biased into Q4 but defined-risk: common with a stop, or Jan '27 call spread funded by short-dated puts to mute the FDA-headline tail (warning-letter history + securities class actions = real regulatory-scrutiny risk). Never naked short — squeeze risk. Size small; Soon-Shiong controls 62.9%, convert overhang, dilution history.</div>
+</div>
+
+<h2>Tier 2 — Watchlist</h2>
+
+<div class="card">
+<h3><span class="badge b-yellow">C+/B- Watch</span> <span class="ticker">FLR</span> — LAX People-Mover Dispute <span class="price">$52.42 · +6% YTD</span></h3>
+<p><strong>Fact pattern:</strong> Fluor-led JV (LINXS) sued LAWA Jul 9, 2026 over ~$1B overrun, seeking compensation + 141-day extension tied to a LADWP power shutdown. JV told the court it may have to repay P3 lenders "as soon as this fall" and could become "insolvent and unable to perform." Prior disputes settled for hundreds of millions cumulatively. Hearing: December 2026.</p>
+<div class="priced"><strong>What's priced in:</strong> Nothing — the stock rallied straight through the filing on a Q2 beat ($6.1B new awards, ~$27B backlog, nuclear/X-energy narrative, PTs raised to $65–71). But Fluor is the <em>claimant</em> (potential receivable, not liability), work is ~99% done, and JV ring-fencing limits the adverse case to low-hundreds of $M (~3–5% of market cap). The market's "expected value is small" read is probably right.</div>
+<div class="verdict warn"><strong>Trade:</strong> Do nothing directional. Optional: small long (0.5–1%) ahead of the December hearing/settlement with positively-skewed payoff. Watch: fall lender-repayment trigger, Q3 print (early Nov) for LAX reserve language, Dec hearing. Do not short — you'd be fading a beat-and-raise nuclear/AI beneficiary.</div>
+</div>
+
+<div class="card">
+<h3><span class="badge b-purple">Structural Pair</span> <span class="ticker">BA</span> / <span class="ticker">EADSY</span> — Bear Strap AD (Thesis Killed on the Merits)</h3>
+<p><strong>Deep-dive finding:</strong> The FAA AD (91 FR 50698, effective Sept 10) is a <em>precautionary extension of a known 737NG fatigue issue</em> into the MAX fleet. <strong>Zero cracks have been found on any MAX.</strong> The "whole production run defective" claim was speculative headline-spinning; Boeing is already fixing the root cause in production. Cost: ~$40K fleetwide initial. Compliance triggers are 3,000–30,000 flight cycles — years away for most jets. The Aug 6 dip (-3.3%) recovered in a day; the subsequent slide was the Apache grounding and SPEEA strike vote.</p>
+<div class="priced"><strong>What's priced in:</strong> Everything relevant. Door-plug comparison is a category error (-3% one-day vs -20–25% drawdown + production cap + $24B raise). BA is consensus Buy, PT $274 (+28%), ~0% short interest. MAX 7 certified Aug 3; production approved at 47/mo targeting 53/mo.</div>
+<div class="verdict warn"><strong>Trade:</strong> Do not short BA on the bear strap. If you want tail convexity: small Jan/Jun '27 200/170 put spread (≤0.5% NAV) covering the first-inspection-findings window (late 2026–H1'27) — lottery-ticket, close early on clean findings. The honest expression is the structural pair: long EADSY / short BA on execution/earnings-quality gap (+14% vs -5% over 1Y, predates the AD). Watch SPEEA resolution first.</div>
+</div>
+
+<div class="card">
+<h3><span class="badge b-purple">Micro-Caps</span> <span class="ticker">JSPR</span> / <span class="ticker">BOLD</span> — Registry-Screened Situations</h3>
+<p><strong>JSPR ($0.72):</strong> Ph2 CSU dataset (n=87) completed Jul 8, still unpublished 6+ weeks later, mid rescue-merger with Kira Pharma. Prior two data drops: -60% and -55%. Silence reads as mediocre, not suppressed-positive (P ~65% mixed/shelved). Lottery-ticket long only, sized to zero; no short (14.7% SI, squeeze territory).<br><br>
+<strong>BOLD ($3.00):</strong> Reverse-merger arb into Serapha Bio with $230M PIPE; cash/share $3.19 > stock price, negative EV. Kevin Tang buying at $2.42–2.54. P(deal closes) ~80%. Buy weakness toward $2.40–2.60 (~85% of cash backing), hold for dividend terms, never chase above ~$3.20 — the ceiling is arb math, not sentiment.</p>
+</div>
+
+<h2>Killed / No Trade — Honest Verdicts</h2>
+
+<div class="card">
+<h3><span class="badge b-red">Moot</span> <span class="ticker">GLDD</span> — Acquired & Delisted</h3>
+<p>The DoD/USACE award lead died on verification: GLDD was acquired by Saltchuk at $17.00/share and delisted <strong>April 1, 2026</strong> — the thesis already paid out to whoever held it. The surviving public dredge name, Orion (<span class="ticker">ORN</span>, $9.27), is the opposite setup: 42x forward earnings for a GAAP loss-making quarter, -24% post-print, PTs still being cut. The theme is late-stage, not early. If interested, wait for post-Q3 capitulation ($7.50–8.50 zone) rather than catching the knife.</p>
+</div>
+
+<div class="card">
+<h3><span class="badge b-red">Unshortable</span> <span class="ticker">NCPL</span> — Live SEC Fraud, No Expression</h3>
+<p>The fraud is real and severe: ~$14M forged-contract revenue (~345% overstatement), auditor-initiated resignation, non-reliance 8-K, SEC seeking officer-and-director bars (SEC v. Fanning, D. Mass.). But the stock is $0.24 with a <strong>$1.87M market cap and ~$1.05M float value</strong> — no practical borrow, no options chain, already -91% from highs. Maximum remaining short-side gain is $0.24/share against reverse-split/squeeze upside. Verdict: thesis correct, expression infeasible. Do not own; exit if held.</p>
+</div>
+
+<div class="card">
+<h3><span class="badge b-red">No Edge</span> <span class="ticker">V</span> / <span class="ticker">NOW</span> — WARN Filings Were Stale News</h3>
+<p><strong>Visa:</strong> The 320-person Foster City WARN is administrative follow-through on the 2,600-role restructuring announced <em>with</em> FQ3 earnings Jul 28 — $563M severance already booked, stock at 52-week highs, PTs raised, Ackman long. Zero informational edge. The live variable is the consumer: July retail sales -0.6% (first drop in 9 months), Walmart/TJX warnings — if card-spend keeps rolling into the late-Oct FQ4 print, that's a consumer trade, not a layoffs trade.<br><br>
+<strong>ServiceNow:</strong> Two-wave San Diego cuts (287 CA roles) are 3+ weeks old; stock rallied 7% through them on a beat-and-raise. The real trade, if any, is the late-Oct Q3 print as an AI-efficiency-vs-demand-retrenchment binary at 28x forward — an earnings event, not a WARN signal.</p>
+<div class="verdict no"><strong>Verdict:</strong> Neither WARN supports a trade. Both filings confirmed the method works for finding early signal — but these two were already-disclosed news. (Method validation: the same registry/WARN screens caught Altimmune's readout days early — that one was just too fast to trade.)</div>
+</div>
+
+<div class="card">
+<h3><span class="badge b-red">Skip</span> Brightline Distress → <span class="ticker">SIEGY</span> / <span class="ticker">ALO.PA</span></h3>
+<p>Brightline's distress is real (Fitch CCC→CC, "very high probability" of default, bankruptcy-loan talks, Brightline West $15.5B funding gap) — but the equity transmission is immaterial: Siemens' BLW trainset order is progress-payment, grant-funded, <0.5% of group revenue; Alstom <em>lost</em> the bid and sued to stop it. Zero Brightline mentions in equity coverage because there's nothing to price. The correct instrument is distressed Brightline debt, which isn't a Fidelity equity trade.</p>
+</div>
+
+<h2>Method Notes</h2>
+<div class="card">
+<ul>
+<li><strong>Sources that paid off:</strong> Federal Register (trade cases, FAA ADs, proclamations), CourtListener/RECAP dockets, ClinicalTrials.gov API, EDGAR 8-K items 4.01/4.02, CA EDD WARN data, DoD contract pages, FERC docket service lists, muni press (Bond Buyer).</li>
+<li><strong>Method validation:</strong> The ClinicalTrials.gov screen caught ALT's positive readout days before the press release. The WARN screen found real layoffs but they were subsumed in disclosed programs — primary-source signal still needs a "is this actually new?" check.</li>
+<li><strong>Biggest lesson from this round:</strong> several "nobody's looking" leads died on verification (GLDD delisted, BA cracks nonexistent, V/NOW stale) — that's the process working. The survivors (BCPC, FSLR/RUN, ZIM, TEAD) all share: dated catalyst, verifiable primary source, and a priced-in analysis showing the market either assigns zero or prices the wrong risk.</li>
+<li><strong>Event calendar ahead:</strong> Jackson Hole Aug 27–28 · NVDA earnings Aug 26 · BCPC CVD prelim ~Sept 17–Oct · FSLR class-action deadline Aug 24 · Israeli cabinet on ZIM (TBD) · Dec 4 polysilicon MIP effective · IBRX readout Q4 + Jan 6 PDUFA.</li>
+</ul>
+</div>
+
+<p class="foot">Compiled by 24 research agents across two rounds · Prices as of Aug 21, 2026 close unless noted · All positions carry risk of loss including total loss · This is research, not investment advice · Verify primary sources before acting.</p>
+
+</body>
+</html>

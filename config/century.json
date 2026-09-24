@@ -1,0 +1,20 @@
+{
+  "requested_start_year": 2001,
+  "structured_start_year": 2009,
+  "end_year": 2025,
+  "run_dir": "lab_runs/century_safety",
+  "source_dir": "lab_runs/century_safety_source",
+  "archive_dir": "archives/century_safety",
+  "drive_remote": "gdrive:alphaHunt/century_safety",
+  "model": "stealth/ox-alpha",
+  "resolve_concurrency": 12,
+  "price_concurrency": 24,
+  "filing_concurrency": 8,
+  "llm_concurrency": 256,
+  "outcome_concurrency": 24,
+  "placebo_draws": 250,
+  "extraction_replicates": 1,
+  "synthesis_replicates": 2,
+  "zstd_level": 6,
+  "archive_model_cache": false
+}

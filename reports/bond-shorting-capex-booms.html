@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shorting Bonds During Major Capex Booms — A Historical Analysis</title>
+<style>
+  :root {
+    --bg: #0f1420;
+    --bg2: #151c2c;
+    --card: #1a2234;
+    --card2: #1f2a3f;
+    --ink: #e8ecf4;
+    --muted: #9aa7bd;
+    --accent: #f0a94a;
+    --accent2: #4ade80;
+    --red: #f87171;
+    --blue: #60a5fa;
+    --line: #2a3450;
+    --win: #4ade80;
+    --lose: #f87171;
+    --warn: #f0a94a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO */
+  header.hero {
+    padding: 72px 0 56px;
+    background:
+      radial-gradient(1200px 400px at 20% -10%, rgba(240,169,74,.18), transparent 60%),
+      radial-gradient(1000px 400px at 90% 10%, rgba(96,165,250,.14), transparent 55%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; font-weight: 700; }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.15; margin: 14px 0 14px; letter-spacing: -.02em; }
+  h1 .hl { color: var(--accent); }
+  .sub { color: var(--muted); font-size: 17px; max-width: 760px; }
+  .meta { margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+  /* TOC */
+  nav.toc {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 34px 0 44px;
+    font-size: 14px;
+  }
+  nav.toc b { color: var(--accent); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+  nav.toc ol { margin: 10px 0 0; padding-left: 20px; columns: 2; column-gap: 40px; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  @media (max-width: 700px){ nav.toc ol { columns: 1; } }
+
+  h2 {
+    font-size: 26px; letter-spacing: -.01em; margin: 56px 0 6px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  h2 .num { color: var(--accent); font-size: 15px; font-weight: 800; }
+  h2 .rule { flex: 1; height: 1px; background: var(--line); transform: translateY(-4px); }
+  h3 { font-size: 18px; margin: 26px 0 8px; color: var(--ink); }
+  p { color: var(--ink); }
+  .muted { color: var(--muted); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin: 22px 0;
+  }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 800px){ .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  .stat {
+    background: var(--card2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .stat .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  .stat .v { font-size: 22px; font-weight: 800; margin-top: 4px; }
+  .stat .d { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; }
+  .pill.win { background: rgba(74,222,128,.15); color: var(--win); border: 1px solid rgba(74,222,128,.35); }
+  .pill.lose { background: rgba(248,113,113,.15); color: var(--lose); border: 1px solid rgba(248,113,113,.35); }
+  .pill.mix { background: rgba(240,169,74,.15); color: var(--warn); border: 1px solid rgba(240,169,74,.35); }
+
+  /* CASE STUDY */
+  .case { margin: 34px 0; }
+  .case-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 4px; }
+  .case-head h3 { margin: 0; font-size: 21px; }
+  .case-period { color: var(--muted); font-size: 14px; }
+  .case p { margin: 8px 0; }
+  .case .barlabel { font-size: 13px; color: var(--muted); margin: 14px 0 6px; }
+
+  /* chart wrapper */
+  .chart { margin: 10px 0 4px; }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .chart-caption { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  .legend { font-size: 12px; color: var(--muted); }
+  .legend span { margin-right: 14px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: middle; }
+
+  ul.tight { margin: 6px 0; padding-left: 22px; }
+  ul.tight li { margin: 5px 0; }
+
+  /* table */
+  .tbl-wrap { overflow-x: auto; margin: 18px 0; border: 1px solid var(--line); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 860px; }
+  th { background: var(--bg2); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-size: 11.5px; text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td .verdict { font-weight: 700; }
+
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 18px 0;
+    padding: 4px 0 4px 18px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .lesson { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; margin: 16px 0; }
+  .lesson .n { background: var(--accent); color: #151205; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; }
+  .lesson b { color: var(--ink); }
+
+  .src-list { font-size: 12.5px; color: var(--muted); columns: 2; column-gap: 32px; }
+  .src-list li { margin: 3px 0; }
+  @media (max-width: 700px){ .src-list { columns: 1; } }
+
+  footer { border-top: 1px solid var(--line); margin-top: 64px; padding: 26px 0 40px; color: var(--muted); font-size: 12.5px; }
+  .disclaimer { background: rgba(240,169,74,.07); border: 1px solid rgba(240,169,74,.25); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--muted); margin: 20px 0; }
+
+  @media (max-width: 600px){
+    header.hero { padding: 48px 0 40px; }
+    h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Fixed Income · Historical Analysis</div>
+    <h1>Shorting Bonds During Major <span class="hl">Capex Booms</span></h1>
+    <p class="sub">Seven historical episodes — US railroads, the 1920s, Japan's bubble, telecom fiber, China's build-out, US shale, and today's AI data centers — examined for one question: <em>when capex euphoria peaks, does shorting bonds actually pay? And what kind of bonds?</em></p>
+    <div class="meta">Compiled 31 August 2026 · Sources: NBER, Moody's, S&amp;P, FRED/OECD, BIS, Altman/NYU, Haynes &amp; Boone, Goldman Sachs, Federal Reserve</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <b>Contents</b>
+    <ol>
+      <li><a href="#thesis">The Thesis</a></li>
+      <li><a href="#framework">The Framework: Three Kinds of "Bond Short"</a></li>
+      <li><a href="#railroads">Railroads 1837–1879</a></li>
+      <li><a href="#twenties">The 1920s US Boom</a></li>
+      <li><a href="#japan">Japan 1987–1998</a></li>
+      <li><a href="#telecom">Telecom / Fiber 1996–2002</a></li>
+      <li><a href="#china">China's Build-Out 2003–2015</a></li>
+      <li><a href="#shale">US Shale 2011–2020</a></li>
+      <li><a href="#ai">AI Data Centers 2023–2026</a></li>
+      <li><a href="#compare">Comparison Table</a></li>
+      <li><a href="#lessons">Seven Lessons</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ THESIS ============ -->
+  <section id="thesis">
+    <h2><span class="num">01</span>The Thesis<span class="rule"></span></h2>
+    <div class="card">
+      <p>Capital-expenditure booms are among the most reliable generators of <strong>credit destruction</strong> in financial history. Booms are typically financed at the margin by debt — railroad mortgage bonds in the 1850s, holding-company bonds in the 1920s, convertible and warrant bonds in Japan, junk and high-yield in telecom, LGFV <em>chengtou</em> bonds in China, and HY energy bonds in shale. When the build-out outruns demand, bondholders are the residual losers: defaulted debt is wiped out while equity holders at least get the call option on a turnaround.</p>
+      <p>Yet the historical record is sharply two-sided. The <strong>most obvious short — against government duration — usually fails during the boom itself</strong>, because monetary easing and flight-to-safety dominate at the moment of peak stress. The trade that works is <strong>shorting credit risk in the sectors doing the capex</strong>, or shorting the sovereign only in a narrow window around the <em>terminal rate hike</em> — a window that, in Japan's case, opened roughly nine months <em>after</em> equities peaked.</p>
+      <blockquote>Every boom produces a bond trade that works. The discipline is to pick the instrument — duration, spread, or sector credit — whose loss function matches the boom's structure, and to remember that the biggest bond gains arrive after the bust begins, not before.</blockquote>
+    </div>
+  </section>
+
+  <!-- ============ FRAMEWORK ============ -->
+  <section id="framework">
+    <h2><span class="num">02</span>The Framework: Three Kinds of "Bond Short"<span class="rule"></span></h2>
+    <div class="grid3">
+      <div class="stat">
+        <div class="k">1 · Duration / Rates</div>
+        <div class="v">Shorting the risk-free curve</div>
+        <div class="d">Betting yields rise (prices fall) on government bonds. Only pays while the boom generates overheating that forces <em>terminal</em> hikes — after which central banks cut hard and the short gets annihilated (Japan: 8% → &lt;1%).</div>
+      </div>
+      <div class="stat">
+        <div class="k">2 · Credit Spreads</div>
+        <div class="v">Shorting credit, not rates</div>
+        <div class="d">Betting sector or index spreads widen as leverage-fuelled capex overbuilds. This is where the money actually was: telecom 2000–02, energy 2014–16, AI data-center HY 2025–26.</div>
+      </div>
+      <div class="stat">
+        <div class="k">3 · Sector Credit</div>
+        <div class="v">Shorting the boom's debt</div>
+        <div class="d">Single-name or sub-sector shorts on the issuers doing the capex. Highest alpha, highest risk: requires the boom to end in defaults (WorldCom, Global Crossing, Winstar, E&amp;P filers, LGFVs).</div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:12px;">The telecom episode (1996–2002) is the canonical illustration of why <strong>#1 fails while #2/#3 pay</strong>: from December 2000 to September 2002 the Fed cut from 6.5% to 1.25% and the 10-yr Treasury yield fell from 5.12% to 3.87% — a big loss for a duration short — while the high-yield spread widened to a record 10.24%, telecom spreads to ~21%, and WorldCom's bonds traded at 11–20 cents on the dollar.</p>
+  </section>
+
+  <!-- ============ RAILROADS ============ -->
+  <section id="railroads" class="case">
+    <h2><span class="num">03</span>Railroads 1837–1879<span class="rule"></span></h2>
+    <div class="case-head">
+      <h3>The First Leveraged Infrastructure Boom</h3>
+      <span class="pill mix">Duration short: mixed</span>
+      <span class="pill win">Credit short: strong</span>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>US railroad mileage exploded from 2,818 mi (1840) to 9,021 (1850), 30,626 (1860) and 93,267 (1880). The 1850s alone added 21,605 miles; the 1870s added ~40,000. Financing shifted decisively from equity to debt — railroad mortgage bonds at ~7% coupons, 20–30 year maturities, sold heavily to British and German capital. By 1859 railroad securities outstanding exceeded <strong>$1.1bn</strong>, with ~$700m raised in a single decade; 1880–84 issuance alone hit $2.72bn (~4.8% of GNP).</p>
+        <p>The boom ended in the three great 19th-century panics — each a credit event for bondholders. In the <strong>1837/42 state-default crisis</strong>, canal/state bonds were near-wiped-out as Pennsylvania, Maryland, Indiana, Illinois, Michigan, Mississippi and Louisiana defaulted (four repudiated). In <strong>1857</strong>, high-grade rail yields jumped from 9.6% (Jan) to 11.9% (Oct) as Illinois Central, Reading and others defaulted. In <strong>1873</strong>, Jay Cooke's $100m Northern Pacific 7.3% gold-bond underwriting collapsed with the firm; 89 railroads failed, and by 1875 half of US rail mileage was in receivership. Giesecke et al. estimate <strong>36% of the corporate bond market by par value defaulted within three years</strong>.</p>
+        <p><strong>Verdict:</strong> The great money was shorting <em>default-risk</em> credit — state/canal bonds 1839–42, speculative construction bonds 1857 and 1873 — where losses ran 80–100%. But the aggregate high-grade index only spiked at panic moments (1857: +2.3pp; 1873: +0.6pp, quickly reversed), and yields <em>fell</em> through the 1870s deflationary bust. A broad duration short was marginal; a targeted credit short was superb.</p>
+      </div>
+      <div>
+        <div class="barlabel">High-grade railroad bond yield around the Panic of 1857</div>
+        <div class="chart">
+          <svg viewBox="0 0 420 190" role="img" aria-label="Railroad bond yield 1857-1858">
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#2a3450"/>
+            <text x="40" y="165" fill="#9aa7bd" font-size="11">Jan 1857</text>
+            <text x="300" y="165" fill="#9aa7bd" font-size="11">Dec 1858</text>
+            <polyline points="40,150 190,60 360,160" fill="none" stroke="#f0a94a" stroke-width="2.5"/>
+            <circle cx="40" cy="150" r="4" fill="#f0a94a"/><text x="48" y="145" fill="#e8ecf4" font-size="12">9.6%</text>
+            <circle cx="190" cy="60" r="4" fill="#f87171"/><text x="198" y="55" fill="#f87171" font-size="12">11.9% (Oct)</text>
+            <circle cx="360" cy="160" r="4" fill="#4ade80"/><text x="315" y="178" fill="#e8ecf4" font-size="12">8.8%</text>
+          </svg>
+        </div>
+        <div class="chart-caption">High-grade rail bond yields spiked only at the panic; then fell for a decade of deflation. Shorting duration late was fatal.</div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="stat"><div class="k">Capex peak → panic</div><div class="v" style="font-size:18px;">1872 → 1873</div><div class="d">Yields peaked with/after the panic, not at the construction peak.</div></div>
+          <div class="stat"><div class="k">1873 default wave</div><div class="v" style="font-size:18px;">36%</div><div class="d">of bond par value in default within 3 years.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1920s ============ -->
+  <section id="twenties" class="case">
+    <h2><span class="num">04</span>The 1920s US Boom<span class="rule"></span></h2>
+    <div class="case-head">
+      <h3>An Equity Boom With Calm Bonds — Then a Credit Collapse</h3>
+      <span class="pill lose">Duration short: lost</span>
+      <span class="pill mix">Credit short: early = lost</span>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>The 1920s were a genuine capex boom — but an <strong>equity-financed</strong> one. Electric output rose 228% (1920–30); utility plant book values grew from ~$3bn (1917) to ~$9.4bn (1927); autos trebled 1919–29; building investment hit ~12% of gross national income at the 1927 peak; rail/power/telecom construction totalled ~$20.4bn (1923–29).</p>
+        <p>Bonds, however, did not sell off. Long-term Treasury yields fell from ~5.7% (mid-1920) to ~3.2% (end-1927), rising only ~50bp to ~3.7% (mid-1929) on Fed tightening, then rallying again. Aaa corporates fell from 6.1% (1920) to 4.5% (1928). <strong>Shorting bonds during the boom would have lost money for nearly all of it.</strong> The Baa-vs-Treasury spread did not widen until fall 1930 — after the equity crash — then blew out to &gt;7.5% by May 1932.</p>
+        <p>The wreckage came in the 1930s: defaulted corporate bonds rose from ~$0.5bn (1929) to ~$3.9bn — <strong>~15% of outstandings by 1936</strong>. Railroad defaults went from 0.5% (1931) to 27.9% (1940); industrials in default rose from 2% to 24% of outstandings (1931–34). Over a quarter of domestic bonds issued in the 1920s defaulted in the 1930s. Railroad bond prices fell 30–50% in the 12 months to October 1931. The trade existed — but only for shorts opened <em>after</em> 1929, and it was a credit/deflation trade, not a rates trade.</p>
+        <p><strong>Verdict:</strong> Shorting Treasury duration across 1920–29 failed. Shorting <em>credit</em> only worked from late 1930 — roughly a year after the equity top and driven by default risk plus forced bank selling. Timing mattered more than direction.</p>
+      </div>
+      <div>
+        <div class="barlabel">Long-term Treasury yield path, 1920–1932</div>
+        <div class="chart">
+          <svg viewBox="0 0 420 190" role="img" aria-label="Treasury yield 1920-1932">
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#2a3450"/>
+            <polyline points="40,95 120,110 220,150 300,140 400,158" fill="none" stroke="#f0a94a" stroke-width="2.5"/>
+            <circle cx="40" cy="95" r="4" fill="#f0a94a"/><text x="48" y="90" fill="#e8ecf4" font-size="12">~5.7% '20</text>
+            <circle cx="220" cy="150" r="4" fill="#f0a94a"/><text x="130" y="168" fill="#e8ecf4" font-size="12">~3.2% '27</text>
+            <circle cx="300" cy="140" r="4" fill="#f87171"/><text x="306" y="135" fill="#f87171" font-size="12">3.7% '29</text>
+            <circle cx="400" cy="158" r="4" fill="#4ade80"/><text x="330" y="178" fill="#e8ecf4" font-size="12">~3.2% '32</text>
+            <text x="40" y="20" fill="#9aa7bd" font-size="11">Treasuries rallied most of the decade — a duration short bled.</text>
+          </svg>
+        </div>
+        <div class="chart-caption">Treasury yields fell through the boom; the crash and deflation pushed them lower. The short-side money was in corporate default risk from 1930–31 on.</div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="stat"><div class="k">Corp bonds in default</div><div class="v">$0.5bn → $3.9bn</div><div class="d">1929 → 1936; ~15% of outstandings.</div></div>
+          <div class="stat"><div class="k">Baa–Treasury spread</div><div class="v">7.5%+</div><div class="d">by May 1932, from ~1.4% in 1929.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JAPAN ============ -->
+  <section id="japan" class="case">
+    <h2><span class="num">05</span>Japan 1987–1998<span class="rule"></span></h2>
+    <div class="case-head">
+      <h3>The "Short Too Late" Trap, In Pure Form</h3>
+      <span class="pill mix">JGB short: won a narrow window, then catastrophic</span>
+      <span class="pill lose">Credit short: failed</span>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>Japan's capital formation ran ~30% of GDP through the high-growth era and hit an all-time <strong>38.7% of GDP in 1973</strong> — the highest capex intensity ever recorded in a major economy. The late-1980s bubble was less industrial than financial: equity-linked finance (shares, convertible and warrant bonds) exploded from ¥4tn (1983) to <strong>¥28tn (1989)</strong>, and Japanese firms issued <strong>$435bn of Eurobonds-with-warrants and convertibles in 1986–90</strong> at ultra-low coupons, recycling the proceeds into equities via <em>tokkin</em> funds.</p>
+        <p>The JGB market gave shorters one clean, narrow window. The 10-yr yield rose from 4.80% (Jan 1989) to 5.52% (Dec 1989) as the BOJ hiked from 2.5% to 6.0%, peaking at <strong>8.03% in September 1990</strong>. A short opened at the December 1989 Nikkei peak (38,957) captured ~250bp — roughly 15–18% on a 10-yr. But the yield peak came <em>nine months after</em> the equity peak. Anyone who held the short into 1991 was annihilated as yields collapsed to 5.72% (1991), 3.40% (1993), <strong>1.94% (1997)</strong> and 0.88% (Oct 1998) — an 800bp one-way collapse that dwarfs the 320bp rise that preceded it.</p>
+        <p>Credit shorting failed because of the same force that crushed duration shorts: the BOJ's easing dominated credit risk. Even as the "Japan premium" pushed Japanese banks to pay 100–125bp over LIBOR (Dec 1997) and NPLs reached ¥28–77tn, JGB yields still fell. Central-bank easing trumped credit risk in the pricing of the sovereign curve.</p>
+        <p><strong>Verdict:</strong> A surgical JGB short between late-1989 and mid-1990 worked. Any longer exposure was a disaster. The asymmetry — a ~320bp boom-time rise versus an ~800bp bust-time collapse — is the cleanest warning in this entire study.</p>
+      </div>
+      <div>
+        <div class="barlabel">10-yr JGB yield, 1989–1998</div>
+        <div class="chart">
+          <svg viewBox="0 0 420 190" role="img" aria-label="JGB yield 1989-1998">
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#2a3450"/>
+            <polyline points="40,150 90,150 130,110 170,110 220,160 300,170 380,180" fill="none" stroke="#f0a94a" stroke-width="2.5"/>
+            <circle cx="40" cy="150" r="4" fill="#e8ecf4"/><text x="46" y="145" fill="#e8ecf4" font-size="12">4.8% '89</text>
+            <circle cx="130" cy="110" r="4" fill="#f87171"/><text x="136" y="105" fill="#f87171" font-size="12">8.0% Sep'90</text>
+            <circle cx="380" cy="180" r="4" fill="#4ade80"/><text x="330" y="188" fill="#4ade80" font-size="12">0.88% '98</text>
+            <rect x="40" y="52" width="170" height="22" fill="rgba(74,222,128,.12)" stroke="rgba(74,222,128,.4)" rx="4"/>
+            <text x="50" y="67" fill="#4ade80" font-size="11">Winning short window ~'89–'90</text>
+            <rect x="210" y="52" width="190" height="22" fill="rgba(248,113,113,.12)" stroke="rgba(248,113,113,.4)" rx="4"/>
+            <text x="220" y="67" fill="#f87171" font-size="11">Short annihilation zone →</text>
+          </svg>
+        </div>
+        <div class="chart-caption">The yield peak (~Sep 1990) arrived ~9 months after the Nikkei peak (Dec 1989). Holding past the peak: an 800bp collapse against you.</div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="stat"><div class="k">Capex intensity peak</div><div class="v" style="font-size:18px;">38.7% of GDP</div><div class="d">1973 — world record for a major economy.</div></div>
+          <div class="stat"><div class="k">Yield swing</div><div class="v" style="font-size:18px;">+320 / −800bp</div><div class="d">Rise to peak vs. collapse after — hugely asymmetric.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TELECOM ============ -->
+  <section id="telecom" class="case">
+    <h2><span class="num">06</span>Telecom / Fiber 1996–2002<span class="rule"></span></h2>
+    <div class="case-head">
+      <h3>The Textbook Credit Short</h3>
+      <span class="pill lose">Treasury short: lost</span>
+      <span class="pill win">Telecom credit short: huge winner</span>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>The fiber boom was financed almost entirely by bonds. US telecoms spent <strong>~$444bn on capex from 1996–2001</strong> and carried ~$500bn of debt; ~39 million fiber miles were laid at ~$90bn build cost — <strong>over 97% of it idle</strong>. Telecom was 30–40% of all new high-yield issuance; in the 12 months to June 2000 it was ~70% of all US sub-investment-grade issuance. WorldCom sold an $11.9bn bond in May 2001 and $17bn across 2001–02.</p>
+        <p>Spreads compressed hard through the build phase, then broke. HY spreads began widening steadily from <strong>mid-2000</strong> — before the Nasdaq peak in March 2000's aftermath and before capex topped in 2000–01. The defaults came in waves: Winstar (Apr 2001), Global Crossing (Jan 2002), Adelphia, then <strong>WorldCom — the largest bankruptcy in US history (July 21, 2002), $41bn of debt</strong>, bonds trading at 11–20 cents. Telecom was 55% of default dollars in 2001 and 52% in 2002; the index HY default rate hit a record 12.8% in 2002. HY yield spreads went from ~700–800bp (mid-2000) to <strong>1,010bp (Sep 30, 2002)</strong> and ~2,100bp for telecom itself.</p>
+        <p>Meanwhile the Fed cut from 6.5% to 1.25% and the 10-yr Treasury yield fell from 5.12% to 3.87%. <strong>Shorting Treasuries lost; shorting telecom credit made a fortune</strong> — ~100 cents to 11–20 cents on the biggest names.</p>
+        <p><strong>Verdict:</strong> The cleanest historical proof that the bond short in a capex boom is a <em>credit-spread</em> short, opened as credit deteriorated (mid-2000) even while risk-free duration rallied. The move took ~2 years to play out — patience and carry mattered.</p>
+      </div>
+      <div>
+        <div class="barlabel">HY yield spread, mid-2000 → Oct 2002</div>
+        <div class="chart">
+          <svg viewBox="0 0 420 190" role="img" aria-label="Telecom HY spread widening">
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#2a3450"/>
+            <rect x="40" y="60" width="360" height="90" fill="rgba(248,113,113,.06)"/>
+            <polyline points="40,120 120,118 200,105 260,95 320,62 380,58" fill="none" stroke="#f87171" stroke-width="2.5"/>
+            <circle cx="40" cy="120" r="4" fill="#f0a94a"/><text x="46" y="115" fill="#e8ecf4" font-size="12">~700bp mid'00</text>
+            <circle cx="320" cy="62" r="4" fill="#f87171"/><text x="268" y="58" fill="#f87171" font-size="12">1,010bp Sep'02</text>
+            <text x="40" y="20" fill="#9aa7bd" font-size="11">Treasuries rallied (10y: 5.12% → 3.87%) — only credit paid.</text>
+          </svg>
+        </div>
+        <div class="chart-caption">Spreads began widening mid-2000, peaked ~Oct 2002 — roughly two years after deterioration began and after the equity top.</div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="stat"><div class="k">Telecom capex</div><div class="v" style="font-size:18px;">$444bn</div><div class="d">1996–2001; ~97% of fiber idle.</div></div>
+          <div class="stat"><div class="k">HY default rate</div><div class="v" style="font-size:18px;">12.8%</div><div class="d">2002 record; telecom ~55–52% of default $.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHINA ============ -->
+  <section id="china" class="case">
+    <h2><span class="num">07</span>China's Build-Out 2003–2015<span class="rule"></span></h2>
+    <div class="case-head">
+      <h3>Where the Sovereign Short Failed and the Shadow-Credit Short Mattered</h3>
+      <span class="pill mix">CGB short: only 2007 &amp; 2013 windows</span>
+      <span class="pill win">LGFV / shadow credit: the real exposure</span>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>China's boom was the largest in history: gross fixed capital formation rose from ~35% to <strong>~47% of GDP by 2010</strong> (vs ~20% in developed economies); crude steel output went from 101Mt (1996) to 779Mt (2013) — ~48% of world output; the RMB 4 trillion stimulus of 2008–09 pushed state-financed investment +60% in 2009. But the boom was financed by <strong>bank loans and local-government vehicles, not the sovereign bond market</strong> — which is why the CGB short mostly failed.</p>
+        <p>The 10-yr CGB hit an all-time high of ~4.8% in September 2007 (shorting worked, +150–160bp) and spiked to 4.72% in the June 2013 money-market squeeze, but traded ~3.0–3.6% through the hottest credit years of 2009–14 because the PBoC administered record-low rates, a savings glut and capital controls suppressed the sovereign curve, and credit ran through banks and LGFVs.</p>
+        <p>The actual debt bomb was the <em>chengtou</em> (LGFV) market, which grew ~85%/yr from 2008–2014: outstanding went from <strong>RMB 281bn (2008) to RMB 4.95tn (2014)</strong>; stimulus loans to LGFVs were ~RMB 2.3tn in 2009; trust assets hit RMB 8.7tn. Chengtou issuance yields rose from ~4.7% (2009) to ~6.9% (2014); the 2011 Yunnan Highway default and the June 2013 repo squeeze (7-day repo spiked to 11.62%) were the stress markers. Commodity-exporting sovereigns (Australia, Brazil — upgraded to IG in April 2008) rallied on the terms-of-trade windfall via spread compression and FX, not via higher yields.</p>
+        <p><strong>Verdict:</strong> An import-driven boom transmitted bond pain to the shadow-banking credit complex and to commodity exporters' spreads, not to the administered sovereign curve. Where bond markets float freely, shorting the sovereign (2007, 2013) worked; where the state controls rates, it didn't.</p>
+      </div>
+      <div>
+        <div class="barlabel">10-yr CGB yield, 2005–2015 (administered curve)</div>
+        <div class="chart">
+          <svg viewBox="0 0 420 190" role="img" aria-label="CGB yield 2005-2015">
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#2a3450"/>
+            <polyline points="40,140 80,132 140,60 200,140 250,120 300,55 360,130" fill="none" stroke="#f0a94a" stroke-width="2.5"/>
+            <circle cx="140" cy="60" r="4" fill="#f87171"/><text x="146" y="55" fill="#f87171" font-size="12">4.8% '07</text>
+            <circle cx="300" cy="55" r="4" fill="#f87171"/><text x="306" y="50" fill="#f87171" font-size="12">4.72% '13</text>
+            <circle cx="200" cy="140" r="4" fill="#4ade80"/><text x="150" y="158" fill="#4ade80" font-size="12">~2.7% '08</text>
+            <text x="40" y="20" fill="#9aa7bd" font-size="11">Administered rates kept the curve low through the hottest credit years.</text>
+          </svg>
+        </div>
+        <div class="chart-caption">Two clean short windows (2007, 2013); otherwise the curve was suppressed by the PBoC. The debt risk lived in LGFV/trust/shadow credit.</div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="stat"><div class="k">LGFV bond market</div><div class="v" style="font-size:18px;">RMB 0.3 → 4.95tn</div><div class="d">2008 → 2014; ~85%/yr growth.</div></div>
+          <div class="stat"><div class="k">Capital formation</div><div class="v" style="font-size:18px;">~47% of GDP</div><div class="d">2010 peak — the largest build-out in history.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHALE ============ -->
+  <section id="shale" class="case">
+    <h2><span class="num">08</span>US Shale 2011–2020<span class="rule"></span></h2>
+    <div class="case-head">
+      <h3>The "Growth For Growth's Sake" Debt Machine</h3>
+      <span class="pill win">Energy HY credit short: big winner</span>
+      <span class="pill mix">Timing: needed patience, then crash-driven</span>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>Energy rose from ~4% of the US high-yield index (2006) to ~15% (2014), the second-largest HY sector, issuing record debt at 3–5x Debt/EBITDAX. E&amp;P capex grew 17% y/y in 2011; energy became ~1/3 of total US business capex by 2014. Critically, the sector <strong>never generated positive free cash flow 2010–2019</strong> — Deloitte pegged cumulative sector FCF at roughly <strong>−$300bn</strong>. This is the structural signature of a capex boom: production growth paid for with borrowed money.</p>
+        <p>HY OAS troughed at 3.36% (June 2014). Energy HY spreads were ~400bp mid-2014, then blew out to ~1,000bp by early 2015 as WTI fell from ~$107 to ~$40. Defaults followed the oil crash, not the capex peak: 42 E&amp;P bankruptcies with ~$17.9bn debt in 2015, 70 filings / $56.8bn in 2016; energy was 56% of HY defaults in H1 2016. Recoveries were brutal — <strong>21 cents on the dollar</strong> for 2015 energy bankruptcies vs a 59% historical average; unsecured bonds recovered 20–40 cents. The 2020 COVID collapse (WTI at −$37.63 on April 20, 2020) brought 55 more filings / $53bn. Cumulative 2015–21: 274 E&amp;P plus 330 OFS/midstream filings, involving <strong>$321bn of debt</strong>.</p>
+        <p>On timing: energy HY began underperforming in <strong>2H 2013</strong> (before the crash) as credit quality deteriorated at the margin — a modest early warning — but the outsized returns were crash-driven. A 2013–14 short while capex was peaking eventually worked but required ~a year of carry and patience. Equity holders lost everything; secured bank lenders took the smallest losses; bondholders 20–40 cents.</p>
+        <p><strong>Verdict:</strong> A sector-credit short paid massively, but it was fundamentally a crash trade triggered by oil, not a clean "overcapacity" trade. The lesson is that in capex booms financed by debt, credit stress arrives <em>when the cash flow does not</em> — and shale's cash flow never arrived.</p>
+      </div>
+      <div>
+        <div class="barlabel">Energy HY spread: 2013 → 2016</div>
+        <div class="chart">
+          <svg viewBox="0 0 420 190" role="img" aria-label="Energy HY spread widening">
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#2a3450"/>
+            <polyline points="40,150 120,146 180,140 260,85 360,40" fill="none" stroke="#f87171" stroke-width="2.5"/>
+            <circle cx="40" cy="150" r="4" fill="#f0a94a"/><text x="46" y="145" fill="#e8ecf4" font-size="12">~400bp mid'14</text>
+            <circle cx="260" cy="85" r="4" fill="#f87171"/><text x="268" y="80" fill="#f87171" font-size="12">~1,000bp '15</text>
+            <circle cx="360" cy="40" r="4" fill="#f87171"/><text x="286" y="36" fill="#f87171" font-size="12">Index OAS 8.64% Feb'16</text>
+            <text x="40" y="20" fill="#9aa7bd" font-size="11">FCF was negative every year 2010–2019 — the debt never earned its keep.</text>
+          </svg>
+        </div>
+        <div class="chart-caption">Spreads widened modestly before the oil crash, then exploded. The short paid, but the payoff was crash-driven.</div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="stat"><div class="k">Sector FCF 2010–19</div><div class="v" style="font-size:18px;">≈ −$300bn</div><div class="d">Deloitte; production grew, cash flow never arrived.</div></div>
+          <div class="stat"><div class="k">2015–21 bankruptcies</div><div class="v" style="font-size:18px;">600+</div><div class="d">274 E&amp;P + 330 OFS/midstream; $321bn debt.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI ============ -->
+  <section id="ai" class="case">
+    <h2><span class="num">09</span>AI Data Centers 2023–2026<span class="rule"></span></h2>
+    <div class="case-head">
+      <h3>The Live Test Case</h3>
+      <span class="pill mix">Treasury duration short: working so far (30y &gt; 5%)</span>
+      <span class="pill mix">AI/HY credit short: mixed, building</span>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>The largest capex boom ever measured is underway. Hyperscaler capex roughly doubled annually: ~$226bn (2024) → ~$388–410bn (2025) → <strong>~$725–785bn guided for 2026</strong>, with Goldman projecting <strong>$7.6tn cumulative 2026–31</strong> and Moody's flagging $1.2tn of off-balance-sheet leases plus $460bn of direct debt. The financing is migrating aggressively into the bond market: data-center ABS outstanding ~$49bn and growing (rated issuance $9.25bn in 2025 vs $3.9bn in 2024), private-credit AI loans >$200bn (BIS), record investment-grade issuance ($721bn IG in Q1 2026 alone), landmark deals including <strong>Nvidia's $25bn (June 2026)</strong>, Alphabet's 100-year bond, Meta's $27bn+ SPV (PIMCO-anchored), and CoreWeave junk at 9.25%–11.5%.</p>
+        <p>Unlike the telecom/shale booms, this one has already moved long-term rates: the 30-yr Treasury topped 5% in May 2026 (~5.14%, highest since 2007) and traded ~5.28% in late August — a <strong>winner so far for duration shorts</strong>, as term premia reprice on deficits and AI-driven growth expectations. IG spreads are at 20-year tights (~+89bp) and HY ~2.79% — credit is still <em>cheap</em>, which is precisely the late-cycle danger the history warns about. Stress is visible at the edges: Moody's July 2026 circular-economy warning, Oracle at Baa2 negative, CoreWeave at Ba3 with 2031 bonds ~11.5%, data-center ABS widening since June 2026, and a widening hyperscaler-to-IG spread gap.</p>
+        <p>BofA's Michael Hartnett named <strong>shorting hyperscaler bonds a top 2026 trade</strong>; Ninety One cut credit exposure to ~zero; Michael Burry warns GPU depreciation is understated ~5–6 years (~$176bn overstatement). The consensus: any AI credit stress shows up first in HY/private structures and data-center ABS — not the AAA hyperscaler curve.</p>
+        <p><strong>Verdict (so far):</strong> The duration short has worked (30y &gt; 5%) — the rare case where a boom-era rates short pays early. The sector-credit short is building but unproven; IG is still tight. History says the big credit move comes when AI revenue fails to match capex, and that arrives <em>after</em> the equity top.</p>
+      </div>
+      <div>
+        <div class="barlabel">Hyperscaler capex, 2024 → 2026E (US$bn)</div>
+        <div class="chart">
+          <svg viewBox="0 0 420 190" role="img" aria-label="Hyperscaler capex bar chart">
+            <line x1="40" y1="150" x2="400" y2="150" stroke="#2a3450"/>
+            <rect x="70" y="135" width="60" height="15" fill="#60a5fa" rx="3"/><text x="72" y="130" fill="#e8ecf4" font-size="12">$226B</text>
+            <text x="75" y="167" fill="#9aa7bd" font-size="11">2024</text>
+            <rect x="180" y="117" width="60" height="33" fill="#60a5fa" rx="3"/><text x="182" y="112" fill="#e8ecf4" font-size="12">~$400B</text>
+            <text x="185" y="167" fill="#9aa7bd" font-size="11">2025</text>
+            <rect x="290" y="68" width="60" height="82" fill="#f0a94a" rx="3"/><text x="280" y="63" fill="#f0a94a" font-size="12">~$785B</text>
+            <text x="295" y="167" fill="#9aa7bd" font-size="11">2026E</text>
+            <text x="40" y="20" fill="#9aa7bd" font-size="11">30-yr Treasury &gt; 5% (May 2026) — the duration short is working, for now.</text>
+          </svg>
+        </div>
+        <div class="chart-caption">Goldman: $7.6tn cumulative 2026–31. Financing is moving from equity into bonds, ABS, and private credit — the historical setup for a credit reckoning.</div>
+        <div class="grid2" style="margin-top:12px;">
+          <div class="stat"><div class="k">AI financing gap</div><div class="v" style="font-size:18px;">$1.5tn</div><div class="d">Morgan Stanley, 2025–28; ~$800bn from private credit.</div></div>
+          <div class="stat"><div class="k">30-yr Treasury</div><div class="v" style="font-size:18px;">5.14% / 5.28%</div><div class="d">May 2026 peak / late-Aug 2026; highest since 2007.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARISON ============ -->
+  <section id="compare">
+    <h2><span class="num">10</span>Comparison Table<span class="rule"></span></h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Episode</th>
+            <th>Boom's signature</th>
+            <th>Duration short (rates)</th>
+            <th>Credit / sector short</th>
+            <th>What actually worked</th>
+            <th>Key number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Railroads 1837–79</strong></td>
+            <td>Bond-financed mileage explosion</td>
+            <td class="verdict" style="color:var(--warn)">Mixed</td>
+            <td class="verdict" style="color:var(--win)">Strong</td>
+            <td>Shorting default-risk state/canal/construction bonds 1839–42, 1857, 1873</td>
+            <td>36% of bond par in default (1873–76)</td>
+          </tr>
+          <tr>
+            <td><strong>1920s US</strong></td>
+            <td>Equity-financed electrification/build</td>
+            <td class="verdict" style="color:var(--lose)">Lost</td>
+            <td class="verdict" style="color:var(--warn)">Late only</td>
+            <td>Shorting corporate credit from late 1930–31 (defaults + forced selling)</td>
+            <td>~15% of bonds in default by 1936</td>
+          </tr>
+          <tr>
+            <td><strong>Japan 1987–98</strong></td>
+            <td>Financial-engineering bubble (zaitech)</td>
+            <td class="verdict" style="color:var(--warn)">Narrow win → ruin</td>
+            <td class="verdict" style="color:var(--lose)">Failed</td>
+            <td>Surgical JGB short Dec 1989 → Sep 1990 (+250bp); nothing else</td>
+            <td>8.03% → 0.88% (1990 → 1998)</td>
+          </tr>
+          <tr>
+            <td><strong>Telecom 1996–2002</strong></td>
+            <td>Debt-financed fiber overbuild</td>
+            <td class="verdict" style="color:var(--lose)">Lost</td>
+            <td class="verdict" style="color:var(--win)">Huge winner</td>
+            <td>Shorting telecom/tech HY credit from mid-2000 into Oct 2002</td>
+            <td>HY spread 700 → 1,010bp; default rate 12.8%</td>
+          </tr>
+          <tr>
+            <td><strong>China 2003–15</strong></td>
+            <td>Bank/LGFV-financed infrastructure</td>
+            <td class="verdict" style="color:var(--warn)">2007 &amp; 2013 only</td>
+            <td class="verdict" style="color:var(--win)">Shadow-credit exposure</td>
+            <td>Shorting CGB in 2007/2013 windows; watching LGFV/trust/shadow debt; commodity-export spread gains</td>
+            <td>LGFV bonds RMB 0.3 → 4.95tn</td>
+          </tr>
+          <tr>
+            <td><strong>Shale 2011–20</strong></td>
+            <td>Debt-funded drilling, no FCF</td>
+            <td class="verdict" style="color:var(--lose)">N/A (rates benign)</td>
+            <td class="verdict" style="color:var(--win)">Big winner (crash-driven)</td>
+            <td>Shorting energy HY from 2013–14 with ~1yr patience; payoff on 2014–16 &amp; 2020 oil crashes</td>
+            <td>−$300bn sector FCF 2010–19; 600+ filings</td>
+          </tr>
+          <tr>
+            <td><strong>AI Data Centers 2023–26</strong></td>
+            <td>Bond/ABS/private-credit-financed build</td>
+            <td class="verdict" style="color:var(--win)">Working so far</td>
+            <td class="verdict" style="color:var(--warn)">Building, unproven</td>
+            <td>TBD; duration short has paid (30y &gt; 5%); credit stress expected to surface in HY/ABS/private structures</td>
+            <td>$725–785bn 2026 capex; $1.2tn off-BS leases</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">Scorecard across episodes: <span class="pill win" style="margin:0 4px;">Credit/sector shorts: 5 wins</span> <span class="pill mix" style="margin:0 4px;">Duration shorts: 0 clean wins, 2 narrow/early, 3 losses</span> The asymmetry is decisive — credit has been the durable side of the trade.</p>
+  </section>
+
+  <!-- ============ LESSONS ============ -->
+  <section id="lessons">
+    <h2><span class="num">11</span>Seven Lessons<span class="rule"></span></h2>
+    <div class="card">
+      <div class="lesson"><div class="n">1</div><div><b>The trade is credit, not duration.</b> In five of seven episodes the winning bond short was against the boom's debt — railroads, telecom, shale, LGFV/shadow credit, and (likely) AI data-center structures. Treasury duration shorts lost in 1920s, telecom, Japan (if held), and China. The risk-free curve is a poor expression of a capex boom's risk.</div></div>
+      <div class="lesson"><div class="n">2</div><div><b>Yield peaks lag activity peaks — the "short too late" trap.</b> Japan's JGB peak came ~9 months after the Nikkei top; 1857 and 1873 yield spikes came with/after panics; telecom spreads peaked ~2 years after deterioration began. The boom rarely ends with a top-tick short available; it ends with a <em>reversal</em> that destroys late shorts. Size and stop discipline are everything.</div></div>
+      <div class="lesson"><div class="n">3</div><div><b>The bust's bond rally dwarfs the boom's rise.</b> Japan: +320bp then −800bp. 1870s and 1930s: yields fell for a decade. Even if a short works for a year, staying short past the peak is ruinous. The asymmetry strongly favors being <em>long</em> bonds into the bust — the exact inverse of the boom thesis.</div></div>
+      <div class="lesson"><div class="n">4</div><div><b>Central-bank easing trumps credit risk on the sovereign curve.</b> In Japan (1997–98) and telecom (2001–02), credit risk exploded while government yields collapsed. The sovereign bond always prices policy first. Never short the sovereign purely on credit deterioration — you will be fighting the central bank.</div></div>
+      <div class="lesson"><div class="n">5</div><div><b>The boom's financing structure determines where the short lives.</b> Bond-financed booms (railroads, telecom, shale, AI ABS) concentrate the damage in credit. Bank-financed booms (China) hide it in shadow banking and administered curves. Equity-financed booms (1920s) delay bond damage until defaults arrive years later. Read the funding mix before picking the instrument.</div></div>
+      <div class="lesson"><div class="n">6</div><div><b>The structural tell: no free cash flow.</b> Shale produced −$300bn FCF over a decade; telecom laid 39M fiber miles that were 97% idle; Japan's zaitech earnings exceeded operating profits. When capex is financed by debt that the assets cannot repay on a cash basis, the credit short is fundamentally grounded — but it only pays when the market reprices, which requires a trigger (oil, a fraud, a rate shock, a repo squeeze).</div></div>
+      <div class="lesson"><div class="n">7</div><div><b>For the current AI boom: the playbook says patience, not prophecy.</b> Duration shorts have paid early (30y &gt; 5%) because this boom is unusual — it has direct fiscal/term-premium consequences. But IG is at 20-year tights and issuance is being absorbed greedily, exactly as telecom's was. If history is any guide, the AI credit short that works best will be in HY/ABS/private structures, and its payoff will arrive <em>after</em> the equity and capex peaks — not before. The discipline is to keep powder dry until the credit — not the rates — begins to crack.</div></div>
+    </div>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section id="sources">
+    <h2><span class="num">12</span>Sources<span class="rule"></span></h2>
+    <p class="muted" style="margin-bottom:10px;">Primary research was parallelized across seven sub-studies; representative citations below.</p>
+    <ul class="src-list">
+      <li>NBER Macrohistory m13019a / m13033 (Macaulay 1938); FRED (Treasury yields)</li>
+      <li>NBER w10108 (Wallis/Grzybowski, state bonds 1830–43)</li>
+      <li>Giesecke, Longstaff, Schaefer &amp; Strebulaev, "Corporate Bond Default Risk: A 150-Year Perspective," NBER w15848</li>
+      <li>Hickman, <em>Corporate Bond Quality and Investor Experience</em> (NBER, 1958)</li>
+      <li><em>Survey of Current Business</em> (July 1935): Railway &amp; Utility Bond Defaults, 1929–34</li>
+      <li>OECD via FRED IRLTLT01JPM156N (10-yr JGB monthly); MOF Japan JGB data</li>
+      <li>World Bank / CEIC (Japan gross fixed capital formation, 38.7% of GDP, 1973)</li>
+      <li>Peek &amp; Rosengren, NBER w7251; BOJ Quarterly Bulletin (Japan premium, NPLs)</li>
+      <li>Altman/NYU, "Defaults &amp; Returns on High Yield Bonds" (2002); Moody's Default Reports</li>
+      <li>Federal Reserve Monetary Policy Report (2002); SF Fed Economic Letters (2001, 2004)</li>
+      <li>Ang, Bai &amp; Zhou, "The Great Wall of Debt," NBER (2015) — chengtou/LGFV data</li>
+      <li>Chen, He &amp; Liu, "Stimulus Loan Wanes and Shadow Banking Waxes," JFE (2020)</li>
+      <li>Haynes &amp; Boone Oil Patch Bankruptcy Monitor (2016–2022 final)</li>
+      <li>NY Fed Liberty Street Economics (2016, oil vs. energy HY spreads); Moody's recoveries</li>
+      <li>Deloitte (shale FCF 2010–19); McKinsey (2019, shale value vs. production)</li>
+      <li>Moody's Ratings (July 24, 2026 — AI capex, off-BS leases, circular economy); S&amp;P Global ABS/Credit Outlooks</li>
+      <li>Goldman Sachs, "Tracking Trillions" (May/June 2026); BIS Bulletin No. 120 (AI private credit)</li>
+      <li>Morgan Stanley (data-center financing gap); KBRA; Penn Mutual / AllianzGI credit notes</li>
+      <li>Bloomberg, Reuters, WSJ, FT, CNBC (2025–26 AI credit coverage)</li>
+    </ul>
+  </section>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This document is a historical research analysis for educational purposes only. It is not investment advice, an offer, or a solicitation. Historical patterns do not guarantee future results; short selling involves unlimited loss potential, and much of the historical "return" data above is reconstructed from index, yield, and recovery statistics with limited intra-period granularity. Verify all figures against primary sources before relying on them.
+  </div>
+
+  <footer>
+    Compiled 31 August 2026 · Fixed-income historical research — "Shorting Bonds During Major Capex Booms."
+  </footer>
+
+</div>
+</body>
+</html>

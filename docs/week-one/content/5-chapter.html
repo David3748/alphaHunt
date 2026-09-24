@@ -1,0 +1,17 @@
+<h2><span class="chap">Chapter 5 · The memory problem</span><br>But does it remember the answers?</h2>
+<p>Here's the uncomfortable part: both holdout decades sit inside any plausible training window.
+Confirming on 2018 data doesn't exclude a model that memorized 2018. So I ran a blind experiment —
+110 cases re-scored with every identifier scrubbed from the text: names, tickers, commission file
+numbers, even IRS employer IDs replaced with placeholders. Same prompts, same model. If the signal
+lives in memory, blinding kills it.</p>
+<table>
+<thead><tr><th>vs realized 90-day excess</th><th class="num">Blind</th><th class="num">Identified</th></tr></thead>
+<tbody>
+<tr><td>Spearman correlation</td><td class="num">.393</td><td class="num">.391</td></tr>
+<tr><td>AUC (95% CI)</td><td class="num">.715 [.62–.81]</td><td class="num">.701</td></tr>
+</tbody>
+</table>
+<p>Performance barely moves; blind-vs-identified scores agree at ρ = .836. With no idea who the company is,
+the model reaches nearly the same conclusions from the prose alone. Verdict under the frozen decision
+rule: <strong>genuine</strong>. Caveats stand — addresses weren't scrubbed, n=110 is modest, and nothing
+rules out paraphrase-level leakage. The unbounded control is the live cohort at the end of this story.</p>

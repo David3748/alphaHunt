@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTFD (Buy the Forensic Dip) — the alphaHunt story</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f7f4;
+    --fg: #1c1e21;
+    --muted: #6a6f75;
+    --card: #ffffff;
+    --line: #d9dcd1;
+    --accent: #0a7d4f;
+    --accent2: #b3541e;
+    --pos: #0a7d4f;
+    --neg: #b03a2e;
+    --chip: #eef2ec;
+    --code-bg: #eef0ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10130f;
+      --fg: #e4e7e0;
+      --muted: #93998f;
+      --card: #171b15;
+      --line: #2b3026;
+      --accent: #4cc38a;
+      --accent2: #e8a05c;
+      --pos: #4cc38a;
+      --neg: #e5756a;
+      --chip: #1e241c;
+      --code-bg: #1c211a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    background: var(--bg); color: var(--fg);
+    max-width: 920px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
+    line-height: 1.62; font-size: 1.02rem;
+  }
+  header.hero { border-bottom: 3px double var(--line); padding-bottom: 1.4rem; margin-bottom: 2rem; }
+  .kicker { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin: 0 0 .5rem; }
+  h1 { font-size: 2.5rem; line-height: 1.1; margin: 0 0 .6rem; letter-spacing: -.02em; }
+  h1 .fword { color: var(--accent); }
+  .subtitle { font-size: 1.1rem; color: var(--muted); margin: 0 0 .9rem; }
+  .byline { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; color: var(--muted); }
+  h2 { font-size: 1.45rem; margin: 2.6rem 0 .8rem; letter-spacing: -.01em; }
+  h2 .act { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem;
+    color: var(--accent2); display: block; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .2rem; }
+  h3 { font-size: 1.1rem; margin: 1.8rem 0 .5rem; }
+  p { margin: .7rem 0; }
+  a { color: var(--accent); }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .86em;
+    background: var(--code-bg); padding: .12em .4em; border-radius: 4px; }
+  table { border-collapse: collapse; width: 100%; margin: 1.1rem 0; font-size: .9rem; }
+  th, td { border: 1px solid var(--line); padding: .5rem .65rem; text-align: left; vertical-align: top; }
+  th { background: var(--chip); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .pos { color: var(--pos); font-weight: 600; }
+  .neg { color: var(--neg); font-weight: 600; }
+  .neu { color: var(--muted); font-weight: 600; }
+  blockquote { margin: 1.2rem 0; padding: .2rem 1.1rem; border-left: 4px solid var(--accent);
+    color: var(--muted); font-style: italic; }
+  .callout { border: 1px solid var(--line); border-left: 5px solid var(--accent);
+    background: var(--card); border-radius: 6px; padding: .9rem 1.1rem; margin: 1.3rem 0; }
+  .callout.warn { border-left-color: var(--accent2); }
+  .callout.danger { border-left-color: var(--neg); }
+  .callout h4 { margin: 0 0 .4rem; font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; }
+  .callout p { margin: .35rem 0; }
+  .statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .7rem; margin: 1.4rem 0; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: .8rem .9rem; }
+  .stat .v { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.15; }
+  .stat .v.pos { color: var(--pos); } .stat .v.neg { color: var(--neg); }
+  .stat .k { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; }
+  .timeline { border-left: 2px solid var(--line); margin: 1.4rem 0 1.4rem .4rem; padding-left: 1.3rem; }
+  .timeline .ev { position: relative; margin-bottom: 1.1rem; }
+  .timeline .ev::before { content: ""; position: absolute; left: -1.72rem; top: .42rem; width: .65rem; height: .65rem;
+    border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .timeline .ev.fail::before { background: var(--neg); }
+  .timeline .ev.win::before { background: var(--pos); }
+  .timeline .d { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; color: var(--muted); }
+  .timeline .t { font-weight: 600; }
+  .footnote { font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); margin-top: 3rem; padding-top: 1rem; }
+  .tag { display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem;
+    background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: .1rem .6rem;
+    margin: .1rem .15rem .1rem 0; color: var(--muted); }
+  ul { padding-left: 1.35rem; }
+  li { margin: .3rem 0; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="kicker">alphaHunt · a research retrospective</p>
+  <h1>BTFD<br>(Buy the <span class="fword">Forensic</span> Dip)</h1>
+  <p class="subtitle">How a pile of SEC filings, ~20,000 LLM calls, two failed strategies, one sealed
+  protocol, and an unhealthy obsession with not lying to ourselves turned into a century-scale
+  dip-buying research machine.</p>
+  <p class="byline">August 23, 2026 · alphaHunt lab notebook · reading time ~12 min</p>
+  <p>
+    <span class="tag">SEC filings</span><span class="tag">LLM extraction</span><span class="tag">bitemporal data</span>
+    <span class="tag">sealed protocols</span><span class="tag">backtests</span><span class="tag">placebos</span>
+    <span class="tag">survivorship bias</span><span class="tag">drawdowns</span>
+  </p>
+</header>
+
+<div class="callout">
+  <h4>TL;DR</h4>
+  <p>We taught an LLM to read SEC filings like a forensic accountant, aimed it at stocks that had
+  crashed 40%+ from their highs, and then spent most of our time trying to prove ourselves wrong.
+  Two strategies died in sealed validation. One survived. The deployed ranking rule turned out to be
+  the <em>weakest</em> of four rules we already had on disk, a one-line mechanical "deepest drawdown"
+  filter beat the model on raw return, and all of the early alpha came from a single V-shaped crash.
+  So we froze our hypotheses <em>before</em> looking at outcomes and scaled the whole thing to
+  350,456 filings across 2009–2025. The frozen P(+20%) rule now shows ~×710 compounded vs SPY's ×10.2
+  in the sealed corpus evaluation — and we still won't call it a strategy until the bear-market
+  cohort and the placebo gauntlet say so.</p>
+</div>
+
+<h2><span class="act">Prologue</span> Why "forensic"?</h2>
+
+<p>The F-word in the title isn't the one Reddit uses. The one that summarizes this process is
+<strong>forensic</strong>. Every claim the model makes must be grounded to an exact quote in a real
+filing. Every prediction is frozen to a content-addressed manifest of exactly what was knowable at
+the time. Every hypothesis is sealed before outcomes are opened. The dossiers it writes read like
+forensic accounting reports — because they are.</p>
+
+<p>A taste, from the Arbutus Biopharma (ABUS) dossier, verdict <span class="neg">TROUBLE</span>:
+a $230M Dutch-auction tender with no disclosed funding source, sitting on top of non-cash royalty
+revenue contractually capped on both ends, a winding-down R&D org, and two litigation-settlement-shaped
+subsequent events disclosed five weeks before the filing. Eight red flags, each one traced to a
+specific 10-Q or 8-K. That's the house style: no vibes, only citations.</p>
+
+<h2><span class="act">Act I</span> The hunt: 500 dossiers and a merger-arb microscope</h2>
+
+<p>It started as a shotgun. A full-text sweep of SEC EDGAR produced a <code>dossiers/</code> directory
+with <strong>over 500 single-ticker forensic write-ups</strong>, a deep report that underwrote live
+merger events deal-by-deal, and an event-driven trade board. The model killed most of what it
+touched — correctly:</p>
+
+<ul>
+  <li><strong>TBPH / Zymeworks:</strong> $17.00 cash + a CVR the market priced at ≈$0. The model agreed
+  with the market — the CVR's underlying drug had already failed Phase 3. Thesis killed.</li>
+  <li><strong>TECH / Merck KGaA:</strong> $73.00 cash, but the spread was ~0.94% gross for up to 18
+  months of carry plus an undisclosed regulatory path. Efficient. Stand down.</li>
+  <li><strong>MCFN reverse merger:</strong> a 1:1 stock swap into a holdco where the CEO sits on both
+  sides and keeps 80% of the vote. No spread, no trade, next.</li>
+</ul>
+
+<p>That phase produced the tooling, the skeptic/analyst prompt pattern, and a healthy disrespect for
+headline numbers. What it didn't produce was a repeatable, testable signal. For that you need data
+infrastructure that can't lie to you.</p>
+
+<h2><span class="act">Act II</span> The lab: a database that remembers what it didn't know</h2>
+
+<p>The core problem with backtesting LLM research: the future leaks in everywhere. Revised filings,
+survivorship-biased ticker lists, "as of" dates that silently use restated data. So we built a
+<strong>bitemporal temporal store</strong> where every knowledge-bearing record carries three clocks:</p>
+
+<ul>
+  <li><code>effective_at</code> — when the fact is economically true;</li>
+  <li><code>available_at</code> — the earliest moment a market participant could know it (enriched to
+  <em>exact SEC acceptance timestamps</em>, not just filing dates — a fix that moved some knowledge
+  cutoffs by 13+ hours);</li>
+  <li><code>system_from</code> — when this database recorded that version, append-only, history derived
+  with <code>LEAD()</code>.</li>
+</ul>
+
+<p>Every prediction must cite a frozen <code>input_manifest</code> of exact document versions and
+content hashes; the store <em>rejects</em> any manifest containing a document that wasn't yet
+available. Large payloads live as immutable SHA-256 blobs; the whole thing exports to Parquet;
+a validator re-hashes every blob and audits for lookahead, orphans, and version violations.
+By the latest ledger: <strong>19,001 grounded claim versions, 760 experiment cases, 3,540 analysis
+runs, 1,320 predictions</strong>, DuckDB at 96 MB, a 2.1 GB immutable corpus — with 56/56 unit tests
+and zero integrity issues.</p>
+
+<blockquote>Rule zero, enforced in code: an API key is never written to a file, a log, a command, or
+the database. Protocols are frozen in writing before outcomes are opened. Always.</blockquote>
+
+<h2><span class="act">Act III</span> The graveyard: two strategies die on schedule</h2>
+
+<p>With infrastructure you can trust, failure becomes informative. We failed twice, cleanly:</p>
+
+<div class="timeline">
+  <div class="ev fail"><span class="d">lab_runs/dilution90</span><br>
+    <span class="t">Dilution-event forecast.</span> 120 cases, AUC 0.907 — gorgeous — but
+    high-confidence event precision was only 55.6%. Not production proof.</div>
+  <div class="ev fail"><span class="d">lab_runs/long_dev</span><br>
+    <span class="t">False-distress long ("buy crashed stocks the LLM likes").</span>
+    Dev AUC 0.646; sealed validation AUC 0.614, top decile <strong>0/4 successes, −3.7% excess</strong>.
+    Verdict: failed validation, retained as a reproducible negative experiment.</div>
+  <div class="ev fail"><span class="d">lab_runs/comprehensive_long</span><br>
+    <span class="t">The big one: 2,860 fresh model calls</span> (220 cases × 5 specialist lenses × 2
+    replicates, plus 660 syntheses) — 20,429 proposed claims, 14,037 exact-quote-grounded (68.7%),
+    1,490 raw filings fetched with zero failures. Sealed validation still failed: AUC 0.566, top
+    basket zero successes. The four highest-ranked names — RKLB, VSTM, CHWY, UI — returned
+    +16.9%, −26.3%, +11.4%, −12.4%. Nobody met the bar.</div>
+</div>
+
+<p>The comprehensive run did leave one smoking clue behind: inside the <em>dilution-conditioned</em>
+cohort, the model's top decile returned <span class="pos">+28.4% mean excess</span> with a 41.7% hit
+rate — but with a permutation p≈0.106, that was exploratory, not evidence. File under: hypotheses.</p>
+
+<h2><span class="act">Act IV</span> The signal: safety-first, a.k.a. BTFD with a seatbelt</h2>
+
+<p>The formulation that survived inverted the question. Don't ask the model which crashed stock will
+moon. Ask it which crashed stock <em>won't die</em>: severe drawdown (−40% off the 1-year high),
+liquid, &gt;$1 — then rank by the model's <strong>downside-tail probability</strong>, lowest first.
+Ten slots, 10% of NAV each, next-session entry, 90-day holds, 10–25 bp costs, idle cash earning the
+13-week T-bill rate. A full robustness battery: causal expanding thresholds, hold-period sweeps,
+cost sweeps, delays, leave-one-out, block bootstraps, 2,000 random baskets.</p>
+
+<table>
+  <tr><th>Rule</th><th class="num">Trades</th><th class="num">CAGR</th><th class="num">T-bill Sharpe</th><th class="num">Max DD</th><th class="num">Matched IR</th></tr>
+  <tr><td>Global top decile (non-causal)</td><td class="num">8</td><td class="num pos">+13.3%</td><td class="num">2.07</td><td class="num">−2.1%</td><td class="num">2.15</td></tr>
+  <tr><td>Expanding top decile (causal)</td><td class="num">10</td><td class="num pos">+14.5%</td><td class="num">1.53</td><td class="num">−6.6%</td><td class="num">1.66</td></tr>
+  <tr><td>Expanding top quintile</td><td class="num">20</td><td class="num pos">+22.4%</td><td class="num">1.61</td><td class="num">−9.1%</td><td class="num">1.80</td></tr>
+  <tr><td>All events (control)</td><td class="num">68</td><td class="num">+5.7%</td><td class="num">0.24</td><td class="num">−39.9%</td><td class="num">−0.07</td></tr>
+  <tr><td>Worst safety decile (control)</td><td class="num">8</td><td class="num neg">−1.9%</td><td class="num">−0.30</td><td class="num">−15.3%</td><td class="num">−0.38</td></tr>
+</table>
+
+<p>Promising — and correctly stamped <strong>"not yet a deployable strategy"</strong>: ten trades, a
+rule tuned after outcomes were visible, and a universe of current listings only. So we ran the honest
+next step: a <em>fresh confirmation</em> on untouched 2021–2023 data with locked thresholds.
+1,140 provider requests, 14.2M prompt tokens, 4,964 grounded claims later:</p>
+
+<div class="callout">
+  <h4>Fresh confirmation verdict</h4>
+  <p><strong>Safety-first confirmed.</strong> Top-8 mean excess <span class="pos">+29.1%</span>,
+  median +31.8%, 75% hit the +20% success bar, +33.8-point spread vs the rest,
+  one-sided permutation <strong>p=0.0029</strong> — passing even the Bonferroni p&lt;0.025 gate.
+  Robustness: AUC 0.743, Spearman 0.484, positive means for basket sizes 4–20.</p>
+  <p><strong>Dilution-event-conditioned did not confirm</strong> (p=0.1714). One for two. The lab
+  notebook keeps both.</p>
+</div>
+
+<h2><span class="act">Act V</span> The humiliation: our best ranker wasn't the one we deployed</h2>
+
+<p>Then came the post-mortem that stung. A 60-hypothesis exploratory screen over the sealed
+2019–2020 run (explicitly labeled hypothesis-generation, not findings) revealed:</p>
+
+<table>
+  <tr><th>Ranker (all already stored per case)</th><th class="num">Spearman</th><th class="num">AUC</th></tr>
+  <tr><td><code>probability_plus20_excess_90d_pct</code></td><td class="num pos">+0.271</td><td class="num pos">0.634</td></tr>
+  <tr><td><code>expected_excess_return_90d_pct</code></td><td class="num">+0.253</td><td class="num">0.629</td></tr>
+  <tr><td><code>probability_positive_excess_90d_pct</code></td><td class="num">+0.225</td><td class="num">0.616</td></tr>
+  <tr><td><code>downside_tail_probability_pct</code> — <em>the deployed one</em></td><td class="num neg">+0.144</td><td class="num neg">0.574</td></tr>
+</table>
+
+<p>The deployed safety score was the weakest ranker of the four and <em>non-monotone</em> across
+quintiles; the upside probability was perfectly monotone (win rate 34.5% → 69.0% from Q1 to Q5).
+In a portfolio simulation, swapping the ranker roughly doubled excess return, and the best simple
+blend — <code>upside × depth of drawdown</code> — reached +35.8% mean per-trade excess. And the
+proper humiliation, in the mechanical-baseline table:</p>
+
+<table>
+  <tr><th>Ranking rule (same universe, same selection)</th><th class="num">Mean excess</th><th class="num">Win rate</th></tr>
+  <tr><td><strong>"Deeper drawdown" — one line of SQL, no LLM</strong></td><td class="num pos">+24.2%</td><td class="num">51.7%</td></tr>
+  <tr><td>LLM safety score</td><td class="num">+11.4%</td><td class="num pos">61.7%</td></tr>
+  <tr><td>Higher share price</td><td class="num">+11.6%</td><td class="num">41.9%</td></tr>
+  <tr><td>Random</td><td class="num">+4.6%</td><td class="num">~50%</td></tr>
+</table>
+
+<p>The LLM's unique edge is <em>hit rate</em> — it does exactly what it was asked to do (avoid
+losers) — while the raw money in a V-shaped recovery came from buying the deepest dips, period.
+Worse, essentially <strong>all of the 2019–2020 alpha was 2020's alpha</strong> (2019 matched IR:
+0.0125, i.e. zero), and the eligibility rule is an accidental crash detector: 98 of 188 signals
+fired in March–May 2020. One crash, and it was the best-case one.</p>
+
+<blockquote>Lesson carved on the lab wall: mechanical baselines get promoted to first-class gates.
+The model must beat "deepest drawdown" and "one line of SQL," not just a random-number generator.</blockquote>
+
+<h2><span class="act">Act VI</span> The fix: freeze the hypotheses, then scale to a century</h2>
+
+<p>Before opening any century-scale outcomes, we froze <code>CENTURY_HYPOTHESES.md</code>: the
+secondary rankers (<code>p_plus20</code>, an equal-weight causal z-blend, and
+<code>upside × drawdown</code>), the mechanical deep-drawdown comparator, Bonferroni α=0.0167,
+500 blocked placebos per rule, and — critically — <strong>2019–2020 quarantined as the discovery
+cohort</strong>, with 2009–2018 and 2021–2025 as the two confirmatory holdouts. The bear-market
+question (2009–2012) is the whole ballgame: if the signal survives a grinding bear it's a strategy;
+if not, it's a dip-buying rule fit to the best dip in history.</p>
+
+<p>Then we built the machine to answer it. An Azure VM (<code>Standard_B4as_v2</code>, SSH locked to
+a single IP, API key held only in process memory) running a resumable tmux-orchestrated pipeline:</p>
+
+<div class="statgrid">
+  <div class="stat"><div class="v">350,456</div><div class="k">SEC filings enumerated, 2009–2025</div></div>
+  <div class="stat"><div class="v">15,387</div><div class="k">issuers</div></div>
+  <div class="stat"><div class="v">25,343</div><div class="k">historical symbol regimes resolved</div></div>
+  <div class="stat"><div class="v">9,885</div><div class="k">eligible severe-drawdown events</div></div>
+</div>
+
+<p>Every eligible case gets five quote-grounded extraction lenses and two independent syntheses;
+post-signal prices stay sealed until every synthesis is present; durable artifacts are
+Zstandard-compressed, SHA-256-manifested, and archived to Drive. Queued behind it: an
+<strong>obscure-source miner</strong> that routes discovery for up to 1,500 issuers through GDELT,
+the Federal Register, ClinicalTrials.gov, openFDA enforcement feeds, and news RSS — up to 36,000
+resumable analyst/skeptic/consensus calls. The requested 2001–2008 pre-XBRL period is an explicit,
+documented gap rather than silent survivorship bait.</p>
+
+<h2><span class="act">Act VII</span> The scoreboard so far</h2>
+
+<p>From the frozen-protocol evaluation exported to the research site (P(+20%) = the locked
+probability-of-+20%-excess rule):</p>
+
+<div class="statgrid">
+  <div class="stat"><div class="v pos">×710</div><div class="k">compounded multiple</div></div>
+  <div class="stat"><div class="v pos">47.5%</div><div class="k">CAGR</div></div>
+  <div class="stat"><div class="v">1.49</div><div class="k">Sharpe</div></div>
+  <div class="stat"><div class="v">1.42</div><div class="k">matched IR</div></div>
+  <div class="stat"><div class="v">270</div><div class="k">trades</div></div>
+  <div class="stat"><div class="v pos">69.6%</div><div class="k">of trades beat SPY (188/270)</div></div>
+</div>
+
+<p>For reference, SPY compounded to ×10.2 over the same span, and only 44.8% of all 9,885 eligible
+90-day windows beat SPY. The live 2026 book — six positions tracked in real time on the research
+site — has 4/6 beating SPY with +8.8% mean excess, flat since mid-February as the newest cohort
+seasons. Click any year column on the site and you get that cohort's trades, each with thesis,
+catalyst, and invalidation written down <em>before</em> the outcome was known.</p>
+
+<div class="callout warn">
+  <h4>The fine print we wrote ourselves</h4>
+  <p>Short-term tax drag is unmodeled and likely larger than the 25 bp cost assumption. The score is
+  lumpy (64 distinct values across 1,713 cases; 99 cases tied at exactly 18%). The 90-day hold sits
+  on the peak of the horizon curve. And the confirmation cohorts must still speak — especially
+  2009–2012. None of the headline multiples matter until the bear signs off.</p>
+</div>
+
+<h2><span class="act">Epilogue</span> What "buy the forensic dip" actually means</h2>
+
+<p>The process, distilled:</p>
+
+<ul>
+  <li><strong>Buy the dip</strong>, but only the dips a forensic reader of the filings can't kill —
+  funding runway verified, catalyst dated, accounting and governance vetoes passed.</li>
+  <li><strong>Freeze the question before peeking at the answer.</strong> Sealed protocols, discovery
+  cohorts quarantined, Bonferroni-corrected gates, 500 placebos shuffled inside calendar months.</li>
+  <li><strong>Make failure cheap and permanent.</strong> Two dead strategies are stored, validated,
+  and exportable — negative results with full lineage, not deleted embarrassment.</li>
+  <li><strong>Make the model earn its calls.</strong> Same-prompt replicates correlate 0.78–0.95, so
+  budget goes to more issuers, claim-change extraction, and adversarial verification of the top
+  decile — not to asking the same question twice.</li>
+  <li><strong>Never trust a number without a baseline.</strong> If one line of SQL ("deepest
+  drawdown") beats your model on return, say so in the report — we did, in print, above.</li>
+</ul>
+
+<p>The dip is a dangerous place. That's the point. Bring a forensic accountant.</p>
+
+<div class="footnote">
+  <p><strong>Sources, all local:</strong> <code>PROGRESS.md</code>, <code>ANALYSIS.md</code>,
+  <code>STRATEGY_REVIEW.md</code>, <code>CENTURY_HYPOTHESES.md</code>, <code>CENTURY_RUNBOOK.md</code>,
+  <code>TEMPORAL_DATASET.md</code>, <code>deep-report.md</code>, <code>investigate-abus.md</code>,
+  and the <code>lab_runs/</code> ledger. The research site lives in <code>strategy-site/</code>
+  (localhost:3000); the century run's status page and dashboards (<code>board.html</code>,
+  <code>pipeline.html</code>, <code>trade_overview.html</code>) are generated from the same sealed
+  artifacts. Nothing in this post is investment advice; it is a lab notebook with a punchline.</p>
+</div>
+
+</body>
+</html>

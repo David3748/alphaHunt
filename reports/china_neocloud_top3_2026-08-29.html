@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AlphaHunt — China Neocloud Top 3: Institutional Deep Dive</title>
+  <style>
+    :root {
+      --ink:#14211b; --muted:#667169; --paper:#f3efe5; --card:#fffdf8;
+      --line:#d8d3c6; --green:#154f3b; --mint:#dce9df; --blue:#315f75;
+      --amber:#c57a24; --red:#a64334; --shadow:0 18px 45px rgba(31,43,36,.09);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:
+      radial-gradient(circle at 88% -3%,rgba(49,95,117,.14),transparent 28rem),
+      radial-gradient(circle at 0 28%,rgba(21,79,59,.08),transparent 24rem),var(--paper);
+      font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{width:min(1200px,calc(100% - 36px));margin:auto;padding:54px 0 72px}
+    header{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:28px}
+    .eyebrow,.kicker{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+    .eyebrow{color:var(--green)}
+    h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-.035em}
+    h1{font-size:clamp(44px,6vw,76px);line-height:.97;margin:8px 0 12px}
+    .dek{max-width:790px;color:var(--muted);font-size:18px;margin:0}
+    .stamp{text-align:right;color:var(--muted);font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .verdict{margin:28px 0 20px;background:var(--green);color:white;border-radius:20px;padding:25px 28px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;box-shadow:0 16px 38px rgba(21,79,59,.18)}
+    .verdict .mark{font:58px/1 Georgia,serif;color:#d8e5a8}
+    .verdict strong{display:block;font-size:22px;margin-bottom:4px}.verdict p{margin:0;color:#dce9e2}
+    .purity{text-align:right}.purity small{display:block;color:#bcd0c5;text-transform:uppercase;letter-spacing:.1em}.purity b{font-size:20px}
+    .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);background:var(--line);border-radius:15px;overflow:hidden;margin-bottom:32px}
+    .strip div{background:rgba(255,253,248,.75);padding:15px 17px}.strip small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:800}.strip b{font-size:17px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    article{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+    article:before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--green)}
+    article:nth-child(2):before{background:var(--blue)}article:nth-child(3):before{background:var(--amber)}
+    .rank{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.11em;font-weight:800}
+    .tag{padding:4px 8px;border-radius:99px;background:var(--mint);color:var(--green);letter-spacing:0;text-transform:none;white-space:nowrap}
+    article:nth-child(2) .tag{background:#e3ebef;color:var(--blue)}article:nth-child(3) .tag{background:#f5e7d5;color:#88500e}
+    h2{font-size:35px;line-height:1.05;margin:20px 0 5px}.ticker{color:var(--muted);min-height:45px}
+    .metrics{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:18px 0}
+    .metric{padding:12px 7px 12px 0}.metric:nth-child(even){padding-left:13px;border-left:1px solid var(--line)}
+    .metric small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:9px;font-weight:800}.metric b{font-size:19px;font-variant-numeric:tabular-nums}
+    .thesis{min-height:118px}h3{font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:23px 0 8px}.risk{color:var(--red)}
+    ul{padding-left:18px;margin:7px 0}li{margin:7px 0}.scoreline{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin-top:17px;color:var(--muted);font-size:11px}
+    .bar{height:7px;background:#ebe7de;border-radius:99px;overflow:hidden}.bar span{display:block;height:100%;border-radius:inherit;background:var(--green)}
+    .section{margin-top:42px}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:10px}.section-head h2{font-size:29px;margin:0}.section-head span{color:var(--muted);font-size:12px}
+    .table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}th,td{padding:12px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:9px;letter-spacing:.1em;text-transform:uppercase}td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .framework{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.panel,.note{border-radius:16px;padding:21px}.panel{background:var(--card);border:1px solid var(--line)}.note{background:#e8e4d8;color:#4e5852}.panel h3,.note h3{margin-top:0}
+    .signal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.signal div{padding:13px;border-radius:12px;background:#f3f0e8}.signal small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+    a{color:var(--green);text-underline-offset:3px}footer{border-top:1px solid var(--line);margin-top:42px;padding-top:18px;color:var(--muted);font-size:11px}
+    nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 30px}nav a{font-size:11px;font-weight:750;text-decoration:none;padding:7px 11px;border:1px solid var(--line);border-radius:99px;background:rgba(255,253,248,.72)}
+    .callout{background:#17231d;color:white;border-radius:17px;padding:20px 22px;margin-top:18px}.callout strong{color:#d8e5a8}.callout p{margin:5px 0 0;color:#dce5df}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.statbox{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:18px}.statbox .name{display:flex;justify-content:space-between;gap:8px;font-weight:800}.statbox .price{font:30px/1.05 Georgia,serif;margin:13px 0 4px}.statbox .sub{color:var(--muted);font-size:11px}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:13px;border-top:1px solid var(--line)}.mini-grid div{padding:10px 5px 5px 0}.mini-grid div:nth-child(even){padding-left:10px;border-left:1px solid var(--line)}.mini-grid small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-size:8px;font-weight:800}.mini-grid b{font-size:15px}
+    .deep{display:grid;grid-template-columns:240px 1fr;gap:22px;margin-top:18px}.deep aside{position:sticky;top:16px;align-self:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}.deep aside h2{font-size:28px;margin:0 0 6px}.deep aside p{color:var(--muted);font-size:12px}.deep-body{width:auto;margin:0;padding:0}.deep-block{background:rgba(255,253,248,.7);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:14px}.deep-block h3{margin-top:0;color:var(--green)}
+    .pill{display:inline-block;border-radius:99px;padding:3px 8px;background:#ece8df;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.good{color:var(--green)}.bad{color:var(--red)}.amber{color:#8c5514}
+    .scenario td:first-child{font-weight:800}.scenario .base{background:rgba(220,233,223,.42)}.fine{font-size:10px;color:var(--muted);margin-top:8px}.nowrap{white-space:nowrap}.center{text-align:center}
+    .comp-row-highlight{background:rgba(220,233,223,.36)}
+    @media(max-width:900px){header,.verdict{grid-template-columns:1fr}.stamp,.purity{text-align:left}.strip{grid-template-columns:1fr 1fr}.cards,.framework{grid-template-columns:1fr}.ticker,.thesis{min-height:auto}}
+    @media(max-width:900px){.stats-grid{grid-template-columns:1fr}.deep{grid-template-columns:1fr}.deep aside{position:static}}
+    @media(max-width:540px){main{width:min(100% - 22px,1200px);padding-top:32px}.strip,.signal{grid-template-columns:1fr}article{padding:20px}}
+    @media print{body{background:white}main{width:100%;padding:18px}.verdict,article{box-shadow:none;break-inside:avoid}a{color:inherit}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <div class="eyebrow">AlphaHunt / China AI infrastructure / institutional deep dive</div>
+      <h1>China neoclouds:<br>the top three</h1>
+      <p class="dek">The investable opportunity splits in two: Kingsoft Cloud sells the compute, while VNET and GDS sell the scarce powered capacity underneath it. This edition adds forward estimates, US comps, capital-structure analysis, explicit valuation scenarios and quarterly thesis-break monitors.</p>
+    </div>
+    <div class="stamp">Research snapshot<br><strong>29 August 2026</strong><br>Swiss, non-US investor lens</div>
+  </header>
+
+  <nav aria-label="Report sections">
+    <a href="#snapshot">Valuation snapshot</a><a href="#companies">Company theses</a><a href="#comps">US comparables</a><a href="#models">Scenario models</a><a href="#deepdives">Deep dives</a><a href="#monitor">Monitoring</a><a href="#sources">Sources</a>
+  </nav>
+
+  <section class="verdict">
+    <div class="mark">1</div>
+    <div><strong>Kingsoft Cloud is the cleanest trade; VNET has the cleanest contracted evidence.</strong><p>KC offers the strongest revenue and profitability inflection. VNET and GDS offer more measurable bookings and utilization, but they are data-center landlords—not owners of the GPU economics.</p></div>
+    <div class="purity"><small>Purest listed compute exposure</small><b>KC / 3896</b></div>
+  </section>
+
+  <section class="strip">
+    <div><small>KC AI billings growth</small><b>+82% YoY</b></div>
+    <div><small>VNET Q2 new orders</small><b>345 MW</b></div>
+    <div><small>GDS construction pre-let</small><b>89.2%</b></div>
+    <div><small>Direct Huawei exposure</small><b>None disclosed</b></div>
+  </section>
+
+  <section class="section" id="snapshot">
+    <div class="section-head"><h2>Valuation snapshot</h2><span>USD; closing prices and market data as of 28 August 2026</span></div>
+    <div class="stats-grid">
+      <div class="statbox">
+        <div class="name"><span>Kingsoft Cloud</span><span class="pill">Compute</span></div><div class="price">$10.64</div><div class="sub">$3.19bn equity value · $4.13bn enterprise value</div>
+        <div class="mini-grid"><div><small>TTM EV / sales</small><b>2.55×</b></div><div><small>TTM EV / EBITDA</small><b>9.43×</b></div><div><small>Forward P/E</small><b>N/M</b></div><div><small>Net debt</small><b>$0.93bn</b></div><div><small>52-week move</small><b class="bad">−24.7%</b></div><div><small>Consensus target</small><b>$20.15</b></div></div>
+      </div>
+      <div class="statbox">
+        <div class="name"><span>VNET</span><span class="pill">Capacity</span></div><div class="price">$6.55</div><div class="sub">$1.86bn equity value · $5.44bn enterprise value</div>
+        <div class="mini-grid"><div><small>TTM EV / sales</small><b>3.44×</b></div><div><small>TTM EV / EBITDA</small><b>11.25×</b></div><div><small>Forward P/E</small><b>N/M</b></div><div><small>Net debt</small><b>$3.57bn</b></div><div><small>52-week move</small><b class="bad">−16.0%</b></div><div><small>Consensus target</small><b>$13.72</b></div></div>
+      </div>
+      <div class="statbox">
+        <div class="name"><span>GDS</span><span class="pill">Capacity</span></div><div class="price">$33.41</div><div class="sub">$6.69bn equity value · $11.47bn enterprise value</div>
+        <div class="mini-grid"><div><small>TTM EV / sales</small><b>6.35×</b></div><div><small>TTM EV / EBITDA</small><b>14.16×</b></div><div><small>Forward P/E*</small><b>~143×</b></div><div><small>Net debt</small><b>$4.78bn</b></div><div><small>52-week move</small><b>−0.8%</b></div><div><small>Consensus target</small><b>$51.37</b></div></div>
+      </div>
+    </div>
+    <div class="callout"><strong>Forward P/E is the wrong primary lens.</strong><p>KC and VNET are expected to remain loss-making in 2026, making forward P/E non-meaningful. GDS’s earnings include asset and deconsolidation effects, while REIT comparables are distorted by real-estate depreciation. The clean hierarchy is: EV/forward revenue for KC; EV/forward EBITDA and value per committed MW for VNET/GDS; then a financing and dilution overlay for all three.</p></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Metric</th><th>KC</th><th>VNET</th><th>GDS</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>2026 consensus revenue</td><td class="num">RMB12.64bn</td><td class="num">RMB11.70bn</td><td class="num">RMB12.74bn</td><td>KC has the fastest expected growth.</td></tr>
+        <tr><td>2026 consensus growth</td><td class="num good">32.3%</td><td class="num">17.6%</td><td class="num">11.4%</td><td>Different businesses: compute revenue scales faster than occupied real estate.</td></tr>
+        <tr><td>2026 consensus gross margin</td><td class="num">14.9%</td><td class="num">21.9%</td><td class="num">23.2%</td><td>KC trades higher growth for lower, hardware-heavy gross margin.</td></tr>
+        <tr><td>2026 consensus EPS</td><td class="num bad">−0.07</td><td class="num bad">−6.11</td><td class="num">0.28</td><td>Consensus units are company reporting units; use direction, not cross-company comparison.</td></tr>
+        <tr><td>Forward P/E</td><td class="num">N/M</td><td class="num">N/M</td><td class="num">~143×</td><td>For GDS, the ratio is highly sensitive to adjustments and forecast conventions.</td></tr>
+        <tr><td>Debt / TTM EBITDA</td><td class="num">3.60×</td><td class="num bad">7.15×</td><td class="num bad">7.93×</td><td>Leverage, not valuation multiple, is the dominant downside variable for the landlords.</td></tr>
+        <tr><td>TTM capex / revenue</td><td class="num">43.5%</td><td class="num bad">68.4%</td><td class="num">36.5%</td><td>KC’s Q2 capex alone was 107% of quarterly revenue, materially above its TTM ratio.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="fine">*Forward P/E values are third-party consensus snapshots and can vary materially by provider, ADS conversion, non-GAAP definitions and treatment of non-operating gains. “N/M” means not meaningful.</p>
+  </section>
+
+  <section class="cards" id="companies">
+    <article>
+      <div class="rank"><span>#1 · AI public cloud</span><span class="tag">Best alpha setup</span></div>
+      <h2>Kingsoft Cloud</h2>
+      <div class="ticker">NASDAQ: KC · HKEX: 3896<br>Compute owner/operator</div>
+      <div class="metrics">
+        <div class="metric"><small>Q2 revenue</small><b>RMB 3.07bn</b></div>
+        <div class="metric"><small>YoY growth</small><b>30.8%</b></div>
+        <div class="metric"><small>AI share of public cloud</small><b>56%</b></div>
+        <div class="metric"><small>Q2 capex</small><b>RMB 3.3bn</b></div>
+      </div>
+      <p class="thesis"><strong>Why it works:</strong> AI demand has moved from narrative to reported revenue. AI-cloud billings grew 82%, public-cloud revenue grew 45%, and KC achieved positive GAAP operating margin for the first time—while the shares remain roughly 28% below their year-ago level.</p>
+      <h3>Repricing mechanism</h3>
+      <ul><li>Q3/Q4 confirmation of AI billings and margin conversion.</li><li>Evidence that revenue growth begins outrunning capex.</li><li>MaaS growth diversifies economics beyond bare compute rental.</li></ul>
+      <h3 class="risk">Falsifier</h3>
+      <ul><li>Capex and leases remain above revenue growth.</li><li>AI revenue proves to be low-margin hardware resale.</li><li>New equity issuance transfers the upside to capital providers.</li></ul>
+      <div class="scoreline"><span>Conviction</span><div class="bar"><span style="width:82%"></span></div><b>8.2</b></div>
+    </article>
+
+    <article>
+      <div class="rank"><span>#2 · AI data centers</span><span class="tag">Best value evidence</span></div>
+      <h2>VNET</h2>
+      <div class="ticker">NASDAQ: VNET<br>Powered-capacity landlord</div>
+      <div class="metrics">
+        <div class="metric"><small>Wholesale in service</small><b>1,007 MW</b></div>
+        <div class="metric"><small>Utilized</small><b>744 MW</b></div>
+        <div class="metric"><small>In-service committed</small><b>96.3%</b></div>
+        <div class="metric"><small>2026 capex guide</small><b>RMB 10–12bn</b></div>
+      </div>
+      <p class="thesis"><strong>Why it works:</strong> the market does not need to guess at AI demand. VNET won 345 MW in Q2 and 862 MW year to date; 94.2% of capacity under construction was already committed. Utilization provides the bridge from contracted MW to future revenue.</p>
+      <h3>Repricing mechanism</h3>
+      <ul><li>Booked capacity moves into service and begins billing.</li><li>Utilization approaches mature-campus levels.</li><li>Contracted MW supports a stabilized EBITDA valuation.</li></ul>
+      <h3 class="risk">Falsifier</h3>
+      <ul><li>Customer move-ins lag construction and interest expense.</li><li>Debt or equity funding absorbs the operating upside.</li><li>Power availability delays delivery of committed capacity.</li></ul>
+      <div class="scoreline"><span>Conviction</span><div class="bar"><span style="width:78%;background:var(--blue)"></span></div><b>7.8</b></div>
+    </article>
+
+    <article>
+      <div class="rank"><span>#3 · Premium data centers</span><span class="tag">Highest quality</span></div>
+      <h2>GDS</h2>
+      <div class="ticker">NASDAQ: GDS · HKEX: 9698<br>Powered-capacity landlord</div>
+      <div class="metrics">
+        <div class="metric"><small>Q2 revenue</small><b>RMB 3.09bn</b></div>
+        <div class="metric"><small>Utilization</small><b>79.2%</b></div>
+        <div class="metric"><small>In-service committed</small><b>92.4%</b></div>
+        <div class="metric"><small>H1 bookings</small><b>470 MW</b></div>
+      </div>
+      <p class="thesis"><strong>Why it works:</strong> GDS has the strongest operating record and the most mature campuses. Record AI-driven bookings pushed construction pre-commitment to 89.2%, and management raised revenue, EBITDA and capex guidance.</p>
+      <h3>Repricing mechanism</h3>
+      <ul><li>Record bookings convert into occupied, recurring capacity.</li><li>Higher utilization creates operating leverage.</li><li>Potential asset monetization can expose embedded platform value.</li></ul>
+      <h3 class="risk">Falsifier</h3>
+      <ul><li>Leverage and utility costs offset occupancy gains.</li><li>Legacy contract repricing suppresses revenue per unit.</li><li>Much of the high-quality story is already reflected in valuation.</li></ul>
+      <div class="scoreline"><span>Conviction</span><div class="bar"><span style="width:73%;background:var(--amber)"></span></div><b>7.3</b></div>
+    </article>
+  </section>
+
+  <section class="section" id="comps">
+    <div class="section-head"><h2>US comparable-company matrix</h2><span>TTM multiples; the discount is real, but so are the quality and country differences</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Company</th><th>Model</th><th>Equity value</th><th>Enterprise value</th><th>EV / sales</th><th>EV / EBITDA</th><th>Forward P/E</th><th>Debt / EBITDA</th><th>TTM growth / context</th></tr></thead>
+      <tbody>
+        <tr class="comp-row-highlight"><td><strong>KC</strong></td><td>China AI/public cloud</td><td class="num">$3.19bn</td><td class="num">$4.13bn</td><td class="num">2.55×</td><td class="num">9.43×</td><td class="num">N/M</td><td class="num">3.60×</td><td>Revenue +30.6%; gross margin 15.1%</td></tr>
+        <tr class="comp-row-highlight"><td><strong>VNET</strong></td><td>China colo / powered shell</td><td class="num">$1.86bn</td><td class="num">$5.44bn</td><td class="num">3.44×</td><td class="num">11.25×</td><td class="num">N/M</td><td class="num">7.15×</td><td>Wholesale orders inflecting; FCF negative</td></tr>
+        <tr class="comp-row-highlight"><td><strong>GDS</strong></td><td>China hyperscale DC</td><td class="num">$6.69bn</td><td class="num">$11.47bn</td><td class="num">6.35×</td><td class="num">14.16×</td><td class="num">~143×</td><td class="num">7.93×</td><td>Revenue +6.5% in Q2; 79.2% utilized</td></tr>
+        <tr><td><strong>CoreWeave</strong></td><td>US GPU neocloud</td><td class="num">$46.46bn</td><td class="num">$92.48bn</td><td class="num">12.19×</td><td class="num">24.41×</td><td class="num">N/M</td><td class="num">9.22×</td><td>Revenue +115%; $104bn backlog; high customer concentration</td></tr>
+        <tr><td><strong>Nebius</strong></td><td>AI cloud / capacity developer</td><td class="num">$57.34bn</td><td class="num">$59.49bn</td><td class="num">43.90×</td><td class="num">230.58×</td><td class="num">N/M</td><td class="num">22.16×</td><td>Revenue +454% in Q2; valuation discounts huge future capacity</td></tr>
+        <tr><td><strong>DigitalOcean</strong></td><td>Developer cloud + AI</td><td class="num">$13.08bn</td><td class="num">$14.29bn</td><td class="num">14.13×</td><td class="num">46.29×</td><td class="num">82.37×</td><td class="num">4.33×</td><td>57% gross margin; more software-like mix</td></tr>
+        <tr><td><strong>Equinix</strong></td><td>Global retail colo REIT</td><td class="num">$103.05bn</td><td class="num">$125.43bn</td><td class="num">12.66×</td><td class="num">27.63×</td><td class="num">59.86×</td><td class="num">4.80×</td><td>Global interconnection moat; 45.8% EBITDA margin</td></tr>
+        <tr><td><strong>Digital Realty</strong></td><td>Global hyperscale DC REIT</td><td class="num">$70.05bn</td><td class="num">$88.21bn</td><td class="num">13.05×</td><td class="num">27.48×</td><td class="num">79.76×</td><td class="num">5.82×</td><td>Closest landlord comp, but lower sovereign/VIE risk</td></tr>
+      </tbody>
+    </table></div>
+    <div class="framework" style="margin-top:16px">
+      <div class="panel"><h3>What the comp gap says</h3><p>KC trades at roughly one-fifth of CoreWeave’s TTM EV/sales and below one-quarter of its EV/EBITDA. VNET and GDS also trade well below Equinix and Digital Realty. A partial convergence is plausible; full convergence is not. US peers have superior access to leading Nvidia systems, deeper capital markets, higher software monetization, longer disclosed backlogs and lower China/VIE/geopolitical discounts.</p></div>
+      <aside class="note"><h3>Do not use P/E mechanically</h3><p>CoreWeave, KC and VNET are loss-making. Nebius’s small reported profit makes P/E absurd. EQIX/DLR GAAP earnings are depressed by depreciation. GDS earnings are affected by asset transactions. P/E is shown because it was requested; it is not the decision variable.</p></aside>
+    </div>
+  </section>
+
+  <section class="section" id="models">
+    <div class="section-head"><h2>Explicit valuation scenarios</h2><span>Static capital structures; intended to expose sensitivities, not produce false precision</span></div>
+    <div class="table-wrap"><table class="scenario">
+      <thead><tr><th>Security</th><th>Case</th><th>Core assumption</th><th>Implied equity value</th><th>Implied ADS</th><th>Return vs close</th><th>What must happen</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3">KC</td><td>Bear</td><td>2.0× 2026E sales</td><td class="num">$2.79bn</td><td class="num">$9.28</td><td class="num bad">−12.8%</td><td>Growth slows; no margin credit.</td></tr>
+        <tr class="base"><td>Base</td><td>3.0× 2026E sales</td><td class="num">$4.65bn</td><td class="num">$15.48</td><td class="num good">+45.5%</td><td>AI growth persists and capex intensity normalizes.</td></tr>
+        <tr><td>Bull</td><td>4.0× 2026E sales</td><td class="num">$6.51bn</td><td class="num">$21.67</td><td class="num good">+103.7%</td><td>Partial US-cloud convergence plus positive FCF credibility.</td></tr>
+        <tr><td rowspan="3">VNET</td><td>Bear</td><td>10× midpoint FY26 EBITDA</td><td class="num">$1.81bn</td><td class="num">$6.36</td><td class="num bad">−2.9%</td><td>Move-ins lag; leverage absorbs bookings.</td></tr>
+        <tr class="base"><td>Base</td><td>13× midpoint FY26 EBITDA</td><td class="num">$3.42bn</td><td class="num">$12.03</td><td class="num good">+83.7%</td><td>Committed capacity ramps with stable unit economics.</td></tr>
+        <tr><td>Bull</td><td>16× midpoint FY26 EBITDA</td><td class="num">$5.04bn</td><td class="num">$17.70</td><td class="num good">+170.2%</td><td>Execution plus financing de-risking earns REIT-adjacent multiple.</td></tr>
+        <tr><td rowspan="3">GDS</td><td>Bear</td><td>12× midpoint FY26 EBITDA</td><td class="num">$5.83bn</td><td class="num">$29.10</td><td class="num bad">−12.9%</td><td>Utility costs and legacy repricing offset utilization.</td></tr>
+        <tr class="base"><td>Base</td><td>15× midpoint FY26 EBITDA</td><td class="num">$8.48bn</td><td class="num">$42.30</td><td class="num good">+26.6%</td><td>Bookings convert; utilization reaches low-80s.</td></tr>
+        <tr><td>Bull</td><td>18× midpoint FY26 EBITDA</td><td class="num">$11.13bn</td><td class="num">$55.50</td><td class="num good">+66.1%</td><td>Asset monetization validates private-market campus values.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="fine">KC uses 2026 consensus revenue of RMB12.64bn converted at approximately RMB6.785/USD and current net debt of $0.93bn. VNET uses RMB3.65bn, the midpoint of FY26 adjusted EBITDA guidance, and $3.57bn current net debt. GDS uses RMB6.0bn, the midpoint of FY26 adjusted EBITDA guidance, and $4.78bn current net debt. Additional capex-funded borrowing, leases, minorities, asset-sale proceeds and dilution will change the outputs.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>What each security actually owns</h2><span>Do not compare the headline growth rates as if these were identical businesses</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Name</th><th>Economic asset</th><th>Captures GPU rental spread?</th><th>Fair-value anchor</th><th>Huawei / Ascend read-through</th><th>Capacity for $1bn fund</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Kingsoft Cloud</strong></td><td>Servers, leased equipment, orchestration software, cloud customers</td><td>Yes, with chip-obsolescence and financing risk</td><td>EV / forward revenue, gross margin and free cash flow</td><td>No clean disclosure</td><td>Meaningful, staged position</td></tr>
+        <tr><td><strong>VNET</strong></td><td>Land, buildings, power, cooling and connectivity</td><td>No; customers generally supply compute</td><td>EV / stabilized EBITDA and value per committed MW</td><td>Hardware-neutral</td><td>Meaningful, staged position</td></tr>
+        <tr><td><strong>GDS</strong></td><td>Premium hyperscale campuses and power pipeline</td><td>No; captures occupancy and power-density demand</td><td>EV / EBITDA, committed area and asset monetization</td><td>Hardware-neutral</td><td>Best liquidity of the three</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="section" id="deepdives">
+    <div class="section-head"><h2>Company-by-company deep dive</h2><span>Revenue engine, balance sheet, unit economics and the exact debate</span></div>
+
+    <div class="deep">
+      <aside><span class="pill">#1 compute</span><h2>Kingsoft Cloud</h2><p>The closest listed Chinese neocloud, although it also operates a conventional public and enterprise cloud.</p><p><strong>Central question:</strong> does AI revenue become a recurring software-and-compute platform, or remain a capital-hungry server-rental business?</p></aside>
+      <div class="deep-body">
+        <div class="deep-block"><h3>Operating dashboard</h3><div class="table-wrap"><table><tbody>
+          <tr><td>Q2 2026 revenue</td><td class="num"><strong>RMB3.072bn</strong></td><td>+30.8% YoY; record quarter</td></tr>
+          <tr><td>Public cloud</td><td class="num">RMB2.358bn</td><td>+45.1% YoY; primary AI beneficiary</td></tr>
+          <tr><td>Enterprise cloud</td><td class="num">RMB714m</td><td>−1.3% YoY; slower, project-oriented revenue</td></tr>
+          <tr><td>AI-cloud gross billings</td><td class="num">RMB1.327bn</td><td>+82% YoY; 56% of public-cloud revenue</td></tr>
+          <tr><td>Gross margin</td><td class="num">15.2%</td><td>Up from 12.8% sequentially; still far below software-led US cloud</td></tr>
+          <tr><td>Adjusted operating margin</td><td class="num good">4.0%</td><td>GAAP operating margin reached +0.7% for first time</td></tr>
+          <tr><td>Q2 capex incl. leases</td><td class="num bad">RMB3.3bn</td><td>107% of quarterly revenue; the core bear statistic</td></tr>
+          <tr><td>Cash at Q2</td><td class="num">RMB4.674bn</td><td>Down from RMB6.018bn at year-end 2025</td></tr>
+        </tbody></table></div></div>
+        <div class="deep-block"><h3>Why the market may be wrong</h3><p>The share price is down roughly 25% over twelve months even as AI billings accelerated, public-cloud growth reached 45%, and operating profitability crossed zero. The market appears to value the revenue as low-quality hardware pass-through. If MaaS and orchestration raise gross profit per unit of installed compute, the appropriate multiple can rise before GAAP earnings arrive.</p></div>
+        <div class="deep-block"><h3>Why the market may be right</h3><p>KC spent more on Q2 capex than it generated in Q2 revenue. Shares outstanding increased approximately 18% over the past year. A 15% gross margin offers little protection against falling compute prices, accelerator obsolescence or financing costs. The company can report positive EBITDA while destroying equity value if depreciation, leases and dilution are economically understated.</p></div>
+        <div class="deep-block"><h3>Quarterly proof points</h3><ul><li>AI billings growth versus public-cloud revenue growth: billing must remain ahead.</li><li>Gross profit growth versus depreciation: profit must outrun the installed fleet’s aging.</li><li>Capex/revenue below 70%, then below 50%, without supply constraints.</li><li>MaaS share, non-Xiaomi customer growth and customer concentration disclosure.</li><li>Cash plus committed financing relative to twelve-month capex plan.</li></ul></div>
+      </div>
+    </div>
+
+    <div class="deep">
+      <aside><span class="pill">#2 value</span><h2>VNET</h2><p>A leveraged conversion of booked megawatts into occupied, cash-generating data-center capacity.</p><p><strong>Central question:</strong> are the extraordinary bookings truly de-risked revenue, or merely a larger funding requirement?</p></aside>
+      <div class="deep-body">
+        <div class="deep-block"><h3>Operating dashboard</h3><div class="table-wrap"><table><tbody>
+          <tr><td>Wholesale capacity in service</td><td class="num"><strong>1,007 MW</strong></td><td>+49% YoY</td></tr>
+          <tr><td>Wholesale utilized</td><td class="num">744 MW</td><td>73.9% utilization; 263 MW installed but not utilized</td></tr>
+          <tr><td>In-service commitment</td><td class="num good">96.3%</td><td>Large gap between committed and currently utilized capacity</td></tr>
+          <tr><td>Construction pre-commitment</td><td class="num good">94.2%</td><td>Demand risk appears low; delivery/funding risk remains</td></tr>
+          <tr><td>Q2 / YTD new wholesale orders</td><td class="num">345 / 862 MW</td><td>Exceptionally strong booking period</td></tr>
+          <tr><td>Retail utilization</td><td class="num">64.5%</td><td>Retail remains a separate, slower-ramping business</td></tr>
+          <tr><td>FY26 adjusted EBITDA guide</td><td class="num">RMB3.55–3.75bn</td><td>Midpoint used in scenario valuation</td></tr>
+          <tr><td>FY26 capex guide</td><td class="num bad">RMB10–12bn</td><td>Approximately three times guided EBITDA</td></tr>
+        </tbody></table></div></div>
+        <div class="deep-block"><h3>Hidden operating leverage</h3><p>At 73.9% utilization but 96.3% commitment, VNET has roughly 225 MW of committed, installed capacity not yet reflected as utilized. That spread is the most important leading indicator in the report. The value case works if move-ins occur faster than new debt service accumulates.</p></div>
+        <div class="deep-block"><h3>Balance-sheet trap</h3><p>Net debt is approximately $3.57bn against a $1.86bn market capitalization. TTM capex was about 68% of revenue and FY26 guidance is higher still. A seemingly modest change in the EBITDA multiple creates enormous equity volatility because debt sits ahead of the equity.</p></div>
+        <div class="deep-block"><h3>Quarterly proof points</h3><ul><li>Incremental utilized MW and the time from contract signing to billing.</li><li>Capex funded by customer prepayments, project debt, REIT recycling or parent equity.</li><li>Revenue and EBITDA per utilized wholesale MW.</li><li>Interest expense growth versus adjusted EBITDA growth.</li><li>Customer concentration and cancellation protections on the 862 MW order book.</li></ul></div>
+      </div>
+    </div>
+
+    <div class="deep">
+      <aside><span class="pill">#3 quality</span><h2>GDS</h2><p>The strongest operator and asset-monetization platform, but not the largest apparent mispricing.</p><p><strong>Central question:</strong> can record bookings and asset recycling overcome legacy pricing and leverage?</p></aside>
+      <div class="deep-body">
+        <div class="deep-block"><h3>Operating dashboard</h3><div class="table-wrap"><table><tbody>
+          <tr><td>Q2 revenue</td><td class="num"><strong>RMB3.088bn</strong></td><td>+6.5% YoY</td></tr>
+          <tr><td>Q2 adjusted EBITDA</td><td class="num">RMB1.406bn</td><td>45.5% margin; +2.5% YoY</td></tr>
+          <tr><td>Area utilization</td><td class="num good">79.2%</td><td>Up from 75.5% at year-end 2025</td></tr>
+          <tr><td>In-service commitment</td><td class="num">92.4%</td><td>Embedded occupancy uplift remains</td></tr>
+          <tr><td>Construction pre-commitment</td><td class="num good">89.2%</td><td>Up from 74.7% a year earlier</td></tr>
+          <tr><td>H1 new bookings</td><td class="num">470 MW</td><td>Company record, driven primarily by AI demand</td></tr>
+          <tr><td>FY26 adjusted EBITDA guide</td><td class="num">RMB5.9–6.1bn</td><td>Raised with Q2 results</td></tr>
+          <tr><td>Net debt</td><td class="num bad">$4.78bn</td><td>Debt/TTM EBITDA approximately 7.9×</td></tr>
+        </tbody></table></div></div>
+        <div class="deep-block"><h3>Asset-value support</h3><p>GDS has previously monetized Chinese data-center assets at approximately 13–17× EBITDA through ABS and C-REIT structures. Those transaction multiples support the middle of the scenario range and provide a route to recycle capital without selling the entire platform.</p></div>
+        <div class="deep-block"><h3>Accounting warning</h3><p>Trailing P/E and ROE overstate normalized earnings quality because reported profit includes gains connected with DayOne and other ownership changes. The cleaner recurring measures are adjusted EBITDA, monthly service revenue, utilization and cash interest coverage.</p></div>
+        <div class="deep-block"><h3>Quarterly proof points</h3><ul><li>Utilization crossing 80% while the commitment rate remains above 90%.</li><li>MRR stabilization after legacy-contract repricing.</li><li>Utility-cost growth below revenue growth.</li><li>Asset recycling at or above 13× EBITDA and use of proceeds for deleveraging.</li><li>China capex returns versus capital allocated to the DayOne stake.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section framework">
+    <div class="panel">
+      <h3>AlphaHunt implementation</h3>
+      <p><strong>Pure compute expression:</strong> long KC. The trade depends on continued AI billing growth, improving gross margin and declining capital intensity per unit of revenue.</p>
+      <p><strong>Lower-model-risk expression:</strong> long VNET and GDS. The underwriting relies on contracted capacity, delivery schedules, utilization and financing—not assumptions about which Chinese accelerator wins.</p>
+      <div class="signal">
+        <div><small>KC trigger</small><b>AI billings &gt; revenue growth</b></div>
+        <div><small>VNET trigger</small><b>Utilization &gt; 80%</b></div>
+        <div><small>GDS trigger</small><b>Bookings convert on schedule</b></div>
+      </div>
+    </div>
+    <aside class="note">
+      <h3>The Huawei caveat</h3>
+      <p>None of the top three is a clean Huawei security. Huawei Cloud AICS is the actual Ascend neocloud, but Huawei is private.</p>
+      <p>For explicit Ascend exposure, use a smaller satellite basket of <strong>UCloud 688158</strong> and <strong>Chinasoft 0354</strong>. UCloud offers Ascend 910B configurations; Chinasoft implements Huawei Cloud, CloudMatrix and Ascend workloads.</p>
+    </aside>
+  </section>
+
+  <section class="section" id="monitor">
+    <div class="section-head"><h2>Positioning guide</h2><span>Illustrative share of a China AI-infrastructure sleeve—not of total fund NAV</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Security</th><th>Illustrative weight</th><th>Role</th><th>Pre-trade requirement</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Kingsoft Cloud</strong></td><td class="num">40%</td><td>High-beta compute and MaaS upside</td><td>Model leases, debt and dilution alongside reported capex</td></tr>
+        <tr><td><strong>VNET</strong></td><td class="num">35%</td><td>Contracted Chinese AI power/capacity ramp</td><td>Map each large booking to customer, site, delivery date and funding</td></tr>
+        <tr><td><strong>GDS</strong></td><td class="num">25%</td><td>Higher-quality stabilizer and occupancy compounder</td><td>Separate recurring earnings from DayOne and disposal-related gains</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><strong>Recommended sequencing:</strong><p>Begin with KC and GDS, where US-listed liquidity is adequate and the operating evidence is clearest. Add VNET only after mapping the top contracts and funding sources. For a $1bn fund, treat the weights above as sleeve weights and stage execution against ADV; do not size from headline market capitalization alone.</p></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Monitoring scorecard</h2><span>The position should be reduced before the income statement fully deteriorates</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Indicator</th><th>Green</th><th>Yellow</th><th>Exit / thesis break</th></tr></thead>
+      <tbody>
+        <tr><td><strong>KC AI growth</strong></td><td>AI billings &gt;50% YoY</td><td>25–50%</td><td>&lt;25% with capex still above 70% of revenue</td></tr>
+        <tr><td><strong>KC gross margin</strong></td><td>&gt;16%</td><td>14–16%</td><td>&lt;14% for two quarters</td></tr>
+        <tr><td><strong>VNET wholesale utilization</strong></td><td>&gt;80%</td><td>75–80%</td><td>&lt;75% while capacity and debt expand</td></tr>
+        <tr><td><strong>VNET committed-to-utilized gap</strong></td><td>Narrows &gt;5pp/qtr</td><td>Narrows slowly</td><td>Flat for two quarters without customer compensation</td></tr>
+        <tr><td><strong>GDS utilization</strong></td><td>&gt;82%</td><td>78–82%</td><td>&lt;78% with elevated capex</td></tr>
+        <tr><td><strong>GDS asset recycling</strong></td><td>&gt;15× EBITDA</td><td>12–15×</td><td>&lt;12× or proceeds not used to delever</td></tr>
+        <tr><td><strong>All: financing</strong></td><td>Debt growth &lt; EBITDA growth</td><td>Similar growth</td><td>Dilution or debt growth materially exceeds operating growth</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="section" id="sources">
+    <div class="section-head"><h2>Primary sources</h2><span>Current through 29 August 2026</span></div>
+    <ul>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/1795589/000110465926098490/tm2623439d2_ex99-1.htm">Kingsoft Cloud Q2 2026 results</a> and <a href="https://www.sec.gov/Archives/edgar/data/1795589/000110465926047100/kc-20251231x20f.htm">2025 Form 20-F</a>.</li>
+      <li><a href="https://21vianetgroupinc.gcs-web.com/news-releases/news-release-details/vnet-reports-unaudited-second-quarter-2026-financial-results">VNET Q2 2026 results</a>.</li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/1526125/000110465926095498/tm2621440d1_ex99-1.htm">GDS Q2 2026 results</a>.</li>
+      <li><a href="https://www.ucloud.cn/campaign/deepseek">UCloud GPU and Ascend offerings</a> and <a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0427/2026042700355.pdf">Chinasoft 2025 annual report</a>.</li>
+      <li><a href="https://www.huawei.com/en/annual-report/2025">Huawei 2025 annual report</a>.</li>
+      <li>Current valuation, capital structure and consensus snapshots: <a href="https://stockanalysis.com/stocks/kc/statistics/">KC</a>, <a href="https://stockanalysis.com/stocks/vnet/statistics/">VNET</a>, <a href="https://stockanalysis.com/stocks/gds/statistics/">GDS</a>; forecast pages for <a href="https://stockanalysis.com/stocks/kc/forecast/">KC</a>, <a href="https://stockanalysis.com/stocks/vnet/forecast/">VNET</a> and <a href="https://stockanalysis.com/stocks/gds/forecast/">GDS</a>.</li>
+      <li>US comparable snapshots: <a href="https://stockanalysis.com/stocks/crwv/statistics/">CoreWeave</a>, <a href="https://stockanalysis.com/stocks/nbis/statistics/">Nebius</a>, <a href="https://stockanalysis.com/stocks/docn/statistics/">DigitalOcean</a>, <a href="https://stockanalysis.com/stocks/eqix/statistics/">Equinix</a> and <a href="https://stockanalysis.com/stocks/dlr/statistics/">Digital Realty</a>.</li>
+    </ul>
+    <p class="fine">Company filings are authoritative for operating results and guidance. S&amp;P Global-sourced market and consensus data are estimates, not company guidance. Ratios can differ across vendors because of leases, minorities, ADS conversion, non-GAAP definitions and the treatment of asset-sale or deconsolidation gains.</p>
+  </section>
+
+  <footer>AlphaHunt research — information only, not individualized investment advice. Market prices, liquidity, sanctions eligibility, Stock Connect access and custodian restrictions must be refreshed before execution. Financial figures use company disclosures and are rounded.</footer>
+</main>
+</body>
+</html>
