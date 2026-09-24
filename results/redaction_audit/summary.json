@@ -1,0 +1,35 @@
+{
+  "century": {
+    "packs": 9879,
+    "packs_with_distinctive_name_tokens": 6837,
+    "share_name_token_survives": 0.6071,
+    "share_name_token_survives_5plus": 0.4948,
+    "median_name_token_hits": 4,
+    "share_ticker_survives": 0.0009,
+    "share_cover_address": 0.8557,
+    "share_cover_irs_id": 0.8973,
+    "share_any_identifier": 0.9163
+  },
+  "live_2026": {
+    "packs": 996,
+    "packs_with_distinctive_name_tokens": 680,
+    "share_name_token_survives": 0.5971,
+    "share_name_token_survives_5plus": 0.5235,
+    "median_name_token_hits": 7,
+    "share_ticker_survives": 0.0025,
+    "share_cover_address": 0.8243,
+    "share_cover_irs_id": 0.8474,
+    "share_any_identifier": 0.8916
+  },
+  "all": {
+    "packs": 10875,
+    "packs_with_distinctive_name_tokens": 7517,
+    "share_name_token_survives": 0.6062,
+    "share_name_token_survives_5plus": 0.4974,
+    "median_name_token_hits": 4,
+    "share_ticker_survives": 0.001,
+    "share_cover_address": 0.8528,
+    "share_cover_irs_id": 0.8927,
+    "share_any_identifier": 0.914
+  }
+}

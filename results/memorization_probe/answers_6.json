@@ -1,0 +1,74 @@
+[
+  {
+    "item": "P06",
+    "company_guess": "CONSOL Energy Inc.",
+    "ticker_guess": "CNX",
+    "id_confidence": 0.6,
+    "recall": "no_memory",
+    "p_beat20": 15,
+    "clue": "Natural gas assets impairment, Haynesville/Bossier shale, coal MLP spinoff CNXC"
+  },
+  {
+    "item": "P12",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0,
+    "recall": "no_memory",
+    "p_beat20": 50,
+    "clue": "Early stage tech, vague business description, huge accumulated deficit"
+  },
+  {
+    "item": "P18",
+    "company_guess": "Aclaris Therapeutics",
+    "ticker_guess": "ACRS",
+    "id_confidence": 0.75,
+    "recall": "no_memory",
+    "p_beat20": 45,
+    "clue": "ESKATA hydrogen peroxide for seborrheic keratosis, dermatology focus, JAK inhibitors"
+  },
+  {
+    "item": "P24",
+    "company_guess": "Cabot Oil & Gas Corporation",
+    "ticker_guess": "COG",
+    "id_confidence": 0.4,
+    "recall": "no_memory",
+    "p_beat20": 30,
+    "clue": "Haynesville and Bossier shale production, natural gas operator, Q3 2011 production volumes"
+  },
+  {
+    "item": "P30",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0,
+    "recall": "no_memory",
+    "p_beat20": 50,
+    "clue": "Content distribution platform, SPAC merger, NYSE listing, device partners"
+  },
+  {
+    "item": "P36",
+    "company_guess": "Sanmina Corporation",
+    "ticker_guess": "SNMN",
+    "id_confidence": 0.5,
+    "recall": "no_memory",
+    "p_beat20": 20,
+    "clue": "EMS provider, optical customer decline, defense aerospace, vertically integrated manufacturing"
+  },
+  {
+    "item": "P42",
+    "company_guess": "Amarin Corporation",
+    "ticker_guess": "AMRN",
+    "id_confidence": 0.95,
+    "recall": "no_memory",
+    "p_beat20": 50,
+    "clue": "AMR101 icosapent ethyl for hypertriglyceridemia, MARINE and ANCHOR trials, July 2012 PDUFA"
+  },
+  {
+    "item": "P48",
+    "company_guess": "Nvidia Corporation",
+    "ticker_guess": "NVDA",
+    "id_confidence": 0.6,
+    "recall": "no_memory",
+    "p_beat20": 55,
+    "clue": "Sunnyvale headquarters, stock option investigation litigation, major tech company"
+  }
+]

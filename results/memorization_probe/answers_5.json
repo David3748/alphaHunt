@@ -1,0 +1,74 @@
+[
+  {
+    "item": "P05",
+    "company_guess": "Scorpio Tankers Inc.",
+    "ticker_guess": "STNG",
+    "id_confidence": 0.45,
+    "recall": "no_memory",
+    "p_beat20": 18,
+    "clue": "Product tanker operator with LR2, LR1, MR, Handymax pools; MarPol/BWM compliance"
+  },
+  {
+    "item": "P11",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.15,
+    "recall": "no_memory",
+    "p_beat20": 25,
+    "clue": "For-profit education company; Hondros College of Nursing subsidiary; military partnerships"
+  },
+  {
+    "item": "P17",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.08,
+    "recall": "no_memory",
+    "p_beat20": 30,
+    "clue": "Private oil/gas LLC, not publicly traded; Gulf of America offshore interests"
+  },
+  {
+    "item": "P23",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.20,
+    "recall": "no_memory",
+    "p_beat20": 22,
+    "clue": "Document security/anti-counterfeiting; Rochester NY facility; plastic cards; AuthentiGuard"
+  },
+  {
+    "item": "P29",
+    "company_guess": "Angi Inc.",
+    "ticker_guess": "ANGI",
+    "id_confidence": 0.82,
+    "recall": "underperform",
+    "p_beat20": 12,
+    "clue": "Home services marketplace; 2021 acquisitions V12, Floify; connects homeowners/professionals"
+  },
+  {
+    "item": "P35",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.12,
+    "recall": "no_memory",
+    "p_beat20": 28,
+    "clue": "Labor/recruiting marketplace; incorporated 2010; Poplar Technologies/BREAKROOM; recent filing"
+  },
+  {
+    "item": "P41",
+    "company_guess": "Baker Hughes Company",
+    "ticker_guess": "BKR",
+    "id_confidence": 0.35,
+    "recall": "strong_outperform",
+    "p_beat20": 68,
+    "clue": "Oil/gas services; Gulf of Mexico offshore; Hurricane Ida impact; 2021 operations"
+  },
+  {
+    "item": "P47",
+    "company_guess": "Lexicon Pharmaceuticals",
+    "ticker_guess": "LXRX",
+    "id_confidence": 0.78,
+    "recall": "underperform",
+    "p_beat20": 18,
+    "clue": "Biotech; LX1032 telotristat etiprate (carcinoid), LX4211 sotagliflozin (diabetes); Phase 3 trials"
+  }
+]

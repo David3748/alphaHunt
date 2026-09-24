@@ -1,0 +1,74 @@
+[
+  {
+    "item": "P02",
+    "company_guess": "Urban Outfitters",
+    "ticker_guess": "URBN",
+    "id_confidence": 0.55,
+    "recall": "underperform",
+    "p_beat20": 5,
+    "clue": "Philadelphia PA HQ, retail stores closed COVID-19 March 2020, trend-right merchandise"
+  },
+  {
+    "item": "P08",
+    "company_guess": "Advanced Micro Devices",
+    "ticker_guess": "AMD",
+    "id_confidence": 0.95,
+    "recall": "underperform",
+    "p_beat20": 15,
+    "clue": "x86 processors, Athlon Opteron Radeon brands, Sunnyvale HQ, semiconductor"
+  },
+  {
+    "item": "P14",
+    "company_guess": "Geron Corporation",
+    "ticker_guess": "GERN",
+    "id_confidence": 0.70,
+    "recall": "no_memory",
+    "p_beat20": 30,
+    "clue": "Imetelstat telomerase inhibitor, Phase 2 essential thrombocythemia clinical trial"
+  },
+  {
+    "item": "P20",
+    "company_guess": "Avis Budget Group",
+    "ticker_guess": "CAR",
+    "id_confidence": 0.70,
+    "recall": "no_memory",
+    "p_beat20": 25,
+    "clue": "Zipcar car sharing brand, global vehicle rental, 684000 fleet"
+  },
+  {
+    "item": "P26",
+    "company_guess": "Geron Corporation",
+    "ticker_guess": "GERN",
+    "id_confidence": 0.80,
+    "recall": "underperform",
+    "p_beat20": 20,
+    "clue": "Imetelstat telomerase inhibitor sole product, hematologic malignancies biotech"
+  },
+  {
+    "item": "P32",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.15,
+    "recall": "no_memory",
+    "p_beat20": 25,
+    "clue": "Retail data insights AI ecosystem SMB clients pet beauty tobacco verticals"
+  },
+  {
+    "item": "P38",
+    "company_guess": "Green Dot Corporation",
+    "ticker_guess": "GDOT",
+    "id_confidence": 0.85,
+    "recall": "outperform",
+    "p_beat20": 45,
+    "clue": "MoneyPak prepaid debit cards, 60000 retail locations, GPR cards reload network"
+  },
+  {
+    "item": "P44",
+    "company_guess": "BioCryst Pharmaceuticals",
+    "ticker_guess": "BCRX",
+    "id_confidence": 0.60,
+    "recall": "no_memory",
+    "p_beat20": 30,
+    "clue": "Peramivir BCX4430 antiviral drugs influenza development biotech"
+  }
+]

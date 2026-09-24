@@ -1,0 +1,74 @@
+[
+  {
+    "item": "P01",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.15,
+    "recall": "no_memory",
+    "p_beat20": 25,
+    "clue": "Chinese EV and consumer products company, VIE structure, Shangchi Automobile"
+  },
+  {
+    "item": "P07",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.2,
+    "recall": "no_memory",
+    "p_beat20": 20,
+    "clue": "Phage technology biotech, clinical trials, synthetic biology focus"
+  },
+  {
+    "item": "P13",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.1,
+    "recall": "no_memory",
+    "p_beat20": 30,
+    "clue": "Diversity recruiting platform, NAPW women organization, RemoteMore developers"
+  },
+  {
+    "item": "P19",
+    "company_guess": "Ocean Power Technologies",
+    "ticker_guess": "OPTT",
+    "id_confidence": 0.7,
+    "recall": "underperform",
+    "p_beat20": 15,
+    "clue": "Wave energy renewable systems, U.S. Navy and Lockheed Martin contracts"
+  },
+  {
+    "item": "P25",
+    "company_guess": "Cliffs Natural Resources",
+    "ticker_guess": "CLF",
+    "id_confidence": 0.75,
+    "recall": "underperform",
+    "p_beat20": 10,
+    "clue": "Iron ore pellet producer, Michigan Minnesota mines, 44 percent capacity"
+  },
+  {
+    "item": "P31",
+    "company_guess": "Best Buy",
+    "ticker_guess": "BBY",
+    "id_confidence": 0.95,
+    "recall": "underperform",
+    "p_beat20": 15,
+    "clue": "Consumer electronics retailer with Geek Squad technical support brand"
+  },
+  {
+    "item": "P37",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.25,
+    "recall": "strong_underperform",
+    "p_beat20": 5,
+    "clue": "Independent oil gas producer Gulf of Mexico Permian Basin operations"
+  },
+  {
+    "item": "P43",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.2,
+    "recall": "no_memory",
+    "p_beat20": 40,
+    "clue": "Cloud cognitive AI software, unstructured audio video data processing"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "item": "P04",
+    "company_guess": "LSB Industries",
+    "ticker_guess": "LXU",
+    "id_confidence": 0.65,
+    "recall": "no_memory",
+    "p_beat20": 30,
+    "clue": "Chemical products, El Dorado Arkansas, ammonia plant, Climate Control sold to NIBE"
+  },
+  {
+    "item": "P10",
+    "company_guess": "Avolon Holdings",
+    "ticker_guess": "AVLO",
+    "id_confidence": 0.30,
+    "recall": "no_memory",
+    "p_beat20": 25,
+    "clue": "Broadstone SPAC merger, aircraft leasing, aviation regulatory references"
+  },
+  {
+    "item": "P16",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.15,
+    "recall": "no_memory",
+    "p_beat20": 40,
+    "clue": "Robotic endovascular surgery devices, minimally invasive, disposable robot platform"
+  },
+  {
+    "item": "P22",
+    "company_guess": "Iridium Communications",
+    "ticker_guess": "IRDM",
+    "id_confidence": 0.40,
+    "recall": "no_memory",
+    "p_beat20": 35,
+    "clue": "Satellite system operator, FCC regulated, Aireon subsidiary, orbital debris"
+  },
+  {
+    "item": "P28",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.10,
+    "recall": "no_memory",
+    "p_beat20": 50,
+    "clue": "Network security, data protection, customer personal information emphasis"
+  },
+  {
+    "item": "P34",
+    "company_guess": "Kopin Corporation",
+    "ticker_guess": "KOPN",
+    "id_confidence": 0.55,
+    "recall": "underperform",
+    "p_beat20": 20,
+    "clue": "Miniature displays, thermal weapon sights, defense, AR/VR, wearable tech"
+  },
+  {
+    "item": "P40",
+    "company_guess": "Wynn Resorts",
+    "ticker_guess": "WYNN",
+    "id_confidence": 0.95,
+    "recall": "underperform",
+    "p_beat20": 15,
+    "clue": "Macau and Las Vegas casinos, Encore Boston Harbor construction, luxury resorts"
+  },
+  {
+    "item": "P46",
+    "company_guess": "Clean Energy Fuels",
+    "ticker_guess": "CLNE",
+    "id_confidence": 0.80,
+    "recall": "underperform",
+    "p_beat20": 25,
+    "clue": "CNG fuel distribution, refuse transit trucking airport customers, Newport Beach"
+  }
+]

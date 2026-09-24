@@ -1,0 +1,74 @@
+[
+  {
+    "item": "P03",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.05,
+    "recall": "no_memory",
+    "p_beat20": 5,
+    "clue": "Emerging growth company JOBS Act disclosure; no identifying details"
+  },
+  {
+    "item": "P09",
+    "company_guess": "Corbus Pharmaceuticals",
+    "ticker_guess": "CRBP",
+    "id_confidence": 0.75,
+    "recall": "no_memory",
+    "p_beat20": 25,
+    "clue": "Lenabasum for systemic sclerosis, cystic fibrosis, Phase 3 endocannabinoid"
+  },
+  {
+    "item": "P15",
+    "company_guess": "Liquidity Services",
+    "ticker_guess": "LQDT",
+    "id_confidence": 0.70,
+    "recall": "outperform",
+    "p_beat20": 50,
+    "clue": "Online auction marketplaces surplus assets DoD DLA Surplus Contract"
+  },
+  {
+    "item": "P21",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.15,
+    "recall": "no_memory",
+    "p_beat20": 15,
+    "clue": "Industrial cleaning equipment manufacturer Orlando Florida CleanTech"
+  },
+  {
+    "item": "P27",
+    "company_guess": "Tenable Holdings",
+    "ticker_guess": "TENB",
+    "id_confidence": 0.65,
+    "recall": "no_memory",
+    "p_beat20": 30,
+    "clue": "Exposure management solutions AI security threat landscape enterprise"
+  },
+  {
+    "item": "P33",
+    "company_guess": null,
+    "ticker_guess": null,
+    "id_confidence": 0.08,
+    "recall": "no_memory",
+    "p_beat20": 10,
+    "clue": "Early-stage going concern doubts continued losses no specific indicators"
+  },
+  {
+    "item": "P39",
+    "company_guess": "Frontera Energy",
+    "ticker_guess": "FEC",
+    "id_confidence": 0.35,
+    "recall": "outperform",
+    "p_beat20": 45,
+    "clue": "Colombian oil operations Acordionero Suroriente fields BOPD production"
+  },
+  {
+    "item": "P45",
+    "company_guess": "Liquidity Services",
+    "ticker_guess": "LQDT",
+    "id_confidence": 0.88,
+    "recall": "outperform",
+    "p_beat20": 55,
+    "clue": "Online auction surplus salvage Defense Logistics Agency DoD contract"
+  }
+]
