@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import forecast_audit as fa
 import memorization_probe as mp
+import recall_probe as rp
 import redaction_audit as ra
 
 
@@ -133,6 +134,37 @@ class TestMemorizationProbe(unittest.TestCase):
         self.assertEqual(result["century_2011_2024"]["identified"], 1)
         self.assertEqual(result["century_2011_2024"]["recall_direction_accuracy"], 0.0)
         self.assertEqual(result["live_2026_control"]["identified"], 0)
+
+
+
+class TestRecallProbe(unittest.TestCase):
+    def rows(self, n=20, perfect=True):
+        out = []
+        for i in range(n):
+            winner = i % 2 == 0
+            p = (80 if winner else 20) if perfect else 50
+            out.append({"winner": winner, "p_outperform": p, "p_beat20": p,
+                        "direction": "outperform" if (winner if perfect else True) else "underperform",
+                        "memory": "specific" if perfect else "none", "recognize_company": perfect})
+        return out
+
+    def test_perfect_recall_scores_auc_one_and_significant(self):
+        b = rp.block(self.rows())
+        self.assertEqual(b["auc_p_outperform"], 1.0)
+        self.assertEqual(b["direction_accuracy"], 1.0)
+        self.assertLess(b["auc_p_value"], 0.01)
+        self.assertEqual(b["by_memory"]["specific"]["n"], 20)
+
+    def test_no_memory_scores_chance(self):
+        b = rp.block(self.rows(perfect=False))
+        self.assertEqual(b["auc_p_outperform"], 0.5)
+        self.assertEqual(b["direction_accuracy"], 0.5)
+        self.assertGreater(b["auc_p_value"], 0.3)
+
+    def test_wilson_interval_brackets_rate(self):
+        lo, hi = rp.wilson(30, 40)
+        self.assertLess(lo, 0.75)
+        self.assertGreater(hi, 0.75)
 
 
 if __name__ == "__main__":

@@ -35,11 +35,14 @@ covers what survived out of sample, what didn't, and why.
 - **The part that made money did not survive.** The backtest's returns came from
   the extreme top of the ranking. In 2026 that tail edge vanished, and the locked
   rule lost 22% vs SPY per trade.
-- **The model could often tell which company it was reading.** 91% of the
-  "anonymized" evidence packs still carried a direct identifier. Even after a strict
-  scrub, Claude Haiku 4.5 named 53% of companies from MD&A prose alone. Leakage
-  through the model's own weights can't be ruled out for any year before its
-  training cutoff.
+- **The model could often tell which company it was reading, and what came next.**
+  91% of the "anonymized" evidence packs still carried a direct identifier. Even
+  after a strict scrub, Claude Haiku 4.5 named 53% of companies from MD&A prose
+  alone. Given only a company's name and filing date, Haiku's guesses separated
+  historical winners from losers (AUC 0.65, p = 0.007) but not 2026 ones (0.56).
+  Its explanations cited events that happened after the filing, such as "COVID-19"
+  for a February 2020 10-K. Leakage through the model's own weights can't be ruled
+  out for any year before its training cutoff.
 - **The probabilities are poorly calibrated.** Forecasts average 11–13%, while the
   event happens 19–21% of the time. Brier skill over a base-rate forecast is about
   +0.02, and walk-forward Platt scaling only brings it to about +0.05.
@@ -154,19 +157,32 @@ be taken at face value.
 | --- | --- |
 | Pre-registered blind re-score ([protocol](protocols/blind_rescore.md)): 110 cases re-run with names, tickers, EINs, and file numbers scrubbed | Signal unchanged (Spearman 0.39 → 0.39, AUC 0.70 → 0.71). Verdict *GENUINE* for the name/ticker channel. |
 | Redaction audit of all 10,875 evidence packs ([`redaction_audit.py`](src/redaction_audit.py)) | 91% still contain a direct identifier. The distinctive name word survives in 61% of packs that have one (for example, "Nabors" 126 times after "NABORS INDUSTRIES LTD" was redacted). The cover-page address survives in 85%. |
-| Re-identification probe, Claude Haiku 4.5 from memory ([`results/memorization_probe`](results/memorization_probe/table.md)): 48 fully scrubbed 4.5k-char MD&A excerpts | Named 53% of 2011–2024 companies (AMD, Best Buy, Wynn, Amarin…). Outcome recall was at chance: 3 of 11 directional calls right, P(+20%) AUC 0.45. |
+| Re-identification probe, Claude Haiku 4.5 from memory ([`results/memorization_probe`](results/memorization_probe/table.md)): 48 fully scrubbed 4.5k-char MD&A excerpts | Named 53% of 2011–2024 companies (AMD, Best Buy, Wynn, Amarin…). With only the excerpt to go on, outcome recall was at chance: 3 of 11 directional calls right, P(+20%) AUC 0.45. |
+| Named-recall probe ([`recall_probe.py`](src/recall_probe.py), [answers](results/recall_probe/table.md)): 100 Haiku agents, one case each in a fresh context, given only company, ticker, and filing date. 80 extreme 2011–2024 moves, 20 in 2026. | 2011–24: P(outperform) AUC **0.65** [0.54, 0.75], permutation p = 0.007; 0.72 for large, liquid names vs 0.58 for small. 2026 controls: 0.56 [0.31, 0.80]. On the same cases the filing-reading forecaster scored 0.69 historically vs 0.54 in 2026. Haiku's name-only guesses correlated 0.34 with its forecasts historically, and −0.02 in 2026. |
 
 The blind test rules out leakage through explicit identifiers. It cannot rule out
-recognition through business descriptions or addresses. The probe shows that
-channel is wide open even for a small model. A small model's outcome recall was
-at chance, but that doesn't bound what a frontier model remembers. So any
-pre-cutoff backtest of an LLM forecaster is an upper bound on its real skill.
+recognition through business descriptions or addresses, and the first probe shows
+that channel is wide open even for a small model.
+
+The recall probe exposes a second channel that no redaction can close: the date.
+Haiku never claimed to remember a specific 90-day move. But its notes describe
+what the market did after the filing:
+
+- "Silver prices collapsed in spring 2013" (Coeur d'Alene Mines, filed 2013-02-21, −39%)
+- "heavily impacted by COVID-19" (Kosmos Energy, filed 2020-02-25, −44%)
+- "Late 2020 saw oil price recovery with vaccine optimism" (Baker Hughes, filed
+  2020-10-23, +48%)
+
+A filing's date and industry are enough to recall the regime that followed. Any
+backtest of an LLM forecaster on data from before its training cutoff is an upper
+bound on its real skill.
 
 ## Next steps
 
 1. **Evaluate only after the cutoff.** Use models with published training
    cutoffs, score only filings after that date, and keep a rolling live cohort.
-   Treat everything earlier as development data.
+   Treat everything earlier as development data. Redaction can't fix the date
+   channel.
 2. **Make re-identification a gate.** Before a case enters a backtest, an
    adversarial "name this company" model must fail on the evidence pack.
    Neutralize addresses, segment names, and product names, not just the
@@ -193,7 +209,7 @@ src/
                                           causal portfolio simulation, blocked placebos, locked rules
   live_predictions.py, live_outcomes.py   live 2026 cohort: board and grading
   llm_incremental_value.py                LLM vs mechanical features, walk-forward
-  forecast_audit.py, redaction_audit.py, memorization_probe.py, blind_rescore.py
+  forecast_audit.py, redaction_audit.py, memorization_probe.py, recall_probe.py, blind_rescore.py
                                           leakage and calibration audits
   pipeline_monitor.py                     read-only HTTP monitor for cloud runs
   ...                                     side experiments (below)
@@ -204,7 +220,7 @@ docs/           case study (index.html), figures/, notes/ research log, week-one
 reports/        standalone HTML research reports
 sites/          Next.js/vinext front-ends for the results
 cloud/, scripts/  Azure VM, Docker, and supervisor scripts for the century run
-tests/          289 offline tests with committed fixtures
+tests/          292 offline tests with committed fixtures
 ```
 
 Run data (about 11 GB of filing packs, LLM outputs, and caches under `lab_runs/`
@@ -214,9 +230,10 @@ and `research/`) is not committed.
 
 ```bash
 pip install -r requirements.txt
-python -m pytest -q                         # 289 offline tests
+python -m pytest -q                         # 292 offline tests
 python src/forecast_audit.py                # rebuilds the audit from data/audit_inputs/
-python src/memorization_probe.py            # rescores the Haiku probe answers
+python src/memorization_probe.py            # rescores the re-identification probe
+python src/recall_probe.py score --probe-dir results/recall_probe --results results/recall_probe
 ```
 
 The full pipeline needs an OpenRouter key (`OPENROUTER_API_KEY`) and a

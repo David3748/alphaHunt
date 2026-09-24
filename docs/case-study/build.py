@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -51,6 +52,18 @@ def data() -> dict:
     cen = probe["century_2011_2024"]
     red = load(ROOT / "results/redaction_audit/summary.json")["all"]
     ridge = audit["incremental_value_ridge"]["fwd_2021_2025"]
+    recall = load(ROOT / "results/recall_probe/summary.json")
+    sys.path.insert(0, str(ROOT / "src"))
+    import recall_probe as rp
+
+    def auc_row(label, rows, key, seed):
+        scores = [float(r[key]) for r in rows]
+        labels = [r["winner"] for r in rows]
+        return {"label": label, "n": len(rows), "auc": rp.auc(scores, labels), "ci": rp.auc_ci(scores, labels, seed=seed)}
+
+    hist_rows = [r for r in recall["rows"] if r["cohort"] == "historical"]
+    ctrl_rows = [r for r in recall["rows"] if r["cohort"] == "control_2026"]
+    quotes = {r["company"]: r for r in recall["rows"]}
     port = audit["causal_portfolios"]
 
     return {
@@ -86,6 +99,21 @@ def data() -> dict:
                         "irMech": port["M0_mech_pct"]["fwd_2021_2025"]["exposure_matched_information_ratio"]},
         "redaction": {"packs": red["packs"], "anyId": red["share_any_identifier"],
                       "name": red["share_name_token_survives"], "address": red["share_cover_address"]},
+        "recall": {
+            "rows": [auc_row("Haiku · name + date only", hist_rows, "p_outperform", 1),
+                     auc_row("Haiku · name + date only", ctrl_rows, "p_outperform", 2),
+                     auc_row("Ox · full filing", hist_rows, "ox_p20", 3),
+                     auc_row("Ox · full filing", ctrl_rows, "ox_p20", 4)],
+            "pValue": recall["historical_2011_2024"]["auc_p_value"],
+            "rhoHist": recall["diagnostics"]["historical"]["spearman_haiku_name_only_vs_ox_filing"],
+            "rhoCtrl": recall["diagnostics"]["control_2026"]["spearman_haiku_name_only_vs_ox_filing"],
+            "large": recall["diagnostics"]["historical_auc_by_liquidity"]["large"],
+            "small": recall["diagnostics"]["historical_auc_by_liquidity"]["small"],
+            "quotes": [{"company": name, "filed": quotes[key]["filed"], "excess": quotes[key]["excess"],
+                        "text": quotes[key]["recalled"]}
+                       for key, name in (("COEUR D ALENE MINES CORP", "Coeur d’Alene Mines"),
+                                         ("Kosmos Energy Ltd.", "Kosmos Energy"),
+                                         ("Baker Hughes Co", "Baker Hughes"))]},
         "probe": {"idRate": cen["identification_rate"],
                   "recallN": cen["identified_with_directional_recall"],
                   "recallRight": round(cen["recall_direction_accuracy"] * cen["identified_with_directional_recall"]),

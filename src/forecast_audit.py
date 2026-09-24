@@ -261,6 +261,7 @@ def figures(yearly: pd.DataFrame, rel: dict, trades: dict, out_dir: Path) -> lis
     written = []
     for mode, t in THEMES.items():
         plt.rcParams.update({"font.family": ["Helvetica", "Arial", "DejaVu Sans"], "svg.fonttype": "none",
+                             "svg.hashsalt": "alphahunt",  # deterministic ids: re-renders don't churn git
                              "text.color": t["ink"], "axes.labelcolor": t["ink2"]})
 
         # 1. ranking signal by year: monthly IC and top-vs-bottom quintile hit-rate spread
@@ -287,7 +288,7 @@ def figures(yearly: pd.DataFrame, rel: dict, trades: dict, out_dir: Path) -> lis
         axes[1].text(0.0, -0.3, "Bars: 95% bootstrap intervals over months. Years with < 3 usable months omitted.",
                      transform=axes[1].transAxes, fontsize=8, color=t["muted"])
         path = out_dir / f"signal_by_year-{mode}.svg"
-        fig.savefig(path, bbox_inches="tight", transparent=True)
+        fig.savefig(path, bbox_inches="tight", transparent=True, metadata={"Date": None})
         plt.close(fig)
         written.append(str(path))
 
@@ -317,7 +318,7 @@ def figures(yearly: pd.DataFrame, rel: dict, trades: dict, out_dir: Path) -> lis
         ax.legend(loc="upper left", frameon=False, fontsize=8.5, labelcolor=t["ink2"])
         ax.set_title("Calibration of the LLM's P(+20%)", loc="left", fontsize=10.5, color=t["ink"], pad=8)
         path = out_dir / f"calibration-{mode}.svg"
-        fig.savefig(path, bbox_inches="tight", transparent=True)
+        fig.savefig(path, bbox_inches="tight", transparent=True, metadata={"Date": None})
         plt.close(fig)
         written.append(str(path))
 
@@ -349,7 +350,7 @@ def figures(yearly: pd.DataFrame, rel: dict, trades: dict, out_dir: Path) -> lis
                       fontsize=8.5)
         ax.set_title("Same locked P(+20%) rule: backtest vs live", loc="left", fontsize=10.5, color=t["ink"], pad=8)
         path = out_dir / f"backtest_vs_live-{mode}.svg"
-        fig.savefig(path, bbox_inches="tight", transparent=True)
+        fig.savefig(path, bbox_inches="tight", transparent=True, metadata={"Date": None})
         plt.close(fig)
         written.append(str(path))
     return written
@@ -410,7 +411,7 @@ def build(df: pd.DataFrame) -> dict:
                      for m in ("M0_mech", "M1_mech_llm", "M2_llm", "raw_p20")}
             for period in ("fwd_2021_2025", "live_2026") if period in ridge}
         report["causal_portfolios"] = inc.get("portfolio_causal_top_decile", {})
-    for name in ("redaction_audit", "memorization_probe"):
+    for name in ("redaction_audit", "memorization_probe", "recall_probe"):
         path = ROOT / "results" / name / "summary.json"
         if path.exists():
             summary = json.loads(path.read_text())
@@ -487,6 +488,19 @@ def markdown(r: dict) -> str:
               f"{pct(c['recall_direction_accuracy'])} of the {c['identified_with_directional_recall']} cases where it "
               f"offered one, and its P(+20%) did not separate winners from losers (AUC {c['p_beat20_auc_winners_vs_losers']:.2f}; "
               f"2026 control {lvc['p_beat20_auc_winners_vs_losers']:.2f})."]
+    rp = r.get("recall_probe")
+    if rp:
+        h, c, d = rp["historical_2011_2024"], rp["control_2026"], rp.get("diagnostics", {})
+        L += [f"- Given only the company name, ticker and filing date (100 fresh Haiku contexts, one case each), "
+              f"Haiku's P(outperform) separated 2011-2024 winners from losers with AUC {h['auc_p_outperform']:.2f} "
+              f"[{h['auc_ci'][0]:.2f}, {h['auc_ci'][1]:.2f}], permutation p = {h['auc_p_value']:.3f}; on 2026 controls "
+              f"AUC {c['auc_p_outperform']:.2f} [{c['auc_ci'][0]:.2f}, {c['auc_ci'][1]:.2f}]. It never claimed a specific "
+              f"memory of the window."]
+        if d:
+            L += [f"- On the same cases the filing-reading forecaster's P(+20%) had AUC "
+                  f"{d['historical']['ox_p20_auc_same_cases']:.2f} (historical) vs {d['control_2026']['ox_p20_auc_same_cases']:.2f} "
+                  f"(2026), and Haiku's name-only guesses correlated {d['historical']['spearman_haiku_name_only_vs_ox_filing']:.2f} "
+                  f"with it historically vs {d['control_2026']['spearman_haiku_name_only_vs_ox_filing']:.2f} in 2026."]
     return "\n".join(L) + "\n"
 
 
