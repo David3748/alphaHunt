@@ -1,0 +1,564 @@
+{
+  "description": "Fixed sites for src/sentinel2_sites.py. lat/lon is the AOI anchor; aoi_m gives the AOI's extent in metres west/east/south/north of it. aoi_drawn records whether the box was drawn on imagery taken after the construction it measures (hindsight) or from a public address alone (blind). public_since is the first date the site's role was public; anything earlier in the series was not tradeable on this site. Events are dated claims from companies, press and Epoch AI's Frontier Data Centers timelines (CC BY 4.0), each with its source.",
+  "sites": [
+    {
+      "id": "corz_denton",
+      "name": "Core Scientific Denton (CoreWeave tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "CORZ",
+        "CRWV"
+      ],
+      "lat": 33.2147,
+      "lon": -97.20836,
+      "aoi_m": {
+        "west": 625,
+        "east": 625,
+        "south": 825,
+        "north": 825
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2024-06-03",
+      "start": "2023-06-01",
+      "events": [
+        {
+          "date": "2024-06-03",
+          "label": "CoreWeave-Core Scientific HPC hosting deal announced",
+          "source": "https://investors.corescientific.com/"
+        },
+        {
+          "date": "2024-12-15",
+          "label": "Conversion construction start (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-06-15",
+          "label": "Summer concrete pours slip ~60 days (WSJ, reported Dec 2025)",
+          "source": "https://finance.yahoo.com/news/summer-weather-delayed-coreweave-denton-161453750.html"
+        },
+        {
+          "date": "2025-11-10",
+          "label": "CoreWeave cuts 2025 guidance on a third-party developer delay; CRWV -16% next day",
+          "source": "https://www.cnbc.com/2025/11/11/coreweave-stock-core-scientific-delays.html"
+        },
+        {
+          "date": "2026-02-23",
+          "label": "Denton North built out; South partly running (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": "2025-11-10",
+        "note": "CoreWeave: one developer's powered shell late, revenue moved from Q4 2025 to Q1 2026"
+      },
+      "stills": [
+        "2024-10-20",
+        "2025-06-02",
+        "2025-10-10",
+        "2026-08-16"
+      ]
+    },
+    {
+      "id": "apld_ellendale",
+      "name": "Applied Digital Polaris Forge 1, Ellendale ND (CoreWeave tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "APLD",
+        "CRWV"
+      ],
+      "lat": 46.0182,
+      "lon": -98.574,
+      "aoi_m": {
+        "west": 450,
+        "east": 450,
+        "south": 900,
+        "north": 900
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2025-09 imagery",
+      "public_since": "2024-01-01",
+      "start": "2023-06-01",
+      "events": [
+        {
+          "date": "2025-10-27",
+          "label": "Ready for service, first 50 MW of Building 1 (on time)",
+          "source": "https://www.globenewswire.com/news-release/2025/10/27/3174518/0/en/Applied-Digital-Achieves-Ready-for-Service-for-Phase-1-at-Polaris-Forge-1-Building-1-for-CoreWeave.html"
+        },
+        {
+          "date": "2025-11-24",
+          "label": "Ready for service, Building 1 at full 100 MW (on time)",
+          "source": "https://www.globenewswire.com/news-release/2025/11/24/3193424/0/en/Applied-Digital-Completes-Phase-II-Ready-for-Service-at-Polaris-Forge-1-Fully-Energizing-First-100-MW-Building.html"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; Building 1 ready for service on time, Oct 27 and Nov 24, 2025"
+      },
+      "stills": [
+        "2024-06-13",
+        "2025-06-01",
+        "2025-09-26",
+        "2026-08-15"
+      ]
+    },
+    {
+      "id": "orcl_abilene",
+      "name": "Stargate Abilene (Crusoe / Oracle / OpenAI)",
+      "kind": "data_center",
+      "tickers": [
+        "ORCL"
+      ],
+      "lat": 32.5026,
+      "lon": -99.788,
+      "aoi_m": {
+        "west": 1600,
+        "east": 1700,
+        "south": 1100,
+        "north": 1000
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2025-01-21",
+      "start": "2023-06-01",
+      "events": [
+        {
+          "date": "2024-05-31",
+          "label": "Land clearing begins, Buildings 1-2 (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-09-30",
+          "label": "Crusoe: first phase live",
+          "source": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live"
+        },
+        {
+          "date": "2025-12-24",
+          "label": "Building 2 operational (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-05-23",
+          "label": "Buildings 3-4 estimated operational (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; first phase live Sept 30, 2025"
+      },
+      "stills": [
+        "2024-03-22",
+        "2025-03-01",
+        "2025-10-15",
+        "2026-08-16"
+      ]
+    },
+    {
+      "id": "orcl_jupiter",
+      "name": "Project Jupiter, Santa Teresa NM (Oracle / OpenAI Stargate)",
+      "kind": "data_center",
+      "tickers": [
+        "ORCL"
+      ],
+      "lat": 31.818,
+      "lon": -106.671,
+      "aoi_m": {
+        "west": 1300,
+        "east": 1700,
+        "south": 1000,
+        "north": 1100
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2025-09-23",
+      "start": "2024-06-01",
+      "events": [
+        {
+          "date": "2025-10-01",
+          "label": "Construction and land clearing begin (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-02-06",
+          "label": "Foundations begin on Buildings B and D (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-09-24",
+          "label": "Oracle sends developer a force majeure notice over power supply; ORCL -3%",
+          "source": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": "2026-09-24",
+        "note": "Force-majeure notice over gas supply (pipeline now due Feb 2027); construction itself kept going"
+      },
+      "stills": [
+        "2025-06-08",
+        "2025-12-15",
+        "2026-04-15",
+        "2026-08-10"
+      ]
+    },
+    {
+      "id": "wulf_lake_mariner",
+      "name": "TeraWulf Lake Mariner, Barker NY (Fluidstack tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "WULF"
+      ],
+      "lat": 43.35745,
+      "lon": -78.6013,
+      "aoi_m": {
+        "west": 800,
+        "east": 800,
+        "south": 550,
+        "north": 550
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-06 imagery",
+      "public_since": "2024-10-01",
+      "start": "2023-06-01",
+      "events": [
+        {
+          "date": "2024-10-01",
+          "label": "Land clearing for CB-1 (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-10-01",
+          "label": "CB-1 operational (Epoch, from Q3 2025 results)",
+          "source": "https://investors.terawulf.com/news-events/press-releases/detail/126/terawulf-reports-third-quarter-2025-results"
+        },
+        {
+          "date": "2026-03-31",
+          "label": "CB-2 operational (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; CB-1 running by Oct 2025"
+      },
+      "stills": [
+        "2024-06-14",
+        "2025-06-01",
+        "2025-10-01",
+        "2026-06-03"
+      ]
+    },
+    {
+      "id": "xai_colossus1",
+      "name": "xAI Colossus 1, Memphis (retrofit of an existing plant)",
+      "kind": "data_center",
+      "tickers": [],
+      "lat": 35.0595,
+      "lon": -90.1594,
+      "aoi_m": {
+        "west": 700,
+        "east": 700,
+        "south": 650,
+        "north": 650
+      },
+      "aoi_drawn": "hindsight: fitted to the building on 2025-09 imagery",
+      "public_since": "2024-06-05",
+      "start": "2023-06-01",
+      "events": [
+        {
+          "date": "2024-04-24",
+          "label": "Construction starts in the former Electrolux plant (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2024-09-02",
+          "label": "100k H100s online (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; retrofit of an existing plant, 100k GPUs by Sept 2024"
+      },
+      "stills": [
+        "2024-03-10",
+        "2024-07-15",
+        "2024-10-15",
+        "2025-09-16"
+      ]
+    },
+    {
+      "id": "fcx_manyar",
+      "name": "Freeport Manyar copper smelter, JIIPE Gresik",
+      "kind": "smelter",
+      "tickers": [
+        "FCX"
+      ],
+      "lat": -7.082,
+      "lon": 112.63,
+      "aoi_m": {
+        "west": 1300,
+        "east": 700,
+        "south": 350,
+        "north": 1300
+      },
+      "aoi_drawn": "hindsight: the largest process complex in JIIPE on 2024-08 imagery",
+      "public_since": "2021-10-12",
+      "start": "2024-01-01",
+      "events": [
+        {
+          "date": "2024-10-14",
+          "label": "Fire at the sulphuric acid plant halts the smelter",
+          "source": "https://my.tradingview.com/news/reuters.com,2024:newsml_L4N3LR05W:0-freeport-indonesia-says-it-halts-copper-cathode-output-at-manyar-after-fire"
+        },
+        {
+          "date": "2025-06-05",
+          "label": "Concentrate feed resumes after repairs (early June 2025)",
+          "source": "https://www.pwc.com/id/en/media-centre/infrastructure-news/may-2025/fcx-monitors-initial-operations-of-manyar-smelter.html"
+        },
+        {
+          "date": "2025-08-21",
+          "label": "Press reports a prolonged shutdown at PT Smelting, Freeport's other Gresik smelter",
+          "source": "https://www.spglobal.com/energy/en/news-research/latest-news/metals/082225-gresik-outage-leaves-pt-smelting-with-100000-mt-of-unprocessed-copper-concs"
+        },
+        {
+          "date": "2025-09-08",
+          "label": "Grasberg mud rush cuts concentrate supply",
+          "source": "https://investors.fcx.com/investors/news-releases/news-release-details/2025/Freeport-Provides-Update-on-Restart-Plans-for-Grasberg-Minerals-District/default.aspx"
+        },
+        {
+          "date": "2026-09-01",
+          "label": "Cathode production restarts, about 5 Mlb in September (company)",
+          "source": "https://news.metal.com/newscontent/104119501-freeport-indonesia-restarts-manyar-copper-smelter-as-gbc-mine-recovery-supports-gradual-ramp-up"
+        }
+      ],
+      "hot_zones": [
+        {
+          "name": "furnace block",
+          "x_m": [
+            100,
+            300
+          ],
+          "y_m": [
+            300,
+            600
+          ],
+          "drawn_from": "where the heat sat in the Jan-Aug 2024 commissioning scenes"
+        }
+      ],
+      "windows": [
+        {
+          "from": "2024-10-14",
+          "to": "2025-03-31",
+          "label": "fire repairs (heat-up for the restart starts in April)"
+        },
+        {
+          "from": "2025-07-15",
+          "to": "2025-08-31",
+          "label": "PT Smelting's outage (a different Freeport plant), not Manyar's",
+          "outage": false
+        },
+        {
+          "from": "2025-10-31",
+          "to": "2026-09-01",
+          "label": "no concentrate after Grasberg"
+        }
+      ],
+      "stills": [
+        "2024-07-21",
+        "2024-10-29",
+        "2025-06-11",
+        "2025-10-09",
+        "2026-07-16"
+      ]
+    },
+    {
+      "id": "rio_kennecott",
+      "name": "Rio Tinto Kennecott smelter, Magna UT",
+      "kind": "smelter",
+      "tickers": [
+        "RIO"
+      ],
+      "lat": 40.7236,
+      "lon": -112.1987,
+      "aoi_m": {
+        "west": 800,
+        "east": 800,
+        "south": 800,
+        "north": 800
+      },
+      "aoi_drawn": "blind-ish: smelter complex centred from a 2024-07 wide view",
+      "public_since": "1995-01-01",
+      "start": "2022-06-01",
+      "events": [
+        {
+          "date": "2023-05-01",
+          "label": "Largest rebuild in the smelter's history begins",
+          "source": "https://www.riotinto.com/en/news/releases/2023/rio-tinto-invests-to-strengthen-copper-supply-in-us"
+        },
+        {
+          "date": "2025-10-15",
+          "label": "Planned 45-day smelter outage ends (mid-October)",
+          "source": "https://www.sec.gov/Archives/edgar/data/863064/000086306426000006/ex1_2025-q4results.htm"
+        }
+      ],
+      "windows": [
+        {
+          "from": "2023-05-01",
+          "to": "2023-09-10",
+          "label": "planned rebuild (restart in Q3)"
+        },
+        {
+          "from": "2025-09-01",
+          "to": "2025-10-15",
+          "label": "planned 45-day outage (dates approximate)"
+        }
+      ]
+    },
+    {
+      "id": "corz_denton_blind",
+      "name": "Core Scientific Denton, blind box (public address point +/- 1 km)",
+      "kind": "data_center",
+      "tickers": [
+        "CORZ",
+        "CRWV"
+      ],
+      "lat": 33.2149,
+      "lon": -97.2097,
+      "aoi_m": {
+        "west": 1000,
+        "east": 1000,
+        "south": 1000,
+        "north": 1000
+      },
+      "aoi_drawn": "blind: 2 km square on the Denton Energy Center coordinates next door (8161 vs 8171 Jim Christal Rd), no imagery used",
+      "public_since": "2024-06-03",
+      "start": "2023-06-01",
+      "events": [],
+      "delivery": {
+        "delay_disclosed": "2025-11-10",
+        "note": "same campus, blind box"
+      }
+    },
+    {
+      "id": "glxy_helios",
+      "name": "Galaxy Helios, Dickens County TX (CoreWeave tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "GLXY",
+        "CRWV"
+      ],
+      "lat": 33.77335,
+      "lon": -100.86866,
+      "aoi_m": {
+        "west": 1600,
+        "east": 1350,
+        "south": 1150,
+        "north": 1300
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2025-03-28",
+      "start": "2023-06-01",
+      "events": [
+        {
+          "date": "2025-08-27",
+          "label": "Generator pads and chiller steel visible (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-04-04",
+          "label": "Building 1 substantially complete (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-06-30",
+          "label": "Phase I expected at full capacity (company guidance via Epoch)",
+          "source": "https://investor.galaxy.com/news/news-details/2025/Galaxy-Announces-Third-Quarter-2025-Financial-Results/default.aspx"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; Phase I guided for 1H 2026"
+      },
+      "stills": [
+        "2024-09-28",
+        "2025-09-03",
+        "2026-03-01",
+        "2026-08-19"
+      ]
+    },
+    {
+      "id": "meta_hyperion",
+      "name": "Meta Hyperion, Richland Parish LA",
+      "kind": "data_center",
+      "tickers": [
+        "META"
+      ],
+      "lat": 32.4942,
+      "lon": -91.6361,
+      "aoi_m": {
+        "west": 900,
+        "east": 900,
+        "south": 2700,
+        "north": 2900
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2025-10 and 2026-08 imagery",
+      "public_since": "2024-12-04",
+      "start": "2023-06-01",
+      "events": [
+        {
+          "date": "2024-12-20",
+          "label": "Land clearing begins (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-10-19",
+          "label": "Foundations underway for the main buildings (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-04-19",
+          "label": "Buildings 1-2 roofed, cooling going in (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found"
+      },
+      "stills": [
+        "2024-09-09",
+        "2025-10-09",
+        "2026-03-01",
+        "2026-08-17"
+      ]
+    },
+    {
+      "id": "codelco_ventanas",
+      "name": "Codelco Ventanas copper smelter, Puchuncavi (closed 2023)",
+      "kind": "smelter",
+      "tickers": [],
+      "lat": -32.75795,
+      "lon": -71.4785,
+      "aoi_m": {
+        "west": 850,
+        "east": 850,
+        "south": 750,
+        "north": 750
+      },
+      "aoi_drawn": "hindsight: industrial complex and slag area on 2022-12 and 2023-02 imagery",
+      "public_since": "1964-01-01",
+      "start": "2022-01-01",
+      "end": "2024-12-31",
+      "events": [
+        {
+          "date": "2023-05-31",
+          "label": "Smelter shut for good after SO2 poisonings",
+          "source": "https://www.mining-technology.com/news/codelco-close-ventanas-smelter/"
+        }
+      ],
+      "windows": [
+        {
+          "from": "2023-05-31",
+          "to": "2024-12-31",
+          "label": "closed"
+        }
+      ]
+    }
+  ]
+}

@@ -11,7 +11,8 @@ lxml>=5,<7
 Pillow>=10
 pytest>=8
 
-# Side experiments only (crop / REIT backtests; TypeSafe evaluator)
+# Side experiments only (crop / REIT backtests; TypeSafe evaluator; Sentinel-2 site pilot)
 yfinance>=0.2
+rasterio>=1.3
 msgspec>=0.18
 typesafe-sdk>=0.6

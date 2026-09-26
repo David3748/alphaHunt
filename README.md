@@ -353,6 +353,11 @@ remain exploratory; details are in [`docs/notes/`](docs/notes/) and
   staged, ablation-first backtests.
 - **Real estate:** point-in-time REIT property exposure from filings, and
   satellite built-up area (GHSL) as a supply signal.
+- **Sentinel-2 site pilot:** construction at eight AI data-center campuses and
+  furnace heat at three copper smelters, read straight from the public AWS
+  archive. Smelter outages show up; construction delays don't, and neither beat
+  a disclosure ([report](reports/satellite_sites.html),
+  [`sentinel2_sites.py`](src/sentinel2_sites.py)).
 - **Macro reports:** UK and global short rates (market vs model), shorting
   bonds during capex booms.
 

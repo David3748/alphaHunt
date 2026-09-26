@@ -1,0 +1,1187 @@
+{
+  "generated": "2026-09-26",
+  "thresholds": {
+    "built": "visible mean >= 0.2, B11 <= 1.35 x visible, NDVI < 0.2",
+    "roof": "built and visible mean >= 0.35",
+    "hot": "Schroeder et al. 2016 OLI fire tests on B8A/B11/B12, or B11/B12 > 1.0 with B12/B8A > 1.5; always B12 >= 2.5 x B04 (glint guard)"
+  },
+  "sites": {
+    "corz_denton": {
+      "name": "Core Scientific Denton (CoreWeave tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "CORZ",
+        "CRWV"
+      ],
+      "lat": 33.2147,
+      "lon": -97.20836,
+      "aoi_m": {
+        "west": 625,
+        "east": 625,
+        "south": 825,
+        "north": 825
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2024-06-03",
+      "events": [
+        {
+          "date": "2024-06-03",
+          "label": "CoreWeave-Core Scientific HPC hosting deal announced",
+          "source": "https://investors.corescientific.com/"
+        },
+        {
+          "date": "2024-12-15",
+          "label": "Conversion construction start (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-06-15",
+          "label": "Summer concrete pours slip ~60 days (WSJ, reported Dec 2025)",
+          "source": "https://finance.yahoo.com/news/summer-weather-delayed-coreweave-denton-161453750.html"
+        },
+        {
+          "date": "2025-11-10",
+          "label": "CoreWeave cuts 2025 guidance on a third-party developer delay; CRWV -16% next day",
+          "source": "https://www.cnbc.com/2025/11/11/coreweave-stock-core-scientific-delays.html"
+        },
+        {
+          "date": "2026-02-23",
+          "label": "Denton North built out; South partly running (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": "2025-11-10",
+        "note": "CoreWeave: one developer's powered shell late, revenue moved from Q4 2025 to Q1 2026"
+      },
+      "windows": null,
+      "scenes_listed": 558,
+      "clear_days": 139,
+      "stalls": {
+        "under_way": "2025-06-09",
+        "latest": "2026-09-25",
+        "latest_ha": 4.88,
+        "peak_ha": 5.08,
+        "closed_spells_120d": [
+          {
+            "from": "2025-06-09",
+            "to": "2025-10-30",
+            "days": 143,
+            "level_ha": 1.38,
+            "open": false
+          },
+          {
+            "from": "2025-12-26",
+            "to": "2026-05-03",
+            "days": 128,
+            "level_ha": 3.8,
+            "open": false
+          }
+        ],
+        "spells": [
+          {
+            "from": "2025-06-09",
+            "to": "2025-10-30",
+            "days": 143,
+            "level_ha": 1.38,
+            "open": false
+          },
+          {
+            "from": "2025-12-26",
+            "to": "2026-05-03",
+            "days": 128,
+            "level_ha": 3.8,
+            "open": false
+          },
+          {
+            "from": "2026-07-04",
+            "to": "2026-09-25",
+            "days": 83,
+            "level_ha": 5.08,
+            "open": true
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2024-10-20",
+          "date": "2024-10-20",
+          "file": "img/corz_denton_2024-10-20.webp"
+        },
+        {
+          "requested": "2025-06-02",
+          "date": "2025-06-02",
+          "file": "img/corz_denton_2025-06-02.webp"
+        },
+        {
+          "requested": "2025-10-10",
+          "date": "2025-10-10",
+          "file": "img/corz_denton_2025-10-10.webp"
+        },
+        {
+          "requested": "2026-08-16",
+          "date": "2026-08-16",
+          "file": "img/corz_denton_2026-08-16.webp"
+        }
+      ]
+    },
+    "apld_ellendale": {
+      "name": "Applied Digital Polaris Forge 1, Ellendale ND (CoreWeave tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "APLD",
+        "CRWV"
+      ],
+      "lat": 46.0182,
+      "lon": -98.574,
+      "aoi_m": {
+        "west": 450,
+        "east": 450,
+        "south": 900,
+        "north": 900
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2025-09 imagery",
+      "public_since": "2024-01-01",
+      "events": [
+        {
+          "date": "2025-10-27",
+          "label": "Ready for service, first 50 MW of Building 1 (on time)",
+          "source": "https://www.globenewswire.com/news-release/2025/10/27/3174518/0/en/Applied-Digital-Achieves-Ready-for-Service-for-Phase-1-at-Polaris-Forge-1-Building-1-for-CoreWeave.html"
+        },
+        {
+          "date": "2025-11-24",
+          "label": "Ready for service, Building 1 at full 100 MW (on time)",
+          "source": "https://www.globenewswire.com/news-release/2025/11/24/3193424/0/en/Applied-Digital-Completes-Phase-II-Ready-for-Service-at-Polaris-Forge-1-Fully-Energizing-First-100-MW-Building.html"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; Building 1 ready for service on time, Oct 27 and Nov 24, 2025"
+      },
+      "windows": null,
+      "scenes_listed": 551,
+      "clear_days": 79,
+      "stalls": {
+        "under_way": "2024-06-13",
+        "latest": "2026-09-08",
+        "latest_ha": 16.11,
+        "peak_ha": 16.11,
+        "closed_spells_120d": [
+          {
+            "from": "2024-07-03",
+            "to": "2025-08-07",
+            "days": 400,
+            "level_ha": 2.4,
+            "open": false
+          },
+          {
+            "from": "2025-11-12",
+            "to": "2026-04-29",
+            "days": 168,
+            "level_ha": 3.64,
+            "open": false
+          }
+        ],
+        "spells": [
+          {
+            "from": "2024-07-03",
+            "to": "2025-08-07",
+            "days": 400,
+            "level_ha": 2.4,
+            "open": false
+          },
+          {
+            "from": "2025-11-12",
+            "to": "2026-04-29",
+            "days": 168,
+            "level_ha": 3.64,
+            "open": false
+          },
+          {
+            "from": "2025-08-07",
+            "to": "2025-09-26",
+            "days": 50,
+            "level_ha": 2.85,
+            "open": false
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2024-06-13",
+          "date": "2024-06-13",
+          "file": "img/apld_ellendale_2024-06-13.webp"
+        },
+        {
+          "requested": "2025-06-01",
+          "date": "2025-05-29",
+          "file": "img/apld_ellendale_2025-05-29.webp"
+        },
+        {
+          "requested": "2025-09-26",
+          "date": "2025-09-26",
+          "file": "img/apld_ellendale_2025-09-26.webp"
+        },
+        {
+          "requested": "2026-08-15",
+          "date": "2026-08-22",
+          "file": "img/apld_ellendale_2026-08-22.webp"
+        }
+      ]
+    },
+    "orcl_abilene": {
+      "name": "Stargate Abilene (Crusoe / Oracle / OpenAI)",
+      "kind": "data_center",
+      "tickers": [
+        "ORCL"
+      ],
+      "lat": 32.5026,
+      "lon": -99.788,
+      "aoi_m": {
+        "west": 1600,
+        "east": 1700,
+        "south": 1100,
+        "north": 1000
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2025-01-21",
+      "events": [
+        {
+          "date": "2024-05-31",
+          "label": "Land clearing begins, Buildings 1-2 (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-09-30",
+          "label": "Crusoe: first phase live",
+          "source": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live"
+        },
+        {
+          "date": "2025-12-24",
+          "label": "Building 2 operational (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-05-23",
+          "label": "Buildings 3-4 estimated operational (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; first phase live Sept 30, 2025"
+      },
+      "windows": null,
+      "scenes_listed": 550,
+      "clear_days": 288,
+      "stalls": {
+        "under_way": "2024-10-10",
+        "latest": "2026-09-18",
+        "latest_ha": 7.62,
+        "peak_ha": 30.76,
+        "closed_spells_120d": [
+          {
+            "from": "2025-02-15",
+            "to": "2025-07-10",
+            "days": 145,
+            "level_ha": 7.76,
+            "open": false
+          }
+        ],
+        "spells": [
+          {
+            "from": "2026-02-27",
+            "to": "2026-09-18",
+            "days": 203,
+            "level_ha": 30.76,
+            "open": true
+          },
+          {
+            "from": "2025-02-15",
+            "to": "2025-07-10",
+            "days": 145,
+            "level_ha": 7.76,
+            "open": false
+          },
+          {
+            "from": "2025-08-06",
+            "to": "2025-10-23",
+            "days": 78,
+            "level_ha": 13.76,
+            "open": false
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2024-03-22",
+          "date": "2024-03-22",
+          "file": "img/orcl_abilene_2024-03-22.webp"
+        },
+        {
+          "requested": "2025-03-01",
+          "date": "2025-03-04",
+          "file": "img/orcl_abilene_2025-03-04.webp"
+        },
+        {
+          "requested": "2025-10-15",
+          "date": "2025-10-15",
+          "file": "img/orcl_abilene_2025-10-15.webp"
+        },
+        {
+          "requested": "2026-08-16",
+          "date": "2026-08-16",
+          "file": "img/orcl_abilene_2026-08-16.webp"
+        }
+      ]
+    },
+    "orcl_jupiter": {
+      "name": "Project Jupiter, Santa Teresa NM (Oracle / OpenAI Stargate)",
+      "kind": "data_center",
+      "tickers": [
+        "ORCL"
+      ],
+      "lat": 31.818,
+      "lon": -106.671,
+      "aoi_m": {
+        "west": 1300,
+        "east": 1700,
+        "south": 1000,
+        "north": 1100
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2025-09-23",
+      "events": [
+        {
+          "date": "2025-10-01",
+          "label": "Construction and land clearing begin (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-02-06",
+          "label": "Foundations begin on Buildings B and D (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-09-24",
+          "label": "Oracle sends developer a force majeure notice over power supply; ORCL -3%",
+          "source": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": "2026-09-24",
+        "note": "Force-majeure notice over gas supply (pipeline now due Feb 2027); construction itself kept going"
+      },
+      "windows": null,
+      "scenes_listed": 426,
+      "clear_days": 139,
+      "stalls": {
+        "under_way": "2026-02-26",
+        "latest": "2026-09-21",
+        "latest_ha": 5.81,
+        "peak_ha": 6.39,
+        "closed_spells_120d": [],
+        "spells": [
+          {
+            "from": "2026-02-26",
+            "to": "2026-03-25",
+            "days": 27,
+            "level_ha": 1.17,
+            "open": false
+          },
+          {
+            "from": "2026-03-25",
+            "to": "2026-04-17",
+            "days": 23,
+            "level_ha": 1.49,
+            "open": false
+          },
+          {
+            "from": "2026-04-27",
+            "to": "2026-05-17",
+            "days": 20,
+            "level_ha": 2.19,
+            "open": false
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2025-06-08",
+          "date": "2025-06-08",
+          "file": "img/orcl_jupiter_2025-06-08.webp"
+        },
+        {
+          "requested": "2025-12-15",
+          "date": "2025-12-18",
+          "file": "img/orcl_jupiter_2025-12-18.webp"
+        },
+        {
+          "requested": "2026-04-15",
+          "date": "2026-04-17",
+          "file": "img/orcl_jupiter_2026-04-17.webp"
+        },
+        {
+          "requested": "2026-08-10",
+          "date": "2026-08-10",
+          "file": "img/orcl_jupiter_2026-08-10.webp"
+        }
+      ]
+    },
+    "wulf_lake_mariner": {
+      "name": "TeraWulf Lake Mariner, Barker NY (Fluidstack tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "WULF"
+      ],
+      "lat": 43.35745,
+      "lon": -78.6013,
+      "aoi_m": {
+        "west": 800,
+        "east": 800,
+        "south": 550,
+        "north": 550
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-06 imagery",
+      "public_since": "2024-10-01",
+      "events": [
+        {
+          "date": "2024-10-01",
+          "label": "Land clearing for CB-1 (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-10-01",
+          "label": "CB-1 operational (Epoch, from Q3 2025 results)",
+          "source": "https://investors.terawulf.com/news-events/press-releases/detail/126/terawulf-reports-third-quarter-2025-results"
+        },
+        {
+          "date": "2026-03-31",
+          "label": "CB-2 operational (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; CB-1 running by Oct 2025"
+      },
+      "windows": null,
+      "scenes_listed": 555,
+      "clear_days": 142,
+      "stalls": {
+        "under_way": "2025-03-21",
+        "latest": "2026-09-24",
+        "latest_ha": 10.29,
+        "peak_ha": 13.25,
+        "closed_spells_120d": [
+          {
+            "from": "2025-06-06",
+            "to": "2025-10-14",
+            "days": 130,
+            "level_ha": 2.18,
+            "open": false
+          },
+          {
+            "from": "2025-10-29",
+            "to": "2026-05-02",
+            "days": 185,
+            "level_ha": 2.99,
+            "open": false
+          }
+        ],
+        "spells": [
+          {
+            "from": "2025-10-29",
+            "to": "2026-05-02",
+            "days": 185,
+            "level_ha": 2.99,
+            "open": false
+          },
+          {
+            "from": "2026-05-02",
+            "to": "2026-09-24",
+            "days": 145,
+            "level_ha": 13.25,
+            "open": true
+          },
+          {
+            "from": "2025-06-06",
+            "to": "2025-10-14",
+            "days": 130,
+            "level_ha": 2.18,
+            "open": false
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2024-06-14",
+          "date": "2024-06-14",
+          "file": "img/wulf_lake_mariner_2024-06-14.webp"
+        },
+        {
+          "requested": "2025-06-01",
+          "date": "2025-06-11",
+          "file": "img/wulf_lake_mariner_2025-06-11.webp"
+        },
+        {
+          "requested": "2025-10-01",
+          "date": "2025-09-29",
+          "file": "img/wulf_lake_mariner_2025-09-29.webp"
+        },
+        {
+          "requested": "2026-06-03",
+          "date": "2026-06-03",
+          "file": "img/wulf_lake_mariner_2026-06-03.webp"
+        }
+      ]
+    },
+    "xai_colossus1": {
+      "name": "xAI Colossus 1, Memphis (retrofit of an existing plant)",
+      "kind": "data_center",
+      "tickers": [],
+      "lat": 35.0595,
+      "lon": -90.1594,
+      "aoi_m": {
+        "west": 700,
+        "east": 700,
+        "south": 650,
+        "north": 650
+      },
+      "aoi_drawn": "hindsight: fitted to the building on 2025-09 imagery",
+      "public_since": "2024-06-05",
+      "events": [
+        {
+          "date": "2024-04-24",
+          "label": "Construction starts in the former Electrolux plant (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2024-09-02",
+          "label": "100k H100s online (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; retrofit of an existing plant, 100k GPUs by Sept 2024"
+      },
+      "windows": null,
+      "scenes_listed": 523,
+      "clear_days": 97,
+      "stalls": {
+        "under_way": "2024-08-22",
+        "latest": "2026-09-16",
+        "latest_ha": 3.43,
+        "peak_ha": 10.24,
+        "closed_spells_120d": [
+          {
+            "from": "2024-12-30",
+            "to": "2025-05-21",
+            "days": 142,
+            "level_ha": 8.68,
+            "open": false
+          }
+        ],
+        "spells": [
+          {
+            "from": "2025-06-08",
+            "to": "2026-09-16",
+            "days": 465,
+            "level_ha": 9.99,
+            "open": true
+          },
+          {
+            "from": "2024-12-30",
+            "to": "2025-05-21",
+            "days": 142,
+            "level_ha": 8.68,
+            "open": false
+          },
+          {
+            "from": "2024-11-15",
+            "to": "2024-12-30",
+            "days": 45,
+            "level_ha": 8.21,
+            "open": false
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2024-03-10",
+          "date": "2024-03-20",
+          "file": "img/xai_colossus1_2024-03-20.webp"
+        },
+        {
+          "requested": "2024-07-15",
+          "date": "2024-06-13",
+          "file": "img/xai_colossus1_2024-06-13.webp"
+        },
+        {
+          "requested": "2024-10-15",
+          "date": "2024-10-11",
+          "file": "img/xai_colossus1_2024-10-11.webp"
+        },
+        {
+          "requested": "2025-09-16",
+          "date": "2025-09-16",
+          "file": "img/xai_colossus1_2025-09-16.webp"
+        }
+      ]
+    },
+    "fcx_manyar": {
+      "name": "Freeport Manyar copper smelter, JIIPE Gresik",
+      "kind": "smelter",
+      "tickers": [
+        "FCX"
+      ],
+      "lat": -7.082,
+      "lon": 112.63,
+      "aoi_m": {
+        "west": 1300,
+        "east": 700,
+        "south": 350,
+        "north": 1300
+      },
+      "aoi_drawn": "hindsight: the largest process complex in JIIPE on 2024-08 imagery",
+      "public_since": "2021-10-12",
+      "events": [
+        {
+          "date": "2024-10-14",
+          "label": "Fire at the sulphuric acid plant halts the smelter",
+          "source": "https://my.tradingview.com/news/reuters.com,2024:newsml_L4N3LR05W:0-freeport-indonesia-says-it-halts-copper-cathode-output-at-manyar-after-fire"
+        },
+        {
+          "date": "2025-06-05",
+          "label": "Concentrate feed resumes after repairs (early June 2025)",
+          "source": "https://www.pwc.com/id/en/media-centre/infrastructure-news/may-2025/fcx-monitors-initial-operations-of-manyar-smelter.html"
+        },
+        {
+          "date": "2025-08-21",
+          "label": "Press reports a prolonged shutdown at PT Smelting, Freeport's other Gresik smelter",
+          "source": "https://www.spglobal.com/energy/en/news-research/latest-news/metals/082225-gresik-outage-leaves-pt-smelting-with-100000-mt-of-unprocessed-copper-concs"
+        },
+        {
+          "date": "2025-09-08",
+          "label": "Grasberg mud rush cuts concentrate supply",
+          "source": "https://investors.fcx.com/investors/news-releases/news-release-details/2025/Freeport-Provides-Update-on-Restart-Plans-for-Grasberg-Minerals-District/default.aspx"
+        },
+        {
+          "date": "2026-09-01",
+          "label": "Cathode production restarts, about 5 Mlb in September (company)",
+          "source": "https://news.metal.com/newscontent/104119501-freeport-indonesia-restarts-manyar-copper-smelter-as-gbc-mine-recovery-supports-gradual-ramp-up"
+        }
+      ],
+      "delivery": null,
+      "windows": [
+        {
+          "from": "2024-10-14",
+          "to": "2025-03-31",
+          "label": "fire repairs (heat-up for the restart starts in April)"
+        },
+        {
+          "from": "2025-07-15",
+          "to": "2025-08-31",
+          "label": "PT Smelting's outage (a different Freeport plant), not Manyar's",
+          "outage": false
+        },
+        {
+          "from": "2025-10-31",
+          "to": "2026-09-01",
+          "label": "no concentrate after Grasberg"
+        }
+      ],
+      "scenes_listed": 485,
+      "clear_days": 101,
+      "window_stats": [
+        {
+          "from": "2024-10-14",
+          "to": "2025-03-31",
+          "label": "fire repairs (heat-up for the restart starts in April)",
+          "clear_scenes": 5,
+          "hot_scenes": 4,
+          "before_scenes": 30,
+          "before_hot_rate": 0.833,
+          "p_value": 0.5981224279835391
+        },
+        {
+          "from": "2025-07-15",
+          "to": "2025-08-31",
+          "label": "PT Smelting's outage (a different Freeport plant), not Manyar's",
+          "outage": false,
+          "clear_scenes": 8,
+          "hot_scenes": 8,
+          "before_scenes": 30,
+          "before_hot_rate": 0.867,
+          "p_value": 1.0
+        },
+        {
+          "from": "2025-10-31",
+          "to": "2026-09-01",
+          "label": "no concentrate after Grasberg",
+          "clear_scenes": 35,
+          "hot_scenes": 25,
+          "before_scenes": 29,
+          "before_hot_rate": 0.931,
+          "p_value": 8.961407156602826e-05
+        }
+      ],
+      "zones": {
+        "furnace block": {
+          "name": "furnace block",
+          "x_m": [
+            100,
+            300
+          ],
+          "y_m": [
+            300,
+            600
+          ],
+          "drawn_from": "where the heat sat in the Jan-Aug 2024 commissioning scenes",
+          "last_hot": "2025-10-16",
+          "clear_scenes_since": 40,
+          "window_stats": [
+            {
+              "from": "2024-10-14",
+              "to": "2025-03-31",
+              "label": "fire repairs (heat-up for the restart starts in April)",
+              "clear_scenes": 5,
+              "hot_scenes": 4,
+              "before_scenes": 30,
+              "before_hot_rate": 0.733,
+              "p_value": 0.7879163786008231
+            },
+            {
+              "from": "2025-07-15",
+              "to": "2025-08-31",
+              "label": "PT Smelting's outage (a different Freeport plant), not Manyar's",
+              "outage": false,
+              "clear_scenes": 8,
+              "hot_scenes": 0,
+              "before_scenes": 30,
+              "before_hot_rate": 0.867,
+              "p_value": 9.988721231519568e-08
+            },
+            {
+              "from": "2025-10-31",
+              "to": "2026-09-01",
+              "label": "no concentrate after Grasberg",
+              "clear_scenes": 35,
+              "hot_scenes": 0,
+              "before_scenes": 29,
+              "before_hot_rate": 0.586,
+              "p_value": 3.8673518447333294e-14
+            }
+          ]
+        }
+      },
+      "stills": [
+        {
+          "requested": "2024-07-21",
+          "date": "2024-07-21",
+          "file": "img/fcx_manyar_2024-07-21.webp"
+        },
+        {
+          "requested": "2024-10-29",
+          "date": "2024-10-29",
+          "file": "img/fcx_manyar_2024-10-29.webp"
+        },
+        {
+          "requested": "2025-06-11",
+          "date": "2025-06-11",
+          "file": "img/fcx_manyar_2025-06-11.webp"
+        },
+        {
+          "requested": "2025-10-09",
+          "date": "2025-10-09",
+          "file": "img/fcx_manyar_2025-10-09.webp"
+        },
+        {
+          "requested": "2026-07-16",
+          "date": "2026-07-16",
+          "file": "img/fcx_manyar_2026-07-16.webp"
+        }
+      ]
+    },
+    "rio_kennecott": {
+      "name": "Rio Tinto Kennecott smelter, Magna UT",
+      "kind": "smelter",
+      "tickers": [
+        "RIO"
+      ],
+      "lat": 40.7236,
+      "lon": -112.1987,
+      "aoi_m": {
+        "west": 800,
+        "east": 800,
+        "south": 800,
+        "north": 800
+      },
+      "aoi_drawn": "blind-ish: smelter complex centred from a 2024-07 wide view",
+      "public_since": "1995-01-01",
+      "events": [
+        {
+          "date": "2023-05-01",
+          "label": "Largest rebuild in the smelter's history begins",
+          "source": "https://www.riotinto.com/en/news/releases/2023/rio-tinto-invests-to-strengthen-copper-supply-in-us"
+        },
+        {
+          "date": "2025-10-15",
+          "label": "Planned 45-day smelter outage ends (mid-October)",
+          "source": "https://www.sec.gov/Archives/edgar/data/863064/000086306426000006/ex1_2025-q4results.htm"
+        }
+      ],
+      "delivery": null,
+      "windows": [
+        {
+          "from": "2023-05-01",
+          "to": "2023-09-10",
+          "label": "planned rebuild (restart in Q3)"
+        },
+        {
+          "from": "2025-09-01",
+          "to": "2025-10-15",
+          "label": "planned 45-day outage (dates approximate)"
+        }
+      ],
+      "scenes_listed": 672,
+      "clear_days": 296,
+      "window_stats": [
+        {
+          "from": "2023-05-01",
+          "to": "2023-09-10",
+          "label": "planned rebuild (restart in Q3)",
+          "clear_scenes": 26,
+          "hot_scenes": 1,
+          "before_scenes": 49,
+          "before_hot_rate": 0.265,
+          "p_value": 0.003430331099285843
+        },
+        {
+          "from": "2025-09-01",
+          "to": "2025-10-15",
+          "label": "planned 45-day outage (dates approximate)",
+          "clear_scenes": 11,
+          "hot_scenes": 1,
+          "before_scenes": 68,
+          "before_hot_rate": 0.397,
+          "p_value": 0.0315614703702583
+        }
+      ],
+      "stills": []
+    },
+    "corz_denton_blind": {
+      "name": "Core Scientific Denton, blind box (public address point +/- 1 km)",
+      "kind": "data_center",
+      "tickers": [
+        "CORZ",
+        "CRWV"
+      ],
+      "lat": 33.2149,
+      "lon": -97.2097,
+      "aoi_m": {
+        "west": 1000,
+        "east": 1000,
+        "south": 1000,
+        "north": 1000
+      },
+      "aoi_drawn": "blind: 2 km square on the Denton Energy Center coordinates next door (8161 vs 8171 Jim Christal Rd), no imagery used",
+      "public_since": "2024-06-03",
+      "events": [],
+      "delivery": {
+        "delay_disclosed": "2025-11-10",
+        "note": "same campus, blind box"
+      },
+      "windows": null,
+      "scenes_listed": 558,
+      "clear_days": 135,
+      "stalls": {
+        "under_way": "2025-06-09",
+        "latest": "2026-09-25",
+        "latest_ha": 4.88,
+        "peak_ha": 5.2,
+        "closed_spells_120d": [
+          {
+            "from": "2025-06-09",
+            "to": "2025-10-30",
+            "days": 143,
+            "level_ha": 1.44,
+            "open": false
+          },
+          {
+            "from": "2025-12-26",
+            "to": "2026-05-03",
+            "days": 128,
+            "level_ha": 3.8,
+            "open": false
+          }
+        ],
+        "spells": [
+          {
+            "from": "2025-06-09",
+            "to": "2025-10-30",
+            "days": 143,
+            "level_ha": 1.44,
+            "open": false
+          },
+          {
+            "from": "2025-12-26",
+            "to": "2026-05-03",
+            "days": 128,
+            "level_ha": 3.8,
+            "open": false
+          },
+          {
+            "from": "2026-07-04",
+            "to": "2026-09-25",
+            "days": 83,
+            "level_ha": 5.2,
+            "open": true
+          }
+        ]
+      },
+      "stills": []
+    },
+    "glxy_helios": {
+      "name": "Galaxy Helios, Dickens County TX (CoreWeave tenant)",
+      "kind": "data_center",
+      "tickers": [
+        "GLXY",
+        "CRWV"
+      ],
+      "lat": 33.77335,
+      "lon": -100.86866,
+      "aoi_m": {
+        "west": 1600,
+        "east": 1350,
+        "south": 1150,
+        "north": 1300
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2026-08 imagery",
+      "public_since": "2025-03-28",
+      "events": [
+        {
+          "date": "2025-08-27",
+          "label": "Generator pads and chiller steel visible (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-04-04",
+          "label": "Building 1 substantially complete (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-06-30",
+          "label": "Phase I expected at full capacity (company guidance via Epoch)",
+          "source": "https://investor.galaxy.com/news/news-details/2025/Galaxy-Announces-Third-Quarter-2025-Financial-Results/default.aspx"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found; Phase I guided for 1H 2026"
+      },
+      "windows": null,
+      "scenes_listed": 556,
+      "clear_days": 152,
+      "stalls": {
+        "under_way": "2025-09-23",
+        "latest": "2026-09-15",
+        "latest_ha": 1.55,
+        "peak_ha": 3.68,
+        "closed_spells_120d": [],
+        "spells": [
+          {
+            "from": "2026-02-05",
+            "to": "2026-09-15",
+            "days": 222,
+            "level_ha": 3.41,
+            "open": true
+          },
+          {
+            "from": "2025-09-23",
+            "to": "2025-11-02",
+            "days": 40,
+            "level_ha": 1.0,
+            "open": false
+          },
+          {
+            "from": "2025-12-17",
+            "to": "2026-01-16",
+            "days": 30,
+            "level_ha": 2.78,
+            "open": false
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2024-09-28",
+          "date": "2024-09-28",
+          "file": "img/glxy_helios_2024-09-28.webp"
+        },
+        {
+          "requested": "2025-09-03",
+          "date": "2025-09-03",
+          "file": "img/glxy_helios_2025-09-03.webp"
+        },
+        {
+          "requested": "2026-03-01",
+          "date": "2026-03-07",
+          "file": "img/glxy_helios_2026-03-07.webp"
+        },
+        {
+          "requested": "2026-08-19",
+          "date": "2026-08-19",
+          "file": "img/glxy_helios_2026-08-19.webp"
+        }
+      ]
+    },
+    "meta_hyperion": {
+      "name": "Meta Hyperion, Richland Parish LA",
+      "kind": "data_center",
+      "tickers": [
+        "META"
+      ],
+      "lat": 32.4942,
+      "lon": -91.6361,
+      "aoi_m": {
+        "west": 900,
+        "east": 900,
+        "south": 2700,
+        "north": 2900
+      },
+      "aoi_drawn": "hindsight: fitted to the campus on 2025-10 and 2026-08 imagery",
+      "public_since": "2024-12-04",
+      "events": [
+        {
+          "date": "2024-12-20",
+          "label": "Land clearing begins (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2025-10-19",
+          "label": "Foundations underway for the main buildings (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "date": "2026-04-19",
+          "label": "Buildings 1-2 roofed, cooling going in (Epoch)",
+          "source": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "delivery": {
+        "delay_disclosed": null,
+        "note": "None found"
+      },
+      "windows": null,
+      "scenes_listed": 538,
+      "clear_days": 157,
+      "stalls": {
+        "under_way": "2025-07-01",
+        "latest": "2026-09-23",
+        "latest_ha": 72.28,
+        "peak_ha": 79.52,
+        "closed_spells_120d": [
+          {
+            "from": "2025-08-17",
+            "to": "2025-12-15",
+            "days": 120,
+            "level_ha": 8.56,
+            "open": false
+          }
+        ],
+        "spells": [
+          {
+            "from": "2025-08-17",
+            "to": "2025-12-15",
+            "days": 120,
+            "level_ha": 8.56,
+            "open": false
+          },
+          {
+            "from": "2026-05-02",
+            "to": "2026-07-08",
+            "days": 67,
+            "level_ha": 36.71,
+            "open": false
+          },
+          {
+            "from": "2026-08-14",
+            "to": "2026-09-23",
+            "days": 40,
+            "level_ha": 79.52,
+            "open": true
+          }
+        ]
+      },
+      "stills": [
+        {
+          "requested": "2024-09-09",
+          "date": "2024-09-09",
+          "file": "img/meta_hyperion_2024-09-09.webp"
+        },
+        {
+          "requested": "2025-10-09",
+          "date": "2025-10-09",
+          "file": "img/meta_hyperion_2025-10-09.webp"
+        },
+        {
+          "requested": "2026-03-01",
+          "date": "2026-02-28",
+          "file": "img/meta_hyperion_2026-02-28.webp"
+        },
+        {
+          "requested": "2026-08-17",
+          "date": "2026-08-17",
+          "file": "img/meta_hyperion_2026-08-17.webp"
+        }
+      ]
+    },
+    "codelco_ventanas": {
+      "name": "Codelco Ventanas copper smelter, Puchuncavi (closed 2023)",
+      "kind": "smelter",
+      "tickers": [],
+      "lat": -32.75795,
+      "lon": -71.4785,
+      "aoi_m": {
+        "west": 850,
+        "east": 850,
+        "south": 750,
+        "north": 750
+      },
+      "aoi_drawn": "hindsight: industrial complex and slag area on 2022-12 and 2023-02 imagery",
+      "public_since": "1964-01-01",
+      "events": [
+        {
+          "date": "2023-05-31",
+          "label": "Smelter shut for good after SO2 poisonings",
+          "source": "https://www.mining-technology.com/news/codelco-close-ventanas-smelter/"
+        }
+      ],
+      "delivery": null,
+      "windows": [
+        {
+          "from": "2023-05-31",
+          "to": "2024-12-31",
+          "label": "closed"
+        }
+      ],
+      "scenes_listed": 463,
+      "clear_days": 95,
+      "window_stats": [
+        {
+          "from": "2023-05-31",
+          "to": "2024-12-31",
+          "label": "closed",
+          "clear_scenes": 52,
+          "hot_scenes": 0,
+          "before_scenes": 28,
+          "before_hot_rate": 0.464,
+          "p_value": 8.026530145003435e-15
+        }
+      ],
+      "stills": []
+    }
+  }
+}
