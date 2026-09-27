@@ -1,0 +1,18 @@
+{
+  "frozen_at_utc": "2026-09-27T03:41:48.223838+00:00",
+  "status": "Frozen before ANY county forecast model fit or score; secondary horizon, must report alongside primary regardless of results.",
+  "primary_protocol": "../cybench_maize/protocol.json",
+  "secondary_issue": "September15 at12UTC",
+  "months": [
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "satellite_rule": "Raw8-day NDVI window begins atsource date; finalday through23:59:59UTC+14days strictly beforeissue. Monthlymean assigned bywindowstartmonth, >=2valid AND>=50%expected starts, nointerpolation.",
+  "weather_rule": "All dailyweather April1\u2013August31, allcalendar daysfinite for each monthlyvariable, samemeans/sums asprimary.",
+  "unchanged": "Same sourceversion1.10, allCensusmatched sourcecounties, years2003\u20132023, labelqualityrepair, countypriorOLSdetrending, fixedHGBand comparison/gates fromprimary. No model,parameter,geography or other horizon search.",
+  "mechanism": "Later canopy observations can capture grain filling and stress not yet visible byJuly; this is a prespecified later-season forecast, not a replacement for the primaryAugust15 result.",
+  "publication_caveat": "Same current-vintage fixed-geography assumptions, source buffers nominal, nooriginalhistoricalpublication claim."
+}

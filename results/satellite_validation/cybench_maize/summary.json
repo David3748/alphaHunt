@@ -1,0 +1,222 @@
+{
+  "forecast_gate_passed": false,
+  "n_years": 11,
+  "n_county_years": 15026,
+  "metrics": {
+    "weather": {
+      "rmse_t_ha": 1.5353722334246698,
+      "mae_t_ha": 1.1742015599645184
+    },
+    "satellite": {
+      "rmse_t_ha": 1.5073294577060994,
+      "mae_t_ha": 1.1513975407735493
+    },
+    "trend": {
+      "rmse_t_ha": 1.6677287712068851,
+      "mae_t_ha": 1.2757550930652668
+    },
+    "persistence": {
+      "rmse_t_ha": 1.900366777013792,
+      "mae_t_ha": 1.3826226059985318
+    },
+    "recent_mean": {
+      "rmse_t_ha": 1.6024533482603105,
+      "mae_t_ha": 1.2750304222649962
+    }
+  },
+  "comparisons": {
+    "weather": {
+      "rmse_reduction": 0.018264480174960962,
+      "mae_reduction": 0.01942087284542371,
+      "rmse_reduction_ci95": [
+        0.012663502953883632,
+        0.02574814564211292
+      ],
+      "years_lower_mse": 10
+    },
+    "trend": {
+      "rmse_reduction": 0.0961782972567593,
+      "mae_reduction": 0.09747760598229138,
+      "rmse_reduction_ci95": [
+        0.030541978595123087,
+        0.141231712728482
+      ],
+      "years_lower_mse": 9
+    },
+    "persistence": {
+      "rmse_reduction": 0.2068218220091732,
+      "mae_reduction": 0.1672365721649629,
+      "rmse_reduction_ci95": [
+        0.07289931057047705,
+        0.2948253492099596
+      ],
+      "years_lower_mse": 9
+    },
+    "recent_mean": {
+      "rmse_reduction": 0.059361410213583765,
+      "mae_reduction": 0.0969646522408637,
+      "rmse_reduction_ci95": [
+        0.03445407600648753,
+        0.0762577326500844
+      ],
+      "years_lower_mse": 10
+    }
+  },
+  "strongest_baseline": "weather",
+  "data_count_gate_passed": true,
+  "post_reference_year_sign_check_passed": true,
+  "original_vintage_operational_verification": false,
+  "trading_alpha_verified": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "interpretation": "Current-vintage fixed-geography scientific county-yield forecast; static2021cropmask prevents original-release certification.",
+  "coverage": [
+    {
+      "year": 2013,
+      "counties_with_prior_history": 1586,
+      "feature_rows": 3025,
+      "forecasts": 1432,
+      "observed_scored": 1225,
+      "training_rows": 13643,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1439,
+        "Missing or unavailable input / nonpositive trend": 154
+      }
+    },
+    {
+      "year": 2014,
+      "counties_with_prior_history": 1641,
+      "feature_rows": 3025,
+      "forecasts": 1639,
+      "observed_scored": 1399,
+      "training_rows": 15251,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1384,
+        "Missing or unavailable input / nonpositive trend": 2
+      }
+    },
+    {
+      "year": 2015,
+      "counties_with_prior_history": 1675,
+      "feature_rows": 3025,
+      "forecasts": 1673,
+      "observed_scored": 1320,
+      "training_rows": 16883,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1350,
+        "Missing or unavailable input / nonpositive trend": 2
+      }
+    },
+    {
+      "year": 2016,
+      "counties_with_prior_history": 1713,
+      "feature_rows": 3025,
+      "forecasts": 1712,
+      "observed_scored": 1391,
+      "training_rows": 18468,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1312,
+        "Missing or unavailable input / nonpositive trend": 1
+      }
+    },
+    {
+      "year": 2017,
+      "counties_with_prior_history": 1747,
+      "feature_rows": 3025,
+      "forecasts": 1743,
+      "observed_scored": 1405,
+      "training_rows": 20097,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1278,
+        "Missing or unavailable input / nonpositive trend": 4
+      }
+    },
+    {
+      "year": 2018,
+      "counties_with_prior_history": 1773,
+      "feature_rows": 3025,
+      "forecasts": 1745,
+      "observed_scored": 1280,
+      "training_rows": 21683,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1252,
+        "Missing or unavailable input / nonpositive trend": 28
+      }
+    },
+    {
+      "year": 2019,
+      "counties_with_prior_history": 1786,
+      "feature_rows": 3025,
+      "forecasts": 1779,
+      "observed_scored": 1210,
+      "training_rows": 23054,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1239,
+        "Missing or unavailable input / nonpositive trend": 7
+      }
+    },
+    {
+      "year": 2020,
+      "counties_with_prior_history": 1793,
+      "feature_rows": 3025,
+      "forecasts": 1791,
+      "observed_scored": 1572,
+      "training_rows": 24313,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1232,
+        "Missing or unavailable input / nonpositive trend": 2
+      }
+    },
+    {
+      "year": 2021,
+      "counties_with_prior_history": 1808,
+      "feature_rows": 3025,
+      "forecasts": 1805,
+      "observed_scored": 1405,
+      "training_rows": 25990,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1217,
+        "Missing or unavailable input / nonpositive trend": 3
+      }
+    },
+    {
+      "year": 2022,
+      "counties_with_prior_history": 1820,
+      "feature_rows": 3025,
+      "forecasts": 1804,
+      "observed_scored": 1440,
+      "training_rows": 27476,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1205,
+        "Missing or unavailable input / nonpositive trend": 16
+      }
+    },
+    {
+      "year": 2023,
+      "counties_with_prior_history": 1828,
+      "feature_rows": 3025,
+      "forecasts": 1820,
+      "observed_scored": 1379,
+      "training_rows": 28971,
+      "abstentions": {
+        "Fewer than eight prior released yield labels": 1197,
+        "Missing or unavailable input / nonpositive trend": 8
+      }
+    }
+  ],
+  "forecast_issue_month": 8,
+  "prespecified_secondary": false,
+  "input_sha256": {
+    "monthly_features.csv.gz": "39fd9a16284901f1fe33bbc03f6a8a1912dbe3bd426489e32e9f1688a3f19e42",
+    "yields.csv.gz": "1ced16abf15213a7d81395e28e7d8b1824548ebe0a24417e96eaf986c5d935a2",
+    "locations.csv": "08a375223f41419aff8ec3707dcd7daa2da42f2da0d0cf4b67ff4da5e93cd7b7"
+  },
+  "protocol_sha256": "f44d62b818802d21a739d98bbe57af25f6c1e557295394a37b2d7cf0eb88e57b",
+  "code_sha256": "173c326b68bccc085489e88c2b70cb8293aabf0e877e3fd725273ca566653f02",
+  "source_manifest_sha256": "4874f01cebb784680073c48ac209d7b5634dfb7674e222dc50431a7bb06d42c3",
+  "statistical_skill_components_passed": true,
+  "materiality_component_passed": false,
+  "frozen_materiality_threshold": 0.05,
+  "forecast_code_sha256": "5c87fed6c01fa59ea04242a4fbf223fcfc5b8b19cf4aca8f3efb91fcda589f3c",
+  "reporting_code_sha256": "173c326b68bccc085489e88c2b70cb8293aabf0e877e3fd725273ca566653f02",
+  "forecast_source_snapshot": "first_fit_source.py.txt"
+}

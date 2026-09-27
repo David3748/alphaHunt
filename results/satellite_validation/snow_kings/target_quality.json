@@ -1,0 +1,30 @@
+{
+  "all_monthly_flag_counts": {
+    "": 272,
+    "r": 15,
+    "e": 4
+  },
+  "summer_target_flag_counts": {
+    "": 68,
+    "r": 4
+  },
+  "flagged_summer_targets": [
+    {
+      "date": "2004-08-01",
+      "flag": "r"
+    },
+    {
+      "date": "2012-07-01",
+      "flag": "r"
+    },
+    {
+      "date": "2016-07-01",
+      "flag": "r"
+    },
+    {
+      "date": "2016-09-01",
+      "flag": "r"
+    }
+  ],
+  "handling": "All finite official monthly AF values retained under frozen current-vintage protocol; flags preserved and counted, not post-result exclusions."
+}

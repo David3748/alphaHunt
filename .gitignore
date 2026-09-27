@@ -43,3 +43,6 @@ reports/assets/uk_rates_charts/*.pdf
 reports/assets/uk_rates_charts/paper_p*.png
 reports/assets/uk_rates_charts/boe_chart4_market_model.png
 reports/assets/uk_rates_charts/uk_policy_forward_curves.png
+
+# Local source downloads and extraction scratch for satellite research
+/work/

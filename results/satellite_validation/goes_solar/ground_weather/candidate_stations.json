@@ -1,0 +1,322 @@
+[
+  {
+    "station_id": "USC00044767",
+    "latitude": 35.3833,
+    "longitude": -120.1667,
+    "distance_km": 9.038565537090845,
+    "name": "LA PANZA RCH",
+    "elevation_m": 473.0
+  },
+  {
+    "station_id": "USR0000CLAP",
+    "latitude": 35.3811,
+    "longitude": -120.1875,
+    "distance_km": 10.926361277701343,
+    "name": "LA PANZA CALIFORNIA",
+    "elevation_m": 496.8
+  },
+  {
+    "station_id": "USR0000CBRA",
+    "latitude": 35.1889,
+    "longitude": -120.0833,
+    "distance_km": 21.633584376174646,
+    "name": "BRANCH MOUNTAIN CALIFORNIA",
+    "elevation_m": 1149.1
+  },
+  {
+    "station_id": "USC00045602",
+    "latitude": 35.5,
+    "longitude": -119.8167,
+    "distance_km": 26.14213393483679,
+    "name": "MIDDLEWATER",
+    "elevation_m": 244.1
+  },
+  {
+    "station_id": "USC00040875",
+    "latitude": 35.6167,
+    "longitude": -119.9,
+    "distance_km": 30.06380071701427,
+    "name": "BLACKWELLS CORNER",
+    "elevation_m": 217.0
+  },
+  {
+    "station_id": "US1CASL0001",
+    "latitude": 35.3805,
+    "longitude": -120.4525,
+    "distance_km": 34.94996907753928,
+    "name": "SANTA MARGARITA 8.9 ESE",
+    "elevation_m": 611.1
+  },
+  {
+    "station_id": "USR0000CAGD",
+    "latitude": 35.1792,
+    "longitude": -120.3919,
+    "distance_km": 37.192750385078,
+    "name": "ARROYO GRANDE CALIFORNIA",
+    "elevation_m": 319.4
+  },
+  {
+    "station_id": "USC00047672",
+    "latitude": 35.3372,
+    "longitude": -120.5039,
+    "distance_km": 39.94530095742933,
+    "name": "SALINAS DAM",
+    "elevation_m": 424.3
+  },
+  {
+    "station_id": "USC00041743",
+    "latitude": 35.7167,
+    "longitude": -120.25,
+    "distance_km": 40.631658268889844,
+    "name": "CHOLAME ALLEY RCH",
+    "elevation_m": 534.0
+  },
+  {
+    "station_id": "USR0000CCAR",
+    "latitude": 35.0964,
+    "longitude": -119.7728,
+    "distance_km": 41.587021895341515,
+    "name": "CARRIZO CALIFORNIA",
+    "elevation_m": 759.0
+  },
+  {
+    "station_id": "USC00047942",
+    "latitude": 35.0167,
+    "longitude": -120.2,
+    "distance_km": 42.485635003668364,
+    "name": "SANTA MARIA 14 ENE",
+    "elevation_m": 249.9
+  },
+  {
+    "station_id": "USC00045151",
+    "latitude": 35.6181,
+    "longitude": -119.6892,
+    "distance_km": 43.04713327181067,
+    "name": "LOST HILLS",
+    "elevation_m": 87.8
+  },
+  {
+    "station_id": "USC00044144",
+    "latitude": 35.0833,
+    "longitude": -120.3833,
+    "distance_km": 43.99838654164395,
+    "name": "HUASNA",
+    "elevation_m": 222.5
+  },
+  {
+    "station_id": "USC00049111",
+    "latitude": 34.9881,
+    "longitude": -120.3211,
+    "distance_km": 49.61260739669646,
+    "name": "TWITCHELL DAM",
+    "elevation_m": 177.4
+  },
+  {
+    "station_id": "USC00049456",
+    "latitude": 34.9667,
+    "longitude": -119.8667,
+    "distance_km": 49.74170458040376,
+    "name": "WASIOJA FORBES RANCH",
+    "elevation_m": 719.3
+  },
+  {
+    "station_id": "USC00047930",
+    "latitude": 35.3667,
+    "longitude": -120.6333,
+    "distance_km": 51.37625905459241,
+    "name": "SANTA MARGARITA 2 SW",
+    "elevation_m": 366.1
+  },
+  {
+    "station_id": "USC00048627",
+    "latitude": 35.0,
+    "longitude": -120.3833,
+    "distance_km": 51.37944352659881,
+    "name": "SUEY RCH",
+    "elevation_m": 118.9
+  },
+  {
+    "station_id": "USC00047933",
+    "latitude": 35.3742,
+    "longitude": -120.6375,
+    "distance_km": 51.73192715808341,
+    "name": "SANTA MARGARITA BOOST",
+    "elevation_m": 349.9
+  },
+  {
+    "station_id": "US1CASL0037",
+    "latitude": 35.0488,
+    "longitude": -120.4741,
+    "distance_km": 52.42788791476769,
+    "name": "NIPOMO 1.2 NNE",
+    "elevation_m": 112.2
+  },
+  {
+    "station_id": "USC00046207",
+    "latitude": 35.0667,
+    "longitude": -120.5,
+    "distance_km": 52.76305563240653,
+    "name": "NIPOMO 2 NW",
+    "elevation_m": 110.0
+  },
+  {
+    "station_id": "US1CASL0042",
+    "latitude": 35.1315,
+    "longitude": -120.569,
+    "distance_km": 53.475799731463226,
+    "name": "ARROYO GRANDE 0.9 ENE",
+    "elevation_m": 78.0
+  },
+  {
+    "station_id": "USC00040543",
+    "latitude": 34.9167,
+    "longitude": -119.9167,
+    "distance_km": 53.62064329388606,
+    "name": "BATES RIDGE",
+    "elevation_m": 1577.0
+  },
+  {
+    "station_id": "US1CASL0034",
+    "latitude": 35.4749,
+    "longitude": -120.6489,
+    "distance_km": 53.70443499059291,
+    "name": "ATASCADERO 2.3 ESE",
+    "elevation_m": 280.7
+  },
+  {
+    "station_id": "USC00045314",
+    "latitude": 34.9,
+    "longitude": -120.0833,
+    "distance_km": 53.72759597947314,
+    "name": "MANZANITA MTN",
+    "elevation_m": 954.9
+  },
+  {
+    "station_id": "USC00041244",
+    "latitude": 35.4028,
+    "longitude": -119.47,
+    "distance_km": 54.16038111583102,
+    "name": "BUTTONWILLOW",
+    "elevation_m": 68.6
+  },
+  {
+    "station_id": "USC00040320",
+    "latitude": 35.1167,
+    "longitude": -120.5667,
+    "distance_km": 54.18297869922529,
+    "name": "ARROYO GRANDE",
+    "elevation_m": 34.1
+  },
+  {
+    "station_id": "USC00047851",
+    "latitude": 35.3056,
+    "longitude": -120.6619,
+    "distance_km": 54.6398009935531,
+    "name": "SAN LUIS OBISPO POLY",
+    "elevation_m": 93.9
+  },
+  {
+    "station_id": "USW00093206",
+    "latitude": 35.2381,
+    "longitude": -120.6442,
+    "distance_km": 54.796484783809184,
+    "name": "SAN LUIS OBISPO MCCHESNEY FLD",
+    "elevation_m": 55.8
+  },
+  {
+    "station_id": "US1CASL0022",
+    "latitude": 35.155,
+    "longitude": -120.6103,
+    "distance_km": 55.45759605049586,
+    "name": "ARROYO GRANDE 2.5 NW",
+    "elevation_m": 149.7
+  },
+  {
+    "station_id": "USC00041444",
+    "latitude": 35.3333,
+    "longitude": -120.6833,
+    "distance_km": 56.16169592722905,
+    "name": "CAMP SAN LUIS OBISPO",
+    "elevation_m": 189.0
+  },
+  {
+    "station_id": "US1CASL0018",
+    "latitude": 35.3021,
+    "longitude": -120.6813,
+    "distance_km": 56.440013581212796,
+    "name": "SAN LUIS OBISPO 2.2 NNW",
+    "elevation_m": 98.8
+  },
+  {
+    "station_id": "US1CASL0039",
+    "latitude": 35.4525,
+    "longitude": -120.6867,
+    "distance_km": 56.68520960145547,
+    "name": "ATASCADERO 2.3 S",
+    "elevation_m": 405.4
+  },
+  {
+    "station_id": "US1CASL0033",
+    "latitude": 35.5168,
+    "longitude": -120.6734,
+    "distance_km": 56.90800790651118,
+    "name": "ATASCADERO 2.3 NNE",
+    "elevation_m": 245.7
+  },
+  {
+    "station_id": "US1CASB0005",
+    "latitude": 34.9589,
+    "longitude": -120.4186,
+    "distance_km": 56.96662624654201,
+    "name": "SANTA MARIA 1.8 NE",
+    "elevation_m": 71.6
+  },
+  {
+    "station_id": "USC00042248",
+    "latitude": 34.9833,
+    "longitude": -119.6667,
+    "distance_km": 57.43513362544896,
+    "name": "CUYAMA RCH",
+    "elevation_m": 662.0
+  },
+  {
+    "station_id": "USC00040398",
+    "latitude": 35.9,
+    "longitude": -120.05,
+    "distance_km": 57.50829886586357,
+    "name": "AVENAL 9 SSE",
+    "elevation_m": 159.1
+  },
+  {
+    "station_id": "USC00040719",
+    "latitude": 34.9167,
+    "longitude": -120.35,
+    "distance_km": 57.883173221619096,
+    "name": "BETTERAVIA",
+    "elevation_m": 49.1
+  },
+  {
+    "station_id": "USC00047940",
+    "latitude": 34.95,
+    "longitude": -120.4333,
+    "distance_km": 58.53906457665925,
+    "name": "SANTA MARIA",
+    "elevation_m": 67.1
+  },
+  {
+    "station_id": "USC00046154",
+    "latitude": 34.9456,
+    "longitude": -119.6828,
+    "distance_km": 59.87687617249145,
+    "name": "NEW CUYAMA FIRE STN",
+    "elevation_m": 658.4
+  },
+  {
+    "station_id": "USW00093209",
+    "latitude": 35.6694,
+    "longitude": -120.6292,
+    "distance_km": 60.021782007821805,
+    "name": "PASO ROBLES MUNI AP",
+    "elevation_m": 249.9
+  }
+]

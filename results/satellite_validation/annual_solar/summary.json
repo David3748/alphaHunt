@@ -1,0 +1,358 @@
+{
+  "n_test_months": 72,
+  "n_year_clusters": 6,
+  "abstentions": 0,
+  "metrics": {
+    "season_trend": {
+      "rmse_mwh": 10123.139357203218,
+      "mae_mwh": 8169.7566290317645
+    },
+    "weather": {
+      "rmse_mwh": 8841.270516910781,
+      "mae_mwh": 7367.333874110544
+    },
+    "persistence": {
+      "rmse_mwh": 10883.570823720189,
+      "mae_mwh": 8795.940067049807
+    },
+    "seasonal_mean": {
+      "rmse_mwh": 8882.762186775493,
+      "mae_mwh": 7380.693984845375
+    },
+    "satellite": {
+      "rmse_mwh": 9212.33376174927,
+      "mae_mwh": 7249.434878819291
+    },
+    "irradiance_only": {
+      "rmse_mwh": 9807.682360273397,
+      "mae_mwh": 7958.505091145489
+    },
+    "prior_year_irradiance_placebo": {
+      "rmse_mwh": 9755.541316157649,
+      "mae_mwh": 8040.670259205259
+    }
+  },
+  "comparisons": {
+    "season_trend": {
+      "rmse_reduction_pct": 8.997264221260115,
+      "mae_reduction_pct": 11.264983670897244,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -126.3777302507151,
+        2285.519522669377
+      ]
+    },
+    "weather": {
+      "rmse_reduction_pct": -4.196944818380488,
+      "mae_reduction_pct": 1.600293909653805,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -1698.993104621426,
+        1124.4636734322794
+      ]
+    },
+    "persistence": {
+      "rmse_reduction_pct": 15.355595043572844,
+      "mae_reduction_pct": 17.582034170785565,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -331.086643151313,
+        4104.071007503017
+      ]
+    },
+    "seasonal_mean": {
+      "rmse_reduction_pct": -3.7102375144573596,
+      "mae_reduction_pct": 1.7784114379433058,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -1453.8825632741627,
+        1397.650486966043
+      ]
+    }
+  },
+  "strongest_nonsatellite_baseline": "weather",
+  "by_year": {
+    "2019": {
+      "n_months": 12,
+      "rmse_mwh": {
+        "season_trend": 4665.36844899184,
+        "weather": 4380.002210863554,
+        "persistence": 7682.512485014804,
+        "seasonal_mean": 7740.230143858408,
+        "satellite": 4382.275351193075,
+        "irradiance_only": 4584.155163728836,
+        "prior_year_irradiance_placebo": 4942.255776604573
+      },
+      "improvement_vs_weather_pct": -0.05189815484301086
+    },
+    "2020": {
+      "n_months": 12,
+      "rmse_mwh": {
+        "season_trend": 6591.451475948142,
+        "weather": 5365.0339963921915,
+        "persistence": 5994.104167191929,
+        "seasonal_mean": 6148.080704705267,
+        "satellite": 4461.025280184011,
+        "irradiance_only": 4933.795831637689,
+        "prior_year_irradiance_placebo": 6055.341362000012
+      },
+      "improvement_vs_weather_pct": 16.85000909250709
+    },
+    "2021": {
+      "n_months": 12,
+      "rmse_mwh": {
+        "season_trend": 10184.612857690086,
+        "weather": 8802.854749998209,
+        "persistence": 10131.627499968024,
+        "seasonal_mean": 6984.325265836501,
+        "satellite": 6820.292178311104,
+        "irradiance_only": 6548.739999477781,
+        "prior_year_irradiance_placebo": 8583.709094567223
+      },
+      "improvement_vs_weather_pct": 22.52181397957871
+    },
+    "2022": {
+      "n_months": 12,
+      "rmse_mwh": {
+        "season_trend": 15718.085521671563,
+        "weather": 13690.25865867043,
+        "persistence": 15845.526488728347,
+        "seasonal_mean": 14272.041656602385,
+        "satellite": 16483.79059882037,
+        "irradiance_only": 16710.306018681866,
+        "prior_year_irradiance_placebo": 16119.086457023883
+      },
+      "improvement_vs_weather_pct": -20.40525317891433
+    },
+    "2023": {
+      "n_months": 12,
+      "rmse_mwh": {
+        "season_trend": 10527.531168833404,
+        "weather": 9028.998970270355,
+        "persistence": 14871.269612633672,
+        "seasonal_mean": 8148.227102262003,
+        "satellite": 9044.976444585343,
+        "irradiance_only": 10846.349067264264,
+        "prior_year_irradiance_placebo": 10510.210914313118
+      },
+      "improvement_vs_weather_pct": -0.1769573168365346
+    },
+    "2024": {
+      "n_months": 12,
+      "rmse_mwh": {
+        "season_trend": 9383.034866670107,
+        "weather": 8637.36769354829,
+        "persistence": 6393.524458802236,
+        "seasonal_mean": 7539.572135907632,
+        "satellite": 8369.83509017253,
+        "irradiance_only": 9592.881157346861,
+        "prior_year_irradiance_placebo": 8121.633060124708
+      },
+      "improvement_vs_weather_pct": 3.0973858340614058
+    }
+  },
+  "forecast_gate_passed": false,
+  "original_vintage_certified": false,
+  "trading_alpha_verified": false,
+  "target": "Plant production before annual EIA disclosure, not before physical generation",
+  "five_month_delay_sensitivity": {
+    "n_test_months": 72,
+    "n_year_clusters": 6,
+    "abstentions": 0,
+    "metrics": {
+      "season_trend": {
+        "rmse_mwh": 10352.82630129501,
+        "mae_mwh": 8385.066638024386
+      },
+      "weather": {
+        "rmse_mwh": 9252.341892544875,
+        "mae_mwh": 7777.293158609569
+      },
+      "persistence": {
+        "rmse_mwh": 11094.928489331536,
+        "mae_mwh": 8933.658955938698
+      },
+      "seasonal_mean": {
+        "rmse_mwh": 9254.913569687002,
+        "mae_mwh": 7579.331762623152
+      },
+      "satellite": {
+        "rmse_mwh": 9566.236518268064,
+        "mae_mwh": 7594.185643367238
+      },
+      "irradiance_only": {
+        "rmse_mwh": 10103.52327486143,
+        "mae_mwh": 8132.0680769419105
+      },
+      "prior_year_irradiance_placebo": {
+        "rmse_mwh": 10147.03989666668,
+        "mae_mwh": 8358.951764150159
+      }
+    },
+    "comparisons": {
+      "season_trend": {
+        "rmse_reduction_pct": 7.597826527124807,
+        "mae_reduction_pct": 9.432018000556852,
+        "rmse_gain_year_bootstrap_ci95_mwh": [
+          -50.78923284725788,
+          2044.709181471988
+        ]
+      },
+      "weather": {
+        "rmse_reduction_pct": -3.3925964838816824,
+        "mae_reduction_pct": 2.3543861792020615,
+        "rmse_gain_year_bootstrap_ci95_mwh": [
+          -1489.336228536702,
+          1030.3387449753782
+        ]
+      },
+      "persistence": {
+        "rmse_reduction_pct": 13.778294943797109,
+        "mae_reduction_pct": 14.993557725650996,
+        "rmse_gain_year_bootstrap_ci95_mwh": [
+          -456.72081459088986,
+          3984.0330600731004
+        ]
+      },
+      "seasonal_mean": {
+        "rmse_reduction_pct": -3.363866623247036,
+        "mae_reduction_pct": -0.1959787644781219,
+        "rmse_gain_year_bootstrap_ci95_mwh": [
+          -1423.8758430909056,
+          1587.0575952627296
+        ]
+      }
+    },
+    "strongest_nonsatellite_baseline": "weather",
+    "by_year": {
+      "2019": {
+        "n_months": 12,
+        "rmse_mwh": {
+          "season_trend": 5687.500322908196,
+          "weather": 4840.1198990613375,
+          "persistence": 8255.300466238341,
+          "seasonal_mean": 8139.3623112744135,
+          "satellite": 4606.969073996261,
+          "irradiance_only": 4798.415972972306,
+          "prior_year_irradiance_placebo": 5655.8123493476805
+        },
+        "improvement_vs_weather_pct": 4.817046476685272
+      },
+      "2020": {
+        "n_months": 12,
+        "rmse_mwh": {
+          "season_trend": 7149.492139310038,
+          "weather": 5501.518478566557,
+          "persistence": 7292.378033203411,
+          "seasonal_mean": 6334.098062510759,
+          "satellite": 4497.749141616934,
+          "irradiance_only": 4901.907194256471,
+          "prior_year_irradiance_placebo": 6363.494688495799
+        },
+        "improvement_vs_weather_pct": 18.245314286595992
+      },
+      "2021": {
+        "n_months": 12,
+        "rmse_mwh": {
+          "season_trend": 9275.100319380184,
+          "weather": 8393.57248893064,
+          "persistence": 8345.412057811565,
+          "seasonal_mean": 7245.324000038174,
+          "satellite": 6545.215074388757,
+          "irradiance_only": 6328.675432614798,
+          "prior_year_irradiance_placebo": 8303.480331168283
+        },
+        "improvement_vs_weather_pct": 22.02110504173853
+      },
+      "2022": {
+        "n_months": 12,
+        "rmse_mwh": {
+          "season_trend": 16447.00521414009,
+          "weather": 14666.011388854995,
+          "persistence": 16548.857133908823,
+          "seasonal_mean": 15313.53079108391,
+          "satellite": 17140.93188366752,
+          "irradiance_only": 17341.090661613835,
+          "prior_year_irradiance_placebo": 16798.535962431593
+        },
+        "improvement_vs_weather_pct": -16.87521187044261
+      },
+      "2023": {
+        "n_months": 12,
+        "rmse_mwh": {
+          "season_trend": 10938.556698911183,
+          "weather": 9859.850426965464,
+          "persistence": 15404.426357536546,
+          "seasonal_mean": 8016.521935091662,
+          "satellite": 9867.990453434324,
+          "irradiance_only": 11748.394149858053,
+          "prior_year_irradiance_placebo": 11078.486649916327
+        },
+        "improvement_vs_weather_pct": -0.08255730174768772
+      },
+      "2024": {
+        "n_months": 12,
+        "rmse_mwh": {
+          "season_trend": 9134.532701335364,
+          "weather": 8785.26705028696,
+          "persistence": 6037.295725347767,
+          "seasonal_mean": 7502.463922189342,
+          "satellite": 8578.738459202057,
+          "irradiance_only": 9308.237332444267,
+          "prior_year_irradiance_placebo": 8451.081082449971
+        },
+        "improvement_vs_weather_pct": 2.3508516007849423
+      }
+    },
+    "forecast_gate_passed": false,
+    "original_vintage_certified": false,
+    "trading_alpha_verified": false,
+    "target": "Plant production before annual EIA disclosure, not before physical generation"
+  },
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T02:23:46.376141+00:00",
+    "mechanism": "Solar irradiance predicts plant production months before annual EIA disclosure. A source too late for monthly reporters can still be timely for annual reporters.",
+    "plant": {
+      "code": "57439",
+      "name": "California Valley Solar Ranch",
+      "lat": 35.323739,
+      "lon": -119.9166
+    },
+    "selection": "Selected as nearby mature independent solar facility for GOES confirmation before inspecting model results. Discovery of annual-with-monthly-detail reporting motivated this separate delayed-disclosure test. Annual output snippets and2024 EIA metadata seen; no source/outcome model evaluated.",
+    "target": "Monthly electricity generation reported independently by an annual EIA respondent, not future sunlight or stock return",
+    "sources": {
+      "predictor": "NASA POWER CERES SYN1DEG surface shortwave irradiance; documented3\u20134month latency",
+      "outcome": "EIA facility-fuel SUN/PV generation, plus official EIA923 reporting-frequency audit",
+      "ground_comparator": "Nearest-complete per-variable NOAA GHCND temperature and precipitation, fixed before outcomes"
+    },
+    "feature_availability": "Target month end +4calendar months +14days. Sensitivity +5months +14days. Ground station archives usually replace preliminary data after45\u201360days, earlier than these issue dates. Exactoriginalvintages unavailable.",
+    "label_availability": "Annual-with-monthly-detail labels assumed available November1 offollowing year, subject to officialfrequency audit; monthly reporters usemonthend+2months. Training NEVERuseslabels before their release proxy.",
+    "evaluation": "January2019\u2013December2024, every available eligible month; no targetperiod tuning",
+    "models": {
+      "season_trend": "Rolling48eligiblemonths(min36) OLS logdailyMWh onintercept+11month indicators+linear time",
+      "weather": "Samecalendar/time model plustmean_C,dtr_C,log1p(monthly precipitation_mm)",
+      "satellite": "Sameweather model pluslogGHI",
+      "irradiance_only": "Sameseason/time model pluslogGHI, diagnostic",
+      "persistence": "Latestreleased same-calendar-month dailyMWh",
+      "seasonal_mean": "Mean dailyMWh oflatest2released same-calendar-month observations",
+      "prior_year_irradiance_placebo": "Sameweather-plus-logGHI model, replacecurrenttestGHIwithprevious-yearGHI; no parameterretuning"
+    },
+    "training": "Identical complete eligible rows for all regression models; sourcefeatures andlabels musthaveavailability beforeissue; max48mostrecentrows, min36",
+    "uncertainty": "Paired calendar-year clusterbootstrap10000drawsseed20260927; sixevaluationyearclusters, peryear errors andlongeravailability sensitivity. Noinflatedindependencefrommonths.",
+    "gate": "Satellite at least5%lowerRMSE andlowerMAE thanstrongestnonsatellitebenchmark; strictlypositive95%pairedRMSEgain interval againstallnonsatellitebenchmarks; lowerRMSEthanprior-yearGHIplacebo. Reporteachyearand5monthfeaturelagsensitivity.",
+    "interpretation": "Useful physical production nowcast before independent plant-level disclosure. It maynotbeat earlier companyaggregate disclosures or marketexpectations. Financialalpha mustbetestedseparately.",
+    "limits": [
+      "Exploratory continuation afterfailedsatellitecandidates, notfamilywisecontrolleddiscovery",
+      "Current-vintage sourcevalues and finalEIAoutcomes; explicitlatencies areplausible operationalproxies, notcompleteoriginalreleasearchive",
+      "Annualdisclosureforecast isnotforecastbeforephysicalproductionoccurs",
+      "GHIproxydoesnotfullymodeltracking,curtailment,outages,orPPArevenues"
+    ],
+    "results_inspected_before_freeze": false
+  },
+  "reporting_frequency_audit_required": false,
+  "monthly_labels_independently_reported": false,
+  "reporting_audit": "CVSR pre2023 annual respondent monthly fields were allocated; this monthly test is a discarded diagnostic, not independent production validation",
+  "forecast_usefulness_verified": false,
+  "interpretation": "Current-vintage delayed-disclosure forecast evaluation; annual label timing must be independently confirmed before accepting usefulness",
+  "input_hashes": {
+    "results/satellite_validation/annual_solar/inputs/power_cvsr.json": "cd79f44e84d5e7ebce3b7d04a31f6527a29376c0ec8c2c5199ea8e6bba5b6862",
+    "results/satellite_validation/goes_solar/inputs/eia_57439.json": "623100218a1f798a662a17fc395c9f2add2ebe22c56fc9ff2b55b8eee587099d",
+    "results/satellite_validation/goes_solar/ground_weather/monthly_weather.csv": "00bac45e726bdc8cda6094160cf2ff4e6404d5e43a72d0866c8fb343530915ce"
+  }
+}

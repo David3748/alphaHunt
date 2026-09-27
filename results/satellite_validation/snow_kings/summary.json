@@ -1,0 +1,475 @@
+{
+  "kings": {
+    "primary": {
+      "status": "evaluated",
+      "evaluated_years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "n_evaluation": 14,
+      "models": {
+        "weather_flow": {
+          "rmse_af": 158197.06481008578,
+          "mae_af": 97774.83213285018
+        },
+        "weather_flow_snow": {
+          "rmse_af": 151532.8219408066,
+          "mae_af": 94158.22603742893
+        },
+        "climatology": {
+          "rmse_af": 320392.2878393722,
+          "mae_af": 239999.058323524
+        },
+        "persistence": {
+          "rmse_af": 400868.88281724096,
+          "mae_af": 289109.14285714284
+        }
+      },
+      "comparisons": {
+        "weather_flow": {
+          "rmse_reduction": 0.0421262106049789,
+          "mae_reduction": 0.03698913121637715,
+          "rmse_reduction_ci95": [
+            -0.007649475658693681,
+            0.20011833212095204
+          ]
+        },
+        "climatology": {
+          "rmse_reduction": 0.5270397331886554,
+          "mae_reduction": 0.6076725188208798,
+          "rmse_reduction_ci95": [
+            0.4669392726424354,
+            0.6881827492231251
+          ]
+        },
+        "persistence": {
+          "rmse_reduction": 0.621989063167341,
+          "mae_reduction": 0.6743159863195498,
+          "rmse_reduction_ci95": [
+            0.5205977929099456,
+            0.8010179413628672
+          ]
+        }
+      },
+      "frozen_gate_passed": false,
+      "claims": "Current-vintage chronological scientific forecast study only; no first-release availability or market-alpha verification.",
+      "abstentions": [
+        {
+          "year": 2000,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2001,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2002,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2003,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2004,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2005,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2006,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2007,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2008,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2009,
+          "reason": "Fewer than ten prior eligible training years"
+        }
+      ]
+    },
+    "ground_swe": {
+      "n_evaluation": 12,
+      "evaluated_years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "models": {
+        "weather_flow": {
+          "rmse_af": 168773.2677814266,
+          "mae_af": 85721.93967029918
+        },
+        "weather_flow_snow": {
+          "rmse_af": 167394.65238069728,
+          "mae_af": 96627.33314749354
+        },
+        "weather_flow_swe": {
+          "rmse_af": 204815.87746662993,
+          "mae_af": 99181.1378991811
+        },
+        "weather_flow_swe_snow": {
+          "rmse_af": 201767.59505336016,
+          "mae_af": 103285.31827682123
+        }
+      },
+      "rmse_reduction_vs_ground_swe": 0.014883037638360963,
+      "mae_reduction_vs_ground_swe": -0.04138065427129978,
+      "rmse_reduction_ci95": [
+        -0.30307160585141535,
+        0.027288805264349313
+      ],
+      "limitation": "Matched training and test support; one upper-basin ground SWE station is not official basin-wide DWR forecasting skill."
+    },
+    "fresh_may_flow": {
+      "status": "evaluated",
+      "evaluated_years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "n_evaluation": 14,
+      "models": {
+        "weather_flow": {
+          "rmse_af": 166665.26305299945,
+          "mae_af": 102437.07546223291
+        },
+        "weather_flow_snow": {
+          "rmse_af": 163793.76242765144,
+          "mae_af": 101980.02529411577
+        },
+        "climatology": {
+          "rmse_af": 320392.2878393722,
+          "mae_af": 239999.058323524
+        },
+        "persistence": {
+          "rmse_af": 400868.88281724096,
+          "mae_af": 289109.14285714284
+        }
+      },
+      "comparisons": {
+        "weather_flow": {
+          "rmse_reduction": 0.017229148850500864,
+          "mae_reduction": 0.0044617650987669455,
+          "rmse_reduction_ci95": [
+            -0.019075149104819947,
+            0.0845453750605339
+          ]
+        },
+        "climatology": {
+          "rmse_reduction": 0.4887712075336563,
+          "mae_reduction": 0.5750815607091072,
+          "rmse_reduction_ci95": [
+            0.44159869594829043,
+            0.7016118075131879
+          ]
+        },
+        "persistence": {
+          "rmse_reduction": 0.59140315088431,
+          "mae_reduction": 0.6472611544336146,
+          "rmse_reduction_ci95": [
+            0.48411137821550604,
+            0.8051762672486272
+          ]
+        }
+      },
+      "frozen_gate_passed": false,
+      "claims": "Current-vintage chronological scientific forecast study only; no first-release availability or market-alpha verification.",
+      "abstentions": [
+        {
+          "year": 2000,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2001,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2002,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2003,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2004,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2005,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2006,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2007,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2008,
+          "reason": "Fewer than ten prior eligible training years"
+        },
+        {
+          "year": 2009,
+          "reason": "Fewer than ten prior eligible training years"
+        }
+      ]
+    },
+    "fresh_may_flow_ground_swe": {
+      "n_evaluation": 12,
+      "evaluated_years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "models": {
+        "weather_flow": {
+          "rmse_af": 171322.2565064773,
+          "mae_af": 93613.21210483766
+        },
+        "weather_flow_snow": {
+          "rmse_af": 174103.34870883985,
+          "mae_af": 104969.10119351877
+        },
+        "weather_flow_swe": {
+          "rmse_af": 207320.0843950976,
+          "mae_af": 99333.88451829508
+        },
+        "weather_flow_swe_snow": {
+          "rmse_af": 206949.18585213338,
+          "mae_af": 106584.81529434076
+        }
+      },
+      "rmse_reduction_vs_ground_swe": 0.001789014045823878,
+      "mae_reduction_vs_ground_swe": -0.0729955423691322,
+      "rmse_reduction_ci95": [
+        -0.24448526652543925,
+        0.013091718795266572
+      ],
+      "limitation": "Matched training and test support; one upper-basin ground SWE station is not official basin-wide DWR forecasting skill."
+    }
+  },
+  "pooled": {
+    "primary": {
+      "evaluated_years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "n_calendar_years": 14,
+      "n_basins": 2,
+      "initial_2000_2009_mean_af": {
+        "Kings": 151470.1,
+        "SanJoaquin": 162073.7
+      },
+      "normalized_rmse_baseline": 0.9283020868728687,
+      "normalized_rmse_satellite": 0.8694881681529945,
+      "rmse_reduction": 0.06335644350213432,
+      "mae_reduction": 0.10202359502834413,
+      "rmse_reduction_ci95": [
+        0.00884657758641941,
+        0.25940207363832385
+      ],
+      "pooling": "Equal basin weight; errors normalized by fixed initial2000-2009 basin mean, shared calendar blocks. Basins are not independent years."
+    },
+    "ground_swe": {
+      "evaluated_years": [
+        2012,
+        2013,
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "n_calendar_years": 7,
+      "n_basins": 2,
+      "initial_2000_2009_mean_af": {
+        "Kings": 151470.1,
+        "SanJoaquin": 162073.7
+      },
+      "normalized_rmse_baseline": 0.36739671901207555,
+      "normalized_rmse_satellite": 0.3556404015365811,
+      "rmse_reduction": 0.03199897241082339,
+      "mae_reduction": 0.043827648062465197,
+      "rmse_reduction_ci95": [
+        -0.19614173676398505,
+        0.12853334779201553
+      ],
+      "pooling": "Equal basin weight; errors normalized by fixed initial2000-2009 basin mean, shared calendar blocks. Basins are not independent years."
+    },
+    "fresh_may_flow": {
+      "evaluated_years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "n_calendar_years": 14,
+      "n_basins": 2,
+      "initial_2000_2009_mean_af": {
+        "Kings": 151470.1,
+        "SanJoaquin": 162073.7
+      },
+      "normalized_rmse_baseline": 0.9566061956422757,
+      "normalized_rmse_satellite": 0.930079137527546,
+      "rmse_reduction": 0.027730385016918158,
+      "mae_reduction": 0.04856199778999104,
+      "rmse_reduction_ci95": [
+        -0.010567338445407248,
+        0.12994177203806978
+      ],
+      "pooling": "Equal basin weight; errors normalized by fixed initial2000-2009 basin mean, shared calendar blocks. Basins are not independent years."
+    },
+    "fresh_may_flow_ground_swe": {
+      "evaluated_years": [
+        2012,
+        2013,
+        2016,
+        2017,
+        2018,
+        2021,
+        2022
+      ],
+      "n_calendar_years": 7,
+      "n_basins": 2,
+      "initial_2000_2009_mean_af": {
+        "Kings": 151470.1,
+        "SanJoaquin": 162073.7
+      },
+      "normalized_rmse_baseline": 0.29981606392691745,
+      "normalized_rmse_satellite": 0.3474749246950973,
+      "rmse_reduction": -0.15896033102414764,
+      "mae_reduction": -0.20531973748931787,
+      "rmse_reduction_ci95": [
+        -1.4204565050871438,
+        0.02132084609558227
+      ],
+      "pooling": "Equal basin weight; errors normalized by fixed initial2000-2009 basin mean, shared calendar blocks. Basins are not independent years."
+    }
+  },
+  "geographic_confirmation_gate_passed": false,
+  "target_quality": {
+    "all_monthly_flag_counts": {
+      "": 272,
+      "r": 15,
+      "e": 4
+    },
+    "summer_target_flag_counts": {
+      "": 68,
+      "r": 4
+    },
+    "flagged_summer_targets": [
+      {
+        "date": "2004-08-01",
+        "flag": "r"
+      },
+      {
+        "date": "2012-07-01",
+        "flag": "r"
+      },
+      {
+        "date": "2016-07-01",
+        "flag": "r"
+      },
+      {
+        "date": "2016-09-01",
+        "flag": "r"
+      }
+    ],
+    "handling": "All finite official monthly AF values retained under frozen current-vintage protocol; flags preserved and counted, not post-result exclusions."
+  },
+  "claims": "Geographic current-vintage forecast confirmation only if gate passes; adjacent basins share weather, no independent-year doubling or financial-alpha claim.",
+  "input_sha256": {
+    "results/satellite_validation/snow_kings/annual_snow.csv": "9b3c0b04e259083f4237e90ed561934c549a3ee53ddc9d8e10cc194f3d99602d",
+    "results/satellite_validation/snow_kings/ground/summer_ground.csv": "fc257ea145abeddbd9cebbd8a508987eaac9f8ce412295462ad41c4550b32b7d",
+    "results/satellite_validation/snow_kings/kgf_monthly_fnf.csv": "88ce483617c3eba4d5fc557e911173bfeecc4f88d418407fbfbaa0a3cadaadb2",
+    "results/satellite_validation/snow_kings/protocol.json": "e1886845203141178e0c795f45088367ec8b8bfd2cfa89977e7be1886e353a02",
+    "results/satellite_validation/snow_kings/ground_selection_addendum.json": "d6b2655ccddc7ae7a917aacb9405cc67778ffa9fdb3554ff3833ed85668af4cd",
+    "results/satellite_validation/snow_kings/ground/selection_protocol.json": "234f7a40ff2d25cfc55a75d8c5d05f403d172cb835b9944271ed5566f692339f",
+    "results/satellite_validation/snow_summer/annual_panel.csv": "35e27a2583c367cbe6fcb9843ca9fcf9708b69a2d780fb22ab9b5802b4df7c06",
+    "results/satellite_validation/snow_summer/summary.json": "c0ba3671d32713c8059bab41a99057b4b84591158f1f7c73757fe7d080c4ffa2",
+    "results/satellite_validation/snow_summer/primary_predictions.csv": "144ba20585f2dfbe3f43aeffac9b60f048da3698fe8513afb42b18132a4c0faf",
+    "results/satellite_validation/snow_summer/ground_swe_predictions.csv": "68500fb6e226b251749c5b1ce7efa95be1b157c9e8600f2825ebdb601ead4d53",
+    "results/satellite_validation/snow_summer/fresh_may_flow_predictions.csv": "d33ef1d77f03a64a31ec6c8e22d65985f088f3fac1e464e3e874e0a35ea69b04",
+    "results/satellite_validation/snow_summer/fresh_may_flow_ground_swe_predictions.csv": "1a19b304f131841019f8bf5ebe008cf4310f958fe7ea3e6fb30eccb5e1ec5faf"
+  },
+  "code_sha256": {
+    "satellite_snow_kings_validation.py": "6d3329fb4bae02db72167a4fa1375902dd80b5cc67dbdddec31ac8ce50cf67c0",
+    "satellite_snow_summer_validation.py": "1fc5200ea68d4e7e4fff049595f0c118076aaa573ded16e1ec4267df8c240e9c",
+    "satellite_snow_daily_validation.py": "9a5daccaec352f7113fc50968456f469a92f26d6e841b3300e53cc9ba060278e"
+  }
+}

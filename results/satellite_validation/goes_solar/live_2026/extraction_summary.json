@@ -1,0 +1,46 @@
+{
+  "start": "2026-07-01",
+  "end": "2026-08-31",
+  "plants": {
+    "57695": {
+      "lat": 35.383,
+      "lon": -120.067,
+      "lat_min": 35.25,
+      "lat_max": 35.5,
+      "lon_min": -120.25,
+      "lon_max": -120.0
+    },
+    "57439": {
+      "lat": 35.323739,
+      "lon": -119.9166,
+      "lat_min": 35.25,
+      "lat_max": 35.5,
+      "lon_min": -120.0,
+      "lon_max": -119.75
+    }
+  },
+  "sample_hours_utc": [
+    0,
+    2,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22
+  ],
+  "n_source_objects": 434,
+  "n_errors": 0,
+  "estimated_downloaded_bytes": 413615860,
+  "n_plant_months": 4,
+  "n_eligible_plant_months": 4,
+  "creation_and_s3_modification_gated": true,
+  "s3_modification_is_current_object_timestamp_not_complete_historical_version_log": true,
+  "monthly_estimator": "Mean of complete-day two-hour trapezoidal integrals, using actual scan timestamps and physical nighttime zeros; no imputation of missing daylight; require at least90%expecteddaylight slots.",
+  "source_code_sha256": "6c4c4f6c10a30ea054d96a4bf0443a7a81ca7efa4e4bc974ddd1807dc77bf9b8",
+  "snapshot_sha256": {
+    "object_manifest.csv.gz": "1319e81d94a2e21fb25cf3cc3590962a58d029ed20b7aa45c07c281a6b0393b2",
+    "point_values.jsonl.gz": "10401f8d7c608a6c10f22e0a8c4b46f06083e594dee23f539aac0ac698f6a15d",
+    "monthly_irradiance.csv": "f9a553d66ef641f9922c303e2d7c07dedfcc3a7ef124cc190e83a642ef09f39f"
+  }
+}

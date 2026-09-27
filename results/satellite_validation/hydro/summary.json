@@ -1,0 +1,180 @@
+{
+  "status": "incremental_gate_failed",
+  "n_test_months": 88,
+  "n_planned_months": 96,
+  "n_abstentions": 8,
+  "metrics": {
+    "baseline": {
+      "rmse_mw": 121.89297056013486,
+      "mae_mw": 81.6747808516865
+    },
+    "satellite": {
+      "rmse_mw": 98.4248807512146,
+      "mae_mw": 65.98416196293563
+    },
+    "ground_storage": {
+      "rmse_mw": 89.87308057178056,
+      "mae_mw": 58.19625006676058
+    },
+    "ground_storage_satellite": {
+      "rmse_mw": 89.71665009190558,
+      "mae_mw": 58.68219995282372
+    },
+    "persistence": {
+      "rmse_mw": 124.98248553352467,
+      "mae_mw": 83.74160821349369
+    }
+  },
+  "comparisons": {
+    "satellite_vs_baseline": {
+      "rmse_reduction_fraction": 0.19253029687501522,
+      "rmse_reduction_mw": 23.468089808920254,
+      "mae_reduction_fraction": 0.19211093957195335,
+      "rmse_reduction_ci95_mw": [
+        9.216512751396117,
+        36.99116633227535
+      ]
+    },
+    "ground_storage_satellite_vs_ground_storage": {
+      "rmse_reduction_fraction": 0.0017405710239346399,
+      "rmse_reduction_mw": 0.15643047987498448,
+      "mae_reduction_fraction": -0.008350192417994062,
+      "rmse_reduction_ci95_mw": [
+        -1.2300213551544514,
+        1.5702696649221413
+      ]
+    },
+    "satellite_vs_ground_storage": {
+      "rmse_reduction_fraction": -0.0951541899423801,
+      "rmse_reduction_mw": -8.55180017943404,
+      "mae_reduction_fraction": -0.13382154154676718,
+      "rmse_reduction_ci95_mw": [
+        -14.554101383683673,
+        -2.478707152831958
+      ]
+    },
+    "satellite_vs_persistence": {
+      "rmse_reduction_fraction": 0.2124906115360171,
+      "rmse_reduction_mw": 26.557604782310065,
+      "mae_reduction_fraction": 0.2120504565100616,
+      "rmse_reduction_ci95_mw": [
+        10.00232703358228,
+        42.05683017929158
+      ]
+    }
+  },
+  "annual_metrics": [
+    {
+      "year": 2018,
+      "n_months": 11,
+      "baseline_rmse_mw": 42.36093010732969,
+      "satellite_rmse_mw": 29.81607434752213,
+      "ground_storage_rmse_mw": 16.29518565214962,
+      "ground_storage_satellite_rmse_mw": 17.87112273425022,
+      "persistence_rmse_mw": 12.302507795395206
+    },
+    {
+      "year": 2019,
+      "n_months": 11,
+      "baseline_rmse_mw": 65.50213627554999,
+      "satellite_rmse_mw": 45.663342138985946,
+      "ground_storage_rmse_mw": 41.86804740207047,
+      "ground_storage_satellite_rmse_mw": 39.924013406806544,
+      "persistence_rmse_mw": 36.464581791025225
+    },
+    {
+      "year": 2020,
+      "n_months": 11,
+      "baseline_rmse_mw": 122.16605968282157,
+      "satellite_rmse_mw": 100.50268664079648,
+      "ground_storage_rmse_mw": 107.35912047263636,
+      "ground_storage_satellite_rmse_mw": 102.42234030871215,
+      "persistence_rmse_mw": 105.62301883277411
+    },
+    {
+      "year": 2021,
+      "n_months": 11,
+      "baseline_rmse_mw": 152.743218934764,
+      "satellite_rmse_mw": 133.28311099350134,
+      "ground_storage_rmse_mw": 121.19796807836404,
+      "ground_storage_satellite_rmse_mw": 123.42331551892521,
+      "persistence_rmse_mw": 155.94559839399025
+    },
+    {
+      "year": 2022,
+      "n_months": 11,
+      "baseline_rmse_mw": 246.38277766069135,
+      "satellite_rmse_mw": 190.30499244059354,
+      "ground_storage_rmse_mw": 169.67561283999672,
+      "ground_storage_satellite_rmse_mw": 169.62671971217054,
+      "persistence_rmse_mw": 256.0453419019269
+    },
+    {
+      "year": 2023,
+      "n_months": 11,
+      "baseline_rmse_mw": 88.40476326754285,
+      "satellite_rmse_mw": 64.7461749414559,
+      "ground_storage_rmse_mw": 54.94144077678983,
+      "ground_storage_satellite_rmse_mw": 56.410310024762936,
+      "persistence_rmse_mw": 101.32543562490217
+    },
+    {
+      "year": 2024,
+      "n_months": 11,
+      "baseline_rmse_mw": 59.08808463513475,
+      "satellite_rmse_mw": 51.66696366116627,
+      "ground_storage_rmse_mw": 54.17956820515761,
+      "ground_storage_satellite_rmse_mw": 52.5668770972483,
+      "persistence_rmse_mw": 69.48985687862385
+    },
+    {
+      "year": 2025,
+      "n_months": 11,
+      "baseline_rmse_mw": 50.11863733737801,
+      "satellite_rmse_mw": 59.85656148556381,
+      "ground_storage_rmse_mw": 40.49900109702171,
+      "ground_storage_satellite_rmse_mw": 45.1335824222021,
+      "persistence_rmse_mw": 85.75431830981302
+    }
+  ],
+  "incremental_gate_passed": false,
+  "original_vintage_operational_verification": false,
+  "prospective_verification": false,
+  "trading_alpha_verified": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T02:15:28.981893+00:00",
+    "target": "Sobradinho mean monthly actual generation MW, ONS verified hourly readings; reservoir selected for storage-controlled hydro mechanism before generation values inspected",
+    "satellite": "NASA GWM 000345 Sobradinho TPJOJS2.5; Jason2/3/Sentinel6 data from2008-07 onward only; exclude compromised olderTP merger",
+    "forecast": "First day00UTC of targetmonth; genuine future calendar-month generation",
+    "satellite_timing": "Conservative fixed90day input latency all records, because Jason3GDR delivery<90days; historical NASA GWM publication/vintages not independently proven. Current-version mission bias corrections may involve later calibration. No smoothing/interpolation. Use latest valid height with sensing+90days<issue, age<=130days, and change from reading at least30days earlier; earlier reading maxage180days.",
+    "ground_timing": "Calendar-month ONS generation and hydrology assumed available30days after monthend; use lag2calendar-month and lag12generation. Inflow provides realized hydro-weather comparator; ground reservoir level separately required comparator. Historical original publication dates unavailable.",
+    "quality": "Use16column records, valid dates, finite height relativeJason2 abs<100, error0\u20131m, iceflag0; no future quality selection; noTOPEX/POSDN",
+    "training": "Expanding Jan2010 onwards, at least72complete prior months, outcomes30dayassumedrelease strictlybeforeissue. No tuning or holdout search.",
+    "test": "Jan2018 throughDec2025 inclusive; fixed single site,96targetmonths; all models identical complete-month support.",
+    "models": {
+      "baseline": "OLS intercept + sin/cos annual andsemiannual + centeredlinearyear + generationlag2 + generationlag12 + inflowlag2",
+      "satellite": "baseline plus latestasofsatelliteheight and30dayheightchange",
+      "ground_storage": "baseline plus lag2ONSreservoirlevel",
+      "ground_storage_satellite": "ground_storage plus satelliteheight andchange",
+      "persistence": "lag2generation"
+    },
+    "uncertainty": "Paired circular12monthblockbootstrap10000drawsseed20260927; annualpairedlosses reported; boundary/gaps disclosed",
+    "gate": "Satellite vsbaseline andground_storage_satellite vsground_storage musteach improveRMSE>=5%, improveMAE,and95%blockbootstrapRMSEgainlowerbound>0. No operationalverificationfromassumedrelease dates; trading untested.",
+    "outcome_values_inspected_before_freeze": false,
+    "status": "pre_fit_frozen",
+    "claim_limits": [
+      "Revisedcurrentarchivehindcast; nothistoricalreleasecertified",
+      "Groundstoragepubliclyavailablemaydominate satellite",
+      "Sobradinhogroundtrack farfromdam narrowcrossing; missionmergeradvisory pre2008excluded",
+      "No cross-candidate multiple-testing correction; candidate selected after other mechanismsfailed"
+    ]
+  },
+  "protocol_sha256": "0fb2db6396e4b666029453af7e42c43db882a6a67f070f7feddb6fd8715821c0",
+  "source_code_sha256": "f7c04a12203cd4f910a19b8058f0319291690b4178c0de3504d55158413878cb",
+  "source_manifest_sha256": "36dbf341737b5da3f22276f59d5b2763560d9d6154f2bb814e945c509ba4e05a",
+  "satellite_valid_observations": 693,
+  "satellite_date_start": "2008-07-22 21:23:00",
+  "satellite_date_end": "2026-09-20 10:58:00",
+  "interpretation": "Future-month Sobradinho generation forecast using90day-old satellite level and public ONS controls. Current revised archives and assumed publication lags; not full point-in-time operational validation."
+}

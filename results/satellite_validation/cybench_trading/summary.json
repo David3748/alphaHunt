@@ -1,0 +1,734 @@
+{
+  "n_events": 11,
+  "strategies": {
+    "satellite": {
+      "n_events": 11,
+      "mean_net_event_return": 0.007197380183562239,
+      "compound_net_event_return": 0.06690687486500568,
+      "mean_net_event_return_ci95": [
+        -0.010826548261468644,
+        0.024014952072449473
+      ],
+      "long_events": 2,
+      "short_events": 9,
+      "cash_events": 0,
+      "comparisons": {
+        "weather": {
+          "mean_net_advantage": 0.007989467746530511,
+          "mean_net_advantage_ci95": [
+            0.0,
+            0.01597893549306103
+          ],
+          "compound_event_return_difference": 0.09052181721540664
+        },
+        "cash": {
+          "mean_net_advantage": 0.007197380183562239,
+          "mean_net_advantage_ci95": [
+            -0.010826548261468644,
+            0.024014952072449473
+          ],
+          "compound_event_return_difference": 0.06690687486500568
+        },
+        "always_long": {
+          "mean_net_advantage": 0.003670815821322085,
+          "mean_net_advantage_ci95": [
+            -0.034569301061852506,
+            0.036384686585453706
+          ],
+          "compound_event_return_difference": 0.042580858794940335
+        },
+        "always_short": {
+          "mean_net_advantage": 0.026910744047670396,
+          "mean_net_advantage_ci95": [
+            0.006557638134089705,
+            0.04726384996125109
+          ],
+          "compound_event_return_difference": 0.2760803361897708
+        }
+      }
+    },
+    "weather": {
+      "n_events": 11,
+      "mean_net_event_return": -0.0007920875629682717,
+      "compound_net_event_return": -0.023614942350400958,
+      "mean_net_event_return_ci95": [
+        -0.02518414887376352,
+        0.020896881363626794
+      ],
+      "long_events": 3,
+      "short_events": 8,
+      "cash_events": 0,
+      "comparisons": {
+        "weather": {
+          "mean_net_advantage": 0.0,
+          "mean_net_advantage_ci95": [
+            0.0,
+            0.0
+          ],
+          "compound_event_return_difference": 0.0
+        },
+        "cash": {
+          "mean_net_advantage": -0.0007920875629682717,
+          "mean_net_advantage_ci95": [
+            -0.02518414887376352,
+            0.020896881363626794
+          ],
+          "compound_event_return_difference": -0.023614942350400958
+        },
+        "always_long": {
+          "mean_net_advantage": -0.004318651925208427,
+          "mean_net_advantage_ci95": [
+            -0.03759492685735617,
+            0.025486928226562705
+          ],
+          "compound_event_return_difference": -0.047940958420466306
+        },
+        "always_short": {
+          "mean_net_advantage": 0.01892127630113988,
+          "mean_net_advantage_ci95": [
+            -0.010853126971412122,
+            0.04726384996125109
+          ],
+          "compound_event_return_difference": 0.18555851897436415
+        }
+      }
+    },
+    "incremental_overlay": {
+      "n_events": 11,
+      "mean_net_event_return": -0.03171258551946714,
+      "compound_net_event_return": -0.30794283663266164,
+      "mean_net_event_return_ci95": [
+        -0.05923322536002173,
+        -0.0026439288331183233
+      ],
+      "long_events": 3,
+      "short_events": 8,
+      "cash_events": 0,
+      "comparisons": {
+        "weather": {
+          "mean_net_advantage": -0.03092049795649886,
+          "mean_net_advantage_ci95": [
+            -0.0736021097592186,
+            0.012939084829967891
+          ],
+          "compound_event_return_difference": -0.2843278942822607
+        },
+        "cash": {
+          "mean_net_advantage": -0.03171258551946714,
+          "mean_net_advantage_ci95": [
+            -0.05923322536002173,
+            -0.0026439288331183233
+          ],
+          "compound_event_return_difference": -0.30794283663266164
+        },
+        "always_long": {
+          "mean_net_advantage": -0.03523914988170729,
+          "mean_net_advantage_ci95": [
+            -0.0859290632358561,
+            0.010084453162195198
+          ],
+          "compound_event_return_difference": -0.332268852702727
+        },
+        "always_short": {
+          "mean_net_advantage": -0.011999221655358978,
+          "mean_net_advantage_ci95": [
+            -0.028694201765461544,
+            0.0035177874709965756
+          ],
+          "compound_event_return_difference": -0.09876937530789653
+        }
+      }
+    },
+    "cash": {
+      "n_events": 11,
+      "mean_net_event_return": 0.0,
+      "compound_net_event_return": 0.0,
+      "mean_net_event_return_ci95": [
+        0.0,
+        0.0
+      ],
+      "long_events": 0,
+      "short_events": 0,
+      "cash_events": 11,
+      "comparisons": {
+        "weather": {
+          "mean_net_advantage": 0.0007920875629682717,
+          "mean_net_advantage_ci95": [
+            -0.020896881363626794,
+            0.02518414887376352
+          ],
+          "compound_event_return_difference": 0.023614942350400958
+        },
+        "cash": {
+          "mean_net_advantage": 0.0,
+          "mean_net_advantage_ci95": [
+            0.0,
+            0.0
+          ],
+          "compound_event_return_difference": 0.0
+        },
+        "always_long": {
+          "mean_net_advantage": -0.003526564362240155,
+          "mean_net_advantage_ci95": [
+            -0.03035418484191539,
+            0.018960257228491
+          ],
+          "compound_event_return_difference": -0.02432601607006535
+        },
+        "always_short": {
+          "mean_net_advantage": 0.019713363864108154,
+          "mean_net_advantage_ci95": [
+            -0.0027879420725183865,
+            0.0465409843437834
+          ],
+          "compound_event_return_difference": 0.2091734613247651
+        }
+      }
+    },
+    "always_long": {
+      "n_events": 11,
+      "mean_net_event_return": 0.003526564362240155,
+      "compound_net_event_return": 0.02432601607006535,
+      "mean_net_event_return_ci95": [
+        -0.018960257228491026,
+        0.03035418484191539
+      ],
+      "long_events": 11,
+      "short_events": 0,
+      "cash_events": 0,
+      "comparisons": {
+        "weather": {
+          "mean_net_advantage": 0.004318651925208427,
+          "mean_net_advantage_ci95": [
+            -0.025486928226562705,
+            0.03759492685735617
+          ],
+          "compound_event_return_difference": 0.047940958420466306
+        },
+        "cash": {
+          "mean_net_advantage": 0.003526564362240155,
+          "mean_net_advantage_ci95": [
+            -0.018960257228491026,
+            0.03035418484191539
+          ],
+          "compound_event_return_difference": 0.02432601607006535
+        },
+        "always_long": {
+          "mean_net_advantage": 0.0,
+          "mean_net_advantage_ci95": [
+            0.0,
+            0.0
+          ],
+          "compound_event_return_difference": 0.0
+        },
+        "always_short": {
+          "mean_net_advantage": 0.023239928226348308,
+          "mean_net_advantage_ci95": [
+            -0.02174828531625975,
+            0.07689516918569879
+          ],
+          "compound_event_return_difference": 0.23349947739483046
+        }
+      }
+    },
+    "always_short": {
+      "n_events": 11,
+      "mean_net_event_return": -0.019713363864108154,
+      "compound_net_event_return": -0.2091734613247651,
+      "mean_net_event_return_ci95": [
+        -0.0465409843437834,
+        0.00278794207251837
+      ],
+      "long_events": 0,
+      "short_events": 11,
+      "cash_events": 0,
+      "comparisons": {
+        "weather": {
+          "mean_net_advantage": -0.01892127630113988,
+          "mean_net_advantage_ci95": [
+            -0.04726384996125109,
+            0.010853126971412122
+          ],
+          "compound_event_return_difference": -0.18555851897436415
+        },
+        "cash": {
+          "mean_net_advantage": -0.019713363864108154,
+          "mean_net_advantage_ci95": [
+            -0.0465409843437834,
+            0.00278794207251837
+          ],
+          "compound_event_return_difference": -0.2091734613247651
+        },
+        "always_long": {
+          "mean_net_advantage": -0.023239928226348308,
+          "mean_net_advantage_ci95": [
+            -0.07689516918569879,
+            0.02174828531625971
+          ],
+          "compound_event_return_difference": -0.23349947739483046
+        },
+        "always_short": {
+          "mean_net_advantage": 0.0,
+          "mean_net_advantage_ci95": [
+            0.0,
+            0.0
+          ],
+          "compound_event_return_difference": 0.0
+        }
+      }
+    }
+  },
+  "economic_diagnostic_gate_passed": false,
+  "trading_alpha_verified": false,
+  "original_vintage_operational_verification": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "interpretation": "Fixed exploratory CORN futures-ETF event returns using current-vintage county forecasts; maximum11years, not risk-adjusted alpha or historical operational verification",
+  "double_execution_cost_sensitivity": {
+    "n_events": 11,
+    "strategies": {
+      "satellite": {
+        "n_events": 11,
+        "mean_net_event_return": 0.002197380183562243,
+        "compound_net_event_return": 0.009928041338980842,
+        "mean_net_event_return_ci95": [
+          -0.015826548261468638,
+          0.01901495207244948
+        ],
+        "long_events": 2,
+        "short_events": 9,
+        "cash_events": 0,
+        "comparisons": {
+          "weather": {
+            "mean_net_advantage": 0.007989467746530511,
+            "mean_net_advantage_ci95": [
+              0.0,
+              0.01597893549306103
+            ],
+            "compound_event_return_difference": 0.08610307062279976
+          },
+          "cash": {
+            "mean_net_advantage": 0.002197380183562243,
+            "mean_net_advantage_ci95": [
+              -0.015826548261468638,
+              0.01901495207244948
+            ],
+            "compound_event_return_difference": 0.009928041338980842
+          },
+          "always_long": {
+            "mean_net_advantage": 0.003670815821322086,
+            "mean_net_advantage_ci95": [
+              -0.034569301061852506,
+              0.0363846865854537
+            ],
+            "compound_event_return_difference": 0.040506948620839145
+          },
+          "always_short": {
+            "mean_net_advantage": 0.026910744047670396,
+            "mean_net_advantage_ci95": [
+              0.006557638134089706,
+              0.04726384996125109
+            ],
+            "compound_event_return_difference": 0.26247860057485106
+          }
+        }
+      },
+      "weather": {
+        "n_events": 11,
+        "mean_net_event_return": -0.005792087562968267,
+        "compound_net_event_return": -0.07617502928381892,
+        "mean_net_event_return_ci95": [
+          -0.030184148873763524,
+          0.0158968813636268
+        ],
+        "long_events": 3,
+        "short_events": 8,
+        "cash_events": 0,
+        "comparisons": {
+          "weather": {
+            "mean_net_advantage": 0.0,
+            "mean_net_advantage_ci95": [
+              0.0,
+              0.0
+            ],
+            "compound_event_return_difference": 0.0
+          },
+          "cash": {
+            "mean_net_advantage": -0.005792087562968267,
+            "mean_net_advantage_ci95": [
+              -0.030184148873763524,
+              0.0158968813636268
+            ],
+            "compound_event_return_difference": -0.07617502928381892
+          },
+          "always_long": {
+            "mean_net_advantage": -0.004318651925208426,
+            "mean_net_advantage_ci95": [
+              -0.03759492685735617,
+              0.025486928226562705
+            ],
+            "compound_event_return_difference": -0.045596122001960615
+          },
+          "always_short": {
+            "mean_net_advantage": 0.01892127630113988,
+            "mean_net_advantage_ci95": [
+              -0.010853126971412122,
+              0.04726384996125109
+            ],
+            "compound_event_return_difference": 0.1763755299520513
+          }
+        }
+      },
+      "incremental_overlay": {
+        "n_events": 11,
+        "mean_net_event_return": -0.03671258551946713,
+        "compound_net_event_return": -0.34634662892427837,
+        "mean_net_event_return_ci95": [
+          -0.06423322536002173,
+          -0.007643928833118326
+        ],
+        "long_events": 3,
+        "short_events": 8,
+        "cash_events": 0,
+        "comparisons": {
+          "weather": {
+            "mean_net_advantage": -0.03092049795649886,
+            "mean_net_advantage_ci95": [
+              -0.0736021097592186,
+              0.012939084829967891
+            ],
+            "compound_event_return_difference": -0.27017159964045945
+          },
+          "cash": {
+            "mean_net_advantage": -0.03671258551946713,
+            "mean_net_advantage_ci95": [
+              -0.06423322536002173,
+              -0.007643928833118326
+            ],
+            "compound_event_return_difference": -0.34634662892427837
+          },
+          "always_long": {
+            "mean_net_advantage": -0.03523914988170729,
+            "mean_net_advantage_ci95": [
+              -0.0859290632358561,
+              0.010084453162195198
+            ],
+            "compound_event_return_difference": -0.31576772164242006
+          },
+          "always_short": {
+            "mean_net_advantage": -0.011999221655358978,
+            "mean_net_advantage_ci95": [
+              -0.028694201765461544,
+              0.003517787470996573
+            ],
+            "compound_event_return_difference": -0.09379606968840815
+          }
+        }
+      },
+      "cash": {
+        "n_events": 11,
+        "mean_net_event_return": 0.0,
+        "compound_net_event_return": 0.0,
+        "mean_net_event_return_ci95": [
+          0.0,
+          0.0
+        ],
+        "long_events": 0,
+        "short_events": 0,
+        "cash_events": 11,
+        "comparisons": {
+          "weather": {
+            "mean_net_advantage": 0.005792087562968267,
+            "mean_net_advantage_ci95": [
+              -0.0158968813636268,
+              0.030184148873763524
+            ],
+            "compound_event_return_difference": 0.07617502928381892
+          },
+          "cash": {
+            "mean_net_advantage": 0.0,
+            "mean_net_advantage_ci95": [
+              0.0,
+              0.0
+            ],
+            "compound_event_return_difference": 0.0
+          },
+          "always_long": {
+            "mean_net_advantage": 0.001473435637759842,
+            "mean_net_advantage_ci95": [
+              -0.025354184841915393,
+              0.023960257228491
+            ],
+            "compound_event_return_difference": 0.030578907281858303
+          },
+          "always_short": {
+            "mean_net_advantage": 0.02471336386410815,
+            "mean_net_advantage_ci95": [
+              0.002212057927481611,
+              0.051540984343783396
+            ],
+            "compound_event_return_difference": 0.2525505592358702
+          }
+        }
+      },
+      "always_long": {
+        "n_events": 11,
+        "mean_net_event_return": -0.001473435637759842,
+        "compound_net_event_return": -0.030578907281858303,
+        "mean_net_event_return_ci95": [
+          -0.023960257228491023,
+          0.025354184841915393
+        ],
+        "long_events": 11,
+        "short_events": 0,
+        "cash_events": 0,
+        "comparisons": {
+          "weather": {
+            "mean_net_advantage": 0.004318651925208426,
+            "mean_net_advantage_ci95": [
+              -0.025486928226562705,
+              0.03759492685735617
+            ],
+            "compound_event_return_difference": 0.045596122001960615
+          },
+          "cash": {
+            "mean_net_advantage": -0.001473435637759842,
+            "mean_net_advantage_ci95": [
+              -0.023960257228491023,
+              0.025354184841915393
+            ],
+            "compound_event_return_difference": -0.030578907281858303
+          },
+          "always_long": {
+            "mean_net_advantage": 0.0,
+            "mean_net_advantage_ci95": [
+              0.0,
+              0.0
+            ],
+            "compound_event_return_difference": 0.0
+          },
+          "always_short": {
+            "mean_net_advantage": 0.023239928226348308,
+            "mean_net_advantage_ci95": [
+              -0.02174828531625975,
+              0.07689516918569879
+            ],
+            "compound_event_return_difference": 0.22197165195401192
+          }
+        }
+      },
+      "always_short": {
+        "n_events": 11,
+        "mean_net_event_return": -0.02471336386410815,
+        "compound_net_event_return": -0.2525505592358702,
+        "mean_net_event_return_ci95": [
+          -0.051540984343783396,
+          -0.0022120579274816274
+        ],
+        "long_events": 0,
+        "short_events": 11,
+        "cash_events": 0,
+        "comparisons": {
+          "weather": {
+            "mean_net_advantage": -0.01892127630113988,
+            "mean_net_advantage_ci95": [
+              -0.04726384996125109,
+              0.010853126971412122
+            ],
+            "compound_event_return_difference": -0.1763755299520513
+          },
+          "cash": {
+            "mean_net_advantage": -0.02471336386410815,
+            "mean_net_advantage_ci95": [
+              -0.051540984343783396,
+              -0.0022120579274816274
+            ],
+            "compound_event_return_difference": -0.2525505592358702
+          },
+          "always_long": {
+            "mean_net_advantage": -0.023239928226348308,
+            "mean_net_advantage_ci95": [
+              -0.07689516918569879,
+              0.02174828531625971
+            ],
+            "compound_event_return_difference": -0.22197165195401192
+          },
+          "always_short": {
+            "mean_net_advantage": 0.0,
+            "mean_net_advantage_ci95": [
+              0.0,
+              0.0
+            ],
+            "compound_event_return_difference": 0.0
+          }
+        }
+      }
+    },
+    "economic_diagnostic_gate_passed": false,
+    "trading_alpha_verified": false,
+    "original_vintage_operational_verification": false,
+    "cross_candidate_multiple_testing_adjusted": false,
+    "interpretation": "Fixed exploratory CORN futures-ETF event returns using current-vintage county forecasts; maximum11years, not risk-adjusted alpha or historical operational verification"
+  },
+  "issue_month": 8,
+  "protocol_sha256": "bdb8e6faabac89a8995af961c584de2fe8e51adcb50657297f014a392ef8f85a",
+  "code_sha256": "4c1be7ce4da8917f25ea809e79a2f102d1221d2f7b8b96f2e31a13f54e1e7d83",
+  "source_manifest_sha256": "34cb58ea5202d7180d03741ca1a84609622947f4d672adbe05d636ea5eabf32b",
+  "predictions_sha256": "841229d6fb95096e6c79fe50ec4c0a9b4c61a66d871803980501c2d019e9c33c",
+  "skipped_events": [],
+  "aggregation_coverage": [
+    {
+      "year": 2013,
+      "forecast_at": "2013-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2120,
+      "prior_area_counties": 1675,
+      "missing_prior_area_counties": 445,
+      "forecast_weighted_counties": 1355,
+      "total_reported_prior_area_ha": 34228898.715,
+      "forecast_prior_area_ha": 27919216.968000002,
+      "prior_area_coverage": 0.8156621456174711,
+      "weight_harvest_year": 2012
+    },
+    {
+      "year": 2014,
+      "forecast_at": "2014-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2122,
+      "prior_area_counties": 1528,
+      "missing_prior_area_counties": 594,
+      "forecast_weighted_counties": 1410,
+      "total_reported_prior_area_ha": 32749971.129,
+      "forecast_prior_area_ha": 32547499.719,
+      "prior_area_coverage": 0.9938176614201436,
+      "weight_harvest_year": 2013
+    },
+    {
+      "year": 2015,
+      "forecast_at": "2015-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2123,
+      "prior_area_counties": 1542,
+      "missing_prior_area_counties": 581,
+      "forecast_weighted_counties": 1433,
+      "total_reported_prior_area_ha": 31189464.117000002,
+      "forecast_prior_area_ha": 30965762.145000003,
+      "prior_area_coverage": 0.9928276429771017,
+      "weight_harvest_year": 2014
+    },
+    {
+      "year": 2016,
+      "forecast_at": "2016-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2124,
+      "prior_area_counties": 1420,
+      "missing_prior_area_counties": 704,
+      "forecast_weighted_counties": 1360,
+      "total_reported_prior_area_ha": 29410241.037,
+      "forecast_prior_area_ha": 29358929.123999998,
+      "prior_area_coverage": 0.9982553045745035,
+      "weight_harvest_year": 2015
+    },
+    {
+      "year": 2017,
+      "forecast_at": "2017-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2126,
+      "prior_area_counties": 1488,
+      "missing_prior_area_counties": 638,
+      "forecast_weighted_counties": 1423,
+      "total_reported_prior_area_ha": 31973347.781999998,
+      "forecast_prior_area_ha": 31853394.702,
+      "prior_area_coverage": 0.9962483415619202,
+      "weight_harvest_year": 2016
+    },
+    {
+      "year": 2018,
+      "forecast_at": "2018-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2128,
+      "prior_area_counties": 1476,
+      "missing_prior_area_counties": 652,
+      "forecast_weighted_counties": 1415,
+      "total_reported_prior_area_ha": 30578156.673,
+      "forecast_prior_area_ha": 29961349.356,
+      "prior_area_coverage": 0.9798284990296805,
+      "weight_harvest_year": 2017
+    },
+    {
+      "year": 2019,
+      "forecast_at": "2019-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2128,
+      "prior_area_counties": 1337,
+      "missing_prior_area_counties": 791,
+      "forecast_weighted_counties": 1305,
+      "total_reported_prior_area_ha": 27776232.411,
+      "forecast_prior_area_ha": 27696182.751,
+      "prior_area_coverage": 0.9971180519079939,
+      "weight_harvest_year": 2018
+    },
+    {
+      "year": 2020,
+      "forecast_at": "2020-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2130,
+      "prior_area_counties": 1247,
+      "missing_prior_area_counties": 883,
+      "forecast_weighted_counties": 1223,
+      "total_reported_prior_area_ha": 25414816.005000003,
+      "forecast_prior_area_ha": 25368765.192,
+      "prior_area_coverage": 0.998188032799807,
+      "weight_harvest_year": 2019
+    },
+    {
+      "year": 2021,
+      "forecast_at": "2021-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2133,
+      "prior_area_counties": 1646,
+      "missing_prior_area_counties": 487,
+      "forecast_weighted_counties": 1587,
+      "total_reported_prior_area_ha": 31814673.006,
+      "forecast_prior_area_ha": 31732203.240000002,
+      "prior_area_coverage": 0.9974078072094456,
+      "weight_harvest_year": 2020
+    },
+    {
+      "year": 2022,
+      "forecast_at": "2022-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2136,
+      "prior_area_counties": 1453,
+      "missing_prior_area_counties": 683,
+      "forecast_weighted_counties": 1409,
+      "total_reported_prior_area_ha": 27603814.023000002,
+      "forecast_prior_area_ha": 27545695.055999998,
+      "prior_area_coverage": 0.9978945312792074,
+      "weight_harvest_year": 2021
+    },
+    {
+      "year": 2023,
+      "forecast_at": "2023-08-15 12:00:00",
+      "eligible": true,
+      "reason": "",
+      "history_counties": 2138,
+      "prior_area_counties": 1488,
+      "missing_prior_area_counties": 650,
+      "forecast_weighted_counties": 1448,
+      "total_reported_prior_area_ha": 28903091.231999997,
+      "forecast_prior_area_ha": 28759402.497,
+      "prior_area_coverage": 0.995028603209026,
+      "weight_harvest_year": 2022
+    }
+  ]
+}

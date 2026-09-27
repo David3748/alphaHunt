@@ -1,0 +1,279 @@
+#!/usr/bin/env python3
+"""Forward county maize forecasts with a fixed weather/NDVI ablation.
+
+The fixed 2021 crop mask makes this a current-vintage scientific experiment,
+not an original-release historical trading simulation.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from sklearn.ensemble import HistGradientBoostingRegressor
+from threadpoolctl import threadpool_limits
+
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT = ROOT / "results/satellite_validation/cybench_maize"
+MONTHS = ("apr", "may", "jun", "jul")
+WEATHER = [f"{v}_{m}" for m in MONTHS
+           for v in ("tmin", "tmax", "tavg", "vpd", "prec", "rad", "et0", "cwb")]
+NDVI = [f"ndvi_{m}" for m in MONTHS]
+BASE = WEATHER + ["latitude", "longitude", "county_trend", "prior_residual"]
+MODELS = ("weather", "satellite", "trend", "persistence", "recent_mean")
+COMPARATORS = [m for m in MODELS if m != "satellite"]
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def verify_sources(out):
+    manifest = json.loads((out / "source_manifest.json").read_text())
+    expected = dict(manifest["compact_input_sha256"])
+    extraction = json.loads((out / "extraction_summary.json").read_text())
+    expected["monthly_features.csv.gz"] = extraction["feature_sha256"]
+    for name, checksum in expected.items():
+        if digest(out / name) != checksum:
+            raise ValueError(f"Source checksum mismatch: {name}")
+
+
+def feature_columns(months):
+    weather = [f"{v}_{m}" for m in months
+               for v in ("tmin", "tmax", "tavg", "vpd", "prec", "rad", "et0", "cwb")]
+    ndvi = [f"ndvi_{m}" for m in months]
+    return weather, ndvi, weather + ["latitude", "longitude", "county_trend", "prior_residual"]
+
+
+def validate_inputs(features, labels, locations, months=MONTHS, issue_month=8):
+    weather, ndvi, _ = feature_columns(months)
+    features, labels, locations = (x.copy() for x in (features, labels, locations))
+    for frame in (features, labels, locations):
+        frame["adm_id"] = frame.adm_id.astype(str)
+    for frame in (features, labels):
+        if frame.duplicated(["adm_id", "year"]).any():
+            raise ValueError("Duplicate county/year")
+    if locations.adm_id.duplicated().any():
+        raise ValueError("Duplicate county location")
+    features["forecast_at"] = pd.to_datetime(features.forecast_at, utc=True).dt.tz_localize(None)
+    expected = pd.to_datetime(features.year.astype(str) + f"-{issue_month:02d}-15 12:00:00")
+    if not features.forecast_at.eq(expected).all():
+        raise ValueError("Unexpected forecast issue")
+    labels = labels.rename(columns={"yield": "actual"})
+    labels["available_at"] = pd.to_datetime((labels.year + 1).astype(str) + "-06-30")
+    if (labels.actual.dropna() <= 0).any():
+        raise ValueError("Nonpositive county yield")
+    # Recheck the information boundary rather than trusting a serialized flag.
+    usable = np.isfinite(features[weather + ndvi]).all(axis=1)
+    for month in months:
+        count = features[f"ndvi_count_{month}"]
+        expected_count = features[f"ndvi_expected_{month}"]
+        usable &= count.ge(2) & count.le(expected_count) & expected_count.gt(0) & (count / expected_count).ge(.5)
+        usable &= features[f"ndvi_{month}"].between(-1, 1)
+        end = pd.to_datetime(features[f"ndvi_latest_window_end_{month}"], utc=True).dt.tz_localize(None).dt.normalize() + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
+        usable &= (end + pd.Timedelta(days=14)) < features.forecast_at
+        usable &= end.notna()
+        for variable in ("tmin", "tmax", "tavg", "vpd", "prec", "rad", "et0", "cwb"):
+            usable &= features[f"{variable}_count_{month}"].eq(features[f"{variable}_expected_{month}"])
+            usable &= features[f"{variable}_expected_{month}"].eq(30 if month in ("apr", "jun") else 31)
+    features["usable"] = usable
+    features = features.merge(locations[["adm_id", "latitude", "longitude"]],
+                              on="adm_id", how="left", validate="many_to_one")
+    features["usable"] &= np.isfinite(features[["latitude", "longitude"]]).all(axis=1)
+    return features, labels
+
+
+def fold_rows(features, labels, year, min_history=8, months=MONTHS, issue_month=8):
+    """Fit nuisance trends using released past labels only, including cloudy years."""
+    _, ndvi, base = feature_columns(months)
+    issue = pd.Timestamp(year, issue_month, 15, 12)
+    past = labels[(labels.year < year) & (labels.available_at < issue)
+                  & np.isfinite(labels.actual)].copy()
+    trends, histories = {}, {}
+    for county, group in past.groupby("adm_id", sort=False):
+        group = group.sort_values("year")
+        if len(group) < min_history:
+            continue
+        u = np.column_stack((np.ones(len(group)), group.year.to_numpy() - 2003))
+        trends[county] = np.linalg.lstsq(u, group.actual.to_numpy(), rcond=None)[0]
+        histories[county] = group
+    rows = features[(features.year <= year) & features.adm_id.isin(trends)].copy()
+    rows = rows.merge(labels[["adm_id", "year", "actual", "available_at"]], on=["adm_id", "year"],
+                      how="left", validate="one_to_one")
+    rows["county_trend"] = [float(trends[c] @ [1, y - 2003])
+                            for c, y in zip(rows.adm_id, rows.year)]
+    rows["prior_residual"] = np.nan
+    rows["persistence"] = np.nan
+    rows["recent_mean"] = np.nan
+    rows["latest_training_year"] = np.nan
+    for county, indexes in rows.groupby("adm_id").groups.items():
+        history = histories[county]
+        indexes = np.asarray(indexes)
+        years = rows.loc[indexes, "year"].to_numpy()
+        history_years = history.year.to_numpy()
+        history_values = history.actual.to_numpy()
+        available = history.available_at.to_numpy()
+        forecast_dates = rows.loc[indexes, "forecast_at"].to_numpy()
+        known = ((history_years[None, :] < years[:, None])
+                 & (available[None, :] < forecast_dates[:, None]))
+        positions = np.where(known, np.arange(len(history))[None, :], -1).max(axis=1)
+        valid = positions >= 0
+        ids, positions = indexes[valid], positions[valid]
+        prior = history_values[positions]
+        prior_trend = trends[county][0] + trends[county][1] * (history_years[positions] - 2003)
+        rows.loc[ids, "persistence"] = prior
+        rows.loc[ids, "prior_residual"] = prior - prior_trend
+        ranks = np.cumsum(known[:, ::-1], axis=1)[:, ::-1]
+        recent = known & (ranks <= 5)
+        counts = recent.sum(axis=1)
+        means = np.divide(recent @ history_values, counts,
+                          out=np.full(len(indexes), np.nan), where=counts > 0)
+        rows.loc[indexes, "recent_mean"] = means
+        rows.loc[indexes, "latest_training_year"] = int(history.year.max())
+    rows["eligible"] = (rows.usable & rows.county_trend.gt(0)
+                        & np.isfinite(rows[base + ndvi]).all(axis=1))
+    train = rows[(rows.year < year) & (rows.available_at < issue) & rows.eligible & np.isfinite(rows.actual)].copy()
+    test = rows[rows.year.eq(year)].copy()
+    test["abstention_reason"] = np.where(test.eligible, "", "Missing or unavailable input / nonpositive trend")
+    omitted = features[features.year.eq(year) & ~features.adm_id.isin(trends)].copy()
+    omitted = omitted.merge(labels[["adm_id", "year", "actual"]], on=["adm_id", "year"],
+                            how="left", validate="one_to_one")
+    omitted["eligible"] = False
+    omitted["abstention_reason"] = "Fewer than eight prior released yield labels"
+    missing = sorted(set(trends) - set(features.loc[features.year.eq(year), "adm_id"]))
+    if missing:
+        absent = pd.DataFrame({"adm_id": missing, "year": year, "forecast_at": issue,
+                               "eligible": False, "abstention_reason": "No current feature row"})
+        absent = absent.merge(labels[["adm_id", "year", "actual"]], on=["adm_id", "year"],
+                              how="left", validate="one_to_one")
+        omitted = pd.concat([omitted, absent], ignore_index=True)
+    test = pd.concat([test, omitted], ignore_index=True)
+    return train, test, len(trends)
+
+
+def estimator():
+    return HistGradientBoostingRegressor(
+        loss="squared_error", learning_rate=.05, max_iter=200,
+        max_leaf_nodes=7, max_depth=3, min_samples_leaf=30,
+        l2_regularization=10, early_stopping=False, random_state=20260927)
+
+
+def predict(features, labels, years=range(2013, 2024), months=MONTHS, issue_month=8):
+    _, ndvi, base = feature_columns(months)
+    output, coverage = [], []
+    for year in years:
+        train, test, n_history = fold_rows(features, labels, year, months=months, issue_month=issue_month)
+        usable = test.eligible
+        test["trend"] = test.county_trend
+        test["n_training_rows"] = len(train)
+        test["weather"] = np.nan
+        test["satellite"] = np.nan
+        if len(train) and usable.any():
+            residual = train.actual - train.county_trend
+            with threadpool_limits(limits=4):
+                for name, columns in (("weather", base), ("satellite", base + ndvi)):
+                    model = estimator().fit(train[columns], residual)
+                    test.loc[usable, name] = (test.loc[usable, "county_trend"]
+                                              + model.predict(test.loc[usable, columns]))
+        coverage.append(dict(year=int(year), counties_with_prior_history=n_history,
+                             feature_rows=int(len(test)), forecasts=int(usable.sum()),
+                             observed_scored=int((usable & np.isfinite(test.actual)).sum()),
+                             training_rows=int(len(train)),
+                             abstentions=test.loc[~usable, "abstention_reason"].value_counts().to_dict()))
+        output.append(test)
+        print(f"Finished frozen forecast {year}: {int(usable.sum())} counties", flush=True)
+    return pd.concat(output, ignore_index=True), coverage
+
+
+def annual_losses(predictions):
+    held = predictions[predictions.eligible].copy()
+    held = held[np.isfinite(held[["actual"] + list(MODELS)]).all(axis=1)]
+    records = []
+    for year, group in held.groupby("year"):
+        record = dict(year=int(year), n_counties=len(group))
+        for name in MODELS:
+            error = group.actual - group[name]
+            record[name + "_mse"] = float(np.mean(error ** 2))
+            record[name + "_mae"] = float(np.mean(abs(error)))
+        records.append(record)
+    return pd.DataFrame(records)
+
+
+def block_ci(annual, comparator, draws=10000):
+    data = annual.set_index("year").reindex(range(int(annual.year.min()), int(annual.year.max()) + 1))
+    n = len(data)
+    starts = np.random.default_rng(20260927).integers(0, n, (draws, (n + 4) // 5))
+    ids = ((starts[:, :, None] + np.arange(5)) % n).reshape(draws, -1)[:, :n]
+    base = np.sqrt(np.nanmean(data[comparator + "_mse"].to_numpy()[ids], axis=1))
+    sat = np.sqrt(np.nanmean(data.satellite_mse.to_numpy()[ids], axis=1))
+    return list(map(float, np.quantile(1 - sat / base, [.025, .975])))
+
+
+def score(predictions):
+    annual = annual_losses(predictions)
+    if annual.empty:
+        return dict(forecast_gate_passed=False, n_years=0), annual
+    metrics = {m: dict(rmse_t_ha=float(np.sqrt(annual[m + "_mse"].mean())),
+                       mae_t_ha=float(annual[m + "_mae"].mean())) for m in MODELS}
+    comparisons = {}
+    for name in COMPARATORS:
+        comparisons[name] = dict(
+            rmse_reduction=1 - metrics["satellite"]["rmse_t_ha"] / metrics[name]["rmse_t_ha"],
+            mae_reduction=1 - metrics["satellite"]["mae_t_ha"] / metrics[name]["mae_t_ha"],
+            rmse_reduction_ci95=block_ci(annual, name),
+            years_lower_mse=int((annual.satellite_mse < annual[name + "_mse"]).sum()))
+    strongest = min(COMPARATORS, key=lambda m: metrics[m]["rmse_t_ha"])
+    post = annual[annual.year.isin([2022, 2023])]
+    post_pass = bool(len(post) == 2 and (post.satellite_mse < post.weather_mse).all()
+                     and (post.satellite_mse < post.trend_mse).all())
+    count_pass = bool(len(annual) >= 8 and annual.n_counties.ge(500).all())
+    statistical_components = bool(
+        count_pass and post_pass and all(c["mae_reduction"] > 0
+                                        and c["rmse_reduction_ci95"][0] > 0
+                                        for c in comparisons.values()))
+    materiality_component = bool(comparisons[strongest]["rmse_reduction"] >= .05)
+    # This decomposition does not change the frozen overall gate. See the
+    # dated interpretation record: the user accepts smaller forecast gains.
+    passed = statistical_components and materiality_component
+    return dict(forecast_gate_passed=passed, n_years=len(annual),
+                statistical_skill_components_passed=statistical_components,
+                materiality_component_passed=materiality_component,
+                frozen_materiality_threshold=.05,
+                n_county_years=int(annual.n_counties.sum()), metrics=metrics,
+                comparisons=comparisons, strongest_baseline=strongest,
+                data_count_gate_passed=count_pass, post_reference_year_sign_check_passed=post_pass,
+                original_vintage_operational_verification=False, trading_alpha_verified=False,
+                cross_candidate_multiple_testing_adjusted=False,
+                interpretation="Current-vintage fixed-geography scientific county-yield forecast; static2021cropmask prevents original-release certification."), annual
+
+
+def run(out=DEFAULT, late_season=False):
+    months = MONTHS + (("aug",) if late_season else ())
+    issue_month = 9 if late_season else 8
+    verify_sources(out)
+    inputs = [out / "monthly_features.csv.gz", out / "yields.csv.gz", out / "locations.csv"]
+    features, labels = validate_inputs(*(pd.read_csv(p, dtype={"adm_id": str}) for p in inputs), months=months, issue_month=issue_month)
+    predictions, coverage = predict(features, labels, months=months, issue_month=issue_month)
+    summary, annual = score(predictions)
+    summary.update(coverage=coverage, forecast_issue_month=issue_month, prespecified_secondary=late_season, input_sha256={p.name: digest(p) for p in inputs},
+                   protocol_sha256=digest(out / "protocol.json"), code_sha256=digest(__file__),
+                   forecast_code_sha256=digest(__file__), reporting_code_sha256=digest(__file__),
+                   source_manifest_sha256=digest(out / "source_manifest.json"))
+    predictions.to_csv(out / "predictions.csv.gz", index=False,
+                       compression={"method": "gzip", "mtime": 0})
+    annual.to_csv(out / "annual_losses.csv", index=False)
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n")
+    print(json.dumps(summary, indent=2), flush=True)
+    return summary
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--late-season", action="store_true")
+    args = parser.parse_args()
+    out = args.output_dir or (DEFAULT.parent / "cybench_maize_late" if args.late_season else DEFAULT)
+    run(out, late_season=args.late_season)

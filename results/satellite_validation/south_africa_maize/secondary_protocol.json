@@ -1,0 +1,9 @@
+{
+  "created_at_utc": "2026-09-27T03:14:00.782321+00:00",
+  "status": "Frozenbeforefirstjoinedfit/metric; CPCdownloadsongoing,FAOlabelsnotyetextracted",
+  "secondary_target": "FAOSTATcalendarharvestyear totalSouthAfrican maizeproduction, milliontonnes",
+  "reason": "ENSOdrought canpreventplanting/abandonareaaswellasreduceyield,soharvested-acre yieldalone canmissproductionrisk. Mechanismdocumentedbeforeexperiment.",
+  "source": "https://ipad.fas.usda.gov/highlights/2016/05/SouthAfricaElNino/index.htm",
+  "method": "Exactprimaryfeaturewindow,horizon,ridgealpha5,controls,mintraining,comparators,bootstrapandgates; priorreleasedproductionreplacespriorreleasedyield; nofutureorcurrenttargetharvestedarea feature. BothFAOlag3andcompleted-harveststressmustpass.",
+  "claims": "Prespecifiedsecondary,notprimary; yieldretainedregardless. No model/window/country/cropsearch."
+}

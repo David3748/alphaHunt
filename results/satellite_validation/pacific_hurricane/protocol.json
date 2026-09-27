@@ -1,0 +1,28 @@
+{
+  "frozen_at_utc": "2026-09-27T02:41:32.398127+00:00",
+  "target": "EasternNorthPacific August1\u2013November30 ACE from NHC northeastern/centralPacific HURDAT2. Include ONLY EP-origin stormIDs, and onlyobservations eastof140W (longitude>=-140); excludeCPorigin storms. SameTS/HU/SS>=34kt and four sixhourtimestamps asAtlantic.",
+  "forecast_issue": "August1 00UTC eachyear; futureAug\u2013Novrisk, not economicloss ormarketpriceforecast",
+  "satellite_source": "Reuse frozenNOAA OISSTv2.1 JuneNi\u00f1o3.4 SST5S\u20135N170\u2013120W. Singlepacificpredictor; noAtlanticMDRfeature.",
+  "satellite_timing": "June30end+17days for finalOISST then14dayadditionalpublicationbuffer:July31<=August1issue. Monthlyarchivepublicationtimes not separatelyproven; current-version2016+reprocessing caveat. NoJulyorAugustSST.",
+  "storm_feature_timing": "June1\u2013July31ACE treated asknownatAugust1 from contemporaneous six-hourlyreports, but archivedHURDAT2besttrack containslaterrevisions. Cannotcertify originalvintages without advisoryreconstruction. PriorseasonAugust\u2013NovemberACE assumedknownbyMay1followingyear.",
+  "training": "Expanding1982throughforecastyear-1, minimum17completeyears; trainingstandardizationonly; samecompleteyearsupportallmodels",
+  "test": "Everyyear1999\u20132025 inclusive,27heldoutyears; nofit evaluatedbeforeprotocolfreeze",
+  "models": {
+    "baseline": "Ridge linearACE: intercept + yeartrend + priorseasonAugNovACE + currentJuneJulyACE. Featuremean/std fittrainingonly; fixedridgealpha5, unpenalizedintercept. Clip predictedACEat0.",
+    "satellite": "Same baseline(trend+priorseasonACE+currentJuneJulyACE) plusONLY JuneNi\u00f1o3.4 SST; same fixedridgealpha5, trainingstandardization, clip0.",
+    "climatology": "Mean ofallpasttrainingAugNovACE",
+    "recent_climatology": "Mean previous10trainingyearsAugNovACE",
+    "persistence": "PriorseasonAugNovACE"
+  },
+  "uncertainty": "Pairedcircular5-yearblockbootstrap10000drawsseed20260927; testyearsresampledjointlyacrossmodels. Reporteachyearand2000s/lateperioddescriptively,no periodselection.",
+  "gate": "SatelliteRMSEatleast5%lowerthanbestofallfourbaselineRMSEs; lowerMAEandstrictlypositive95%RMSEgainCIlowerboundversuseachbaseline. No parameterhorizonregionsearch or postfitgatechange.",
+  "claim_limits": [
+    "OISSTis satellite-enhanced blend, not isolatedsatellite-onlycontribution",
+    "HURDATwinds independentofSSTpredictor butcurrentbesttrackrevisions, notoriginaladvisoryvintages",
+    "Knownpublicphysicalrelationship and existingofficialseasonalforecasts; notnovelmarketalpha or superioritytoNOAAforecast",
+    "ACEriskproxy notinsuranceclaims, offshoreproductionloss,landfalls,orpricedreturns",
+    "Manymechanismstriedinbroaderproject,nofamilywisecorrection"
+  ],
+  "outcome_values_inspected_before_freeze": false,
+  "region_selection": "Mechanistic ENSO coupling to easternPacific stormactivity; selected after fixedAtlanticforecastfailed. Pacificoutcomes notyetfetchedorinspected; selection acrossbasins disclosed, nofamilywiseclaim."
+}

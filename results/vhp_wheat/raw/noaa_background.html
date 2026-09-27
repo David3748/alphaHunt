@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<link rel="P3Pv1" href="//www.star.nesdis.noaa.gov/w3c/p3p.xml">
+<script>m_debug='0';
+</script>
+
+
+
+
+
+
+
+
+<title>STAR - Global Vegetation Health Products: Background and Explanation</title><META HTTP-EQUIV="Cache-Control" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 22 Jul 2200 11:12:01 GMT">
+<META NAME="DESCRIPTION" CONTENT="ECOSYSTEM & VEGETATION HEALTH (Global, Countries, Administrative regions): Drought (Start/End, Area, Intensity, Duration), Drought change, Vegetation health change, Moisture stress, Thermal stress, Fire risk, Malaria risk, Conditions (Moisture, Thermal, Health), Crop/Pasture conditions, Soil saturation, Land greenness, Land radiative temperature, 35-year time series (130 countries and 4,000 administrative divisions), food security."/> 
+ 
+<meta property='og:title' content='Center for Satellite Applications and Research - NOAA / NESDIS / STAR'>
+<meta property='og:description' content='STAR translates raw satellite data into critical information needed to inform the public and safeguard the environment across the country and around the world.'>
+<meta property='og:image' content='https://www.star.nesdis.noaa.gov/star/images/branding/STAR_socialmediathumbnail3.jpg'>
+<meta property='og:url' content='https://www.star.nesdis.noaa.gov/star/index.php'>
+<meta name='twitter:card' content='summary_large_image'>
+<meta property='og:site_name' content='NOAA / NESDIS / STAR website'>
+<meta name='twitter:image:alt' content='NOAA / NESDIS / STAR logo'>
+<link rel="shortcut icon" href="https://www.star.nesdis.noaa.gov/star/global/images/favicon2.ico">
+<link rel="stylesheet" href="https://www.star.nesdis.noaa.gov/star/global/css/combinedStyles.css">
+<link rel='stylesheet' href='https://www.star.nesdis.noaa.gov/star/global/js/fancybox/source/jquery.fancybox.min.css' media='screen'>
+<link rel="stylesheet" href="css/local.css">
+<script src="https://www.star.nesdis.noaa.gov/star/global/js/stripe.js"></script>
+<script async id='_fed_an_ua_tag' src='https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOC&subagency=NOAA'></script>
+<!--// GA4 Google tag (gtag.js) - code updated 6/13/2023; main STAR tag created 3/1/2023 //-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G2DC4173X1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G2DC4173X1');
+</script>
+<script async src='https://siteimproveanalytics.com/js/siteanalyze_6294131.js'></script>
+<meta name="google-site-verification" content="qCxrZb5_LO5H9YVJacZADjm2HpbUEoXmy_vZ5OaG2PQ" />
+</head>
+<body>
+	<div id="wrap">
+	<div class="outline">
+	<div id='headerNewStretchy'><img id='STARBanner' usemap='#STARBanner' 
+src='https://www.star.nesdis.noaa.gov/star/global/images/banner/stretchy/STARBannerlogo_wV2.png' 
+style='height: 100px;' alt='NOAA Center for Satellite Applications and Research banner' title='NOAA Center for Satellite Applications and Research'></div>
+<div id='topLinks2'><div><form accept-charset="UTF-8" method="get" action="https://search.usa.gov/search" title="Search the STAR websites">
+<input name="utf8" type="hidden" value="&#x2713;">
+		<div id="searchBoxPlainStretchy">
+		<div><label for="query-field" id="searchlbl" style="display: none;">Search</label>
+		<input title="Search STAR" placeholder="Search STAR" type="text" name="query" id="query-field"
+	  	class="usagov-search-autocomplete">&nbsp;<input 
+	  	type="submit" value="Go" title="execute search" id="Go"><input type="hidden"
+			name="affiliate" value="orbit.nesdis.noaa.gov_star"></div></div>
+</form>
+</div>
+</div>
+<map name='STARBanner'>
+<area shape='rect' coords='0,0,220,80' href='https://www.noaa.gov' 
+alt='National Oceanic &amp; Atmospheric Administration website' title='National Oceanic &amp; Atmospheric Administration website'>
+<area shape='rect' coords='220,20,748,80' href='https://www.star.nesdis.noaa.gov/star/index.php' 
+alt='NOAA Center for Satellite Applications and Research website' title='NOAA Center for Satellite Applications and Research website'>
+</map>
+
+<script    src="../Components/js/vh1.js?v=20250401"></script>
+<script    src="../Components/js/gwPlot.js?v=20250401"></script>
+<script    src="../Components/js/zoom.js"></script>
+<script    src="../Components/js/animation.js?v=20250401"> </script>
+
+
+
+ <div id="navContainer">
+   <div id="leftNav">
+	<ul>
+		<li><a href="https://www.star.nesdis.noaa.gov/star/index.php">STAR Home Page</a></li>
+	</ul>
+
+
+<ul><li><a href='../VH/index.php'>Vegetation Health Home</a></li></ul><ul>
+<li><a href='../VH/vh_browse.php'> 16km VH (Blended, since 1982) </a><ul class='detailContainer'><li><a href='../VH/vh_browse.php'> 16km VH Images </a></li>
+<li><a href='../VH/vh_imageloop.php'> 16km VH Animation </a></li>
+<li><a href='../VH/vh_timeseries.php'> 16km VH USA Time Series </a></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><a href='../VH/vh_4km.php'> 4 km VH (Blended, since 1982) </a><ul class='detailContainer'><li><a href='../VH/vh_4km.php'> Introduction </a></li>
+<li><a href='../VH/vh_browseByCountry.php'> Images by Country </a></li>
+<li><a href='../VH/vh_imageloopByCountry.php'> Animation by Country </a></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><a href='../VH/vh_adminMean.php?type=Province_Weekly_MeanPlot'> VH Time Series by administrative regions </a><ul class='detailContainer'><li><a href='../VH/vh_adminMean.php?type=Global_Yearly_MeanPlot'> Global, yearly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Global_Seasonal_MeanPlot'> Global, seasonal </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Global_Weekly_MeanPlot'> Global, weekly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Country_Yearly_MeanPlot'> Country,  yearly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Country_Seasonal_MeanPlot'> Country,  seasonal </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Country_Weekly_MeanPlot'> Country,  weekly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Province_Yearly_MeanPlot'> Province, yearly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Province_Seasonal_MeanPlot'> Province, seasonal </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Province_Weekly_MeanPlot'> Province, weekly </a></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><a href='../VH/vh_adminMean.php?type=Province_Weekly_PAreaPlot'> % Drought Area by administrative regions </a><ul class='detailContainer'><li><a href='../VH/vh_adminMean.php?type=Global_Yearly_PAreaPlot'> Global,  yearly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Global_Weekly_PAreaPlot'> Global,  weekly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Country_Yearly_PAreaPlot'> Country, yearly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Country_Weekly_PAreaPlot'> Country, weekly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Province_Yearly_PAreaPlot'> Province, yearly </a></li>
+<li><a href='../VH/vh_adminMean.php?type=Province_Weekly_PAreaPlot'> Province, weekly </a></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Province_Weekly_MeanPlot'> VH Time Series by administrative regions for specific crop </a><ul class='detailContainer'><li><a href='../VH/vh_adminMeanByCrop.php?type=Global_Yearly_MeanPlot'> Global, yearly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Global_Seasonal_MeanPlot'> Global, seasonal </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Global_Weekly_MeanPlot'> Global, weekly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Country_Yearly_MeanPlot'> Country,  yearly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Country_Seasonal_MeanPlot'> Country,  seasonal </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Country_Weekly_MeanPlot'> Country,  weekly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Province_Yearly_MeanPlot'> Province, yearly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Province_Seasonal_MeanPlot'> Province, seasonal </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Province_Weekly_MeanPlot'> Province, weekly </a></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Province_Weekly_PAreaPlot'> % Drought Area by administrative regions specific crop </a><ul class='detailContainer'><li><a href='../VH/vh_adminMeanByCrop.php?type=Global_Yearly_PAreaPlot'> Global,  yearly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Global_Weekly_PAreaPlot'> Global,  weekly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Country_Yearly_PAreaPlot'> Country, yearly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Country_Weekly_PAreaPlot'> Country, weekly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Province_Yearly_PAreaPlot'> Province, yearly </a></li>
+<li><a href='../VH/vh_adminMeanByCrop.php?type=Province_Weekly_PAreaPlot'> Province, weekly </a></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><a href='../VH/vh_1km.php'> 1 km VH (VIIRS, since 2012) </a><ul class='detailContainer'><li><a href='../VH/vh_1km.php'> Introduction </a></li>
+<li><a href='../VH/vh_browseVH.php'> VIIRS VH Images Browser </a></li>
+<li><a href='../VH/npp_leaflet_main.php'> VIIRS VH Images by Leaflet Map </a></li>
+<li><a href='../VH/npp_firstImage_RGB_NileRiver.php'> First RGB Image </a></li>
+<li><a href='../VH/npp_firstImage_VI.php'> First TOA NDVI image </a></li>
+<li><a href='../VH/npp_bandsForVH.php'> Bands for VH </a></li>
+<li><a href='../VH/npp_dailymap_file.php'> GVI Daily Map </a></li>
+<li><a href='../VH/npp_WeeklyComposite.php'> Weekly Composite </a></li>
+<li><a href='../VH/npp_weeklyComposite_NDVI_from_EDR.php'> NDVI images from Environmental Data Record (EDR) </a></li>
+<li><a href='../VH/npp_InterestingPictures.php'> Interesting Pictures </a></li>
+<li><a href='../VH/npp_SpectralResponseFunctions.php'> Spectral Response Functions </a></li>
+</ul></li>
+</ul>
+
+<ul>
+<li><a href='../VH/vh_validation_AUSwheat.php'> Validation </a><ul class='detailContainer'><li><a href='../VH/vh_validation_AUSwheat.php'> Australia- Wheat </a></li>
+<li><a href='../VH/vh_case_AverageByZonesArgentina.php'> VH Average By Zones in Argentina </a></li>
+<li><a href='../VH/vh_ABI_sensitivity_NDVItoVIS.php'> Sensitivity of NDVI to VIS </a></li>
+<li><a href='../VH/vh_validation_ImpactCalibrationOnNDVI.php'> Impact of Calibration on NDVI </a></li>
+<li><a href='../VH/vh_avhrr_calibration.php'> AVHRR Calibration parmeters </a></li>
+</ul></li>
+</ul>
+
+<ul><li><a href='vh_ftp.php'> Download Data </a></li>
+</ul><ul>
+<li><a href='../VH/VH-Syst_10ap30.php'> Technique Background </a><ul class='detailContainer'><li><a href='../VH/VH-Syst_10ap30.php'> Background and Explanation </a></li>
+<li><a href='../VH/vh_TechniqueBackground.php'> Technique Background </a></li>
+<li><a href='https://www.researcherid.com/rid/F-5600-2010'> Peer Reviewed Papers </a></li>
+<li><a href='../VH/vh_documentation.php'> Documentation </a></li>
+<li><a href='../VH/vh_presentation.php'> Presentations </a></li>
+<li><a href='../VH/vh_case.php'> Cases of Unusual Events </a></li>
+<li><a href='../VH/vh_case_hornofaf.php'> 2006: Horn of Africa </a></li>
+<li><a href='../VH/vh_case_elnino.php'> El Nino </a></li>
+<li><a href='../VH/vh_NDVI_in_various_projections.php'> Example NDVI Image in Various Projections </a></li>
+<li><a href='../VH/vh_resource.php'> Ancillary data </a></li>
+<li><a href='../VH/vh_EquatorCrossingTime.php'> Equatorial Crossing Time </a></li>
+<li><a href='../VH/vh_validation_ProductQuality.php'> Monitor Product Quality </a></li>
+<li><a href='../VH/vh_group.php'> Team Members </a></li>
+</ul></li>
+</ul>
+
+        
+
+</div><!-- end of navlist -->
+
+
+
+
+                        	<div class="noticeBox">
+		<p id="disclaimer">Data and images displayed on STAR sites 
+		are provided for experimental use only and are
+		not official operational NOAA products. 
+		&nbsp;<a href="https://www.star.nesdis.noaa.gov/star/productdisclaimer.php">More information>></a></p>
+	</div></div>
+<!-- content inserted UNDER this comment and BEFORE the closing </div>
+ below will appear below the nav panel inside the left-hand column -->
+	<div id="main">
+		<div class="mainInner">
+		    	<noscript><h3 class="noscriptWarning">Javascript is currently disabled on 
+    	this computer. Without javascript, many display enhancements do not work;
+    	however, all content should be fully visible and accessible.</h3></noscript>
+    	<a id="skipTarget"></a>
+ <h1 style='width: 100%;'>STAR - Global Vegetation Health Products: Background and Explanation</h1><h2>Vegetation Health (VH) System: Background and Explanation</h2>
+
+<p>The satellite-based global VH System is designed to monitor, diagnose and 
+predict long- and short-term land environmental conditions and climate-dependent 
+socioeconomic activities.  The System is based on satellite observations of the 
+Earth, biophysical theory of vegetation response to the environment, set of 
+algorithms for satellite data processing, interpretation, product development, 
+validation, calibration and applications.</p>
+
+<p>Satellite observations are principally represented by the Advance Very High 
+Resolution Radiometer (AVHRR) flown on NOAA polar-orbiting satellites. Data are 
+global with the resolution 4 km and 7-day composite. In addition, the System is 
+using data and products from GOES, METEOSAT, MTSAT and DMSP. The System contains 
+the following vegetation health indices and products: Vegetation Condition index 
+(VCI), Temperature Condition index (TCI), Vegetation Health index (VHI), Soil 
+Saturation index (SSI), No noise Normalized Difference Vegetation Index (SMN), 
+No noise Brightness Temperature (SMT), Fire risk index (FRI); products -
+Drought, Malaria, Vegetation health, Ecosystems, Land sensitivity to ENSO.</p>
+
+<h2>Definition and Applications</h2>
+
+<h3>Vegetation Condition index (VCI) - Global, 4 km, 7-day composite, validated.</h3>
+<p>VCI is based on the pre- and post-launch calibrated radiances converted to the 
+no noise Normalized Difference Vegetation Index (NDVI=(NIR-VIS)/(NIR+VIS)). The 
+VCI was expressed as NDVI anomaly relative to 25-year climatology estimated 
+based on bio-physical and ecosystem laws (law-of-minimum, law-of-tolerance and 
+carrying capacity). VCI is a proxy for moisture condition.</p>
+
+<h3>Temperature Condition index (TCI) - Global, 4 km, 7-day composite, validated.</h3> 
+TCI is based on 10.3-11.3 &#181;m AVHRR's radiance measurements converted to 
+brightness temperature (BT), which was improved through completely removed high 
+frequency noise. BT was expressed as an anomaly relative to 25-year climatology 
+estimated based on bio-physical and ecosystem laws (law-of-minimum, law-of-
+tolerance and carrying capacity). TCI is a proxy for thermal condition.</p>
+
+<h3>Vegetation Health index (VHI) - Global, 4 km, 7-day composite, validated.</h3>
+<p>VHI=a*VCI + (1- a)*TCI, where a is a coefficient determining contribution of the 
+two indices. VHI is a proxy characterizing vegetation health or a combine 
+estimation of moisture and thermal conditions.</p>
+
+<h3>Soil Saturation index (SSI) - Global, 4 km, 7-day composite, validated.</h3>
+<p>The SSI estimates vegetation depression due to soil saturation (excessive wetness) 
+followed by abnormal rains and/or flooding. SSI is based on a rains, flash flood 
+and VH products derived from sensor measurements on GOES, NOAA and DMSP 
+satellites. The products are the Hydro Estimator (H-E), VCI, TCI, and snow cover 
+(SC). If soil is saturated for a relatively long time vegetation is normally 
+stressed similarly to other stressful events. SSI can be used to distinguish 
+large area vegetation stress caused by soil saturation from that caused by 
+drought. </p>
+
+<h3>No noise (smoothed) Normalized Difference Vegetation Index (SMN) - Global, 4 
+km, 7-day composite, validated.</h3> 
+<p>The SMN is derived from no noise NDVI, which 
+components were pre- and post-launch calibrated. SMN can be used to estimate the 
+start and senescence of vegetation, start of the growing season, phenological 
+phases.</p>
+
+<h3>No noise (smoothed) Brightness Temperature (SMT) - Global, 4 km, 7-day 
+composite, validated.</h3>
+<p>The SMT is the BT with completely removed high frequency 
+noise, SMT can be used for estimation of thermal condition, cumulative degree 
+days and other.</p>
+
+<h3>Fire risk index (FRI)</u> - Global, 4 km, 7-day composite, validated.</h3>
+<p>The FRI is based on drought intensity and duration estimated from VHI, TCI and VCI. FRI 
+estimates condition potentially able to trigger open fire.</p>
+
+<h3>Drought (<em>D</em>)</u> - Global, 4 km, 7-day composite, validated.</h3>
+<p>D assessment is based on VHI, VCI and TCI if their values are below 40. D is "Exceptional", If the 
+indices are between 0 and 5; "Extreme" if they are 6-15; "Severe"  16-25; 
+"Moderate" 26-35; "Abnormally dry condition" 35-40.</p>
+
+<h3>Malaria (<em>M</em>)</u> - Africa, 4 km, 7-day composite, validated.</h3>
+<p>M assessment is based on VHI, VCI and TCI. M in different ecosystems can be monitored by either 
+individual index or their combination. In dry ecosystems both VCI and TCI are 
+normally used as predictors; in wet ecosystems, TCI is mostly used.</p>
+
+<h3>Vegetation health (VH)</u> - Global, 4 km, 7-day composite, validated.</h3>
+<p>VH is a product estimating vegetation health (condition) base on moisture conditions 
+(VCI), thermal conditions (TCI) and their combination (VHI). VH is used often to 
+estimate crop condition and anticipated yield. If the indices are below 40 
+indicating different level of vegetation stress, losses of crop and pasture 
+production might be expected; if the indices above 60 (favorable condition) 
+plentiful production might be expected. VH is very useful for an advanced 
+prediction of crop losses.</p>
+
+<h3>Ecosystems (<em>E</em>)</u> - Global, 4 km, 7-day composite, validated.</h3>
+<p>E shows distribution of ecosystem. This information is often used for more accurate assessments of 
+land surface condition.</p>
+
+<h3>Vegetation sensitivity to ENSO</u> - Global, 4 km, 7-day composite, validated.</h3>
+<p>This information is used for assessment area, time and intensity of climate forcing 
+impacts on vegetation, which is needed for one-three months predictions of 
+vegetation health.</p>  
+
+ 
+			</div>
+			</div>
+		<div id='footer'>
+ 			<div id='bottomBanner'>
+				<div class="left">
+ 					<a href="https://www.doc.gov/">Dept.&#160;of&#160;Commerce</a>&#160;|&#160;<a 
+					href="https://www.noaa.gov/"
+					title="National Oceanic and Atmospheric Administration">NOAA</a>&#160;|&#160;<a 
+					href="https://www.nesdis.noaa.gov/"
+					title="National Environmental Satellite, Data, and Information Service">NESDIS</a>&#160;|&#160;Website&#160;owner:&#160;<a 
+					href="https://www.star.nesdis.noaa.gov/"
+ 					title="Website owner: Center for Satellite Applications and Research">STAR</a>&#160;|&#160;<a 
+					href="https://www.star.nesdis.noaa.gov/star/productdisclaimer.php">Link&#160;&amp;&#160;product&#160;disclaimers</a>&#160;|&#160;<a 
+					href="https://www.noaa.gov/accessibility">Accessibility</a>&#160;|&#160;<a href='http://search.usa.gov/search?affiliate=orbit.nesdis.noaa.gov_star'>Search</a>&#160;|&#160;<a href='https://www.star.nesdis.noaa.gov/intranet/'>Employee&nbsp;Intranet</a><br>
+					<a href='https://www.star.nesdis.noaa.gov/star/survey.php'>Customer&nbsp;Survey</a>&#160;|&#160;<a 
+					href="https://www.star.nesdis.noaa.gov/star/privacy.php">Privacy</a>&#160;|&#160;<a 
+ 					href="https://www.noaa.gov/organization/information-technology/policy-oversight/information-quality">Information&#160;quality</a>&#160;|&#160;<a 
+ 					href="mailto:Felix.Kogan@noaa.gov">Questions&#160;about&#160;this&#160;site</a>&#160;|&#160;<a
+					href="mailto:NESDIS.STAR.Webmaster&#064;noaa.gov">STAR webmaster</a>&#160;|&#160;Modified: 30 July 2019</div>
+				<div class="right"></div>
+				<div class="clearing"></div>
+				</div>
+			 			<script src="https://www.star.nesdis.noaa.gov/star/global/js/nonGovTitleSetter.js"></script>
+	 		<script src="https://www.star.nesdis.noaa.gov/star/global/js/menuControllerPHP.js"></script>
+ 			<script src="https://www.star.nesdis.noaa.gov/star/global/js/imageDivWidthSetter.js"></script>
+			<!--// test LKB //-->
+		</div>
+		<!--// added 2/20/2020 to make updated jquery available to all global sites //-->
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+		<script src='https://code.jquery.com/jquery-migrate-1.4.1.min.js'></script>
+		<script src="https://www.star.nesdis.noaa.gov/star/global/js/cycle2/jquery.cycle2.min.js"></script>
+		<script src="https://www.star.nesdis.noaa.gov/star/global/js/cycle2/jquery.easing.min.js"></script>
+		<script src="https://www.star.nesdis.noaa.gov/star/global/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script>
+<script>
+// tabs from: http://inspirationalpixels.com/tutorials/creating-tabs-with-html-css-and-jquery
+$(document).ready(function() {
+    jQuery('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+        e.preventDefault();
+    });
+
+// CUSTOMIZED captioning call for fancybox
+// the enclosing anchor tag can have a title, or not
+// we will give it the alt value of the image as the fancybox caption; the image has to have an alt tag
+// if the anchor tag wraps around text (it's a plain link), popup caption becomes the text from inside the link.
+
+	$(".fancybox").fancybox({
+		helpers: {
+			title: {
+					type : 'inside'
+				},
+		},
+
+		beforeShow: function(){
+			var fancyAlt = $(this.element).find('img').attr('alt');  // find the alt value of the image inside the clicked link
+			$(".fancybox-inner").find("img").attr("alt",fancyAlt);   // assign that value to the alt of the image in the popped up box
+		},
+		 
+		afterShow: function() {
+			// take the alt of the image and make it the title of the fancybox (why isn't it already?)
+			images = $(this.element).find('img');
+				if (images.length == 0) {
+					fancyAlt = $(this.element).text();
+				} else {
+					fancyAlt = $(this.element).find('img').attr('alt');
+				}
+			
+			// is there an existing title?  <div class="fancybox-title fancybox-title-inside-wrap">
+			// if no, create one! If yes, get the first element w/ that classname and empty it and replace the contents
+			existingTitles = document.getElementsByClassName('fancybox-title');
+			existingTitle = existingTitles[0];  // there's never more than 1
+
+			if (typeof existingTitle == 'undefined') {
+				titleContainers = document.getElementsByClassName('fancybox-skin');
+				titleContainer = titleContainers[0];
+				var titleElement = document.createElement('DIV');
+				titleElement.className = "fancybox-title";
+				var pl = document.createTextNode('placeholder');
+				titleElement.appendChild(pl);
+				titleContainer.appendChild(titleElement);
+				existingTitle = titleElement;
+			}
+
+			LTN = existingTitle.childNodes[0];
+			existingTitle.removeChild(LTN);  // dump out the existing title, which is nonsense
+			newTitle = document.createElement('span');
+			newTitle.id = 'dls';
+			newTitle.style.zIndex = '50000';
+			var t = document.createTextNode(fancyAlt);
+			newTitle.appendChild(t);
+			existingTitle.appendChild(newTitle);
+		}	 
+	}); // end of fancybox
+
+});
+
+$(window).on("load", function() {
+	//  this handles the tab behaviors for links arriving here from other pages
+	currentHash = window.location.hash;
+	currentHashTab = currentHash + "L";
+	if ((currentHash !== "") && (currentHash.indexOf('tab')) !== -1) {
+		$(currentHash).show().siblings().hide();
+		// Change/remove current tab to active
+		$(currentHashTab).parent('li').addClass('active').siblings().removeClass('active');
+			if (location.hash) {
+				setTimeout(function() {
+					window.scrollTo(0, 0);
+				}, 1);
+			}
+		}
+});
+
+// 5/13/2026 - this script remedies an accessibility deficit on most STAR pages
+// L. Brown - adding a role=main to the main content container on all pages.
+document.addEventListener('DOMContentLoaded', function() {
+    // querySelector only grabs the first match it finds
+    var el = document.querySelector('div.mainInner');
+    
+    // Check if the element exists and if it needs the attribute
+    if (el && el.getAttribute('role') !== 'main') {
+        el.setAttribute('role', 'main');
+    }
+});
+</script>
+<!-- closing the two enclosing divs -->
+		</div>
+	</div>
+<!-- Start of StatCounter Code -->
+<script>
+var sc_project=6394160;
+var sc_invisible=1;
+var sc_security="3bcb84d9";
+</script>
+
+
+
+<noscript><div
+class="statcounter"><a title="counter customizable"
+class="statcounter"
+href="https://statcounter.com/free_hit_counter.html"><img
+class="statcounter"
+src="https://c.statcounter.com/6394160/0/3bcb84d9/1/"
+alt="counter customizable" /></a></div></noscript>
+
+
+<!-- End of StatCounter Code -->
+ 
+</body>
+</html>

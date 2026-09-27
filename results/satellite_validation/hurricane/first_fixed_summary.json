@@ -1,0 +1,105 @@
+{
+  "status": "forecast_gate_failed",
+  "n_test_years": 27,
+  "n_abstentions": 0,
+  "metrics": {
+    "baseline": {
+      "rmse_ace": 57.142910795847456,
+      "mae_ace": 45.263346213643885
+    },
+    "satellite": {
+      "rmse_ace": 54.19224014382966,
+      "mae_ace": 38.893107743345276
+    },
+    "climatology": {
+      "rmse_ace": 55.24402926713432,
+      "mae_ace": 44.935305375386996
+    },
+    "recent_climatology": {
+      "rmse_ace": 52.608015578862435,
+      "mae_ace": 40.92513888888888
+    },
+    "persistence": {
+      "rmse_ace": 56.490544476733255,
+      "mae_ace": 45.364444444444445
+    }
+  },
+  "comparisons": {
+    "baseline": {
+      "rmse_reduction_fraction": 0.051636687927213876,
+      "mae_reduction_fraction": 0.14073724112731212,
+      "rmse_gain_ci95_ace": [
+        -2.580203513739505,
+        10.091993555852056
+      ],
+      "years_lower_squared_error": 13
+    },
+    "climatology": {
+      "rmse_reduction_fraction": 0.01903896470365518,
+      "mae_reduction_fraction": 0.1344643723140534,
+      "rmse_gain_ci95_ace": [
+        -11.765973598901935,
+        12.841533019958062
+      ],
+      "years_lower_squared_error": 18
+    },
+    "recent_climatology": {
+      "rmse_reduction_fraction": -0.03011374878020967,
+      "mae_reduction_fraction": 0.04965239460910664,
+      "rmse_gain_ci95_ace": [
+        -11.965509749526973,
+        8.965281669427112
+      ],
+      "years_lower_squared_error": 17
+    },
+    "persistence": {
+      "rmse_reduction_fraction": 0.040684761568375416,
+      "mae_reduction_fraction": 0.14265217573697586,
+      "rmse_gain_ci95_ace": [
+        -9.102832937737325,
+        13.146227663891052
+      ],
+      "years_lower_squared_error": 15
+    }
+  },
+  "strongest_baseline": "recent_climatology",
+  "forecast_gate_passed": false,
+  "original_vintage_operational_verification": false,
+  "satellite_only_incremental_attribution": false,
+  "superiority_to_official_seasonal_forecasts_tested": false,
+  "trading_alpha_verified": false,
+  "prospective_verification": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T02:32:01.601171+00:00",
+    "target": "Atlantic August1\u2013November30 ACE from NHC HURDAT2 six-hourly wind reports, tropical/subtropical storm or hurricane statusesTS/HU/SS withwinds>=34knots, only0000/0600/1200/1800; sumwindknots\u00b2/10000",
+    "forecast_issue": "August1 00UTC eachyear; futureAug\u2013Novrisk, not economicloss ormarketpriceforecast",
+    "satellite_source": "NOAA OISSTv2.1 monthlyJuneSST, 0.25degree, AVHRRmaininput blendedwithships/buoys,1982\u20132025. Predictor boxes frozen: MDR10\u201320N,280\u2013340E; Ni\u00f1o3.45S\u20135N,190\u2013240E. Cosinelatitude areaweighted mean; no geographicsearch.",
+    "satellite_timing": "June30end+17days for finalOISST then14dayadditionalpublicationbuffer:July31<=August1issue. Monthlyarchivepublicationtimes not separatelyproven; current-version2016+reprocessing caveat. NoJulyorAugustSST.",
+    "storm_feature_timing": "June1\u2013July31ACE treated asknownatAugust1 from contemporaneous six-hourlyreports, but archivedHURDAT2besttrack containslaterrevisions. Cannotcertify originalvintages without advisoryreconstruction. PriorseasonAugust\u2013NovemberACE assumedknownbyMay1followingyear.",
+    "training": "Expanding1982throughforecastyear-1, minimum17completeyears; trainingstandardizationonly; samecompleteyearsupportallmodels",
+    "test": "Everyyear1999\u20132025 inclusive,27heldoutyears; nofit evaluatedbeforeprotocolfreeze",
+    "models": {
+      "baseline": "Ridge linearACE: intercept + yeartrend + priorseasonAugNovACE + currentJuneJulyACE. Featuremean/std fittrainingonly; fixedridgealpha5, unpenalizedintercept. Clip predictedACEat0.",
+      "satellite": "Samebaseline plus JuneMDRSST andJuneNi\u00f1o3.4SST; samefixedridgealpha5; clip0.",
+      "climatology": "Mean ofallpasttrainingAugNovACE",
+      "recent_climatology": "Mean previous10trainingyearsAugNovACE",
+      "persistence": "PriorseasonAugNovACE"
+    },
+    "uncertainty": "Pairedcircular5-yearblockbootstrap10000drawsseed20260927; testyearsresampledjointlyacrossmodels. Reporteachyearand2000s/lateperioddescriptively,no periodselection.",
+    "gate": "SatelliteRMSEatleast5%lowerthanbestofallfourbaselineRMSEs; lowerMAEandstrictlypositive95%RMSEgainCIlowerboundversuseachbaseline. No parameterhorizonregionsearch or postfitgatechange.",
+    "claim_limits": [
+      "OISSTis satellite-enhanced blend, not isolatedsatellite-onlycontribution",
+      "HURDATwinds independentofSSTpredictor butcurrentbesttrackrevisions, notoriginaladvisoryvintages",
+      "Knownpublicphysicalrelationship and existingofficialseasonalforecasts; notnovelmarketalpha or superioritytoNOAAforecast",
+      "ACEriskproxy notinsuranceclaims, offshoreproductionloss,landfalls,orpricedreturns",
+      "Manymechanismstriedinbroaderproject,nofamilywisecorrection"
+    ],
+    "outcome_values_inspected_before_freeze": false
+  },
+  "protocol_sha256": "df101adc20a0fa1213815d87af884984a1be79c797906ef8f0d28ca0580f91e9",
+  "source_code_sha256": "43ef5d7be1a55d16d334ac465b6459fda135c5c8970a6260ac4dcaa68d0ef691",
+  "source_manifest_sha256": "6d897553d8fca2e60fec3f08b415d59a4f406fc4a82954be3f6a24b93f132fef",
+  "units": "ACE: sum of six-hourly wind_knots squared /10000 for HU,TS,SS states withwinds>=34kt",
+  "interpretation": "August1 forecast offutureAug\u2013NovAtlanticstormenergy fromJune satellite-enhanced OISST, relative tosame JuneJulystormactivity/priorseason/trend controls. Current-version retrospective study; notisolatedsatelliteattribution, originalvintagecertification, or marketalpha."
+}

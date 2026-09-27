@@ -1,0 +1,12 @@
+{
+  "recorded_at_utc": "2026-09-27T02:49:34.964299+00:00",
+  "reason": "Separate unknown forecast outcomes from predictor eligibility, require finite training labels, and exclude pending outcomes from scoring. Formula, source data, protocol and historical results unchanged.",
+  "before_source_sha256": "33b23a27d27b3d762448a3b98fe8cffdf6cf4df8bf0803d0f808cdd42dba47ac",
+  "after_source_sha256": "63880417b6d582febf3690cee3b7d5de33899a1592289bd5e5ab39515123e835",
+  "before_shared_source_sha256": "43ef5d7be1a55d16d334ac465b6459fda135c5c8970a6260ac4dcaa68d0ef691",
+  "after_shared_source_sha256": "26f53035112e92b5781e45de319d9b60ab7818ee5fffc700ef9bfdc03a6b1b06",
+  "metrics_identical": true,
+  "comparisons_identical": true,
+  "historical_model_predictions_exactly_equal": true,
+  "tests": "23 semantic tests across Atlantic, Pacific and fixed insurance market diagnostic passed."
+}

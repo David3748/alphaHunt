@@ -31,6 +31,7 @@ def main():
     seaice = read("seaice") if (OUT / "seaice/summary.json").exists() else None
     gas = read("gas") if (OUT / "gas/summary.json").exists() else None
     gas_trade = read("gas_trading") if (OUT / "gas_trading/summary.json").exists() else None
+    newer = {name: read(name) for name in ("goes_solar", "hydro", "hurricane", "pacific_hurricane", "snow_daily", "snow_summer", "snow_kings", "east_africa", "south_africa_maize", "southern_africa_maize_replication", "cybench_maize", "cybench_maize_late") if (OUT / name / "summary.json").exists()}
     labels = ["Smelter refined copper\nMAE, 8 quarters", "Smelter throughput\nMAE, 8 quarters",
               "Corn + MODIS vegetation\nRMSE, 7 years", "Wheat + MODIS, 2025\nRMSE, 1 year",
               "Solar generation + CERES*\nRMSE, 72 months"]
@@ -47,8 +48,51 @@ def main():
     if gas:
         labels.append("Gas demand + satellite temperature\nRMSE vs ground weather, 156 months")
         gains.append(100 * gas["comparisons"]["ground_hdd_satellite_vs_ground_hdd"]["rmse_reduction_fraction"])
+    if "goes_solar" in newer:
+        labels.append("Operational GOES solar\nRMSE vs weather, 42 months")
+        gains.append(newer["goes_solar"]["comparisons"]["weather"]["rmse_reduction_pct"])
+    if "hydro" in newer:
+        labels.append("Altimetry + ground-storage hydro\nRMSE, 88 months")
+        gains.append(100 * newer["hydro"]["comparisons"]["ground_storage_satellite_vs_ground_storage"]["rmse_reduction_fraction"])
+    if "hurricane" in newer:
+        labels.append("Atlantic storm energy + ocean SST\nRMSE vs recent climate, 27 years")
+        gains.append(100 * newer["hurricane"]["comparisons"]["recent_climatology"]["rmse_reduction_fraction"])
+    if "pacific_hurricane" in newer:
+        labels.append("Pacific storm energy + ocean SST\nRMSE vs recent climate, 27 years")
+        gains.append(100 * newer["pacific_hurricane"]["comparisons"]["recent_climatology"]["rmse_reduction_fraction"])
+    if "snow_summer" in newer:
+        labels.append("May snow → summer runoff\nRMSE vs fresh-flow controls, 14 years")
+        gains.append(100 * newer["snow_summer"]["fresh_may_flow"]["comparisons"]["weather_flow"]["rmse_reduction"])
+    if "east_africa" in newer:
+        result = newer["east_africa"]
+        labels.append("Ocean SST → East African short rains\nRMSE vs strongest baseline")
+        gains.append(100 * result["comparisons"][result["strongest_baseline"]]["rmse_reduction_fraction"])
+    if "snow_kings" in newer:
+        labels.append("May snow → Kings River runoff\nRMSE vs fresh-flow controls, 14 years")
+        gains.append(100 * newer["snow_kings"]["kings"]["fresh_may_flow"]["comparisons"]["weather_flow"]["rmse_reduction"])
+    if "south_africa_maize" in newer:
+        result = newer["south_africa_maize"]["primary_yield"]["completed_harvest_stress"]
+        if result.get("n_test_years"):
+            labels.append("September ocean SST → maize yield\nSouth Africa, strongest baseline")
+            gains.append(100 * result["comparisons"][result["strongest_baseline"]]["rmse_reduction"])
+    if "cybench_maize" in newer:
+        result = newer["cybench_maize"]
+        labels.append("Raw NDVI → US county maize yield\nRMSE vs strongest baseline")
+        gains.append(100 * result["comparisons"][result["strongest_baseline"]]["rmse_reduction"])
+    if "cybench_maize_late" in newer:
+        result = newer["cybench_maize_late"]
+        labels.append("Raw NDVI → county maize, September\nRMSE vs strongest baseline")
+        gains.append(100 * result["comparisons"][result["strongest_baseline"]]["rmse_reduction"])
+    vhp = {}
+    for name in ("vhp_wheat", "vhp_wheat_panel"):
+        path = ROOT / "results" / name / "summary.json"
+        if path.exists():
+            vhp[name] = json.loads(path.read_text())
+    if "vhp_wheat" in vhp:
+        labels.append("Crop-masked vegetation → Texas wheat\nRMSE vs weather, 23 years")
+        gains.append(100 * vhp["vhp_wheat"]["primary_yield"]["comparisons"]["weather"]["rmse_reduction"])
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "svg.hashsalt": "satellite-validation"})
-    fig, ax = plt.subplots(figsize=(11, 7.5))
+    fig, ax = plt.subplots(figsize=(11, max(7.5, len(gains) * .67 + 2)))
     bars = ax.barh(np.arange(len(gains)), gains, color=["#44729d" if x >= 0 else "#bf654f" for x in gains], height=.57)
     bars[4].set_hatch("///")
     ax.set_yticks(np.arange(len(gains)), labels)
@@ -97,7 +141,36 @@ def main():
         results["additional_gas_evaluation"] = gas
         results["forecast_verification"]["gas_incremental"] = gas["incremental_usefulness_gate_passed"]
         results["implemented_candidates"].append("satellite_atmospheric_temperature")
-    results["verification_requirement_met"] = any(results["forecast_verification"].values())
+    for name, result in newer.items():
+        results["additional_" + name + "_evaluation"] = result
+        key = {"goes_solar": "forecast_usefulness_verified", "hydro": "incremental_gate_passed", "hurricane": "forecast_gate_passed", "pacific_hurricane": "forecast_gate_passed", "snow_daily": "all_strong_comparator_gates_passed", "snow_summer": "all_strong_comparator_gates_passed", "east_africa": "forecast_gate_passed", "snow_kings": "geographic_confirmation_gate_passed", "south_africa_maize": "robust_primary_forecast_gate_passed", "southern_africa_maize_replication": "robust_confirmation_gate_passed", "cybench_maize": "forecast_gate_passed", "cybench_maize_late": "forecast_gate_passed"}[name]
+        results["forecast_verification"][name] = bool(result.get(key, False))
+        if name == "southern_africa_maize_replication":
+            results["forecast_verification"][name] = bool(result["primary_yield"]["robust_confirmation_gate_passed"])
+            results["forecast_verification"][name + "_production"] = bool(result["secondary_production"]["robust_confirmation_gate_passed"])
+        results["implemented_candidates"].append(name)
+    if (OUT / "hurricane_trading/summary.json").exists():
+        results["hurricane_market_test"] = read("hurricane_trading")
+    if (OUT / "cybench_trading/summary.json").exists():
+        results["cybench_market_test"] = read("cybench_trading")
+    if (OUT / "cybench_trading/late/summary.json").exists():
+        results["cybench_late_market_test"] = read("cybench_trading/late")
+    if (OUT / "annual_solar/summary.json").exists():
+        results["discarded_annual_solar_monthly_diagnostic"] = "Annual-reporting monthly values before2023 are allocations, not independent monthly measurements; not eligible for validation"
+    for name, result in vhp.items():
+        results["additional_" + name + "_evaluation"] = result
+        # The geographic panel is confirmation, not a new independent signal family.
+        results["forecast_verification"][name] = bool(result.get("forecast_gate_passed", False))
+    results["verified_small_historical_forecast_improvements"] = {
+        name: bool(result.get("statistical_skill_components_passed", False))
+        for name, result in newer.items() if name in ("cybench_maize", "cybench_maize_late")
+    }
+    results["frozen_practical_gate_met"] = any(results["forecast_verification"].values())
+    results["verification_requirement_met"] = bool(
+        results["frozen_practical_gate_met"]
+        or any(results["verified_small_historical_forecast_improvements"].values()))
+    results["verification_interpretation"] = (
+        "User accepts forecast improvement without a minimum size. Independently reproduced small current-vintage county-yield gains meet that narrow definition; original 5% materiality gates remain false. Original-release operational and trading value remain unverified. See cybench_maize/interpretation_record.json; decomposition is disclosed after results and does not change any fit or original gate.")
     if (OUT / "literature/evidence.json").exists():
         results["external_literature_evidence"] = "literature/evidence.json; externally published, not locally replicated and not a substitute for the forecast verification gate"
     if trade:
@@ -119,6 +192,10 @@ def main():
     paths += sorted((OUT / "gas_trading/inputs").glob("*"))
     paths += sorted((OUT / "snow").glob("*.csv"))
     paths += [OUT / "smelters/production_labels.csv", OUT / "trading/weekly_wheat_inputs.csv"]
+    for name in ("goes_solar", "hydro", "hurricane", "hurricane_trading", "pacific_hurricane", "snow_daily", "snow_summer", "east_africa", "snow_kings", "south_africa_maize", "southern_africa_maize_replication", "cybench_maize", "cybench_maize_late", "cybench_trading", "annual_solar"):
+        paths += [p for p in (OUT / name).rglob("*") if p.is_file() and p.suffix not in (".py", ".pyc") and p.name not in ("summary.json", "panel.csv", "predictions.csv", "events.csv", "events_double_cost.csv", "daily_prices.csv") and "__pycache__" not in p.parts]
+    for name in ("vhp_wheat", "vhp_wheat_panel"):
+        paths += [p for p in (ROOT / "results" / name).rglob("*") if p.is_file() and p.suffix not in (".py", ".pyc") and "__pycache__" not in p.parts and p.name != "summary.json"]
     for path in paths:
         if path.is_file():
             manifest[str(path.relative_to(ROOT))] = {"bytes": path.stat().st_size,

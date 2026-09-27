@@ -1,0 +1,24 @@
+{
+  "eia_57695.json": {
+    "url": "https://api.eia.gov/v2/electricity/facility-fuel/data/?api_key=DEMO_KEY&frequency=monthly&data%5B0%5D=generation&facets%5BplantCode%5D%5B%5D=57695&facets%5Bfuel2002%5D%5B%5D=SUN&facets%5BprimeMover%5D%5B%5D=PV&start=2015-01&end=2026-08&length=5000",
+    "retrieved_at_utc": "2026-09-27T02:17:43.085683+00:00",
+    "sha256": "08f25fc28421d8f2e840fb9200068db8da5633e25cd886cd3693072721885fec",
+    "bytes": 40772,
+    "n_rows": 139,
+    "latest_period": "2026-07",
+    "plant_names": [
+      "Topaz Solar Farm"
+    ]
+  },
+  "eia_57439.json": {
+    "url": "https://api.eia.gov/v2/electricity/facility-fuel/data/?api_key=DEMO_KEY&frequency=monthly&data%5B0%5D=generation&facets%5BplantCode%5D%5B%5D=57439&facets%5Bfuel2002%5D%5B%5D=SUN&facets%5BprimeMover%5D%5B%5D=PV&start=2015-01&end=2026-08&length=5000",
+    "retrieved_at_utc": "2026-09-27T02:17:51.472006+00:00",
+    "sha256": "623100218a1f798a662a17fc395c9f2add2ebe22c56fc9ff2b55b8eee587099d",
+    "bytes": 36968,
+    "n_rows": 120,
+    "latest_period": "2024-12",
+    "plant_names": [
+      "California Valley Solar Ranch"
+    ]
+  }
+}

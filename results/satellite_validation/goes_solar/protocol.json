@@ -1,0 +1,62 @@
+{
+  "frozen_at_utc": "2026-09-27T02:16:51.123351+00:00",
+  "purpose": "Repair late-CERES nowcast with genuinely operational archived GOES DSR; demonstrate useful independent economic forecast before EIA reporting",
+  "primary_plant": {
+    "eia_id": "57695",
+    "name": "Topaz Solar Farm",
+    "lat": 35.383,
+    "lon": -120.067,
+    "outcomes_previously_seen": "2015\u20132025 used in prior failed-timing CERES test; GOES features and results not examined"
+  },
+  "confirmation_plant": {
+    "eia_id": "57439",
+    "name": "California Valley Solar Ranch",
+    "lat": 35.323739,
+    "lon": -119.9166,
+    "selection": "Nearby large mature PV with different tracker technology and independent generation report, selected before GOES/outcome join; annual output snippets seen in metadata search, full monthly outcomes not examined"
+  },
+  "source": "GOES17 untiltransition toGOES18; ABI-L2-DSRC beforeEnterprise change2024-04-17 andDSRF after; sourcecreation AND S3lastmodified retained",
+  "spatial_rule": "Fixed0.25deg geographic cell perplant foroldproduct; averagevalid2kmpixels insamecell fornewproduct; samefootprint independentofoutcomes",
+  "sampling": "2hour UTC daylight-capable grid00,02,12,14,16,18,20,22 eachday; remainingUTC04,06,08,10 physicallynight atbothfixedsites andzero. Integrate24h trapezoid at2hour increments, using nextday00endpoint. Missingdaylight staysmissing. Retaincoverage and>=90percent valid expecteddaylight slots permonth. Prespecifiedsampling maychangeonly if archiveformatrequires, notoutcomeperformance.",
+  "forecast_issue": "Targetmonthend+14days. Only sourceobjectscreated AND S3lastmodified bythisdate. EIAtraininglabel available targetmonthend+2months, conservativeproxy; finalEIAoutcomescurrentvintage",
+  "calibration": "SatellitehistoryJan2020\u2013Dec2021; firsttwo same-calendar-month observations used tocalibrate each subsequentforecast, rolling prior2same-monthyears",
+  "evaluation": "Primary: Jan2022\u2013Dec2025 Topaz monthly, all48months. Secondary: CVSR actual annual totals2022\u20132025. No horizonorparametersearch. Reportfullresults andApr2024regime split.",
+  "primary_formula": "baseline=mean dailyMWh inpriortwo same-calendar-monthyears; satellite=baseline * currentmonthlymeanGHI / meanGHI inthoseidenticaltwo months. Fixedphysicalirradianceelasticity1, no coefficientfit. ConverttoMWh usingtargetdaycount.",
+  "comparators": [
+    "previous-year same-monthdailyMWh persistence",
+    "prior-two-year same-monthmean dailyMWh (matchedablation)",
+    "rolling48eligiblemonthsOLS logdailyMWh onmonthfixed effects+lineartrend, min36monthhistory fromEIA2015+",
+    "identicalrollingOLS pluscurrentgroundtemperature andlog1p precipitation, subjecttoindependentfeaturecoverage",
+    "fixedsameformula butreplacecurrentGHIwithprevious-yearGHI placebo"
+  ],
+  "uncertainty": "Paired calendar-year clusterbootstrap10000drawsseed20260927, reportgainagainstALLbaselines. Fourtestyearclusters: also reportmonthlyerrors/yearwiseoutcomes andsame-season-block sensitivity; donotinflate sample bycountingtwo geographicallyadjacentplants independently.",
+  "gate": "Atprimaryplant at least5percent lowerRMSE and lowerMAE thanALLpredefined nonsatellitebaselines, positive95percent yearblockRMSEgain interval againststrongestbaseline, lowerRMSEthanprior-yearGHIplacebo; pointRMSEimprovement atconfirmationplant underunchangedformula. Reportavailabilitycoverage andregimes.",
+  "limits": [
+    "Exploratorycontinuationfollowingnegativecandidates; nofamilywise discoveryclaim",
+    "ProductchangedApr2024; originalcreation/archiveavailabilitygates critical",
+    "FinalEIAoutcomesandgroundweatherrevisions arenotoriginalvintagecertification",
+    "GHIonlydoesnotmodeltilttrackingcurtailmentoutagesorpaneldegradationexplicitly",
+    "Utilityverifiedonlyasproductionnowcastaccuracy, notmarketalpha",
+    "Secondplant isindependentmeter butcorrelatedweather; notindependentreplicationofclimateconditions"
+  ],
+  "trade_test": "Separatefixedtest afterphysicalforecast; do notsubstitutepricebacktestforforecastgate",
+  "GOES_outcome_join_or_metrics_examined_before_freeze": false,
+  "ground_weather_addendum": {
+    "recorded_at_utc": "2026-09-27T02:18:37.626053+00:00",
+    "reason": "Select closest complete weather series per variable, rather than requiring temperature and rain at the same more distant station. No satellite/outcome join or model results inspected.",
+    "selection": "La Panza RAWS for TMAX/TMIN; Salinas Dam for PRCP, each >=90% source coverage. San Luis Obispo ASOS airport is a separate timeliness sensitivity. Selection by distance and coverage only.",
+    "regression_features": [
+      "tmean_c",
+      "dtr_c",
+      "log1p monthly total precipitation_mm"
+    ],
+    "specification": "Rolling 48 eligible historical months, minimum 36, OLS log daily generation on intercept + 11 month indicators + linear time + the three ground weather features. Exactly same training months as time/season-only regression."
+  },
+  "confirmation_amendment_before_goes_metrics": {
+    "recorded_at_utc": "2026-09-27T02:31:51.546862+00:00",
+    "reason": "Primary EIA2022 proposed rule and respondent frequencies establish pre2023 annual respondents did not provide independent monthly generation. Use actual annual totals at CVSR, never allocated monthly estimates. No GOES outcome join or metrics examined.",
+    "evaluation": "2022\u20132025 annual CVSR totals, four confirmation outcomes. Forecast January14 following production year, prior to official annual disclosures in June/July. Prior2annual labels available under conservative Nov1followingyear embargo.",
+    "formula": "Mean daily generation of prior2released annual outcomes times currentyear mean daily GOES irradiation / mean daily GOES irradiation in identical historicalyears, multiplied by targetyear daycount. Compare matched annual daily-output mean and latestreleased annual daily-output persistence; secondary pointRMSEimprovement required.",
+    "limitation": "At January14 of yearY+1, yearY-1 outcome is available after November1ofY. Four annual outcomes support only weak secondary confirmation; primary evidence remains48monthlyTopaz outcomes."
+  }
+}

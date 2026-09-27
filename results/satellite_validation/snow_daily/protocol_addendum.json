@@ -1,0 +1,8 @@
+{
+  "frozen_at_utc": "2026-09-27T02:46:43.865248+00:00",
+  "heldout_outcome_join_or_metrics_seen": false,
+  "forecast_issue": "April15; same March1\u201331 feature; fourteen-day nominal source-delivery buffer. April-July target is partly begun seasonal nowcast, not entirely future-season forecast. Exact current-vintage archive delivery remains unverified.",
+  "reason": "Parent timing review before metrics: March31 daily composite and full ground March total cannot be assumed available April1 midnight.",
+  "ground_swe_diagnostic": "On years with ground_swe_mm and at least ten prior complete SWE training years, compare weather_flow, weather_flow_snow, weather_flow_swe, weather_flow_swe_snow using identical matched training and test rows. Same expanding OLS and nonnegative clipping; no parameter selection. Require snow incremental to SWE to claim usefulness beyond available ground snow measurement. Original all-supported no-SWE primary retained.",
+  "confirmation_2026": "Freeze one 2026 seasonal confirmation before main fit. Obtain March2026 Terra source and Apr-Jul2026 runoff only after 2000\u20132025 metrics are written. Fit unchanged models on all eligible2000\u20132025 years; report 2026 result regardless of score. No holdout tuning or claim from one year alone."
+}

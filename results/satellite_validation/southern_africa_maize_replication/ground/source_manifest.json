@@ -1,0 +1,1105 @@
+[
+  {
+    "path": "inputs/cpc_augsep_1982.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1982.nc",
+    "sha256": "b4c20d509e0830a2fa53ba19fb72fbfd03c96c1f533995349f602c8dc6d54ee7",
+    "retrieved_at_utc": "2026-09-27T03:27:05.078086+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1983.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1983.nc",
+    "sha256": "3da0a0abb02d519e1de4d1f1cc8ab5d7776f95a32bb4d3e3070840d27cec022a",
+    "retrieved_at_utc": "2026-09-27T03:27:05.501412+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1984.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1984.nc",
+    "sha256": "bc1378f85f5940452bfb45d5d662b8951ff3706c3620170472d9101a00382215",
+    "retrieved_at_utc": "2026-09-27T03:27:05.100270+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1985.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1985.nc",
+    "sha256": "55e86691ee553e129582a0e95bfce238b5ceefc33f96065ccfe3748947fbb85e",
+    "retrieved_at_utc": "2026-09-27T03:27:05.100067+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1986.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1986.nc",
+    "sha256": "4e5558463dc12a47086cc476b6678c31790fd9debff38a10984272d9af49e5ce",
+    "retrieved_at_utc": "2026-09-27T03:27:10.223135+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1987.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1987.nc",
+    "sha256": "cbd40eeac2a3caf59683ac01ee62213d247dd38ca40980423b657badb67ae7fb",
+    "retrieved_at_utc": "2026-09-27T03:27:10.426092+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1988.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1988.nc",
+    "sha256": "c757fd0f966060705581f5f11fe0b6366403fd85da5c1de5c54337810ea756e7",
+    "retrieved_at_utc": "2026-09-27T03:27:10.610566+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1989.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1989.nc",
+    "sha256": "f2d5c0cf988090b3e2ac2f7db9cb6f9f7d81b3b46e6fc9f15f9d39a6b20cf7c9",
+    "retrieved_at_utc": "2026-09-27T03:27:10.683242+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1990.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1990.nc",
+    "sha256": "975966192afe3ac0fd7ffc97dd461c2ddab3076080a756f761f470a9c9860bc3",
+    "retrieved_at_utc": "2026-09-27T03:27:15.293720+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1991.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1991.nc",
+    "sha256": "2482f7a5cfaecd83f03e90cc4f5a16cc507532831eb0d89e6042726e7f8ec284",
+    "retrieved_at_utc": "2026-09-27T03:27:15.460266+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1992.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1992.nc",
+    "sha256": "fcf531b878431addcc99bd2af74dbedba0ffdcc78cf25441d0f2a86f5402355b",
+    "retrieved_at_utc": "2026-09-27T03:27:15.806435+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1993.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1993.nc",
+    "sha256": "203c6ea6a748a3c498e6d15adb3efbb7f16d9a8f0dcaf27c06184b3fd66b9413",
+    "retrieved_at_utc": "2026-09-27T03:27:15.892628+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1994.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1994.nc",
+    "sha256": "4aafb5673eabbc7a6b135099f16ff1c773260ec022479bd1951542c1e3b6f7bd",
+    "retrieved_at_utc": "2026-09-27T03:27:20.395125+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1995.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1995.nc",
+    "sha256": "f2e8a089315632f7e2071a3e386bf730da6041d5b1f8c5ef69a32e7855b26d98",
+    "retrieved_at_utc": "2026-09-27T03:27:20.548689+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1996.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1996.nc",
+    "sha256": "de1c311dfb0e663ff8b49ac284f2c1f59f290899b35174b0d48837bac2a662d1",
+    "retrieved_at_utc": "2026-09-27T03:27:20.865438+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1997.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1997.nc",
+    "sha256": "aab91dc074d9616ce0b277d845b53d2f85145a2efc1d63aae98af70154bcd406",
+    "retrieved_at_utc": "2026-09-27T03:27:20.942500+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1998.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1998.nc",
+    "sha256": "5f205636f36098e88aab9f1d590c26bd7ee5c1070adf202f85859accdd977b09",
+    "retrieved_at_utc": "2026-09-27T03:27:25.424201+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_1999.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1999.nc",
+    "sha256": "e89381777574c57dfa96359921ca45a2b4f1cbab4e2ff9ad3695749df595ff2b",
+    "retrieved_at_utc": "2026-09-27T03:27:25.674282+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2000.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2000.nc",
+    "sha256": "d429f63bbe4b3617ec80b7f24e1d08ee3b790c80743463dba25d0d79c44686f6",
+    "retrieved_at_utc": "2026-09-27T03:27:26.062814+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2001.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2001.nc",
+    "sha256": "ac450dc65580554feea00fdff5235cbc9a77cc3f51c53a6183ae1a4a0be48ff2",
+    "retrieved_at_utc": "2026-09-27T03:27:26.063517+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2002.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2002.nc",
+    "sha256": "9d71c7fe6eb4e8a1d7925d7a7dc4c55f94a5121c6f7a6502824f3852d0b6287e",
+    "retrieved_at_utc": "2026-09-27T03:27:30.758670+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2003.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2003.nc",
+    "sha256": "f1a190ff7756834f6e8a9dc5aef1bf541b8548e05f2a2c1a3f71ca1adc519110",
+    "retrieved_at_utc": "2026-09-27T03:27:30.804246+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2004.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2004.nc",
+    "sha256": "ed701a4e1fe144fb2c6ec3043b9c80773c65c8f8947e3c928380f204be5cfadc",
+    "retrieved_at_utc": "2026-09-27T03:27:31.264618+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2005.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2005.nc",
+    "sha256": "14ec876a49d3473d3bc67eba6fb39e77910236a65ee9bf62a029588858d0df04",
+    "retrieved_at_utc": "2026-09-27T03:27:31.120735+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2006.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2006.nc",
+    "sha256": "a94dd2ebcf4aab6f545534aa647b0bafb7f426b0425f7cd118d5a02042cc50af",
+    "retrieved_at_utc": "2026-09-27T03:27:35.909136+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2007.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2007.nc",
+    "sha256": "ec693804708f8680f0674d535024d5263e37b969e07f43ea1aaad0ebaa34f382",
+    "retrieved_at_utc": "2026-09-27T03:27:35.907152+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2008.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2008.nc",
+    "sha256": "0748ae46a3d793679ee883f005a04f007940a5a3e40edaab48f31354185c3cc7",
+    "retrieved_at_utc": "2026-09-27T03:27:36.252524+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2009.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2009.nc",
+    "sha256": "f48565766dd1b8bc4b9850b583a1f70549476badb3c89f5010ad140bbefc423a",
+    "retrieved_at_utc": "2026-09-27T03:27:36.374195+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2010.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2010.nc",
+    "sha256": "b9aaac9dc7d2384e422f5d98dee852a0d6b0b6c0b51c41d1c7e31ddf6d47ef3b",
+    "retrieved_at_utc": "2026-09-27T03:27:40.939907+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2011.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2011.nc",
+    "sha256": "cf8ebb2aec977478fb0b6ed225148bc289abab610d5db817abee9c831d92457d",
+    "retrieved_at_utc": "2026-09-27T03:27:41.079720+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2012.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2012.nc",
+    "sha256": "1ce428cd4209d14caa984f14c8954ed0383f5e7be63a42d570d916aa16074090",
+    "retrieved_at_utc": "2026-09-27T03:27:41.362668+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2013.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2013.nc",
+    "sha256": "d5f252863bfbfa383bc8ad42312100dd4b4239531295e1ee5d1ba2e8e63fae80",
+    "retrieved_at_utc": "2026-09-27T03:27:41.625319+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2014.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2014.nc",
+    "sha256": "fd696f425f31db47c0bbb3971d32bd49c2baa0d3873c4b7d37a80a3a4f410c8d",
+    "retrieved_at_utc": "2026-09-27T03:27:46.104622+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2015.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2015.nc",
+    "sha256": "d0433d8a32ca1357223302c34f2b20fa3cf2ad97743f75d09346fa85d04e4f10",
+    "retrieved_at_utc": "2026-09-27T03:27:46.292843+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2016.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2016.nc",
+    "sha256": "4f16e05a2352b666f565529fd24497b422963e47b15b2c399633270e20c5047a",
+    "retrieved_at_utc": "2026-09-27T03:27:46.470091+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2017.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2017.nc",
+    "sha256": "903a4334d02405e86c80e020a0fdf8853c2efeee30daed0a2c4930f7760077d6",
+    "retrieved_at_utc": "2026-09-27T03:27:46.780711+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2018-01-02 23:30:40",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2018.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2018.nc",
+    "sha256": "bc752c64a068b04cfb4367cd491a4c86bd2ebc0a6c49f543aef8e2bed6afeb1c",
+    "retrieved_at_utc": "2026-09-27T03:27:51.399893+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2019-01-28 17:33:20",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2019.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2019.nc",
+    "sha256": "1f8200253d9fc4af2b0818205c83f52716c432a21ca24c8be2259d9704fbe14a",
+    "retrieved_at_utc": "2026-09-27T03:27:51.361627+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2020-01-02 23:31:10",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2020.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2020.nc",
+    "sha256": "f7dbf31b3806c706c3eb355eeac87215e9a86ac90acca291c827ec14701d0cda",
+    "retrieved_at_utc": "2026-09-27T03:27:51.561008+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2021-01-02 23:31:03",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2021.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2021.nc",
+    "sha256": "a00f7bad496e308a87d8682ddcc9bc775ea316b0ef5d96dbbe9b3e15cb7447eb",
+    "retrieved_at_utc": "2026-09-27T03:27:51.856140+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2022-01-02 23:30:58",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2022.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2022.nc",
+    "sha256": "72a54e34878ea4ba43b996e99957eb7ea63a6f3c1e6a3e0f7f79ff714f20d446",
+    "retrieved_at_utc": "2026-09-27T03:27:56.641401+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2023-01-02 23:31:13",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2023.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2023.nc",
+    "sha256": "92e4744b8cdf3653565e664ce26008a30f4bcacac5fb9dfaa4a88df5b5140be0",
+    "retrieved_at_utc": "2026-09-27T03:27:56.469362+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2024-01-02 23:30:47",
+    "indices": {
+      "time": [
+        212,
+        272
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "inputs/cpc_augsep_2024.h5",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2024.nc",
+    "sha256": "9bdf8f12d56450524d74131c9ad51a6441fb4c46168a465f74de76cdb6f54de4",
+    "retrieved_at_utc": "2026-09-27T03:27:56.766678+00:00",
+    "variable_units": "mm",
+    "variable_long_name": "Daily total of precipitation",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2025-01-02 23:30:43",
+    "indices": {
+      "time": [
+        213,
+        273
+      ],
+      "lat": [
+        196,
+        224
+      ],
+      "lon": [
+        44,
+        66
+      ]
+    },
+    "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+  },
+  {
+    "path": "ZM_ground_augsep.csv",
+    "sha256": "79905327664317e25e52cd6a87e1fe0c24ba58aa917690e04933506275e8cc15",
+    "method": "Frozen national mask; cosine area mean; complete monthly sum and >=90% per-day mask coverage"
+  },
+  {
+    "path": "ZM_daily_quality.csv",
+    "sha256": "045909714de8e1e35e1ecc3d248aa689beaebcf818b20cc22e777e6fcc046b0d",
+    "method": "Frozen national mask; cosine area mean; complete monthly sum and >=90% per-day mask coverage"
+  },
+  {
+    "path": "ZW_ground_augsep.csv",
+    "sha256": "9ef8fe89631f829c81882dc8df16df991213f9eaa3d07dff79122f1e7fdf945e",
+    "method": "Frozen national mask; cosine area mean; complete monthly sum and >=90% per-day mask coverage"
+  },
+  {
+    "path": "ZW_daily_quality.csv",
+    "sha256": "8c4cd517b3d99e1e57b9d99ff1b76018a217e5a7570b1592ded97c57c16a9ab3",
+    "method": "Frozen national mask; cosine area mean; complete monthly sum and >=90% per-day mask coverage"
+  },
+  {
+    "path": "geography_freeze.json",
+    "sha256": "30dea1d528c27adbeee1057a612f364313b3b2ab51a3be46f49fbfad164a30da"
+  },
+  {
+    "path": "rebuild_ground.py",
+    "sha256": "6f036d9bd5e56e606ef91aa7e6bc7cb73ef36fb7a57905dfd9d1cb9384d28c0f"
+  }
+]

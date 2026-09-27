@@ -1,0 +1,35 @@
+{
+  "recorded_at_utc": "2026-09-27T03:40:25.297231+00:00",
+  "before_any_county_model_fit": true,
+  "trigger": "First validation stopped before any fitting on nonpositive labels.",
+  "source_record": 17279151,
+  "source_version": "1.10",
+  "source_row_count": 34179,
+  "unsupported_zero_count": 218,
+  "unsupported_zero_year_counts": {
+    "2003": 56,
+    "2004": 43,
+    "2005": 42,
+    "2006": 42,
+    "2007": 24,
+    "2008": 9,
+    "2009": 2
+  },
+  "negative_count": 0,
+  "nonfinite_original_yield_count": 0,
+  "genuine_zero_positive_area_zero_production": 0,
+  "frozen_repair": "Map yield=0 with BOTH harvest_area and production missing to NaN, retaining raw value and row in audit. Preserve genuine zero yield with positive harvested area and zero output. Negative/nonfinite yields missing. No feature or geographic changes.",
+  "interpretation": "These218 records lack affirmative evidence of total crop failure. Exact upstream origin of zero values is unresolved; do not assert every record is a disclosure-suppression artifact. Current author US preparation drops rows with any missing quantity; current common filter retains only positive yield. The fixed v1.10 archive still includes these records.",
+  "upstream_sources": [
+    "https://github.com/WUR-AI/AgML-CY-Bench/blob/main/data_preparation/crop_statistics_US/data_preparation.ipynb",
+    "https://github.com/WUR-AI/AgML-CY-Bench/blob/main/data_preparation/filter_yield_data.py",
+    "https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=K"
+  ],
+  "nass_codes": "NASS distinguishes NA(not available),D(withheld),S(insufficient reports),X(not applicable),Z(less than half rounding unit); none is evidence of an exact zero yield. Original symbols are absent in this prepared archive.",
+  "upstream_audit_sha256": {
+    "us_nass_stats.R": "6e5fe024f2f0764ef912b1443356f75dd389ebc19f0d5dcbc355cf633f69bf6d",
+    "us_data_preparation.py": "67843551d3922a25e8eade91a4575bb6854b9a3f466d254b6471768d8cc18948",
+    "us_unit_conversion.py": "4755b7ec1f87d1472fb8586d1bce74cb00fb754d0b32a5070b980b30d00166c8",
+    "filter_yield_data.py": "c707dfc0d5893d767a719803aa7b565b86ef68489ac7931162fe3748b06d8c3f"
+  }
+}

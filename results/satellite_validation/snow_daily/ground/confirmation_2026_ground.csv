@@ -1,0 +1,2 @@
+year,winter_precip_mm,precipitation_source,precipitation_months,precipitation_revised_months,precipitation_source_period_end,winter_precip_oct_feb_mm,ground_swe_mm,ground_swe_date,ground_swe_observed_at_local,assumed_forecast_at,original_release_verified
+2026,722.122,CDEC 5SI monthly sensor2; San Joaquin regional 5-station index,6,0,2026-03-31,721.8679999999999,34.544000000000004,2026-03-31,2026-03-31 04:00:00,2026-04-15,False

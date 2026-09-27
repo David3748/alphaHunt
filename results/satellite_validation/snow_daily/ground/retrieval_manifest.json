@@ -1,0 +1,79 @@
+[
+  {
+    "path": "basin_full.geojson",
+    "url": "https://api.water.usgs.gov/nldi/linked-data/nwissite/USGS-11251000/basin?f=json&simplified=false",
+    "status": 200,
+    "sha256": "d8fe9c31143587feff9c820b309e6994200348fc437fb4aed16271d7ceeac243",
+    "retrieved_at_utc": "2026-09-27T02:38:37.261854+00:00"
+  },
+  {
+    "path": "huntington_metadata.html",
+    "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HNT",
+    "status": 200,
+    "sha256": "335b10ac540b0c558334fe6c3eb1d1aa42c45d595f7fae60d7865461de905310",
+    "retrieved_at_utc": "2026-09-27T02:38:38.242507+00:00"
+  },
+  {
+    "path": "huntington_precip.csv",
+    "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=HNT&SensorNums=45&dur_code=D&Start=1999-10-01&End=2025-03-31",
+    "status": 200,
+    "sha256": "da896c497d5122b9a98cc4506c034cf5f3226c59a2792557d3fa9c949cec4752",
+    "retrieved_at_utc": "2026-09-27T02:38:38.401775+00:00"
+  },
+  {
+    "path": "huntington_swe.csv",
+    "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=HNT&SensorNums=3&dur_code=D&Start=2000-03-01&End=2025-03-31",
+    "status": 200,
+    "sha256": "148803ec8e4acea888f7038631ee25bdb5ac7b7da542ec4b13700e363ae2f1ab",
+    "retrieved_at_utc": "2026-09-27T02:38:38.332409+00:00"
+  },
+  {
+    "path": "huntington_accumulated.csv",
+    "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=HNT&SensorNums=2&dur_code=D&Start=2003-10-01&End=2025-03-31",
+    "status": 200,
+    "sha256": "fc4729a2ae0b3eda7f03edf4228f4626b2240042892a8487f0d97c7787c81e9c",
+    "retrieved_at_utc": "2026-09-27T02:40:23.940956+00:00"
+  },
+  {
+    "path": "five_station_metadata.html",
+    "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=5SI",
+    "status": 200,
+    "sha256": "e6bd4e137cfc79fa647150b2c83520594a3e34588c9754652b4aabfc9c260fd7",
+    "retrieved_at_utc": "2026-09-27T02:40:24.195567+00:00"
+  },
+  {
+    "path": "five_station_precip.csv",
+    "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=5SI&SensorNums=45&dur_code=D&Start=1999-10-01&End=2025-03-31",
+    "status": 200,
+    "sha256": "7f93d6ab87057a3c0b8a7f8c1f04997a6a3aeddffb9717e6c46a0dc400b94423",
+    "retrieved_at_utc": "2026-09-27T02:40:24.242032+00:00"
+  },
+  {
+    "path": "five_station_accumulated.csv",
+    "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=5SI&SensorNums=2&dur_code=D&Start=1999-10-01&End=2025-03-31",
+    "status": 200,
+    "sha256": "406c993393c681af590f19a3df46eaec02b89e0ea9130d7e6fa819bbbd5fb9ca",
+    "retrieved_at_utc": "2026-09-27T02:40:24.554269+00:00"
+  },
+  {
+    "path": "five_station_monthly.csv",
+    "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=5SI&SensorNums=2&dur_code=M&Start=1999-10-01&End=2025-03-31",
+    "status": 200,
+    "sha256": "7c37013bfb45b58b87e9509d00cc48db61a356322c4f27f77e10a69e08078d61",
+    "retrieved_at_utc": "2026-09-27T02:41:14.425372+00:00"
+  },
+  {
+    "path": "outlet_usgs.json",
+    "url": "https://api.water.usgs.gov/nldi/linked-data/nwissite/USGS-11251000?f=json",
+    "status": 200,
+    "sha256": "349eaaa4d6c50296228fb283212412af3d1f80844410fe1a877debb36092dd22",
+    "retrieved_at_utc": "2026-09-27T02:37:52.409270+00:00"
+  },
+  {
+    "path": "usgs_site.txt",
+    "url": "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=11251000&siteOutput=expanded",
+    "status": 200,
+    "sha256": "7e98d5722d6861e402ec40e4665fe938b5c638233ce43f03a587327da99c362a",
+    "retrieved_at_utc": "2026-09-27T02:37:52.731088+00:00"
+  }
+]

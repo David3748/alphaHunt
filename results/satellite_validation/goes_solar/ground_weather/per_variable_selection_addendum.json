@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-09-27T02:21:51.272506+00:00",
+  "selection_before_generation_join": true,
+  "outcomes_inspected_by_selection_agent": false,
+  "reason": "Parent predeclared closest qualifying station independently for each element, superseding same-station preference before weather/outcome join. Coverage and distance only; no model evaluation. An airport sensitivity remains separately reported because primary archive availability is not certified.",
+  "selection_window": [
+    "2015-01-01",
+    "2025-12-31"
+  ],
+  "coverage_threshold": 0.9,
+  "method": "For each of TMAX, TMIN, PRCP choose the nearest station with >=90% unflagged nonmissing daily coverage; locations and all candidates preserved.",
+  "primary_element_stations": {
+    "TMAX": "USR0000CLAP",
+    "TMIN": "USR0000CLAP",
+    "PRCP": "USC00047672"
+  },
+  "airport_sensitivity": "USW00093206",
+  "closest_all_network_sensitivity": "USC00049111",
+  "forecast_features": [
+    "tmean_c",
+    "dtr_c",
+    "log1p(prcp_mm)"
+  ],
+  "forecast_model_declared_by_parent": "Month fixed effects plus linear time and these weather features; OLS last 48 eligible released months, minimum 36. Satellite must beat this baseline.",
+  "original_vintage_operational_verification": false,
+  "availability_assumption": "Month end +14 days is an assumption for comparable measurements, not evidence that current archive values were available then."
+}

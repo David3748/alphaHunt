@@ -1,0 +1,13 @@
+{
+  "cybench_maize": {
+    "summary_sha256": "5c57c2b4438c2fa181fe80c3bd8700ec011d9534ccfd4f317efbf1c959b1148c",
+    "annual_losses_sha256": "5fa670c05639a07a6f0ef74b38db42865de37f05ae6aa42a251a0bceaf6665c6",
+    "audit_sha256": "831c78550583e6d2fe6ef75384639f7b70440802595fcbc452d2115e65a56eb3"
+  },
+  "cybench_maize_late": {
+    "summary_sha256": "7d7d32492d8e82c7f6fe9ed241d783e4c52643a20d35d916042acdc3574ab630",
+    "annual_losses_sha256": "d9d25899d5564bba2154cc772535434d8a4f42a9d8f915ab592d998956bf54aa",
+    "audit_sha256": "65528460854b6a364f5b9dfc48a470c50ff9292491595c4fcc8fd352aa71d668"
+  },
+  "plot_script_sha256": "7742e607234b9554fde253da4f9c31982293f530dbeae867961a1b4522b5814e"
+}

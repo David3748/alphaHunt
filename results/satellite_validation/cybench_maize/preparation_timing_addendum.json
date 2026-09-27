@@ -1,0 +1,6 @@
+{
+  "recorded_at_utc": "2026-09-27T03:35:56.272629+00:00",
+  "before_any_county_model_fit": true,
+  "reason": "Align extractor to already-frozen model issue August15 at12UTC and include full final composite day through23:59:59UTC before14-day buffer. Initial download process had loaded prior midnight metadata; regenerated all time fields and compact hashes before data handoff.",
+  "feature_values_and_eligibility_unchanged": true
+}

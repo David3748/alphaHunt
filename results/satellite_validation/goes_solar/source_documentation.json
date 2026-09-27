@@ -1,0 +1,16 @@
+{
+  "product": "https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc%3AC01524",
+  "filename_creation_semantics": "https://www.goes-r.gov/users/docs/PUG-main-vol1.pdf",
+  "operational_GOES18_transition_2023_01_04_1800UTC": "https://www.ospo.noaa.gov/data/messages/2023/01/MSG_20230104_1805.html",
+  "GOES17_provisional_quality": "https://www.ospo.noaa.gov/operations/goes/product-quality-overview/ps-pvr/goes-17/ABI/Shortwave%20Radiation%20Budget/Provisional/GOES-17_ABI_L2_SRB_Provisional_ReadMe.pdf",
+  "GOES18_enterprise_change_quality": "https://www.ospo.noaa.gov/operations/goes/product-quality-overview/ps-pvr/goes-18/ABI/Shortwave%20Radiation%20Budget%20%28Downward%20S-W%20Radiation_%20Surface%20_%20Reflected%20S-W%20Radiation_%20TOA%29/Full/GOES-18_ABI_L2_SRB_Full_ReadMe.pdf",
+  "facts": [
+    "The DSR product is instantaneous direct plus diffuse surface shortwave irradiance in W/m2, not an hourly energy total.",
+    "GOES17 DSR reached provisional quality inJune2019. Public noaa-goes16/17 S3 DSR archives beginDecember5 2019.",
+    "GOES18 became operationalGOES-WestJanuary4 2023 18UTC; useGOES17 before then.",
+    "AtApril17 2024 16:40UTC EnterpriseAlgorithm changedDSR fromhourly0.25degreeCONUS to10minute2kmfull disk; usefixed0.25degreegeographicfootprint toreduce spatial confounding.",
+    "GOES18 DSR full validation maturity fromJanuary4 2025; operational product changes and ancillary errors remain possible.",
+    "Filename c timestamp means file creation, not byitself publicdissemination. Require currentS3LastModified also before issue; both agree withinminutes for ordinary samplefiles. Reuploadedhistoricalobjects are excluded conservatively.",
+    "Good/degraded valid DSR values are retained; fillvalues and outside0\u20131500W/m2 rejected; at least90%pixels withinfixedcell mustbevalid."
+  ]
+}

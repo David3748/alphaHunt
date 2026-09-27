@@ -1,0 +1,115 @@
+{
+  "diagnostics": {
+    "primary_yield": {
+      "completed_harvest_stress": {
+        "baseline": {
+          "n_years": 24,
+          "mean_forecast_bias": -0.357322875727903,
+          "mean_time_coefficient_per_year": 0.06931634690290651,
+          "median_time_coefficient_per_year": 0.0719325149586392,
+          "last_time_coefficient_per_year": 0.07666192120562519,
+          "fraction_underpredicted": 0.7083333333333334
+        },
+        "satellite": {
+          "n_years": 24,
+          "mean_forecast_bias": -0.36207150703185026,
+          "mean_time_coefficient_per_year": 0.06388991331710245,
+          "median_time_coefficient_per_year": 0.06380561072570559,
+          "last_time_coefficient_per_year": 0.0747995110601022,
+          "fraction_underpredicted": 0.6666666666666666
+        },
+        "trend": {
+          "n_years": 24,
+          "mean_forecast_bias": -0.22680180982508827,
+          "mean_time_coefficient_per_year": 0.09650518550494036,
+          "median_time_coefficient_per_year": 0.1078290636370545,
+          "last_time_coefficient_per_year": 0.11799006743461089,
+          "fraction_underpredicted": 0.6666666666666666
+        }
+      },
+      "fao_lag": {
+        "baseline": {
+          "n_years": 22,
+          "mean_forecast_bias": -0.4343197282603676,
+          "mean_time_coefficient_per_year": 0.07056748606419418,
+          "median_time_coefficient_per_year": 0.07549692046424822,
+          "last_time_coefficient_per_year": 0.07659193924747079,
+          "fraction_underpredicted": 0.7272727272727273
+        },
+        "satellite": {
+          "n_years": 22,
+          "mean_forecast_bias": -0.5178301359301565,
+          "mean_time_coefficient_per_year": 0.07068882764101016,
+          "median_time_coefficient_per_year": 0.07868769845502166,
+          "last_time_coefficient_per_year": 0.0797030177029034,
+          "fraction_underpredicted": 0.8181818181818182
+        },
+        "trend": {
+          "n_years": 22,
+          "mean_forecast_bias": -0.3260428268427343,
+          "mean_time_coefficient_per_year": 0.09469536498518415,
+          "median_time_coefficient_per_year": 0.10549964303872388,
+          "last_time_coefficient_per_year": 0.11313760179375973,
+          "fraction_underpredicted": 0.6818181818181818
+        }
+      }
+    },
+    "secondary_production": {
+      "completed_harvest_stress": {
+        "baseline": {
+          "n_years": 24,
+          "mean_forecast_bias": -0.8089933070302894,
+          "mean_time_coefficient_per_year": 0.14876548103717413,
+          "median_time_coefficient_per_year": 0.1538771265783021,
+          "last_time_coefficient_per_year": 0.18574206564793425,
+          "fraction_underpredicted": 0.625
+        },
+        "satellite": {
+          "n_years": 24,
+          "mean_forecast_bias": -0.8445677172713343,
+          "mean_time_coefficient_per_year": 0.13449682232015836,
+          "median_time_coefficient_per_year": 0.1317995525550716,
+          "last_time_coefficient_per_year": 0.17655460718623397,
+          "fraction_underpredicted": 0.6666666666666666
+        },
+        "trend": {
+          "n_years": 24,
+          "mean_forecast_bias": -0.4638825609131474,
+          "mean_time_coefficient_per_year": 0.15976969177168288,
+          "median_time_coefficient_per_year": 0.16286344325371363,
+          "last_time_coefficient_per_year": 0.20877086608048012,
+          "fraction_underpredicted": 0.5833333333333334
+        }
+      },
+      "fao_lag": {
+        "baseline": {
+          "n_years": 22,
+          "mean_forecast_bias": -0.8777228753747598,
+          "mean_time_coefficient_per_year": 0.128989771575116,
+          "median_time_coefficient_per_year": 0.13154722607030672,
+          "last_time_coefficient_per_year": 0.159005282380287,
+          "fraction_underpredicted": 0.6818181818181818
+        },
+        "satellite": {
+          "n_years": 22,
+          "mean_forecast_bias": -1.2591536225838313,
+          "mean_time_coefficient_per_year": 0.12156935141457556,
+          "median_time_coefficient_per_year": 0.11908132083399711,
+          "last_time_coefficient_per_year": 0.1681394158626842,
+          "fraction_underpredicted": 0.7727272727272727
+        },
+        "trend": {
+          "n_years": 22,
+          "mean_forecast_bias": -0.6294124143207621,
+          "mean_time_coefficient_per_year": 0.15518047464278906,
+          "median_time_coefficient_per_year": 0.1577533884426821,
+          "last_time_coefficient_per_year": 0.19446089117779888,
+          "fraction_underpredicted": 0.6363636363636364
+        }
+      }
+    }
+  },
+  "interpretation": "Conditional time coefficients have different covariates; smaller coefficients do not alone prove a causal shrinkage explanation. Errorbias is descriptive onthealreadyusedholdout. No corrected model fit ornewverification claim.",
+  "proposed_correction": "Unpenalized interceptandtime U; standardizedotherpredictors Z usingtrainingmoments; M=I\u2212UU+; beta=(Ztranspose MZ+alphaI)^\u22121Ztranspose My; gamma=least_squares(U,y\u2212Zbeta). Forecast Unew gamma+Znew beta. Freeze independent replication beforeestimating thismodel.",
+  "code_sha256": "61a7dbb469c4b53fddaa22ae87dc761f27ee2391375468c2ddb03825508a4e9c"
+}

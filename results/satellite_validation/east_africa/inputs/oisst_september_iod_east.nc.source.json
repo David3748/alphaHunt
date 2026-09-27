@@ -1,0 +1,36 @@
+{
+  "path": "inputs/oisst_september_iod_east.nc",
+  "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/noaa.oisst.v2.highres/sst.mon.mean.nc",
+  "request": {
+    "var": "sst",
+    "south": -10,
+    "north": 0,
+    "west": 90,
+    "east": 110,
+    "horizStride": 1,
+    "time_start": "1982-09-01T00:00:00Z",
+    "time_end": "2025-09-01T00:00:00Z",
+    "timeStride": 12,
+    "accept": "netcdf4"
+  },
+  "indices": {
+    "time": [
+      12,
+      12,
+      528
+    ],
+    "lat": [
+      320,
+      359
+    ],
+    "lon": [
+      360,
+      439
+    ]
+  },
+  "retrieved_at_utc": "2026-09-27T02:58:29.613466+00:00",
+  "sha256": "475b6d53754e5edc3b892194b3fd4b6e27433607f8f658ef81518e24b00ce2e6",
+  "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+  "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+  "source_history": null
+}

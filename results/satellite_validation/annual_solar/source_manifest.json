@@ -1,0 +1,7 @@
+{
+  "power_cvsr.json": {
+    "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=ALLSKY_SFC_SW_DWN&community=RE&longitude=-119.9166&latitude=35.323739&start=2015&end=2025&format=JSON",
+    "retrieved_at_utc": "2026-09-27T02:23:46.775051+00:00",
+    "sha256": "cd79f44e84d5e7ebce3b7d04a31f6527a29376c0ec8c2c5199ea8e6bba5b6862"
+  }
+}

@@ -1,0 +1,526 @@
+{
+  "primary_yield": {
+    "fao_lag": {
+      "n_test_years": 22,
+      "test_harvest_years": [
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 0.8207170465216902,
+          "mae": 0.6734625609160396
+        },
+        "satellite": {
+          "rmse": 0.7597676104223023,
+          "mae": 0.5855698830979911
+        },
+        "mean": {
+          "rmse": 2.0721824907486357,
+          "mae": 1.9037013346051246
+        },
+        "recent_mean": {
+          "rmse": 1.2444093981038895,
+          "mae": 1.0648435499959341
+        },
+        "persistence": {
+          "rmse": 0.9241013287167286,
+          "mae": 0.8100645756840915
+        },
+        "trend": {
+          "rmse": 0.7893205372724917,
+          "mae": 0.654564984280374
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.07426364099259275,
+          "mae_reduction": 0.13050863243013455,
+          "rmse_reduction_ci95": [
+            -0.020580908300106948,
+            0.2939943162040025
+          ],
+          "annual_wins": 14
+        },
+        "mean": {
+          "rmse_reduction": 0.6333490830009791,
+          "mae_reduction": 0.6924045424281573,
+          "rmse_reduction_ci95": [
+            0.47304708196865025,
+            0.8044475120343151
+          ],
+          "annual_wins": 21
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.38945526160445054,
+          "mae_reduction": 0.4500883410523293,
+          "rmse_reduction_ci95": [
+            0.288067401610747,
+            0.592084744087354
+          ],
+          "annual_wins": 19
+        },
+        "persistence": {
+          "rmse_reduction": 0.1778308429905966,
+          "mae_reduction": 0.2771318476635235,
+          "rmse_reduction_ci95": [
+            -0.0458664335165218,
+            0.5231855917140381
+          ],
+          "annual_wins": 14
+        },
+        "trend": {
+          "rmse_reduction": 0.03744097037220129,
+          "mae_reduction": 0.10540603735202225,
+          "rmse_reduction_ci95": [
+            -0.08136490408823009,
+            0.2749326999595367
+          ],
+          "annual_wins": 15
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2000,
+          "reason": "Fewerthan15eligiblepriorlabels"
+        },
+        {
+          "harvest_year": 2001,
+          "reason": "Fewerthan15eligiblepriorlabels"
+        },
+        {
+          "harvest_year": 2005,
+          "reason": "Missingorunavailablefeature"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 21,
+        "matched_satellite": {
+          "rmse": 0.7704864374301761,
+          "mae": 0.5993180446791709
+        },
+        "placebo": {
+          "rmse": 0.8475428292929712,
+          "mae": 0.6991944870668794
+        },
+        "rmse_reduction": 0.09091740169293427,
+        "rmse_reduction_ci95": [
+          0.0022770711710943777,
+          0.30699300168399823
+        ]
+      }
+    },
+    "completed_harvest_stress": {
+      "n_test_years": 24,
+      "test_harvest_years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 0.7595818413235853,
+          "mae": 0.6178159268271151
+        },
+        "satellite": {
+          "rmse": 0.6617774039125137,
+          "mae": 0.5098578917067768
+        },
+        "mean": {
+          "rmse": 1.8856866718591925,
+          "mae": 1.6900734301342322
+        },
+        "recent_mean": {
+          "rmse": 1.0242914255228674,
+          "mae": 0.8652309886931283
+        },
+        "persistence": {
+          "rmse": 0.8722802584344108,
+          "mae": 0.6610057569107302
+        },
+        "trend": {
+          "rmse": 0.7202212643922413,
+          "mae": 0.5901015297626245
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.12876089460043638,
+          "mae_reduction": 0.17474142448022134,
+          "rmse_reduction_ci95": [
+            0.0420509419771091,
+            0.3051886453081993
+          ],
+          "annual_wins": 17
+        },
+        "mean": {
+          "rmse_reduction": 0.6490522981423874,
+          "mae_reduction": 0.6983220476602121,
+          "rmse_reduction_ci95": [
+            0.5239777401399384,
+            0.785717955149665
+          ],
+          "annual_wins": 23
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.35391687617154666,
+          "mae_reduction": 0.4107262703606098,
+          "rmse_reduction_ci95": [
+            0.24590111055301392,
+            0.5292793661102208
+          ],
+          "annual_wins": 19
+        },
+        "persistence": {
+          "rmse_reduction": 0.24132479496866366,
+          "mae_reduction": 0.22866346264570603,
+          "rmse_reduction_ci95": [
+            -0.1317679638594835,
+            0.473034177156658
+          ],
+          "annual_wins": 15
+        },
+        "trend": {
+          "rmse_reduction": 0.08114709099716111,
+          "mae_reduction": 0.13598276569140022,
+          "rmse_reduction_ci95": [
+            -0.03239317552403336,
+            0.27406954458440524
+          ],
+          "annual_wins": 16
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2005,
+          "reason": "Missingorunavailablefeature"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 23,
+        "matched_satellite": {
+          "rmse": 0.6688580205395558,
+          "mae": 0.518215714458059
+        },
+        "placebo": {
+          "rmse": 0.7853760579725558,
+          "mae": 0.645010263437768
+        },
+        "rmse_reduction": 0.14835954858846956,
+        "rmse_reduction_ci95": [
+          0.05798233660800658,
+          0.3229251620475405
+        ]
+      }
+    }
+  },
+  "secondary_production": {
+    "fao_lag": {
+      "n_test_years": 22,
+      "test_harvest_years": [
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 2.5896383163531085,
+          "mae": 2.1814155510467916
+        },
+        "satellite": {
+          "rmse": 2.3621808150868064,
+          "mae": 1.880483106385077
+        },
+        "mean": {
+          "rmse": 4.064722559475728,
+          "mae": 3.513660195507381
+        },
+        "recent_mean": {
+          "rmse": 2.930954350049357,
+          "mae": 2.5044829000000006
+        },
+        "persistence": {
+          "rmse": 2.9452501248947587,
+          "mae": 2.606063863636364
+        },
+        "trend": {
+          "rmse": 2.4053133716690382,
+          "mae": 1.9739535263407681
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.08783369470166857,
+          "mae_reduction": 0.13795282816119403,
+          "rmse_reduction_ci95": [
+            -0.04092619382861215,
+            0.23366758709802718
+          ],
+          "annual_wins": 13
+        },
+        "mean": {
+          "rmse_reduction": 0.4188580449162358,
+          "mae_reduction": 0.4648079205867741,
+          "rmse_reduction_ci95": [
+            0.17792636443732804,
+            0.5784940322604994
+          ],
+          "annual_wins": 18
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.19405745263585306,
+          "mae_reduction": 0.2491531459907047,
+          "rmse_reduction_ci95": [
+            0.029975259347675497,
+            0.3298916881787078
+          ],
+          "annual_wins": 17
+        },
+        "persistence": {
+          "rmse_reduction": 0.19796936935153742,
+          "mae_reduction": 0.27842017510608885,
+          "rmse_reduction_ci95": [
+            0.03583811371241112,
+            0.36034893393746054
+          ],
+          "annual_wins": 14
+        },
+        "trend": {
+          "rmse_reduction": 0.017932198394715715,
+          "mae_reduction": 0.04735188478776531,
+          "rmse_reduction_ci95": [
+            -0.11252516636994075,
+            0.1405246737329395
+          ],
+          "annual_wins": 10
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2000,
+          "reason": "Fewerthan15eligiblepriorlabels"
+        },
+        {
+          "harvest_year": 2001,
+          "reason": "Fewerthan15eligiblepriorlabels"
+        },
+        {
+          "harvest_year": 2005,
+          "reason": "Missingorunavailablefeature"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 21,
+        "matched_satellite": {
+          "rmse": 2.427373948936507,
+          "mae": 1.965100990242507
+        },
+        "placebo": {
+          "rmse": 2.6289064509035325,
+          "mae": 2.185755753668781
+        },
+        "rmse_reduction": 0.07666020291355768,
+        "rmse_reduction_ci95": [
+          -0.0281930653652715,
+          0.1830130118250251
+        ]
+      }
+    },
+    "completed_harvest_stress": {
+      "n_test_years": 24,
+      "test_harvest_years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 2.528467591911224,
+          "mae": 2.1720110699370063
+        },
+        "satellite": {
+          "rmse": 2.2568236427683397,
+          "mae": 1.8936322209302467
+        },
+        "mean": {
+          "rmse": 3.803426723167121,
+          "mae": 3.230537268336386
+        },
+        "recent_mean": {
+          "rmse": 2.633063370078645,
+          "mae": 2.184443041666667
+        },
+        "persistence": {
+          "rmse": 3.28823075080056,
+          "mae": 2.488564333333333
+        },
+        "trend": {
+          "rmse": 2.388402109260792,
+          "mae": 1.9921801308208857
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.1074342222189818,
+          "mae_reduction": 0.12816640433367277,
+          "rmse_reduction_ci95": [
+            -0.01295335201448109,
+            0.20698081270330132
+          ],
+          "annual_wins": 17
+        },
+        "mean": {
+          "rmse_reduction": 0.4066341204835733,
+          "mae_reduction": 0.41383365563047625,
+          "rmse_reduction_ci95": [
+            0.15023220799554046,
+            0.5668656057734595
+          ],
+          "annual_wins": 18
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.14289049461770742,
+          "mae_reduction": 0.13312813160582104,
+          "rmse_reduction_ci95": [
+            -0.04174671014086428,
+            0.2721718509194331
+          ],
+          "annual_wins": 15
+        },
+        "persistence": {
+          "rmse_reduction": 0.3136662801967628,
+          "mae_reduction": 0.23906639841864097,
+          "rmse_reduction_ci95": [
+            0.09352579569091286,
+            0.4280147642270074
+          ],
+          "annual_wins": 14
+        },
+        "trend": {
+          "rmse_reduction": 0.05509058377660525,
+          "mae_reduction": 0.0494673691229075,
+          "rmse_reduction_ci95": [
+            -0.1173206091057972,
+            0.1673503445940636
+          ],
+          "annual_wins": 14
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2005,
+          "reason": "Missingorunavailablefeature"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 23,
+        "matched_satellite": {
+          "rmse": 2.3036867053653305,
+          "mae": 1.9367178634006426
+        },
+        "placebo": {
+          "rmse": 2.603354156594655,
+          "mae": 2.115321764364412
+        },
+        "rmse_reduction": 0.1151082154804891,
+        "rmse_reduction_ci95": [
+          -0.049254031885532304,
+          0.21323826807203272
+        ]
+      }
+    }
+  },
+  "claims": "South Africa development diagnostic on already seen outcomes; not independent confirmation.",
+  "protocol_sha256": "95fb9b7f3011c4e27655159b5a98d8577f311605497f9f27e4e1a0e6b38389ef",
+  "code_sha256": "162034c9a974e31deaa74fa1616586d98ccbb758277cdd21f1f7c82b870dd365",
+  "derived_from": "summary.json; identical South Africa forecasts in final joint run"
+}

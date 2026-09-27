@@ -1,0 +1,42 @@
+{
+  "frozen_at_utc": "2026-09-27T03:43:41.742597+00:00",
+  "status": "Secondary September15 horizon fixed before any county forecast/price join, and before initial actual county model fit. August15 remains primary; report both without selecting winner.",
+  "years": [
+    2013,
+    2023
+  ],
+  "asset": "CORN, unleveraged Teucrium Corn Fund launched2010-06-09; exposure to multiple CBOT corn futures maturities, not spot corn.",
+  "county_information": "Use fixed CY-Bench Census county universe. For each September15noon issue, require8 finite positive prior county yield labels released before issue, using June30followingharvest availability. Weights are ONLY exact prior-year reported harvest_area, never current area or production. Each positive finite prior-year area has the same release assumption.",
+  "coverage": "Total prior area denominator=sum of positive finite reported prior-year area for all fixed-universe counties with8 prior released labels. Numerator is that same area among counties with eligible finite satellite,weather,trend forecasts. Require numerator/denominator>=0.80, otherwise abstain for all strategies. Report counties with missing or nonpositive prior area separately; coverage refers to reported prior area, not unknowable total true area. No carryforward of missing area.",
+  "aggregation": "Same eligible county support and normalized prior-year area weights for weather,satellite,trend. No actual current yield needed to trade.",
+  "signals": {
+    "satellite": "-sign(weighted_satellite-weighted_trend)",
+    "weather": "-sign(weighted_weather-weighted_trend)",
+    "incremental_overlay": "-sign(weighted_satellite-weighted_weather)",
+    "cash": "0",
+    "always_long": "1",
+    "always_short": "-1"
+  },
+  "position": "100%long or100%short CORN relative to capital; exact zero difference is cash. No hedging or optimization.",
+  "window": "First actual NYSE Arca trading session strictly after September15 calendar day; exit last session on/beforeOctober31 sameyear. Use adjusted close. Validate exact trading calendar endpoints with exchange_calendars XNYS (same normal US equity sessions), no silent stale quotes. Require all expected session closing quotes in window.",
+  "costs": "25bp entry +25bp exit=50bp roundtrip on absolute notional; short borrow3%annual timesactualcalendarholdingdays/365 on100%shortnotional. Cash no costs. Double execution costs sensitivity100bp roundtrip, borrow unchanged. ETF expenses/futuresroll already in price; no extra fee subtraction or interest onidlecollateral.",
+  "controls": [
+    "weather",
+    "cash",
+    "always_long",
+    "always_short"
+  ],
+  "prices": "Yahoo Finance chart adjusted close, current adjusted vintage. Raw response plus request and SHA preserved. No trades executed.",
+  "uncertainty": "Paired circular5-calendar-yearblock bootstrap10000draws seed20260927 sharedyearindices acrossallstrategies, fullcalendar2013-2023 retains missing-event gaps. Report mean net and compounded event net, differences against allcontrols, paired mean-difference intervals. Maximum11events, weakindependent sample; no annualization.",
+  "gate": "Trading alpha remains unverified regardless of scores. Positive economic diagnostic only ifsatellite mean netreturn95%lowerbound>0 and pairedmeanadvantage vsweather95%lowerbound>0; report all controls and overlay without selecting a winner.",
+  "limitations": [
+    "County feature geography uses2021staticmap publishedlater; revisedAgERA5andUSDAarchives, hypothetical historical signals only.",
+    "No originalvintage information set or historical borrow availability reconstruction.",
+    "Yield relative totrend is not market surprise or contemporaneous consensus forecast; national supplyweights omit unreported area.",
+    "Exploratory after several candidates; intervals not family-wise adjusted.",
+    "No tax, brokerage financing beyondfixedshortborrow, or liquidity capacity simulation."
+  ],
+  "forecast_protocol_sha256": "bd6c1613ec6886b4f579c8bcbd9942c624d812f94cdb9f002c56bf5f5e4ddcfd",
+  "secondary_to": "../protocol.json",
+  "horizon_month": 9
+}

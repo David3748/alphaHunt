@@ -1,0 +1,43 @@
+{
+  "status": "source_audit_only_not_a_local_replication",
+  "forecast_gate_passed": false,
+  "model_fitted": false,
+  "paper": {
+    "title": "Preseason maize and wheat yield forecasts for early warning of crop failure",
+    "doi": "10.1038/s41467-024-51555-8",
+    "url": "https://www.nature.com/articles/s41467-024-51555-8",
+    "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11344146/fullTextXML",
+    "download_sha256": "0e7f57af0a514f80537d81c830451577f6c4617f4b2ad4cead9029d8a5874972"
+  },
+  "code": {
+    "url": "https://github.com/WestonAnderson/yld-fcsts",
+    "commit": "9a853b5c94dc158c4ccbf4bc21092e511b7c1c94",
+    "files": {
+      "ForecastEstimate_hypergeom_wNans.py": "8adbe73dd64f3122f9a718bf7ef584d73df99ecd5c90e1cb948133c4876087ba",
+      "Fcst_evaluation.py": "a6174bb4254fc6bc010116b9ffb16d26eadbd64ccf91f22e00e6352a653db4fb",
+      "TP_FP_fnct.py": "45ee5ed6790337470b16613edf223a1e58584bcd15b2ae14cacf97e4b729a748",
+      "FAO_ensoYrShift.py": "12039af2d13a88a4c6ba6d73ca866d6935ef66c80c9c081481eaeb3fe0f1e438",
+      "regions_and_seasons.py": "97f9c48df935628fff9bfccfae4c75c368e261b59e8655f7ff40230e030172fe",
+      "fao_parallel.py": "bf2a37471d8bcf28b9c04a338a21a6d0834899f3f35a15761f350474ef2c431b"
+    }
+  },
+  "findings": [
+    "Public implementation is not a portable end-to-end pipeline: private absolute paths; processed FAO anomaly files, geographic masks, yield preprocessing and expected forecast directories absent.",
+    "Historical ENSO conditioning reads ERSSTv5_NINO34.csv. NOAA identifies ERSSTv5 as an in-situ-only SST product; this is not direct validation of incremental satellite OISST.",
+    "ENSO future probabilities come from NOAA/CIRES model-analog forecasts. Modern analog initialization uses SST and sea-surface-height fields, and historical hindcasts use CERA-20C; the crop code does not isolate a satellite contribution.",
+    "fao_parallel.py removes the target year but retains later years from training. This is leave-one-year-out evaluation, not chronological forward forecasting.",
+    "Processed yield anomalies use Gaussian smoothing (sigma three years). Preprocessing is not supplied; supplied code cannot establish that trends or anomaly thresholds were estimated using only earlier labels. The methods describe whole-series smoothing, which is unsuitable for directly asserting real-time causal labels.",
+    "Fcst_evaluation.py defaults analogOps to Obs, the explicitly perfect-ENSO sensitivity. Blind execution would not reproduce an operational forecast.",
+    "The paper evaluates probabilistic classification with AUC and reliability. It does not establish superiority to a strong ground-weather forecast or realized monetary decision value.",
+    "A clean chronological OISST-to-crop-failure experiment is feasible using existing local FAO and OISST snapshots, but would be a new predeclared experiment with training-only detrending/thresholds and proper probability scores, not a direct reproduction or certified satellite result."
+  ],
+  "sources": [
+    "https://www.nature.com/articles/s41467-024-51555-8",
+    "https://github.com/WestonAnderson/yld-fcsts/blob/9a853b5c94dc158c4ccbf4bc21092e511b7c1c94/fao_parallel.py",
+    "https://github.com/WestonAnderson/yld-fcsts/blob/9a853b5c94dc158c4ccbf4bc21092e511b7c1c94/ForecastEstimate_hypergeom_wNans.py",
+    "https://github.com/WestonAnderson/yld-fcsts/blob/9a853b5c94dc158c4ccbf4bc21092e511b7c1c94/Fcst_evaluation.py",
+    "https://www.ncei.noaa.gov/thredds/dodsC/ersst/ersst.v5.202412.nc.html",
+    "https://www.psl.noaa.gov/forecasts/seasonal/"
+  ],
+  "interpretation": "Useful scientific motivation for a predeclared probabilistic crop-risk experiment. It does not satisfy the user requirement for locally verified satellite forecast usefulness."
+}

@@ -1,0 +1,18 @@
+{
+  "frozen_at_utc": "2026-09-27T02:43:52.175396+00:00",
+  "outcomes_inspected": false,
+  "selection": "Official San Joaquin 5SI regional precipitation chosen by geography and complete 2000\u20132025 winter record, before any runoff join or fit. HNT is a geographically appropriate local diagnostic but lacks valid daily coverage in2013/2023.",
+  "primary": "CDEC5SI monthly sensor2 durationM, sum October through March, inches converted to mm by25.4",
+  "primary_input": "five_station_monthly.csv",
+  "features": "winter_ground.csv",
+  "quality": "All six monthly values must be finite nonnegative and blank/r flag; r revised values retained and counted. No imputation.",
+  "local_rain": "HNT daily sensor45; sum unflagged nonnegative Oct\u2013Mar daily readings when>=90% calendar coverage, otherwise missing; no scaling or imputation.",
+  "ground_snow": "HNT daily sensor3; latest finite nonnegative unflagged measurement in March29\u201331; negative SWE is missing, never zero.",
+  "availability": "Apr1 is an assumed forecast issue. Current CDEC archive DATE TIME/OBS DATE are period/observation labels, not publication times. Exact original publication or revision times have not been reconstructed. Optional Oct\u2013Feb precipitation is provided for conservative lag sensitivity.",
+  "regional_vs_basin": "5SI contains CalaverasBigTrees,HetchHetchy,Yosemite,NorthFork,Huntington; broader than Friant upstream catchment. Ground HNT station at37.227570,-119.220482,7000ft is inside upstream basin.",
+  "basin": "USGS NLDI full upstream basin forUSGS-11251000 SanJoaquinbelowFriant; full catchments because splitCatchment=true returned502. Geodesic1679.1124squaremiles versuspublished1676 (~0.186% larger).",
+  "basin_documentation": "https://api.water.usgs.gov/docs/nldi/basin/",
+  "outlet_documentation": "https://waterdata.usgs.gov/monitoring-location/USGS-11251000/",
+  "primary_documentation": "https://water.ca.gov/Programs/Flood-Management/Flood-Data/Snow-Surveys",
+  "original_vintage_operational_verification": false
+}

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content="Global Water Measurements portal is a prototype online source for satellite data products relevant to lakes, reservoirs, river channels, wetlands and global mean sea level."/>
+  <meta name="orgcode" content="61A"/>
+  <meta name="rno" content="Charon.M.Birkett"/>
+  <meta name="content-owner" content="Charon.M.Birkett"/>
+  <meta name="webmaster" content="Xu.Yang"/>
+
+  <title>Water Measurements Lakes and Reservoirs</title>
+  <link href="/gwm/css/site.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="/gwm/favicon-lake-32x32.png">
+
+  <!-- Add Google Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <!--bootstrap Stylesheet-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!--leafjs Stylesheet-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  <!--NASA analytics-->
+  <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&subagency=GSFC&yt=true&dclink=true" type="text/javascript"></script>
+      <script>
+    const ssid='d3e7ea13a239a608c56e2cbd4b9519da2165ecf0448d7a40';
+    </script>
+</head>
+
+<body>
+  <div class="body-content px-4">
+    <!-- header -->
+    <div class="row my-1 border-bottom border-warning"></div>
+<!--breadcrumbs goes here-->
+<div class="breadcrumb p-0 mb-1 row justify-content-between">
+  <ol class="breadcrumb pb-0">
+        <li class="breadcrumb-item"> <a href="/gwm">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><h1>Water Measurements Lakes and Reservoirs</h1></li>
+      </ol>
+  <div>
+    <div class="m-2 d-inline-block" id="product_type_pill"></div>
+    <!-- search box -->
+    <div class="m-2 d-inline-block">
+      <span class="search-icon"><i class="material-icons text-secondary">search</i></span>
+      <input class="popup-ajax form-control pl-4" style="width:250px" type="text" data-toggle="popover" data-placement="bottom" data-trigger="manual" data-template='<div class="popover popup-window" role="tooltip" style="margin-top:0"><div id="my-popover" class="popover-body p-0"></div></div>' placeholder="Target name or ID">
+    </div>
+  </div>
+</div>
+    <!-- latest News -->
+        <div class="row bg-light">
+      <div class="col mt-1">
+        <!-- collapse button for the news update -->
+        <a class="btn btn-sm btn-block text-left collapse-title-arrow" data-toggle="collapse" href="#latestNews" data-target="#latestNews" role="button" aria-expanded="false" aria-controls="latestNews" tabindex=0>
+          <div class="message-status"></div><span class="badge badge-warning">Latest News:</span> All operational lake and reservoir products are now displaying historical maximum and minimum with water level statistics.        </a>
+      </div>
+    </div>
+    <div class="collapse" id="latestNews" data-count="31" data-latest="2025-12-03">
+      <ul class="list-group">
+    <li class="list-group-item">
+      <h6 class="card-subtitle text-muted"><div class="message-status"></div>Dec 03, 2025</h6>
+      All operational lake and reservoir products are now displaying historical maximum and minimum with water level statistics summarized in the graph product legend.    </li>
+    <li class="list-group-item">
+      <h6 class="card-subtitle text-muted"><div class="message-status"></div>Dec 01, 2025</h6>
+      Some 10-day, 27-day and 35-day products have undergone minor upgrades. The 21-day products now utilize the more accurate GDR satellite dataset, and these products have been upgraded to Version 2.0.    </li>
+    <li class="list-group-item">
+      <h6 class="card-subtitle text-muted"><div class="message-status"></div>Jul 12, 2025</h6>
+      The TP (1992-2002) portion of the 10-day resolution water level time series for 001500.Srisailam has been modified.    </li>
+      </ul>
+    </div>
+
+    <!-- main page content -->
+    <div class="row py-4">
+      <div class="left-menu px-0 bg-light rounded">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a href="#readme" class="badge badge-danger" data-toggle="collapse" aria-expanded="false" aria-controls="readme">Important-Read me</a>
+          </li>
+          <li class="nav-item">
+            <strong>Project Information</strong>
+          </li>
+
+          <li class="nav-item"><a href="#ProjectBackground">Project Background</a></li>
+
+          
+<li class="nav-item">
+<a href="#show-10-day-product-table" data-toggle="collapse" aria-expanded="false" aria-controls="show-10-day-product-table">10-day Resolution Product Table</a>
+<div class="collapse card" id="show-10-day-product-table">
+  <div class="card-body text-center">
+    <p class="card-text">Choose file type to download</p>
+    <a download class="card-link" href="/gwm/html/WATER-MONITOR.LakesReservoirs.10day.xlsx" target="_blank">Excel</a>
+    <a download class="card-link" href="/gwm/html/WATER-MONITOR.LakesReservoirs.10day.pdf" target="_blank">PDF</a>
+  </div>
+</div>
+</li>
+
+<li class="nav-item">
+<a href="#show-monthly-product-table" data-toggle="collapse" aria-expanded="false" aria-controls="show-monthly-product-table">Monthly Resolution Product Table</a>
+<div class="collapse card" id="show-monthly-product-table">
+  <div class="card-body text-center">
+    <p class="card-text">Choose file type to download</p>
+    <a download class="card-link" href="/gwm/html/WATER-MONITOR.LakesReservoirs.35day.xlsx" target="_blank">Excel</a>
+    <a download class="card-link" href="/gwm/html/WATER-MONITOR.LakesReservoirs.35day.pdf" target="_blank">PDF</a>
+  </div>
+</div>
+</li>
+
+          <li class="nav-item"><a href="https://har.gsfc.nasa.gov/pub/danu/power/Reservoir_data/GWM_HEP_reservoirs.tgz">Multi-Resolution products for HEP</a></li>
+          <li class="nav-item"><a href="#SatelliteRadarAltimetry">Satellite Altimetry</a></li>
+          <li class="nav-item"><a href="/gwm/html/WATER-MONITOR.faq.pdf" >Frequently asked Questions</a></li>
+          <li class="nav-item"><a href="#" data-toggle="modal" data-target="#reference">General References</a></li>
+          <li class="nav-item"><a download href="/gwm/html/ATBD_WaterLevels_V1_03June2025.pdf">Product ATBD document</a></li>
+          <li class="nav-item"><a href="#contacts">Contact Us</a></li>
+          <li class="nav-item"><a href="#acknowledgement">Funding Sources</a></li>
+          <li class="nav-item"><a href="#dataack">Data Acknowledgement</a></li>
+          <li class="nav-item"><a href="#disclaimer">Disclaimer</a></li>
+          <li class="nav-item"><strong>Missions</strong></li>
+          <li class="nav-item"><a href="https://sealevel.jpl.nasa.gov/missions/topex/" >Topex/Poseidon</a></li>
+          <li class="nav-item"><a href="https://sealevel.jpl.nasa.gov/missions/jason1/" >Jason-1</a></li>
+          <li class="nav-item"><a href="https://sealevel.jpl.nasa.gov/missions/ostm-jason-2/" >Jason-2/OSTM</a></li>
+          <li class="nav-item"><a href="http://sealevel.jpl.nasa.gov/missions/jason3/" >Jason-3</a></li>
+          <li class="nav-item"><a href="https://podaac.jpl.nasa.gov/Sentinel-6" >Sentinel-6A Michael Freilich</a></li>
+          <li class="nav-item"><a href="http://www.esa.int/esaEO/SEMGWH2VQUD_index_0_m.html" >ERS-1 and ERS-2</a></li>
+          <li class="nav-item"><a href="https://earth.esa.int/eogateway/missions/envisat" >ENVISAT</a></li>
+          <li class="nav-item"><a href="http://www.aviso.altimetry.fr/en/missions/current-missions/saral.html" >SARAL</a></li>
+          <li class="nav-item"><a href="http://www.esa.int/Our_Activities/Observing_the_Earth/Copernicus/Sentinel-3" >Sentinel-3</a></li>
+          <li class="nav-item"><a href="https://swot.jpl.nasa.gov/" >SWOT</a></li>
+          <li class="nav-item"><a href="https://icesat-2.gsfc.nasa.gov/" >ICESat-2</a></li>
+          <li class="nav-item"><strong>Altimetry Data</strong></li>
+          <li class="nav-item"><a href="https://podaac.jpl.nasa.gov/node/749" >NASA PODAAC</a></li>
+          <li class="nav-item"><a href="http://www.aviso.altimetry.fr/en/data.html" >AVISO</a></li>
+          <li class="nav-item"><a href="http://www.nodc.noaa.gov/SatelliteData/Jason2/" >NOAA</a></li>
+          <li class="nav-item"><a href="https://nsidc.org/data/icesat-2" >ICESat-2</a></li>
+          <li class="nav-item"><strong>Ground-based Gauge Data</strong></li>
+          <li class="nav-item"><a href="http://www.usdams.info" >US Dams</a></li>
+          <li class="nav-item"><a href="https://www.glerl.noaa.gov" >NOAA GLERL</a></li>
+          <li class="nav-item"><a href="http://www.wcc.nrcs.usda.gov/wsf/" >USDA NRCS</a></li>
+          <li class="nav-item"><a href="https://www.usbr.gov/lc/riverops.html" >US Bureau of Reclamation</a></li>
+          <li class="nav-item"><a href="http://waterdata.usgs.gov/nwis" >US Geological Survey</a></li>
+          <li class="nav-item"><a href="https://corpslakes.erdc.dren.mil/visitors/visitors.cfm" >US Army Corps Lakes Gateway</a></li>
+          <li class="nav-item"><a href="http://wateroffice.ec.gc.ca" >Environment Canada</a></li>
+          <li class="nav-item"><strong>Lake/Reservoir Catalogs </strong></li>
+          <li class="nav-item"><a href="#" data-toggle="modal" data-target="#technote">NASA/GWM</a></li>
+          <li class="nav-item"><a href="http://wldb.ilec.or.jp" >ILEC</a></li>
+          <li class="nav-item"><a href="https://wp.geog.mcgill.ca/hydrolab/glwd/" >GLWD &#8211; Global Lakes and Wetlands</a></li>
+          <li class="nav-item"><a href="http://sedac.ciesin.columbia.edu/data/set/grand-v1-reservoirs-rev01" >GRanD</a></li>
+          <li class="nav-item"><a href="http://www.fao.org/nr/water/aquastat/dams/" >FAO AQUASTAT</a></li>
+          <li class="nav-item"><a href="https://www.icold-cigb.org" >ICOLD</a></li>
+          <li class="nav-item"><strong>Lake/Reservoir Surface Extents </strong></li>
+          <li class="nav-item"><a href="https://podaac.jpl.nasa.gov/dataset/PRESWOT_HYDRO_L3_LAKE_RESEVOIR_AREA_V2" >NASA MEaSUREs (MODIS)</a></li>
+          <li class="nav-item"><a href="https://landweb.modaps.eosdis.nasa.gov/lake">NASA LDOPE (MODIS/VIIRS)</a></li>
+          <li class="nav-item"><a href="https://podaac.jpl.nasa.gov/dataset/OPERA_L3_DSWX-HLS_V1/">NASA OPERA (Landsat/Sentinel-2)</a></li>
+          <li class="nav-item"><a href="https://nsidc.org/data/hma_gli/versions/1">NASA/NSERC Glacial Lakes (Landsat)</a></li>
+          <li class="nav-item"><a href="https://umip.erdc.dren.mil/apps/">USACE/NGA MOGWAI (MODIS)</a></li>
+          <li class="nav-item"><strong>Floods and Droughts</strong></li>
+          <li class="nav-item"><a href="http://floodobservatory.colorado.edu/Archives/index.html" >Dartmouth Flood Observatory</a></li>
+          <li class="nav-item"><a href="https://gpm.nasa.gov/missions/GPM" >NASA GPM Rainfall</a></li>
+          <li class="nav-item"><a href="https://water.weather.gov/ahps/" >National Weather Service</a></li>
+          <li class="nav-item"><a href="http://droughtmonitor.unl.edu" >US-Drought Monitor</a></li>
+          <li class="nav-item"><a href="https://www.drought.gov/current-conditions" >NIDIS</a></li>
+          <li class="nav-item"><strong>Partners</strong></li>
+          <li class="nav-item"><a href="https://science.gsfc.nasa.gov/earth/geodesy" >NASA/GSFC</a></li>
+          <li class="nav-item"><a href="http://glam1.gsfc.nasa.gov" >NASA/USDA GLAM</a></li>
+          <li class="nav-item"><a href="https://power.larc.nasa.gov/" >NASA/LaRC POWER</a></li>
+        </ul>
+      </div>
+      <div class="col-md pl-1 pr-0">
+        <div class="collapse alert border border-info" id="readme">
+          <h5>Specific Notes:</h5>
+          Regarding surface elevation products:
+          <ol type="i">
+            <li> It is important to consider the location of the satellite ground track AND the section of track used in complex or drought-prone regions where height variability may be location dependent. In such cases check the specific geographical location in the text product header.</li>
+            <li> High latitude lakes and rivers will freeze, and the ice-on period is not known accurately. Microwave energy can penetrate into ice and reflect back from a layer at an unknown depth. Further, for small or narrow water bodies, or for any water body where the satellite overpass is close to the coastline or islands, the radar altimeters may monitor the build-up of snow and ice on the surface or be affected by the build-up on the surrounding terrain. Winter elevations remain in the radar-based time series but they could be potentially erroneous due to the presence of snow and ice. High latitude observations from the laser altimeters should not suffer the same limitations. </li>
+            <li> The more recent radar altimeters are using an on-board DEM to more rapidly acquire the water surface. There are cases where this DEM setting is incorrect resulting in either a) the seasonality not being captured or b) the observed seasonality being dampened. End users must check the product Advisories or the product summary Tables for notes on potential DEM issues for that particular lake or reservoir.</li>
+            <li> The smoothed height variation (lower graphs) products are not available. These can vary according to the smoothing function applied and so are provided as a visualization aid only.</li>
+            <li> The products are routinely upgraded. End users should note the product version number in the graph legend and table header, and avoid utilizing products of mixed heritage.</li>
+          </ol>
+        </div>
+
+        <!-- top maps go here -->
+        <div class="alert bg-warning alert-dismissible invisible" role="alert" id="productAlert">
+    <h3> Please scroll down the page for water level and extent product </h3>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="grid-content mb-2">
+    <div>
+    <div class="card">
+  <div class="d-flex justify-content-between py-1 align-items-start">
+    <strong>10-day Lake Level</strong>
+    <div class="badge badge-primary">
+      Lakes <span class="badge badge-light" id="nrt_product_count"></span>
+      Date <span class="badge badge-light" id="nrt_product_date"></span>
+    </div>
+  </div>
+  <div id="nrt_map" class="map-global"></div>
+  <div class="d-flex py-1">
+    <span class="mr-1">Deviation from the mean (High to Low Water): </span>
+    <div >
+        <span class="indicator-8 indicator-dot"></span>
+        <span class="p-2 align-top">&ge;4 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-7 indicator-dot"></span>
+        <span class="p-2 align-top">3 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-6 indicator-dot"></span>
+        <span class="p-2 align-top">2 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-5 indicator-dot"></span>
+        <span class="p-2 align-top">1 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-4 indicator-dot"></span>
+        <span class="p-2 align-top">-1 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-3 indicator-dot"></span>
+        <span class="p-2 align-top">-2 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-2 indicator-dot"></span>
+        <span class="p-2 align-top">-3 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-1 indicator-dot"></span>
+        <span class="p-2 align-top">&le; -4 &#x3C3;</span>
+    </div>
+    <div >
+        <span class="indicator-0 indicator-dot"></span>
+        <span class="p-2 align-top">N/A</span>
+    </div>
+</div>  <div class="d-flex">
+          <div class="py-1 px-1">
+        <span class="material-icons-outlined">cloud_download</span>
+        <a href="/gwm/zip/lake.10.tar.gz" class="align-top">Download all the 10-day Resolution Products</a>
+      </div>
+          </div>
+</div>  </div>
+
+    <div>
+    <div class="card">
+  <div class="d-flex justify-content-between py-1 align-items-start">
+    <strong>Monthly Lake Level</strong>
+    <div class="badge badge-primary">
+      Lakes <span class="badge badge-light" id="monthly_product_count"></span>
+      Date <span class="badge badge-light" id="monthly_product_date"></span>
+    </div>
+  </div>
+  <div id="monthly_map" class="map-global"></div>
+  <div class="d-flex py-1">
+    <span class="mr-1">Satellite Mission Legend: </span>
+    <div >
+        <span class="icon-s3a"></span>
+        <span class="p-2 align-top">Sentinel-3A</span>
+    </div>
+    <div >
+        <span class="icon-s3b"></span>
+        <span class="p-2 align-top">Sentinel-3B</span>
+    </div>
+    <div >
+        <span class="icon-envisat"></span>
+        <span class="p-2 align-top">ENVISAT</span>
+    </div>
+    <div >
+        <span class="icon-swot"></span>
+        <span class="p-2 align-top">SWOT</span>
+    </div>
+</div>  <div class="d-flex">
+          <div class="py-1 px-1">
+        <span class="material-icons-outlined">cloud_download</span>
+        <a href="/gwm/zip/lake.30.tar.gz" class="align-top">Download all the Monthly Resolution Products</a>
+      </div>
+          </div>
+</div>  </div>
+
+    <div>
+    <div class="card">
+  <div class="d-flex justify-content-between py-1 align-items-start">
+    <strong>Lake Extent</strong>
+    <div class="badge badge-primary">
+      Lakes <span class="badge badge-light" id="extent_product_count"></span>
+      Date <span class="badge badge-light" id="extent_product_date"></span>
+    </div>
+  </div>
+  <div id="extent_map" class="map-global"></div>
+    <div class="d-flex">
+          <div class="py-1 px-1">
+        <span class="material-icons-outlined">cloud_download</span>
+        <a href="/gwm/zip/extent.10.tar.gz" class="align-top">Download all Lake Extent Products</a>
+      </div>
+          </div>
+</div>  </div>
+
+  
+</div>
+
+        <!--page body content goes here-->
+        <div class="d-flex flex-column">
+          <a id="ProjectBackground"></a>
+          <div class="d-flex justify-content-between"><strong>Project Background</strong><a href="#top" title="Top of Page">Top</a></div>
+          <p>
+            This web site provides satellite-based information relating to the current and historical status of the global oceans, lakes &amp; reservoirs, and rivers &amp; wetlands.
+            Here, “status” is primarily centered on variations in surface elevation as provided by a suite of satellite-based radar altimeters. These instruments are onboard various space-agency (NASA/CNES/ESA/ISRO) missions with data set and auxiliary information sourced from NOAA, NASA/GSFC, and RADS.
+            Variations in surface elevation enables changing sea level to be monitored and reveals the seasonal and inter-annual fluctuations in continental waters. The products integrate responses to regional and global climate variations as well as anthropogenic influences. Over land, short- and long-term drought, as well as approaching potential flood conditions, can be highlighted. The data sets span multiple decades and are available in near real time, they thus serve both science and applied science programs. Applications include water resources management, estimating irrigation potential for crop analysis, hazard monitoring, hydro-electric power stability, and regional security.
+          </p>
+        </div>
+
+        <div class="d-flex flex-column">
+          <a id="SatelliteRadarAltimetry"></a>
+          <div class="d-flex justify-content-between"><strong>Satellite Altimetry</strong><a href="#top" title="Top of Page">Top</a></div>
+          <p>
+            A satellite radar altimeter is a nadir-pointing instrument continuously recording average surface heights directly below the satellite, as it transverses over the Earth's surface. Operating at Ku or Ka band frequencies, each altimeter emits a series of microwave pulses towards the surface. By noting the two-way time delay between pulse emission and echo reception, the surface height can be deduced. Each returned height value is an average of all surface heights found within the footprint of the altimeter. The diameter of the footprint depends on the surface roughness, but can typically range between 200m (for open pools of water in calm conditions) to a few kilometers (open water with surface waves). Each satellite is placed in a specific repeat orbit, so after a certain number of days the same point (to within 1km), on the Earth's surface is revisited. In this way, time series of surface height changes can be constructed for a particular location along the satellite ground track during the lifetime of the mission. Elevation measurements can be retrieved over ocean surfaces, ice sheets, sea ice, and continental waters such as lakes, reservoirs, river reaches, and wetland regions. Data interpretation techniques are mature, well-validated, and published, and mission continuity is assured to at least to 2030. Ongoing research continually strives to make improvements in both the quality and quantity of available elevation measurements.
+          </p>
+          <p>
+            Satellite laser altimeters are also nadir-pointing instruments though they have the capability to off-point to specific targets of interest. Operating at green or infrared wavelengths these missions are primarily focused on mapping ice-dominated regions, mapping canopy or vegetation cover, and studying the atmosphere. While GEDI (laser waveform data, mid to low latitudes) resides on the International Space Station, ICESat-1 (laser waveform data) and ICESat-2 (laser photon data) operate from their own orbits and record surface elevations to high geographical latitudes.
+          </p>
+          <p>
+            There have been a number of altimetric satellite missions to date and follow-on missions can be expected (see Table below).
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <table class="table table-hover table-bordered col-6">
+            <caption style="caption-side:top">Instrument Summary </caption>
+            <tbody>
+              <tr>
+                <th  scope="col">Satellite</th>
+                <th  scope="col">Operation</th>
+                <th  scope="col">Repeat Period</th>
+              </tr>
+              <tr>
+                <td title="Satellite"> SWOT-nadir altimeter </td>
+                <td title="Operation"> 2023-2023 </td>
+                <td title="Repeat Period"> 01 day </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Topex/Poseidon </td>
+                <td title="Operation"> 1992-2002 </td>
+                <td title="Repeat Period"> 10 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Jason-1 </td>
+                <td title="Operation"> 2002-2008 </td>
+                <td title="Repeat Period"> 10 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Jason-2/OSTM </td>
+                <td title="Operation"> 2008-2016 </td>
+                <td title="Repeat Period"> 10 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Jason-3 </td>
+                <td title="Operation"> 2016-2022 </td>
+                <td title="Repeat Period"> 10 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Sentinel-6A MF </td>
+                <td title="Operation"> 2020-current </td>
+                <td title="Repeat Period"> 10 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Sentinel-6B</td>
+                <td title="Operation"> 2025-current </td>
+                <td title="Repeat Period"> 10 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> HY-2A </td>
+                <td title="Operation"> 2011-2023 </td>
+                <td title="Repeat Period"> 14 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> HY-2B </td>
+                <td title="Operation"> 2018-current </td>
+                <td title="Repeat Period"> 14 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> HY-2C </td>
+                <td title="Operation"> 2020-current </td>
+                <td title="Repeat Period"> 14 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> HY-2D </td>
+                <td title="Operation"> 2021-current </td>
+                <td title="Repeat Period"> 14 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Seasat </td>
+                <td title="Operation"> 1978 </td>
+                <td title="Repeat Period"> 17 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Geosat </td>
+                <td title="Operation"> 1985-1989 </td>
+                <td title="Repeat Period"> 17 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> GFO </td>
+                <td title="Operation"> 2000-2008 </td>
+                <td title="Repeat Period"> 17 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> SWOT-nadir altimeter </td>
+                <td title="Operation"> 2022-current </td>
+                <td title="Repeat Period"> 21 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Sentinel-3A </td>
+                <td title="Operation"> 2016-current </td>
+                <td title="Repeat Period"> 27 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Sentinel-3B </td>
+                <td title="Operation"> 2018-current </td>
+                <td title="Repeat Period"> 27 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> ERS-1 </td>
+                <td title="Operation"> 1992-1993, 1995-1996 </td>
+                <td title="Repeat Period"> 35 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> ERS-2 </td>
+                <td title="Operation"> 1996-2003 </td>
+                <td title="Repeat Period"> 35 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> ENVISAT </td>
+                <td title="Operation"> 2002-2010 </td>
+                <td title="Repeat Period"> 35 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> SARAL </td>
+                <td title="Operation"> 2013-2016 </td>
+                <td title="Repeat Period"> 35 days </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> ICESat-1 (laser) </td>
+                <td title="Operation"> 2003-2009 </td>
+                <td title="Repeat Period"> 90 days </td>
+              </tr>
+              <tr>
+              <td title="Satellite"> ICESat-2 (laser) </td>
+              <td title="Operation"> 2018-current </td>
+              <td title="Repeat Period"> 91 days at high latitudes </td>
+              </tr>
+              <tr>
+                <td title="Satellite"> Cryosat-2 </td>
+                <td title="Operation"> 2010-current </td>
+              <td title="Repeat Period"> 365 days </td>
+              </tr>
+              <tr>
+              <td title="Satellite"> SWOT-KaRIn swath altimeter </td>
+              <td title="Operation"> 2022-current </td>
+              <td title="Repeat Period"> variable </td>
+              </tr>
+              <tr>
+              <td title="Satellite"> GEDI (laser) </td>
+              <td title="Operation"> 2018-2023, 2024-current </td>
+              <td title="Repeat Period"> variable </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="d-flex flex-column">
+          <a id="contacts"></a>
+          <div class="d-flex justify-content-between"><strong>Contact Us</strong><a href="#top" title="Top of Page">Top</a></div>
+          <p>
+            For general information relating to the satellite products, contact <br>
+            Dr. Charon Birkett <br>
+            Charon.M.Birkett@nasa.gov <br>
+            Tel: 301-614-6464 <br>
+            <br>
+            For technical issue relating to the web site and product access, contact <br>
+            Dr. Martina Ricko <br>
+            Martina.Ricko@nasa.gov<br>
+          </p>
+        </div>
+
+        <div class="d-flex flex-column">
+          <a id="acknowledgement"></a>
+          <div class="d-flex justify-content-between"><strong>Funding Sources</strong><a href="#top" title="Top of Page">Top</a></div>
+          <p>
+          The following programs and funding sources are acknowledged,
+          </p>
+          <ol type="I">
+            <li>NASA Applied Sciences/Water Resources</li>
+            <li>NASA Making Earth Science Data Records</li>
+            <li>NASA Ocean Surface Topography</li>
+            <li>NASA ICESat-2 Mission</li>
+            <li>NASA EIS</li>
+            <li>The US Department of Agriculture/Foreign Agricultural Service</li>
+          </ol>
+          <p>
+            Lake/Reservoir elevation products can also be found at the <a href="https://ipad.fas.usda.gov/cropexplorer/global_reservoir/"> USDA/FAS CropExplorer </a> and
+            the <a href="https://podaac.jpl.nasa.gov/dataset/PRESWOT_HYDRO_L2_GREALM_LAKE_HEIGHT_V2"> NASA PO.DAAC portals </a>.
+            <a href="https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_GMSL_ASCII_V42?ids=Platform:Collections&values=TOPEX/POSEIDON:MEaSUREs"> Global mean sea level </a> and
+            <a href="https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V42?ids=Platform:Collections&values=TOPEX/POSEIDON:MEaSUREs"> gridded sea level products </a> can also be
+            found at the NASA PO.DAAC portals.
+          </p>
+        </div>
+
+        <div class="d-flex flex-column">
+          <a id="dataack"></a>
+          <div class="d-flex justify-content-between"><strong>Data Acknowledgement</strong><a href="#top" title="Top of Page">Top</a></div>
+          <p>
+            The project team acknowledges NASA/PODAAC, NASA/GSFC, NOAA, AVISO, ESA, and the TU-Delft/NOAA-NESDID/STAR “RADS” database, for the provision of altimetric datasets and associated physical parameters. The team also gratefully acknowledges Google Earth.
+          </p>
+        </div>
+
+        <div class="d-flex flex-column">
+          <a id="disclaimer"></a>
+          <div class="d-flex justify-content-between"><strong>Disclaimer</strong><a href="#top" title="Top of Page">Top</a></div>
+          <p>
+            Many elements of this program reside in the research domain. The project management, support staff, and associated science investigators accept no responsibility for the accuracy and application of the surface elevation products
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--extra stuff-->
+    <div class="modal fade" id="reference" tabindex="-1" role="dialog" aria-labelledby="referenceTitleLabel" aria-hidden="true" data-src="/gwm/html/reference.html">
+      <div class="modal-dialog" role="document" style="min-width:800px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="referenceTitleLabel">General References</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--another extra stuff-->
+    <div class="modal fade" id="technote" tabindex="-1" role="dialog" aria-labelledby="technoteTitle" aria-hidden="true" data-src="/gwm/html/technote.html">
+      <div class="modal-dialog" role="document" style="min-width:800px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="technoteTitle">NASA GWM Technical Release Note</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer -->
+    
+<div class="row border-top border-warning ">
+  <div class="nasa-logo"></div>
+
+<div class="nasa-footer">
+  <span>NASA Official: Charon Birkett</span>
+  <span>Product Manager: Martina Ricko</span>
+  <span>Technical Webmaster: Xu Yang</span>
+  <span><a href="http://www.nasa.gov/about/highlights/HP_Privacy.html">Privacy Policy and Important Notices</a></span>
+</div>
+</div>
+
+  </div>
+
+  <!--bootstrap JS APIs-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+  <script type="module" src="/gwm/js/module/productAlert.js"></script>
+<script type="module" src="/gwm/js/module/productNews.js"></script>
+  <script type="module">
+    import {initMap} from '/gwm/js/module/lakepage.js';
+    initMap();
+  </script>
+
+</body>
+
+</html>

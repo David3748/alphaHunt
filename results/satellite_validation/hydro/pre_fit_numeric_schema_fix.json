@@ -1,0 +1,7 @@
+{
+  "amended_at_utc": "2026-09-27T02:22:57.505777+00:00",
+  "initial_run": "Stopped during ONSaggregation before model fit: older ONSParquet represents numeric generation as strings; error output includes some2008rawvalues but no forecastmetrics.",
+  "clarification": "Explicit strict numeric conversion of generation,waterlevel,and inflow columns before aggregation; invalid values raise. No source/sample/model/gatechanges.",
+  "source_sha256": "0150627e064c478d29b4be62b1021c8d18338ea36c6e2be6a1d13c1aa3020250",
+  "protocol_unchanged": true
+}

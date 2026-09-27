@@ -1,0 +1,107 @@
+{
+  "status": "forecast_gate_failed",
+  "n_test_years": 27,
+  "n_abstentions": 0,
+  "metrics": {
+    "baseline": {
+      "rmse_ace": 37.62995797523982,
+      "mae_ace": 27.337266756447384
+    },
+    "satellite": {
+      "rmse_ace": 34.79736309082522,
+      "mae_ace": 25.090782185780405
+    },
+    "climatology": {
+      "rmse_ace": 37.17767558666196,
+      "mae_ace": 30.878003477323606
+    },
+    "recent_climatology": {
+      "rmse_ace": 35.70818957513523,
+      "mae_ace": 28.465064814814813
+    },
+    "persistence": {
+      "rmse_ace": 49.60104858602622,
+      "mae_ace": 36.12796296296296
+    }
+  },
+  "comparisons": {
+    "baseline": {
+      "rmse_reduction_fraction": 0.07527499462737697,
+      "mae_reduction_fraction": 0.08217663421443389,
+      "rmse_gain_ci95_ace": [
+        0.37369250204887783,
+        6.341618428689722
+      ],
+      "years_lower_squared_error": 17
+    },
+    "climatology": {
+      "rmse_reduction_fraction": 0.06402531783591958,
+      "mae_reduction_fraction": 0.1874221335519073,
+      "rmse_gain_ci95_ace": [
+        -5.393162688828946,
+        12.624744005666724
+      ],
+      "years_lower_squared_error": 17
+    },
+    "recent_climatology": {
+      "rmse_reduction_fraction": 0.02550749548345188,
+      "mae_reduction_fraction": 0.11854118903246769,
+      "rmse_gain_ci95_ace": [
+        -3.7376568152456535,
+        8.279717893187192
+      ],
+      "years_lower_squared_error": 16
+    },
+    "persistence": {
+      "rmse_reduction_fraction": 0.29845509151940675,
+      "mae_reduction_fraction": 0.30550243833280777,
+      "rmse_gain_ci95_ace": [
+        6.579112953490211,
+        22.161539735562812
+      ],
+      "years_lower_squared_error": 19
+    }
+  },
+  "strongest_baseline": "recent_climatology",
+  "forecast_gate_passed": false,
+  "original_vintage_operational_verification": false,
+  "satellite_only_incremental_attribution": false,
+  "superiority_to_official_seasonal_forecasts_tested": false,
+  "trading_alpha_verified": false,
+  "prospective_verification": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T02:41:32.398127+00:00",
+    "target": "EasternNorthPacific August1\u2013November30 ACE from NHC northeastern/centralPacific HURDAT2. Include ONLY EP-origin stormIDs, and onlyobservations eastof140W (longitude>=-140); excludeCPorigin storms. SameTS/HU/SS>=34kt and four sixhourtimestamps asAtlantic.",
+    "forecast_issue": "August1 00UTC eachyear; futureAug\u2013Novrisk, not economicloss ormarketpriceforecast",
+    "satellite_source": "Reuse frozenNOAA OISSTv2.1 JuneNi\u00f1o3.4 SST5S\u20135N170\u2013120W. Singlepacificpredictor; noAtlanticMDRfeature.",
+    "satellite_timing": "June30end+17days for finalOISST then14dayadditionalpublicationbuffer:July31<=August1issue. Monthlyarchivepublicationtimes not separatelyproven; current-version2016+reprocessing caveat. NoJulyorAugustSST.",
+    "storm_feature_timing": "June1\u2013July31ACE treated asknownatAugust1 from contemporaneous six-hourlyreports, but archivedHURDAT2besttrack containslaterrevisions. Cannotcertify originalvintages without advisoryreconstruction. PriorseasonAugust\u2013NovemberACE assumedknownbyMay1followingyear.",
+    "training": "Expanding1982throughforecastyear-1, minimum17completeyears; trainingstandardizationonly; samecompleteyearsupportallmodels",
+    "test": "Everyyear1999\u20132025 inclusive,27heldoutyears; nofit evaluatedbeforeprotocolfreeze",
+    "models": {
+      "baseline": "Ridge linearACE: intercept + yeartrend + priorseasonAugNovACE + currentJuneJulyACE. Featuremean/std fittrainingonly; fixedridgealpha5, unpenalizedintercept. Clip predictedACEat0.",
+      "satellite": "Same baseline(trend+priorseasonACE+currentJuneJulyACE) plusONLY JuneNi\u00f1o3.4 SST; same fixedridgealpha5, trainingstandardization, clip0.",
+      "climatology": "Mean ofallpasttrainingAugNovACE",
+      "recent_climatology": "Mean previous10trainingyearsAugNovACE",
+      "persistence": "PriorseasonAugNovACE"
+    },
+    "uncertainty": "Pairedcircular5-yearblockbootstrap10000drawsseed20260927; testyearsresampledjointlyacrossmodels. Reporteachyearand2000s/lateperioddescriptively,no periodselection.",
+    "gate": "SatelliteRMSEatleast5%lowerthanbestofallfourbaselineRMSEs; lowerMAEandstrictlypositive95%RMSEgainCIlowerboundversuseachbaseline. No parameterhorizonregionsearch or postfitgatechange.",
+    "claim_limits": [
+      "OISSTis satellite-enhanced blend, not isolatedsatellite-onlycontribution",
+      "HURDATwinds independentofSSTpredictor butcurrentbesttrackrevisions, notoriginaladvisoryvintages",
+      "Knownpublicphysicalrelationship and existingofficialseasonalforecasts; notnovelmarketalpha or superioritytoNOAAforecast",
+      "ACEriskproxy notinsuranceclaims, offshoreproductionloss,landfalls,orpricedreturns",
+      "Manymechanismstriedinbroaderproject,nofamilywisecorrection"
+    ],
+    "outcome_values_inspected_before_freeze": false,
+    "region_selection": "Mechanistic ENSO coupling to easternPacific stormactivity; selected after fixedAtlanticforecastfailed. Pacificoutcomes notyetfetchedorinspected; selection acrossbasins disclosed, nofamilywiseclaim."
+  },
+  "source_code_sha256": "33b23a27d27b3d762448a3b98fe8cffdf6cf4df8bf0803d0f808cdd42dba47ac",
+  "shared_code_sha256": "43ef5d7be1a55d16d334ac465b6459fda135c5c8970a6260ac4dcaa68d0ef691",
+  "protocol_sha256": "3bf095f2fc11c9e1243f7f024195f4913b9c10447f06c9d71c4e29c80cbd7b10",
+  "source_manifest_sha256": "63c3267da5b3b1977babcf570bfd6d4363e4655207c3173c1aeea259bbf94546",
+  "target": "EP-origin tropical/subtropicalstormenergy eastof140W duringAugust\u2013November",
+  "interpretation": "Separately frozen easternPacific test selected mechanistically afterAtlanticfailure; sameformulaandcontrols except satelliteadds onlyJuneNi\u00f1o3.4. Revisedarchive scientificforecast, not originalvintagecertification ormarketalpha."
+}

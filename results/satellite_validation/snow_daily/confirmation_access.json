@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-09-27T02:50:58.743145+00:00",
+  "current_mirror": {
+    "stac": "https://planetarycomputer.microsoft.com/api/stac/v1/search",
+    "March2025_count": 0,
+    "March2026_count": 0,
+    "March2026_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A1-061&bbox=-119.80256%2C36.96619%2C-118.65450%2C37.73916&datetime=2026-03-01T00%3A00%3A00Z%2F2026-03-31T23%3A59%3A59Z&query=%7B%22platform%22%3A%7B%22eq%22%3A%22terra%22%7D%7D&limit=100"
+  },
+  "primary_archive_example": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/MODIS/MOD10A1/61/2026/03/01/MOD10A1.A2026060.h08v05.061.2026062031119.hdf",
+  "http_status": 302,
+  "redirect_host": "urs.earthdata.nasa.gov",
+  "reason": "Primary HDF source requires Earthdata authentication; anonymous public mirror has no March2025 or March2026 tiles. Do not substitute browse imagery lacking quality flags. Frozen2026 confirmation remains unscored."
+}

@@ -1,0 +1,40 @@
+{
+  "frozen_at_utc": "2026-09-27T02:23:46.376141+00:00",
+  "mechanism": "Solar irradiance predicts plant production months before annual EIA disclosure. A source too late for monthly reporters can still be timely for annual reporters.",
+  "plant": {
+    "code": "57439",
+    "name": "California Valley Solar Ranch",
+    "lat": 35.323739,
+    "lon": -119.9166
+  },
+  "selection": "Selected as nearby mature independent solar facility for GOES confirmation before inspecting model results. Discovery of annual-with-monthly-detail reporting motivated this separate delayed-disclosure test. Annual output snippets and2024 EIA metadata seen; no source/outcome model evaluated.",
+  "target": "Monthly electricity generation reported independently by an annual EIA respondent, not future sunlight or stock return",
+  "sources": {
+    "predictor": "NASA POWER CERES SYN1DEG surface shortwave irradiance; documented3\u20134month latency",
+    "outcome": "EIA facility-fuel SUN/PV generation, plus official EIA923 reporting-frequency audit",
+    "ground_comparator": "Nearest-complete per-variable NOAA GHCND temperature and precipitation, fixed before outcomes"
+  },
+  "feature_availability": "Target month end +4calendar months +14days. Sensitivity +5months +14days. Ground station archives usually replace preliminary data after45\u201360days, earlier than these issue dates. Exactoriginalvintages unavailable.",
+  "label_availability": "Annual-with-monthly-detail labels assumed available November1 offollowing year, subject to officialfrequency audit; monthly reporters usemonthend+2months. Training NEVERuseslabels before their release proxy.",
+  "evaluation": "January2019\u2013December2024, every available eligible month; no targetperiod tuning",
+  "models": {
+    "season_trend": "Rolling48eligiblemonths(min36) OLS logdailyMWh onintercept+11month indicators+linear time",
+    "weather": "Samecalendar/time model plustmean_C,dtr_C,log1p(monthly precipitation_mm)",
+    "satellite": "Sameweather model pluslogGHI",
+    "irradiance_only": "Sameseason/time model pluslogGHI, diagnostic",
+    "persistence": "Latestreleased same-calendar-month dailyMWh",
+    "seasonal_mean": "Mean dailyMWh oflatest2released same-calendar-month observations",
+    "prior_year_irradiance_placebo": "Sameweather-plus-logGHI model, replacecurrenttestGHIwithprevious-yearGHI; no parameterretuning"
+  },
+  "training": "Identical complete eligible rows for all regression models; sourcefeatures andlabels musthaveavailability beforeissue; max48mostrecentrows, min36",
+  "uncertainty": "Paired calendar-year clusterbootstrap10000drawsseed20260927; sixevaluationyearclusters, peryear errors andlongeravailability sensitivity. Noinflatedindependencefrommonths.",
+  "gate": "Satellite at least5%lowerRMSE andlowerMAE thanstrongestnonsatellitebenchmark; strictlypositive95%pairedRMSEgain interval againstallnonsatellitebenchmarks; lowerRMSEthanprior-yearGHIplacebo. Reporteachyearand5monthfeaturelagsensitivity.",
+  "interpretation": "Useful physical production nowcast before independent plant-level disclosure. It maynotbeat earlier companyaggregate disclosures or marketexpectations. Financialalpha mustbetestedseparately.",
+  "limits": [
+    "Exploratory continuation afterfailedsatellitecandidates, notfamilywisecontrolleddiscovery",
+    "Current-vintage sourcevalues and finalEIAoutcomes; explicitlatencies areplausible operationalproxies, notcompleteoriginalreleasearchive",
+    "Annualdisclosureforecast isnotforecastbeforephysicalproductionoccurs",
+    "GHIproxydoesnotfullymodeltracking,curtailment,outages,orPPArevenues"
+  ],
+  "results_inspected_before_freeze": false
+}

@@ -1,0 +1,23 @@
+{
+  "frozen_at_utc": "2026-09-27T03:03:13.594580+00:00",
+  "candidate": "Geographic confirmation: unchanged May Terra snow -> July-September Kings River full-natural runoff at Pine Flat",
+  "confirmation_status": "Unseen Kings snow features and Kings runoff outcomes; follows exploratory San Joaquin May result. Adjacent basin and same regional weather means partial geographic replication, not independent climatic years.",
+  "model_freeze": "Unchanged from snow_summer: training-standardized ridge alpha5, interceptunpenalized,zero-variance scale1, expanding prior eligibleyears after minimum10, nonnegative forecasts; no feature/month/penalty search.",
+  "source_target": "CDEC KGF sensor65 monthly FLOW FULL NATURAL AF, July-September sum all3months. KGF metadata verifies Kings River Pine Flat coordinates36.831,-119.335. Sensor8 is daily CFS and is not substituted for available monthly AF.",
+  "basin": "USGS NLDI upstream of11221500 Kings River belowPineFlat; unsplit polygon1544.47sqmi vs official1545sqmi (<0.04%difference)",
+  "satellite": "Identical May1-31 daily Terra MOD10A1v61 COGs and screened snow-presence rule: NDSI0-100, BasicQA0/1, snow>0, per-pixelvaliddayfrequency min3days,>=90%basinpixels qualify. Equal-area pixelcenters. Latest currentprocessingperday, nofutureimagery/fill.",
+  "issue": "June15, nominal14daybuffer followingMay; targetJulySept entirelyfuture, currentarchivereleaseavailabilitynotcertified.",
+  "weather": "Reuse unchanged5SI Oct-Mayprecipitation(all8months), explicitlySanJoaquinregional index adjacent/northofKings, notKings-specific rainfall. Groundflowcontrols own KGF Oct-April(all7months) and strongerOct-May(all8months).",
+  "ground_swe_selection": "Nearest station to NLDI basincentroid among CDEC Kings-basin snowstations insidepolygon with dailysensor3 SWEbeginningby2000 and at least10 validMay29-31 readings in2000-2009, >=20/24years valid2000-2023. Choosebydistanceandcoveragebeforetargetjoin; ifnoeligible station reportmissingdiagnostic. Valid nonnegative blankflag daily readings, latestMay29-31.",
+  "evaluation": "Train2000-2009, intendedchronologicalevaluation2010-2023 subjectunchanged completeness. Reportallabstentions. No2024becauseknownPCmirrorcoverageendsMarch2024.",
+  "comparisons": "Kings standalone primary andfreshMay-flow,samewithgroundSWEifavailable; persistence/climatology. Pool Kings and unchanged SanJoaquin forecast errors using equalbasinweight after normalizing each byits2000-2009 meanJulySeptflow, fixedinitialtraining-scale only.",
+  "uncertainty": "10000pairedcircular2calendar-yearblocks seed20260927; shared sampledcalendarblocks acrossbothbasins, retainmissingcalendaryeargaps; no treating2basins as28independentyears.",
+  "confirmation_gate": "Kings ownfreshMay-flow RMSEimprovement>=5% andlowerMAE; pooledfreshMay-flow gain>=5%andstrictlypositive95%lowerCI. ReportKingsownCIandgroundSWEdiagnostics. Do not claimconfirmationfrompoolalone ifKingsstrongcomparisonfails.",
+  "already_seen": "SanJoaquin rawmonthlytable/forecasts, failedMarchtest,andqualifiedMayprimarygain; Kingsmetadata/geographyonly, noKingsrunoffvaluesorMaypixelaggregationviewed",
+  "limitations": [
+    "currentvintage scientifictest, nofirstrelease ormarketalpha claim",
+    "broader5SIrain geography andsingleSWE station maynot representKings",
+    "adjacentbasins sharesnowstorms andregionalweather",
+    "multiplepriorcandidate/horizonsearchunadjusted"
+  ]
+}

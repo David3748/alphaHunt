@@ -1,0 +1,14 @@
+{
+  "url": "https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+  "bulk_sha256": "c5835418c18f9322e7decbd6800f93a216eaae3cdfa31acb08f0518c0c6d6853",
+  "archive_member": "Production_Crops_Livestock_E_All_Data_(Normalized).csv",
+  "selection": "SouthAfrica,Zambia,Zimbabwe;maize;production,harvestedarea,yield;1980onward",
+  "rows_per_country": {
+    "South Africa": 135,
+    "Zambia": 135,
+    "Zimbabwe": 135
+  },
+  "extracted_at_utc": "2026-09-27T03:22:49.352330+00:00",
+  "filtered_sha256": "a0bd3fc485ff9b8f0bab96f984b5dc255ee9b2c653f039bef2ac9166a07fe0f4",
+  "protocol_sha256": "95fb9b7f3011c4e27655159b5a98d8577f311605497f9f27e4e1a0e6b38389ef"
+}

@@ -1,0 +1,16 @@
+{
+  "target_product": "DWD GPCC Monitoring v2022 1degree, gauge-only SYNOP/CLIMAT interpolation",
+  "target_mm_units_verified": true,
+  "all_target_months": 88,
+  "fixed_valid_land_cells_each_month": 77,
+  "regional_gauge_count_range": [
+    14,
+    38
+  ],
+  "ground_product": "CPC Unified gauge-only daily precipitation, 0.5degree",
+  "ground_quality_warning": "Official README warns poor quality over tropical Africa; daily ending-time definitions vary by country and are incompletely checked. Retrospective1979-2005 and realtime2006+ networks differ; present archive has revisions.",
+  "ground_daily_coverage": "ground_grid_coverage.csv;3months have1fullymissingday and are excluded as controls. No missing-day zero-fill.",
+  "sst_attribution": "OISSTv2.1 includes satellite AVHRR/VIIRS and in-situ ships/buoys/Argo; no isolated satellite-only contribution claim.",
+  "vintage": "Current archive hindcast; timestamps assumed conservatively and historical exact versions unreconstructed.",
+  "known_ground_release": "GPCC monthly monitoring approximately2months, hence unavailable SepGPCC not used as October control; CPC10day and OISST20day buffers are assumptions, not reconstructed release archive."
+}

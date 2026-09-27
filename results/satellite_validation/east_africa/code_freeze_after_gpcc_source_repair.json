@@ -1,0 +1,7 @@
+{
+  "frozen_at_utc": "2026-09-27T03:06:52.337535+00:00",
+  "source_sha256": "a3b482ab8c57e5701272d321229d0a2ae855fd3035981a744ad45affcf349d83",
+  "repair_sha256": "c5372435626f8d3762e346e95eb11b723db347b6bed8b631fdaf85da3021f91d",
+  "forecast_metrics_inspected": false,
+  "change": "Only run input path/hash manifest changed to direct current GPCC monitoring source; model and scoring unchanged."
+}

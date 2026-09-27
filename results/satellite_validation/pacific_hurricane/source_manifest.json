@@ -1,0 +1,19 @@
+[
+  {
+    "path": "inputs/june_nino34.csv",
+    "sha256": "43a2b528b84bc8046fc96b8aa65d935f90064dfbcfab2497ade63122eb9c88e7",
+    "derived_from": "../hurricane/inputs/june_sst.csv",
+    "parent_sha256": "7b0c34d86b2de73dc8c33777d91ef74f64019e41db8b08973d9d55df0a7281c0",
+    "regional_grid": "../hurricane/inputs/oisst_june_nino34.nc",
+    "regional_grid_sha256": "b606385e47e1caa65a12f8e43596d9621b0cd7cab1e30a9a817e73bf33112c6a",
+    "method": "UnchangedJuneNi\u00f1o3.4cosine-area-weightedSSTfromfrozenAtlanticretrieval; noMDRcolumnincluded."
+  },
+  {
+    "path": "inputs/hurdat2_nepac_1949_2025.txt.gz",
+    "url": "https://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2025-091426.txt",
+    "sha256": "29be46da30ede598c3879ab2361d2b7799600f52517623eadda56a4ea927885d",
+    "raw_download_sha256": "02a8860ecb276a01272b5a57655229689bd42c6c9a647e02176273a6213440bc",
+    "http_last_modified": "Thu, 17 Sep 2026 21:02:47 GMT",
+    "retrieved_at_utc": "2026-09-27T02:43:37.446417+00:00"
+  }
+]

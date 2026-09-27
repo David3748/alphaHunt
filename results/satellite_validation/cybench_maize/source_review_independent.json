@@ -1,0 +1,100 @@
+{
+  "reviewed_at_utc": "2026-09-27T03:34:53.674781+00:00",
+  "scope": "Independent metadata/source-code audit before first county model fit. No new fitted results were inspected. Unit conversion code was inspected; sibling agent owns numerical label-coherence audit.",
+  "dataset": {
+    "record": "https://zenodo.org/records/17279151",
+    "version": "1.10",
+    "published": "2025-10-06",
+    "not_version": "1.12"
+  },
+  "upstream_code_commit": "4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c",
+  "upstream_octvi_commit": "8ab3c6e4ff1a8489e51941a1659ae54022d01530",
+  "findings": [
+    {
+      "topic": "NDVI compositing",
+      "assessment": "Window semantics supported",
+      "details": "MOD09CMG is daily surface reflectance; octvi constructs an8-day product from the labeled start date through start+7 inclusive. It selects pixels by quality ranking and viewing angle and masks poor quality, snow and water. The value is a spatial crop-fraction weighted mean of those selected pixels, not eight daily NDVI values averaged. The observation availability boundary must use end-of-day of the final contributing date plus the assumed lag. A notebook check asks whether9 daily files exist, but the actual compositor reads8; this check can delay generation, not inject the ninth day into values.",
+      "sources": [
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/global_ndvi_MOD09CMG/download_ndvi.ipynb",
+        "https://github.com/ritviksahajpal/octvi/blob/8ab3c6e4ff1a8489e51941a1659ae54022d01530/octvi/__init__.py",
+        "https://github.com/ritviksahajpal/octvi/blob/8ab3c6e4ff1a8489e51941a1659ae54022d01530/octvi/extract.py"
+      ]
+    },
+    {
+      "topic": "Temporal preprocessing",
+      "assessment": "No hidden temporal fill found in audited raw-source preparation",
+      "details": "The raw-source predictor preparation applies per-raster spatial masking, statistics and scalar conversions. NDVI values outside packed50..250 are discarded and output is (value-50)/200, so the resulting CSV is already dimensionless0..1. No temporal smoother or interpolation was found on this raw path. Bypassing the benchmark Dataset loader avoids its later alignment/transforms. The notebook installs an unpinned octvi GitHub revision; the public current source is evidence of intended processing but does not certify exact historical build dependencies. Counts of valid county composites do not certify pixel-level crop-area coverage within every composite.",
+      "sources": [
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/predictor_data_prep.py",
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/global_ndvi_MOD09CMG/README.md"
+      ]
+    },
+    {
+      "topic": "Static crop map",
+      "assessment": "Material retrospective conditioning; post-reference-year does not mean publicly available",
+      "details": "WorldCereal crop maps describe2021 but official release was April20,2023, with Zenodo v100 publication May12,2023. JRC500m area-fraction images were made specifically for AgML; their exact first publication time has not been established. Thus2022 is not a post-publication forecast, and2023 does not prove availability of the exact derived AFI. Both NDVI and weather are aggregated under this fixed geography. Earlier years inherit future geography, later years inherit imperfect fixed crop distribution/rotation assumptions.2022/2023 sign checks are post-reference-year scientific diagnostics only.",
+      "sources": [
+        "https://esa-worldcereal.org/en/official-release-esa-worldcereal-products",
+        "https://zenodo.org/records/7875105",
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/global_crop_AFIs_ESA_WC/README.md"
+      ]
+    },
+    {
+      "topic": "Weather baseline",
+      "assessment": "Strong reanalysis-weather comparator, not a purely ground-observed control",
+      "details": "AgERA5 derives daily local-time weather from ERA5 and bias correction to a finer HRES grid. ERA5 assimilates satellite and ground observations. Initial AgERA5 release was January1,2020; v2.0 was released May20,2025 with full reprocessing and additional variables. The used v2 series cannot be claimed originally available in2013\u20132023. A14-day observation lag is a scientific information cutoff, not vintage certification. The correct ablation claim is incremental NDVI beyond reanalysis weather, not all satellite information versus no satellite information.",
+      "sources": [
+        "https://confluence.ecmwf.int/x/3FmaE",
+        "https://www.ecmwf.int/en/forecasts/datasets/complete-era5-global-atmospheric-reanalysis",
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/global_AgERA5/README.md"
+      ]
+    },
+    {
+      "topic": "USDA county target",
+      "assessment": "Independent reported grain-corn yield; conversion supported",
+      "details": "Upstream retrieval requests USDA NASS survey COUNTY grain-corn yield in bushels/acre, acreage harvested and production in bushels, with domain NOT SPECIFIED. Conversion multiplies corn yield by0.0628 to t/ha, area by0.4047 to hectares and production by0.0254 to tonnes. Slight ratio differences are expected from rounded factors; source rows should be checked rather than independently reconverted. The benchmark is a current revised archive, so June30followingharvest is an assumed availability rule, not a label-vintage audit.",
+      "sources": [
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/crop_statistics_US/nass_stats.R",
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/crop_statistics_US/unit_conversion.py",
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/crop_statistics_US/README.md"
+      ]
+    },
+    {
+      "topic": "Reporting universe and crop timing",
+      "assessment": "Conditional source reporting universe; not universally preharvest",
+      "details": "Upstream filter_predictor_data selects county IDs occurring anywhere in yieldfile, not target years or values. Eight prior observed labels make forecast-eligible counties part of an already known reporting universe, but source coverage is not every US county. Static source crop calendar has3,025 counties; two Hawaii counties US-15-001 and US-15-009 have mean end-of-season day211 beforeAugust15. Root chose to retain fixed geography and report their actual eligibility; describe the exercise as August15 before annual county release, with some possible nowcasts, rather than uniformly preharvest.",
+      "sources": [
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/filter_predictor_data.py",
+        "https://github.com/WUR-AI/AgML-CY-Bench/blob/4c2c58b70b0405b9a26d94ac2aeaa9712f044b2c/data_preparation/filter_yield_data.py",
+        "https://zenodo.org/records/17279151"
+      ]
+    }
+  ],
+  "actions_reported_before_fit": [
+    "Correct source version to1.10.",
+    "Name2022/2023 check post-reference-year, retaining exact static-map-publication caveat.",
+    "Call comparator reanalysis weather, not ground-only.",
+    "Synchronize extractor/validator at August15noon and use inclusive window end-of-day plus14days.",
+    "Retain county-label coherence audit and report possible already-ended Hawaii seasons without outcome-driven geography exclusion."
+  ],
+  "local_source_snapshots_sha256": {
+    "data_preparation__crop_statistics_US__README.md": "8686c066da40e55737e589027c1989a742ebdec06783ebd145681cd2134bcfff",
+    "cybench__datasets__dataset.py": "89932b110c8ef2e365ee0b7f65b8eb8d6881c5906d14f737ded68fb014f5a255",
+    "octvi__extract.py": "0b0759e75eb989141a7aedfc65cc1143cc71448a2b437c572eb38678b119f3bd",
+    "octvi____init__.py": "3016a79724f33598b5dbbbbdebfc47b93ac576233de88f80b687bca2e9cb4fbe",
+    "data_preparation__global_crop_AFIs_ESA_WC__README.md": "4599d929105612fdd02f068ec31c88dbf7e132774db5c441ab7e026ec1ab7fa7",
+    "ndvi_README.md": "90873ef0873ea05b3e858820fbc3ced4bfc980ca71a8fa9cf3a1e0451cad6f0b",
+    "octvi__array.py": "e4e84a0c148caf14e47f4f161659f4f863438ea37b9d1bc92e319da4c2b25057",
+    "data_preparation__predictor_data_prep.py": "04be4f6e2635bd0dfdbe7fe22a106b122d7f2ea7b08c7175db4f46e541bdde91",
+    "octvi_init.py": "3016a79724f33598b5dbbbbdebfc47b93ac576233de88f80b687bca2e9cb4fbe",
+    "data_preparation__crop_statistics_US__data_preparation.ipynb": "4e4a506f9cc229bbff7b35d357c04368d17b24c49c73269708e4675bb3153c1e",
+    "data_preparation__global_AgERA5__README.md": "3c0843eabd22e95ffd8dc41de5d4f40d795c9930782672820231949d4b44f39c",
+    "data_preparation__filter_predictor_data.py": "3cb4b485e2e52e50977f285adc150f5089dcdd0bfa3af504c35b7dc6c7da4060",
+    "octvi_tree.json": "47c6079bc74b5ff3024fbe17a8e7adac36e71be53819ccb208f1d94bd515fdae",
+    "data_preparation__crop_statistics_US__unit_conversion.py": "4755b7ec1f87d1472fb8586d1bce74cb00fb754d0b32a5070b980b30d00166c8",
+    "ndvi_download_ndvi.ipynb": "ea353339d4b9f4a3d8d6ce93b50469f3587813856e4a7504642d9f79a7496ed4",
+    "data_preparation__filter_yield_data.py": "c707dfc0d5893d767a719803aa7b565b86ef68489ac7931162fe3748b06d8c3f",
+    "data_preparation__crop_statistics_US__nass_stats.R": "6e5fe024f2f0764ef912b1443356f75dd389ebc19f0d5dcbc355cf633f69bf6d"
+  },
+  "conclusion": "Source mechanisms support a bounded current-vintage scientific NDVI ablation, subject to the static-map/reanalysis/reporting-universe caveats. This audit does not claim empirical forecast value, original operational availability, or trading alpha."
+}

@@ -1,0 +1,7 @@
+{
+  "amended_at_utc": "2026-09-27T02:22:24.891244+00:00",
+  "initial_run": "Stopped before ONS aggregation/model fit: 24 Jason3/Sentinel6 tandem pairs share observation timestamps; no forecast metrics generated or inspected.",
+  "clarification": "Average simultaneous valid cross-mission heights equally; same-mission duplicate remains an error. Eligibility quality and90daylatency unchanged.",
+  "source_sha256": "cd8fd4fda4bd6ddd236bd475f349a7c860448c4dd37ed6ea7d33a2de4e263192",
+  "protocol_unchanged": true
+}

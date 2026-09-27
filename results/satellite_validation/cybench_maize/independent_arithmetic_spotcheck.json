@@ -1,0 +1,189 @@
+{
+  "county": "US-01-001",
+  "year": 2003,
+  "selection": "First sorted2003featurecounty, no outcome inspection",
+  "checks": [
+    {
+      "variable": "ndvi_apr",
+      "matches": true,
+      "raw_count": 3
+    },
+    {
+      "variable": "tmin_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "tmax_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "tavg_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "vpd_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "prec_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "rad_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "et0_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "cwb_apr",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "ndvi_may",
+      "matches": true,
+      "raw_count": 4
+    },
+    {
+      "variable": "tmin_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "tmax_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "tavg_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "vpd_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "prec_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "rad_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "et0_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "cwb_may",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "ndvi_jun",
+      "matches": true,
+      "raw_count": 4
+    },
+    {
+      "variable": "tmin_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "tmax_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "tavg_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "vpd_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "prec_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "rad_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "et0_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "cwb_jun",
+      "matches": true,
+      "raw_count": 30
+    },
+    {
+      "variable": "ndvi_jul",
+      "matches": true,
+      "raw_count": 3
+    },
+    {
+      "variable": "tmin_jul",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "tmax_jul",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "tavg_jul",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "vpd_jul",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "prec_jul",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "rad_jul",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "et0_jul",
+      "matches": true,
+      "raw_count": 31
+    },
+    {
+      "variable": "cwb_jul",
+      "matches": true,
+      "raw_count": 31
+    }
+  ],
+  "status": "All36 monthly means/totals match rawsource arithmetic",
+  "current_outcomes_read": false
+}

@@ -1,0 +1,10 @@
+{
+  "recorded_at_utc": "2026-09-27T03:04:43.759171+00:00",
+  "forecast_metrics_inspected": false,
+  "reason": "PSL GPCC v2020 mirror has 528monthlytime coordinates but allregionalvalues missing May2021-December2025; inspected missingness, not model scores. Source history CASJul2021 despite filemtime2026.",
+  "repair": "Use official DWD GPCC Monitoring v2022 1degree for all November/December1982-2025, not splice old/new products. Fixed region, gauge-only target, model, predictors, priorlag, gate and chronology unchanged. Include regional gauge counts from same source. Retain stale original snapshot and its provenance as rejected source diagnostic.",
+  "doi": "10.5676/DWD_GPCC/MP_M_V2022_100",
+  "old_missing_months": 56,
+  "old_first_missing": "2021-05",
+  "source_url_pattern": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/{year}/monitoring_v2022_10_{year}_{month:02d}.nc.gz"
+}

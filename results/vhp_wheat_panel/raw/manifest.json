@@ -1,0 +1,47 @@
+[
+  {
+    "path": "KS_satellite.txt",
+    "url": "https://www.star.nesdis.noaa.gov/smcd/emb/vci/VH/get_TS_admin.php?TagCropland=WHEA&country=USA&provinceID=17&type=Mean&year1=1982&year2=2025&yearlyTag=Weekly",
+    "sha256": "906c3282499507b513b5d6d44990457a72f5aeda281940e82ead5157077956b5",
+    "retrieved_at": "2026-09-27T02:59:30.876684+00:00"
+  },
+  {
+    "path": "KS_pcp.csv",
+    "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/14/pcp/1/0/1981-2025.csv",
+    "sha256": "76887371c296f281d4902de22ed10ff6e3b2a0d6e04fab4c717550a43715aae4",
+    "retrieved_at": "2026-09-27T02:59:30.506724+00:00"
+  },
+  {
+    "path": "KS_tavg.csv",
+    "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/14/tavg/1/0/1981-2025.csv",
+    "sha256": "ad3616064cd3824e016f8338ce0d67c4a1fa99ed790ff7e769927658c6246f1a",
+    "retrieved_at": "2026-09-27T02:59:30.672934+00:00"
+  },
+  {
+    "path": "OK_satellite.txt",
+    "url": "https://www.star.nesdis.noaa.gov/smcd/emb/vci/VH/get_TS_admin.php?TagCropland=WHEA&country=USA&provinceID=37&type=Mean&year1=1982&year2=2025&yearlyTag=Weekly",
+    "sha256": "ff6f1f1b03be3d2272bffe0abc3e70e054278c63048f8a69f8c61348fca57377",
+    "retrieved_at": "2026-09-27T02:59:30.873073+00:00"
+  },
+  {
+    "path": "OK_pcp.csv",
+    "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/34/pcp/1/0/1981-2025.csv",
+    "sha256": "5e82f97ef56678f15b279522c984e94247e1e083f0eca678ffd3762fcca6b922",
+    "retrieved_at": "2026-09-27T02:59:30.524822+00:00"
+  },
+  {
+    "path": "OK_tavg.csv",
+    "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/34/tavg/1/0/1981-2025.csv",
+    "sha256": "dd0180e8553df685be4437401df4dc1ba386c24d2bd1defd369a404a8a1ef6a3",
+    "retrieved_at": "2026-09-27T02:59:30.633153+00:00"
+  },
+  {
+    "path": "nass_ks_ok_winter_wheat.tsv",
+    "url": "https://www.nass.usda.gov/datasets/qs.crops_20260926.txt.gz",
+    "sha256": "59b4a046b9208426e370eddeab998cdf0b47fb825bb19e7817894bbc873dad6a",
+    "retrieved_at": "2026-09-27T03:00:17.918872+00:00",
+    "filter": "Kansas andOklahoma winter-wheat survey annual state total allproductionpractices acreage/production/yield,year>=1981. Full matchingrowsretained.",
+    "bulk_rows_scanned": 23900661,
+    "rows_kept": 1101
+  }
+]

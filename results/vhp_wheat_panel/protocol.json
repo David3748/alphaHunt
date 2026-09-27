@@ -1,0 +1,24 @@
+{
+  "created_at_utc": "2026-09-27T02:59:30.112120+00:00",
+  "status": "Frozen before Kansas/Oklahoma satellite/weather/label joins and metrics. Texas frozen results already known and failed.",
+  "geographic_replication": "Kansas and Oklahoma, the othermajorSouthernGreatPlains hard-redwinter-wheat states. Both reported regardlessofsign; nostate/window/modelsearch.",
+  "source_mapping": {
+    "KS": {
+      "NOAA_province": 17,
+      "NCEI_state": 14
+    },
+    "OK": {
+      "NOAA_province": 37,
+      "NCEI_state": 34
+    }
+  },
+  "method": "Unchanged Texas protocol and pre-fitaddendum: March weeks9\u201313SMN/SMT,56daybuffer,June15issue,Oct\u2013Maygroundclimate,prioroutcomeandtrend;standardizedridgealpha5,expandingmin15prior commoneligibleyears,test2000\u20132025.",
+  "parent_protocol_sha256": "1a9b09a94efce9c3a3706ac48cecd62bc88639df083f584f825bb7c1870cb91d",
+  "primary": "yield bu/harvestedacre",
+  "secondary": "production bu/finalplantedacre; targetnormalization only, not contemporaneous acreageinput",
+  "comparators": "sameweather,mean,persistence,OLS trend,prior-yearsatplacebo; directhistoricalNASSJune forecast oncommonavailable support",
+  "aggregation": "Equal-state averageheldoutMSEandMAE;pooledRMSEsqrt(mean(stateMSE)).Reportallthreestates, but Kansas+Oklahoma independently fromTexas forconfirmation.",
+  "uncertainty": "10,000 paired circular two-calendar-year blockcluster draws(seed20260927).Resample sameyears for allstates;retainmissingcalendarcells,compute stateaverages then equal-stateaverage;never treatstateyears as independent.",
+  "confirmation_gate": "Atleast20calendarheldoutyears for eachnewstate;Kansas+Oklahoma pooled primary satellite>=5%RMSEimprovement,MAEimprovement,95%gainCI lower>0 versusweather;pointRMSE/MAE betterthanmean,persistence,trend. OriginalTexasnegativepreserved.OfficialJunecomparison reportedseparately;no marketalphaclaim.",
+  "limitations": "Exploratorygeographicreplication selectedafterTexas seen.Current crop/land masks, reprocessing,weatherandNASSvintagesnotoriginalreleasecertification. No independentlyuntouchedtimeperiod;no family-wisediscoveryclaim."
+}

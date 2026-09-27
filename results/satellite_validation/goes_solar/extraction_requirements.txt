@@ -1,0 +1,8 @@
+# Online extraction and tests; offline integration needs only numpy/pandas/requests.
+numpy>=2.0
+pandas>=2.2
+requests>=2.31
+h5py>=3.10
+fsspec>=2024.2
+aiohttp>=3.9
+pyproj>=3.6

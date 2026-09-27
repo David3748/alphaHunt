@@ -1,0 +1,1135 @@
+{
+  "primary_yield": {
+    "states": {
+      "KS": {
+        "n_evaluation": 23,
+        "evaluated_years": [
+          2000,
+          2001,
+          2002,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "abstentions": [
+          {
+            "year": 2003,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2004,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2005,
+            "reason": "Incomplete or unavailable features"
+          }
+        ],
+        "models": {
+          "weather": {
+            "rmse": 5.908567208591216,
+            "mae": 4.657457261321794
+          },
+          "satellite": {
+            "rmse": 6.330354120382604,
+            "mae": 5.134297108803757
+          },
+          "mean": {
+            "rmse": 7.863169075827689,
+            "mae": 6.0016214215643515
+          },
+          "persistence": {
+            "rmse": 9.0,
+            "mae": 7.869565217391305
+          },
+          "trend": {
+            "rmse": 7.187620033043897,
+            "mae": 5.833415849897917
+          },
+          "placebo": {
+            "rmse": 5.9992846341511274,
+            "mae": 4.692764987434682
+          }
+        },
+        "comparisons": {
+          "weather": {
+            "rmse_reduction": -0.07138565017557874,
+            "mae_reduction": -0.10238201248606527,
+            "annual_wins": 7,
+            "rmse_reduction_ci95": [
+              -0.14317502680509128,
+              -0.02100220328768691
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.19493602905692808,
+            "mae_reduction": 0.14451499883751784,
+            "annual_wins": 12,
+            "rmse_reduction_ci95": [
+              0.01708754401516431,
+              0.35130613638590935
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": 0.2966273199574885,
+            "mae_reduction": 0.3475755055111248,
+            "annual_wins": 17,
+            "rmse_reduction_ci95": [
+              0.18210118567446568,
+              0.4453946107167117
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.11926978731765936,
+            "mae_reduction": 0.11984723172211253,
+            "annual_wins": 13,
+            "rmse_reduction_ci95": [
+              0.0051008338490592916,
+              0.256315637913209
+            ]
+          },
+          "placebo": {
+            "rmse_reduction": -0.05518482726204588,
+            "mae_reduction": -0.09408784001570902,
+            "annual_wins": 10,
+            "rmse_reduction_ci95": [
+              -0.18127479639668273,
+              0.0844791428855027
+            ]
+          }
+        },
+        "frozen_gate_passed": false,
+        "official_june_comparison": {
+          "n": 23,
+          "official": {
+            "rmse": 3.4452235366360924,
+            "mae": 2.5652173913043477
+          },
+          "satellite": {
+            "rmse": 6.330354120382604,
+            "mae": 5.134297108803757
+          },
+          "rmse_reduction": -0.8374291401026321,
+          "mae_reduction": -1.0015056525845156,
+          "rmse_reduction_ci95": [
+            -1.4636285158885123,
+            -0.3645215660361575
+          ],
+          "warning": "QuickStats named historicalJune forecasts; exact initial issue dates and revision audit not reconstructed."
+        }
+      },
+      "OK": {
+        "n_evaluation": 23,
+        "evaluated_years": [
+          2000,
+          2001,
+          2002,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "abstentions": [
+          {
+            "year": 2003,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2004,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2005,
+            "reason": "Incomplete or unavailable features"
+          }
+        ],
+        "models": {
+          "weather": {
+            "rmse": 5.847809765255438,
+            "mae": 4.90956347567017
+          },
+          "satellite": {
+            "rmse": 5.133581627980421,
+            "mae": 4.128620003274933
+          },
+          "mean": {
+            "rmse": 6.52858296520197,
+            "mae": 5.624488518192378
+          },
+          "persistence": {
+            "rmse": 8.405484751817916,
+            "mae": 6.913043478260869
+          },
+          "trend": {
+            "rmse": 6.758208986026478,
+            "mae": 5.817474343424146
+          },
+          "placebo": {
+            "rmse": 5.934453282587537,
+            "mae": 5.052589427315203
+          }
+        },
+        "comparisons": {
+          "weather": {
+            "rmse_reduction": 0.12213600748755193,
+            "mae_reduction": 0.15906576547289397,
+            "annual_wins": 16,
+            "rmse_reduction_ci95": [
+              0.019987826408355308,
+              0.22162742445234682
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.2136759760360023,
+            "mae_reduction": 0.2659563638682996,
+            "annual_wins": 18,
+            "rmse_reduction_ci95": [
+              0.09141483087706438,
+              0.3296518070782165
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": 0.3892581118691407,
+            "mae_reduction": 0.4027782385199782,
+            "annual_wins": 17,
+            "rmse_reduction_ci95": [
+              0.25590472936179515,
+              0.4896202922738882
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.24039318130072573,
+            "mae_reduction": 0.2903071402555011,
+            "annual_wins": 19,
+            "rmse_reduction_ci95": [
+              0.15150619061462314,
+              0.33324031888206385
+            ]
+          },
+          "placebo": {
+            "rmse_reduction": 0.13495289565375435,
+            "mae_reduction": 0.18287047410682644,
+            "annual_wins": 16,
+            "rmse_reduction_ci95": [
+              0.03192221138281317,
+              0.2397497218482349
+            ]
+          }
+        },
+        "frozen_gate_passed": true,
+        "official_june_comparison": {
+          "n": 23,
+          "official": {
+            "rmse": 2.5108460379097233,
+            "mae": 2.0434782608695654
+          },
+          "satellite": {
+            "rmse": 5.133581627980421,
+            "mae": 4.128620003274933
+          },
+          "rmse_reduction": -1.0445624902808146,
+          "mae_reduction": -1.0203885122409244,
+          "rmse_reduction_ci95": [
+            -2.1597394060050643,
+            -0.33837989022750387
+          ],
+          "warning": "QuickStats named historicalJune forecasts; exact initial issue dates and revision audit not reconstructed."
+        }
+      },
+      "TX": {
+        "n_evaluation": 23,
+        "evaluated_years": [
+          2000,
+          2001,
+          2002,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "abstentions": [
+          {
+            "year": 2003,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2004,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2005,
+            "reason": "Incomplete or unavailable features"
+          }
+        ],
+        "models": {
+          "weather": {
+            "rmse": 3.2654975034072686,
+            "mae": 2.550294649360389
+          },
+          "satellite": {
+            "rmse": 3.0520905754713112,
+            "mae": 2.282794944189918
+          },
+          "mean": {
+            "rmse": 3.881317381056097,
+            "mae": 2.9236298652420345
+          },
+          "persistence": {
+            "rmse": 6.093474770819085,
+            "mae": 5.391304347826087
+          },
+          "trend": {
+            "rmse": 3.8352296676199007,
+            "mae": 3.079223476285181
+          },
+          "placebo": {
+            "rmse": 3.3488397860618853,
+            "mae": 2.624286797085953
+          }
+        },
+        "comparisons": {
+          "weather": {
+            "rmse_reduction": 0.06535204136989403,
+            "mae_reduction": 0.10488972528627616,
+            "annual_wins": 14,
+            "rmse_reduction_ci95": [
+              -0.045734997545767805,
+              0.23412429755976524
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.21364570947793893,
+            "mae_reduction": 0.2191915360664387,
+            "annual_wins": 12,
+            "rmse_reduction_ci95": [
+              0.055615635090786236,
+              0.3887032525977528
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": 0.4991214881060303,
+            "mae_reduction": 0.5765783571260636,
+            "annual_wins": 20,
+            "rmse_reduction_ci95": [
+              0.3346220768257364,
+              0.6435702342883067
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.20419613948037607,
+            "mae_reduction": 0.25864590154920675,
+            "annual_wins": 13,
+            "rmse_reduction_ci95": [
+              -0.052780668056593566,
+              0.4245365089664094
+            ]
+          },
+          "placebo": {
+            "rmse_reduction": 0.08861254331296042,
+            "mae_reduction": 0.13012748960031073,
+            "annual_wins": 15,
+            "rmse_reduction_ci95": [
+              -0.01769612737433139,
+              0.25025976508925024
+            ]
+          }
+        },
+        "frozen_gate_passed": false,
+        "official_june_comparison": {
+          "n": 23,
+          "official": {
+            "rmse": 3.0574214768259416,
+            "mae": 2.391304347826087
+          },
+          "satellite": {
+            "rmse": 3.0520905754713112,
+            "mae": 2.282794944189918
+          },
+          "rmse_reduction": 0.001743593873149818,
+          "mae_reduction": 0.045376659702398014,
+          "rmse_reduction_ci95": [
+            -0.3283553877845547,
+            0.2353611438888698
+          ],
+          "warning": "QuickStats named historicalJune forecasts; exact initial issue dates and revision audit not reconstructed."
+        }
+      }
+    },
+    "confirmation_KS_OK": {
+      "states": [
+        "KS",
+        "OK"
+      ],
+      "n_calendar_years": 23,
+      "n_per_state": {
+        "KS": 23,
+        "OK": 23
+      },
+      "models": {
+        "weather": {
+          "rmse": 5.8782669856453555,
+          "mae": 4.783510368495982
+        },
+        "satellite": {
+          "rmse": 5.7631173691233775,
+          "mae": 4.631458556039345
+        },
+        "mean": {
+          "rmse": 7.226749734444186,
+          "mae": 5.813054969878365
+        },
+        "persistence": {
+          "rmse": 8.70781757712699,
+          "mae": 7.391304347826087
+        },
+        "trend": {
+          "rmse": 6.976219263978986,
+          "mae": 5.825445096661031
+        },
+        "placebo": {
+          "rmse": 5.966957008592228,
+          "mae": 4.8726772073749425
+        }
+      },
+      "comparisons": {
+        "weather": {
+          "rmse_reduction": 0.0195890416007255,
+          "mae_reduction": 0.03178665890598764,
+          "rmse_reduction_ci95": [
+            -0.037924427946494234,
+            0.08515099676376536
+          ]
+        },
+        "mean": {
+          "rmse_reduction": 0.20252982586968993,
+          "mae_reduction": 0.203265996960587,
+          "rmse_reduction_ci95": [
+            0.09109008814223792,
+            0.31705267572668305
+          ]
+        },
+        "persistence": {
+          "rmse_reduction": 0.33816742047267034,
+          "mae_reduction": 0.3733909012417357,
+          "rmse_reduction_ci95": [
+            0.24682402759042726,
+            0.4407336100316567
+          ]
+        },
+        "trend": {
+          "rmse_reduction": 0.17389102161959546,
+          "mae_reduction": 0.20496056881662894,
+          "rmse_reduction_ci95": [
+            0.0978283682240546,
+            0.2732266636464943
+          ]
+        },
+        "placebo": {
+          "rmse_reduction": 0.034161405750925966,
+          "mae_reduction": 0.04950433633701534,
+          "rmse_reduction_ci95": [
+            -0.054331893610829136,
+            0.1367327557615649
+          ]
+        }
+      },
+      "frozen_gate_passed": false,
+      "aggregation": "Equal state MSE then root; paired calendar-year clusters, not independent state-years",
+      "official_june_comparison": {
+        "n_per_state": {
+          "KS": 23,
+          "OK": 23
+        },
+        "satellite": {
+          "rmse": 5.7631173691233775,
+          "mae": 4.631458556039345
+        },
+        "official": {
+          "rmse": 3.0144579150718176,
+          "mae": 2.3043478260869565
+        },
+        "rmse_reduction": -0.9118254530304415,
+        "mae_reduction": -1.0098782413000928,
+        "rmse_reduction_ci95": [
+          -1.6280321463651708,
+          -0.39586846659808683
+        ]
+      }
+    },
+    "exploratory_all_three": {
+      "states": [
+        "KS",
+        "OK",
+        "TX"
+      ],
+      "n_calendar_years": 23,
+      "n_per_state": {
+        "KS": 23,
+        "OK": 23,
+        "TX": 23
+      },
+      "models": {
+        "weather": {
+          "rmse": 5.1565983443162535,
+          "mae": 4.039105128784118
+        },
+        "satellite": {
+          "rmse": 5.024682427824466,
+          "mae": 3.848570685422869
+        },
+        "mean": {
+          "rmse": 6.3117997449503624,
+          "mae": 4.849913268332922
+        },
+        "persistence": {
+          "rmse": 7.932687831490917,
+          "mae": 6.724637681159421
+        },
+        "trend": {
+          "rmse": 6.111308017154616,
+          "mae": 4.9100378898690815
+        },
+        "placebo": {
+          "rmse": 5.241624423703236,
+          "mae": 4.123213737278612
+        }
+      },
+      "comparisons": {
+        "weather": {
+          "rmse_reduction": 0.025581964637053645,
+          "mae_reduction": 0.047172439757368956,
+          "rmse_reduction_ci95": [
+            -0.03143394675614885,
+            0.09295778674870254
+          ]
+        },
+        "mean": {
+          "rmse_reduction": 0.20392239442571525,
+          "mae_reduction": 0.20646608042420678,
+          "rmse_reduction_ci95": [
+            0.1167161764210776,
+            0.3040289266132575
+          ]
+        },
+        "persistence": {
+          "rmse_reduction": 0.36658513046767693,
+          "mae_reduction": 0.4276909972108234,
+          "rmse_reduction_ci95": [
+            0.2790701969722271,
+            0.4621601720193986
+          ]
+        },
+        "trend": {
+          "rmse_reduction": 0.17780573099571495,
+          "mae_reduction": 0.21618309843114358,
+          "rmse_reduction_ci95": [
+            0.10483082017794307,
+            0.272698834823967
+          ]
+        },
+        "placebo": {
+          "rmse_reduction": 0.041388313687209854,
+          "mae_reduction": 0.06660897769442631,
+          "rmse_reduction_ci95": [
+            -0.04018025811328897,
+            0.13600268574641333
+          ]
+        }
+      },
+      "frozen_gate_passed": false,
+      "aggregation": "Equal state MSE then root; paired calendar-year clusters, not independent state-years",
+      "official_june_comparison": {
+        "n_per_state": {
+          "KS": 23,
+          "OK": 23,
+          "TX": 23
+        },
+        "satellite": {
+          "rmse": 5.024682427824466,
+          "mae": 3.848570685422869
+        },
+        "official": {
+          "rmse": 3.028846817433701,
+          "mae": 2.3333333333333335
+        },
+        "rmse_reduction": -0.65894240636501,
+        "mae_reduction": -0.6493874366098009,
+        "rmse_reduction_ci95": [
+          -1.0973636170907095,
+          -0.2712708145112756
+        ]
+      }
+    }
+  },
+  "secondary_production_intensity": {
+    "states": {
+      "KS": {
+        "n_evaluation": 23,
+        "evaluated_years": [
+          2000,
+          2001,
+          2002,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "abstentions": [
+          {
+            "year": 2003,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2004,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2005,
+            "reason": "Incomplete or unavailable features"
+          }
+        ],
+        "models": {
+          "weather": {
+            "rmse": 6.697459897465342,
+            "mae": 5.574791041943372
+          },
+          "satellite": {
+            "rmse": 7.066156817642563,
+            "mae": 5.972934943925626
+          },
+          "mean": {
+            "rmse": 8.679029142789062,
+            "mae": 6.8908469254839995
+          },
+          "persistence": {
+            "rmse": 9.762445815548363,
+            "mae": 8.723476107159314
+          },
+          "trend": {
+            "rmse": 8.102571556204582,
+            "mae": 6.670996244554054
+          },
+          "placebo": {
+            "rmse": 6.753020268762449,
+            "mae": 5.34023427705416
+          }
+        },
+        "comparisons": {
+          "weather": {
+            "rmse_reduction": -0.05505026171440819,
+            "mae_reduction": -0.07141862340430638,
+            "annual_wins": 7,
+            "rmse_reduction_ci95": [
+              -0.11748018103944438,
+              0.017504493588677235
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.18583556969462978,
+            "mae_reduction": 0.13320742594988078,
+            "annual_wins": 13,
+            "rmse_reduction_ci95": [
+              -0.002413212169252902,
+              0.32833840332572545
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": 0.2761899065920037,
+            "mae_reduction": 0.31530334117340364,
+            "annual_wins": 15,
+            "rmse_reduction_ci95": [
+              0.14396859590017197,
+              0.41117745018398844
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.1279118279144823,
+            "mae_reduction": 0.1046412372362372,
+            "annual_wins": 12,
+            "rmse_reduction_ci95": [
+              0.009760020874039828,
+              0.24354792714295004
+            ]
+          },
+          "placebo": {
+            "rmse_reduction": -0.046369851772634973,
+            "mae_reduction": -0.11847807306695235,
+            "annual_wins": 9,
+            "rmse_reduction_ci95": [
+              -0.21143779374746538,
+              0.11807520641868824
+            ]
+          }
+        },
+        "frozen_gate_passed": false
+      },
+      "OK": {
+        "n_evaluation": 23,
+        "evaluated_years": [
+          2000,
+          2001,
+          2002,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "abstentions": [
+          {
+            "year": 2003,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2004,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2005,
+            "reason": "Incomplete or unavailable features"
+          }
+        ],
+        "models": {
+          "weather": {
+            "rmse": 5.22294705971359,
+            "mae": 4.61006761600172
+          },
+          "satellite": {
+            "rmse": 4.747027841611173,
+            "mae": 4.057205731340447
+          },
+          "mean": {
+            "rmse": 5.705867764918012,
+            "mae": 4.997831705298315
+          },
+          "persistence": {
+            "rmse": 8.500388907762927,
+            "mae": 7.1735054315185
+          },
+          "trend": {
+            "rmse": 6.084266798540772,
+            "mae": 5.280613677371915
+          },
+          "placebo": {
+            "rmse": 5.352231658509677,
+            "mae": 4.706020294024219
+          }
+        },
+        "comparisons": {
+          "weather": {
+            "rmse_reduction": 0.09112081984773457,
+            "mae_reduction": 0.11992489714082899,
+            "annual_wins": 17,
+            "rmse_reduction_ci95": [
+              0.01691799893504177,
+              0.17482513349573534
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.16804453990367174,
+            "mae_reduction": 0.18820681235838532,
+            "annual_wins": 16,
+            "rmse_reduction_ci95": [
+              0.035553693333757456,
+              0.30554767257909776
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": 0.44155168744385576,
+            "mae_reduction": 0.4344179745770945,
+            "annual_wins": 16,
+            "rmse_reduction_ci95": [
+              0.3048024544263163,
+              0.5561083865379045
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.21978637709482385,
+            "mae_reduction": 0.23167912306744254,
+            "annual_wins": 17,
+            "rmse_reduction_ci95": [
+              0.11868744526839199,
+              0.34383822245144924
+            ]
+          },
+          "placebo": {
+            "rmse_reduction": 0.11307504149904868,
+            "mae_reduction": 0.1378690532864143,
+            "annual_wins": 18,
+            "rmse_reduction_ci95": [
+              0.033367443893126625,
+              0.2054262818502741
+            ]
+          }
+        },
+        "frozen_gate_passed": true
+      },
+      "TX": {
+        "n_evaluation": 23,
+        "evaluated_years": [
+          2000,
+          2001,
+          2002,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "abstentions": [
+          {
+            "year": 2003,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2004,
+            "reason": "Incomplete or unavailable features"
+          },
+          {
+            "year": 2005,
+            "reason": "Incomplete or unavailable features"
+          }
+        ],
+        "models": {
+          "weather": {
+            "rmse": 3.2480988222699696,
+            "mae": 2.7891951764606544
+          },
+          "satellite": {
+            "rmse": 3.0452161739957995,
+            "mae": 2.5443210609048053
+          },
+          "mean": {
+            "rmse": 4.771692014448781,
+            "mae": 3.8678280398534417
+          },
+          "persistence": {
+            "rmse": 7.378175151704197,
+            "mae": 6.049354783644676
+          },
+          "trend": {
+            "rmse": 4.677548640776305,
+            "mae": 3.878406875989959
+          },
+          "placebo": {
+            "rmse": 3.265671899394347,
+            "mae": 2.804466896907911
+          }
+        },
+        "comparisons": {
+          "weather": {
+            "rmse_reduction": 0.06246196910116897,
+            "mae_reduction": 0.08779382583996209,
+            "annual_wins": 12,
+            "rmse_reduction_ci95": [
+              -0.06541489864999654,
+              0.1738967186800945
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.36181627716650133,
+            "mae_reduction": 0.34218351108463096,
+            "annual_wins": 19,
+            "rmse_reduction_ci95": [
+              0.15400937512053095,
+              0.5101754761756212
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": 0.5872670258725938,
+            "mae_reduction": 0.5794062091078287,
+            "annual_wins": 18,
+            "rmse_reduction_ci95": [
+              0.44857586725351034,
+              0.6785184753675385
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.3489717781982481,
+            "mae_reduction": 0.3439777872053792,
+            "annual_wins": 15,
+            "rmse_reduction_ci95": [
+              0.15697573554632185,
+              0.4750898260703277
+            ]
+          },
+          "placebo": {
+            "rmse_reduction": 0.0675070038234501,
+            "mae_reduction": 0.09276124324731094,
+            "annual_wins": 13,
+            "rmse_reduction_ci95": [
+              -0.05683064562377006,
+              0.19292544526676758
+            ]
+          }
+        },
+        "frozen_gate_passed": false
+      }
+    },
+    "confirmation_KS_OK": {
+      "states": [
+        "KS",
+        "OK"
+      ],
+      "n_calendar_years": 23,
+      "n_per_state": {
+        "KS": 23,
+        "OK": 23
+      },
+      "models": {
+        "weather": {
+          "rmse": 6.0056284045355035,
+          "mae": 5.092429328972546
+        },
+        "satellite": {
+          "rmse": 6.019337401265529,
+          "mae": 5.015070337633036
+        },
+        "mean": {
+          "rmse": 7.344469817900824,
+          "mae": 5.944339315391158
+        },
+        "persistence": {
+          "rmse": 9.153195067426914,
+          "mae": 7.948490769338907
+        },
+        "trend": {
+          "rmse": 7.164843623528747,
+          "mae": 5.975804960962984
+        },
+        "placebo": {
+          "rmse": 6.093015118833602,
+          "mae": 5.023127285539189
+        }
+      },
+      "comparisons": {
+        "weather": {
+          "rmse_reduction": -0.002282691469833953,
+          "mae_reduction": 0.015190979853051512,
+          "rmse_reduction_ci95": [
+            -0.05850031432564639,
+            0.06053684072474036
+          ]
+        },
+        "mean": {
+          "rmse_reduction": 0.1804258781764645,
+          "mae_reduction": 0.1563283871349751,
+          "rmse_reduction_ci95": [
+            0.06216642383901704,
+            0.29788021874461
+          ]
+        },
+        "persistence": {
+          "rmse_reduction": 0.3423785512136315,
+          "mae_reduction": 0.36905376339134255,
+          "rmse_reduction_ci95": [
+            0.240160836116989,
+            0.4513619398236516
+          ]
+        },
+        "trend": {
+          "rmse_reduction": 0.1598787471789993,
+          "mae_reduction": 0.16077074630212307,
+          "rmse_reduction_ci95": [
+            0.07090299139661882,
+            0.25704147590937926
+          ]
+        },
+        "placebo": {
+          "rmse_reduction": 0.012092160634943006,
+          "mae_reduction": 0.0016039704845521863,
+          "rmse_reduction_ci95": [
+            -0.09977491463774815,
+            0.13382427605315786
+          ]
+        }
+      },
+      "frozen_gate_passed": false,
+      "aggregation": "Equal state MSE then root; paired calendar-year clusters, not independent state-years"
+    },
+    "exploratory_all_three": {
+      "states": [
+        "KS",
+        "OK",
+        "TX"
+      ],
+      "n_calendar_years": 23,
+      "n_per_state": {
+        "KS": 23,
+        "OK": 23,
+        "TX": 23
+      },
+      "models": {
+        "weather": {
+          "rmse": 5.249929873371608,
+          "mae": 4.324684611468583
+        },
+        "satellite": {
+          "rmse": 5.21977608226361,
+          "mae": 4.1914872453902925
+        },
+        "mean": {
+          "rmse": 6.599280730828842,
+          "mae": 5.2521688902119195
+        },
+        "persistence": {
+          "rmse": 8.60231419355594,
+          "mae": 7.315445440774163
+        },
+        "trend": {
+          "rmse": 6.4433280630967245,
+          "mae": 5.276672265971976
+        },
+        "placebo": {
+          "rmse": 5.320221782067724,
+          "mae": 4.283573822662096
+        }
+      },
+      "comparisons": {
+        "weather": {
+          "rmse_reduction": 0.005743655979281281,
+          "mae_reduction": 0.030799324816673468,
+          "rmse_reduction_ci95": [
+            -0.05055518883668476,
+            0.06610780405903054
+          ]
+        },
+        "mean": {
+          "rmse_reduction": 0.20903863691096114,
+          "mae_reduction": 0.20195116855406936,
+          "rmse_reduction_ci95": [
+            0.11257921570597097,
+            0.3066164007604964
+          ]
+        },
+        "persistence": {
+          "rmse_reduction": 0.39321257456815706,
+          "mae_reduction": 0.42703595026105146,
+          "rmse_reduction_ci95": [
+            0.30928461403414587,
+            0.485828712751446
+          ]
+        },
+        "trend": {
+          "rmse_reduction": 0.18989440997748364,
+          "mae_reduction": 0.2056570819415462,
+          "rmse_reduction_ci95": [
+            0.11800260380259767,
+            0.2717899949061049
+          ]
+        },
+        "placebo": {
+          "rmse_reduction": 0.018879983564345948,
+          "mae_reduction": 0.021497604823482397,
+          "rmse_reduction_ci95": [
+            -0.08063911825710439,
+            0.12570706567966028
+          ]
+        }
+      },
+      "frozen_gate_passed": false,
+      "aggregation": "Equal state MSE then root; paired calendar-year clusters, not independent state-years"
+    }
+  },
+  "protocol_sha256": "d6a613f5e93bf1b8d39864d55a47f8c35449235cd682b44203f564267ef6cc9f",
+  "code_sha256": "2bd7c3f6a1193d41fc32e2b6bbf9449d6cf3b3cd01784c9b34cfe2095b7d3f11",
+  "core_code_sha256": "dee9aedac176b20cdd97c8573fc0b9609c5958f77842c9dcb4585f6f7174e93f",
+  "original_vintage_operational_verification": false,
+  "trading_alpha_verified": false,
+  "selection_disclosure": "Kansas/Oklahoma fixed after seeing failedTexas; no model/window changes; all states/targets retained. Cross-state clustered uncertainty; current-vintage only."
+}

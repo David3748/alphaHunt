@@ -1,0 +1,12 @@
+{
+  "url": "https://datacatalogfiles.worldbank.org/ddh-published/0038272/DR0046659/wb_countries_admin0_10m.zip",
+  "sha256": "019642b2a80f07fdae56baf15760971bf45119110bb0d9a90255df89be7e635c",
+  "http_last_modified": "Thu, 14 May 2026 09:49:40 GMT",
+  "http_version_id": "2026-05-14T09:49:40.4368371Z",
+  "selected_iso_a2": [
+    "ZM",
+    "ZW"
+  ],
+  "catalog_url": "https://datacatalog.worldbank.org/search/dataset/0038272/world-bank-official-boundaries",
+  "retrieved_at_utc": "2026-09-27T03:24:37.575315+00:00"
+}

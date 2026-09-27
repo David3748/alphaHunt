@@ -1,0 +1,54 @@
+[
+  {
+    "path": "noaa_texas_wheat_weekly.txt",
+    "url": "https://www.star.nesdis.noaa.gov/smcd/emb/vci/VH/get_TS_admin.php?TagCropland=WHEA&country=USA&provinceID=44&type=Mean&year1=1982&year2=2025&yearlyTag=Weekly",
+    "sha256": "ef6a43917ca6898e10a29f797ef1f65563f4169bc85f5c384c577e95f3d0c1d3",
+    "retrieved_at": "2026-09-27T02:51:50.573145+00:00",
+    "bytes": 100848
+  },
+  {
+    "path": "weather_pcp.csv",
+    "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/41/pcp/1/0/1981-2025.csv",
+    "sha256": "93962776255533b542482aeba1b24a637c4581c97b34239ea0ea39241a4d59b8",
+    "retrieved_at": "2026-09-27T02:51:50.393618+00:00",
+    "bytes": 6481
+  },
+  {
+    "path": "weather_tavg.csv",
+    "url": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/41/tavg/1/0/1981-2025.csv",
+    "sha256": "d72a656693a3aeb207eaf9b073703dd67954c6b05f046012bb53443e2c7dd589",
+    "retrieved_at": "2026-09-27T02:51:50.392219+00:00",
+    "bytes": 6445
+  },
+  {
+    "path": "smoothing.pdf",
+    "url": "https://www.star.nesdis.noaa.gov/jpss/documents/AMM/NPP/VIIRS-VH_ARR_Prov.pdf",
+    "sha256": "22957de7f18a0b7d01d562fe88dfcb7af1cf54274527a8caa293d8f39afad370",
+    "retrieved_at": "2026-09-27T02:51:51.084628+00:00",
+    "bytes": 15467515
+  },
+  {
+    "path": "noaa_background.html",
+    "url": "https://www.star.nesdis.noaa.gov/smcd/emb/vci/VH/VH-Syst_10ap30.php",
+    "sha256": "510abca21e373ce8e3ddbca3de383ec3b2b998ef6e22c74e354311fef2be90e4",
+    "retrieved_at": "2026-09-27T02:51:50.470781+00:00",
+    "bytes": 25209
+  },
+  {
+    "path": "nass_2024_review.pdf",
+    "url": "https://www.nass.usda.gov/Statistics_by_State/Texas/Publications/Current_News_Release/2024_Rls/tx-wheat-review-2024.pdf",
+    "sha256": "38dfbb4a19a0fdafc6a0055323845143807303511568d413a32b24a98886766a",
+    "retrieved_at": "2026-09-27T02:51:51.295881+00:00",
+    "bytes": 603274
+  },
+  {
+    "path": "nass_texas_winter_wheat.tsv",
+    "url": "https://www.nass.usda.gov/datasets/qs.crops_20260926.txt.gz",
+    "sha256": "e1acb991ef2670c26247e7974f7ccc9417be5dea225402400c37d76d567e60e1",
+    "retrieved_at": "2026-09-27T02:52:37.448058+00:00",
+    "filter": "Texas state winter-wheat survey annual total, yield/production/planted/harvested, all production practices, 1981 onward. Full raw matching rows retained.",
+    "bulk_rows_scanned": 23900661,
+    "rows_kept": 552,
+    "bulk_bytes_retained": false
+  }
+]

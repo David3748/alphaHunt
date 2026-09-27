@@ -1,0 +1,242 @@
+{
+  "n_test_months": 42,
+  "abstentions": 6,
+  "n_year_clusters": 4,
+  "metrics": {
+    "persistence": {
+      "rmse_mwh": 13601.103831755896,
+      "mae_mwh": 10995.510467980295
+    },
+    "seasonal_mean": {
+      "rmse_mwh": 14843.295044810866,
+      "mae_mwh": 11985.515188834153
+    },
+    "season_trend": {
+      "rmse_mwh": 14219.768098951652,
+      "mae_mwh": 11363.233863255507
+    },
+    "weather": {
+      "rmse_mwh": 12909.275596570522,
+      "mae_mwh": 10340.27384907191
+    },
+    "satellite": {
+      "rmse_mwh": 13948.636426375424,
+      "mae_mwh": 11495.038944549873
+    },
+    "prior_year_irradiance_placebo": {
+      "rmse_mwh": 15209.488512144186,
+      "mae_mwh": 12116.362447677986
+    }
+  },
+  "comparisons": {
+    "persistence": {
+      "rmse_reduction_pct": -2.555179336313196,
+      "mae_reduction_pct": -4.543022154580645,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -1553.2254139696652,
+        274.0190802253328
+      ],
+      "rmse_gain_season_bootstrap_ci95_mwh": [
+        -1698.502579369169,
+        1200.0176686204256
+      ]
+    },
+    "seasonal_mean": {
+      "rmse_reduction_pct": 6.027358586718989,
+      "mae_reduction_pct": 4.092241647995354,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -1732.8827642932574,
+        2735.045510557733
+      ],
+      "rmse_gain_season_bootstrap_ci95_mwh": [
+        -54.46351641156624,
+        1746.147540530205
+      ]
+    },
+    "season_trend": {
+      "rmse_reduction_pct": 1.9067235885247502,
+      "mae_reduction_pct": -1.159925800001127,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -3475.287024882062,
+        3341.3968750796375
+      ],
+      "rmse_gain_season_bootstrap_ci95_mwh": [
+        -2685.1430070341685,
+        3500.4884143073846
+      ]
+    },
+    "weather": {
+      "rmse_reduction_pct": -8.051271522013348,
+      "mae_reduction_pct": -11.16764519328093,
+      "rmse_gain_year_bootstrap_ci95_mwh": [
+        -4130.219219222377,
+        1945.3870677789037
+      ],
+      "rmse_gain_season_bootstrap_ci95_mwh": [
+        -3140.475144389047,
+        1634.0184349363487
+      ]
+    }
+  },
+  "strongest_nonsatellite_baseline": "weather",
+  "primary_gate_passed": false,
+  "by_year": {
+    "2022": {
+      "n": 11,
+      "rmse_mwh": {
+        "persistence": 9403.309939493745,
+        "seasonal_mean": 8784.278781392393,
+        "season_trend": 7268.2974213654925,
+        "weather": 8140.471907179252,
+        "satellite": 11785.12576342718,
+        "prior_year_irradiance_placebo": 10143.164598214986
+      }
+    },
+    "2023": {
+      "n": 11,
+      "rmse_mwh": {
+        "persistence": 15311.297403610779,
+        "seasonal_mean": 18677.675692460434,
+        "season_trend": 12352.802619889097,
+        "weather": 10651.7880701004,
+        "satellite": 15217.371144216742,
+        "prior_year_irradiance_placebo": 19653.710451247083
+      }
+    },
+    "2024": {
+      "n": 10,
+      "rmse_mwh": {
+        "persistence": 11453.824134595834,
+        "seasonal_mean": 13136.289889082076,
+        "season_trend": 13118.550393993579,
+        "weather": 10412.489714416053,
+        "satellite": 11415.872638808589,
+        "prior_year_irradiance_placebo": 12672.107677837941
+      }
+    },
+    "2025": {
+      "n": 10,
+      "rmse_mwh": {
+        "persistence": 17047.70210177931,
+        "seasonal_mean": 16857.495821638095,
+        "season_trend": 21241.218131293503,
+        "weather": 19844.56761402395,
+        "satellite": 16713.624531072644,
+        "prior_year_irradiance_placebo": 16520.59997521092
+      }
+    }
+  },
+  "regimes": {
+    "before_april_2024": {
+      "n": 24,
+      "rmse_mwh": {
+        "persistence": 12477.941303326877,
+        "seasonal_mean": 14072.13450264302,
+        "season_trend": 9814.927278802541,
+        "weather": 9240.9993357959,
+        "satellite": 13138.83279954212,
+        "prior_year_irradiance_placebo": 14976.061676081497
+      }
+    },
+    "april_2024_onward": {
+      "n": 18,
+      "rmse_mwh": {
+        "persistence": 14968.122810585959,
+        "seasonal_mean": 15813.116672235983,
+        "season_trend": 18529.988699070243,
+        "weather": 16582.737008716398,
+        "satellite": 14960.341994187567,
+        "prior_year_irradiance_placebo": 15515.262295603576
+      }
+    }
+  },
+  "confirmation": {
+    "n_test_years": 2,
+    "rmse_mwh": {
+      "satellite": 152839.9048476897,
+      "seasonal_mean": 137240.27880683984,
+      "persistence": 183912.45331542942
+    },
+    "point_confirmation_passed": false,
+    "interpretation": "Four secondary annual-meter outcomes; correlated weather with primary. Annual totals avoid pre2023 EIA monthly allocation."
+  },
+  "forecast_usefulness_verified": false,
+  "original_vintage_certified": false,
+  "trading_alpha_verified": false,
+  "scope": "Independent production nowcast accuracy at measured plants, before reported outcomes; no asset-return claim",
+  "limits": [
+    "Only four primary test years and four secondary annual outcomes",
+    "Current final EIA labels and revised ground weather; operational GOES files retain actual source/archive timing",
+    "Exploratory continuation after earlier failed candidates; no familywise discovery correction",
+    "PostApril2024 source resolution/algorithm changed; fixed footprint and regime metrics retained"
+  ],
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T02:16:51.123351+00:00",
+    "purpose": "Repair late-CERES nowcast with genuinely operational archived GOES DSR; demonstrate useful independent economic forecast before EIA reporting",
+    "primary_plant": {
+      "eia_id": "57695",
+      "name": "Topaz Solar Farm",
+      "lat": 35.383,
+      "lon": -120.067,
+      "outcomes_previously_seen": "2015\u20132025 used in prior failed-timing CERES test; GOES features and results not examined"
+    },
+    "confirmation_plant": {
+      "eia_id": "57439",
+      "name": "California Valley Solar Ranch",
+      "lat": 35.323739,
+      "lon": -119.9166,
+      "selection": "Nearby large mature PV with different tracker technology and independent generation report, selected before GOES/outcome join; annual output snippets seen in metadata search, full monthly outcomes not examined"
+    },
+    "source": "GOES17 untiltransition toGOES18; ABI-L2-DSRC beforeEnterprise change2024-04-17 andDSRF after; sourcecreation AND S3lastmodified retained",
+    "spatial_rule": "Fixed0.25deg geographic cell perplant foroldproduct; averagevalid2kmpixels insamecell fornewproduct; samefootprint independentofoutcomes",
+    "sampling": "2hour UTC daylight-capable grid00,02,12,14,16,18,20,22 eachday; remainingUTC04,06,08,10 physicallynight atbothfixedsites andzero. Integrate24h trapezoid at2hour increments, using nextday00endpoint. Missingdaylight staysmissing. Retaincoverage and>=90percent valid expecteddaylight slots permonth. Prespecifiedsampling maychangeonly if archiveformatrequires, notoutcomeperformance.",
+    "forecast_issue": "Targetmonthend+14days. Only sourceobjectscreated AND S3lastmodified bythisdate. EIAtraininglabel available targetmonthend+2months, conservativeproxy; finalEIAoutcomescurrentvintage",
+    "calibration": "SatellitehistoryJan2020\u2013Dec2021; firsttwo same-calendar-month observations used tocalibrate each subsequentforecast, rolling prior2same-monthyears",
+    "evaluation": "Primary: Jan2022\u2013Dec2025 Topaz monthly, all48months. Secondary: CVSR actual annual totals2022\u20132025. No horizonorparametersearch. Reportfullresults andApr2024regime split.",
+    "primary_formula": "baseline=mean dailyMWh inpriortwo same-calendar-monthyears; satellite=baseline * currentmonthlymeanGHI / meanGHI inthoseidenticaltwo months. Fixedphysicalirradianceelasticity1, no coefficientfit. ConverttoMWh usingtargetdaycount.",
+    "comparators": [
+      "previous-year same-monthdailyMWh persistence",
+      "prior-two-year same-monthmean dailyMWh (matchedablation)",
+      "rolling48eligiblemonthsOLS logdailyMWh onmonthfixed effects+lineartrend, min36monthhistory fromEIA2015+",
+      "identicalrollingOLS pluscurrentgroundtemperature andlog1p precipitation, subjecttoindependentfeaturecoverage",
+      "fixedsameformula butreplacecurrentGHIwithprevious-yearGHI placebo"
+    ],
+    "uncertainty": "Paired calendar-year clusterbootstrap10000drawsseed20260927, reportgainagainstALLbaselines. Fourtestyearclusters: also reportmonthlyerrors/yearwiseoutcomes andsame-season-block sensitivity; donotinflate sample bycountingtwo geographicallyadjacentplants independently.",
+    "gate": "Atprimaryplant at least5percent lowerRMSE and lowerMAE thanALLpredefined nonsatellitebaselines, positive95percent yearblockRMSEgain interval againststrongestbaseline, lowerRMSEthanprior-yearGHIplacebo; pointRMSEimprovement atconfirmationplant underunchangedformula. Reportavailabilitycoverage andregimes.",
+    "limits": [
+      "Exploratorycontinuationfollowingnegativecandidates; nofamilywise discoveryclaim",
+      "ProductchangedApr2024; originalcreation/archiveavailabilitygates critical",
+      "FinalEIAoutcomesandgroundweatherrevisions arenotoriginalvintagecertification",
+      "GHIonlydoesnotmodeltilttrackingcurtailmentoutagesorpaneldegradationexplicitly",
+      "Utilityverifiedonlyasproductionnowcastaccuracy, notmarketalpha",
+      "Secondplant isindependentmeter butcorrelatedweather; notindependentreplicationofclimateconditions"
+    ],
+    "trade_test": "Separatefixedtest afterphysicalforecast; do notsubstitutepricebacktestforforecastgate",
+    "GOES_outcome_join_or_metrics_examined_before_freeze": false,
+    "ground_weather_addendum": {
+      "recorded_at_utc": "2026-09-27T02:18:37.626053+00:00",
+      "reason": "Select closest complete weather series per variable, rather than requiring temperature and rain at the same more distant station. No satellite/outcome join or model results inspected.",
+      "selection": "La Panza RAWS for TMAX/TMIN; Salinas Dam for PRCP, each >=90% source coverage. San Luis Obispo ASOS airport is a separate timeliness sensitivity. Selection by distance and coverage only.",
+      "regression_features": [
+        "tmean_c",
+        "dtr_c",
+        "log1p monthly total precipitation_mm"
+      ],
+      "specification": "Rolling 48 eligible historical months, minimum 36, OLS log daily generation on intercept + 11 month indicators + linear time + the three ground weather features. Exactly same training months as time/season-only regression."
+    },
+    "confirmation_amendment_before_goes_metrics": {
+      "recorded_at_utc": "2026-09-27T02:31:51.546862+00:00",
+      "reason": "Primary EIA2022 proposed rule and respondent frequencies establish pre2023 annual respondents did not provide independent monthly generation. Use actual annual totals at CVSR, never allocated monthly estimates. No GOES outcome join or metrics examined.",
+      "evaluation": "2022\u20132025 annual CVSR totals, four confirmation outcomes. Forecast January14 following production year, prior to official annual disclosures in June/July. Prior2annual labels available under conservative Nov1followingyear embargo.",
+      "formula": "Mean daily generation of prior2released annual outcomes times currentyear mean daily GOES irradiation / mean daily GOES irradiation in identical historicalyears, multiplied by targetyear daycount. Compare matched annual daily-output mean and latestreleased annual daily-output persistence; secondary pointRMSEimprovement required.",
+      "limitation": "At January14 of yearY+1, yearY-1 outcome is available after November1ofY. Four annual outcomes support only weak secondary confirmation; primary evidence remains48monthlyTopaz outcomes."
+    }
+  },
+  "input_hashes": {
+    "results/satellite_validation/goes_solar/monthly_irradiance.csv": "9754513694d7e364bd5f5da3b7d84764e0f3c5cbde1d70d45770ef1fc3c98bb4",
+    "results/satellite_validation/goes_solar/inputs/eia_57695.json": "08f25fc28421d8f2e840fb9200068db8da5633e25cd886cd3693072721885fec",
+    "results/satellite_validation/goes_solar/ground_weather/monthly_weather.csv": "00bac45e726bdc8cda6094160cf2ff4e6404d5e43a72d0866c8fb343530915ce",
+    "results/satellite_validation/goes_solar/reporting_frequency/annual_generation.csv": "4592ad2a538b7ec5531cdfe0eef07c41c708eb27207219c09b10350dac20e774",
+    "results/satellite_validation/goes_solar/protocol.json": "f2c303596857a2ca1da25b1eb11047132fd20ae9bb3deda09924164834ee6974"
+  }
+}

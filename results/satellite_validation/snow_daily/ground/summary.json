@@ -1,0 +1,18 @@
+{
+  "n_years": 26,
+  "regional_precip_complete_years": 26,
+  "local_precip_complete_years": 24,
+  "local_precip_incomplete_years": [
+    2013,
+    2023
+  ],
+  "ground_swe_complete_years": 24,
+  "ground_swe_missing_years": [
+    2015,
+    2023
+  ],
+  "source_code_sha256": "98e1b987b800a38447aa4b328d40ede1335d4fc2d5e3f9c241b51b5b46b14b64",
+  "feature_file_sha256": "d3a0d953a5af2fad0e0bd9d91053d7844abf7d696eb5e181f9b486bb32113223",
+  "original_vintage_operational_verification": false,
+  "outcomes_read": false
+}

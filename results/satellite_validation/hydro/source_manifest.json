@@ -1,0 +1,1588 @@
+[
+  {
+    "url": "https://earth.gsfc.nasa.gov/gwm/lake/",
+    "retrieved_at_utc": "2026-09-27T02:20:13.921328+00:00",
+    "http_last_modified": null,
+    "download_sha256": "390368da15febc3684a273cf2ccf9c289c201aa9a360d6e68023fb01b5996901",
+    "path": "metadata/nasa_lake_page.html",
+    "selected_snapshot_sha256": "390368da15febc3684a273cf2ccf9c289c201aa9a360d6e68023fb01b5996901"
+  },
+  {
+    "url": "https://earth.gsfc.nasa.gov/gwm/html/WATER-MONITOR.LakesReservoirs.10day.xlsx",
+    "retrieved_at_utc": "2026-09-27T02:20:14.033333+00:00",
+    "http_last_modified": "Tue, 21 Apr 2026 21:00:46 GMT",
+    "download_sha256": "e29785c0b884ec7e4005da46eda47b4ae36af27d6d661049ff74ada27cd3e8e8",
+    "path": "metadata/nasa_10day_product_table.xlsx",
+    "selected_snapshot_sha256": "e29785c0b884ec7e4005da46eda47b4ae36af27d6d661049ff74ada27cd3e8e8"
+  },
+  {
+    "url": "https://har.gsfc.nasa.gov/pub/danu/power/Reservoir_data/GWM_HEP_reservoirs.tgz",
+    "retrieved_at_utc": "2026-09-27T02:20:14.416124+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 12:00:04 GMT",
+    "download_sha256": "50620aec30a7e4a45bff3829153bdd2464de964d9844fab8aa9bd81a1023561f",
+    "path": "inputs/lake000345.10d.2.txt",
+    "selected_snapshot_sha256": "6ecd407ba47da08e3f4ee84129d358d754f2485756e100e39ea1ffa79368ae99"
+  },
+  {
+    "url": "https://dados.ons.org.br/api/3/action/package_show?id=geracao-usina-2",
+    "retrieved_at_utc": "2026-09-27T02:20:15.358991+00:00",
+    "http_last_modified": null,
+    "download_sha256": "b9d9b67c8f633b0e6ae1ee83479d388c666c8a486cc28f6ff025aecd6289245b",
+    "path": "metadata/ons_generation_metadata.json",
+    "selected_snapshot_sha256": "b9d9b67c8f633b0e6ae1ee83479d388c666c8a486cc28f6ff025aecd6289245b"
+  },
+  {
+    "url": "https://dados.ons.org.br/api/3/action/package_show?id=dados-hidrologicos-res",
+    "retrieved_at_utc": "2026-09-27T02:20:15.420697+00:00",
+    "http_last_modified": null,
+    "download_sha256": "36a8517f5c7d97038236dc866d1622143c6673e35d309a1226bf05f0b4ceeb8f",
+    "path": "metadata/ons_hydrology_metadata.json",
+    "selected_snapshot_sha256": "36a8517f5c7d97038236dc866d1622143c6673e35d309a1226bf05f0b4ceeb8f"
+  },
+  {
+    "url": "https://www.aviso.altimetry.fr/en/data/products/wind/wave-products/gdr-ogdr-osdr-ra2-wwv.html",
+    "retrieved_at_utc": "2026-09-27T02:20:16.245659+00:00",
+    "http_last_modified": null,
+    "download_sha256": "c5aba433d00d66aa2ee95948ed0e5803c17013c74ffeb94ff5654e1236641263",
+    "path": "metadata/aviso_gdr_latency.html",
+    "selected_snapshot_sha256": "c5aba433d00d66aa2ee95948ed0e5803c17013c74ffeb94ff5654e1236641263"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2008",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2008.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:41:17 GMT",
+    "http_etag": "\"010baddc4d08db10a6aa05898193701b\"",
+    "original_file_bytes": "2108885",
+    "retrieved_at_utc": "2026-09-27T02:17:00.098040+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 366,
+    "path": "inputs/hydrology_2008.parquet",
+    "selected_snapshot_sha256": "f31c2e6ef26fe356cdfb6cc4c39b9325ae6a54b1b5e0e64271bf27af31d5d3b7"
+  },
+  {
+    "kind": "generation",
+    "period": "2008",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2008.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 00:56:05 GMT",
+    "http_etag": "\"bd210a822e5ad821befd27b797ea5c66-2\"",
+    "original_file_bytes": "8598078",
+    "retrieved_at_utc": "2026-09-27T02:17:01.494417+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8783,
+    "path": "inputs/generation_2008.parquet",
+    "selected_snapshot_sha256": "b0f25afe7e5a1dcc29aa738720fe78decbe4cc5e9699bf37681ebdbe04bc6bc7"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2009",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2009.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:42:56 GMT",
+    "http_etag": "\"5ab5f7526b8127a462d2470990caf2df\"",
+    "original_file_bytes": "2270811",
+    "retrieved_at_utc": "2026-09-27T02:17:00.750498+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2009.parquet",
+    "selected_snapshot_sha256": "2db3e391788208b0c6cf314c1ea563d7151d63a08c2b32f8a22254ac225f0bbd"
+  },
+  {
+    "kind": "generation",
+    "period": "2009",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2009.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 01:17:29 GMT",
+    "http_etag": "\"53bdbb65b77cf7c22202588c7cfefb8b-3\"",
+    "original_file_bytes": "13979076",
+    "retrieved_at_utc": "2026-09-27T02:17:03.682155+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8759,
+    "path": "inputs/generation_2009.parquet",
+    "selected_snapshot_sha256": "e14749c0dec8fb895073c1083cd94a96e0bf093ac06b9256afe84c452008e41b"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2010",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2010.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:44:30 GMT",
+    "http_etag": "\"141244d0e5be97878e74d8baddc9241b\"",
+    "original_file_bytes": "2340261",
+    "retrieved_at_utc": "2026-09-27T02:17:02.002034+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2010.parquet",
+    "selected_snapshot_sha256": "96350513d64ab6b68ecf55e0c49ea347bc78b618f29b5299f930f9dceaaa99f5"
+  },
+  {
+    "kind": "generation",
+    "period": "2010",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2010.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 01:44:20 GMT",
+    "http_etag": "\"b8d36e2682dc65de175342eef1f397c7-4\"",
+    "original_file_bytes": "16689514",
+    "retrieved_at_utc": "2026-09-27T02:17:07.014915+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8759,
+    "path": "inputs/generation_2010.parquet",
+    "selected_snapshot_sha256": "c95cead44a23f8f4cc06b76db09e40d3fe2314e0ffd896d036750ff2fde29d68"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2011",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2011.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:45:55 GMT",
+    "http_etag": "\"2a45770a1246fdde2320c0d9b1c754a1\"",
+    "original_file_bytes": "2411729",
+    "retrieved_at_utc": "2026-09-27T02:17:02.846709+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2011.parquet",
+    "selected_snapshot_sha256": "461967246e9a24b012f1a3dd52dc6354762fbade996c004f3536dbe9cbfdfe89"
+  },
+  {
+    "kind": "generation",
+    "period": "2011",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2011.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 20:42:45 GMT",
+    "http_etag": "\"467e548e6aa45e4b78248610637ec8e7-4\"",
+    "original_file_bytes": "18865909",
+    "retrieved_at_utc": "2026-09-27T02:17:06.246805+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8759,
+    "path": "inputs/generation_2011.parquet",
+    "selected_snapshot_sha256": "f3942f061b3ca12b4a5d6d544e4c3ee41b6f88903556376253f83ab36776f841"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2012",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2012.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:47:23 GMT",
+    "http_etag": "\"7efc045a1a7882f9a3581302a1b0d05e\"",
+    "original_file_bytes": "2365072",
+    "retrieved_at_utc": "2026-09-27T02:17:04.412837+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 366,
+    "path": "inputs/hydrology_2012.parquet",
+    "selected_snapshot_sha256": "b39a6349fc6b8722af37915cea243eeb8348ee1d6a106f147eb141535750131b"
+  },
+  {
+    "kind": "generation",
+    "period": "2012",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2012.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 21:13:50 GMT",
+    "http_etag": "\"44104bbdf94d8a75f8c60b32291c259c-5\"",
+    "original_file_bytes": "23258602",
+    "retrieved_at_utc": "2026-09-27T02:17:09.972287+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8783,
+    "path": "inputs/generation_2012.parquet",
+    "selected_snapshot_sha256": "90cbde51ad43c3dd37400a00c714fe4c34f5bdb436be352d3925dc9ac1988c51"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2013",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2013.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:48:52 GMT",
+    "http_etag": "\"b4ecb75a5c4e27a46e03048f4f94df53\"",
+    "original_file_bytes": "2446862",
+    "retrieved_at_utc": "2026-09-27T02:17:06.506876+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2013.parquet",
+    "selected_snapshot_sha256": "84f8d7c84bd957c510887e7fa317f0d66b7077971c2a8899950ee8a7ee1183fc"
+  },
+  {
+    "kind": "generation",
+    "period": "2013",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2013.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 21:45:14 GMT",
+    "http_etag": "\"409f04a2444dce361f5557c4d9ee128a-5\"",
+    "original_file_bytes": "26881526",
+    "retrieved_at_utc": "2026-09-27T02:17:15.399051+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8735,
+    "path": "inputs/generation_2013.parquet",
+    "selected_snapshot_sha256": "d6613561c0aee64dccc9c2b502b477663681c4af6c9ef7580d9d1704fdf4c20d"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2014",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2014.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:50:19 GMT",
+    "http_etag": "\"96f5a0d3fedb8bac3c6af670c044f02a\"",
+    "original_file_bytes": "2147011",
+    "retrieved_at_utc": "2026-09-27T02:17:08.578860+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2014.parquet",
+    "selected_snapshot_sha256": "a8eb9a694c42c5ea8bde45fac59d651d5bfdc2514a5dae1bfc066e32dbbd395b"
+  },
+  {
+    "kind": "generation",
+    "period": "2014",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2014.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 22:20:49 GMT",
+    "http_etag": "\"65a8bdbf92b3ba14ba5a9a5dc0b723b7-7\"",
+    "original_file_bytes": "33982823",
+    "retrieved_at_utc": "2026-09-27T02:17:18.496304+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8735,
+    "path": "inputs/generation_2014.parquet",
+    "selected_snapshot_sha256": "7a5a4b0be8a01d4d835a9a9b7740b77b04f714790f7c87121fde32e2afc26d3e"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2015",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2015.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:51:48 GMT",
+    "http_etag": "\"2b72b5c1d850ee1291f46ea6c934dc65\"",
+    "original_file_bytes": "2489709",
+    "retrieved_at_utc": "2026-09-27T02:17:10.842496+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2015.parquet",
+    "selected_snapshot_sha256": "63539145d43aa5932a21aa8d7aac32d0e549b50dcf501976acb6cc666a9e387c"
+  },
+  {
+    "kind": "generation",
+    "period": "2015",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2015.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 23:04:07 GMT",
+    "http_etag": "\"d51edd040b193c8b8e7c1c3582bdebc5-7\"",
+    "original_file_bytes": "39168766",
+    "retrieved_at_utc": "2026-09-27T02:17:20.890376+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8735,
+    "path": "inputs/generation_2015.parquet",
+    "selected_snapshot_sha256": "dab9f79317aa28cc120d485a8f1196d2467709be14a6d853e83e23942c503c19"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2016",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2016.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:53:19 GMT",
+    "http_etag": "\"641f18297ed22493861d25e4a86bbf31\"",
+    "original_file_bytes": "2529910",
+    "retrieved_at_utc": "2026-09-27T02:17:12.689320+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 366,
+    "path": "inputs/hydrology_2016.parquet",
+    "selected_snapshot_sha256": "42f4554af7471859d13bc8e1b94ac356a34fedf996e7c46f2416cec842de75e8"
+  },
+  {
+    "kind": "generation",
+    "period": "2016",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2016.parquet",
+    "http_last_modified": "Tue, 22 Oct 2024 16:44:15 GMT",
+    "http_etag": "\"15384243087d9959c49ea45f73d09fc3-8\"",
+    "original_file_bytes": "41167079",
+    "retrieved_at_utc": "2026-09-27T02:17:25.750709+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8783,
+    "path": "inputs/generation_2016.parquet",
+    "selected_snapshot_sha256": "c60276fd4dd1a498a54678325f96ba09ed5861fb6b99e18b301bc0fcbd81d3d5"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2017",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2017.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:54:47 GMT",
+    "http_etag": "\"812d811ff572b64b03b03c6ff265afaa\"",
+    "original_file_bytes": "2539966",
+    "retrieved_at_utc": "2026-09-27T02:17:17.927995+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2017.parquet",
+    "selected_snapshot_sha256": "94ded4a64cf108bfbd3c60cf07d06045de7746a8af3ea593fa44c869b99b0494"
+  },
+  {
+    "kind": "generation",
+    "period": "2017",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2017.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 20:07:19 GMT",
+    "http_etag": "\"9bf1bfa6717388ccd181831c8bdd0760-8\"",
+    "original_file_bytes": "40142412",
+    "retrieved_at_utc": "2026-09-27T02:17:34.372701+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8759,
+    "path": "inputs/generation_2017.parquet",
+    "selected_snapshot_sha256": "1984d804ca1354f6274021768697b2d0c46dca363500531903ff6f69a3d3bf87"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2018",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2018.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:56:20 GMT",
+    "http_etag": "\"462a1d3c06cb534b01f0a959677c26cb\"",
+    "original_file_bytes": "2643228",
+    "retrieved_at_utc": "2026-09-27T02:17:21.089006+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2018.parquet",
+    "selected_snapshot_sha256": "d46d74fcd43cb3b76f9b2e4d170d8a9cb5dd2ed535e3b74fa589e520b65f945e"
+  },
+  {
+    "kind": "generation",
+    "period": "2018",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2018.parquet",
+    "http_last_modified": "Tue, 22 Oct 2024 17:38:25 GMT",
+    "http_etag": "\"a7606e7a524b14eadf4a08a0e42f13fa-8\"",
+    "original_file_bytes": "39682628",
+    "retrieved_at_utc": "2026-09-27T02:17:33.008835+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8759,
+    "path": "inputs/generation_2018.parquet",
+    "selected_snapshot_sha256": "2944bbbcb50bfd98356ae5b656344e2a7bf29cf4cb6d4387e436fd47fde737f6"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2019",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2019.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:57:43 GMT",
+    "http_etag": "\"eb1ba583424e2513df77c8984267da69\"",
+    "original_file_bytes": "2228640",
+    "retrieved_at_utc": "2026-09-27T02:17:23.006975+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2019.parquet",
+    "selected_snapshot_sha256": "305a8faed90ec38b84122d259add08e2a391f9bb433ef3676c143a67128aafb6"
+  },
+  {
+    "kind": "generation",
+    "period": "2019",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2019.parquet",
+    "http_last_modified": "Tue, 15 Oct 2024 17:31:21 GMT",
+    "http_etag": "\"640e09477a7b85311daa57890835c515-5\"",
+    "original_file_bytes": "25049331",
+    "retrieved_at_utc": "2026-09-27T02:17:35.105863+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8760,
+    "path": "inputs/generation_2019.parquet",
+    "selected_snapshot_sha256": "88c2b627d84382761f6a87cd63c95b6deda5e49596fa97cba96dad211d63e487"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2020",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2020.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 20:59:08 GMT",
+    "http_etag": "\"09d63ce76a2a63723ec25a28fb5b362e\"",
+    "original_file_bytes": "2598239",
+    "retrieved_at_utc": "2026-09-27T02:17:27.659487+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 366,
+    "path": "inputs/hydrology_2020.parquet",
+    "selected_snapshot_sha256": "e1241033c90a90e35b02ae5f1fe5c6f1da32154b2afceaf5a042c146e01f85f5"
+  },
+  {
+    "kind": "generation",
+    "period": "2020",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2020.parquet",
+    "http_last_modified": "Tue, 15 Oct 2024 16:19:36 GMT",
+    "http_etag": "\"64cdad8156b6ff761ad5acdff70403df-8\"",
+    "original_file_bytes": "41967899",
+    "retrieved_at_utc": "2026-09-27T02:17:37.936251+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8784,
+    "path": "inputs/generation_2020.parquet",
+    "selected_snapshot_sha256": "0a741e741e89b8680e804b2f45967180f6fcd503b7bc999acd73835354b54309"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2021",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2021.parquet",
+    "http_last_modified": "Fri, 16 Aug 2024 21:01:00 GMT",
+    "http_etag": "\"334fd09d1b09507c506889c712affe8c\"",
+    "original_file_bytes": "2953553",
+    "retrieved_at_utc": "2026-09-27T02:17:36.134992+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2021.parquet",
+    "selected_snapshot_sha256": "8ba2a27605adfd11e90bd07773c9dca782fe315bad2582cf0b642d1a5323985f"
+  },
+  {
+    "kind": "generation",
+    "period": "2021",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2021.parquet",
+    "http_last_modified": "Mon, 14 Oct 2024 16:43:18 GMT",
+    "http_etag": "\"7ca3df15c47145be7c4114aa850a36ec-9\"",
+    "original_file_bytes": "47202105",
+    "retrieved_at_utc": "2026-09-27T02:18:07.204203+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 8760,
+    "path": "inputs/generation_2021.parquet",
+    "selected_snapshot_sha256": "aa9d98a75fcfb710dca7891b941f66312f7f8759790edbb15343bb5723850181"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2022",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2022.parquet",
+    "http_last_modified": "Wed, 18 Sep 2024 14:11:38 GMT",
+    "http_etag": "\"f3011b16db61fe57eb9def8d160a676b\"",
+    "original_file_bytes": "2520593",
+    "retrieved_at_utc": "2026-09-27T02:17:37.208324+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2022.parquet",
+    "selected_snapshot_sha256": "3fb0911af1fde31c6d5639807448179f5d700c90c4de3d7667a28ddd831e5ac4"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_01",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_01.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 17:28:22 GMT",
+    "http_etag": "\"6821cd4cc2398ecbe80cd3ad644d0714\"",
+    "original_file_bytes": "3995665",
+    "retrieved_at_utc": "2026-09-27T02:17:38.855685+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2022_01.parquet",
+    "selected_snapshot_sha256": "8224aae45b70061b1e358c5f957dd8e8891801a130de1449dc4df5bc5e9cabba"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_02",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_02.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 17:33:17 GMT",
+    "http_etag": "\"32e143d88e1b180aa30313aa783573bb\"",
+    "original_file_bytes": "3587677",
+    "retrieved_at_utc": "2026-09-27T02:17:40.002497+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 672,
+    "path": "inputs/generation_2022_02.parquet",
+    "selected_snapshot_sha256": "fffd0e26a6a458bdf37c519416c140d269fba01d0e86e1e63da5ac01ecc7ffa5"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_03",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_03.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 17:38:18 GMT",
+    "http_etag": "\"36ffc2c4ebf570a002b0798c0c70292b\"",
+    "original_file_bytes": "3999250",
+    "retrieved_at_utc": "2026-09-27T02:17:40.056139+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2022_03.parquet",
+    "selected_snapshot_sha256": "2e1db67f4c3d5fe6957d874273024a86e66deff35df5e811a97603b58d08fbc7"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_04",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_04.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 17:44:10 GMT",
+    "http_etag": "\"1d59c49c6ecd21f41965e1a96f5094c5\"",
+    "original_file_bytes": "3858654",
+    "retrieved_at_utc": "2026-09-27T02:17:40.867775+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2022_04.parquet",
+    "selected_snapshot_sha256": "6afcf42d2e1c758ec9d421238b63573868f027243d7b95ce889407ad8d102c3d"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_05",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_05.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 17:49:34 GMT",
+    "http_etag": "\"19e0a4bf268b397482284ff9b2b8e963\"",
+    "original_file_bytes": "4064052",
+    "retrieved_at_utc": "2026-09-27T02:17:42.989283+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2022_05.parquet",
+    "selected_snapshot_sha256": "30b4de919bf0c37f67f5c6a372a9f46859b9d392afe270d473587018fc9af99a"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_06",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_06.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 17:55:02 GMT",
+    "http_etag": "\"341d744680c07207dcc7a8ea07168403\"",
+    "original_file_bytes": "3979421",
+    "retrieved_at_utc": "2026-09-27T02:17:42.167400+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2022_06.parquet",
+    "selected_snapshot_sha256": "e84ad5b4c8a1bf3095addd7898efaa6c1ce0e43e841a2d5d6eee2c59eed0fdd3"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_07",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_07.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 18:00:18 GMT",
+    "http_etag": "\"caf54449c2173cfc85352760c2c43e86\"",
+    "original_file_bytes": "4213076",
+    "retrieved_at_utc": "2026-09-27T02:17:42.988668+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2022_07.parquet",
+    "selected_snapshot_sha256": "a8238e21c2a00ddd33dc0135794145241c2c08bb4596fe971c881b6e6326d995"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_08",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_08.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 18:05:42 GMT",
+    "http_etag": "\"679a27d0e5179cdfe6492e9844b86eae\"",
+    "original_file_bytes": "4241840",
+    "retrieved_at_utc": "2026-09-27T02:17:44.428414+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2022_08.parquet",
+    "selected_snapshot_sha256": "83a224931cf9377687004d8eb8965c828bb9f9ec900e39c4c01d988f5bae32f5"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_09",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_09.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 18:11:46 GMT",
+    "http_etag": "\"885b16f1fcf36af257be56a3daa60a47\"",
+    "original_file_bytes": "4162666",
+    "retrieved_at_utc": "2026-09-27T02:17:44.743050+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2022_09.parquet",
+    "selected_snapshot_sha256": "480d6d77112908ed9d3588d8e5bd3c7b2451a9015db663216beea97059216ed4"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_10",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_10.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 18:18:30 GMT",
+    "http_etag": "\"54822e104cacde27a59a2c444092d09c\"",
+    "original_file_bytes": "4345604",
+    "retrieved_at_utc": "2026-09-27T02:17:46.828290+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2022_10.parquet",
+    "selected_snapshot_sha256": "6a79cd9b75fc8d51ab089435239496958c73dc69bd71e06492662aaf3c45c5e6"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_11",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_11.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 18:24:06 GMT",
+    "http_etag": "\"e916933c1f2d38d2b4f5952db0e7dfe7\"",
+    "original_file_bytes": "4186586",
+    "retrieved_at_utc": "2026-09-27T02:17:46.531597+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2022_11.parquet",
+    "selected_snapshot_sha256": "47661051bf358ecfe6203cf4fefd00f35f98469c51db0530ff706e70e66c1360"
+  },
+  {
+    "kind": "generation",
+    "period": "2022_12",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2022_12.parquet",
+    "http_last_modified": "Thu, 10 Oct 2024 18:30:03 GMT",
+    "http_etag": "\"eaf374c5f9752f626016dac77c3fc26d\"",
+    "original_file_bytes": "4320327",
+    "retrieved_at_utc": "2026-09-27T02:17:46.879275+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2022_12.parquet",
+    "selected_snapshot_sha256": "ebd25766d8e5626d3a6af612e0eb0b1914c392fbe985b2cd6d3d63628b735794"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2023",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2023.parquet",
+    "http_last_modified": "Mon, 28 Jul 2025 19:20:41 GMT",
+    "http_etag": "\"e813fc57922a87cd5fe811f8bfdbc7be\"",
+    "original_file_bytes": "2861311",
+    "retrieved_at_utc": "2026-09-27T02:17:51.499251+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2023.parquet",
+    "selected_snapshot_sha256": "25143e346159749b373b19dfe598403a3659e499af95251751da667eeb799305"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_01",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_01.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 18:51:16 GMT",
+    "http_etag": "\"dc964b411a9d5e28c972338ab50b45ce\"",
+    "original_file_bytes": "4272050",
+    "retrieved_at_utc": "2026-09-27T02:17:54.354371+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2023_01.parquet",
+    "selected_snapshot_sha256": "77674944c5190e41c3fcd62f0fe6058dc73ce82b88e077c140522ac187bde57a"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_02",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_02.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 18:57:27 GMT",
+    "http_etag": "\"e061c5b09d3e0b34e04e679479d45c86\"",
+    "original_file_bytes": "3821240",
+    "retrieved_at_utc": "2026-09-27T02:17:51.399943+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 672,
+    "path": "inputs/generation_2023_02.parquet",
+    "selected_snapshot_sha256": "a9d2bc342214260511498aec784e2ae283b2aab0f262ffc4cae2197698045a8e"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_03",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_03.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:03:48 GMT",
+    "http_etag": "\"c0248aea10916f10ff68f384dc5a0903\"",
+    "original_file_bytes": "4243749",
+    "retrieved_at_utc": "2026-09-27T02:17:56.618303+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2023_03.parquet",
+    "selected_snapshot_sha256": "cde1004d5f0b8e7eccd690585842202c4c1d81b28a34014250c3dc4352513677"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_04",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_04.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:09:33 GMT",
+    "http_etag": "\"ef072b658994ca4c78bf834e90a7468b\"",
+    "original_file_bytes": "4133338",
+    "retrieved_at_utc": "2026-09-27T02:17:56.441384+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2023_04.parquet",
+    "selected_snapshot_sha256": "f725403965c0e7ef0df88c40698892a2553fc1a3398ef878bd9d0bc6848be5f0"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_05",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_05.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:16:01 GMT",
+    "http_etag": "\"6efd3315faf444159ef748495f62f9e3\"",
+    "original_file_bytes": "4523333",
+    "retrieved_at_utc": "2026-09-27T02:17:59.969675+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2023_05.parquet",
+    "selected_snapshot_sha256": "979d1378839d4f3afd4978271af258ed9ac0a3473db2342f5a61c7efd165bf25"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_06",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_06.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:22:42 GMT",
+    "http_etag": "\"f630ef8287027a5e50d6a1bbf7d380dd\"",
+    "original_file_bytes": "4447402",
+    "retrieved_at_utc": "2026-09-27T02:18:02.255494+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2023_06.parquet",
+    "selected_snapshot_sha256": "f849fe6af3662a54ba467e33346fd2306ce14cc6153190c9f9a121bccff6d4f8"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_07",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_07.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:29:06 GMT",
+    "http_etag": "\"fe75a962b4ab42300f2ea5cfe8a08e11\"",
+    "original_file_bytes": "4623986",
+    "retrieved_at_utc": "2026-09-27T02:18:03.724333+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2023_07.parquet",
+    "selected_snapshot_sha256": "da41bc1a9a587ac8243444c81e6db53def26b986835071fe33e93a1f00d79de0"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_08",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_08.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:35:52 GMT",
+    "http_etag": "\"0806e05334ca3204bd01dfcb11e7fe8b\"",
+    "original_file_bytes": "4688054",
+    "retrieved_at_utc": "2026-09-27T02:18:06.552762+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2023_08.parquet",
+    "selected_snapshot_sha256": "b9b66df8885d55c71942acad0b0b384780e9f68b777dc63aa857026681a9dbc2"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_09",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_09.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:41:59 GMT",
+    "http_etag": "\"8c39fc0f55be791d8dea4ed64b4dc761\"",
+    "original_file_bytes": "4523477",
+    "retrieved_at_utc": "2026-09-27T02:18:08.254061+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2023_09.parquet",
+    "selected_snapshot_sha256": "f7b12c1b69db93e25db91e6dab43551ddda81268f59fc2a9ecd90c68acff299e"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_10",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_10.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:48:02 GMT",
+    "http_etag": "\"6b3c1fa72382081287280d2323e33414\"",
+    "original_file_bytes": "4727903",
+    "retrieved_at_utc": "2026-09-27T02:18:09.666809+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2023_10.parquet",
+    "selected_snapshot_sha256": "bf822ce0f26e6b007d92d28a8eeb0afbadeb371c91f2588f31f0f4d78c0360b9"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_11",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_11.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 19:53:48 GMT",
+    "http_etag": "\"28f50d5fc2c03536c357161c436ac642\"",
+    "original_file_bytes": "4591625",
+    "retrieved_at_utc": "2026-09-27T02:18:12.539764+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2023_11.parquet",
+    "selected_snapshot_sha256": "3a6ac9250a8b09fab0eb2bb95c829f17b4c34d849649c7cd803e6f4eb613b09e"
+  },
+  {
+    "kind": "generation",
+    "period": "2023_12",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2023_12.parquet",
+    "http_last_modified": "Fri, 11 Oct 2024 20:00:32 GMT",
+    "http_etag": "\"5cce543c351df96f487a6dc929f4b67e\"",
+    "original_file_bytes": "4756830",
+    "retrieved_at_utc": "2026-09-27T02:18:12.539783+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2023_12.parquet",
+    "selected_snapshot_sha256": "4712dc01210b99e0341e1435b5c5c7963ce9c80600a699027b80a35848be770f"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2024",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2024.parquet",
+    "http_last_modified": "Mon, 28 Jul 2025 19:23:03 GMT",
+    "http_etag": "\"07a208654fcc907ba0e65440a5725397\"",
+    "original_file_bytes": "2845035",
+    "retrieved_at_utc": "2026-09-27T02:18:11.293998+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 366,
+    "path": "inputs/hydrology_2024.parquet",
+    "selected_snapshot_sha256": "0e4987664b4cb1039fad7d77274aee5cbe89e08056e3a4d732adad1d3de72ef9"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_01",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_01.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 18:19:08 GMT",
+    "http_etag": "\"5aa7cff97cba7a3e4871154179199094\"",
+    "original_file_bytes": "4603601",
+    "retrieved_at_utc": "2026-09-27T02:18:14.174142+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2024_01.parquet",
+    "selected_snapshot_sha256": "0ed806d5967f192af269b7b16baaa1feb834c832c55a88158924803a8da2c354"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_02",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_02.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 18:26:40 GMT",
+    "http_etag": "\"bb65b8f5816ec1a2ea4832c0396a099c\"",
+    "original_file_bytes": "4352075",
+    "retrieved_at_utc": "2026-09-27T02:18:14.882521+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 696,
+    "path": "inputs/generation_2024_02.parquet",
+    "selected_snapshot_sha256": "652d3763acb68aa4dfac923c2ac954ab9062946f62c05a6c5a675f0d22b88a9f"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_03",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_03.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 18:35:31 GMT",
+    "http_etag": "\"9dfdd20f1244f0fd43f38d1986aed01e\"",
+    "original_file_bytes": "4636616",
+    "retrieved_at_utc": "2026-09-27T02:18:16.739694+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2024_03.parquet",
+    "selected_snapshot_sha256": "0ddfbbe972bcc2da4c82c77ff5fda2deda34f1374b653d328d23ad83fe26947a"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_04",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_04.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 18:42:37 GMT",
+    "http_etag": "\"5506448e07d3864f0bbe05715dd2f65f\"",
+    "original_file_bytes": "4492664",
+    "retrieved_at_utc": "2026-09-27T02:18:17.404506+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2024_04.parquet",
+    "selected_snapshot_sha256": "cd4576f7465ce527b9d3a992827cdb51e4a80a2a224a3f47c220399f47d3f832"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_05",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_05.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 18:51:53 GMT",
+    "http_etag": "\"c0ea37f8aa8582bc2b04353d43a2074a\"",
+    "original_file_bytes": "4720627",
+    "retrieved_at_utc": "2026-09-27T02:18:16.531482+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2024_05.parquet",
+    "selected_snapshot_sha256": "54ed14d75033ff6e2ec5de1ef3d8a65ab2bc4aa1b902a05f8540c5e53cf64245"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_06",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_06.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 19:00:47 GMT",
+    "http_etag": "\"8a9a4e779b29b77d3dbbc35df6ea33f1\"",
+    "original_file_bytes": "4599837",
+    "retrieved_at_utc": "2026-09-27T02:18:19.171429+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2024_06.parquet",
+    "selected_snapshot_sha256": "da50717c8e7cab389ded708a29018fdbcc2ba0ab655a0d663f0556a413846b76"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_07",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_07.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 19:08:56 GMT",
+    "http_etag": "\"f24de94d4b0b7aab47e431b0d2d306c9\"",
+    "original_file_bytes": "4804834",
+    "retrieved_at_utc": "2026-09-27T02:18:19.168746+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2024_07.parquet",
+    "selected_snapshot_sha256": "a957d4e049531a9563cdef1632ce149baa59d12786c29ac4915b9fbeabbf5674"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_08",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_08.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 19:16:49 GMT",
+    "http_etag": "\"cd47ae622c8928820904e8a48a538a29\"",
+    "original_file_bytes": "4852960",
+    "retrieved_at_utc": "2026-09-27T02:18:20.439234+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2024_08.parquet",
+    "selected_snapshot_sha256": "8649b5fecbce1e3d20c53208c66e55de0ea0f75bcd08002f7c1d88dc235fdcd1"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_09",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_09.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 19:24:17 GMT",
+    "http_etag": "\"ec7a877628960f9ed940f0b9c5eab6db\"",
+    "original_file_bytes": "4720204",
+    "retrieved_at_utc": "2026-09-27T02:18:24.816521+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2024_09.parquet",
+    "selected_snapshot_sha256": "7bcf3d290fc2bd697badc9801043bd00e677539f3ca79e13b5e5d81483814da3"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_10",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_10.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 19:31:07 GMT",
+    "http_etag": "\"bc6b933e12763339927b446e1f0d50b1\"",
+    "original_file_bytes": "4838031",
+    "retrieved_at_utc": "2026-09-27T02:18:21.543742+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2024_10.parquet",
+    "selected_snapshot_sha256": "aed7e1d238897f124d3dfc79572399c5f74b7bff4dceee547c710abc840eac59"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_11",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_11.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 19:38:57 GMT",
+    "http_etag": "\"1feee95d8d642fbd0dc3bdb91358f6a2\"",
+    "original_file_bytes": "4663755",
+    "retrieved_at_utc": "2026-09-27T02:18:21.290481+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2024_11.parquet",
+    "selected_snapshot_sha256": "051258b7e68eee62321f299ab988db1a4b4f9063273d35cd5ebec8cf3c96fc17"
+  },
+  {
+    "kind": "generation",
+    "period": "2024_12",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2024_12.parquet",
+    "http_last_modified": "Thu, 13 Feb 2025 19:47:29 GMT",
+    "http_etag": "\"f6dc5e3ce5fd4da1d8dcd605056c4140\"",
+    "original_file_bytes": "4740038",
+    "retrieved_at_utc": "2026-09-27T02:18:24.012855+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2024_12.parquet",
+    "selected_snapshot_sha256": "d91bd6fbff43941cdd2e2c5e4bbffb4fe27cdb768d853aed373b44f22be94850"
+  },
+  {
+    "kind": "hydrology",
+    "period": "2025",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/dados_hidrologicos_di/DADOS_HIDROLOGICOS_RES_2025.parquet",
+    "http_last_modified": "Sat, 31 Jan 2026 20:03:11 GMT",
+    "http_etag": "\"1e44dab8f9c0690e9dde8139d8a496fb\"",
+    "original_file_bytes": "2634908",
+    "retrieved_at_utc": "2026-09-27T02:18:22.737892+00:00",
+    "columns": [
+      "din_instante",
+      "nom_reservatorio",
+      "id_reservatorio",
+      "val_nivelmontante",
+      "val_vazaoafluente"
+    ],
+    "filter": "nom_reservatorio.upper() == SOBRADINHO",
+    "selected_rows": 365,
+    "path": "inputs/hydrology_2025.parquet",
+    "selected_snapshot_sha256": "9b6f24bc4e354daa64589358728900bb4e1ae75615c8ef3e111bd5dcf10820fd"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_01",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_01.parquet",
+    "http_last_modified": "Fri, 28 Feb 2025 22:12:35 GMT",
+    "http_etag": "\"0770a1c03efc48b966fca9876a11af64\"",
+    "original_file_bytes": "4619062",
+    "retrieved_at_utc": "2026-09-27T02:18:24.211239+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2025_01.parquet",
+    "selected_snapshot_sha256": "b125f0cbdd198cd413bbae2182b752f9baeb623b19b184ff92820587847896d3"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_02",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_02.parquet",
+    "http_last_modified": "Mon, 31 Mar 2025 22:17:15 GMT",
+    "http_etag": "\"f8f551d1ba0afb28096b1d9856d6fa1c\"",
+    "original_file_bytes": "4146821",
+    "retrieved_at_utc": "2026-09-27T02:18:25.332908+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 672,
+    "path": "inputs/generation_2025_02.parquet",
+    "selected_snapshot_sha256": "6a474b36c1de63bd74e00e74139fed5c1850fe2f2bdfc5ffdb45af949eef2c77"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_03",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_03.parquet",
+    "http_last_modified": "Wed, 30 Apr 2025 22:15:22 GMT",
+    "http_etag": "\"3c5c0148f60fd469b2cbd70e2fa7426b\"",
+    "original_file_bytes": "4629214",
+    "retrieved_at_utc": "2026-09-27T02:18:28.435447+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2025_03.parquet",
+    "selected_snapshot_sha256": "70cf7968461a09f609d09d4a90e9d6fad665b9f10f56b38501c699f129f5705c"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_04",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_04.parquet",
+    "http_last_modified": "Sat, 31 May 2025 22:13:58 GMT",
+    "http_etag": "\"ae2539e55a813131ab6737c7d79ab350\"",
+    "original_file_bytes": "4547817",
+    "retrieved_at_utc": "2026-09-27T02:18:29.194016+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2025_04.parquet",
+    "selected_snapshot_sha256": "c0875e7feebde352fa3506f9f9848c7e5e13ff07feea7da3398f623dbf630876"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_05",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_05.parquet",
+    "http_last_modified": "Mon, 30 Jun 2025 22:12:13 GMT",
+    "http_etag": "\"6c8781025a55ca0efbdd73ece4e8677e\"",
+    "original_file_bytes": "4674960",
+    "retrieved_at_utc": "2026-09-27T02:18:31.010331+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2025_05.parquet",
+    "selected_snapshot_sha256": "59d74519cf901c062916ec1353dd2d282dd1807912a95546204936a0b52bc9bd"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_06",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_06.parquet",
+    "http_last_modified": "Thu, 31 Jul 2025 22:19:52 GMT",
+    "http_etag": "\"8de41476390ecf826ca98ba9e98f6816\"",
+    "original_file_bytes": "4604885",
+    "retrieved_at_utc": "2026-09-27T02:18:27.981727+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2025_06.parquet",
+    "selected_snapshot_sha256": "c6ac6cfe6e2157ec51c1b79729744a970be96ee7d7d3425f0489d06964a5aa99"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_07",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_07.parquet",
+    "http_last_modified": "Sun, 31 Aug 2025 22:15:10 GMT",
+    "http_etag": "\"561343399c03a49b879f59c8b960763d\"",
+    "original_file_bytes": "4800798",
+    "retrieved_at_utc": "2026-09-27T02:18:30.857411+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2025_07.parquet",
+    "selected_snapshot_sha256": "d6936785485b303770aa9de021db6c5ee9d4ca9d4a7495283a001db70028de46"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_08",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_08.parquet",
+    "http_last_modified": "Tue, 30 Sep 2025 22:13:10 GMT",
+    "http_etag": "\"53917fe5c95bbc2579d2fe5c5dcccb92\"",
+    "original_file_bytes": "4824077",
+    "retrieved_at_utc": "2026-09-27T02:18:33.320605+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2025_08.parquet",
+    "selected_snapshot_sha256": "146db85590705c8a241caa18a95b295ab7f17d3e9ba19fb083cd5bc4e1b21272"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_09",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_09.parquet",
+    "http_last_modified": "Fri, 31 Oct 2025 22:14:11 GMT",
+    "http_etag": "\"40670d9df4cc11c34902af4a95248a6d\"",
+    "original_file_bytes": "4506677",
+    "retrieved_at_utc": "2026-09-27T02:18:31.996217+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2025_09.parquet",
+    "selected_snapshot_sha256": "9d4be60cb5a8d907750145b1a2faa19995ca4c533e830b804a909b24ba5c4ca7"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_10",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_10.parquet",
+    "http_last_modified": "Sun, 30 Nov 2025 22:12:47 GMT",
+    "http_etag": "\"3ca0e58c2f044fc2b9314b8e90e91375\"",
+    "original_file_bytes": "4470658",
+    "retrieved_at_utc": "2026-09-27T02:20:26.147364+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2025_10.parquet",
+    "selected_snapshot_sha256": "ad55e52df3275bd223c60b977bc022fa02671185471192238bfee966021d5fa5"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_11",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_11.parquet",
+    "http_last_modified": "Wed, 31 Dec 2025 22:10:59 GMT",
+    "http_etag": "\"0e31ea79c206e74482d41cb7ec94540d\"",
+    "original_file_bytes": "4347750",
+    "retrieved_at_utc": "2026-09-27T02:20:26.547796+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 720,
+    "path": "inputs/generation_2025_11.parquet",
+    "selected_snapshot_sha256": "de606cfee746bd4ad3084ed0aea2190fdbcec7f64f7f16bbf69579826701cdfc"
+  },
+  {
+    "kind": "generation",
+    "period": "2025_12",
+    "url": "https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/geracao_usina_2_ho/GERACAO_USINA-2_2025_12.parquet",
+    "http_last_modified": "Sat, 31 Jan 2026 22:14:37 GMT",
+    "http_etag": "\"9b3c9e167550d0f6ef018c09237917db\"",
+    "original_file_bytes": "4483220",
+    "retrieved_at_utc": "2026-09-27T02:20:25.849524+00:00",
+    "columns": [
+      "din_instante",
+      "nom_usina",
+      "id_ons",
+      "val_geracao"
+    ],
+    "filter": "id_ons == BAUSB",
+    "selected_rows": 744,
+    "path": "inputs/generation_2025_12.parquet",
+    "selected_snapshot_sha256": "31adba48662e92690befe2397888388e09542249fbf030b9f7032eff3acd905b"
+  }
+]

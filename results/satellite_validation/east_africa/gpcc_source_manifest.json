@@ -1,0 +1,630 @@
+[
+  {
+    "path": "inputs/gpcc_v2022_regions.h5",
+    "sha256": "bc8a02187c576a223d647205b9c9423a214d9035457dfdfa5c1d55bceddd14cd",
+    "storage": "Lossless fixed regional subsets of original GPCC p and s variables; global archives only in scratch; raw source hashes retained.",
+    "original_sources": [
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1982/monitoring_v2022_10_1982_11.nc.gz",
+        "raw_download_sha256": "8e0beb912693383b1d0a52833fa577a95ecf1cf7ad35fe222f76c946c5ef980f",
+        "retrieved_at_utc": "2026-09-27T03:06:25.143701+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1982-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1982/monitoring_v2022_10_1982_12.nc.gz",
+        "raw_download_sha256": "b70341f1c2e5eaec71b7c9ea6e05ae7331f022445b413ce6540456ca19b5647f",
+        "retrieved_at_utc": "2026-09-27T03:06:24.291287+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1982-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1983/monitoring_v2022_10_1983_11.nc.gz",
+        "raw_download_sha256": "fc903db52126f25ea433265b6cfdf30abe674e7fc2c44c4b5cad0ad7a79f4711",
+        "retrieved_at_utc": "2026-09-27T03:06:24.552804+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1983-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1983/monitoring_v2022_10_1983_12.nc.gz",
+        "raw_download_sha256": "e9d9800f40170f6fdd8d31b03b40aba3cad2e083efef575061d2b18cb5bc2a9c",
+        "retrieved_at_utc": "2026-09-27T03:06:24.354354+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1983-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1984/monitoring_v2022_10_1984_11.nc.gz",
+        "raw_download_sha256": "f6bb3603e53f007eb5f92591516b783927f8c13c3a1c8ee6887ce951aa776de6",
+        "retrieved_at_utc": "2026-09-27T03:06:25.182781+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1984-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1984/monitoring_v2022_10_1984_12.nc.gz",
+        "raw_download_sha256": "acc5f2d0d7b015077621dd4085294604c2163dad32e4144a23d1089d395dd9a9",
+        "retrieved_at_utc": "2026-09-27T03:06:25.496824+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1984-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1985/monitoring_v2022_10_1985_11.nc.gz",
+        "raw_download_sha256": "456bb50a483436702b754364bbffe88424dd20c415789b95efd9e380ae6160d4",
+        "retrieved_at_utc": "2026-09-27T03:06:25.374099+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1985-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1985/monitoring_v2022_10_1985_12.nc.gz",
+        "raw_download_sha256": "dab2ac8334bd4223980ef791096eec16f3bea84aa8cd20210f304bdecc5be187",
+        "retrieved_at_utc": "2026-09-27T03:06:26.124142+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1985-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1986/monitoring_v2022_10_1986_11.nc.gz",
+        "raw_download_sha256": "c69ea5d2a656d1283baaaa382feaabd60603e0646a3bb0620cbc6cabf5572363",
+        "retrieved_at_utc": "2026-09-27T03:06:26.136822+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1986-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1986/monitoring_v2022_10_1986_12.nc.gz",
+        "raw_download_sha256": "5aeca85e1826e97762a5f81a2dfdfc9edfc9f4ab87aba64628d72e45d12622ff",
+        "retrieved_at_utc": "2026-09-27T03:06:26.737931+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1986-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1987/monitoring_v2022_10_1987_11.nc.gz",
+        "raw_download_sha256": "eba1683f44388a4e319070f77b836e3dcd4c6c20baf7fc6790979147500adcde",
+        "retrieved_at_utc": "2026-09-27T03:06:26.818950+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1987-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1987/monitoring_v2022_10_1987_12.nc.gz",
+        "raw_download_sha256": "9041ae0d21268e390daefc0fc7d4d335b8a28e33cb5b8b8e4bca4b17c78a9c5a",
+        "retrieved_at_utc": "2026-09-27T03:06:26.970260+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1987-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1988/monitoring_v2022_10_1988_11.nc.gz",
+        "raw_download_sha256": "6984751f3e1a660212fad6121ea179094d3fd89157818a6dec35df9a00c771f4",
+        "retrieved_at_utc": "2026-09-27T03:06:26.969839+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1988-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1988/monitoring_v2022_10_1988_12.nc.gz",
+        "raw_download_sha256": "7a5700e1c12f875b89cbe676571b0d4c8d30ee02d4989d8777e87ea020736ffd",
+        "retrieved_at_utc": "2026-09-27T03:06:28.037489+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1988-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1989/monitoring_v2022_10_1989_11.nc.gz",
+        "raw_download_sha256": "1c178d825676094bce67919f280e3d00c5a19fcce9623bce95f1357f3a8dfc6e",
+        "retrieved_at_utc": "2026-09-27T03:06:27.798920+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:34 GMT",
+        "date": "1989-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1989/monitoring_v2022_10_1989_12.nc.gz",
+        "raw_download_sha256": "a9072811fc52372d21f741a655b1eda80005ce29516e9d7fbc374a574f7bbf7e",
+        "retrieved_at_utc": "2026-09-27T03:06:28.418907+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1989-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1990/monitoring_v2022_10_1990_11.nc.gz",
+        "raw_download_sha256": "372688c3b5dde27b416b18049819b6a16c2ddbb74d69ba5af8e08e3928b8f638",
+        "retrieved_at_utc": "2026-09-27T03:06:27.912802+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1990-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1990/monitoring_v2022_10_1990_12.nc.gz",
+        "raw_download_sha256": "2820ef6195c9759188091f6ded9881cfc9352f3b9feaa374d2299a5f0b4da71e",
+        "retrieved_at_utc": "2026-09-27T03:06:28.705982+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1990-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1991/monitoring_v2022_10_1991_11.nc.gz",
+        "raw_download_sha256": "e66c5f2fe36b50daf474341c4329b76ee6707749f97574003d5a9907996520ad",
+        "retrieved_at_utc": "2026-09-27T03:06:28.826089+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1991-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1991/monitoring_v2022_10_1991_12.nc.gz",
+        "raw_download_sha256": "f2175f6efe1c83cc5665db4f87dd327255fbf1f8386a989c45909e1fe9d89e8f",
+        "retrieved_at_utc": "2026-09-27T03:06:29.152560+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1991-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1992/monitoring_v2022_10_1992_11.nc.gz",
+        "raw_download_sha256": "8fcc9b0bbab4f8a3ef02cfcbff847685b56741ff93ceb78194daa8d60859422f",
+        "retrieved_at_utc": "2026-09-27T03:06:29.809822+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1992-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1992/monitoring_v2022_10_1992_12.nc.gz",
+        "raw_download_sha256": "46418f82a27f30114a429ab0428b6e3170b5b85ba7b98d6bdc6f148f4c924972",
+        "retrieved_at_utc": "2026-09-27T03:06:30.094050+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1992-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1993/monitoring_v2022_10_1993_11.nc.gz",
+        "raw_download_sha256": "2a235495f62b202304f6c8dd1a86e6fe78170a8911174a7a39759391776560e7",
+        "retrieved_at_utc": "2026-09-27T03:06:29.845892+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1993-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1993/monitoring_v2022_10_1993_12.nc.gz",
+        "raw_download_sha256": "32b622fc44a925f8b9593ac585ba18b95f4af073d93b50e219c4065302f97109",
+        "retrieved_at_utc": "2026-09-27T03:06:30.269758+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1993-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1994/monitoring_v2022_10_1994_11.nc.gz",
+        "raw_download_sha256": "4f74c00eac03056222554ccdc1c7ce798b10d7248cdc49d17afcf80c6c783328",
+        "retrieved_at_utc": "2026-09-27T03:06:31.118343+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1994-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1994/monitoring_v2022_10_1994_12.nc.gz",
+        "raw_download_sha256": "290e18251cafa54bbc67341c623c5d7e44400c45dcb7f7d730a77ae9337a86b4",
+        "retrieved_at_utc": "2026-09-27T03:06:30.730539+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1994-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1995/monitoring_v2022_10_1995_11.nc.gz",
+        "raw_download_sha256": "b26c5bcc68745bc6569b745bb419781d7a4fb8f7d3dd775788c2572fadaf5f03",
+        "retrieved_at_utc": "2026-09-27T03:06:30.932045+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1995-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1995/monitoring_v2022_10_1995_12.nc.gz",
+        "raw_download_sha256": "b1f24126202e9e45ae44f0492b1421eec23c5c19601f23f672e2fd988520ca3a",
+        "retrieved_at_utc": "2026-09-27T03:06:31.117973+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1995-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1996/monitoring_v2022_10_1996_11.nc.gz",
+        "raw_download_sha256": "0629c3ec7af3e28139d71c0f726cc449ccd16e64eb1972e3fa48eead6eeb7419",
+        "retrieved_at_utc": "2026-09-27T03:06:31.600020+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1996-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1996/monitoring_v2022_10_1996_12.nc.gz",
+        "raw_download_sha256": "e8f94b7a48c74b07ad2412f11b78ee89a825f8f04f611640a1014c55af0a22d5",
+        "retrieved_at_utc": "2026-09-27T03:06:32.266243+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1996-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1997/monitoring_v2022_10_1997_11.nc.gz",
+        "raw_download_sha256": "20480599ce9d4fc530c95c5713462a48e55c39a8f274a8f0d991845240e96fdf",
+        "retrieved_at_utc": "2026-09-27T03:06:31.956688+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1997-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1997/monitoring_v2022_10_1997_12.nc.gz",
+        "raw_download_sha256": "5966406574bcbd370fa9926883b4c638564e6a7f44b0d01ff0ea3fbe80473d33",
+        "retrieved_at_utc": "2026-09-27T03:06:32.028078+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1997-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1998/monitoring_v2022_10_1998_11.nc.gz",
+        "raw_download_sha256": "56ade07091028723bf9bf74c4e3f6c83f7a6f2cd236d6624cf4ea4b519df606b",
+        "retrieved_at_utc": "2026-09-27T03:06:32.508004+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1998-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1998/monitoring_v2022_10_1998_12.nc.gz",
+        "raw_download_sha256": "ad847d7bcf618ae8308478cceff805ffe982f00d1c02c7b9f3563a1278c1d219",
+        "retrieved_at_utc": "2026-09-27T03:06:32.884085+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1998-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1999/monitoring_v2022_10_1999_11.nc.gz",
+        "raw_download_sha256": "be825db8e743014ed11dfd59c911a761f35973c7fafa8449d3823bc1e3909a34",
+        "retrieved_at_utc": "2026-09-27T03:06:32.852685+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1999-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/1999/monitoring_v2022_10_1999_12.nc.gz",
+        "raw_download_sha256": "ca0dd9f7f61351ecbdc07c82729447ff399ccb4b777336956ec8fc5a98d78d63",
+        "retrieved_at_utc": "2026-09-27T03:06:33.784953+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "1999-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2000/monitoring_v2022_10_2000_11.nc.gz",
+        "raw_download_sha256": "80b4373a639bf33846c010a47df316f9db52f28560f9cb7b2838bc6d887941a2",
+        "retrieved_at_utc": "2026-09-27T03:06:33.785501+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2000-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2000/monitoring_v2022_10_2000_12.nc.gz",
+        "raw_download_sha256": "e7146f85f114a0b0c66c6ebea1ef44e3dacef44a2c1ea00ec8d52f1442604ee3",
+        "retrieved_at_utc": "2026-09-27T03:06:34.785567+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2000-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2001/monitoring_v2022_10_2001_11.nc.gz",
+        "raw_download_sha256": "31db6987f5fbbe13ade5ac33930aec31d1715a27538379f8c34d03ab77c97c8c",
+        "retrieved_at_utc": "2026-09-27T03:06:33.912958+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2001-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2001/monitoring_v2022_10_2001_12.nc.gz",
+        "raw_download_sha256": "f83c961117be62c8b95f5153e751732bc8f86b65c782501db34584b7d3299639",
+        "retrieved_at_utc": "2026-09-27T03:06:34.740739+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2001-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2002/monitoring_v2022_10_2002_11.nc.gz",
+        "raw_download_sha256": "abfd49eccf0c975483a875197c1bd9824ce6118b7eda39e98e29644a3d8b6f3e",
+        "retrieved_at_utc": "2026-09-27T03:06:34.791632+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2002-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2002/monitoring_v2022_10_2002_12.nc.gz",
+        "raw_download_sha256": "08b624ae14bf77cff6eb6233575ff313176c49ee0d55ff23df3d547aaadbde2d",
+        "retrieved_at_utc": "2026-09-27T03:06:34.990981+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2002-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2003/monitoring_v2022_10_2003_11.nc.gz",
+        "raw_download_sha256": "f023a098abcfd1465c5d01a0229795cd6fd7d387c132a28ef578e41e905cdd27",
+        "retrieved_at_utc": "2026-09-27T03:06:35.776058+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2003-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2003/monitoring_v2022_10_2003_12.nc.gz",
+        "raw_download_sha256": "7b7eedb5589071fffeb0dbb586939ebd4e7e0d77a441ad05ffca2aa3531ec41f",
+        "retrieved_at_utc": "2026-09-27T03:06:35.773334+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2003-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2004/monitoring_v2022_10_2004_11.nc.gz",
+        "raw_download_sha256": "905eb5dc89c2b59dae89d8560a0f5925b06a0cf932db6b27a1c763607ae25ed4",
+        "retrieved_at_utc": "2026-09-27T03:06:35.713232+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2004-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2004/monitoring_v2022_10_2004_12.nc.gz",
+        "raw_download_sha256": "38f9a344c04815ac0fabea0c077c05e8b1978b53065644be3ecc4d816ea59300",
+        "retrieved_at_utc": "2026-09-27T03:06:35.867713+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:35 GMT",
+        "date": "2004-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2005/monitoring_v2022_10_2005_11.nc.gz",
+        "raw_download_sha256": "706c3ab94a413027d9c43e40297d5f94444c7fa49306a5a03a9fdb07e8be31a3",
+        "retrieved_at_utc": "2026-09-27T03:06:36.736578+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2005-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2005/monitoring_v2022_10_2005_12.nc.gz",
+        "raw_download_sha256": "a0ef37f3a0ea2ebc409b098bfb19b7289582298bf1d0a82d7e11d4dc45698c83",
+        "retrieved_at_utc": "2026-09-27T03:06:36.838506+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2005-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2006/monitoring_v2022_10_2006_11.nc.gz",
+        "raw_download_sha256": "ba4b7c85caf0a6ca8cca22a061286037e584858823253105841221a4502b4604",
+        "retrieved_at_utc": "2026-09-27T03:06:36.740763+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2006-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2006/monitoring_v2022_10_2006_12.nc.gz",
+        "raw_download_sha256": "6ddf27344cec72407db89c8acf4a3a5d69f91348ea34285356676cd37b00ba5d",
+        "retrieved_at_utc": "2026-09-27T03:06:36.801380+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2006-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2007/monitoring_v2022_10_2007_11.nc.gz",
+        "raw_download_sha256": "ab3a1fb0815e8edb174579b2a575d4d8e48c6fc4112497571dc55199f573cc03",
+        "retrieved_at_utc": "2026-09-27T03:06:37.994150+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2007-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2007/monitoring_v2022_10_2007_12.nc.gz",
+        "raw_download_sha256": "3420ea232dc550b71e1f29ea8583607af6a98a5491d91a8a709e456d8bd537eb",
+        "retrieved_at_utc": "2026-09-27T03:06:37.970724+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2007-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2008/monitoring_v2022_10_2008_11.nc.gz",
+        "raw_download_sha256": "87cc7ccbfd47306d10dd5eac8fdb69fe477565f0d3315207464ac843a1d6eb24",
+        "retrieved_at_utc": "2026-09-27T03:06:37.654816+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2008-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2008/monitoring_v2022_10_2008_12.nc.gz",
+        "raw_download_sha256": "72c0defcc872633ebacd287ca8a4308bb1103b8fc5e940d7fefb5ab6150e4806",
+        "retrieved_at_utc": "2026-09-27T03:06:38.165194+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2008-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2009/monitoring_v2022_10_2009_11.nc.gz",
+        "raw_download_sha256": "843c558b58d839bb0e5b98fab91049e53b247468903d57376e2bd35ec04d6051",
+        "retrieved_at_utc": "2026-09-27T03:06:39.082817+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2009-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2009/monitoring_v2022_10_2009_12.nc.gz",
+        "raw_download_sha256": "ed1ca1a6e21e06eefd1e8e418f9ebe200c05a00412bf44bd079d78308ad0b2eb",
+        "retrieved_at_utc": "2026-09-27T03:06:39.285729+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2009-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2010/monitoring_v2022_10_2010_11.nc.gz",
+        "raw_download_sha256": "245966d51eb5e891fc9100929f7f4f77e76afb9190f649091d75e92b10463110",
+        "retrieved_at_utc": "2026-09-27T03:06:38.948845+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2010-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2010/monitoring_v2022_10_2010_12.nc.gz",
+        "raw_download_sha256": "4f37abb409ae7c2117ceaa675d55a3881188d2a7ed42a152061c99a494037c84",
+        "retrieved_at_utc": "2026-09-27T03:06:39.693073+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2010-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2011/monitoring_v2022_10_2011_11.nc.gz",
+        "raw_download_sha256": "9ea94ae43bfa8df8705ab3e7114b03c158eea9a8835a85a9067ac29a1db6f656",
+        "retrieved_at_utc": "2026-09-27T03:06:40.282442+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2011-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2011/monitoring_v2022_10_2011_12.nc.gz",
+        "raw_download_sha256": "12a494722bed722bb1d1902f5528c01e8fd7df3e43fc90098c45f211a26cff97",
+        "retrieved_at_utc": "2026-09-27T03:06:39.993921+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2011-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2012/monitoring_v2022_10_2012_11.nc.gz",
+        "raw_download_sha256": "07455baf2a79fa26219d61f6c767675b98cdbe7174549708a7d290a0dd2ace8e",
+        "retrieved_at_utc": "2026-09-27T03:06:40.251691+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2012-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2012/monitoring_v2022_10_2012_12.nc.gz",
+        "raw_download_sha256": "f0eae768a9da0bafce9694a3331cd0ab201a586dc3162bc9418a88d3bbedb353",
+        "retrieved_at_utc": "2026-09-27T03:06:40.495802+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2012-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2013/monitoring_v2022_10_2013_11.nc.gz",
+        "raw_download_sha256": "135d4c626952a8fe1bfab7da6a414888b644f1a9f0ebef84a15704b7c02be00f",
+        "retrieved_at_utc": "2026-09-27T03:06:41.490450+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2013-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2013/monitoring_v2022_10_2013_12.nc.gz",
+        "raw_download_sha256": "e8d2445f5a482716702db93707a33a3032b64d33f208477b4f661695e3ef936c",
+        "retrieved_at_utc": "2026-09-27T03:06:41.142027+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2013-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2014/monitoring_v2022_10_2014_11.nc.gz",
+        "raw_download_sha256": "8011274d4f7b610973ca97cca762cc7406585f5ffd6ee07283b08b86687735f5",
+        "retrieved_at_utc": "2026-09-27T03:06:41.172175+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2014-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2014/monitoring_v2022_10_2014_12.nc.gz",
+        "raw_download_sha256": "5d869949ee41d6d87b3e15f8f6aa91afaf338328c1d6da492db822337bf675a2",
+        "retrieved_at_utc": "2026-09-27T03:06:41.323281+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2014-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2015/monitoring_v2022_10_2015_11.nc.gz",
+        "raw_download_sha256": "95730260e2cd928a832e9a886353bb4f1b5b76894cd4ebe2f6c3b3e00bc3db84",
+        "retrieved_at_utc": "2026-09-27T03:06:42.006718+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2015-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2015/monitoring_v2022_10_2015_12.nc.gz",
+        "raw_download_sha256": "cd73e27ffa33110dd62fa85bb9a1437a2896b5fe58ee24adef33588823abfe47",
+        "retrieved_at_utc": "2026-09-27T03:06:42.240046+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2015-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2016/monitoring_v2022_10_2016_11.nc.gz",
+        "raw_download_sha256": "e5c965f6fd3ef3d2a149ff3197f04498a40d54cae60f634f02291bf374f383a0",
+        "retrieved_at_utc": "2026-09-27T03:06:42.840562+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2016-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2016/monitoring_v2022_10_2016_12.nc.gz",
+        "raw_download_sha256": "87b2e16544de6d774a6d0d1e4b6c7eda4e04c4d2195b54feeb318c78ff514cb2",
+        "retrieved_at_utc": "2026-09-27T03:06:42.437817+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2016-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2017/monitoring_v2022_10_2017_11.nc.gz",
+        "raw_download_sha256": "14541123431b1ee3a9e7766b37d41b1006cf03bd7e8d311f9d57bab74033ca10",
+        "retrieved_at_utc": "2026-09-27T03:06:42.941801+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2017-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2017/monitoring_v2022_10_2017_12.nc.gz",
+        "raw_download_sha256": "59c5c1d8afa54fcba8cc5d6393826574c00ecfd952ff9f98cca3dab557ee339d",
+        "retrieved_at_utc": "2026-09-27T03:06:43.168061+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2017-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2018/monitoring_v2022_10_2018_11.nc.gz",
+        "raw_download_sha256": "397e4e7931475d67d31e3d3f9fc7cb48b2057359879b2a5b9c5f95d03cab166d",
+        "retrieved_at_utc": "2026-09-27T03:06:43.272010+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2018-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2018/monitoring_v2022_10_2018_12.nc.gz",
+        "raw_download_sha256": "438fbb520a02b1f528d45026751d45c23946e9e81c049528870a66e8df8c460f",
+        "retrieved_at_utc": "2026-09-27T03:06:43.730563+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2018-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2019/monitoring_v2022_10_2019_11.nc.gz",
+        "raw_download_sha256": "909ebd1d655389b1d46aca94a82616036592383447ab1c55e2d5deb0bbd736a6",
+        "retrieved_at_utc": "2026-09-27T03:06:44.188765+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2019-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2019/monitoring_v2022_10_2019_12.nc.gz",
+        "raw_download_sha256": "ce6dd6c4a290e91321ece9b1720bff907a6471ef27e5e28afa45ff8bced73343",
+        "retrieved_at_utc": "2026-09-27T03:06:44.358726+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:36 GMT",
+        "date": "2019-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2020/monitoring_v2022_10_2020_11.nc.gz",
+        "raw_download_sha256": "ed0ad1c8afc240c107040159e04ee6ace1cbe21743d9ebcd3a4caac7a07c9487",
+        "retrieved_at_utc": "2026-09-27T03:06:44.586005+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2020-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2020/monitoring_v2022_10_2020_12.nc.gz",
+        "raw_download_sha256": "2460f64b74bb0ae633a9c0fefb80e50ceb83e4c48837c2624cfc0509b969a0fa",
+        "retrieved_at_utc": "2026-09-27T03:06:44.941434+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2020-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2021/monitoring_v2022_10_2021_11.nc.gz",
+        "raw_download_sha256": "d7c3e04dc3b976d20eabe2f24c76cf44dd6bde744841957d601ea9338f5c3d49",
+        "retrieved_at_utc": "2026-09-27T03:06:45.240706+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2021-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2021/monitoring_v2022_10_2021_12.nc.gz",
+        "raw_download_sha256": "8ffb6586290cb2847444c22fdecf62dbd3869f75f39483e00f737b25d639fd35",
+        "retrieved_at_utc": "2026-09-27T03:06:45.342330+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2021-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2022/monitoring_v2022_10_2022_11.nc.gz",
+        "raw_download_sha256": "e4d28f80177f5d37aed168156554f41f2e146e180a04d55dc5494be7af212dae",
+        "retrieved_at_utc": "2026-09-27T03:06:45.940918+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2022-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2022/monitoring_v2022_10_2022_12.nc.gz",
+        "raw_download_sha256": "4386f00d0615967a25af3671c813e1b057839071be404c4242cc3f0ff5e759ae",
+        "retrieved_at_utc": "2026-09-27T03:06:45.860220+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2022-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2023/monitoring_v2022_10_2023_11.nc.gz",
+        "raw_download_sha256": "927abac7de602210a617646ba742ad981d244a992292f353d1f94f1eb8e766b3",
+        "retrieved_at_utc": "2026-09-27T03:06:46.619879+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2023-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2023/monitoring_v2022_10_2023_12.nc.gz",
+        "raw_download_sha256": "34bc8d1c1c62e06288d0568f295570c709e5bdbbac216f7701418dc340f8ba33",
+        "retrieved_at_utc": "2026-09-27T03:06:46.705376+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2023-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2024/monitoring_v2022_10_2024_11.nc.gz",
+        "raw_download_sha256": "b9aa3c28608b086976d4e0d06aeefa4d8f41e16eaeaf4d90676d5f2738957365",
+        "retrieved_at_utc": "2026-09-27T03:06:46.810232+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2024-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2024/monitoring_v2022_10_2024_12.nc.gz",
+        "raw_download_sha256": "cccf501e7ac7198c2c945ca207b1786b41a049d4d0b1c2d99d41290a525ea817",
+        "retrieved_at_utc": "2026-09-27T03:06:46.824238+00:00",
+        "http_last_modified": "Tue, 02 Dec 2025 12:28:37 GMT",
+        "date": "2024-12-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2025/monitoring_v2022_10_2025_11.nc.gz",
+        "raw_download_sha256": "ad8020510fa7105aaa973549adca94c8691d5e5f5d026a3da72fa6cd11ce31d2",
+        "retrieved_at_utc": "2026-09-27T03:06:47.671557+00:00",
+        "http_last_modified": "Fri, 30 Jan 2026 13:40:16 GMT",
+        "date": "2025-11-01"
+      },
+      {
+        "url": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/2025/monitoring_v2022_10_2025_12.nc.gz",
+        "raw_download_sha256": "45ac55e92b24a66cdafc04d21f8de7c395e4dcaa5191cf3bf0e44bf728ac87c6",
+        "retrieved_at_utc": "2026-09-27T03:06:47.661820+00:00",
+        "http_last_modified": "Wed, 25 Feb 2026 12:35:16 GMT",
+        "date": "2025-12-01"
+      }
+    ]
+  },
+  {
+    "path": "inputs/gpcc_v2022_monthly.csv",
+    "sha256": "89b2ff0b39b803825400ed027334d7df493908d29499cb40b2caefcddab860ca",
+    "method": "Cosine-latitude area weights of fixed land rectangle, no missing-month zero fill; Nov/Dec only."
+  }
+]

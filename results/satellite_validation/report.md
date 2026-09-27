@@ -2,27 +2,76 @@
 
 This continues `claude/cool-bohr-oco47t` in `David3748/alphaHunt`. The original
 Sentinel-2 construction and smelter experiments are preserved and audited.
-MODIS crop vegetation, CERES solar irradiance, satellite-based ocean temperatures,
-passive-microwave sea ice and atmospheric temperatures extend it to seven tested
-mechanisms. An eighth, snow cover to runoff, was screened for data feasibility.
+The continuation now covers crop vegetation, solar irradiance, ocean temperatures,
+sea ice, atmospheric temperatures, reservoir altimetry and raw daily snow imagery,
+with independent ground or economic targets and stronger-baseline checks.
 
-**No tradable alpha is verified.** Small forecast improvements are distinguished
-from robust improvements, and retrospective estimation is distinguished from
-data that could actually have been available before the target announcement.
-**The requested verification milestone remains unmet.** Sea ice passes its fixed
-matched-model forecast test on the current archive, but stronger-baseline
-uncertainty and historical revisions prevent a broader robust-usefulness claim.
-No independently reported economic outcome has a robust, timing-defensible
-incremental forecast improvement. The user accepts forecast improvement as
-usefulness; we do not substitute a physical correlation or an in-sample fit.
+**A small historical forecast improvement is independently verified.** Adding
+raw MODIS vegetation measurements to a county-level weather/yield model reduces
+US maize-yield RMSE by **1.83% for August 15 forecasts** (95% paired calendar-block
+interval **1.27–2.57%**) and **3.12% for the predeclared September 15 secondary**
+(**2.87–3.42%**). The satellite model improves 10 of 11 years at the earlier date
+and all 11 at the later date. It beats every stated comparator on the original
+statistical and coverage checks.
 
-## Results
+**Both original 5% materiality gates remain failed. No trading alpha is verified.**
+The user accepted forecast improvement without a minimum effect size. The narrow
+historical forecasting result meets that definition; it does not meet the larger
+practical gain targeted by our original gate. This interpretation is explicitly
+recorded after the first result, without changing models, metrics or original
+gate outcomes. The earlier failures remain below.
+
+This uses current revised data and a fixed 2021 crop map. It is not a reconstruction
+of what was publicly available at every historical issue date. There are 11 year
+clusters, not thousands of independent seasons; uncertainty is conditional on the
+study and is not adjusted for the wider exploratory search. Prospective operational
+and economic usefulness remain unverified.
+
+## County forecast result
+
+![County forecast comparison with uncertainty](cybench_maize/county_forecast_comparison.png)
+
+| Fixed forecast | Scored county-years, 2013–2023 | Weather RMSE | Weather + NDVI RMSE | Relative gain, 95% interval | Years improved |
+|---|---:|---:|---:|---:|---:|
+| August 15 primary | 15,026 | 1.5354 t/ha | 1.5073 t/ha | 1.83%, 1.27–2.57% | 10/11 |
+| September 15 prespecified secondary | 14,907 | 1.5322 t/ha | 1.4844 t/ha | 3.12%, 2.87–3.42% | 11/11 |
+
+Each forecast trains only on earlier-year county yields under the stated release-lag
+assumption. Raw eight-day
+vegetation windows receive a fourteen-day buffer; future interpolation and
+smoothed FAPAR are excluded. The weather comparator uses AgERA5 reanalysis,
+which incorporates both ground and satellite information. Satellite here means
+**incremental vegetation information beyond that weather comparator**. Trend,
+latest-yield and five-year-mean comparators are also beaten. Both 2022 and 2023
+show lower error than weather and trend, after the crop-map reference year;
+this is not a claim that the map was publicly available in 2022.
+
+The 218 unsupported zero-yield training entries were audited before any model
+fitted and retained as missing, with their raw records preserved. Independent
+review reproduced source aggregations, every comparator, scores, uncertainty
+and abstention counts. Unknown current outcomes do not prevent forecasts.
+
+The [fixed CY-Bench source record](https://zenodo.org/records/17279151),
+`cybench_maize/`, `cybench_maize_late/`, and the county forecast notes contain
+inputs, frozen protocols, all annual forecasts and audits. A September forecast
+has less lead time; both operating dates were fixed before the first fitted
+scores and are reported independently.
+
+The separate CORN ETF test uses prior-year harvested area, entry after the issue
+date, October-end exit, 25 basis points each side and 3% annual borrow for shorts.
+Across 11 annual event windows, the August satellite strategy compounds to
+**+6.69%**, but its mean-return interval includes losses; the incremental overlay
+loses **30.79%**. September satellite and weather directions are identical and
+compound to **−18.88%**; the overlay loses **25.38%**. These are event-window
+returns, not annualized alpha. Neither forecast becomes a verified trading edge.
+
+## Earlier mechanisms and retained failures
 
 | Satellite source and possible information advantage | Independent test | Result | Decision |
 |---|---|---|---|
 | Sentinel-2 furnace heat: copper supply / producer output surprises | Kennecott quarterly production, 8 chronological predictions during 2024–2025; scene and label publication gates | Refined-copper MAE 12.21 kt versus persistence 12.72, but historical mean 12.09; throughput MAE 49.45 kt versus persistence 38.63 | Not verified; physical outage detection alone is insufficient |
 | Sentinel-2 exterior construction: delivery / revenue-recognition risk at data-center operators | Eight campuses, publication-aware warning replay, independently sourced delay and on-time delivery controls | Denton's October 8, 2025 endpoint-only warning disappears when known input publication dates are enforced; APLD still false-alerts before on-time delivery | Not verified |
-| MODIS vegetation: crop supply surprises beyond weather and radiation | Prior-year-only training, 2018–2024 evaluation, trend/weather/prior-year-NDVI comparisons; all nine crop-stage cells retained | Corn flowering RMSE 7.142% versus weather 7.306%: 2.24% improvement, uncertainty spans zero. Selected wheat-heading 2025 check is 8.19% worse than weather | Not verified |
+| Original county-to-state MODIS proxy: crop supply surprises | Prior-year-only training, 2018–2024 evaluation, trend/weather/prior-year-NDVI comparisons; all nine crop-stage cells retained | Corn flowering RMSE 7.142% versus weather 7.306%: 2.24% improvement, uncertainty spans zero. Selected wheat-heading 2025 check is 8.19% worse than weather | Not verified |
 | CERES solar irradiance: solar generation / revenue nowcasting | Topaz output reported independently to EIA; 72 monthly test estimates, 2020–2025 | RMSE 10,925 MWh versus 14,567: 25.00% lower. Year-block interval for reduction 14.31%–35.77%; worse in 2022 | Retrospective estimation works, but source latency defeats the proposed historical nowcast |
 | NOAA OISST ocean temperatures: seasonal crop / hydropower supply risk | September Niño3.4 → ensuing Texas winter rain; 29 test winters, 1998–2026, initial 15 winters training | RMSE 1.604 inches versus historical mean 1.777: 9.74% lower. Paired two-winter-block gain interval −0.150 to +0.457 inches | Promising point improvement; uncertainty gate fails |
 | NOAA/NSIDC passive-microwave ice: Arctic shipping conditions | July → September mean extent, 26 chronological test years, 2000–2025 | RMSE 0.474 versus 0.629 million km² for trend + prior September: 24.73% lower; gain interval +0.012 to +0.276. Versus stronger trend-only model, gain interval crosses zero | Fixed matched-model gate passes; robust and original-vintage economic usefulness remain unverified |
@@ -36,6 +85,32 @@ in the neighboring `construction/`, `smelters/`, `third_signal/`, `solar/`, `ens
 directories. `summary.json` collects machine-readable decisions;
 `input_manifest.json` records hashes. These are exploratory analyses, not a
 preregistered discovery or an original-vintage live record.
+
+
+## Further forecast and replication tests
+
+Original failures remain in the record. Subsequent tests were specified before their own feature/outcome joins, not before the entire research project. Confidence intervals are not adjusted for the full search across candidates; a positive individual result therefore needs replication before deployment.
+
+| Additional test | Measured result | Decision |
+|---|---|---|
+| Timely operational GOES irradiance → Topaz monthly generation | 42 eligible 2022–2025 months; RMSE 13,949 MWh versus local weather 12,909, 8.05% worse | Fixed physical model fails; annual second-plant confirmation also fails |
+| Delayed CERES → annually reported solar generation | Historical annual respondents' monthly fields were allocated, not independent measured monthly targets; numerical forecast also worse than weather | Discarded diagnostic, never counted as validation |
+| NASA radar reservoir altimetry → Sobradinho hydropower | 88 future-month predictions; 19.25% RMSE improvement over generation/inflow baseline, but adding it to public ground storage improves only 0.17% with uncertainty spanning zero | Demonstrates a useful physical proxy; incremental information gate fails where ground storage is available |
+| June satellite-enhanced SST → August–November Atlantic storm energy | 27 held-out years; 5.16% RMSE improvement over matched temporal/storm-activity controls, but 3.01% worse than recent climatology | Forecast uncertainty/strong-baseline gate fails |
+| June satellite-enhanced SST → Pacific storm energy | 27 held-out years; 7.53% RMSE gain over matched controls, but only 2.55% over stronger recent climatology with uncertainty spanning zero | Strong-baseline gate fails |
+| Raw March MODIS snow → April–July San Joaquin runoff | 15 held-out years; satellite raises RMSE 1.32% relative to rainfall/flow controls | Forecast gate fails; future-dependent SPIRES features were never used |
+| Raw May MODIS snow → July–September San Joaquin runoff | 14 held-out years; 10.11% RMSE gain over rainfall/April-flow controls, 95% interval +2.42% to +32.66%; adding available May flow reduces gain to 4.86%, interval −0.58% to +20.88% | Primary test passes; stronger-information gate fails |
+| Same May-snow model transferred to Kings River | 14 held-out years; 1.72% gain over fresh-flow controls. Pooled two-basin gain 2.77%, interval −1.06% to +12.99%, using shared year blocks | Frozen geographic confirmation fails |
+| NOAA crop-masked vegetation → Texas winter wheat | 23 held-out years; 6.54% RMSE gain versus weather, interval −4.57% to +23.41%; essentially tied with USDA June forecast | Uncertainty gate fails |
+| Same crop model transferred to Kansas and Oklahoma | Kansas −7.14%, Oklahoma +12.21%; combined confirmation +1.96%, interval −3.79% to +8.52%. Official June forecasts substantially stronger | Geographic confirmation fails; Oklahoma alone is not promoted |
+| September Indian/Pacific SST → East African November–December rain | 23 held-out years; 13.21% RMSE gain versus ground/history model, 8.69% versus strongest historical mean. Both gain intervals include zero | Rainfall forecast is promising but unverified; no production claim |
+| September Pacific SST → next-harvest South African maize | Original fixed-ridge yield model: 3.80% gain over ground controls under conservative label lag; completed-harvest stress gains 10.61%, interval +3.72% to +25.75%, but remains 1.15% worse than simpler trend. Prespecified total-production secondary also fails its strongest comparator | Original yield and production gates fail; trend treatment investigated separately |
+| Corrected trend treatment, independently transferred to Zambia and Zimbabwe | Joint yield forecasts are 26.75% / 21.45% worse than strongest persistence under the two release assumptions; total production also worse | Geographic confirmation fails; South Africa development gains are not promoted |
+
+
+Operational source retrieval, forecast timing, missing-data treatment and stronger available comparators are audited. Detailed protocols, inputs, predictions and notes accompany each test. The annual solar reporting audit found an important target-quality problem: estimated monthly allocations cannot validate a satellite production forecast against independent meters.
+
+The separate Atlantic-storm insurance-sector test also fails. Across 20 annual 2006–2025 windows, the satellite KIE/SPY spread strategy compounds to −18.37% after two-leg execution costs and short borrow, versus −19.87% for its nonsatellite comparator; the incremental overlay returns −18.32%. Mean-return intervals include zero. These are event-window returns, not annualized alpha. See `hurricane_trading/` and the associated notes.
 
 ## Separate market test
 
@@ -194,12 +269,10 @@ does not subtract every implementation cost. The source data are proprietary.
 The table-level audit is in `literature/evidence.json` and
 `docs/notes/satellite_external_evidence.md`; it does not change our gate result.
 
-For the best measured local effect—solar—the concrete missing evidence is an
-original-release low-latency irradiance archive paired with generation-release
-vintages. For crop vegetation, stronger historical coverage and a new unexamined
-season are needed after the failed check. Neither buying imagery nor waiting for
-future data guarantees an edge. No purchase, trading order, or scheduled task
-was created.
+The timely GOES follow-up resolves the original solar access question but fails
+the independent production test. Snow and crop candidates retain promising local
+results alongside failed stronger-comparator and geographic checks. No purchase,
+trading order or scheduled task was created.
 
 ## Reproduce from a fresh checkout
 
@@ -215,6 +288,23 @@ python3 src/satellite_enso_validation.py
 python3 src/satellite_seaice_validation.py
 python3 src/satellite_gas_validation.py
 python3 src/satellite_gas_trading.py
+python3 src/satellite_goes_solar_validation.py
+python3 src/satellite_hydro_validation.py
+python3 src/satellite_hurricane_validation.py
+python3 src/satellite_pacific_hurricane_validation.py
+python3 src/satellite_hurricane_trading.py
+python3 src/satellite_snow_daily_validation.py
+python3 src/satellite_snow_summer_validation.py
+python3 src/satellite_snow_kings_validation.py
+python3 src/satellite_vhp_wheat_validation.py
+python3 src/satellite_vhp_wheat_panel.py
+python3 src/satellite_east_africa_validation.py
+python3 src/satellite_south_africa_maize.py
+python3 src/satellite_southern_africa_maize.py
+python3 src/satellite_cybench_validation.py
+python3 src/satellite_cybench_validation.py --late-season
+python3 src/satellite_cybench_trading.py
+python3 src/satellite_cybench_trading.py --issue-month 9 --output-dir results/satellite_validation/cybench_trading/late
 python3 src/satellite_validation_report.py
 python3 -m pytest -q
 ```
