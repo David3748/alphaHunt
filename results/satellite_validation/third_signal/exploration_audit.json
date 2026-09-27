@@ -1,0 +1,32 @@
+{
+  "random_forest_probe": {
+    "corn_flowering": {
+      "ndvi_only_rmse_pct": 7.47,
+      "trend_rmse_pct": 7.67,
+      "weather_only_rmse_pct": 7.46,
+      "weather_plus_ndvi_rmse_pct": 7.19
+    },
+    "features": "reconstructed chronological cumulative NDVI; no state dummies; 3 ablations",
+    "max_depth": 5,
+    "max_features": 0.75,
+    "min_samples_leaf": 5,
+    "n_estimators": 150,
+    "random_state": 17,
+    "years": "2018\u20132024"
+  },
+  "ridge_probe": {
+    "conclusion": "Mostly weak or negative optical-only results; not used for a utility claim.",
+    "features": "reconstructed chronological cumulative NDVI; no state dummies; 3 ablations",
+    "model": "StandardScaler then Ridge(alpha=10)",
+    "negative_example": {
+      "crop": "corn",
+      "ndvi_only_rmse_pct": 12.74,
+      "stage": "flowering",
+      "trend_rmse_pct": 10.94,
+      "weather_only_rmse_pct": 12.58,
+      "weather_plus_ndvi_rmse_pct": 12.77
+    },
+    "years": "2013\u20132024"
+  },
+  "scope": "Preliminary diagnostics inspected before final inherited400-tree implementation. No hyperparameter chosen to maximize these results. Rounded values retained from terminal output; final400-tree results and stage-order correction supersede these probes."
+}

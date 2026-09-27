@@ -1,0 +1,6 @@
+{
+  "original_source_sha256": "afcc319864ea2d2e74bd59c19e28d95a309a21c269b3a208290d210712278746",
+  "protocol_sha256": "5962701971f0725fb7f837b570c734c6b7c756bf6e1940258ef1db9e01483b5c",
+  "snapshot_sha256": "2205c63e8222d445ee86c72d5c6a1253703b43cba4bc65466f8b5c23cc9b167f",
+  "source_path_at_ingest": "/Users/davidl/Documents/alphaHunt/research/yield_model/stage_feature_panel.parquet"
+}

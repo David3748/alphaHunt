@@ -1,0 +1,126 @@
+{
+  "research_status": "Exploratory continuation of claude/cool-bohr-oco47t; no profitable trading alpha certified",
+  "usefulness_definition": "User accepts independently measured forecast improvement; trading value is a separate test",
+  "candidates": [
+    {
+      "id": "industrial_heat",
+      "source": "Copernicus Sentinel-2 short-wave infrared via Element 84's public AWS archive",
+      "observable": "Fraction of clear acquisitions with furnace heat in a fixed smelter area",
+      "forecast": "Quarterly copper smelter throughput and refined copper production",
+      "possible_alpha": "Production surprises at concentrated listed producers, or aggregate copper supply",
+      "examples": [
+        "RIO",
+        "FCX",
+        "copper futures"
+      ],
+      "baseline": [
+        "previous-quarter production",
+        "same-quarter prior-year production"
+      ],
+      "timing": "Use only images created before the forecast cutoff; compare with the later company production release",
+      "limitations": [
+        "Hot slag and neighboring units can be mistaken for furnaces",
+        "Clouds hide heat",
+        "Refinery output can differ from smelter throughput",
+        "Public outage schedules may already explain the signal"
+      ],
+      "results": "results/satellite_validation/smelters/summary.json"
+    },
+    {
+      "id": "construction_progress",
+      "source": "Copernicus Sentinel-2 visible/NIR/SWIR reflectance",
+      "observable": "Season-matched new exterior built area at publicly identified data-center campuses",
+      "forecast": "Delivery and revenue-recognition delays relative to building-specific schedules",
+      "possible_alpha": "Guidance surprises at operators where one project is material",
+      "examples": [
+        "CORZ",
+        "CRWV",
+        "APLD",
+        "GLXY",
+        "WULF"
+      ],
+      "baseline": [
+        "company disclosures and guided completion dates",
+        "permit progress"
+      ],
+      "timing": "Gate on public site identity and every composite input's publication time; never backdate an alarm to the start of a retrospectively identified pause",
+      "limitations": [
+        "Interior work is invisible",
+        "Completed roofs look stalled",
+        "Historical areas of interest were chosen with hindsight",
+        "Legacy CSVs lack full constituent scene lineage"
+      ],
+      "results": "results/satellite_validation/construction/summary.json"
+    },
+    {
+      "id": "crop_vegetation",
+      "source": "NASA MODIS vegetation imagery through USDA NASS VegScape",
+      "observable": "Growing-season county NDVI and its change across crop stages",
+      "forecast": "State corn, soybean and wheat yield anomalies before final annual outcomes",
+      "possible_alpha": "Crop supply surprises versus expectations in grain futures and exposed businesses",
+      "examples": [
+        "corn futures",
+        "soybean futures",
+        "wheat futures"
+      ],
+      "baseline": [
+        "expanding yield trend",
+        "weather-only model",
+        "prior-year NDVI placebo"
+      ],
+      "timing": "Weekly imagery is usable only after the composite ends plus an explicit publication lag; train on earlier crop years",
+      "limitations": [
+        "One county is a proxy for a state",
+        "Current-vintage weather and yield labels are not an original-vintage archive",
+        "Forecast skill is not the same as predicting market surprises"
+      ],
+      "results": "results/satellite_validation/third_signal/summary.json"
+    },
+    {
+      "id": "solar_irradiance",
+      "source": "Satellite-constrained CERES surface irradiance via NASA POWER",
+      "observable": "Monthly all-sky surface shortwave radiation at a solar plant",
+      "forecast": "Solar electricity output before independent EIA reporting",
+      "possible_alpha": "Weather-driven output and revenue surprises for solar assets",
+      "examples": [
+        "solar asset revenues",
+        "power-market supply forecasts"
+      ],
+      "baseline": [
+        "calendar-month effects plus time trend",
+        "previous-year same-month generation",
+        "previous-year irradiance placebo"
+      ],
+      "timing": "Downloaded historical SYN1DEG has 3-4 month latency and cannot certify month-end nowcasts; original FLASHFlux vintages required",
+      "limitations": [
+        "Current-vintage estimation test only",
+        "One plant and six evaluation years",
+        "Contemporaneous market expectations not measured"
+      ],
+      "results": "results/satellite_validation/solar/summary.json"
+    },
+    {
+      "id": "satellite_ocean_temperature",
+      "source": "NOAA CPC OISST Ni\u00f1o3.4, combining satellite and in-situ temperatures",
+      "observable": "September tropical Pacific sea-surface temperature",
+      "forecast": "Following December-February Texas precipitation",
+      "possible_alpha": "Seasonal rainfall risk relevant to agriculture, hydroelectric output and energy supply",
+      "examples": [
+        "grain supply research",
+        "hydropower supply research"
+      ],
+      "baseline": [
+        "expanding historical winter rainfall mean",
+        "previous winter rainfall"
+      ],
+      "timing": "October15 forecast after September data and assumed14-day OISST final-product latency; original CPC vintages unavailable",
+      "limitations": [
+        "An established public ENSO mechanism, not proprietary information",
+        "Current-vintage reprocessing",
+        "Satellite-specific contribution not isolated from in-situ inputs",
+        "Uncertainty gate fails"
+      ],
+      "results": "results/satellite_validation/enso/summary.json"
+    }
+  ]
+}

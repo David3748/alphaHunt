@@ -1,0 +1,110 @@
+[
+  {
+    "absolute_difference": 0.0,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=19169&date=weekly_ndvi_31_2012.07.30_2012.08.05",
+    "cached_mean_ndvi": 0.8933124605479106,
+    "fetched_at": "2026-09-27T01:25:16.021253+00:00",
+    "key": "19169:weekly_ndvi_31_2012.07.30_2012.08.05",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2012.07.30_2012.08.05_19169.tif",
+    "raster_mean_ndvi": 0.8933124605479106,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2012.07.30_2012.08.05_19169.tif",
+    "sha256": "6cb7e9ee90669335bfc477aa1d2afcff6061579103150161517852257df39023",
+    "valid_pixels": 23763
+  },
+  {
+    "absolute_difference": 0.0,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=19169&date=weekly_ndvi_31_2018.07.30_2018.08.05",
+    "cached_mean_ndvi": 0.8853181837310103,
+    "fetched_at": "2026-09-27T01:25:16.277142+00:00",
+    "key": "19169:weekly_ndvi_31_2018.07.30_2018.08.05",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2018.07.30_2018.08.05_19169.tif",
+    "raster_mean_ndvi": 0.8853181837310103,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2018.07.30_2018.08.05_19169.tif",
+    "sha256": "fa4f4add19f59bcc74e4dc9fd8a97efaaf860843cd64a1c16744478fe58f9ce1",
+    "valid_pixels": 23763
+  },
+  {
+    "absolute_difference": 0.0,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=19169&date=weekly_ndvi_31_2024.07.29_2024.08.04",
+    "cached_mean_ndvi": 0.8937571855405463,
+    "fetched_at": "2026-09-27T01:25:16.529916+00:00",
+    "key": "19169:weekly_ndvi_31_2024.07.29_2024.08.04",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2024.07.29_2024.08.04_19169.tif",
+    "raster_mean_ndvi": 0.8937571855405463,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2024.07.29_2024.08.04_19169.tif",
+    "sha256": "4d5a593355f7e59cd437ebfc3c244916a3a5a1d97b8bd5f63a0062f636a28e47",
+    "valid_pixels": 23763
+  },
+  {
+    "absolute_difference": 0.0,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=17113&date=weekly_ndvi_31_2012.07.30_2012.08.05",
+    "cached_mean_ndvi": 0.8402750483165496,
+    "fetched_at": "2026-09-27T01:25:16.801550+00:00",
+    "key": "17113:weekly_ndvi_31_2012.07.30_2012.08.05",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2012.07.30_2012.08.05_17113.tif",
+    "raster_mean_ndvi": 0.8402750483165496,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2012.07.30_2012.08.05_17113.tif",
+    "sha256": "2e6b43251ded490872dfdeef26c7441a7caa0d6b6b1027eeabbdc0b63cccf247",
+    "valid_pixels": 49155
+  },
+  {
+    "absolute_difference": 0.0,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=17113&date=weekly_ndvi_31_2018.07.30_2018.08.05",
+    "cached_mean_ndvi": 0.924466524259994,
+    "fetched_at": "2026-09-27T01:25:17.029908+00:00",
+    "key": "17113:weekly_ndvi_31_2018.07.30_2018.08.05",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2018.07.30_2018.08.05_17113.tif",
+    "raster_mean_ndvi": 0.924466524259994,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2018.07.30_2018.08.05_17113.tif",
+    "sha256": "13ff529ab315d7eb01d8545d36e48e8139a9d86b68335f307c518bdf427ae814",
+    "valid_pixels": 49155
+  },
+  {
+    "absolute_difference": 1.1102230246251565e-16,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=17113&date=weekly_ndvi_31_2024.07.29_2024.08.04",
+    "cached_mean_ndvi": 0.9066131217577053,
+    "fetched_at": "2026-09-27T01:25:17.227439+00:00",
+    "key": "17113:weekly_ndvi_31_2024.07.29_2024.08.04",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2024.07.29_2024.08.04_17113.tif",
+    "raster_mean_ndvi": 0.9066131217577051,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2024.07.29_2024.08.04_17113.tif",
+    "sha256": "95a00d829cdc52f14c359396bfba03d67366d09fe51515c3e413f3284a704aa6",
+    "valid_pixels": 49155
+  },
+  {
+    "absolute_difference": 5.551115123125783e-17,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=20191&date=weekly_ndvi_31_2012.07.30_2012.08.05",
+    "cached_mean_ndvi": 0.4205680078188629,
+    "fetched_at": "2026-09-27T01:25:17.476013+00:00",
+    "key": "20191:weekly_ndvi_31_2012.07.30_2012.08.05",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2012.07.30_2012.08.05_20191.tif",
+    "raster_mean_ndvi": 0.42056800781886294,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2012.07.30_2012.08.05_20191.tif",
+    "sha256": "326ab22927f7dd7f3b8f075dac71ba7dda8cec3bcb0358941ec9acf5647d8045",
+    "valid_pixels": 49112
+  },
+  {
+    "absolute_difference": 0.0,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=20191&date=weekly_ndvi_31_2018.07.30_2018.08.05",
+    "cached_mean_ndvi": 0.7147035347776511,
+    "fetched_at": "2026-09-27T01:25:17.681319+00:00",
+    "key": "20191:weekly_ndvi_31_2018.07.30_2018.08.05",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2018.07.30_2018.08.05_20191.tif",
+    "raster_mean_ndvi": 0.7147035347776511,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2018.07.30_2018.08.05_20191.tif",
+    "sha256": "d00f7bb91b814d1d020c92347b571c4b430997f3cfddb58d33dae2681f3bdda1",
+    "valid_pixels": 49112
+  },
+  {
+    "absolute_difference": 0.0,
+    "api_url": "https://nassgeo.csiss.gmu.edu/VegService/GetFile?fips=20191&date=weekly_ndvi_31_2024.07.29_2024.08.04",
+    "cached_mean_ndvi": 0.6095890210131942,
+    "fetched_at": "2026-09-27T01:25:17.932782+00:00",
+    "key": "20191:weekly_ndvi_31_2024.07.29_2024.08.04",
+    "path": "results/satellite_validation/third_signal/tiff_samples/weekly_ndvi_31_2024.07.29_2024.08.04_20191.tif",
+    "raster_mean_ndvi": 0.6095890210131942,
+    "raster_url": "https://nassgeo.csiss.gmu.edu/ndvi_data_cache/byfips/weekly_ndvi_31_2024.07.29_2024.08.04_20191.tif",
+    "sha256": "676d7d8f8951e5dd13707a36ac404bd76f1814614c6a3b40d1f4dc845e07ecad",
+    "valid_pixels": 49112
+  }
+]

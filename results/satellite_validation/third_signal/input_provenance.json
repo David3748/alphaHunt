@@ -1,0 +1,21 @@
+{
+  "adopted_at": "2026-09-27T01:24:09.896009+00:00",
+  "api_documentation": "https://nassgeo.csiss.gmu.edu/VegScape/devhelp/vegservice.html",
+  "archive_limit": "Input caches contain current reprocessed archives and revised outcomes, not historical publication files. Original archive-fetch timestamps are unavailable; copied cache extraction is independently spot-checked against live TIFFs.",
+  "crop_mask": "No crop mask: whole representative-county pixels. Static state production weights from existing config. Neither is optimized here.",
+  "metadata": "https://www.nass.usda.gov/Research_and_Science/Cropland/metadata/metadata_VegScape.htm",
+  "reconstruction": "Use nass_yield_ingest.py and crop_yield_model.py to rebuild inherited caches; --source imports them. NDVI is extracted from county GeoTIFFs using ((mean of pixel codes 1..250)-125)/125. Weather features are inherited NASA POWER stage aggregates, not counted as direct satellite observations.",
+  "satellite_source": "https://nassgeo.csiss.gmu.edu/VegService/GetFile",
+  "source_file_sha256": {
+    "crop_yield_model.json": "40cd4e6e9f00098db9665b552d8d8ac15c2e2d056e5f7ff47b37d79659046226",
+    "nass_state_yields.tsv": "a2a963f62ad0358915e17f6b8e3e8de73ac8979d78e3f8d22fb88f725bbe4931",
+    "stage_feature_panel.parquet": "afcc319864ea2d2e74bd59c19e28d95a309a21c269b3a208290d210712278746",
+    "vegscape_ndvi_means.json": "820369a9c7c445955c9658070ec871951701a4a3c2d0951efffaab30b8a27512"
+  },
+  "source_paths_at_ingest": [
+    "/Users/davidl/Documents/alphaHunt/research/yield_model/stage_feature_panel.parquet",
+    "/Users/davidl/Documents/alphaHunt/research/yield_model/raw/vegscape_ndvi_means.json",
+    "/Users/davidl/Documents/alphaHunt/research/yield_model/raw/nass_state_yields.tsv"
+  ],
+  "yield_source": "https://www.nass.usda.gov/datasets/qs.crops_20260903.txt.gz"
+}

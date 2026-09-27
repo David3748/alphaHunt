@@ -1,5 +1,12 @@
 # Data-center buildout from satellite data: scoped research plan
 
+> **Follow-up availability audit.** The original charts are retrospective:
+> 437/837 post-baseline rows across eight campuses include known inputs published
+> after their endpoint timestamp. Publication-aware replay removes the Denton
+> warning, while an APLD false alarm survives. Core Scientific already discussed
+> delays on October 24, 2025. See the [five-source validation](../../results/satellite_validation/report.md)
+> before using the older pilot's apparent leads.
+
 > **Pilot run, September 2026.** Eight campuses (and three copper smelters) were
 > measured from free Sentinel-2 imagery; see
 > [`reports/satellite_sites.html`](../../reports/satellite_sites.html) and

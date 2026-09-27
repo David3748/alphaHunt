@@ -358,6 +358,13 @@ remain exploratory; details are in [`docs/notes/`](docs/notes/) and
   archive. Smelter outages show up; construction delays don't, and neither beat
   a disclosure ([report](reports/satellite_sites.html),
   [`sentinel2_sites.py`](src/sentinel2_sites.py)).
+- **Satellite validation continuation:** five mechanisms tested—construction,
+  smelter heat, MODIS vegetation, CERES sunlight, and satellite-based ocean
+  temperatures—with independent outcomes and a separate costed wheat-futures
+  test. None clears the local forecasting gate. The 25% solar estimation gain
+  is real in the current archive but cannot be backdated to a timely nowcast.
+  The audit fixes composite publication leakage and preserves negative results
+  ([full evidence](results/satellite_validation/report.md)).
 - **Macro reports:** UK and global short rates (market vs model), shorting
   bonds during capex booms.
 

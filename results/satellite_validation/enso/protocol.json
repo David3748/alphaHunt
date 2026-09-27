@@ -1,0 +1,19 @@
+{
+  "frozen_at_utc": "2026-09-27T01:31:50.661956+00:00",
+  "predictor": "September monthly NOAA CPC OISST Nino3.4 absolute SST (equivalent to a fixed September anomaly with regression intercept)",
+  "target": "Texas total precipitation in ensuing December-February, indexed by February year",
+  "forecast_at": "October 15 after September observations; two-week final-product latency assumption",
+  "model": "Expanding OLS with intercept and September SST; initial 15 winters train, all subsequent winters test; no horizon/state/parameter search",
+  "comparators": [
+    "expanding historical winter mean",
+    "previous winter precipitation"
+  ],
+  "uncertainty": "paired RMSE reduction with circular 2-winter blocks, 10000 draws",
+  "gate": "At least 5% lower RMSE than both comparators; positive 95% paired block interval vs climatology; improvement in MAE too",
+  "data_vintage": "current NOAA archived indexes and revised precipitation; not original vintage",
+  "reason": "Prior established ENSO mechanism; root fixed September->Texas DJF before outcome calculation",
+  "planned_files": [
+    "sstoi.indices",
+    "texas_winter.csv"
+  ]
+}

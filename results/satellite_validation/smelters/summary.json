@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "method": "Expanding OLS: intercept + hot-scene fraction, at quarter end, >=5 prior labeled quarters, >=3 clear scenes.",
+  "evaluation_type": "Chronological retrospective evaluation; thresholds and AOIs inherited from exploratory work; not pristine holdout.",
+  "forecast_gate": "At least 10% lower MAE than persistence, seasonal, and historical mean, with positive paired 2-quarter-block interval.",
+  "production_validation": {
+    "refined_copper_kt": {
+      "n_quarters": 8,
+      "start": "2024Q1",
+      "end": "2025Q4",
+      "mae_kt": {
+        "satellite_ols": 12.21488404313298,
+        "persistence": 12.724999999999998,
+        "seasonal": 18.049999999999997,
+        "historical_mean": 12.087037337662334
+      },
+      "rmse_kt": {
+        "satellite_ols": 14.572617161882832,
+        "persistence": 15.741664460913908,
+        "seasonal": 20.873428084528904,
+        "historical_mean": 14.711214259838895
+      },
+      "comparisons": {
+        "persistence": {
+          "mae_reduction_pct": 4.008769798562028,
+          "paired_mae_gain_kt": 0.5101159568670193,
+          "paired_block_bootstrap_95pct_kt": [
+            -3.951128742716681,
+            8.265406241337265
+          ],
+          "quarters_won": 2
+        },
+        "seasonal": {
+          "mae_reduction_pct": 32.32751222641007,
+          "paired_mae_gain_kt": 5.83511595686702,
+          "paired_block_bootstrap_95pct_kt": [
+            -1.3436565350782592,
+            14.235893595739443
+          ],
+          "quarters_won": 6
+        },
+        "historical_mean": {
+          "mae_reduction_pct": -1.0577174695430402,
+          "paired_mae_gain_kt": -0.12784670547064403,
+          "paired_block_bootstrap_95pct_kt": [
+            -5.080350706353835,
+            5.009195425275674
+          ],
+          "quarters_won": 4
+        }
+      },
+      "verified_forecast_usefulness": false,
+      "min_report_lead_days": 13.999988425925926
+    },
+    "concentrates_smelted_kt": {
+      "n_quarters": 8,
+      "start": "2024Q1",
+      "end": "2025Q4",
+      "mae_kt": {
+        "satellite_ols": 49.45406602704148,
+        "persistence": 38.625,
+        "seasonal": 57.0,
+        "historical_mean": 32.47560876623377
+      },
+      "rmse_kt": {
+        "satellite_ols": 51.407490490745,
+        "persistence": 44.16305016640042,
+        "seasonal": 83.96427811873333,
+        "historical_mean": 40.37148962115474
+      },
+      "comparisons": {
+        "persistence": {
+          "mae_reduction_pct": -28.036416898489257,
+          "paired_mae_gain_kt": -10.829066027041476,
+          "paired_block_bootstrap_95pct_kt": [
+            -23.165817857258205,
+            0.6987183516487543
+          ],
+          "quarters_won": 4
+        },
+        "seasonal": {
+          "mae_reduction_pct": 13.2384806543132,
+          "paired_mae_gain_kt": 7.545933972958524,
+          "paired_block_bootstrap_95pct_kt": [
+            -25.31209808982174,
+            49.92903040826474
+          ],
+          "quarters_won": 3
+        },
+        "historical_mean": {
+          "mae_reduction_pct": -52.28064355320387,
+          "paired_mae_gain_kt": -16.97845726080771,
+          "paired_block_bootstrap_95pct_kt": [
+            -29.80307181757066,
+            -4.1598130014075245
+          ],
+          "quarters_won": 2
+        }
+      },
+      "verified_forecast_usefulness": false,
+      "min_report_lead_days": 13.999988425925926
+    }
+  },
+  "cloud_sensitivity": {
+    "0.05": {
+      "refined_copper_kt": {
+        "n_quarters": 7,
+        "start": "2024Q2",
+        "end": "2025Q4",
+        "mae_kt": {
+          "satellite_ols": 13.648860978840228,
+          "persistence": 12.285714285714286,
+          "seasonal": 20.02857142857143,
+          "historical_mean": 12.054892805607093
+        },
+        "rmse_kt": {
+          "satellite_ols": 16.772819424875284,
+          "persistence": 15.733313155757843,
+          "seasonal": 22.25809644023624,
+          "historical_mean": 14.714101368869006
+        },
+        "comparisons": {
+          "persistence": {
+            "mae_reduction_pct": -11.09538006032742,
+            "paired_mae_gain_kt": -1.363146693125943,
+            "paired_block_bootstrap_95pct_kt": [
+              -8.478124127302333,
+              7.592691515936234
+            ],
+            "quarters_won": 2
+          },
+          "seasonal": {
+            "mae_reduction_pct": 31.85304789452097,
+            "paired_mae_gain_kt": 6.379710449731201,
+            "paired_block_bootstrap_95pct_kt": [
+              -6.2047426111849635,
+              19.351083372917184
+            ],
+            "quarters_won": 6
+          },
+          "historical_mean": {
+            "mae_reduction_pct": -13.222582721695652,
+            "paired_mae_gain_kt": -1.593968173233137,
+            "paired_block_bootstrap_95pct_kt": [
+              -9.58255625685931,
+              6.134090516790249
+            ],
+            "quarters_won": 2
+          }
+        },
+        "verified_forecast_usefulness": false,
+        "min_report_lead_days": 13.999988425925926
+      },
+      "concentrates_smelted_kt": {
+        "n_quarters": 7,
+        "start": "2024Q2",
+        "end": "2025Q4",
+        "mae_kt": {
+          "satellite_ols": 56.437609801769554,
+          "persistence": 41.857142857142854,
+          "seasonal": 61.0,
+          "historical_mean": 35.883106575963716
+        },
+        "rmse_kt": {
+          "satellite_ols": 63.92548064819145,
+          "persistence": 46.823376335208586,
+          "seasonal": 89.08984229416954,
+          "historical_mean": 45.40327115669129
+        },
+        "comparisons": {
+          "persistence": {
+            "mae_reduction_pct": -34.833880072487,
+            "paired_mae_gain_kt": -14.580466944626696,
+            "paired_block_bootstrap_95pct_kt": [
+              -42.17707626095638,
+              10.730180875663526
+            ],
+            "quarters_won": 2
+          },
+          "seasonal": {
+            "mae_reduction_pct": 7.4793281938204,
+            "paired_mae_gain_kt": 4.562390198230446,
+            "paired_block_bootstrap_95pct_kt": [
+              -44.76185255619366,
+              60.48425789199238
+            ],
+            "quarters_won": 4
+          },
+          "historical_mean": {
+            "mae_reduction_pct": -57.28183869000423,
+            "paired_mae_gain_kt": -20.554503225805835,
+            "paired_block_bootstrap_95pct_kt": [
+              -51.52014303177758,
+              14.155302040618112
+            ],
+            "quarters_won": 2
+          }
+        },
+        "verified_forecast_usefulness": false,
+        "min_report_lead_days": 13.999988425925926
+      }
+    },
+    "0.1": {
+      "refined_copper_kt": {
+        "n_quarters": 7,
+        "start": "2024Q2",
+        "end": "2025Q4",
+        "mae_kt": {
+          "satellite_ols": 14.304620896935871,
+          "persistence": 12.285714285714286,
+          "seasonal": 20.02857142857143,
+          "historical_mean": 12.054892805607093
+        },
+        "rmse_kt": {
+          "satellite_ols": 17.00912647063684,
+          "persistence": 15.733313155757843,
+          "seasonal": 22.25809644023624,
+          "historical_mean": 14.714101368869006
+        },
+        "comparisons": {
+          "persistence": {
+            "mae_reduction_pct": -16.432960789012906,
+            "paired_mae_gain_kt": -2.018906611221586,
+            "paired_block_bootstrap_95pct_kt": [
+              -8.462197882607066,
+              6.407153810275228
+            ],
+            "quarters_won": 1
+          },
+          "seasonal": {
+            "mae_reduction_pct": 28.578925621575536,
+            "paired_mae_gain_kt": 5.723950531635558,
+            "paired_block_bootstrap_95pct_kt": [
+              -5.622760294056247,
+              17.273403421574777
+            ],
+            "quarters_won": 6
+          },
+          "historical_mean": {
+            "mae_reduction_pct": -18.662364963397792,
+            "paired_mae_gain_kt": -2.24972809132878,
+            "paired_block_bootstrap_95pct_kt": [
+              -9.186244434409678,
+              3.9664770146483685
+            ],
+            "quarters_won": 2
+          }
+        },
+        "verified_forecast_usefulness": false,
+        "min_report_lead_days": 13.999988425925926
+      },
+      "concentrates_smelted_kt": {
+        "n_quarters": 7,
+        "start": "2024Q2",
+        "end": "2025Q4",
+        "mae_kt": {
+          "satellite_ols": 58.04807766403011,
+          "persistence": 41.857142857142854,
+          "seasonal": 61.0,
+          "historical_mean": 35.883106575963716
+        },
+        "rmse_kt": {
+          "satellite_ols": 61.12931914188025,
+          "persistence": 46.823376335208586,
+          "seasonal": 89.08984229416954,
+          "historical_mean": 45.40327115669129
+        },
+        "comparisons": {
+          "persistence": {
+            "mae_reduction_pct": -38.68141421440641,
+            "paired_mae_gain_kt": -16.190934806887253,
+            "paired_block_bootstrap_95pct_kt": [
+              -37.07253658801738,
+              2.295118599226506
+            ],
+            "quarters_won": 2
+          },
+          "seasonal": {
+            "mae_reduction_pct": 4.839216944212932,
+            "paired_mae_gain_kt": 2.951922335969889,
+            "paired_block_bootstrap_95pct_kt": [
+              -39.803237502310445,
+              51.72955318539347
+            ],
+            "quarters_won": 3
+          },
+          "historical_mean": {
+            "mae_reduction_pct": -61.76993355116469,
+            "paired_mae_gain_kt": -22.16497108806639,
+            "paired_block_bootstrap_95pct_kt": [
+              -46.549030430256515,
+              4.103890660330287
+            ],
+            "quarters_won": 1
+          }
+        },
+        "verified_forecast_usefulness": false,
+        "min_report_lead_days": 13.999988425925926
+      }
+    }
+  },
+  "event_validation": {
+    "site": "codelco_ventanas",
+    "closure_date_range": [
+      "2023-05-30",
+      "2023-05-31"
+    ],
+    "before": {
+      "clear_scenes": 42,
+      "hot_scenes": 24,
+      "hot_fraction": 0.5714285714285714,
+      "observed_months": 14
+    },
+    "after": {
+      "clear_scenes": 51,
+      "hot_scenes": 0,
+      "hot_fraction": 0.0,
+      "observed_months": 17
+    },
+    "matched_seasons": [
+      {
+        "month": 1,
+        "before": {
+          "clear_scenes": 4,
+          "hot_scenes": 2,
+          "hot_fraction": 0.5,
+          "observed_months": 1
+        },
+        "after": {
+          "clear_scenes": 2,
+          "hot_scenes": 0,
+          "hot_fraction": 0.0,
+          "observed_months": 1
+        }
+      },
+      {
+        "month": 2,
+        "before": {
+          "clear_scenes": 4,
+          "hot_scenes": 3,
+          "hot_fraction": 0.75,
+          "observed_months": 1
+        },
+        "after": {
+          "clear_scenes": 5,
+          "hot_scenes": 0,
+          "hot_fraction": 0.0,
+          "observed_months": 1
+        }
+      },
+      {
+        "month": 3,
+        "before": {
+          "clear_scenes": 2,
+          "hot_scenes": 2,
+          "hot_fraction": 1.0,
+          "observed_months": 1
+        },
+        "after": {
+          "clear_scenes": 5,
+          "hot_scenes": 0,
+          "hot_fraction": 0.0,
+          "observed_months": 1
+        }
+      },
+      {
+        "month": 4,
+        "before": {
+          "clear_scenes": 2,
+          "hot_scenes": 2,
+          "hot_fraction": 1.0,
+          "observed_months": 1
+        },
+        "after": {
+          "clear_scenes": 4,
+          "hot_scenes": 0,
+          "hot_fraction": 0.0,
+          "observed_months": 1
+        }
+      },
+      {
+        "month": 5,
+        "before": {
+          "clear_scenes": 2,
+          "hot_scenes": 2,
+          "hot_fraction": 1.0,
+          "observed_months": 1
+        },
+        "after": {
+          "clear_scenes": 2,
+          "hot_scenes": 0,
+          "hot_fraction": 0.0,
+          "observed_months": 1
+        }
+      }
+    ],
+    "verified_scope": "Retrospective disappearance of smelter heat after publicly announced closure",
+    "forecast_usefulness_verified": false,
+    "trading_alpha_verified": false,
+    "source": "https://www.codelco.com/tras-90-dias-concluyeron-trabajos-de-detencion-total-de-fundicion-ventanas",
+    "critical_target_caveat": "Codelco states the electrolytic refinery continued operating; no-heat is not zero refined output.",
+    "uncertainty": "One selected closure episode; temporally dependent scenes; no per-scene significance claim.",
+    "availability_cutoff": "2024-12-31 23:59:59+00:00"
+  },
+  "manyar_diagnostics": {
+    "fire_date": "2024-10-14",
+    "company_disclosure_date": "2024-10-22",
+    "primary_source": "https://s22.q4cdn.com/529358580/files/doc_news/2024/FCX_241022_3Q_2024_Earnings_Release-docx.pdf",
+    "repair_window_corroboration": [
+      {
+        "date": "2025-01-23",
+        "page": 7,
+        "url": "https://s22.q4cdn.com/529358580/files/doc_news/2025/FCX_250123_4Q_2024_Earnings_Release.pdf"
+      },
+      {
+        "date": "2025-04-24",
+        "page": 8,
+        "url": "https://s22.q4cdn.com/529358580/files/doc_news/2025/FCX_250424_1Q_2025_Earnings_Release.pdf"
+      }
+    ],
+    "source_page": 7,
+    "clear_scenes_during_repair_window": 4,
+    "furnace_zone_hot_scenes": 3,
+    "aoi_hot_scenes": 3,
+    "mean_furnace_zone_pixels": 1.25,
+    "mean_elsewhere_pixels": 16.75,
+    "2025Q1_clear_scenes": 0,
+    "interpretation": "Heat persists in a documented suspension; other AOI areas dominate. No Q1 clear scenes is missing evidence, not inactivity.",
+    "forecast_usefulness_verified": false
+  },
+  "availability_audit": {
+    "rio_kennecott": {
+      "scenes": 296,
+      "missing_created": 0,
+      "created_over_7_days_after_acquisition": 47,
+      "created_over_365_days_after_acquisition": 7,
+      "max_lag_days": 1144.3063236412963
+    },
+    "codelco_ventanas": {
+      "scenes": 95,
+      "missing_created": 0,
+      "created_over_7_days_after_acquisition": 25,
+      "created_over_365_days_after_acquisition": 2,
+      "max_lag_days": 1158.6874781178474
+    }
+  },
+  "input_sha256": {
+    "results/satellite_sites/heat_rio_kennecott.csv": "fabbaa0794138c7d3d3e4f5c77655a2d50efcd69687dc10a41ee09954e55d87c",
+    "results/satellite_sites/heat_codelco_ventanas.csv": "fafb457ff00d8f1dd5227c5cfc27802b21a9000ef79ff53ac0293fb0543a21ea",
+    "results/satellite_sites/heat_fcx_manyar.csv": "127c986ffa0c949557d2804bdd208e483d3426b038b549da3f7ca3095998eb04",
+    "results/satellite_validation/smelters/production_labels.csv": "37498f2e0ab63657c3d6de0e612e409cc58e4bd6d7037d129486a0e8ee7b77bf"
+  },
+  "verdict": "Forecast usefulness not verified; smelter shutdown detection is a narrower, retrospective physical validation.",
+  "limitations": [
+    "Eight out-of-sample quarters are insufficient for stable inference; block intervals are exploratory.",
+    "AOIs were selected retrospectively and partial cloud masks can conceal a furnace even when the full AOI is mostly clear.",
+    "No local furnace cloud mask or slag-disposal control is available in the existing heat CSVs.",
+    "Hot-scene absence is not equivalent to no activity: Kennecott 2025Q1 has 0/10 hot scenes and 42.3 kt refined copper.",
+    "Kennecott refined copper excludes purchased/tolled concentrate; heat reflects processes and inventory with different timing.",
+    "Created timestamps describe this archived asset; original acquisitions may have been obtainable from another provider earlier.",
+    "Quarter-end predictions precede the formal output report, but no comparison to analyst consensus or public maintenance schedules is included."
+  ]
+}

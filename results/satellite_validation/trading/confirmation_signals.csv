@@ -1,0 +1,2 @@
+year,status,reason,available_date,states,weather_anomaly,satellite_anomaly,incremental_anomaly,weather_only,weather_plus_ndvi,incremental_satellite,always_long_control
+2025,eligible,,2025-06-29,12,0.00260586101146685,-0.00023000175368217087,-0.002835862765149021,-1,1,1,1

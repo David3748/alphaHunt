@@ -1,0 +1,56 @@
+{
+  "source_inputs": [
+    {
+      "path": "/Users/davidl/Documents/alphaHunt/research/slow_crop_alpha/raw/ers_contract_returns.parquet",
+      "sha256": "5f62e9ac5d9ea96b256eaf6f4c31ad67045189d86e1d61a08f159b5748f6d76a"
+    },
+    {
+      "path": "/Users/davidl/Documents/alphaHunt/research/slow_crop_alpha/raw/ers_contract_roll_flags.parquet",
+      "sha256": "295c71dc981977303b53d1dc57dfd315373a81d10f06a382c5ec1d906f828616"
+    },
+    {
+      "path": "/Users/davidl/Documents/alphaHunt/research/slow_crop_alpha/manifest.json",
+      "sha256": "c3bd687b7d8cbb54a6c17d64d669fee9ea17869cd5c0d990e5689af3ba335c59",
+      "metadata": {
+        "config": {
+          "evaluation_start": "2006-01-01",
+          "information_lag_weeks": 4,
+          "weather_level_weeks": 12,
+          "weather_trajectory_weeks": 4,
+          "rv_lookback_weeks": 156,
+          "rv_min_weeks": 78,
+          "rv_smoothing_weeks": 13,
+          "carry_source_url": "https://www.ers.usda.gov/media/6498/input-data-csv-file.csv?v=11049",
+          "carry_min_days_to_expiry": 28,
+          "carry_vol_lookback_weeks": 156,
+          "carry_vol_min_weeks": 78,
+          "carry_smoothing_weeks": 13,
+          "carry_overlay_weight": 0.25,
+          "yield_max_age_weeks": 26,
+          "transaction_cost_bps_per_turnover": 10.0,
+          "contract_roll_cost_bps": 2.0,
+          "weather_overlay_weight": 0.25,
+          "yield_overlay_weight": 0.25,
+          "weather_conflict_haircut": 0.75,
+          "stress_scale": 1.5,
+          "holdout_start": "2021-01-01"
+        },
+        "inputs": {
+          "contract_returns": "research/slow_crop_alpha/raw/ers_contract_returns.parquet",
+          "weather_features": "research/weather_commodities/weekly_weather_features.parquet",
+          "yield_vintages": "research/yield_model/national_yield_vintages.parquet",
+          "carry_contract_settlements": "https://www.ers.usda.gov/media/6498/input-data-csv-file.csv?v=11049"
+        },
+        "decision_frequency": "monthly; next weekly bar execution",
+        "carry_definition": "annualized log(front/deferred); positive backwardation; USDA ERS CBOT weekly settlements",
+        "carry_raw_sha256": "2964547ac03318d4c307ac78d61316560945686966a9b34c884977d49cfcaf1c",
+        "carry_coverage": {
+          "start": "1997-06-06",
+          "end": "2026-08-07",
+          "contract_pair_rows": 4543
+        }
+      }
+    }
+  ],
+  "snapshot_sha256": "0d51b6aebefb52d8868382b04c986677307cced9fe94d8b6470a98eb335f6e78"
+}

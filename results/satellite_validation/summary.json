@@ -1,0 +1,305 @@
+{
+  "evaluation_scope": "Exploratory satellite research; forecast usefulness and trading alpha evaluated separately",
+  "implemented_candidates": [
+    "construction_progress",
+    "industrial_heat",
+    "crop_vegetation",
+    "solar_irradiance",
+    "satellite_ocean_temperature"
+  ],
+  "forecast_verification": {
+    "construction": false,
+    "smelters": false,
+    "crop_primary": false,
+    "solar": false,
+    "enso": false
+  },
+  "trading_alpha_verified": false,
+  "solar_retrospective_estimation_gain_pct": 24.996690358128394,
+  "crop_primary_rmse_gain_pct": 2.244819726481473,
+  "selected_wheat_confirmation_gain_pct": -8.188665342867907,
+  "construction_strict_pit_certified": false,
+  "additional_enso_evaluation": {
+    "n_test_winters": 29,
+    "first_test_winter": 1998,
+    "last_test_winter": 2026,
+    "metrics": {
+      "satellite": {
+        "rmse_inches": 1.603911981844249,
+        "mae_inches": 1.2381404052603149
+      },
+      "climatology": {
+        "rmse_inches": 1.7769343815161556,
+        "mae_inches": 1.4579638909836574
+      },
+      "persistence": {
+        "rmse_inches": 2.5157414756714953,
+        "mae_inches": 2.127931034482758
+      }
+    },
+    "comparisons": {
+      "climatology": {
+        "rmse_reduction_fraction": 0.09737129376959684,
+        "rmse_reduction_inches": 0.17302239967190647,
+        "rmse_reduction_ci95_inches": [
+          -0.15040551425764906,
+          0.45702381083852217
+        ],
+        "mae_reduction_fraction": 0.15077430043554252,
+        "winters_lower_squared_error": 20
+      },
+      "persistence": {
+        "rmse_reduction_fraction": 0.3624496009010079,
+        "rmse_reduction_inches": 0.9118294938272462,
+        "rmse_reduction_ci95_inches": [
+          0.31428403153694445,
+          1.5342705362086966
+        ],
+        "mae_reduction_fraction": 0.4181482457859482,
+        "winters_lower_squared_error": 21
+      }
+    },
+    "predefined_forecast_gate_passed": false,
+    "status": "provisional_point_improvement_uncertainty_gate_failed",
+    "original_vintage_operational_verification": false,
+    "incremental_satellite_vs_in_situ_verified": false,
+    "trading_alpha_verified": false,
+    "protocol": {
+      "frozen_at_utc": "2026-09-27T01:31:50.661956+00:00",
+      "predictor": "September monthly NOAA CPC OISST Nino3.4 absolute SST (equivalent to a fixed September anomaly with regression intercept)",
+      "target": "Texas total precipitation in ensuing December-February, indexed by February year",
+      "forecast_at": "October 15 after September observations; two-week final-product latency assumption",
+      "model": "Expanding OLS with intercept and September SST; initial 15 winters train, all subsequent winters test; no horizon/state/parameter search",
+      "comparators": [
+        "expanding historical winter mean",
+        "previous winter precipitation"
+      ],
+      "uncertainty": "paired RMSE reduction with circular 2-winter blocks, 10000 draws",
+      "gate": "At least 5% lower RMSE than both comparators; positive 95% paired block interval vs climatology; improvement in MAE too",
+      "data_vintage": "current NOAA archived indexes and revised precipitation; not original vintage",
+      "reason": "Prior established ENSO mechanism; root fixed September->Texas DJF before outcome calculation",
+      "planned_files": [
+        "sstoi.indices",
+        "texas_winter.csv"
+      ]
+    },
+    "source_urls": {
+      "sstoi.indices": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
+      "texas_winter.csv": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/41/pcp/3/2/1982-2026.csv"
+    },
+    "documentation_urls": {
+      "cpc_index_definition": "https://www.cpc.ncep.noaa.gov/data/indices/",
+      "cpc_revision_history": "https://www.cpc.ncep.noaa.gov/data/indices/Readme.index.shtml",
+      "oisst_satellite_and_in_situ_inputs": "https://www.ncei.noaa.gov/products/optimum-interpolation-sst",
+      "oisst_final_two_week_latency": "https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc%3AC01606",
+      "physical_mechanism": "https://www.climate.gov/news-features/blogs/enso/la-ninas-delayed-effect-sizzling-texas-summers"
+    },
+    "input_sha256": {
+      "sstoi.indices": "6d85461bbcde83bcdccfd69a67f54381d0a4688f8a7021d6d6a22a0803cdb2cd",
+      "texas_winter.csv": "6b300a177dacd08bb52504cd3b3090dd9e7c80d36fc10c673e1e9ec980756fb3"
+    },
+    "source_code_sha256": "c862cfa3e8e69a15161afc466808d4470147f2aa20107f972de0a236ae41966e",
+    "forecast_minimum_lead_days": 47,
+    "availability": {
+      "predictor": "Assumed September end +14 days, from OISST final latency; CPC monthly original release timestamps not preserved",
+      "labels": "Assumed April 1 after target winter; current revised NCEI archive",
+      "vintage": "Current OISST index includes historical reprocessing and in-situ inputs; chronological hindcast only"
+    }
+  },
+  "verification_requirement_met": false,
+  "external_literature_evidence": "literature/evidence.json; externally published, not locally replicated and not a substitute for the forecast verification gate",
+  "market_test": {
+    "rule": {
+      "crop": "wheat",
+      "stage": "heading",
+      "holding_weeks": 12,
+      "entry": "first Friday strictly after common available_date; preceding return excluded",
+      "direction": "negative sign of production-weighted predicted yield anomaly",
+      "satellite_overlay_direction": "negative sign of satellite prediction minus weather prediction",
+      "entry_cost_bps": 25,
+      "exit_cost_bps": 25,
+      "roll_cost_bps": 5,
+      "notional": "1x collateral, rebalanced weekly; collateral cash interest excluded",
+      "missing": "abstain if any required state forecast, return, or roll flag is missing",
+      "required_states": [
+        "CO",
+        "ID",
+        "KS",
+        "MN",
+        "MT",
+        "ND",
+        "NE",
+        "OK",
+        "OR",
+        "SD",
+        "TX",
+        "WA"
+      ],
+      "state_universe_source": "positive wheat weights in results/satellite_validation/third_signal/input_config.json, frozen before market evaluation",
+      "selection": "wheat heading selected during research; no rule or horizon optimization in this market check"
+    },
+    "strict_point_in_time_certified": false,
+    "tuned_on_market_returns": false,
+    "sample": "corrected exploratory 2018-2024 research sample",
+    "inputs": [
+      {
+        "path": "results/satellite_validation/third_signal/predictions.csv",
+        "sha256": "451246f1faa4fcdfbb83b57ae4a43c2504b452f3460849c81be2be23e9733fe5"
+      },
+      {
+        "path": "results/satellite_validation/trading/weekly_wheat_inputs.csv",
+        "sha256": "0d51b6aebefb52d8868382b04c986677307cced9fe94d8b6470a98eb335f6e78"
+      }
+    ],
+    "market_provenance": {
+      "source_inputs": [
+        {
+          "path": "/Users/davidl/Documents/alphaHunt/research/slow_crop_alpha/raw/ers_contract_returns.parquet",
+          "sha256": "5f62e9ac5d9ea96b256eaf6f4c31ad67045189d86e1d61a08f159b5748f6d76a"
+        },
+        {
+          "path": "/Users/davidl/Documents/alphaHunt/research/slow_crop_alpha/raw/ers_contract_roll_flags.parquet",
+          "sha256": "295c71dc981977303b53d1dc57dfd315373a81d10f06a382c5ec1d906f828616"
+        },
+        {
+          "path": "/Users/davidl/Documents/alphaHunt/research/slow_crop_alpha/manifest.json",
+          "sha256": "c3bd687b7d8cbb54a6c17d64d669fee9ea17869cd5c0d990e5689af3ba335c59",
+          "metadata": {
+            "config": {
+              "evaluation_start": "2006-01-01",
+              "information_lag_weeks": 4,
+              "weather_level_weeks": 12,
+              "weather_trajectory_weeks": 4,
+              "rv_lookback_weeks": 156,
+              "rv_min_weeks": 78,
+              "rv_smoothing_weeks": 13,
+              "carry_source_url": "https://www.ers.usda.gov/media/6498/input-data-csv-file.csv?v=11049",
+              "carry_min_days_to_expiry": 28,
+              "carry_vol_lookback_weeks": 156,
+              "carry_vol_min_weeks": 78,
+              "carry_smoothing_weeks": 13,
+              "carry_overlay_weight": 0.25,
+              "yield_max_age_weeks": 26,
+              "transaction_cost_bps_per_turnover": 10.0,
+              "contract_roll_cost_bps": 2.0,
+              "weather_overlay_weight": 0.25,
+              "yield_overlay_weight": 0.25,
+              "weather_conflict_haircut": 0.75,
+              "stress_scale": 1.5,
+              "holdout_start": "2021-01-01"
+            },
+            "inputs": {
+              "contract_returns": "research/slow_crop_alpha/raw/ers_contract_returns.parquet",
+              "weather_features": "research/weather_commodities/weekly_weather_features.parquet",
+              "yield_vintages": "research/yield_model/national_yield_vintages.parquet",
+              "carry_contract_settlements": "https://www.ers.usda.gov/media/6498/input-data-csv-file.csv?v=11049"
+            },
+            "decision_frequency": "monthly; next weekly bar execution",
+            "carry_definition": "annualized log(front/deferred); positive backwardation; USDA ERS CBOT weekly settlements",
+            "carry_raw_sha256": "2964547ac03318d4c307ac78d61316560945686966a9b34c884977d49cfcaf1c",
+            "carry_coverage": {
+              "start": "1997-06-06",
+              "end": "2026-08-07",
+              "contract_pair_rows": 4543
+            }
+          }
+        }
+      ],
+      "snapshot_sha256": "0d51b6aebefb52d8868382b04c986677307cced9fe94d8b6470a98eb335f6e78"
+    },
+    "code_sha256": "32c0a60dc921f7c1ef00e51103f78cfea62b4e04d8880c07841724b539bc498b",
+    "strategies": {
+      "weather_only": {
+        "event_years": 7,
+        "positive_events": 2,
+        "mean_event_net_return": -0.0258011210152229,
+        "compound_net_return_across_events": -0.1921784735603761,
+        "median_event_net_return": -0.033967368711594004,
+        "worst_event_net_return": -0.16376323022631367
+      },
+      "weather_plus_ndvi": {
+        "event_years": 7,
+        "positive_events": 2,
+        "mean_event_net_return": -0.0258011210152229,
+        "compound_net_return_across_events": -0.1921784735603761,
+        "median_event_net_return": -0.033967368711594004,
+        "worst_event_net_return": -0.16376323022631367
+      },
+      "incremental_satellite": {
+        "event_years": 7,
+        "positive_events": 4,
+        "mean_event_net_return": 0.003283876010768722,
+        "compound_net_return_across_events": -0.0028134903503969078,
+        "median_event_net_return": 0.01351313854219427,
+        "worst_event_net_return": -0.14962953484220387
+      },
+      "always_long_control": {
+        "event_years": 7,
+        "positive_events": 3,
+        "mean_event_net_return": -0.0074624699680342355,
+        "compound_net_return_across_events": -0.07970774243131162,
+        "median_event_net_return": -0.02769362301916023,
+        "worst_event_net_return": -0.16376323022631367
+      }
+    },
+    "paired_satellite_minus_weather": {
+      "event_years": 7,
+      "mean_net_return_difference": 0.0,
+      "two_sided_sign_flip_p_value": 1.0,
+      "inference_limit": "descriptive, low-power test; exchangeable symmetric paired effects assumed; candidate was selected during research"
+    },
+    "confirmation": {
+      "label": "corrected 2025 exploratory confirmation; invalid-stage outcome already inspected, not pristine holdout",
+      "input_sha256": "7403cb65ad69692587240f2b75421810a6afde9030e9fd9e4ce140deb6352384",
+      "strategies": {
+        "weather_only": {
+          "event_years": 1,
+          "positive_events": 1,
+          "mean_event_net_return": 0.0932374006556771,
+          "compound_net_return_across_events": 0.0932374006556771,
+          "median_event_net_return": 0.0932374006556771,
+          "worst_event_net_return": 0.0932374006556771
+        },
+        "weather_plus_ndvi": {
+          "event_years": 1,
+          "positive_events": 0,
+          "mean_event_net_return": -0.09905776675079325,
+          "compound_net_return_across_events": -0.09905776675079325,
+          "median_event_net_return": -0.09905776675079325,
+          "worst_event_net_return": -0.09905776675079325
+        },
+        "incremental_satellite": {
+          "event_years": 1,
+          "positive_events": 0,
+          "mean_event_net_return": -0.09905776675079325,
+          "compound_net_return_across_events": -0.09905776675079325,
+          "median_event_net_return": -0.09905776675079325,
+          "worst_event_net_return": -0.09905776675079325
+        },
+        "always_long_control": {
+          "event_years": 1,
+          "positive_events": 0,
+          "mean_event_net_return": -0.09905776675079325,
+          "compound_net_return_across_events": -0.09905776675079325,
+          "median_event_net_return": -0.09905776675079325,
+          "worst_event_net_return": -0.09905776675079325
+        }
+      },
+      "paired_satellite_minus_weather": {
+        "event_years": 1,
+        "mean_net_return_difference": -0.19229516740647035,
+        "two_sided_sign_flip_p_value": 1.0,
+        "inference_limit": "descriptive, low-power test; exchangeable symmetric paired effects assumed; candidate was selected during research"
+      }
+    },
+    "limitations": [
+      "Seven research event-years are not 84 independent weekly bets; no full-sample Sharpe is reported",
+      "The signal's historical available_date is an upstream assumption, not original-vintage publication proof",
+      "Current-vintage yield/weather/NDVI and retrospective crop/state weights limit tradeability claims",
+      "Weekly contract-consistent returns avoid roll-price jumps but do not capture daily margin or exact execution slippage",
+      "Friday labels are weekly observation boundaries, not a verified exchange holiday execution calendar",
+      "Collateral earns zero here; commissions, market impact beyond fixed fees, taxes, and financing are excluded",
+      "US production is only one determinant of global wheat prices; forecast accuracy does not establish price alpha"
+    ]
+  }
+}

@@ -17,9 +17,10 @@ Two per-scene measurements, both over a small fixed area of interest (AOI):
 
 Point-in-time notes:
 
-- Pixels do not change after acquisition, but a scene reaches the bucket hours to
-  days after it is acquired. Every observation keeps the acquisition time and the
-  item's 'created' time; a live rule must key on 'created'.
+- Acquisition time is not availability time. Reprocessing can change pixel
+  values and publish historical scenes years later. Every observation keeps the
+  item's 'created' time; construction composites also retain dependency times.
+  These are archive metadata, not independently observed first-seen timestamps.
 - The larger leak is the site list. A campus that is famous today was picked with
   hindsight, and an AOI drawn on today's imagery fits the buildings that ended up
   there. The config records when each site became public and whether its AOI was
@@ -462,7 +463,7 @@ def _day_distance(a: np.ndarray, b: int) -> np.ndarray:
 def construction_index(site: dict, cache_dir: Path, baseline_months: int = 12,
                        window_days: int = 75, share: float = 0.6, min_obs: int = 3,
                        season_days: int = 45, pixel_area_m2: float = 100.0):
-    """Causal, season-matched construction series for one site.
+    """Availability-filtered, season-matched construction series for one site.
 
     For each clear scene date t:
       current map  = pixels flagged in >= `share` of clear scenes in (t - window, t]
@@ -470,28 +471,51 @@ def construction_index(site: dict, cache_dir: Path, baseline_months: int = 12,
                      t's day of year (the first `baseline_months` of the series)
       new_built    = current built and not baseline built (km2); likewise roofs,
                      and new_cleared = currently bare where the baseline was vegetated.
-    Matching the season cancels dormant grass and ploughed fields that pass for
-    pavement in one season only. Nothing after t enters the value at t.
+    Only scenes acquired through t and created by the endpoint's decision time
+    enter either map. Missing creation times are excluded, not backdated.
+    Baseline-year rows use only the baseline observed so far and are diagnostics.
+    The archive's best daily scene selection and hindsight AOIs still prevent
+    this from certifying an original-vintage historical trading experiment.
     """
     import pandas as pd
 
+    empty = pd.DataFrame({
+        "date": pd.Series(dtype="datetime64[ns]"),
+        **{key: pd.Series(dtype="object") for key in
+           ("created", "available_at", "input_created_max", "input_dates")},
+        **{key: pd.Series(dtype="int64") for key in ("window_scenes", "baseline_scenes")},
+        "in_baseline": pd.Series(dtype="bool"),
+        **{key: pd.Series(dtype="float64") for key in
+           ("built_km2", "roof_km2", "new_built_km2", "new_roof_km2", "new_cleared_km2")},
+    })
     dates, stacks, created = load_stack(site, cache_dir)
     if len(dates) == 0:
-        return pd.DataFrame()
+        return empty
     base_end = dates[0] + pd.DateOffset(months=baseline_months)
     in_base = np.asarray(dates < base_end)
     doy = np.asarray(dates.dayofyear)
+    published = pd.to_datetime(created, utc=True, errors="coerce", format="mixed")
+    # Acquisition is retained at date resolution by load_stack. Use the end of
+    # that day as a conservative floor rather than assuming a midnight release.
+    acquisition_end = dates.tz_localize("UTC") + pd.Timedelta(days=1)
     km2 = pixel_area_m2 / 1e6
     rows = []
     for i, t in enumerate(dates):
-        window = np.asarray((dates > t - pd.Timedelta(days=window_days)) & (dates <= t))
-        season = in_base & (_day_distance(doy, int(doy[i])) <= season_days)
+        if pd.isna(published[i]):
+            continue
+        decision_time = max(published[i], acquisition_end[i])
+        known = np.asarray(published.notna() & (published <= decision_time) & (dates <= t))
+        window = known & np.asarray(dates > t - pd.Timedelta(days=window_days))
+        season = known & in_base & (_day_distance(doy, int(doy[i])) <= season_days)
         if window.sum() < min_obs or season.sum() < 2:
             continue
         now = {k: stacks[k][window].mean(0) >= share for k in ("built", "roof", "bare")}
         base = {k: stacks[k][season].mean(0) >= 0.5 for k in ("built", "roof", "veg")}
         rows.append({
-            "date": t, "created": created[i], "window_scenes": int(window.sum()),
+            "date": t, "created": created[i], "available_at": decision_time.isoformat(),
+            "input_created_max": published[window | season].max().isoformat(),
+            "input_dates": ";".join(dates[window | season].strftime("%Y-%m-%d")),
+            "window_scenes": int(window.sum()),
             "baseline_scenes": int(season.sum()), "in_baseline": bool(in_base[i]),
             "built_km2": float(now["built"].sum() * km2),
             "roof_km2": float(now["roof"].sum() * km2),
@@ -499,7 +523,7 @@ def construction_index(site: dict, cache_dir: Path, baseline_months: int = 12,
             "new_roof_km2": float((now["roof"] & ~base["roof"]).sum() * km2),
             "new_cleared_km2": float((now["bare"] & base["veg"]).sum() * km2),
         })
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows) if rows else empty
 
 
 def zone_slices(site: dict, zone: dict) -> tuple[slice, slice]:
@@ -653,7 +677,8 @@ def summarize(config: dict, cache_dir: Path, out_dir: Path) -> dict:
         entry["scenes_listed"] = len(chips)
         if site["kind"] == "data_center":
             index = construction_index(site, cache_dir)
-            keep = index[["date", "created", "window_scenes", "in_baseline", "built_km2", "roof_km2",
+            keep = index[["date", "created", "available_at", "input_created_max", "input_dates",
+                          "window_scenes", "baseline_scenes", "in_baseline", "built_km2", "roof_km2",
                           "new_built_km2", "new_roof_km2", "new_cleared_km2"]].copy()
             for col in ("built_km2", "roof_km2", "new_built_km2", "new_roof_km2", "new_cleared_km2"):
                 keep[col.replace("_km2", "_ha")] = (keep.pop(col) * 100).round(2)

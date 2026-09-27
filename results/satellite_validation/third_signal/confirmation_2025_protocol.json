@@ -1,0 +1,30 @@
+{
+  "confirmation_year": 2025,
+  "correction": "Version1 mapped stage names in sorted JSON order. Corrected version sorts stages by calendar endpoint. The frozen core SHA below is after this correctness fix; model parameters and criteria are unchanged.",
+  "criteria": {
+    "beats_prior_year_ndvi_rmse": true,
+    "improves_weather_rmse": true
+  },
+  "frozen_at": "2026-09-27T01:29:44.933686+00:00",
+  "interpretation": "One-year confirmation descriptive only; do not pool p-values or choose further hypotheses after result. Preserve failure.",
+  "model_parameters": {
+    "max_depth": 5,
+    "max_features": 0.75,
+    "min_samples_leaf": 5,
+    "n_estimators": 400,
+    "n_jobs": -1,
+    "random_state": 17
+  },
+  "protocol_version": 2,
+  "selection": "Chosen after inspecting all nine 2018\u20132024 crop/stage cells; wheat heading improved weather-only MSE in all seven years. This is a selected secondary hypothesis, not the failed corn primary.",
+  "sha256_at_freeze": {
+    "results/satellite_validation/third_signal/input_config.json": "34f16d9b11015e551094af2592ae9443b50bf9d9236fd8df60a0dc3a10d607a0",
+    "results/satellite_validation/third_signal/metrics.csv": "527c24f535dc2a71d5332cbb4816967abb25d76a2eb26afbb1ffdfa3a5ff79b2",
+    "results/satellite_validation/third_signal/summary.json": "1f067446dc7096ae215d4a54870850f243050d0dde52835f1202b44ff32f6892",
+    "src/satellite_crop_validation.py": "79130ed360af78cb88971c6318733a2ee37d218a1c5516584ba979f33b08227e"
+  },
+  "signal": "wheat heading MODIS vegetation",
+  "supersedes": "superseded_stage_order_bug/confirmation_2025_protocol.json",
+  "training": "All available prior crop years through2024, no 2025 labels; state fixed effects and train-only median imputation. Same feature reconstruction and14-day availability lag.",
+  "untouched_status": "NOT UNTOUCHED. Current audit excluded2025 from model selection, but inherited full2011\u20132025 summary metrics had been read. The invalid-stage-order2025 run then exposed the bug and failed.2025 outcomes are therefore inspected before this corrected rerun. Preserve corrected pass/fail as diagnostic confirmation only."
+}

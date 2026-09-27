@@ -176,3 +176,45 @@ def test_construction_index_cancels_seasonal_false_positives(tmp_path):
     # ... and counts exactly the 16 new roof pixels after it.
     assert winter_after["new_roof_km2"].iloc[-1] == pytest.approx(0.0016)
     assert winter_after["new_built_km2"].iloc[-1] == pytest.approx(0.0016)
+
+
+def test_construction_baseline_never_reads_future_acquisitions(monkeypatch):
+    dates = pd.DatetimeIndex(["2023-01-01", "2023-01-11", "2023-01-21", "2023-01-31"])
+    # A future roof must not erase the newly visible roof at the third scene.
+    flags = np.array([False, False, True, True])[:, None, None]
+    stacks = {k: flags.copy() for k in ("built", "roof", "bare", "veg")}
+    created = [(d + pd.Timedelta(hours=14)).isoformat() + "Z" for d in dates]
+    monkeypatch.setattr(s2, "load_stack", lambda *args: (dates, stacks, created))
+    result = s2.construction_index({}, Path("unused"), share=0.3)
+    row = result[result.date == "2023-01-21"].iloc[0]
+    assert row.new_roof_km2 == pytest.approx(0.0001)
+    assert "2023-01-31" not in row.input_dates
+
+
+def test_construction_excludes_late_and_missing_publication_dependencies(monkeypatch):
+    dates = pd.DatetimeIndex(["2023-01-01", "2023-01-11", "2023-01-21", "2023-01-31",
+                              "2023-02-10", "2024-01-21"])
+    flags = np.array([False, False, True, True, True, True])[:, None, None]
+    stacks = {k: flags.copy() for k in ("built", "roof", "bare", "veg")}
+    created = ["2023-01-02T00:00:00Z", "2023-01-12T00:00:00Z", "2026-08-01T00:00:00Z",
+               "", "2023-02-11T00:00:00Z", "2024-01-22T00:00:00Z"]
+    monkeypatch.setattr(s2, "load_stack", lambda *args: (dates, stacks, created))
+    result = s2.construction_index({}, Path("unused"), min_obs=1)
+    row = result[result.date == "2024-01-21"].iloc[0]
+    assert row.new_roof_km2 == pytest.approx(0.0001)
+    assert "2023-01-21" not in row.input_dates
+    assert "2023-01-31" not in row.input_dates
+    assert pd.Timestamp(row.input_created_max) <= pd.Timestamp(row.available_at)
+    assert not (result.date == "2023-01-31").any()
+
+
+def test_summary_handles_all_construction_scenes_missing_publication(monkeypatch, tmp_path):
+    dates = pd.date_range("2023-01-01", periods=3, freq="10D")
+    stacks = {k: np.ones((3, 1, 1), dtype=bool) for k in ("built", "roof", "bare", "veg")}
+    monkeypatch.setattr(s2, "load_stack", lambda *args: (dates, stacks, ["", "", ""]))
+    result = s2.summarize({"sites": [{"id": "missing", "kind": "data_center"}]},
+                          tmp_path / "cache", tmp_path / "output")
+    assert result["sites"]["missing"]["clear_days"] == 0
+    assert result["sites"]["missing"]["stalls"] == {}
+    frame = pd.read_csv(tmp_path / "output/construction_missing.csv")
+    assert frame.empty and "available_at" in frame.columns

@@ -1,0 +1,98 @@
+{
+  "results/satellite_sites/construction_apld_ellendale.csv": {
+    "bytes": 6210,
+    "sha256": "7314d51f65f93f5a2e52f53d3be9f9f34a2cb49d66850ae9b4188d314b40e242"
+  },
+  "results/satellite_sites/construction_corz_denton.csv": {
+    "bytes": 10758,
+    "sha256": "de09ed3ecc82d70337594f479770942862de06ff170efd436354fa8d80595cee"
+  },
+  "results/satellite_sites/construction_corz_denton_blind.csv": {
+    "bytes": 10458,
+    "sha256": "8d03f062843d59eb53a6d73156fb878c89152a8e374313d71f8dc16738bd5d2e"
+  },
+  "results/satellite_sites/construction_glxy_helios.csv": {
+    "bytes": 11834,
+    "sha256": "719be866e9f2ae546982c011c6122299f2b470a23fe543195ee3abef0268062d"
+  },
+  "results/satellite_sites/construction_meta_hyperion.csv": {
+    "bytes": 12154,
+    "sha256": "9f86cfbe65bd2aad92a5dc2187b89216e4ab2d1fd12091b48b228f3287a09f49"
+  },
+  "results/satellite_sites/construction_orcl_abilene.csv": {
+    "bytes": 22789,
+    "sha256": "5b1d6252315abc18fa4d1b025bcc4f89046b81cb9a75348dba9a744f788f0496"
+  },
+  "results/satellite_sites/construction_orcl_jupiter.csv": {
+    "bytes": 10562,
+    "sha256": "244daa5ba8dbb4756427900c222916622838e87415c0d86ae1558a349f26ddf7"
+  },
+  "results/satellite_sites/construction_wulf_lake_mariner.csv": {
+    "bytes": 11117,
+    "sha256": "d439a7678207eadb10972586438c159f8658b306ab149d8931d348102cc2b6d0"
+  },
+  "results/satellite_sites/construction_xai_colossus1.csv": {
+    "bytes": 7510,
+    "sha256": "49cf84e2567eb3e1a5ccfdccf63e091232459cd3f6953296a6c72e5d13e6b494"
+  },
+  "results/satellite_sites/heat_codelco_ventanas.csv": {
+    "bytes": 4923,
+    "sha256": "fafb457ff00d8f1dd5227c5cfc27802b21a9000ef79ff53ac0293fb0543a21ea"
+  },
+  "results/satellite_sites/heat_fcx_manyar.csv": {
+    "bytes": 5683,
+    "sha256": "127c986ffa0c949557d2804bdd208e483d3426b038b549da3f7ca3095998eb04"
+  },
+  "results/satellite_sites/heat_rio_kennecott.csv": {
+    "bytes": 14975,
+    "sha256": "fabbaa0794138c7d3d3e4f5c77655a2d50efcd69687dc10a41ee09954e55d87c"
+  },
+  "results/satellite_validation/construction/input_timestamp_audit.csv": {
+    "bytes": 309928,
+    "sha256": "45aa15d62cfa60ba07b6993105fa59b57cfa5c7fa61272d9d72519faf76dfbaa"
+  },
+  "results/satellite_validation/input_manifest.json": {
+    "bytes": 4044,
+    "sha256": "727de0a844957cf97b88437ccbb5453ca95db9088e11a05111735eb3f8fc79fe"
+  },
+  "results/satellite_validation/third_signal/input_config.json": {
+    "bytes": 4220,
+    "sha256": "34f16d9b11015e551094af2592ae9443b50bf9d9236fd8df60a0dc3a10d607a0"
+  },
+  "results/satellite_validation/third_signal/input_ndvi.csv": {
+    "bytes": 138385,
+    "sha256": "42d8333359ce8320a2bc01f0b609d3a035aff4eac103c177fec3f9b42ba62b1b"
+  },
+  "results/satellite_validation/third_signal/input_panel.csv.gz": {
+    "bytes": 116959,
+    "sha256": "52c0e5da67ba33fd1178ae62b9787752ea11d6f0bb213bc6a6166ac3b50a94bd"
+  },
+  "results/satellite_validation/third_signal/input_provenance.json": {
+    "bytes": 1849,
+    "sha256": "1228f3dc6360d8a680d4e61571ebb884eb25c5dab2e67926f914eb411961186c"
+  },
+  "results/satellite_validation/solar/inputs/eia.json": {
+    "bytes": 115420,
+    "sha256": "6c77e92ad5c59ebb47ef3541023d406fccf8dc589942ce340d26a9b38f2c552b"
+  },
+  "results/satellite_validation/solar/inputs/power.json": {
+    "bytes": 2819,
+    "sha256": "1da616c39b4d2c428a8f6e6a20f83067a51b2b9d0fd70b031af89a2072aebfd7"
+  },
+  "results/satellite_validation/enso/inputs/sstoi.indices": {
+    "bytes": 39199,
+    "sha256": "6d85461bbcde83bcdccfd69a67f54381d0a4688f8a7021d6d6a22a0803cdb2cd"
+  },
+  "results/satellite_validation/enso/inputs/texas_winter.csv": {
+    "bytes": 620,
+    "sha256": "6b300a177dacd08bb52504cd3b3090dd9e7c80d36fc10c673e1e9ec980756fb3"
+  },
+  "results/satellite_validation/smelters/production_labels.csv": {
+    "bytes": 4279,
+    "sha256": "37498f2e0ab63657c3d6de0e612e409cc58e4bd6d7037d129486a0e8ee7b77bf"
+  },
+  "results/satellite_validation/trading/weekly_wheat_inputs.csv": {
+    "bytes": 17020,
+    "sha256": "0d51b6aebefb52d8868382b04c986677307cced9fe94d8b6470a98eb335f6e78"
+  }
+}
