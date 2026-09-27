@@ -358,17 +358,36 @@ remain exploratory; details are in [`docs/notes/`](docs/notes/) and
   archive. Smelter outages show up; construction delays don't, and neither beat
   a disclosure ([report](reports/satellite_sites.html),
   [`sentinel2_sites.py`](src/sentinel2_sites.py)).
-- **Satellite validation continuation:** seven mechanisms tested—construction,
-  smelter heat, vegetation, sunlight, ocean temperatures, sea ice, and atmospheric
-  temperatures—with separate costed wheat-futures and UNG tests. Sea ice clears
-  its matched-model test, but stronger-baseline uncertainty and original-report
-  revisions limit that finding. No robust incremental economic forecast or
-  trading alpha is verified. Solar's 25% estimation gain arrives too late for
-  its proposed nowcast; gas-demand satellites lose to ordinary ground weather.
-  The audit fixes composite publication leakage and preserves negative results
+- **Satellite validation continuation:** vegetation, construction, smelter heat,
+  sunlight, ocean and atmospheric temperatures, sea ice, snow and reservoir
+  altimetry. Raw MODIS vegetation modestly improves historical county maize
+  forecasts: 1.83% in August and 3.12% in September, below both original 5%
+  materiality gates. Current-vintage and geographic limitations remain explicit;
+  separate market tests do not establish trading alpha. The audit fixes
+  composite publication leakage and retains failed replications
   ([full evidence](results/satellite_validation/report.md)).
+- **Basic corn model:** a USDA-anchored national yield-revision model, conditional
+  supply/ending-stock scenarios, optional timestamped analyst consensus and
+  costed CORN ETF paper signals. The first 12 forward forecasts do not beat the
+  unchanged USDA baseline; the satellite strategy loses 7.37% across the tested
+  event windows. This is a usable research model, not a verified trading edge
+  ([results](results/corn_model/report.md), [usage](docs/notes/corn_model.md)).
 - **Macro reports:** UK and global short rates (market vs model), shorting
   bonds during capex booms.
+
+### Run the corn model
+
+```bash
+python3 -m src.corn_model backtest
+python3 -m src.corn_model_report
+python3 -m src.corn_model forecast --as-of 2023-09-15
+```
+
+These commands use committed inputs offline. The forecast command returns the
+USDA anchor, calibrated yield and production scenarios, training history and a
+long/short/flat paper signal. The example is historical. County forecasts end in
+2023: a 2026 issue correctly abstains until matching-year inputs are supplied.
+No broker integration or order submission is included.
 
 ---
 

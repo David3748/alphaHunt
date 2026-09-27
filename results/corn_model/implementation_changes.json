@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-09-27T23:33:04.763122+00:00",
+  "first_run_code_sha256": "9204358bf238928634193ab4b6bf4c5e798ab199ae39978489ca0a3e1cca2d2c",
+  "final_code_sha256": "a34bd16ff1135f91aebe2715d2b62a9e2df24cdf9f15ed3ddc510d6ff380524d",
+  "point_forecast_and_trading_metrics_unchanged": true,
+  "changes_after_first_result": [
+    "Enforce exact August/September15noonUTC issue times and reject duplicate calibration rows.",
+    "Add reporting guards for overlapping or bankrupt full-notional windows and matched strategy support.",
+    "Add paired calendar-block uncertainty for market mean returns; not a new strategy or tuning.",
+    "Record complete input manifest and source adapter fingerprints; assert cost sensitivities share event support."
+  ],
+  "configuration_unchanged": true,
+  "protocol_unchanged": true
+}

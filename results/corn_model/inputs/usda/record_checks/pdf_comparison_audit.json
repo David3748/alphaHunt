@@ -1,0 +1,183 @@
+{
+  "all_30_values_match": true,
+  "checks": [
+    {
+      "original_file": "wasde20130812.pdf",
+      "page_one_based": 12,
+      "report_date": "2013-08-12",
+      "marketing_year": "2013/14",
+      "column_checked": "latest month projection (rightmost), not previous-month comparison column",
+      "comparisons": {
+        "harvested_area_m_acres": {
+          "original_report_value": 89.1,
+          "normalized_value": 89.1,
+          "match": true
+        },
+        "yield_bu_acre": {
+          "original_report_value": 154.4,
+          "normalized_value": 154.4,
+          "match": true
+        },
+        "beginning_stocks_m_bu": {
+          "original_report_value": 719.0,
+          "normalized_value": 719.0,
+          "match": true
+        },
+        "production_m_bu": {
+          "original_report_value": 13763.0,
+          "normalized_value": 13763.0,
+          "match": true
+        },
+        "imports_m_bu": {
+          "original_report_value": 30.0,
+          "normalized_value": 30.0,
+          "match": true
+        },
+        "total_supply_m_bu": {
+          "original_report_value": 14512.0,
+          "normalized_value": 14512.0,
+          "match": true
+        },
+        "domestic_use_m_bu": {
+          "original_report_value": 11450.0,
+          "normalized_value": 11450.0,
+          "match": true
+        },
+        "exports_m_bu": {
+          "original_report_value": 1225.0,
+          "normalized_value": 1225.0,
+          "match": true
+        },
+        "total_use_m_bu": {
+          "original_report_value": 12675.0,
+          "normalized_value": 12675.0,
+          "match": true
+        },
+        "ending_stocks_m_bu": {
+          "original_report_value": 1837.0,
+          "normalized_value": 1837.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "original_file": "wasde20180912.pdf",
+      "page_one_based": 12,
+      "report_date": "2018-09-12",
+      "marketing_year": "2018/19",
+      "column_checked": "latest month projection (rightmost), not previous-month comparison column",
+      "comparisons": {
+        "harvested_area_m_acres": {
+          "original_report_value": 81.8,
+          "normalized_value": 81.8,
+          "match": true
+        },
+        "yield_bu_acre": {
+          "original_report_value": 181.3,
+          "normalized_value": 181.3,
+          "match": true
+        },
+        "beginning_stocks_m_bu": {
+          "original_report_value": 2002.0,
+          "normalized_value": 2002.0,
+          "match": true
+        },
+        "production_m_bu": {
+          "original_report_value": 14827.0,
+          "normalized_value": 14827.0,
+          "match": true
+        },
+        "imports_m_bu": {
+          "original_report_value": 50.0,
+          "normalized_value": 50.0,
+          "match": true
+        },
+        "total_supply_m_bu": {
+          "original_report_value": 16879.0,
+          "normalized_value": 16879.0,
+          "match": true
+        },
+        "domestic_use_m_bu": {
+          "original_report_value": 12705.0,
+          "normalized_value": 12705.0,
+          "match": true
+        },
+        "exports_m_bu": {
+          "original_report_value": 2400.0,
+          "normalized_value": 2400.0,
+          "match": true
+        },
+        "total_use_m_bu": {
+          "original_report_value": 15105.0,
+          "normalized_value": 15105.0,
+          "match": true
+        },
+        "ending_stocks_m_bu": {
+          "original_report_value": 1774.0,
+          "normalized_value": 1774.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "original_file": "wasde20230912.pdf",
+      "page_one_based": 12,
+      "report_date": "2023-09-12",
+      "marketing_year": "2023/24",
+      "column_checked": "latest month projection (rightmost), not previous-month comparison column",
+      "comparisons": {
+        "harvested_area_m_acres": {
+          "original_report_value": 87.1,
+          "normalized_value": 87.1,
+          "match": true
+        },
+        "yield_bu_acre": {
+          "original_report_value": 173.8,
+          "normalized_value": 173.8,
+          "match": true
+        },
+        "beginning_stocks_m_bu": {
+          "original_report_value": 1452.0,
+          "normalized_value": 1452.0,
+          "match": true
+        },
+        "production_m_bu": {
+          "original_report_value": 15134.0,
+          "normalized_value": 15134.0,
+          "match": true
+        },
+        "imports_m_bu": {
+          "original_report_value": 25.0,
+          "normalized_value": 25.0,
+          "match": true
+        },
+        "total_supply_m_bu": {
+          "original_report_value": 16611.0,
+          "normalized_value": 16611.0,
+          "match": true
+        },
+        "domestic_use_m_bu": {
+          "original_report_value": 12340.0,
+          "normalized_value": 12340.0,
+          "match": true
+        },
+        "exports_m_bu": {
+          "original_report_value": 2050.0,
+          "normalized_value": 2050.0,
+          "match": true
+        },
+        "total_use_m_bu": {
+          "original_report_value": 14390.0,
+          "normalized_value": 14390.0,
+          "match": true
+        },
+        "ending_stocks_m_bu": {
+          "original_report_value": 2221.0,
+          "normalized_value": 2221.0,
+          "match": true
+        }
+      }
+    }
+  ],
+  "method": "pdftotext -layout, US CORN subsection, rightmost current projection; raw PDFs and their hashes retained"
+}

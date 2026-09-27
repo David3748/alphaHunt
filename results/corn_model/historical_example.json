@@ -1,0 +1,120 @@
+{
+  "year": 2023,
+  "forecast_at": "2023-09-15T12:00:00+00:00",
+  "target_month": "2023-10",
+  "usda_report_date": "2023-09-12",
+  "usda_published_at": "2023-09-12T16:00:00+00:00",
+  "usda_yield_bu_acre": 173.8,
+  "harvested_area_m_acres": 87.1,
+  "coverage": 0.995028603209,
+  "prior_area_footprint": 0.897298374342037,
+  "status": "ready",
+  "reason": "",
+  "models": {
+    "usda": {
+      "predicted_yield_bu_acre": 173.8,
+      "predicted_revision_bu_acre": 0.0,
+      "conditional_production_m_bu": 15134.0,
+      "conditional_production_change_m_bu": 0.0,
+      "conditional_ending_stocks_m_bu": 2221.0,
+      "conditional_stocks_to_use": 0.15434329395413482,
+      "calibration": {}
+    },
+    "bias": {
+      "predicted_yield_bu_acre": 174.13333333333335,
+      "predicted_revision_bu_acre": 0.3333333333333333,
+      "conditional_production_m_bu": 15163.033333333333,
+      "conditional_production_change_m_bu": 29.03333333333333,
+      "conditional_ending_stocks_m_bu": 2250.0333333333333,
+      "conditional_stocks_to_use": 0.1563608987722956,
+      "calibration": {}
+    },
+    "weather": {
+      "predicted_yield_bu_acre": 174.08342444443994,
+      "predicted_revision_bu_acre": 0.283424444439934,
+      "conditional_production_m_bu": 15158.686269110718,
+      "conditional_production_change_m_bu": 24.686269110718246,
+      "conditional_ending_stocks_m_bu": 2245.686269110718,
+      "conditional_stocks_to_use": 0.15605880952819445,
+      "calibration": {
+        "features": [
+          "weather_anomaly_bu_acre",
+          "is_september"
+        ],
+        "training_means": [
+          2.936919440395576,
+          0.47368421052631576
+        ],
+        "training_scales": [
+          3.735968647139001,
+          0.4993069989739547
+        ],
+        "standardized_coefficients": [
+          0.6110579916133184,
+          0.10343682316545981
+        ],
+        "intercept_revision_bu_acre": 0.19473684210526257
+      }
+    },
+    "satellite": {
+      "predicted_yield_bu_acre": 174.25420693757366,
+      "predicted_revision_bu_acre": 0.4542069375736434,
+      "conditional_production_m_bu": 15173.561424262665,
+      "conditional_production_change_m_bu": 39.56142426266434,
+      "conditional_ending_stocks_m_bu": 2260.5614242626643,
+      "conditional_stocks_to_use": 0.1570925242712067,
+      "calibration": {
+        "features": [
+          "weather_anomaly_bu_acre",
+          "is_september",
+          "ndvi_increment_bu_acre"
+        ],
+        "training_means": [
+          2.936919440395576,
+          0.47368421052631576,
+          0.4485236368504867
+        ],
+        "training_scales": [
+          3.735968647139001,
+          0.4993069989739547,
+          0.7024871176142958
+        ],
+        "standardized_coefficients": [
+          0.6396622869970572,
+          0.0960548975274964,
+          0.1443388593387743
+        ],
+        "intercept_revision_bu_acre": 0.19473684210526257
+      }
+    }
+  },
+  "training_years": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022
+  ],
+  "training_rows": 19,
+  "data_status": "Historical research inputs; county data are revised archives",
+  "original_vintage_operational_verification": false,
+  "trading_alpha_verified": false,
+  "paper_signal": {
+    "status": "paper_only",
+    "bias": "flat",
+    "direction": 0,
+    "reference_kind": "latest_usda",
+    "yield_gap_bu_acre": 0.4542069375736446,
+    "threshold_bu_acre": 0.5,
+    "eligible_for_live_trading": false,
+    "reason": "",
+    "reference_yield_bu_acre": 173.8,
+    "interpretation": "Lower predicted supply is a bullish hypothesis; prices and market consensus may disagree"
+  },
+  "historical_example_only": true
+}

@@ -1,0 +1,209 @@
+{
+  "forecast": {
+    "n_events": 12,
+    "n_years": 6,
+    "evaluation_years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "models": {
+      "usda": {
+        "rmse_bu_acre": 1.7182840277439637,
+        "mae_bu_acre": 1.3250000000000053
+      },
+      "bias": {
+        "rmse_bu_acre": 1.985592364326895,
+        "mae_bu_acre": 1.6605059523809587
+      },
+      "weather": {
+        "rmse_bu_acre": 1.7439836343503892,
+        "mae_bu_acre": 1.4278053447663719
+      },
+      "satellite": {
+        "rmse_bu_acre": 1.7744889753063962,
+        "mae_bu_acre": 1.4130830475762366
+      }
+    },
+    "satellite_comparisons": {
+      "usda": {
+        "rmse_reduction": -0.03270992842564402,
+        "conditional_ci95": [
+          -0.1815186963715374,
+          0.13417885006797547
+        ]
+      },
+      "bias": {
+        "rmse_reduction": 0.10631758704010819,
+        "conditional_ci95": [
+          0.010733330232353233,
+          0.21967155363054214
+        ]
+      },
+      "weather": {
+        "rmse_reduction": -0.0174917587270651,
+        "conditional_ci95": [
+          -0.07134640464695297,
+          0.05528390896027158
+        ]
+      }
+    },
+    "trading_alpha_verified": false,
+    "interpretation": "Exploratory next-report revision test; paired calendar-year uncertainty, no correction for prior research search"
+  },
+  "trading": {
+    "n_events": 12,
+    "strategies": {
+      "usda": {
+        "n_events": 12,
+        "n_positions": 0,
+        "mean_net_event_return": 0.0,
+        "compound_net_event_return": 0.0,
+        "double_cost_compound_return": 0.0,
+        "overlapping_windows": false,
+        "bankruptcy_encountered": false,
+        "double_cost_bankruptcy_encountered": false,
+        "unavailable_or_unmatched_events": 0,
+        "mean_annual_event_return_ci95": [
+          0.0,
+          0.0
+        ],
+        "paired_mean_advantage_vs_weather_ci95": [
+          0.0,
+          0.00984361478905628
+        ]
+      },
+      "bias": {
+        "n_events": 12,
+        "n_positions": 6,
+        "mean_net_event_return": -0.012246824880979196,
+        "compound_net_event_return": -0.1429930710469376,
+        "double_cost_compound_return": -0.16906026578358935,
+        "overlapping_windows": false,
+        "bankruptcy_encountered": false,
+        "double_cost_bankruptcy_encountered": false,
+        "unavailable_or_unmatched_events": 0,
+        "mean_annual_event_return_ci95": [
+          -0.026896859853881308,
+          0.0
+        ],
+        "paired_mean_advantage_vs_weather_ci95": [
+          -0.02409837028577432,
+          0.0
+        ]
+      },
+      "weather": {
+        "n_events": 12,
+        "n_positions": 4,
+        "mean_net_event_return": -0.00421403478572109,
+        "compound_net_event_return": -0.0539872516993849,
+        "double_cost_compound_return": -0.07304821822341268,
+        "overlapping_windows": false,
+        "bankruptcy_encountered": false,
+        "double_cost_bankruptcy_encountered": false,
+        "unavailable_or_unmatched_events": 0,
+        "mean_annual_event_return_ci95": [
+          -0.00984361478905628,
+          0.0
+        ],
+        "paired_mean_advantage_vs_weather_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "satellite": {
+        "n_events": 12,
+        "n_positions": 4,
+        "mean_net_event_return": -0.005896095356897217,
+        "compound_net_event_return": -0.07366557004544949,
+        "double_cost_compound_return": -0.09242992329593169,
+        "overlapping_windows": false,
+        "bankruptcy_encountered": false,
+        "double_cost_bankruptcy_encountered": false,
+        "unavailable_or_unmatched_events": 0,
+        "mean_annual_event_return_ci95": [
+          -0.013151622701659734,
+          -0.0002900277161896211
+        ],
+        "paired_mean_advantage_vs_weather_ci95": [
+          -0.009106114136661049,
+          0.005596979136213981
+        ]
+      },
+      "always_long": {
+        "n_events": 12,
+        "n_positions": 12,
+        "mean_net_event_return": 0.010940435222019552,
+        "compound_net_event_return": 0.12449648897109555,
+        "double_cost_compound_return": 0.0594020931804895,
+        "overlapping_windows": false,
+        "bankruptcy_encountered": false,
+        "double_cost_bankruptcy_encountered": false,
+        "unavailable_or_unmatched_events": 0,
+        "mean_annual_event_return_ci95": [
+          -0.0008548287093450626,
+          0.026192909625335204
+        ],
+        "paired_mean_advantage_vs_weather_ci95": [
+          0.0011681536673658905,
+          0.030885275536194263
+        ]
+      },
+      "always_short": {
+        "n_events": 12,
+        "n_positions": 12,
+        "mean_net_event_return": -0.023296599605581197,
+        "compound_net_event_return": -0.2568432490325625,
+        "double_cost_compound_return": -0.3013332547197507,
+        "overlapping_windows": false,
+        "bankruptcy_encountered": false,
+        "double_cost_bankruptcy_encountered": false,
+        "unavailable_or_unmatched_events": 0,
+        "mean_annual_event_return_ci95": [
+          -0.038535375378759874,
+          -0.01151503430435357
+        ],
+        "paired_mean_advantage_vs_weather_ci95": [
+          -0.038535375378759874,
+          -0.004505599519739572
+        ]
+      }
+    },
+    "matched_events": 12,
+    "instrument": "CORN futures ETF, not an individual corn futures contract",
+    "trading_alpha_verified": false,
+    "interpretation": "Hypothetical 1x event-window returns using USDA as reference, not market consensus; not annualized or risk-adjusted alpha"
+  },
+  "configuration": {
+    "schema_version": 1,
+    "ridge_alpha": 10.0,
+    "min_training_years": 5,
+    "min_training_rows": 8,
+    "minimum_reported_area_coverage": 0.8,
+    "yield_signal_threshold_bu_acre": 0.5,
+    "holding_sessions": 20,
+    "entry_cost_bps": 25.0,
+    "exit_cost_bps": 25.0,
+    "annual_short_borrow_rate": 0.03,
+    "bootstrap_draws": 10000,
+    "bootstrap_year_block": 2,
+    "random_seed": 20260927
+  },
+  "code_sha256": "a34bd16ff1135f91aebe2715d2b62a9e2df24cdf9f15ed3ddc510d6ff380524d",
+  "config_sha256": "719e15655a21d26c487e8a55bb7882d8dabf77a6440280c7f68e2f8ecfb58df9",
+  "protocol_sha256": "dc1e704805e43ee41319210cfb0d85408459802a5239c1bbce01b1ce3b8d7595",
+  "configuration_matches_fixed_protocol": true,
+  "input_manifest_sha256": "6a325245956558ff02e98bf1f0e0e3b478e527317bc5305849ffafde4c623255",
+  "source_adapter_sha256": {
+    "corn_usda_data.py": "299e4998858eab8b59def9edc560e6c824f8cc0f3d5a153476390785ae25438d",
+    "corn_market_data.py": "1d55c835fb5063d0461fc2ed0ecf1e51ffa66cf67e4f72f994f3781fca763b6b"
+  },
+  "latest_county_forecast_at": "2023-09-15T12:00:00+00:00",
+  "latest_usda_publication_at": "2026-09-11T16:00:00+00:00",
+  "consensus_available": false,
+  "original_vintage_operational_verification": false,
+  "trading_alpha_verified": false
+}

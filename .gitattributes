@@ -23,3 +23,6 @@ results/satellite_validation/snow_kings/ground/*.csv -text -whitespace
 results/satellite_validation/snow_kings/ground/*.html -text -whitespace
 results/satellite_validation/snow_kings/kgf_monthly_fnf.csv -text -whitespace
 results/satellite_validation/snow_summer/sbf_monthly_fnf.csv -text -whitespace
+
+# Corn model snapshots retain the published bytes used by their source hashes.
+results/corn_model/inputs/** -text -whitespace

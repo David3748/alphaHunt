@@ -1,0 +1,382 @@
+{
+  "results/corn_model/inputs/market/README.md": {
+    "bytes": 1038,
+    "sha256": "fad10557fe3bde114551f22e543f068d57488ff9f1b603456bdaad78e4ee75fa"
+  },
+  "results/corn_model/inputs/market/adjusted_prices.csv": {
+    "bytes": 112349,
+    "sha256": "e487655d358539002f519b4ba1583bcc3bf406085baafc5f52dee34c78491880"
+  },
+  "results/corn_model/inputs/market/corn_yahoo_chart.json": {
+    "bytes": 439173,
+    "sha256": "53f8a05cc9472ad94a328300b54e9ab77fb4eb36aea747c12d6e330bd78153a2"
+  },
+  "results/corn_model/inputs/market/futures_feasibility.json": {
+    "bytes": 2672,
+    "sha256": "98ced010daf182c211273e6097fb37a330facbfb69102d6b5977b78ef9c92a45"
+  },
+  "results/corn_model/inputs/market/manifest.json": {
+    "bytes": 2422,
+    "sha256": "d96a788cb363f342bd34bbc52a88eaf7add996183ddc3d5d7916bfb6a425bcfd"
+  },
+  "results/corn_model/inputs/market/refresh_requirements.txt": {
+    "bytes": 67,
+    "sha256": "fd65fa471509fd54c2a74fa495f1ad85efdc5814c749330c15635657d1620279"
+  },
+  "results/corn_model/inputs/market/teucrium_corn.html": {
+    "bytes": 196938,
+    "sha256": "6cb2dd6bf6d7e2cad6315c992a2181da982ebc65e842bb04fc0d4e3df3240995"
+  },
+  "results/corn_model/inputs/market/teucrium_fund_facts.html": {
+    "bytes": 5438,
+    "sha256": "2dcb958ae23e4cf681c68898cd78db2db2e236938a3248e5fbd8158927de0a50"
+  },
+  "results/corn_model/inputs/market/validation.json": {
+    "bytes": 1183,
+    "sha256": "86b93447b26ccc7ba9005711568261d0567d32874044e7590fbcc841ce2922f4"
+  },
+  "results/corn_model/inputs/market/xnys_schedule.csv": {
+    "bytes": 285160,
+    "sha256": "f39296ffa4efd2d1b1be6c4f5b3b6c32f6c43ddbc5d232fc73f541980b196b82"
+  },
+  "results/corn_model/inputs/satellite/august.csv": {
+    "bytes": 1752,
+    "sha256": "e823c4888839d4b3ed71379e2be8e82f847670a73666e294260c9e62303d4586"
+  },
+  "results/corn_model/inputs/satellite/manifest.json": {
+    "bytes": 929,
+    "sha256": "c635c5a2b687f0a492956e4a010443e64cf01fa345ae2fb5e06fa55431c6ef75"
+  },
+  "results/corn_model/inputs/satellite/september.csv": {
+    "bytes": 1749,
+    "sha256": "5695d55f6d4ccfa44be60efa509c1223eb291394f522a5d9e73690298ef4ce66"
+  },
+  "results/corn_model/inputs/usda/coverage.json": {
+    "bytes": 834,
+    "sha256": "fa69e8303c8a5f3b3e13937e4175f046fb5eca6ed84665614f1dfa7d878f7b9c"
+  },
+  "results/corn_model/inputs/usda/raw/historical_wasde_landing.html.gz": {
+    "bytes": 19432,
+    "sha256": "634e5b7308bd56399b6465810239770e93bff2caff458e66e1c84c6f78fedb4c"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2010-04-to-2015-12.zip": {
+    "bytes": 2759402,
+    "sha256": "7eb285818ea748e15b562fe7aa88107999c42d8d6817f692d8f9818f16fddead"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2016-01-to-2020-12.zip": {
+    "bytes": 2419809,
+    "sha256": "1cffbc4aa0ec436c832afb306b19631eaac42c2aaf3fffbf8dd9923052bfefb5"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-01.csv.gz": {
+    "bytes": 38052,
+    "sha256": "71329b7d5d55d459249b5c43b956cb3b9a1840f8eba0f0a7543218b694c8091b"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-02.csv.gz": {
+    "bytes": 38093,
+    "sha256": "f8a5c0e540998017d1da61c99b43f05596eebb38f18c1e2e24ce863d3a2169f7"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-03.csv.gz": {
+    "bytes": 38003,
+    "sha256": "45ed26653b0ee363182a58d932fb4da4f30e16503c793116b990a4d23b01446c"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-04.csv.gz": {
+    "bytes": 38017,
+    "sha256": "e3e3be78535e6a2a00c81ff08a64c7e144a08cbf498a482cfd6c15ba2f2d85b3"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-05.csv.gz": {
+    "bytes": 39285,
+    "sha256": "d50a4ffc335f4bfecea28d095a81189dfad9bf6e790c9ffd1b6eb6ed55f50679"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-06.csv.gz": {
+    "bytes": 39288,
+    "sha256": "451d65aca1313d0387d241c36499de26208b25332ade01d72c958bbb9cd0ed06"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-07.csv.gz": {
+    "bytes": 39639,
+    "sha256": "2d2a2336c90950f1e7a843815bd7dc85215fe237a0c862aa27a942c3f91fce9e"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-08.csv.gz": {
+    "bytes": 39821,
+    "sha256": "5b0610f60148cb223f1c6d3565b677c49f9f49cbdaee3bffde2203f138befea7"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-09.csv.gz": {
+    "bytes": 39892,
+    "sha256": "0ceceed6ac9905a47a23ce17b28f2842379cb878fcfcd876d9622e476e87c8d3"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-10.csv.gz": {
+    "bytes": 39784,
+    "sha256": "c53db5d6d272f67f5659b009b2ac658ea211cf955c6a48464ad66bb23ac232dd"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-11.csv.gz": {
+    "bytes": 38249,
+    "sha256": "ba20ae85576fa207e568fc08b27b0fa82d597f92cc42ba00d57e95cefb1f2f9a"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2021-12.csv.gz": {
+    "bytes": 39852,
+    "sha256": "5cd7ef212b5c57a713851663257507ed74f7bf67e57b3f42a4bf2a94178793ef"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-01.csv.gz": {
+    "bytes": 39807,
+    "sha256": "8c7980339d9dc23c74cdc0fc88501d72aa502985b74eb042f93081e561478d17"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-02.csv.gz": {
+    "bytes": 39856,
+    "sha256": "e1787c8819058ec571218631979793197dbc82c6acd73929baeabd9be883b780"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-03.csv.gz": {
+    "bytes": 39906,
+    "sha256": "4808ff5cf18f848a7fd6fbc7464eb1c682f07298d171d991417525ae99f1ef3a"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-04.csv.gz": {
+    "bytes": 39901,
+    "sha256": "61b985522e0bd3326acb8a52506d0b38062f8f70b757be92726fb3a841c81eb0"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-05.csv.gz": {
+    "bytes": 39211,
+    "sha256": "3a0ed188185eb8556d2e1db4cfcc2a632274871b72d82b1f184a7be7bd526b2c"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-06.csv.gz": {
+    "bytes": 39377,
+    "sha256": "45da2f7eaadea2a00f9dc773769ae8147c9643c9423622b91cd535536200d3b1"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-07.csv.gz": {
+    "bytes": 39739,
+    "sha256": "ff161c656feda5082bb98b25689b83158434fc8ad8739e9c1373eafe6825e025"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-08.csv.gz": {
+    "bytes": 39688,
+    "sha256": "95c941c29873bdcfa0b12b485676ef3899a5d5dfefbd453d37d756e0901a94b0"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-09.csv.gz": {
+    "bytes": 39832,
+    "sha256": "622292f698a7061d6c1e1f4f79646bb528a2627d424de0f830baf819fbf4b097"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-10.csv.gz": {
+    "bytes": 39779,
+    "sha256": "683cd045815009c9dbea2b6cf0ae3a3d3f3324b4e752182fd6f92a7930fdc8ba"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-11.csv.gz": {
+    "bytes": 39849,
+    "sha256": "070f49c72d33b3e4f6e95e5cb35b8b8775b0e456693c3c9da3389fa84e326f71"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2022-12.csv.gz": {
+    "bytes": 39857,
+    "sha256": "a330578f8da377d49fd7b03191d047d7b1bcf4345396398fbf3485baaf8ba05e"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-01.csv.gz": {
+    "bytes": 39860,
+    "sha256": "bf646bf7259955798eb340b2d5e2b6594e6a602948a6c1a5527d5a47e543e9ea"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-02.csv.gz": {
+    "bytes": 39906,
+    "sha256": "9cfc9f8c0634d5b6c31026535acb7436270cd92d3636031f5e4ccd1084ea49d7"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-03.csv.gz": {
+    "bytes": 39841,
+    "sha256": "4151df504cc458e1b7e20248847ea5548030b220b0606bb8b04cd433f3bd3a77"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-04.csv.gz": {
+    "bytes": 39832,
+    "sha256": "22e3e9e2b7721a4ad44e6023a4fe475eb3faa0136c75fc35847903dd98b63c58"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-05.csv.gz": {
+    "bytes": 39285,
+    "sha256": "4277d1fc51b3c2561c2d3c1dec92c7cc115e7fd77dfe164e432f6fa9c33dbffb"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-06.csv.gz": {
+    "bytes": 39335,
+    "sha256": "cc1cae26573b52f1a7dea7eefed1043bfe247afda639473e430ddf9b03a8c075"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-07.csv.gz": {
+    "bytes": 39885,
+    "sha256": "6705c05926c72004f54ad66dd72d42c732a28947f0991e6f9d77c27d07c079f8"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-08.csv.gz": {
+    "bytes": 39858,
+    "sha256": "c6a53d7824f32d28593bc1ea8683a414f05a9a87e162ad9994241ccbf73e8b1f"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-09.csv.gz": {
+    "bytes": 40053,
+    "sha256": "0c795278c20a715c95cb6ffa1e7f684b70fa88cf39a8a7df0a48239d2f001129"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-10.csv.gz": {
+    "bytes": 40135,
+    "sha256": "df73f887599d2c5e58193cb7cab930d14f454981dbaf3c7c0c5fe12108bfc425"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-11.csv.gz": {
+    "bytes": 40100,
+    "sha256": "18940f87edcf75dbadb7d396a63168f8aa86e0208cbd0a0e039d3adc87c80962"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2023-12.csv.gz": {
+    "bytes": 40161,
+    "sha256": "4e6b2a7604ce322e9a0dbb14ce907a2a0cc7ba947e73645d8164dfc1f2be2a00"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-01.csv.gz": {
+    "bytes": 40159,
+    "sha256": "36ca9c40f7996d4187e65ec6519174b0285f33d602d7b3f44cc0a55c4f61f0be"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-02.csv.gz": {
+    "bytes": 40189,
+    "sha256": "af9aab1d7d84c68738f4b4c610137e339b65e4bb399114ff729d2b2520ff4802"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-03.csv.gz": {
+    "bytes": 40111,
+    "sha256": "371b664ac4dcd062340a8d8c3df158ec8d195c1427e0847b282cf0d1a1324c14"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-04.csv.gz": {
+    "bytes": 40075,
+    "sha256": "687ad2fb0f4361b8082191a01fefdb555a2cfe356c43dcee627c0ec291501416"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-05.csv.gz": {
+    "bytes": 39264,
+    "sha256": "0cd15747ec560c0e8c90a3d0edc127c092f7e1e7304809eb1306e9e551d1cb08"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-06.csv.gz": {
+    "bytes": 39277,
+    "sha256": "11c74f44ddaebbcaa09f93a849be009787eefabf0a3eb1e3256d8b3fce512648"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-07.csv.gz": {
+    "bytes": 39911,
+    "sha256": "c743fea3ac30c70998ea76466428d91dc35c1c511a268e9ad6fbe3f813ddb586"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-08.csv.gz": {
+    "bytes": 39859,
+    "sha256": "d5aeac4a1a7fb1af5c0669dff5257958c891a498095c3792f0aca3aa1bcd5637"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-09.csv.gz": {
+    "bytes": 39922,
+    "sha256": "63ddddc37ee61b5544e5a4a3b347b7538c15af1318efa07cf270b20d1663e062"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-10.csv.gz": {
+    "bytes": 39929,
+    "sha256": "1a2f547b1f427e060c5fbcd942207d60cbe94ff4356f5d3acbd99f64909dfa89"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-11.csv.gz": {
+    "bytes": 39985,
+    "sha256": "5139791f9bdd3d0d01fb0e41abbcf9c62e77c62da0b06c539923fee79e5d2f51"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2024-12.csv.gz": {
+    "bytes": 40084,
+    "sha256": "9975fdbb62c53ff368c879ee06525010373c93e5798ca7f225d647ce08c9184f"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-01.csv.gz": {
+    "bytes": 40112,
+    "sha256": "23a4001522cc2c57d2547376db0d747ec1f9125e5240e277e93aff81934cb8e5"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-02.csv.gz": {
+    "bytes": 40084,
+    "sha256": "67ef7bbc56908937cda43ecc0ceef16df5640ae88640f95e4103b569f4595be9"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-03.csv.gz": {
+    "bytes": 40090,
+    "sha256": "ee0f140305b041a40d2140bf3637f943b65f74dc536e1a931d7aa6c2bf7faac1"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-04.csv.gz": {
+    "bytes": 40126,
+    "sha256": "f77aca4bcc57be1a3c82f811270b1dfddea8ee1ee190140ca3a7cc91d6157764"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-05.csv.gz": {
+    "bytes": 39339,
+    "sha256": "e6390847534d541ad5a1980601c1f5e7475095e63eabc04cec7dfec92a6d5f73"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-06.csv.gz": {
+    "bytes": 39397,
+    "sha256": "fc629d28c9a428887d40c543fca59fedeb1d223ee73b89d95ccec5c46f91fc65"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-07.csv.gz": {
+    "bytes": 39971,
+    "sha256": "204749592ce850d54001757598e279a13cab609f892e7f264da51067e1b477fb"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-08.csv.gz": {
+    "bytes": 39893,
+    "sha256": "719baa57c571eddd798f06d16f4f84ac6886007315c66e90b040a4d7304f9ec2"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-09.csv.gz": {
+    "bytes": 39993,
+    "sha256": "0814edd94bf9f390beedc27abbd80e1f8f46e9f1aadca73c0edd214f3aa3493d"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-11.csv.gz": {
+    "bytes": 39956,
+    "sha256": "c63344af131c1ec0cac1163b08d89a59eafe3115ae6acdc658a8fc3c89db51d7"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2025-12.csv.gz": {
+    "bytes": 39992,
+    "sha256": "c8ade59bdadbb78849243a936b4411ad56e53810e65adeb7443760070bae8916"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-01.csv.gz": {
+    "bytes": 40045,
+    "sha256": "b2f392c94736a7a8af2ba94567af0c34cd71fcb233e737a3ea95087251418561"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-02.csv.gz": {
+    "bytes": 40068,
+    "sha256": "d0134bc56c16b3ff3cbb238ff3d1058bc4c06e2be96011ea943b3ab8aa3b97e5"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-03.csv.gz": {
+    "bytes": 40109,
+    "sha256": "5f11e68ae979a38d6348b8cbe3ec0014a276d622582bf1fbff93e5bd925cd38e"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-04.csv.gz": {
+    "bytes": 40168,
+    "sha256": "e5e1d0ebd6f5067bf9976885362bcf345807574f274eeefaac09448f03af69c4"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-05-V2.csv.gz": {
+    "bytes": 39440,
+    "sha256": "bca909810323135add67910b49b132101be71e0f111272b1f56d97619bd2684e"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-06-V2.csv.gz": {
+    "bytes": 39453,
+    "sha256": "ac238e39ae79ea04a084b6b1a795be762623a127183da941f9f6efa40ffeeb95"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-07.csv.gz": {
+    "bytes": 39944,
+    "sha256": "8b4a2e70aa5a454ec9b6de5437cd0baafababa7d871a7d3121190c6e9468c90c"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-08.csv.gz": {
+    "bytes": 40046,
+    "sha256": "7fcf3e3d8ce8677fc7085046973ae48040b9b03c1cd5df7364202b332ea92c62"
+  },
+  "results/corn_model/inputs/usda/raw/oce-wasde-report-data-2026-09.csv.gz": {
+    "bytes": 40087,
+    "sha256": "228e8095307f46bd56bad4af9922545eaa4a6e5fdb23101f5d0b43d50239ea9b"
+  },
+  "results/corn_model/inputs/usda/record_checks/august2013_release.html.gz": {
+    "bytes": 6422,
+    "sha256": "51d7feaf4e877df7c095e54186676f0710ccaea8e92a1652f1610c5accaaa4e9"
+  },
+  "results/corn_model/inputs/usda/record_checks/noon_release_notice.html.gz": {
+    "bytes": 13698,
+    "sha256": "98fc2e194abee87e9f029ad96ef330edd4d775aa3a8a29cb327b184256707bdc"
+  },
+  "results/corn_model/inputs/usda/record_checks/october2013_cancelled.pdf": {
+    "bytes": 63691,
+    "sha256": "bd885fe54280f00e200433d3b2d581b1c251c482dd7b6ed783c6241672b934d0"
+  },
+  "results/corn_model/inputs/usda/record_checks/pdf_comparison_audit.json": {
+    "bytes": 5404,
+    "sha256": "6a446b8b05f97ac2fcf24a88256089d8fc6d3d68ad847d138d1b89bbe6f292ba"
+  },
+  "results/corn_model/inputs/usda/record_checks/source_manifest.json": {
+    "bytes": 1379,
+    "sha256": "cdb59c57173a9e5253fab4db471807b618db9b402e9977f04c613e443e62c96b"
+  },
+  "results/corn_model/inputs/usda/record_checks/wasde20130812.pdf": {
+    "bytes": 272222,
+    "sha256": "e15c2299316118cde87f01cc27958b6124d923cdcb0c26cdb925e57a6c06ec5a"
+  },
+  "results/corn_model/inputs/usda/record_checks/wasde20180912.pdf": {
+    "bytes": 781945,
+    "sha256": "62c1aeda6ada9c78f8c03f5060abb519df9abf27e0b4988d452917857affbc6c"
+  },
+  "results/corn_model/inputs/usda/record_checks/wasde20230912.pdf": {
+    "bytes": 937934,
+    "sha256": "52da4e98eb3adc85b4464b1e4c1cff7aa3524d74fe823d9d75f0fa98ceb07083"
+  },
+  "results/corn_model/inputs/usda/source_manifest.json": {
+    "bytes": 48478,
+    "sha256": "c8598e5142e220bf1afc64f6cf11585249f7f5d2340092a0f3d60d1786f4731f"
+  },
+  "results/corn_model/inputs/usda/wasde_corn_vintages.csv": {
+    "bytes": 173754,
+    "sha256": "1f6817b90eddeb28a052a134cd8ed5b7cc7a3cfde76dc29f4bce8c36e5e9256c"
+  }
+}

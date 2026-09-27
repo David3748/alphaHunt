@@ -1,0 +1,238 @@
+{
+  "audit_status": "passed",
+  "audited_at_utc": "2026-09-27T23:33:30.593187+00:00",
+  "method": "Independent reconstruction from saved source inputs with numpy/pandas only; no forecast or execution module imported. Ridge fitted via augmented least squares; all losses, calendar-year block CIs, event directions and costs independently recomputed.",
+  "scope": {
+    "panel_rows": 22,
+    "ready_scored_events": 12,
+    "abstentions": 10,
+    "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "paper_event_strategy_rows": 72,
+    "matched_paper_events": 12,
+    "independent_semantic_tests_passed": 17
+  },
+  "checks": {
+    "all_anchors_strictly_before_issue": true,
+    "same_marketing_year_anchors": true,
+    "exact_next_calendar_month_targets": true,
+    "october_2013_cancellation_remains_missing": true,
+    "only_prior_harvest_years_and_released_labels_in_fit": true,
+    "training_only_standardization": true,
+    "unpenalized_intercept": true,
+    "ridge_alpha_10": true,
+    "rounded_usda_production_preserved": true,
+    "reported_coverage_distinct_from_national_footprint": true,
+    "strict_next_session_entry": true,
+    "twenty_sessions_after_entry": true,
+    "all_expected_price_sessions_present": true,
+    "no_overlapping_windows": true,
+    "round_trip_cost_50bp_plus_short_borrow_3pct": true,
+    "paired_two_calendar_year_blocks_shared_across_models": true,
+    "first_run_forecast_scores_unchanged": true,
+    "first_run_market_point_results_unchanged": true
+  },
+  "max_absolute_differences": {
+    "panel_reconstruction": 4.837907852106582e-12,
+    "calibration_means": 0,
+    "calibration_scales": 0,
+    "calibration_coefficients": 3.3306690738754696e-16,
+    "calibration_intercept": 3.3306690738754696e-16,
+    "revision_prediction": 8.881784197001252e-16,
+    "yield_prediction": 0,
+    "saved_predictions_csv": 4.701234956883127e-10,
+    "balance_sheet_production": 1.8189894035458565e-12,
+    "balance_sheet_stocks": 2.2737367544323206e-13,
+    "balance_sheet_stocks_to_use": 1.3877787807814457e-17,
+    "forecast_summary": 0,
+    "forecast_ci": 0,
+    "forecast_gain": 0,
+    "paper_event_math": 4.44283498879372e-13,
+    "market_summary": 3.8813396940895473e-13,
+    "first_run_market_unchanged": 3.8813396940895473e-13
+  },
+  "forecast_metrics": {
+    "usda": {
+      "rmse_bu_acre": 1.7182840277439637,
+      "mae_bu_acre": 1.3250000000000053
+    },
+    "bias": {
+      "rmse_bu_acre": 1.985592364326895,
+      "mae_bu_acre": 1.6605059523809587
+    },
+    "weather": {
+      "rmse_bu_acre": 1.7439836343503892,
+      "mae_bu_acre": 1.4278053447663719
+    },
+    "satellite": {
+      "rmse_bu_acre": 1.7744889753063962,
+      "mae_bu_acre": 1.4130830475762366
+    }
+  },
+  "satellite_comparisons": {
+    "usda": {
+      "rmse_reduction": -0.03270992842564402,
+      "conditional_ci95": [
+        -0.1815186963715374,
+        0.13417885006797547
+      ]
+    },
+    "bias": {
+      "rmse_reduction": 0.10631758704010819,
+      "conditional_ci95": [
+        0.010733330232353233,
+        0.21967155363054214
+      ]
+    },
+    "weather": {
+      "rmse_reduction": -0.0174917587270651,
+      "conditional_ci95": [
+        -0.07134640464695297,
+        0.05528390896027158
+      ]
+    }
+  },
+  "paper_metrics": {
+    "always_long": {
+      "n_positions": 12,
+      "compound_net_event_return": 0.12449648897106447,
+      "double_cost_compound_return": 0.05940209318046086,
+      "mean_net_event_return": 0.010940435222017498,
+      "mean_annual_event_return_ci95": [
+        -0.0008548287093500021,
+        0.026192909625343333
+      ],
+      "paired_mean_advantage_vs_weather_ci95": [
+        0.0011681536673591637,
+        0.030885275536186665
+      ]
+    },
+    "always_short": {
+      "n_positions": 12,
+      "compound_net_event_return": -0.25684324903217437,
+      "double_cost_compound_return": -0.3013332547193873,
+      "mean_net_event_return": -0.02329659960554208,
+      "mean_annual_event_return_ci95": [
+        -0.038535375378645,
+        -0.011515034304355833
+      ],
+      "paired_mean_advantage_vs_weather_ci95": [
+        -0.038535375378645,
+        -0.004505599519733332
+      ]
+    },
+    "bias": {
+      "n_positions": 6,
+      "compound_net_event_return": -0.1429930710469488,
+      "double_cost_compound_return": -0.16906026578360456,
+      "mean_net_event_return": -0.012246824880980417,
+      "mean_annual_event_return_ci95": [
+        -0.026896859853880416,
+        0.0
+      ],
+      "paired_mean_advantage_vs_weather_ci95": [
+        -0.024098370285775,
+        0.0
+      ]
+    },
+    "satellite": {
+      "n_positions": 4,
+      "compound_net_event_return": -0.07366557004551821,
+      "double_cost_compound_return": -0.09242992329599953,
+      "mean_net_event_return": -0.005896095356903333,
+      "mean_annual_event_return_ci95": [
+        -0.01315162270167,
+        -0.00029002771619
+      ],
+      "paired_mean_advantage_vs_weather_ci95": [
+        -0.009106114136668333,
+        0.0055969791362108345
+      ]
+    },
+    "usda": {
+      "n_positions": 0,
+      "compound_net_event_return": 0.0,
+      "double_cost_compound_return": 0.0,
+      "mean_net_event_return": 0.0,
+      "mean_annual_event_return_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_advantage_vs_weather_ci95": [
+        0.0,
+        0.009843614789060833
+      ]
+    },
+    "weather": {
+      "n_positions": 4,
+      "compound_net_event_return": -0.05398725169939422,
+      "double_cost_compound_return": -0.07304821822342666,
+      "mean_net_event_return": -0.004214034785722083,
+      "mean_annual_event_return_ci95": [
+        -0.009843614789060833,
+        0.0
+      ],
+      "paired_mean_advantage_vs_weather_ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "source_spotchecks": {
+    "independent_original_usda_csv_checks": [
+      "2013-09-12 / 2013/14",
+      "2023-08-11 / 2023/24",
+      "2023-09-12 / 2023/24"
+    ],
+    "fields": [
+      "yield",
+      "harvested_area",
+      "production",
+      "ending_stocks",
+      "total_use",
+      "Eastern_to_UTC_publication_time"
+    ],
+    "result": "exact match; performed before this artifact audit"
+  },
+  "limitations": [
+    "12 matched events in six harvest years; uncertainty conditional on fixed specification and prior research search is not corrected.",
+    "USDA is an official reference, not a measured market consensus.",
+    "County forecasts and crop maps are revised research archives; as-published USDA does not make the full pipeline an original-vintage backtest.",
+    "Coverage denominator is available county reported area and the separate national footprint is incomplete.",
+    "CORN adjusted-close returns are an ETF proxy with assumed costs and borrow, not executed futures orders.",
+    "Satellite model does not beat no-change USDA or weather calibration and its paper strategy loses money."
+  ],
+  "trading_alpha_verified": false,
+  "original_vintage_operational_verification": false,
+  "input_checksums_verified": [
+    "results/corn_model/inputs/satellite/august.csv",
+    "results/corn_model/inputs/satellite/september.csv",
+    "results/corn_model/inputs/market/corn_yahoo_chart.json",
+    "results/corn_model/inputs/market/adjusted_prices.csv",
+    "results/corn_model/inputs/market/xnys_schedule.csv"
+  ],
+  "artifact_sha256": {
+    "summary.json": "1704884cb113dd3b0def07d30f333cac74d1420282c1aa522c30a469b0de2e97",
+    "first_run_summary.json": "8e2059f7e3b61af127ffd8e1678c242a3a7410de0d2a3b9676dd078712f6e80c",
+    "first_run_source.py.txt": "9204358bf238928634193ab4b6bf4c5e798ab199ae39978489ca0a3e1cca2d2c",
+    "forecast_cards.json": "681e06d1c9e517fc2475bbb4e908b844a221d04c46597401c82699d829f9f3be",
+    "panel.csv": "ebc478711caf77992812c1b6cca69f09332b29d789ff830154b9cb3c05e95764",
+    "predictions.csv": "ec87f21a3108e81362358671f851d2d5fac76d6c2f2d8f5c1c4fd49c302a50ca",
+    "paper_trades.csv": "5b668f316f1cface9bb65c6d289c5f0f0e176f4f77bcd9560512d08f29f112db",
+    "protocol.json": "dc1e704805e43ee41319210cfb0d85408459802a5239c1bbce01b1ce3b8d7595",
+    "inputs/usda/wasde_corn_vintages.csv": "1f6817b90eddeb28a052a134cd8ed5b7cc7a3cfde76dc29f4bce8c36e5e9256c",
+    "inputs/usda/source_manifest.json": "c8598e5142e220bf1afc64f6cf11585249f7f5d2340092a0f3d60d1786f4731f",
+    "inputs/satellite/manifest.json": "c635c5a2b687f0a492956e4a010443e64cf01fa345ae2fb5e06fa55431c6ef75",
+    "inputs/market/manifest.json": "d96a788cb363f342bd34bbc52a88eaf7add996183ddc3d5d7916bfb6a425bcfd"
+  },
+  "audit_script_sha256": "09adba043552913f6700f63b8ce441ba7facba9c48d5a6f6a7ad68002669785d",
+  "current_code_sha256": "a34bd16ff1135f91aebe2715d2b62a9e2df24cdf9f15ed3ddc510d6ff380524d",
+  "first_run_code_sha256": "9204358bf238928634193ab4b6bf4c5e798ab199ae39978489ca0a3e1cca2d2c",
+  "summary_code_sha256": "a34bd16ff1135f91aebe2715d2b62a9e2df24cdf9f15ed3ddc510d6ff380524d"
+}

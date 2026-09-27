@@ -1,0 +1,18 @@
+{
+  "status": "abstain",
+  "reason": "No matching county forecast at the requested issue; stale observations are never carried forward",
+  "forecast_at": "2026-09-15T12:00:00+00:00",
+  "latest_county_forecast_at": "2023-09-15T12:00:00+00:00",
+  "models": {},
+  "eligible_for_live_trading": false,
+  "paper_signal": {
+    "status": "unavailable",
+    "bias": "unavailable",
+    "direction": 0,
+    "reference_kind": "latest_usda",
+    "yield_gap_bu_acre": null,
+    "threshold_bu_acre": 0.5,
+    "eligible_for_live_trading": false,
+    "reason": "No matching county forecast at the requested issue; stale observations are never carried forward"
+  }
+}

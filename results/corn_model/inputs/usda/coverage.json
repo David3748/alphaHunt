@@ -1,0 +1,26 @@
+{
+  "first_report_date": "2010-04-09",
+  "last_report_date": "2026-09-11",
+  "reports": 195,
+  "report_marketing_year_rows": 585,
+  "missing_months_within_archive": [
+    "2013-10",
+    "2019-01",
+    "2025-10"
+  ],
+  "missing_before_archive": "January2000\u2013March2010: not supplied in official bulk vintage archive; no revised-history substitute",
+  "null_counts": {
+    "yield_bu_acre": 0,
+    "harvested_area_m_acres": 0,
+    "production_m_bu": 0,
+    "ending_stocks_m_bu": 0,
+    "domestic_use_m_bu": 0,
+    "total_use_m_bu": 0,
+    "exports_m_bu": 0,
+    "beginning_stocks_m_bu": 0,
+    "imports_m_bu": 0,
+    "total_supply_m_bu": 0
+  },
+  "normalized_sha256": "1f6817b90eddeb28a052a134cd8ed5b7cc7a3cfde76dc29f4bce8c36e5e9256c",
+  "source_manifest_sha256": "c8598e5142e220bf1afc64f6cf11585249f7f5d2340092a0f3d60d1786f4731f"
+}
