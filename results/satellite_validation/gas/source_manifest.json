@@ -1,0 +1,16 @@
+{
+  "uah_tlt_v61.txt": {
+    "url": "https://www.nsstc.uah.edu/data/msu/v6.1/tlt/uahncdc_lt_6.1.txt",
+    "retrieved_at_utc": "2026-09-27T01:51:38.047970+00:00",
+    "http_last_modified": "Wed, 02 Sep 2026 00:13:21 GMT",
+    "sha256": "493bf44899535b8a0756c290e6a9db19f75d97cce77ec28fc3fee900ea41cc27",
+    "bytes": 102340
+  },
+  "eia_residential_gas.xls": {
+    "url": "https://www.eia.gov/dnav/ng/hist_xls/N3010US2m.xls",
+    "retrieved_at_utc": "2026-09-27T01:51:38.422253+00:00",
+    "http_last_modified": "Wed, 26 Aug 2026 18:04:22 GMT",
+    "sha256": "d581a5a88b8c2a7635c0fcedd22377f2bb8fa45fd88c5c907c10c54fde7e410e",
+    "bytes": 55808
+  }
+}

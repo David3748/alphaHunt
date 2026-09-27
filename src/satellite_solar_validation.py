@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Satellite irradiance ablation against independent EIA solar generation.
 
-This verifies retrospective physical forecast value, not historical availability:
+This verifies retrospective physical estimation value, not historical availability:
 POWER's archived SYN1DEG is a revised product with 3--4 month latency. A seven-day
 FLASHFlux implementation needs a separately preserved first-release archive.
 """

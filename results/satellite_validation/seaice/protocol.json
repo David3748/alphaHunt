@@ -1,0 +1,22 @@
+{
+  "frozen_at_utc": "2026-09-27T01:45:16.708523+00:00",
+  "predictor": "July monthly mean Arctic sea-ice extent from NOAA/NSIDC Sea Ice Index passive-microwave satellites",
+  "target": "Same-year September monthly mean Arctic sea-ice extent, not annual daily minimum",
+  "forecast_at": "August 15, assuming monthly July values available by then; archive not historical publication proof",
+  "model": "Expanding OLS: intercept, calendar-year linear trend, previous-year September extent, current July extent",
+  "comparators": [
+    "Expanding OLS intercept + linear trend + previous September extent",
+    "Expanding OLS intercept + linear trend",
+    "Previous September extent",
+    "Expanding historical September mean"
+  ],
+  "training": "First 20 eligible annual rows, previous September required; every subsequent complete target year through 2025 is chronological test",
+  "uncertainty": "Paired circular 2-year block bootstrap, 10000 draws, seed 20260927; RMSE reduction vs each baseline",
+  "gate": "At least 5% lower RMSE and lower MAE than every baseline, strictly positive 95% paired RMSE-reduction interval against trend-plus-prior-year baseline",
+  "selection": "One fixed July->September horizon, Arctic-wide extent target, no model or horizon search",
+  "limitations": [
+    "Current revised archive hindcast, not first-release or prospective verification",
+    "Satellite target is same product at a future date; shipping capacity itself not evaluated",
+    "Economic and trading alpha not verified"
+  ]
+}

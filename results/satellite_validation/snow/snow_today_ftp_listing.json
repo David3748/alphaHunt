@@ -1,0 +1,29 @@
+{
+  "archive/WY2021": [
+    "/shares/snow-today/archive/WY2021/SWESummary",
+    "/shares/snow-today/archive/WY2021/linePlotsToDate",
+    "/shares/snow-today/archive/WY2021/regionalSWEtoDate"
+  ],
+  "archive/WY2022": [
+    "/shares/snow-today/archive/WY2022/SWESummary",
+    "/shares/snow-today/archive/WY2022/linePlotsToDate",
+    "/shares/snow-today/archive/WY2022/regionalSWEtoDate"
+  ],
+  "archive/WY2023": [
+    "/shares/snow-today/archive/WY2023/SWESummary",
+    "/shares/snow-today/archive/WY2023/regionalSWEtoDate"
+  ],
+  "archive/WY2024": [
+    "/shares/snow-today/archive/WY2024/SWESummary",
+    "/shares/snow-today/archive/WY2024/regionalSWEtoDate"
+  ],
+  "archive/WY2025": [
+    "/shares/snow-today/archive/WY2025/SWESummary",
+    "/shares/snow-today/archive/WY2025/regionalSWEtoDate"
+  ],
+  "summarized_data/WY2026": [
+    "/shares/snow-today/summarized_data/WY2026/SWESummary",
+    "/shares/snow-today/summarized_data/WY2026/regionalSWEtoDate",
+    "/shares/snow-today/summarized_data/WY2026/snow_surface_properties"
+  ]
+}

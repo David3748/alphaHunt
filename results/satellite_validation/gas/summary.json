@@ -1,0 +1,214 @@
+{
+  "n_test_months": 156,
+  "n_winter_clusters": 27,
+  "first_test_month": "2000-01-01",
+  "last_test_month": "2025-12-01",
+  "n_abstentions": 0,
+  "metrics": {
+    "baseline": {
+      "rmse_bcf_day": 2.899304416193164,
+      "mae_bcf_day": 2.251125287525367
+    },
+    "satellite": {
+      "rmse_bcf_day": 2.539833707827852,
+      "mae_bcf_day": 1.8526416255710596
+    },
+    "ground_hdd": {
+      "rmse_bcf_day": 1.1122571807030621,
+      "mae_bcf_day": 0.8479325892642268
+    },
+    "ground_hdd_satellite": {
+      "rmse_bcf_day": 1.1746908310118003,
+      "mae_bcf_day": 0.9137556218272493
+    },
+    "seasonal_persistence": {
+      "rmse_bcf_day": 3.2525543116333315,
+      "mae_bcf_day": 2.553866604088656
+    }
+  },
+  "comparisons": {
+    "satellite_vs_baseline": {
+      "rmse_reduction_bcf_day": 0.3594707083653117,
+      "rmse_reduction_fraction": 0.12398515532125559,
+      "rmse_reduction_ci95_bcf_day": [
+        -0.015348097287476435,
+        0.7134064859925394
+      ],
+      "mae_reduction_fraction": 0.17701531947711158,
+      "months_lower_squared_error": 98
+    },
+    "satellite_vs_ground_hdd": {
+      "rmse_reduction_bcf_day": -1.42757652712479,
+      "rmse_reduction_fraction": -1.283494997283284,
+      "rmse_reduction_ci95_bcf_day": [
+        -1.79759311003562,
+        -1.0469342804503552
+      ],
+      "mae_reduction_fraction": -1.1848925834760582,
+      "months_lower_squared_error": 45
+    },
+    "ground_hdd_satellite_vs_ground_hdd": {
+      "rmse_reduction_bcf_day": -0.06243365030873815,
+      "rmse_reduction_fraction": -0.056132386818373785,
+      "rmse_reduction_ci95_bcf_day": [
+        -0.15817171946168618,
+        0.02638204887549375
+      ],
+      "mae_reduction_fraction": -0.0776276715819344,
+      "months_lower_squared_error": 74
+    },
+    "satellite_vs_seasonal_persistence": {
+      "rmse_reduction_bcf_day": 0.7127206038054794,
+      "rmse_reduction_fraction": 0.21912642665375612,
+      "rmse_reduction_ci95_bcf_day": [
+        0.17938066111645087,
+        1.2944687426199186
+      ],
+      "mae_reduction_fraction": 0.2745738471206596,
+      "months_lower_squared_error": 105
+    }
+  },
+  "incremental_usefulness_gate_passed": false,
+  "status": "incremental_nowcast_gate_failed",
+  "original_vintage_operational_verification": false,
+  "trading_alpha_verified": false,
+  "prospective_verification": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "post_method_change_training_targets_sensitivity_2021_2025": {
+    "n_test_months": 30,
+    "n_winter_clusters": 6,
+    "first_test_month": "2021-01-01",
+    "last_test_month": "2025-12-01",
+    "n_abstentions": 0,
+    "metrics": {
+      "baseline": {
+        "rmse_bcf_day": 2.5034995705262144,
+        "mae_bcf_day": 2.0144376866686753
+      },
+      "satellite": {
+        "rmse_bcf_day": 2.4604607322543446,
+        "mae_bcf_day": 1.8163586224980723
+      },
+      "ground_hdd": {
+        "rmse_bcf_day": 0.9075794112382817,
+        "mae_bcf_day": 0.7042323231544592
+      },
+      "ground_hdd_satellite": {
+        "rmse_bcf_day": 1.022071085297726,
+        "mae_bcf_day": 0.7761616861332722
+      },
+      "seasonal_persistence": {
+        "rmse_bcf_day": 3.1501622238801987,
+        "mae_bcf_day": 2.6541431026537414
+      }
+    },
+    "comparisons": {
+      "satellite_vs_baseline": {
+        "rmse_reduction_bcf_day": 0.04303883827186983,
+        "rmse_reduction_fraction": 0.017191470203776957,
+        "rmse_reduction_ci95_bcf_day": [
+          -0.6748255157467642,
+          0.9380839852094875
+        ],
+        "mae_reduction_fraction": 0.0983297053472878,
+        "months_lower_squared_error": 17
+      },
+      "satellite_vs_ground_hdd": {
+        "rmse_reduction_bcf_day": -1.5528813210160628,
+        "rmse_reduction_fraction": -1.711014266947005,
+        "rmse_reduction_ci95_bcf_day": [
+          -2.7366294029993576,
+          -0.5318509652067245
+        ],
+        "mae_reduction_fraction": -1.579203712720938,
+        "months_lower_squared_error": 7
+      },
+      "ground_hdd_satellite_vs_ground_hdd": {
+        "rmse_reduction_bcf_day": -0.11449167405944427,
+        "rmse_reduction_fraction": -0.1261505854382861,
+        "rmse_reduction_ci95_bcf_day": [
+          -0.3361639027224528,
+          0.016949616969550996
+        ],
+        "mae_reduction_fraction": -0.10213868437140272,
+        "months_lower_squared_error": 13
+      },
+      "satellite_vs_seasonal_persistence": {
+        "rmse_reduction_bcf_day": 0.6897014916258541,
+        "rmse_reduction_fraction": 0.21894157907090808,
+        "rmse_reduction_ci95_bcf_day": [
+          -0.341857496995007,
+          1.6232344594814996
+        ],
+        "mae_reduction_fraction": 0.31565158612510813,
+        "months_lower_squared_error": 24
+      }
+    },
+    "incremental_usefulness_gate_passed": false,
+    "status": "incremental_nowcast_gate_failed",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false,
+    "prospective_verification": false,
+    "cross_candidate_multiple_testing_adjusted": false
+  },
+  "method_change_sensitivity_note": "2021-2025 has ten post-August-2010 training targets per month. January-March 2011 training rows still have prior-year gas features from the earlier methodology; this is not a claim that every training input is post-change. The predeclared sample is unchanged.",
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T01:51:20.486214+00:00",
+    "mechanism": "Colder lower-troposphere USA48 satellite temperatures proxy surface cold, driving residential space-heating natural gas demand; economic target is reported later.",
+    "predictor": "UAH version 6.1 lower-troposphere USA48 monthly temperature anomaly, satellite MSU/AMSU record",
+    "outcome": "EIA monthly U.S. natural gas delivered to residential consumers, million cubic feet, divided by days in month to reduce month-length artefacts",
+    "season": "October through March only; calendar target months January 2000 through December 2025 inclusive",
+    "forecast_issue": "15th day of month immediately after target month, a delayed-release economic nowcast, not a future-weather forecast",
+    "availability": "UAH and ground HDD assumed available by month-end plus14days. EIA labels assumed available at end of second month after target month. Both current archives, not historical release-vintage proof.",
+    "models": {
+      "baseline": "Separate calendar-month OLS: intercept, linear year trend centered at target year, previous-year same-month residential gas/day",
+      "satellite": "Identical baseline plus current-month UAH USA48 anomaly",
+      "ground_hdd": "Identical baseline plus current-month official national ground heating degree days/day",
+      "ground_hdd_satellite": "Identical ground-HDD model plus current-month UAH USA48 anomaly",
+      "seasonal_persistence": "Previous-year same-month residential gas/day"
+    },
+    "training": "Exactly previous 10 years of the same calendar month, all labels before issue; missing required source/target/prior gas abstains; no future targets, no tuning or clipping",
+    "evaluation": "RMSE and MAE on identical complete months; evaluate direct satellite vs baseline and incremental combined vs ground-HDD",
+    "uncertainty": "Paired circular two-winter-year block bootstrap,10000draws,seed20260927. Winteryear=y+1 forOct-Dec else y; boundarywinters mayhave3months; samplewholewinterblocks.",
+    "gate": "At least5% RMSE reduction, lowerMAE, and strictlypositive95%RMSE-reductioninterval forboth satellite vsbaseline AND ground_hdd_satellite vsground_hdd. MissingHDD meansnoincrementalusefulnessverification.",
+    "planned_sensitivity": "Separately summarize calendar2021-2025, when all10 trainingyears followAug2010 EIAcollectionchange; descriptiveonly, noselection or newgate.",
+    "claim_limits": [
+      "Current-vintage rolling retrospective nowcast; nohistoricalpoint-in-time certification",
+      "UAH islayer temperature, notsurface orstation heatingdegree days",
+      "EIA national includesAK/HI whileUAH USA48andusuallyHDD CONUS; knowngeographicmismatch",
+      "EIAcalendar-monthestimation changedAug2010 andearlierhistorynotrevised",
+      "Multiplecandidateprojects inspected beforethiscandidate; nofamilywiseadjustedclaim",
+      "NoeconomicdecisionP&L, gaspricealpha, orprospectiveperformanceverified"
+    ],
+    "outcomes_inspected_before_freeze": false,
+    "source_urls": {
+      "satellite": "https://www.nsstc.uah.edu/data/msu/v6.1/tlt/uahncdc_lt_6.1.txt",
+      "gas": "https://www.eia.gov/dnav/ng/hist_xls/N3010US2m.xls",
+      "ground_hdd": "Official NOAA/CPC or EIA-sourced national ground HDD, retrieval by independent agent; source selection based on availability not outcomes"
+    }
+  },
+  "source_manifest": {
+    "uah_tlt_v61.txt": {
+      "url": "https://www.nsstc.uah.edu/data/msu/v6.1/tlt/uahncdc_lt_6.1.txt",
+      "retrieved_at_utc": "2026-09-27T01:51:38.047970+00:00",
+      "http_last_modified": "Wed, 02 Sep 2026 00:13:21 GMT",
+      "sha256": "493bf44899535b8a0756c290e6a9db19f75d97cce77ec28fc3fee900ea41cc27",
+      "bytes": 102340
+    },
+    "eia_residential_gas.xls": {
+      "url": "https://www.eia.gov/dnav/ng/hist_xls/N3010US2m.xls",
+      "retrieved_at_utc": "2026-09-27T01:51:38.422253+00:00",
+      "http_last_modified": "Wed, 26 Aug 2026 18:04:22 GMT",
+      "sha256": "d581a5a88b8c2a7635c0fcedd22377f2bb8fa45fd88c5c907c10c54fde7e410e",
+      "bytes": 55808
+    }
+  },
+  "offline_input_sha256": {
+    "inputs/uah_monthly.csv": "aad5cf507daefc84c150d2034738d728b2be707efb68bb27afd4b6e2d29fb920",
+    "inputs/gas_monthly.csv": "8c577b81614a5b0b5c31c2218a555353897bf0bb675cff52de40cddd60d007b8",
+    "ground_hdd/monthly_hdd.csv": "7fd2768d141fc9edc4cf3569d46f56054b51996f0bf740421c27c8ef25f14fc2"
+  },
+  "source_code_sha256": "97e8ae5011a9317434aedb060f9c97d7314cbe2f0b4f19061e8619f4553e030f",
+  "units": "Billion cubic feet per day (EIA MMcf divided by 1000 and calendar days)",
+  "interpretation": "Contemporaneous winter gas-demand nowcast ahead of assumed EIA publication; all predictors and labels are revised current archives. Ground HDD is a required comparator. No market alpha or actual historical-release reconstruction."
+}

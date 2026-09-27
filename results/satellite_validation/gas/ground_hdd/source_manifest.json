@@ -1,0 +1,338 @@
+[
+  {
+    "path": "raw/1990_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1990/UtilityGas.Heating.txt",
+    "sha256": "a6317843a4ac82b418a5fac3463f0c1270bfe2482dc07f650c9372eb51ba9010",
+    "bytes": 12430,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:29 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.081318+00:00"
+  },
+  {
+    "path": "raw/1991_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1991/UtilityGas.Heating.txt",
+    "sha256": "5602e454781df763a11fe10b026054466c3112c978fd0ccacf51e5676508b8c8",
+    "bytes": 12474,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:31 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.071063+00:00"
+  },
+  {
+    "path": "raw/1992_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1992/UtilityGas.Heating.txt",
+    "sha256": "43ea44f520adefef00bd6083aa404ba0ee122bae29bbce5a99e24b535101c371",
+    "bytes": 12538,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:34 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.071408+00:00"
+  },
+  {
+    "path": "raw/1993_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1993/UtilityGas.Heating.txt",
+    "sha256": "be87e6cea5f851d5872c524e336266b30abdddbcd1044afc3e1797f71a99c122",
+    "bytes": 12567,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:36 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.075938+00:00"
+  },
+  {
+    "path": "raw/1994_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1994/UtilityGas.Heating.txt",
+    "sha256": "ec0df6164aa8c6594160dd5bdca02231051f830f3cc1789da1c32daaba19ba04",
+    "bytes": 12470,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:40 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.124101+00:00"
+  },
+  {
+    "path": "raw/1995_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1995/UtilityGas.Heating.txt",
+    "sha256": "4142b6b80eed594a1bd885a7824e6cce0a634418ab59cea79cf73cf99504797d",
+    "bytes": 12518,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:43 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.126678+00:00"
+  },
+  {
+    "path": "raw/1996_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1996/UtilityGas.Heating.txt",
+    "sha256": "6fba1109e52720a4dff3be94a60ccc4a4c64f9c5e68320e965f2c508d6998980",
+    "bytes": 12570,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:45 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.129941+00:00"
+  },
+  {
+    "path": "raw/1997_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1997/UtilityGas.Heating.txt",
+    "sha256": "21e2cf01a5ee8b4410e371a21cf6841ba128fbecfbcdd776b331c6cf0e24aedf",
+    "bytes": 12568,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:48 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.136089+00:00"
+  },
+  {
+    "path": "raw/1998_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1998/UtilityGas.Heating.txt",
+    "sha256": "b65424317252797897cd460290b78b841ca050952988d46dad618fe14a3d2167",
+    "bytes": 12418,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:50 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.174483+00:00"
+  },
+  {
+    "path": "raw/1999_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/1999/UtilityGas.Heating.txt",
+    "sha256": "22d32aba94843bde9465517dd89d7fb4674388e96f3b1b9eaa32990890fb1bc6",
+    "bytes": 12477,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:52 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.175206+00:00"
+  },
+  {
+    "path": "raw/2000_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2000/UtilityGas.Heating.txt",
+    "sha256": "43977fc5274e6a9363278c031b642f33677620aedd5bf5e788115f713aa014ff",
+    "bytes": 12517,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:55 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.176740+00:00"
+  },
+  {
+    "path": "raw/2001_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2001/UtilityGas.Heating.txt",
+    "sha256": "7fab572f7118254167924275196674419b3d82191fa134ca5923049db038713a",
+    "bytes": 12434,
+    "http_last_modified": "Tue, 29 Oct 2013 21:52:57 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.184937+00:00"
+  },
+  {
+    "path": "raw/2002_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2002/UtilityGas.Heating.txt",
+    "sha256": "d2848bef1d95302c01b6974b4b0d8ce00dd57af3a24a1f3fb6d303c7f3f152d7",
+    "bytes": 12531,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:00 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.230161+00:00"
+  },
+  {
+    "path": "raw/2003_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2003/UtilityGas.Heating.txt",
+    "sha256": "b59b4f2beafc0d26dc45df8a73206ece69730985214997a2093864e2c3b140b1",
+    "bytes": 12492,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:02 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.227482+00:00"
+  },
+  {
+    "path": "raw/2004_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2004/UtilityGas.Heating.txt",
+    "sha256": "0b4c1248c665555718e7f43875032ede772e4740069c7ea933911429ea2b740e",
+    "bytes": 12460,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:05 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.230459+00:00"
+  },
+  {
+    "path": "raw/2005_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2005/UtilityGas.Heating.txt",
+    "sha256": "9109d5861174d499f25c437e0ee8a661ff6ee3434432817870ae973e5443781a",
+    "bytes": 12477,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:07 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.238275+00:00"
+  },
+  {
+    "path": "raw/2006_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2006/UtilityGas.Heating.txt",
+    "sha256": "9aec3733af76bff6832128412ceacb607011f962869f4e778f734d8f2942b7ca",
+    "bytes": 12475,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:10 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.283897+00:00"
+  },
+  {
+    "path": "raw/2007_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2007/UtilityGas.Heating.txt",
+    "sha256": "b114c7ff10cf423bf9641f1c8a530d0f8673dbc658667f59bb19fea654480dad",
+    "bytes": 12363,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:12 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.285620+00:00"
+  },
+  {
+    "path": "raw/2008_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2008/UtilityGas.Heating.txt",
+    "sha256": "ac568868568c4d9aeef41bee375502e5a3dcf8df6058f1a19edc18ed8f7f8089",
+    "bytes": 12538,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:15 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.284958+00:00"
+  },
+  {
+    "path": "raw/2009_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2009/UtilityGas.Heating.txt",
+    "sha256": "7ef64d1ecc8182edd0339f08a907a1f23cd79153639a6cca7c37a25ec7e21a77",
+    "bytes": 12527,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:18 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.306755+00:00"
+  },
+  {
+    "path": "raw/2010_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2010/UtilityGas.Heating.txt",
+    "sha256": "0eedb2ae0fc5be2527a8930c1b7f47ecd50ced7b8ee94683d262f42dd0d705a1",
+    "bytes": 12471,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:20 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.332421+00:00"
+  },
+  {
+    "path": "raw/2011_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2011/UtilityGas.Heating.txt",
+    "sha256": "9b9b383aea0c31bc1961c5cee0fedd755c2f1ca1f786c90d21625071ced7305a",
+    "bytes": 12508,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:23 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.332663+00:00"
+  },
+  {
+    "path": "raw/2012_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2012/UtilityGas.Heating.txt",
+    "sha256": "1cb2cf429aa35d4f570e6642d96ee0e00f7e2c9b2f68c485bee7c2ed51f6c408",
+    "bytes": 12381,
+    "http_last_modified": "Tue, 29 Oct 2013 21:53:25 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.333925+00:00"
+  },
+  {
+    "path": "raw/2013_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2013/UtilityGas.Heating.txt",
+    "sha256": "f84e5dda9f25f7c22831cc972b61979e9d371022c0caad3f33b4d1dece8851d6",
+    "bytes": 12491,
+    "http_last_modified": "Thu, 02 Jan 2014 16:16:16 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.356828+00:00"
+  },
+  {
+    "path": "raw/2014_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2014/UtilityGas.Heating.txt",
+    "sha256": "5aef1ade6e8b3b0ef4e579152b0b5006909700cf1ef51a829f58b0d2175b9f02",
+    "bytes": 12482,
+    "http_last_modified": "Fri, 02 Jan 2015 08:09:57 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.376644+00:00"
+  },
+  {
+    "path": "raw/2015_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2015/UtilityGas.Heating.txt",
+    "sha256": "0e4943eda31560f001749542e41e93055fb2fd0aaea2b14a23a826fc9fe52f1f",
+    "bytes": 12327,
+    "http_last_modified": "Sat, 02 Jan 2016 08:12:33 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.386259+00:00"
+  },
+  {
+    "path": "raw/2016_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2016/UtilityGas.Heating.txt",
+    "sha256": "5a7eaad221617cba1a7f0f0f234d7254598907a8315b4453d120034c1e79d220",
+    "bytes": 12354,
+    "http_last_modified": "Mon, 02 Jan 2017 08:10:55 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.390008+00:00"
+  },
+  {
+    "path": "raw/2017_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2017/UtilityGas.Heating.txt",
+    "sha256": "7819c5e87890228a5112624df181a5650fe65efae5b34f8d7b281c9c941c08c8",
+    "bytes": 12330,
+    "http_last_modified": "Tue, 02 Jan 2018 08:09:46 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.407239+00:00"
+  },
+  {
+    "path": "raw/2018_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2018/UtilityGas.Heating.txt",
+    "sha256": "90c055f0cb83a76f3e8184e1b3ff2d2e436f2156777b2b2b3d7d31988b899ceb",
+    "bytes": 12504,
+    "http_last_modified": "Wed, 02 Jan 2019 08:11:29 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.428027+00:00"
+  },
+  {
+    "path": "raw/2019_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2019/UtilityGas.Heating.txt",
+    "sha256": "0e4e83782e71abbf6e9c382740258968037f6c986592d2e970d305c864c7d70a",
+    "bytes": 12487,
+    "http_last_modified": "Thu, 02 Jan 2020 08:14:51 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.463157+00:00"
+  },
+  {
+    "path": "raw/2020_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2020/UtilityGas.Heating.txt",
+    "sha256": "3c71d5868bb383e73e18ea376a7e3c05beb53594d57e2da83c6fe50c6c94c146",
+    "bytes": 12506,
+    "http_last_modified": "Sat, 02 Jan 2021 08:26:05 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.441070+00:00"
+  },
+  {
+    "path": "raw/2021_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2021/UtilityGas.Heating.txt",
+    "sha256": "006e7657e4a3b0662a88d36cb7a985262c3d48e82fcf4323114e547e9f16c307",
+    "bytes": 12401,
+    "http_last_modified": "Sun, 02 Jan 2022 08:10:20 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.453392+00:00"
+  },
+  {
+    "path": "raw/2022_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2022/UtilityGas.Heating.txt",
+    "sha256": "ed1dc2ab80aa9433707824bc3df65348937bbe88bd6b41a6c8ddaed793cc0a3b",
+    "bytes": 12494,
+    "http_last_modified": "Mon, 02 Jan 2023 08:16:57 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.479259+00:00"
+  },
+  {
+    "path": "raw/2023_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2023/UtilityGas.Heating.txt",
+    "sha256": "2c648f7a2cbadfb702ee5b940981d831ab02a62745629eec69abdc42beb5e71f",
+    "bytes": 12455,
+    "http_last_modified": "Tue, 02 Jan 2024 08:16:29 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.517007+00:00"
+  },
+  {
+    "path": "raw/2024_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2024/UtilityGas.Heating.txt",
+    "sha256": "d959f3af66894ea9a20b3499ef8a88ffca64d94eea19e07a344dc964863d869d",
+    "bytes": 12404,
+    "http_last_modified": "Thu, 02 Jan 2025 08:12:22 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.504787+00:00"
+  },
+  {
+    "path": "raw/2025_UtilityGas.Heating.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/2025/UtilityGas.Heating.txt",
+    "sha256": "2c7cd8ea0c9d29213fd069e8bc535c14b0b7af318bd9722de0e442a3508cdde8",
+    "bytes": 12410,
+    "http_last_modified": "Fri, 02 Jan 2026 08:09:54 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.536012+00:00"
+  },
+  {
+    "path": "metadata/cpc_degree_days.html",
+    "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/cdus/degree_days/",
+    "sha256": "28be7309a22b0870237b96a066ed16954f22bfbe8ab471e8a7a61b09792b49e0",
+    "bytes": 18362,
+    "http_last_modified": null,
+    "retrieved_at_utc": "2026-09-27T01:55:00.566422+00:00"
+  },
+  {
+    "path": "metadata/cpc_explanation.html",
+    "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/cdus/degree_days/ddayexp.shtml",
+    "sha256": "7a891c4fec0fa3e246e2256632ccf06d6204d5dc5d3d6c3e6b35063edb9c5be6",
+    "bytes": 17882,
+    "http_last_modified": null,
+    "retrieved_at_utc": "2026-09-27T01:55:00.562443+00:00"
+  },
+  {
+    "path": "metadata/latest_directory.html",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/latest/",
+    "sha256": "6a43108d397413b1d8583f0d43835f9771dbe99c16cb07d3f59c8ff2f4867e3f",
+    "bytes": 2845,
+    "http_last_modified": null,
+    "retrieved_at_utc": "2026-09-27T01:55:00.566281+00:00"
+  },
+  {
+    "path": "metadata/latest_utility_gas.txt",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/latest/UtilityGas.Heating.txt",
+    "sha256": "dc316687af0ed446ca62480c36cc9ec991a2b8099394046c0ad2ac137c25dd2a",
+    "bytes": 8845,
+    "http_last_modified": "Sat, 26 Sep 2026 08:07:01 GMT",
+    "retrieved_at_utc": "2026-09-27T01:55:00.606096+00:00"
+  },
+  {
+    "path": "metadata/archive_directory.html",
+    "url": "https://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/daily_data/",
+    "sha256": "77c9962e5ac6e9fdc31de78eef2236ebdb4c1c524dd0cf722969d9348b93280c",
+    "bytes": 6261,
+    "http_last_modified": null,
+    "retrieved_at_utc": "2026-09-27T01:55:00.728318+00:00"
+  },
+  {
+    "path": "metadata/cpc_temperature_method.html",
+    "url": "https://www.cpc.ncep.noaa.gov/soilmst/t.shtml",
+    "sha256": "df68c0cbff630591e7b41039dcfc517bef88ecb1ab868357890619f2e61149fb",
+    "bytes": 11530,
+    "http_last_modified": null,
+    "retrieved_at_utc": "2026-09-27T01:55:00.626461+00:00"
+  }
+]

@@ -1,0 +1,314 @@
+{
+  "status": "posthoc_review_sensitivity_not_primary_protocol",
+  "periods": {
+    "2000-2009": {
+      "n_years": 10,
+      "metrics": {
+        "satellite": {
+          "rmse_million_km2": 0.5581556455861028,
+          "mae_million_km2": 0.4808554876934362
+        },
+        "trend_prior": {
+          "rmse_million_km2": 0.7228878110332712,
+          "mae_million_km2": 0.5515739492444643
+        },
+        "trend": {
+          "rmse_million_km2": 0.6579061890487569,
+          "mae_million_km2": 0.4791811248748729
+        },
+        "persistence": {
+          "rmse_million_km2": 0.6745665274826498,
+          "mae_million_km2": 0.5360000000000003
+        },
+        "climatology": {
+          "rmse_million_km2": 1.287520665030511,
+          "mae_million_km2": 1.1299260307697188
+        }
+      },
+      "comparisons": {
+        "trend_prior": {
+          "rmse_reduction_fraction": 0.22788067931551628,
+          "rmse_reduction_million_km2": 0.1647321654471684,
+          "mae_reduction_fraction": 0.12821211307730718,
+          "years_lower_squared_error": 4
+        },
+        "trend": {
+          "rmse_reduction_fraction": 0.15161818679176717,
+          "rmse_reduction_million_km2": 0.0997505434626541,
+          "mae_reduction_fraction": -0.0034942169706717596,
+          "years_lower_squared_error": 4
+        },
+        "persistence": {
+          "rmse_reduction_fraction": 0.1725713879266581,
+          "rmse_reduction_million_km2": 0.11641088189654702,
+          "mae_reduction_fraction": 0.10288155281075373,
+          "years_lower_squared_error": 5
+        },
+        "climatology": {
+          "rmse_reduction_fraction": 0.5664880100601136,
+          "rmse_reduction_million_km2": 0.7293650194444083,
+          "mae_reduction_fraction": 0.5744363129984076,
+          "years_lower_squared_error": 9
+        }
+      }
+    },
+    "2010-2019": {
+      "n_years": 10,
+      "metrics": {
+        "satellite": {
+          "rmse_million_km2": 0.40416702898088697,
+          "mae_million_km2": 0.32580683404216126
+        },
+        "trend_prior": {
+          "rmse_million_km2": 0.5830748383758579,
+          "mae_million_km2": 0.44675531238457467
+        },
+        "trend": {
+          "rmse_million_km2": 0.5771113499626119,
+          "mae_million_km2": 0.42687542457494354
+        },
+        "persistence": {
+          "rmse_million_km2": 0.6749814812274482,
+          "mae_million_km2": 0.4779999999999999
+        },
+        "climatology": {
+          "rmse_million_km2": 1.6896079601849276,
+          "mae_million_km2": 1.620323299156042
+        }
+      },
+      "comparisons": {
+        "trend_prior": {
+          "rmse_reduction_fraction": 0.3068350709375742,
+          "rmse_reduction_million_km2": 0.17890780939497097,
+          "mae_reduction_fraction": 0.2707264468705385,
+          "years_lower_squared_error": 8
+        },
+        "trend": {
+          "rmse_reduction_fraction": 0.29967236130935415,
+          "rmse_reduction_million_km2": 0.17294432098172496,
+          "mae_reduction_fraction": 0.23676366619938405,
+          "years_lower_squared_error": 7
+        },
+        "persistence": {
+          "rmse_reduction_fraction": 0.40121760341348534,
+          "rmse_reduction_million_km2": 0.2708144522465612,
+          "mae_reduction_fraction": 0.31839574468167087,
+          "years_lower_squared_error": 8
+        },
+        "climatology": {
+          "rmse_reduction_fraction": 0.7607924213752811,
+          "rmse_reduction_million_km2": 1.2854409312040407,
+          "mae_reduction_fraction": 0.798924798395567,
+          "years_lower_squared_error": 10
+        }
+      }
+    },
+    "2020-2025": {
+      "n_years": 6,
+      "metrics": {
+        "satellite": {
+          "rmse_million_km2": 0.42576239999667337,
+          "mae_million_km2": 0.34684312016035607
+        },
+        "trend_prior": {
+          "rmse_million_km2": 0.5286134139504468,
+          "mae_million_km2": 0.4619710078141357
+        },
+        "trend": {
+          "rmse_million_km2": 0.5489909603467713,
+          "mae_million_km2": 0.49466988256905936
+        },
+        "persistence": {
+          "rmse_million_km2": 0.494283993941405,
+          "mae_million_km2": 0.38500000000000023
+        },
+        "climatology": {
+          "rmse_million_km2": 1.4461967638512934,
+          "mae_million_km2": 1.400587078036667
+        }
+      },
+      "comparisons": {
+        "trend_prior": {
+          "rmse_reduction_fraction": 0.19456754452208222,
+          "rmse_reduction_million_km2": 0.10285101395377344,
+          "mae_reduction_fraction": 0.24921020087065482,
+          "years_lower_squared_error": 5
+        },
+        "trend": {
+          "rmse_reduction_fraction": 0.22446373301349143,
+          "rmse_reduction_million_km2": 0.12322856035009794,
+          "mae_reduction_fraction": 0.29883922110027716,
+          "years_lower_squared_error": 5
+        },
+        "persistence": {
+          "rmse_reduction_fraction": 0.1386279846902235,
+          "rmse_reduction_million_km2": 0.06852159394473162,
+          "mae_reduction_fraction": 0.09910877880427049,
+          "years_lower_squared_error": 3
+        },
+        "climatology": {
+          "rmse_reduction_fraction": 0.7055985667794975,
+          "rmse_reduction_million_km2": 1.02043436385462,
+          "mae_reduction_fraction": 0.7523587604088435,
+          "years_lower_squared_error": 6
+        }
+      }
+    }
+  },
+  "prior_july_placebo": {
+    "description": "Same model and test rows, using previous-year July in place of current July",
+    "metrics": {
+      "satellite": {
+        "rmse_million_km2": 0.6533399413390533,
+        "mae_million_km2": 0.5040329427198167
+      },
+      "trend_prior": {
+        "rmse_million_km2": 0.6294693550714318,
+        "mae_million_km2": 0.4905814870452001
+      },
+      "trend": {
+        "rmse_million_km2": 0.6034301656650436,
+        "mae_million_km2": 0.4626378765350969
+      },
+      "persistence": {
+        "rmse_million_km2": 0.6376730534348486,
+        "mae_million_km2": 0.47884615384615403
+      },
+      "climatology": {
+        "rmse_million_km2": 1.4893694548449345,
+        "mae_million_km2": 1.3810006064414466
+      }
+    },
+    "comparisons": {
+      "trend_prior": {
+        "rmse_reduction_fraction": -0.037921760726402146,
+        "rmse_reduction_million_km2": -0.023870586267621507,
+        "rmse_reduction_ci95_million_km2": [
+          -0.06968924253549508,
+          0.02761900573920608
+        ],
+        "mae_reduction_fraction": -0.02741941151435512,
+        "years_lower_squared_error": 15
+      },
+      "trend": {
+        "rmse_reduction_fraction": -0.08271011048810237,
+        "rmse_reduction_million_km2": -0.04990977567400967,
+        "rmse_reduction_ci95_million_km2": [
+          -0.11268594393224646,
+          0.021829956368393657
+        ],
+        "mae_reduction_fraction": -0.08947617193548019,
+        "years_lower_squared_error": 10
+      },
+      "persistence": {
+        "rmse_reduction_fraction": -0.024568841069595813,
+        "rmse_reduction_million_km2": -0.015666887904204674,
+        "rmse_reduction_ci95_million_km2": [
+          -0.15077911793566665,
+          0.14035159342184914
+        ],
+        "mae_reduction_fraction": -0.05259891652331161,
+        "years_lower_squared_error": 11
+      },
+      "climatology": {
+        "rmse_reduction_fraction": 0.5613311799743633,
+        "rmse_reduction_million_km2": 0.8360295135058813,
+        "rmse_reduction_ci95_million_km2": [
+          0.62843237012072,
+          1.0649311186252506
+        ],
+        "mae_reduction_fraction": 0.6350233733650519,
+        "years_lower_squared_error": 25
+      }
+    }
+  },
+  "partial_original_july_substitution": {
+    "status": "mixed_vintage_stress_test_not_original_release_backtest",
+    "n_replaced_years": 18,
+    "years": [
+      2007,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "metrics": {
+      "satellite": {
+        "rmse_million_km2": 0.5159503769059591,
+        "mae_million_km2": 0.4231729438379382
+      },
+      "trend_prior": {
+        "rmse_million_km2": 0.6294693550714318,
+        "mae_million_km2": 0.4905814870452001
+      },
+      "trend": {
+        "rmse_million_km2": 0.6034301656650436,
+        "mae_million_km2": 0.4626378765350969
+      },
+      "persistence": {
+        "rmse_million_km2": 0.6376730534348486,
+        "mae_million_km2": 0.47884615384615403
+      },
+      "climatology": {
+        "rmse_million_km2": 1.4893694548449345,
+        "mae_million_km2": 1.3810006064414466
+      }
+    },
+    "comparisons": {
+      "trend_prior": {
+        "rmse_reduction_fraction": 0.18034075408260433,
+        "rmse_reduction_million_km2": 0.11351897816547263,
+        "rmse_reduction_ci95_million_km2": [
+          -0.03796520226982731,
+          0.23419730000672376
+        ],
+        "mae_reduction_fraction": 0.13740539540794205,
+        "years_lower_squared_error": 15
+      },
+      "trend": {
+        "rmse_reduction_fraction": 0.14497085783352,
+        "rmse_reduction_million_km2": 0.08747978875908446,
+        "rmse_reduction_ci95_million_km2": [
+          -0.05890682722176509,
+          0.20795644982129313
+        ],
+        "mae_reduction_fraction": 0.0853041540669548,
+        "years_lower_squared_error": 13
+      },
+      "persistence": {
+        "rmse_reduction_fraction": 0.19088571466714163,
+        "rmse_reduction_million_km2": 0.12172267652888946,
+        "rmse_reduction_ci95_million_km2": [
+          -0.03681772299341104,
+          0.2784405967203032
+        ],
+        "mae_reduction_fraction": 0.11626533816976803,
+        "years_lower_squared_error": 16
+      },
+      "climatology": {
+        "rmse_reduction_fraction": 0.6535779787697625,
+        "rmse_reduction_million_km2": 0.9734190779389754,
+        "rmse_reduction_ci95_million_km2": [
+          0.748484234174149,
+          1.1880297455552649
+        ],
+        "mae_reduction_fraction": 0.6935751209202091,
+        "years_lower_squared_error": 25
+      }
+    },
+    "note": "Only audited July values replaced. Other predictor years, prior September and targets remain current archive. Pre-2017 reports used a different monthly aggregation definition."
+  }
+}

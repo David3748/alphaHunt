@@ -1,0 +1,3 @@
+# Only required for --fetch/--import-raw; offline CSV replay uses numpy/pandas.
+xlrd>=2.0.1,<3
+requests>=2.31

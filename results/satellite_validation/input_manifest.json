@@ -51,10 +51,6 @@
     "bytes": 309928,
     "sha256": "45aa15d62cfa60ba07b6993105fa59b57cfa5c7fa61272d9d72519faf76dfbaa"
   },
-  "results/satellite_validation/input_manifest.json": {
-    "bytes": 4044,
-    "sha256": "727de0a844957cf97b88437ccbb5453ca95db9088e11a05111735eb3f8fc79fe"
-  },
   "results/satellite_validation/third_signal/input_config.json": {
     "bytes": 4220,
     "sha256": "34f16d9b11015e551094af2592ae9443b50bf9d9236fd8df60a0dc3a10d607a0"
@@ -86,6 +82,186 @@
   "results/satellite_validation/enso/inputs/texas_winter.csv": {
     "bytes": 620,
     "sha256": "6b300a177dacd08bb52504cd3b3090dd9e7c80d36fc10c673e1e9ec980756fb3"
+  },
+  "results/satellite_validation/seaice/inputs/N_07_extent_v4.0.csv": {
+    "bytes": 2352,
+    "sha256": "0be2b36d07f5eb3ec2ddb7a8604fcdf508ef718254ae3795c655681b3e567bf4"
+  },
+  "results/satellite_validation/seaice/inputs/N_09_extent_v4.0.csv": {
+    "bytes": 2304,
+    "sha256": "bdeb4dea8b52f6dc8a8faecfd5d220dc758b6dd2ddea345d7b18897df0d9716f"
+  },
+  "results/satellite_validation/gas/inputs/eia_residential_gas.xls": {
+    "bytes": 55808,
+    "sha256": "d581a5a88b8c2a7635c0fcedd22377f2bb8fa45fd88c5c907c10c54fde7e410e"
+  },
+  "results/satellite_validation/gas/inputs/gas_monthly.csv": {
+    "bytes": 11571,
+    "sha256": "8c577b81614a5b0b5c31c2218a555353897bf0bb675cff52de40cddd60d007b8"
+  },
+  "results/satellite_validation/gas/inputs/uah_monthly.csv": {
+    "bytes": 9417,
+    "sha256": "aad5cf507daefc84c150d2034738d728b2be707efb68bb27afd4b6e2d29fb920"
+  },
+  "results/satellite_validation/gas/inputs/uah_tlt_v61.txt": {
+    "bytes": 102340,
+    "sha256": "493bf44899535b8a0756c290e6a9db19f75d97cce77ec28fc3fee900ea41cc27"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1990_UtilityGas.Heating.txt": {
+    "bytes": 12430,
+    "sha256": "a6317843a4ac82b418a5fac3463f0c1270bfe2482dc07f650c9372eb51ba9010"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1991_UtilityGas.Heating.txt": {
+    "bytes": 12474,
+    "sha256": "5602e454781df763a11fe10b026054466c3112c978fd0ccacf51e5676508b8c8"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1992_UtilityGas.Heating.txt": {
+    "bytes": 12538,
+    "sha256": "43ea44f520adefef00bd6083aa404ba0ee122bae29bbce5a99e24b535101c371"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1993_UtilityGas.Heating.txt": {
+    "bytes": 12567,
+    "sha256": "be87e6cea5f851d5872c524e336266b30abdddbcd1044afc3e1797f71a99c122"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1994_UtilityGas.Heating.txt": {
+    "bytes": 12470,
+    "sha256": "ec0df6164aa8c6594160dd5bdca02231051f830f3cc1789da1c32daaba19ba04"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1995_UtilityGas.Heating.txt": {
+    "bytes": 12518,
+    "sha256": "4142b6b80eed594a1bd885a7824e6cce0a634418ab59cea79cf73cf99504797d"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1996_UtilityGas.Heating.txt": {
+    "bytes": 12570,
+    "sha256": "6fba1109e52720a4dff3be94a60ccc4a4c64f9c5e68320e965f2c508d6998980"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1997_UtilityGas.Heating.txt": {
+    "bytes": 12568,
+    "sha256": "21e2cf01a5ee8b4410e371a21cf6841ba128fbecfbcdd776b331c6cf0e24aedf"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1998_UtilityGas.Heating.txt": {
+    "bytes": 12418,
+    "sha256": "b65424317252797897cd460290b78b841ca050952988d46dad618fe14a3d2167"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/1999_UtilityGas.Heating.txt": {
+    "bytes": 12477,
+    "sha256": "22d32aba94843bde9465517dd89d7fb4674388e96f3b1b9eaa32990890fb1bc6"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2000_UtilityGas.Heating.txt": {
+    "bytes": 12517,
+    "sha256": "43977fc5274e6a9363278c031b642f33677620aedd5bf5e788115f713aa014ff"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2001_UtilityGas.Heating.txt": {
+    "bytes": 12434,
+    "sha256": "7fab572f7118254167924275196674419b3d82191fa134ca5923049db038713a"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2002_UtilityGas.Heating.txt": {
+    "bytes": 12531,
+    "sha256": "d2848bef1d95302c01b6974b4b0d8ce00dd57af3a24a1f3fb6d303c7f3f152d7"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2003_UtilityGas.Heating.txt": {
+    "bytes": 12492,
+    "sha256": "b59b4f2beafc0d26dc45df8a73206ece69730985214997a2093864e2c3b140b1"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2004_UtilityGas.Heating.txt": {
+    "bytes": 12460,
+    "sha256": "0b4c1248c665555718e7f43875032ede772e4740069c7ea933911429ea2b740e"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2005_UtilityGas.Heating.txt": {
+    "bytes": 12477,
+    "sha256": "9109d5861174d499f25c437e0ee8a661ff6ee3434432817870ae973e5443781a"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2006_UtilityGas.Heating.txt": {
+    "bytes": 12475,
+    "sha256": "9aec3733af76bff6832128412ceacb607011f962869f4e778f734d8f2942b7ca"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2007_UtilityGas.Heating.txt": {
+    "bytes": 12363,
+    "sha256": "b114c7ff10cf423bf9641f1c8a530d0f8673dbc658667f59bb19fea654480dad"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2008_UtilityGas.Heating.txt": {
+    "bytes": 12538,
+    "sha256": "ac568868568c4d9aeef41bee375502e5a3dcf8df6058f1a19edc18ed8f7f8089"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2009_UtilityGas.Heating.txt": {
+    "bytes": 12527,
+    "sha256": "7ef64d1ecc8182edd0339f08a907a1f23cd79153639a6cca7c37a25ec7e21a77"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2010_UtilityGas.Heating.txt": {
+    "bytes": 12471,
+    "sha256": "0eedb2ae0fc5be2527a8930c1b7f47ecd50ced7b8ee94683d262f42dd0d705a1"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2011_UtilityGas.Heating.txt": {
+    "bytes": 12508,
+    "sha256": "9b9b383aea0c31bc1961c5cee0fedd755c2f1ca1f786c90d21625071ced7305a"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2012_UtilityGas.Heating.txt": {
+    "bytes": 12381,
+    "sha256": "1cb2cf429aa35d4f570e6642d96ee0e00f7e2c9b2f68c485bee7c2ed51f6c408"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2013_UtilityGas.Heating.txt": {
+    "bytes": 12491,
+    "sha256": "f84e5dda9f25f7c22831cc972b61979e9d371022c0caad3f33b4d1dece8851d6"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2014_UtilityGas.Heating.txt": {
+    "bytes": 12482,
+    "sha256": "5aef1ade6e8b3b0ef4e579152b0b5006909700cf1ef51a829f58b0d2175b9f02"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2015_UtilityGas.Heating.txt": {
+    "bytes": 12327,
+    "sha256": "0e4943eda31560f001749542e41e93055fb2fd0aaea2b14a23a826fc9fe52f1f"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2016_UtilityGas.Heating.txt": {
+    "bytes": 12354,
+    "sha256": "5a7eaad221617cba1a7f0f0f234d7254598907a8315b4453d120034c1e79d220"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2017_UtilityGas.Heating.txt": {
+    "bytes": 12330,
+    "sha256": "7819c5e87890228a5112624df181a5650fe65efae5b34f8d7b281c9c941c08c8"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2018_UtilityGas.Heating.txt": {
+    "bytes": 12504,
+    "sha256": "90c055f0cb83a76f3e8184e1b3ff2d2e436f2156777b2b2b3d7d31988b899ceb"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2019_UtilityGas.Heating.txt": {
+    "bytes": 12487,
+    "sha256": "0e4e83782e71abbf6e9c382740258968037f6c986592d2e970d305c864c7d70a"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2020_UtilityGas.Heating.txt": {
+    "bytes": 12506,
+    "sha256": "3c71d5868bb383e73e18ea376a7e3c05beb53594d57e2da83c6fe50c6c94c146"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2021_UtilityGas.Heating.txt": {
+    "bytes": 12401,
+    "sha256": "006e7657e4a3b0662a88d36cb7a985262c3d48e82fcf4323114e547e9f16c307"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2022_UtilityGas.Heating.txt": {
+    "bytes": 12494,
+    "sha256": "ed1dc2ab80aa9433707824bc3df65348937bbe88bd6b41a6c8ddaed793cc0a3b"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2023_UtilityGas.Heating.txt": {
+    "bytes": 12455,
+    "sha256": "2c648f7a2cbadfb702ee5b940981d831ab02a62745629eec69abdc42beb5e71f"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2024_UtilityGas.Heating.txt": {
+    "bytes": 12404,
+    "sha256": "d959f3af66894ea9a20b3499ef8a88ffca64d94eea19e07a344dc964863d869d"
+  },
+  "results/satellite_validation/gas/ground_hdd/raw/2025_UtilityGas.Heating.txt": {
+    "bytes": 12410,
+    "sha256": "2c7cd8ea0c9d29213fd069e8bc535c14b0b7af318bd9722de0e442a3508cdde8"
+  },
+  "results/satellite_validation/gas/ground_hdd/monthly_hdd.csv": {
+    "bytes": 6728,
+    "sha256": "7fd2768d141fc9edc4cf3569d46f56054b51996f0bf740421c27c8ef25f14fc2"
+  },
+  "results/satellite_validation/gas_trading/inputs/ung_yahoo_chart.json": {
+    "bytes": 504401,
+    "sha256": "747efb94939b8fb90f599de6ca27c5aa6b9c8aeb185585b9673f2466ea785098"
+  },
+  "results/satellite_validation/snow/sbf_monthly_fnf.csv": {
+    "bytes": 17941,
+    "sha256": "72c54031b570e19793d039952b93dd148c4332cb3c68e71c3c85db12804196bd"
   },
   "results/satellite_validation/smelters/production_labels.csv": {
     "bytes": 4279,

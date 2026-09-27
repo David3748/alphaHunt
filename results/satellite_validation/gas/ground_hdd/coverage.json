@@ -1,0 +1,8 @@
+{
+  "monthly_rows": 432,
+  "daily_observations": 13149,
+  "start": "1990-01-01",
+  "end": "2025-12-01",
+  "latest_feed_last_observation": "2026-09-24",
+  "monthly_sha256": "7fd2768d141fc9edc4cf3569d46f56054b51996f0bf740421c27c8ef25f14fc2"
+}

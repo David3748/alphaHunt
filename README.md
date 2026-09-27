@@ -358,11 +358,13 @@ remain exploratory; details are in [`docs/notes/`](docs/notes/) and
   archive. Smelter outages show up; construction delays don't, and neither beat
   a disclosure ([report](reports/satellite_sites.html),
   [`sentinel2_sites.py`](src/sentinel2_sites.py)).
-- **Satellite validation continuation:** five mechanisms tested—construction,
-  smelter heat, MODIS vegetation, CERES sunlight, and satellite-based ocean
-  temperatures—with independent outcomes and a separate costed wheat-futures
-  test. None clears the local forecasting gate. The 25% solar estimation gain
-  is real in the current archive but cannot be backdated to a timely nowcast.
+- **Satellite validation continuation:** seven mechanisms tested—construction,
+  smelter heat, vegetation, sunlight, ocean temperatures, sea ice, and atmospheric
+  temperatures—with separate costed wheat-futures and UNG tests. Sea ice clears
+  its matched-model test, but stronger-baseline uncertainty and original-report
+  revisions limit that finding. No robust incremental economic forecast or
+  trading alpha is verified. Solar's 25% estimation gain arrives too late for
+  its proposed nowcast; gas-demand satellites lose to ordinary ground weather.
   The audit fixes composite publication leakage and preserves negative results
   ([full evidence](results/satellite_validation/report.md)).
 - **Macro reports:** UK and global short rates (market vs model), shorting

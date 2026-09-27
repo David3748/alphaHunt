@@ -6,7 +6,7 @@ were already visible when this continuation began. The user explicitly accepts
 independent production/yield forecast improvement as usefulness; profitable
 trading returns must be tested separately.
 
-## Five distinct mechanisms
+## Seven distinct mechanisms
 
 1. Sentinel-2 furnace heat -> smelter throughput and refined copper production.
 2. Sentinel-2 exterior construction -> delivery risk at data-center campuses.
@@ -16,6 +16,18 @@ trading returns must be tested separately.
 5. NOAA OISST satellite/in-situ ocean temperatures -> following-season rainfall
    relevant to crop/hydropower supply; comparison with an in-situ-only SST model
    would be needed to isolate the satellite component.
+6. NOAA/NSIDC passive-microwave sea ice -> September Arctic ice extent from
+   July observations. This tests future physical conditions relevant to shipping;
+   it does not test independent shipping volumes, route access, or profits.
+7. UAH satellite atmospheric temperatures -> residential natural-gas demand
+   before EIA reporting. Include contemporaneous ground heating-degree days to
+   test whether satellite information adds to ordinary weather measurements.
+
+The sea-ice protocol was fixed before retrieving that candidate's outcomes, but
+was added after five candidates failed their forecast gates. Any successful
+result is exploratory across this research program; the confidence interval is
+not adjusted for searching several mechanisms. Historic press-release checks
+can assess revision sensitivity without establishing a complete vintage archive.
 
 See `config/satellite_alpha_candidates.json` for targets, exposures, comparators,
 and each candidate's limitations. These are hypotheses, not recommendations.

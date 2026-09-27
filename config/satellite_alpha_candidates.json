@@ -113,7 +113,7 @@
         "expanding historical winter rainfall mean",
         "previous winter rainfall"
       ],
-      "timing": "October15 forecast after September data and assumed14-day OISST final-product latency; original CPC vintages unavailable",
+      "timing": "October 15 forecast after September data and assumed 14-day OISST final-product latency; original CPC vintages unavailable",
       "limitations": [
         "An established public ENSO mechanism, not proprietary information",
         "Current-vintage reprocessing",
@@ -121,6 +121,55 @@
         "Uncertainty gate fails"
       ],
       "results": "results/satellite_validation/enso/summary.json"
+    },
+    {
+      "id": "passive_microwave_sea_ice",
+      "source": "NOAA/NSIDC Sea Ice Index passive-microwave satellite observations",
+      "observable": "July mean Arctic sea-ice extent",
+      "forecast": "September mean Arctic sea-ice extent, forecast August 15",
+      "possible_alpha": "Seasonal conditions relevant to Arctic shipping and energy logistics; route-specific access and economic exposure remain untested",
+      "examples": [
+        "shipping logistics research",
+        "Arctic energy transport research"
+      ],
+      "baseline": [
+        "expanding linear trend plus previous September extent",
+        "expanding linear trend",
+        "previous September extent",
+        "expanding historical mean"
+      ],
+      "timing": "Current-vintage archive with explicit August 14 assumed availability; audit original August press releases and disclose revisions",
+      "limitations": [
+        "Physical forecast target uses the same product family at a future date, not independent shipping output",
+        "Current revised archive; original-vintage operational performance uncertified",
+        "Exploratory sixth candidate; no cross-candidate multiple-testing adjustment",
+        "No financial returns or contemporaneous market expectations evaluated for this signal"
+      ],
+      "results": "results/satellite_validation/seaice/summary.json"
+    },
+    {
+      "id": "satellite_atmospheric_temperature",
+      "source": "UAH MSU/AMSU lower-troposphere satellite temperatures, USA48 monthly series",
+      "observable": "Monthly lower-atmosphere temperature anomaly",
+      "forecast": "Winter residential natural-gas demand before EIA monthly reporting",
+      "possible_alpha": "Demand surprises in gas markets or utility revenue forecasts",
+      "examples": [
+        "natural-gas demand forecasts",
+        "UNG research"
+      ],
+      "baseline": [
+        "calendar-month trend plus prior-year demand",
+        "CPC gas-customer-weighted ground heating-degree days",
+        "previous-year same-month demand"
+      ],
+      "timing": "Issue next-month 15th after assumed feature availability; earlier EIA labels embargoed until two months after their month-end; current-vintage inputs",
+      "limitations": [
+        "Adds no forecast value beyond ground heating-degree days in fixed test",
+        "Layer temperature is not surface temperature",
+        "Historical source revisions and EIA methodology change",
+        "Separate costed UNG test is negative"
+      ],
+      "results": "results/satellite_validation/gas/summary.json"
     }
   ]
 }

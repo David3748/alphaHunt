@@ -1,0 +1,58 @@
+[
+  {
+    "item_id": "MYD10A2.A2004089.h08v05.061.2020122072137",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2004-03-20%2F2004-03-31&limit=2",
+    "start_datetime": "2004-03-29T00:00:00Z",
+    "end_datetime": "2004-04-05T23:59:59Z",
+    "created": "2020-05-01T07:21:44Z"
+  },
+  {
+    "item_id": "MOD10A2.A2004089.h08v05.061.2020122050332",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2004-03-20%2F2004-03-31&limit=2",
+    "start_datetime": "2004-03-29T00:00:00Z",
+    "end_datetime": "2004-04-05T23:59:59Z",
+    "created": "2020-05-01T05:03:36Z"
+  },
+  {
+    "item_id": "MYD10A2.A2014089.h08v05.061.2021252104155",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2014-03-20%2F2014-03-31&limit=2",
+    "start_datetime": "2014-03-30T00:00:00Z",
+    "end_datetime": "2014-04-06T23:59:59Z",
+    "created": "2021-09-09T10:42:20Z"
+  },
+  {
+    "item_id": "MOD10A2.A2014089.h08v05.061.2021253004159",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2014-03-20%2F2014-03-31&limit=2",
+    "start_datetime": "2014-03-30T00:00:00Z",
+    "end_datetime": "2014-04-06T23:59:59Z",
+    "created": "2021-09-10T00:42:14Z"
+  },
+  {
+    "item_id": "MYD10A2.A2018089.h08v05.061.2021322151931",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2018-03-20%2F2018-03-31&limit=2",
+    "start_datetime": "2018-03-30T00:00:00Z",
+    "end_datetime": "2018-04-06T23:59:59Z",
+    "created": "2021-11-18T15:19:35Z"
+  },
+  {
+    "item_id": "MOD10A2.A2018089.h08v05.061.2021323103051",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2018-03-20%2F2018-03-31&limit=2",
+    "start_datetime": "2018-03-30T00:00:00Z",
+    "end_datetime": "2018-04-06T23:59:59Z",
+    "created": "2021-11-19T10:31:05Z"
+  },
+  {
+    "item_id": "MYD10A2.A2020089.h08v05.061.2020335084543",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2020-03-20%2F2020-03-31&limit=2",
+    "start_datetime": "2020-03-29T00:00:00Z",
+    "end_datetime": "2020-04-05T23:59:59Z",
+    "created": "2020-11-30T08:45:48Z"
+  },
+  {
+    "item_id": "MOD10A2.A2020089.h08v05.061.2020335061221",
+    "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2020-03-20%2F2020-03-31&limit=2",
+    "start_datetime": "2020-03-29T00:00:00Z",
+    "end_datetime": "2020-04-05T23:59:59Z",
+    "created": "2020-11-30T06:12:29Z"
+  }
+]

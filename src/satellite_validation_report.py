@@ -28,6 +28,9 @@ def main():
     sm = solar["metrics"]["models"]
     trade = read("trading") if (OUT / "trading/summary.json").exists() else None
     enso = read("enso") if (OUT / "enso/summary.json").exists() else None
+    seaice = read("seaice") if (OUT / "seaice/summary.json").exists() else None
+    gas = read("gas") if (OUT / "gas/summary.json").exists() else None
+    gas_trade = read("gas_trading") if (OUT / "gas_trading/summary.json").exists() else None
     labels = ["Smelter refined copper\nMAE, 8 quarters", "Smelter throughput\nMAE, 8 quarters",
               "Corn + MODIS vegetation\nRMSE, 7 years", "Wheat + MODIS, 2025\nRMSE, 1 year",
               "Solar generation + CERES*\nRMSE, 72 months"]
@@ -38,8 +41,14 @@ def main():
     if enso:
         labels.append("Ocean SST → winter rain\nRMSE, 29 winters")
         gains.append(100 * enso["comparisons"]["climatology"]["rmse_reduction_fraction"])
+    if seaice:
+        labels.append("July → September sea ice**\nRMSE, 26 years")
+        gains.append(100 * seaice["comparisons"]["trend_prior"]["rmse_reduction_fraction"])
+    if gas:
+        labels.append("Gas demand + satellite temperature\nRMSE vs ground weather, 156 months")
+        gains.append(100 * gas["comparisons"]["ground_hdd_satellite_vs_ground_hdd"]["rmse_reduction_fraction"])
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "svg.hashsalt": "satellite-validation"})
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(11, 7.5))
     bars = ax.barh(np.arange(len(gains)), gains, color=["#44729d" if x >= 0 else "#bf654f" for x in gains], height=.57)
     bars[4].set_hatch("///")
     ax.set_yticks(np.arange(len(gains)), labels)
@@ -53,8 +62,8 @@ def main():
     ax.spines[["top", "right", "left"]].set_visible(False)
     ax.tick_params(axis="y", length=0)
     ax.grid(axis="x", alpha=.15)
-    fig.text(.02, .025, "*Solar uses revised imagery published too late for the proposed nowcast. Other gains fail uncertainty or confirmation gates.\nDifferent targets and error metrics; bar lengths are not a ranking of investability.", fontsize=9, color="#555555")
-    fig.tight_layout(rect=(0, .09, 1, 1))
+    fig.text(.02, .025, "*Solar imagery arrives too late for the proposed nowcast. **Sea ice clears its matched-model test, but revisions remain\nand its advantage over the simpler trend model is uncertain. Different metrics; these are not returns or investability rankings.", fontsize=9, color="#555555")
+    fig.tight_layout(rect=(0, .10, 1, 1))
     fig.savefig(OUT / "evidence.svg", metadata={"Date": None})
     svg = OUT / "evidence.svg"
     svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
@@ -76,17 +85,39 @@ def main():
         results["additional_enso_evaluation"] = enso
         results["forecast_verification"]["enso"] = enso["predefined_forecast_gate_passed"]
         results["implemented_candidates"].append("satellite_ocean_temperature")
+    if seaice:
+        results["additional_seaice_evaluation"] = seaice
+        results["seaice_matched_model_forecast_gate_passed"] = seaice["predefined_forecast_gate_passed"]
+        results["forecast_verification"]["seaice_robust"] = bool(
+            seaice["predefined_forecast_gate_passed"]
+            and seaice["comparisons"]["trend"]["rmse_reduction_ci95_million_km2"][0] > 0)
+        results["seaice_claim_scope"] = "Current-vintage physical forecast ablation; stronger trend-only uncertainty and historical revisions prevent a broader robust or economic utility claim"
+        results["implemented_candidates"].append("passive_microwave_sea_ice")
+    if gas:
+        results["additional_gas_evaluation"] = gas
+        results["forecast_verification"]["gas_incremental"] = gas["incremental_usefulness_gate_passed"]
+        results["implemented_candidates"].append("satellite_atmospheric_temperature")
     results["verification_requirement_met"] = any(results["forecast_verification"].values())
     if (OUT / "literature/evidence.json").exists():
         results["external_literature_evidence"] = "literature/evidence.json; externally published, not locally replicated and not a substitute for the forecast verification gate"
     if trade:
         results["market_test"] = trade
+    if gas_trade:
+        results["gas_market_test"] = gas_trade
+    if (OUT / "snow/summary.json").exists():
+        results["snow_feasibility"] = "snow/summary.json; causal historical archive not established; no fitted forecast counted"
     (OUT / "summary.json").write_text(json.dumps(results, indent=2, allow_nan=False) + "\n")
     manifest = {}
     paths = sorted((ROOT / "results/satellite_sites").glob("*.csv"))
-    paths += sorted(OUT.glob("**/input*"))
+    paths += sorted(path for path in OUT.glob("**/input*") if path.name != "input_manifest.json")
     paths += sorted((OUT / "solar/inputs").glob("*.json"))
     paths += sorted((OUT / "enso/inputs").glob("*"))
+    paths += sorted((OUT / "seaice/inputs").glob("*"))
+    paths += sorted((OUT / "gas/inputs").glob("*"))
+    paths += sorted((OUT / "gas/ground_hdd/raw").glob("*"))
+    paths += [OUT / "gas/ground_hdd/monthly_hdd.csv"]
+    paths += sorted((OUT / "gas_trading/inputs").glob("*"))
+    paths += sorted((OUT / "snow").glob("*.csv"))
     paths += [OUT / "smelters/production_labels.csv", OUT / "trading/weekly_wheat_inputs.csv"]
     for path in paths:
         if path.is_file():

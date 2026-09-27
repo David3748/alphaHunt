@@ -1,0 +1,16 @@
+{
+  "N_07_extent_v4.0.csv": {
+    "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_07_extent_v4.0.csv",
+    "retrieved_at_utc": "2026-09-27T01:45:40.286967+00:00",
+    "sha256": "0be2b36d07f5eb3ec2ddb7a8604fcdf508ef718254ae3795c655681b3e567bf4",
+    "http_last_modified": "Wed, 02 Sep 2026 16:27:47 GMT",
+    "bytes": 2352
+  },
+  "N_09_extent_v4.0.csv": {
+    "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_09_extent_v4.0.csv",
+    "retrieved_at_utc": "2026-09-27T01:45:40.506412+00:00",
+    "sha256": "bdeb4dea8b52f6dc8a8faecfd5d220dc758b6dd2ddea345d7b18897df0d9716f",
+    "http_last_modified": "Wed, 02 Sep 2026 16:27:47 GMT",
+    "bytes": 2304
+  }
+}

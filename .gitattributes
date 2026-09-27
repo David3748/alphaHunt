@@ -1,0 +1,8 @@
+# Preserve source snapshots byte-for-byte for the committed SHA-256 manifests.
+# Upstream HTML, fixed-width observations and CSVs retain their original spacing.
+results/satellite_validation/**/inputs/** -text -whitespace
+results/satellite_validation/gas/ground_hdd/metadata/** -text -whitespace
+results/satellite_validation/gas/ground_hdd/raw/** -text -whitespace
+results/satellite_validation/gas/ground_hdd/monthly_hdd.csv -text -whitespace
+results/satellite_validation/snow/sbf_monthly_fnf.csv -text -whitespace
+results/satellite_validation/snow/sbf_station_metadata.html -text -whitespace

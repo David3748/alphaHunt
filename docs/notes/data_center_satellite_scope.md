@@ -4,7 +4,7 @@
 > 437/837 post-baseline rows across eight campuses include known inputs published
 > after their endpoint timestamp. Publication-aware replay removes the Denton
 > warning, while an APLD false alarm survives. Core Scientific already discussed
-> delays on October 24, 2025. See the [five-source validation](../../results/satellite_validation/report.md)
+> delays on October 24, 2025. See the [satellite validation](../../results/satellite_validation/report.md)
 > before using the older pilot's apparent leads.
 
 > **Pilot run, September 2026.** Eight campuses (and three copper smelters) were

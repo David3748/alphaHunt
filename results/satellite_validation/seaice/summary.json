@@ -1,0 +1,126 @@
+{
+  "n_test_years": 26,
+  "first_test_year": 2000,
+  "last_test_year": 2025,
+  "metrics": {
+    "satellite": {
+      "rmse_million_km2": 0.47379518650566266,
+      "mae_million_km2": 0.3902954591660812
+    },
+    "trend_prior": {
+      "rmse_million_km2": 0.6294693550714318,
+      "mae_million_km2": 0.4905814870452001
+    },
+    "trend": {
+      "rmse_million_km2": 0.6034301656650436,
+      "mae_million_km2": 0.4626378765350969
+    },
+    "persistence": {
+      "rmse_million_km2": 0.6376730534348486,
+      "mae_million_km2": 0.47884615384615403
+    },
+    "climatology": {
+      "rmse_million_km2": 1.4893694548449345,
+      "mae_million_km2": 1.3810006064414466
+    }
+  },
+  "comparisons": {
+    "trend_prior": {
+      "rmse_reduction_fraction": 0.2473101626180091,
+      "rmse_reduction_million_km2": 0.1556741685657691,
+      "rmse_reduction_ci95_million_km2": [
+        0.011772604701068267,
+        0.2756430298697007
+      ],
+      "mae_reduction_fraction": 0.20442277282648247,
+      "years_lower_squared_error": 17
+    },
+    "trend": {
+      "rmse_reduction_fraction": 0.2148301270562262,
+      "rmse_reduction_million_km2": 0.12963497915938094,
+      "rmse_reduction_ci95_million_km2": [
+        -0.013223297200665037,
+        0.2503528722190452
+      ],
+      "mae_reduction_fraction": 0.15636942204304716,
+      "years_lower_squared_error": 16
+    },
+    "persistence": {
+      "rmse_reduction_fraction": 0.25699355813524183,
+      "rmse_reduction_million_km2": 0.16387786692918593,
+      "rmse_reduction_ci95_million_km2": [
+        0.009583058094403052,
+        0.3084792340149041
+      ],
+      "mae_reduction_fraction": 0.18492514551661787,
+      "years_lower_squared_error": 16
+    },
+    "climatology": {
+      "rmse_reduction_fraction": 0.6818820307047375,
+      "rmse_reduction_million_km2": 1.015574268339272,
+      "rmse_reduction_ci95_million_km2": [
+        0.7847629709224708,
+        1.2375250594250753
+      ],
+      "mae_reduction_fraction": 0.7173821232622106,
+      "years_lower_squared_error": 25
+    }
+  },
+  "predefined_forecast_gate_passed": true,
+  "status": "predefined_gate_passed_current_vintage_physical_forecast",
+  "positive_ci_against_every_baseline": false,
+  "original_vintage_operational_verification": false,
+  "prospective_verification": false,
+  "shipping_capacity_verified": false,
+  "trading_alpha_verified": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "units": "million square kilometers of Arctic sea-ice extent",
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T01:45:16.708523+00:00",
+    "predictor": "July monthly mean Arctic sea-ice extent from NOAA/NSIDC Sea Ice Index passive-microwave satellites",
+    "target": "Same-year September monthly mean Arctic sea-ice extent, not annual daily minimum",
+    "forecast_at": "August 15, assuming monthly July values available by then; archive not historical publication proof",
+    "model": "Expanding OLS: intercept, calendar-year linear trend, previous-year September extent, current July extent",
+    "comparators": [
+      "Expanding OLS intercept + linear trend + previous September extent",
+      "Expanding OLS intercept + linear trend",
+      "Previous September extent",
+      "Expanding historical September mean"
+    ],
+    "training": "First 20 eligible annual rows, previous September required; every subsequent complete target year through 2025 is chronological test",
+    "uncertainty": "Paired circular 2-year block bootstrap, 10000 draws, seed 20260927; RMSE reduction vs each baseline",
+    "gate": "At least 5% lower RMSE and lower MAE than every baseline, strictly positive 95% paired RMSE-reduction interval against trend-plus-prior-year baseline",
+    "selection": "One fixed July->September horizon, Arctic-wide extent target, no model or horizon search",
+    "limitations": [
+      "Current revised archive hindcast, not first-release or prospective verification",
+      "Satellite target is same product at a future date; shipping capacity itself not evaluated",
+      "Economic and trading alpha not verified"
+    ]
+  },
+  "source_manifest": {
+    "N_07_extent_v4.0.csv": {
+      "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_07_extent_v4.0.csv",
+      "retrieved_at_utc": "2026-09-27T01:45:40.286967+00:00",
+      "sha256": "0be2b36d07f5eb3ec2ddb7a8604fcdf508ef718254ae3795c655681b3e567bf4",
+      "http_last_modified": "Wed, 02 Sep 2026 16:27:47 GMT",
+      "bytes": 2352
+    },
+    "N_09_extent_v4.0.csv": {
+      "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_09_extent_v4.0.csv",
+      "retrieved_at_utc": "2026-09-27T01:45:40.506412+00:00",
+      "sha256": "bdeb4dea8b52f6dc8a8faecfd5d220dc758b6dd2ddea345d7b18897df0d9716f",
+      "http_last_modified": "Wed, 02 Sep 2026 16:27:47 GMT",
+      "bytes": 2304
+    }
+  },
+  "documentation_urls": {
+    "archive": "https://nsidc.org/data/seaice_index/data-and-image-archive",
+    "user_guide": "https://nsidc.org/sites/default/files/documents/user-guide/g02135-v004-userguide.pdf",
+    "product": "https://nsidc.org/data/g02135/versions/4"
+  },
+  "source_code_sha256": "c63ce3c489b8d043a166aad157557f580575a952058999ec5628019ac2a1d98b",
+  "minimum_forecast_lead_days": 17,
+  "availability_note": "August 14 monthly July availability is an assumption, not historical final-data publication proof. Current revised archive values replace historical near-real-time measurements.",
+  "interpretation": "Evidence of added physical forecast information beyond fitted trend and prior-year ice, conditional on current archive. Trend-only has a lower baseline RMSE and its improvement interval crosses zero. The target is future satellite-observed ice, not independent shipping/navigation activity. This candidate followed five failed or conditional candidates; no family-wise discovery, original-release or trading claim.",
+  "sensitivity_file": "sensitivity.json"
+}
