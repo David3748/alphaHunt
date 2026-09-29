@@ -1,0 +1,64 @@
+{
+  "frozen_at_utc": "2026-09-27T03:25:19.665559+00:00",
+  "country_selection": "Zambia and Zimbabwe selected jointly by root before extraction; no crop-belt or outcome-based geography selection",
+  "geometry_source": "World Bank Official Boundaries Admin0 10m",
+  "geometry_zip_sha256": "019642b2a80f07fdae56baf15760971bf45119110bb0d9a90255df89be7e635c",
+  "geometry_subset_sha256": "cd7407c8daa799e849d07c2f0d1ed84bfd6b415444e0cef6d4673a36b9fe3af1",
+  "geometry_crs": "EPSG:4326",
+  "pixel_rule": "Include grid-cell center if national Polygon/MultiPolygon covers Point(lon,lat), including exact boundary points; no land/crop weighting or geometric simplification",
+  "period": "1982-2024 August and September only",
+  "aggregation": "Daily cosine-latitude weighted mean of finite valid precip>=0 and<=10000 mm. Require all calendar days, and >=90% of frozen country-mask cells valid EACH day; otherwise entire month precip_mm=NaN, no imputation. Sum daily means to monthly total.",
+  "latency": "Each daily observation assumed available at day end plus10 days; Sep30 latest by Oct10 23:59:59, before Oct20 noon issue. Current vintage, not certified historical release.",
+  "source_url_pattern": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.{year}.nc",
+  "coordinate_metadata_url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1982.nc",
+  "variable_metadata": {
+    "units": "mm",
+    "long_name": "Daily total of precipitation"
+  },
+  "lat_sha256": "dfad3988f8a2ccc9f3bb11d6fb46b5bf01152753b0c1a47c73e7185b792ddcfd",
+  "lon_sha256": "702e2c54bb99943ef341af43dd17866fbeea0ef66b2c980ff91b3f423706e4bd",
+  "countries": {
+    "ZM": {
+      "name": "Zambia",
+      "bounds_lonlat": [
+        21.979877563298942,
+        -18.069231872253056,
+        33.674202514734304,
+        -8.194124042590431
+      ],
+      "lat_indices": [
+        196,
+        215
+      ],
+      "lon_indices": [
+        44,
+        66
+      ],
+      "mask_cells": 249,
+      "bounding_grid_cells": 460,
+      "mask_file": "ZM_mask.npz",
+      "mask_sha256": "a9e59a8ce541d4be9a4ca75b2d756330b9f2cf60ff2fd1a0f9cb06e1ca0558f1"
+    },
+    "ZW": {
+      "name": "Zimbabwe",
+      "bounds_lonlat": [
+        25.219369751213094,
+        -22.397339783004554,
+        33.04276818870102,
+        -15.61480804455556
+      ],
+      "lat_indices": [
+        211,
+        224
+      ],
+      "lon_indices": [
+        50,
+        65
+      ],
+      "mask_cells": 135,
+      "bounding_grid_cells": 224,
+      "mask_file": "ZW_mask.npz",
+      "mask_sha256": "3e52d371b35226ddc9bee1cb1728c3b14e5ab85cf4d54f34daf677cbb7389c72"
+    }
+  }
+}

@@ -353,10 +353,55 @@ remain exploratory; details are in [`docs/notes/`](docs/notes/) and
   staged, ablation-first backtests.
 - **Real estate:** point-in-time REIT property exposure from filings, and
   satellite built-up area (GHSL) as a supply signal.
+- **Sentinel-2 site pilot:** construction at eight AI data-center campuses and
+  furnace heat at three copper smelters, read straight from the public AWS
+  archive. Smelter outages show up; construction delays don't, and neither beat
+  a disclosure ([report](reports/satellite_sites.html),
+  [`sentinel2_sites.py`](src/sentinel2_sites.py)).
+- **Satellite validation continuation:** vegetation, construction, smelter heat,
+  sunlight, ocean and atmospheric temperatures, sea ice, snow and reservoir
+  altimetry. Raw MODIS vegetation modestly improves historical county maize
+  forecasts: 1.83% in August and 3.12% in September, below both original 5%
+  materiality gates. Current-vintage and geographic limitations remain explicit;
+  separate market tests do not establish trading alpha. The audit fixes
+  composite publication leakage and retains failed replications
+  ([full evidence](results/satellite_validation/report.md)).
+- **Basic corn model:** a USDA-anchored national yield-revision model, conditional
+  supply/ending-stock scenarios, optional timestamped analyst consensus and
+  costed CORN ETF paper signals. The first 12 forward forecasts do not beat the
+  unchanged USDA baseline; the satellite strategy loses 7.37% across the tested
+  event windows. This is a usable research model, not a verified trading edge
+  ([results](results/corn_model/report.md), [usage](docs/notes/corn_model.md)).
 - **Macro reports:** UK and global short rates (market vs model), shorting
   bonds during capex booms.
+
+### Run the corn model
+
+```bash
+python3 -m src.corn_model backtest
+python3 -m src.corn_model_report
+python3 -m src.corn_model forecast --as-of 2023-09-15
+```
+
+These commands use committed inputs offline. The forecast command returns the
+USDA anchor, calibrated yield and production scenarios, training history and a
+long/short/flat paper signal. The example is historical. County forecasts end in
+2023: a 2026 issue correctly abstains until matching-year inputs are supplied.
+No broker integration or order submission is included.
 
 ---
 
 *Research code, not investment advice. Every result above that was not
 pre-registered is labeled exploratory.*
+
+### Satellite sea-ice prediction-market screen
+
+The read-only [Kalshi and Polymarket ice model](docs/notes/satellite_ice_markets.md)
+uses NSIDC daily satellite observations to price the platforms' 2026 Arctic
+minimum-extent contracts. It checks exact rule windows, public asks and book
+sizes, and a chronological 2008–2025 hindcast. The saved September 29, 2026
+screen abstains. A 2025 Kalshi quote replay has a positive hypothetical payoff,
+but no historical quote depth or fill verification; no market-return edge is
+verified. Run
+`python3 -m src.satellite_ice_markets` against committed snapshots or add
+`--refresh` for a fresh public-data snapshot. It never submits orders.

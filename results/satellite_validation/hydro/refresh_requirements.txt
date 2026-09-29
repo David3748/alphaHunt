@@ -1,0 +1,4 @@
+-r requirements.txt
+requests>=2.31
+fsspec>=2024.6
+aiohttp>=3.9

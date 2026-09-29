@@ -1,0 +1,26 @@
+{
+  "frozen_at_utc": "2026-09-27T02:37:34.973134+00:00",
+  "forecast_or_market_results_examined": false,
+  "purpose": "Separate fixed insurance-sector trading diagnostic for hurricane-risk satellite forecasts; no orders",
+  "assets": "KIE insurance ETF versus SPY market ETF; broad insurance-sector proxy includes businesses not directly exposed to Atlantic losses",
+  "evaluation": "2006\u20132025 inclusive, complete common price windows and available frozen forecasts only; no tuning",
+  "signal": "For satellite and nonsatellite baseline separately, short KIE/longSPY when predicted AugNov ACE > expanding prior-year mean ACE; longKIE/shortSPY when below; flat if equal. Incremental overlay instead compares satellite to baseline. Two legs each50%notional on capital, 100%gross exposure.",
+  "entry": "First common trading close on or after August1, after forecast issued00UTC; exit last common trading close on or before November30. Same windows allstrategies.",
+  "costs": "10bps perleg pertrade times0.5notional =20bps fullroundtrip; borrow3percent annual on0.5shortleg overactualdaycount. Doubledexecutioncost sensitivity. No leverage financing beyondshortborrow.",
+  "comparators": [
+    "sameACEforecastbaseline/trend direction",
+    "alwayslongKIEshortSPY",
+    "alwaysshortKIE longSPY",
+    "cash zero",
+    "incremental satellite-minus-baseline direction"
+  ],
+  "prices": "Yahoo Finance adjusted closes account fordistributions/splits inlongreturn; shortreturn usesnegativeadjustedtotalreturn (includesdistributionsowed). Currentadjustedvintage.",
+  "uncertainty": "Whole-season bootstrap10000seed20260927, mean netreturns and paired differences;20events maximum. Report eventcompounding only, not annualized or risk-adjustedalpha.",
+  "gate": "Tradingalpha isnotcertified bythis exploratory test. Reportpositive neteconomicresults only ifmean netreturns andpairedadvantageoverbaseline bothhavepositive95percent intervals; otherwiseunverified.",
+  "limits": [
+    "ACE isbasinwide stormenergy, notinsured landfalllosses",
+    "NOAA/publicforecasts alreadyusesimilar climateinformation; no claim tobeatconsensus",
+    "No originalhistoricalborrowavailabilityarchive or completeoriginalvintage data",
+    "Exploratory broadsectorproxy; do notclaimpredictionutility impliestradingvalue"
+  ]
+}

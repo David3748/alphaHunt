@@ -1,0 +1,30 @@
+{
+  "frozen_at_utc": "2026-09-27T02:54:37.370887+00:00",
+  "candidate": "May Terra MODIS snow presence -> July-September San Joaquin full-natural runoff",
+  "continuation_disclosure": "Exploratory new horizon after failed March-to-AprilJuly experiment in same basin. Original monthly runoff table previously retrieved and March-horizon outcomes inspected; May snow and new summer target join or metrics not inspected. This is not pristine preregistration.",
+  "issue": "June15, using May1\u201331 raw daily snow and ground observations with nominal14day buffer; July\u2013September target entirely future. Current archive first-release availability remains unverified.",
+  "snow_rule": "Unchanged from frozen March experiment: Terra MOD10A1v61 screenedNDSI0\u2013100 and BasicQA0/1; positiveNDSI indicates snow. Per-pixel valid-day snow frequency requires3 validMaydays; mean over qualifyingbasinpixels;>=90%pixels required. Same USGS11251000 authoritative basin,latest current processingversion perday. No future fill.",
+  "primary_ground": [
+    "Oct\u2013May CDEC5SI regionalprecipitation total, all8months required",
+    "Oct\u2013April CDEC SBFsensor65 full-natural-flow total, all7months required"
+  ],
+  "target": "July\u2013September SBFsensor65 full-natural runoff summedacre-feet,all3months required",
+  "estimator": "Training-standardized fixed ridge alpha5; intercept unpenalized; zero-variance feature scale1; expandprior eligibleyears,minimum10 completeyears; negativeforecastsclipped0 equally. No search over penalty/threshold/month/years.",
+  "models": [
+    "weather_flow",
+    "weather_flow_snow",
+    "expanding_climatology",
+    "previous_year_summer_flow"
+  ],
+  "strong_ground_swe": "Matched support includes latest valid unflagged nonnegative HNT SWE May29\u201331; compare weather_flow+SWE vs same+snow with identicaltraining/evaluationrows and fixedridge5.",
+  "fresh_flow_sensitivity": "Repeat primary and SWE comparisons replacing Oct\u2013Aprilflow with Oct\u2013Mayflow, allowing immediate precedingmonthflow availableJune15. Do not claim value merely because primarypriorflow is conservativelylagged.",
+  "training_evaluation": "2000\u20132024 intended; first10eligibleyears training,2010\u20132024 intendedeval. PCmirrorendsMarch2024 soMay2024 mayabstain; missingcoverage reportedwithoutthresholdrelaxation.",
+  "uncertainty": "10000pairedcircular2calendar-yearblockbootstrapdraws retaining missingyeargaps; seed20260927; RMSE/MAE and95%gainintervals.",
+  "gate": "Atleast5%lowerRMSE,lowerMAE,andpositive lower95%gainCI vsweather_flow, andincremental groundSWE andfreshflowdiagnostics must supportusefulness ratherthan weakbaseline alone. Reportallcomparisons regardlessscore.",
+  "limitations": [
+    "samebasin reuse andprior failedhorizon; broader multiplecandidate searchunadjusted",
+    "snow presence isnotSWE; cloud/forest/shadow/observationsamplingbias",
+    "current-vintage revisions andnominalavailabilityonly",
+    "singlebasin smallannualsample; nofinancialalpha proof"
+  ]
+}

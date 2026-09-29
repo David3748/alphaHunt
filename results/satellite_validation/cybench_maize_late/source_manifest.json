@@ -1,0 +1,117 @@
+{
+  "url": "https://zenodo.org/api/records/17279151/files/cybench-data.zip/content",
+  "record": "https://zenodo.org/api/records/17279151",
+  "archive": {
+    "id": "c36ddaa2-6e23-4319-8c86-c9b6f5a3ce53",
+    "key": "cybench-data.zip",
+    "size": 6228749411,
+    "checksum": "md5:8ec510982f396469eca25a4f0fa8632e",
+    "links": {
+      "self": "https://zenodo.org/api/records/17279151/files/cybench-data.zip/content"
+    }
+  },
+  "license": {
+    "id": "eupl-1.2"
+  },
+  "members": [
+    {
+      "name": "cybench-data/maize/US/location_maize_US.csv",
+      "compressed_size": 43699,
+      "raw_size": 119604,
+      "local_offset": 26019770,
+      "crc32": 2168556146,
+      "method": 8,
+      "data_start": 26019871,
+      "data_end_inclusive": 26063569,
+      "raw_sha256": "7b8a49ade12c23cdf1bcffc9fcc89ac2c22eab90e00c9877632500c42e7cf7de",
+      "compressed_sha256": "dbb854b27cb6f3b62989d8add6e96afe1dfb7c2a48dedb22ec3a39c4b53174dc"
+    },
+    {
+      "name": "cybench-data/maize/US/crop_mask_maize_US.csv",
+      "compressed_size": 25070,
+      "raw_size": 86953,
+      "local_offset": 760559640,
+      "crc32": 2795620942,
+      "method": 8,
+      "data_start": 760559742,
+      "data_end_inclusive": 760584811,
+      "raw_sha256": "f7e878010954c9e73466530a8a13f29c82cd1d30ad173c640cde8266e8edf9cf",
+      "compressed_sha256": "a3bad3dcce7cf9b383fad7795d49db3f1ea20e9fc249dfc60c839cad54c67b37"
+    },
+    {
+      "name": "cybench-data/maize/US/crop_calendar_maize_US.csv",
+      "compressed_size": 27242,
+      "raw_size": 93484,
+      "local_offset": 25992422,
+      "crc32": 1919552190,
+      "method": 8,
+      "data_start": 25992528,
+      "data_end_inclusive": 26019769,
+      "raw_sha256": "4e87e9cbd09fe8d4ba77705db92b8a112330d997dc0a4f8deb288c195fd63433",
+      "compressed_sha256": "f7de50e24676fead559a411b840cbc140d1161aae2aeb94e5e294f54c521c273"
+    },
+    {
+      "name": "cybench-data/maize/US/ndvi_maize_US.csv",
+      "compressed_size": 14026756,
+      "raw_size": 88961900,
+      "local_offset": 761366838,
+      "crc32": 2047885240,
+      "method": 8,
+      "data_start": 761366935,
+      "data_end_inclusive": 775393690,
+      "raw_sha256": "d11f90542a7d310b48f49986d7f9dfc3ac22f33a3f523ec7a8b93b2f6d300b0a",
+      "compressed_sha256": "75f1ecdcaf5a1c8eed662b121068a04a99e661dc86b050bbbdfd67070e1e6edf"
+    },
+    {
+      "name": "cybench-data/maize/US/yield_maize_US.csv",
+      "compressed_size": 781928,
+      "raw_size": 3231663,
+      "local_offset": 760584812,
+      "crc32": 53419649,
+      "method": 8,
+      "data_start": 760584910,
+      "data_end_inclusive": 761366837,
+      "raw_sha256": "6e5939d5f3e1e8c6ea274c55bbf7100ebc58cf9cd82848bcc0284b5e70b53b03",
+      "compressed_sha256": "6aead99f33eec9a7b369d589e2d2f9702d8c2d240abdf93ea7bb2e503c71613a"
+    },
+    {
+      "name": "cybench-data/maize/US/meteo_maize_US.csv",
+      "compressed_size": 718707625,
+      "raw_size": 2039213114,
+      "local_offset": 41851917,
+      "crc32": 1774228787,
+      "method": 8,
+      "data_start": 41852015,
+      "data_end_inclusive": 760559639,
+      "raw_sha256": "4fbd9d2f22969c18096cf62d874fc4eb94ae920668d8fa83a3279c3ec2a884d7",
+      "compressed_sha256": "30eb4e05ff20e1150f74a370258b7e21f0c9b9a96e8e161a28882aa37c3d63f2"
+    }
+  ],
+  "census_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2020_Gazetteer/2020_Gaz_counties_national.zip",
+  "compact_input_sha256": {
+    "locations.csv": "08a375223f41419aff8ec3707dcd7daa2da42f2da0d0cf4b67ff4da5e93cd7b7",
+    "excluded_locations.csv": "bf2978cabff913bd6477fcfa92dbb14aefe56c832c5c15d052f490813154e177",
+    "census_2020_counties.zip": "02ef546e4c4f9c032c19616eabb9526caa016f778f41ede3b8c9755dacce20ef",
+    "ndvi_observations.csv.gz": "54bf76bdb5101907cb2a21bbc789258a603f0ec5f883f3434d99f54a6d54b2bd",
+    "monthly_weather_statistics.csv.gz": "f0851810f28f401342a83d3714e33f688fd82499d0169067f71d88d1f5ae8042",
+    "yields.csv.gz": "1ced16abf15213a7d81395e28e7d8b1824548ebe0a24417e96eaf986c5d935a2",
+    "yield_unit_audit.json": "41f4e635c59d3e1125c90455a843bf2156ffa303dd1e5fcc14ad148168737040",
+    "yields_source_snapshot.csv.gz": "f310bd9140dfa56300cb0c935bc18f931810cd3c38e244220e02c5c05a334b9d",
+    "yield_missingness_audit.csv": "7ce5a8a79c3def7fec6ab0b68ece741f54827d46545c767196f522bd102b9f67",
+    "prefit_label_quality_repair.json": "74e03e4733d4a84406324b6331701a23c83158566d290a2e733a221fd6863cdc"
+  },
+  "units": {
+    "yield": "t/ha",
+    "ndvi": "dimensionless",
+    "tmin/tmax/tavg": "C",
+    "vpd": "hPa",
+    "prec/et0/cwb": "mm/day",
+    "rad": "J/m2/day"
+  },
+  "independence": "Feature preparation does not join or score yields. Static2021 mask and latest source vintages disclosed.",
+  "upstream_code": "https://github.com/WUR-AI/AgML-CY-Bench/tree/main/data_preparation",
+  "version": "1.10",
+  "label_quality_rule": "Unsupported zero yield with both area and production missing becomesNaN, with rawsource and audit retained; see prefit_label_quality_repair.json. No outcome model fit occurred before this repair.",
+  "primary_source_manifest_sha256": "4874f01cebb784680073c48ac209d7b5634dfb7674e222dc50431a7bb06d42c3",
+  "secondary_horizon": "September15 noon; same fixed rules, includes April-August."
+}

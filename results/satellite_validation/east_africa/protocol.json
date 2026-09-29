@@ -1,0 +1,39 @@
+{
+  "frozen_at_utc": "2026-09-27T02:52:33.089287+00:00",
+  "outcome_values_inspected_before_freeze": false,
+  "hypothesis": "September Indian Ocean Dipole and ENSO have established physical influence on East African short rains; predict future November-December rainfall, not economic output or market return.",
+  "region": {
+    "name": "Kenya-centered rectangular land region, not exact national boundaries",
+    "south": -5,
+    "north": 5,
+    "west": 34,
+    "east": 42
+  },
+  "target": "Cos(latitude) area-weighted mean GPCC gauge-only monitoring monthly land precipitation, November plus December in mm; current archive v2020 at NOAA PSL; 1982-2025. Missing months never zero-filled.",
+  "satellite": "NOAA OISST v2.1 September-only mean ocean SST: IOD west10S-10N50-70E minus east10S-0N90-110E, plus Nino3.4 5S-5N170-120W. Exact coordinate-center bounds, cosine-latitude weights. Satellite-enhanced in-situ blend, not isolated satellite-only attribution.",
+  "forecast_issue": "October20 12:00UTC; target starts November1. No current partial September 2026 forecast: data incomplete at research date.",
+  "availability": {
+    "sst": "September30+20days at00UTC (17dayfinalization +3daybuffer), strictly before issue12UTC; archive vintage unverified",
+    "current_ground": "NOAA CPC Unified daily gauge-only August and September regional totals; end-of-month+10day availability assumption. Used because GPCC monitoring has 2month latency and cannot supply September controls at October20. Current archive revisions disclosed.",
+    "target_labels": "Each December31+90days; never current target available before issue. Prior-season same release rule."
+  },
+  "training": "Expanding1982 to forecastyear-1, minimum17 fully observed trainingrows. First complete row expected1983 because GPCC prior-season1981 unavailable. Training-only standardization. All models share eligible support.",
+  "test": "Every year1999-2025 inclusive; expected1999 abstention for fewer17 trainingrows, so26 forecasts2000-2025. Any additional source missingness explicitly abstains, no horizon extension or row selection.",
+  "models": {
+    "baseline": "Intercept plus yeartrend, prior Nov-Dec GPCC rainfall, current August CPC gauge rainfall, current September CPC gauge rainfall. Fixed ridge alpha5, training mean/std, unpenalized intercept. Clip prediction at0.",
+    "satellite": "Same four baseline predictors plus September IOD west-east SST difference and September Nino3.4 SST; same fixed ridge alpha5.",
+    "climatology": "All past training target mean",
+    "recent_climatology": "Last10 complete training years mean",
+    "persistence": "Previous year Nov-Dec GPCC rainfall"
+  },
+  "uncertainty": "Paired circular5year block bootstrap10000draws seed20260927, preserve calendar gaps, report all baselines.",
+  "gate": "Satellite RMSE at least5%below strongest of four baseline RMSEs; lower MAE and positive95%RMSE-gain lower bound versus each baseline. No geographic, target, month, parameter or baseline search after observing outcomes.",
+  "source_quality": "Gauge-only target independent of satellite SST. Ground network coverage/interpolation and archive revisions may affect values. GPCC and CPC share some gauges, acceptable for ground baseline. OISST blended in-situ; original vintages unverified.",
+  "claim_limits": [
+    "Risk forecast of regional rainfall only, not crop/hydropower production or trading alpha",
+    "Known consensus relationship, no superiority to official forecast claimed",
+    "Region/mechanism selected after other failed satellite studies; no familywise correction",
+    "Current archived datasets, no historical release reconstruction",
+    "No tuning or alternative box/target after first result"
+  ]
+}

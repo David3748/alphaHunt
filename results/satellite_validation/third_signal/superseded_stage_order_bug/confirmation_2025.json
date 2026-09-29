@@ -1,0 +1,52 @@
+{
+  "crop": "wheat",
+  "gates": {
+    "beats_prior_year_ndvi_rmse": false,
+    "improves_weather_rmse": false
+  },
+  "improvement_vs_weather_pct": -15.457183736760992,
+  "independent_years": 1,
+  "inference": "Descriptive single-year confirmation only. No pooled p-value or independent trade-alpha claim.",
+  "limitations": "Current audit did not inspect year-specific 2025 outcomes or features, and no new 2018\u20132024 model fit used 2025. However, inherited full-period 2011\u20132025 summary metrics had been read; therefore not a pristine untouched holdout.",
+  "metrics": [
+    {
+      "available_date": "2025-08-17",
+      "mae_anomaly_pct": 11.434313130620698,
+      "model": "ndvi_only",
+      "n": 12,
+      "rmse_anomaly_pct": 13.803405576898294
+    },
+    {
+      "available_date": "2025-08-17",
+      "mae_anomaly_pct": 6.583503465408364,
+      "model": "trend",
+      "n": 12,
+      "rmse_anomaly_pct": 8.241939469187285
+    },
+    {
+      "available_date": "2025-08-17",
+      "mae_anomaly_pct": 8.047966626849751,
+      "model": "weather_only",
+      "n": 12,
+      "rmse_anomaly_pct": 9.787917964547228
+    },
+    {
+      "available_date": "2025-08-17",
+      "mae_anomaly_pct": 9.397236789888048,
+      "model": "weather_plus_ndvi",
+      "n": 12,
+      "rmse_anomaly_pct": 11.30085442833073
+    },
+    {
+      "available_date": "2025-08-17",
+      "mae_anomaly_pct": 8.524356308804586,
+      "model": "weather_plus_prior_year_ndvi",
+      "n": 12,
+      "rmse_anomaly_pct": 10.083924344028945
+    }
+  ],
+  "protocol_sha256": "5962701971f0725fb7f837b570c734c6b7c756bf6e1940258ef1db9e01483b5c",
+  "stage": "heading",
+  "status": "selected_secondary_confirmation_fail",
+  "year": 2025
+}

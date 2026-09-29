@@ -1,0 +1,24 @@
+{
+  "crs": "PROJCS[\"unnamed\",GEOGCS[\"Unknown datum based upon the custom spheroid\",DATUM[\"Not specified (based on custom spheroid)\",SPHEROID[\"Custom spheroid\",6371007.181,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Sinusoidal\"],PARAMETER[\"longitude_of_center\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+  "transform": [
+    463.31271652791725,
+    0.0,
+    -11119505.196667,
+    0.0,
+    -463.3127165279167,
+    4447802.078667,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "window": [
+    1041,
+    542,
+    351,
+    188
+  ],
+  "basin_pixels": 20267,
+  "pixel_size_m": 463.31271652791725,
+  "polygon_sha256": "d8fe9c31143587feff9c820b309e6994200348fc437fb4aed16271d7ceeac243",
+  "pixel_rule": "Pixel center within authoritative basin; equal-area sinusoidal grid"
+}

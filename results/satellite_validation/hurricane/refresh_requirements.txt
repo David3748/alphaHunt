@@ -1,0 +1,4 @@
+numpy>=2,<3
+pandas>=2,<4
+requests>=2.31
+h5py>=3.10

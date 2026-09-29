@@ -1,0 +1,8 @@
+{
+  "frozen_at_utc": "2026-09-27T02:59:09.414372+00:00",
+  "source_sha256": "c489a8e10d68863a35d339e368dfb693c3da156636d6117a54cc8d2d1c5bb986",
+  "protocol_sha256": "9d4d595000b9cf92b2a10f9e7d8a62d36917ca8f3cb651be1619b645bb8c77ce",
+  "tests_passed_before_fit": 8,
+  "forecast_metrics_inspected": false,
+  "source_retrieval_note": "NOAA NCSS disk-full failure; same fixed source files/coordinates obtained using OPeNDAP without server temporary files; no target or formula change."
+}

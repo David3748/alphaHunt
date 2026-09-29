@@ -1,0 +1,164 @@
+{
+  "status": "evaluated",
+  "evaluated_years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "n_evaluation": 15,
+  "models": {
+    "weather_flow": {
+      "rmse_af": 610321.5568733047,
+      "mae_af": 388964.30686048314
+    },
+    "weather_flow_snow": {
+      "rmse_af": 618361.7394356695,
+      "mae_af": 393089.43070778303
+    },
+    "climatology": {
+      "rmse_af": 896541.8972853237,
+      "mae_af": 754765.8137028844
+    },
+    "persistence": {
+      "rmse_af": 1220744.637513978,
+      "mae_af": 968574.4666666667
+    }
+  },
+  "comparisons": {
+    "weather_flow": {
+      "rmse_reduction": -0.013173682744478166,
+      "mae_reduction": -0.010605404595078971,
+      "rmse_reduction_ci95": [
+        -0.13653387312272247,
+        0.09156358541684839
+      ]
+    },
+    "climatology": {
+      "rmse_reduction": 0.3102812692769489,
+      "mae_reduction": 0.4791902023499387,
+      "rmse_reduction_ci95": [
+        -0.02432151021731604,
+        0.7158488262128173
+      ]
+    },
+    "persistence": {
+      "rmse_reduction": 0.4934552891463436,
+      "mae_reduction": 0.5941567280205167,
+      "rmse_reduction_ci95": [
+        0.2013631686396461,
+        0.7949339898769687
+      ]
+    }
+  },
+  "frozen_gate_passed": false,
+  "claims": "Current-vintage chronological scientific forecast study only; no first-release availability or market-alpha verification.",
+  "abstentions": [
+    {
+      "year": 2000,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2001,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2002,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2003,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2004,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2005,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2006,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2007,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2008,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2009,
+      "reason": "Fewer than ten prior eligible training years"
+    },
+    {
+      "year": 2025,
+      "reason": "Missing feature or insufficient snow pixel coverage"
+    }
+  ],
+  "ground_swe_diagnostic": {
+    "n_evaluation": 13,
+    "evaluated_years": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2024
+    ],
+    "models": {
+      "weather_flow": {
+        "rmse_af": 664623.695931778,
+        "mae_af": 430559.2655317002
+      },
+      "weather_flow_snow": {
+        "rmse_af": 588498.280976687,
+        "mae_af": 382169.12558605237
+      },
+      "weather_flow_swe": {
+        "rmse_af": 627141.9231938632,
+        "mae_af": 415644.3912116177
+      },
+      "weather_flow_swe_snow": {
+        "rmse_af": 597210.375998695,
+        "mae_af": 384799.3099336951
+      }
+    },
+    "rmse_reduction_vs_ground_swe": 0.047726911705623154,
+    "mae_reduction_vs_ground_swe": 0.07421026706990574,
+    "rmse_reduction_ci95": [
+      -0.15173894062261636,
+      0.12621718142861635
+    ],
+    "limitation": "Matched training and test support; one upper-basin ground SWE station is not official basin-wide DWR forecasting skill."
+  },
+  "input_sha256": {
+    "annual_snow.csv": "b118ee533817aa3a7e44123b4cd51ace6373f1b552d94b07eb509c668e1ece77",
+    "ground/winter_ground.csv": "d3a0d953a5af2fad0e0bd9d91053d7844abf7d696eb5e181f9b486bb32113223",
+    "sbf_monthly_fnf.csv": "55f010ab53289fda0dd1c6d9333f6698379f08e2c467776acc69a2b2c57fc101",
+    "protocol.json": "28c346fa351b93642e229e205300f9cb2580e55b4bf4383bd9db9de7ed85381b",
+    "protocol_addendum.json": "f997a26144f6f9c8282b8fbae43f1be15d763c97437956fea965177f2a1e5383"
+  },
+  "code_sha256": "9a5daccaec352f7113fc50968456f469a92f26d6e841b3300e53cc9ba060278e"
+}

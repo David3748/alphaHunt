@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "path": "five_station_monthly_2026.csv",
+      "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=5SI&SensorNums=2&dur_code=M&Start=2025-10-01&End=2026-03-31",
+      "sha256": "40b048a64ab87e22c095a278535f4339a44b3833143cbd3eead1ea08698c8049",
+      "retrieved_at": "2026-09-27T02:50:10.821317+00:00"
+    },
+    {
+      "path": "huntington_swe_2026.csv",
+      "url": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=HNT&SensorNums=3&dur_code=D&Start=2026-03-01&End=2026-03-31",
+      "sha256": "ee2afbd6846bd90561cc7a1240dfb9a06ea4efec972dd35b5c61ce06581c9b07",
+      "retrieved_at": "2026-09-27T02:50:12.177660+00:00"
+    }
+  ],
+  "outcomes_read": false,
+  "selection": "Identical frozen 5SI precipitation and HNT March29\u201331 SWE rules; April15 nominal issue (14daybuffer); original current-vintage caveat remains.",
+  "feature_sha256": "239cbe038ea515e69ed817376fec24a71f77f4d0820587a91e9e5607632b7a45"
+}

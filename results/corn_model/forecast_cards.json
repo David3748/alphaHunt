@@ -1,0 +1,1474 @@
+[
+  {
+    "year": 2013,
+    "forecast_at": "2013-08-15T12:00:00+00:00",
+    "target_month": "2013-09",
+    "usda_report_date": "2013-08-12",
+    "usda_published_at": "2013-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 154.4,
+    "harvested_area_m_acres": 89.1,
+    "coverage": 0.815662145617,
+    "prior_area_footprint": 0.7893579815952168,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [],
+    "training_rows": 0,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2013,
+    "forecast_at": "2013-09-15T12:00:00+00:00",
+    "target_month": "2013-10",
+    "usda_report_date": "2013-09-12",
+    "usda_published_at": "2013-09-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 155.3,
+    "harvested_area_m_acres": 89.1,
+    "coverage": 0.815738997345,
+    "prior_area_footprint": 0.7894323549431823,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [],
+    "training_rows": 0,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2014,
+    "forecast_at": "2014-08-15T12:00:00+00:00",
+    "target_month": "2014-09",
+    "usda_report_date": "2014-08-12",
+    "usda_published_at": "2014-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 167.4,
+    "harvested_area_m_acres": 83.8,
+    "coverage": 0.99381766142,
+    "prior_area_footprint": 0.9170652604180105,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013
+    ],
+    "training_rows": 1,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2014,
+    "forecast_at": "2014-09-15T12:00:00+00:00",
+    "target_month": "2014-10",
+    "usda_report_date": "2014-09-11",
+    "usda_published_at": "2014-09-11T16:00:00+00:00",
+    "usda_yield_bu_acre": 171.7,
+    "harvested_area_m_acres": 83.8,
+    "coverage": 0.99381766142,
+    "prior_area_footprint": 0.9170652604180105,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013
+    ],
+    "training_rows": 1,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2015,
+    "forecast_at": "2015-08-15T12:00:00+00:00",
+    "target_month": "2015-09",
+    "usda_report_date": "2015-08-12",
+    "usda_published_at": "2015-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 168.8,
+    "harvested_area_m_acres": 81.1,
+    "coverage": 0.992827642977,
+    "prior_area_footprint": 0.9207950020772242,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013,
+      2014
+    ],
+    "training_rows": 3,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2015,
+    "forecast_at": "2015-09-15T12:00:00+00:00",
+    "target_month": "2015-10",
+    "usda_report_date": "2015-09-11",
+    "usda_published_at": "2015-09-11T16:00:00+00:00",
+    "usda_yield_bu_acre": 167.5,
+    "harvested_area_m_acres": 81.1,
+    "coverage": 0.995542125011,
+    "prior_area_footprint": 0.9233125402500818,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013,
+      2014
+    ],
+    "training_rows": 3,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2016,
+    "forecast_at": "2016-08-15T12:00:00+00:00",
+    "target_month": "2016-09",
+    "usda_report_date": "2016-08-12",
+    "usda_published_at": "2016-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 175.1,
+    "harvested_area_m_acres": 86.6,
+    "coverage": 0.998255304575,
+    "prior_area_footprint": 0.898977618420507,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013,
+      2014,
+      2015
+    ],
+    "training_rows": 5,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2016,
+    "forecast_at": "2016-09-15T12:00:00+00:00",
+    "target_month": "2016-10",
+    "usda_report_date": "2016-09-12",
+    "usda_published_at": "2016-09-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 174.4,
+    "harvested_area_m_acres": 86.6,
+    "coverage": 0.998255304575,
+    "prior_area_footprint": 0.898977618420507,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013,
+      2014,
+      2015
+    ],
+    "training_rows": 5,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2017,
+    "forecast_at": "2017-08-15T12:00:00+00:00",
+    "target_month": "2017-09",
+    "usda_report_date": "2017-08-10",
+    "usda_published_at": "2017-08-10T16:00:00+00:00",
+    "usda_yield_bu_acre": 169.5,
+    "harvested_area_m_acres": 83.5,
+    "coverage": 0.996248341562,
+    "prior_area_footprint": 0.9078598902954895,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016
+    ],
+    "training_rows": 7,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2017,
+    "forecast_at": "2017-09-15T12:00:00+00:00",
+    "target_month": "2017-10",
+    "usda_report_date": "2017-09-12",
+    "usda_published_at": "2017-09-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 169.9,
+    "harvested_area_m_acres": 83.5,
+    "coverage": 0.996248341562,
+    "prior_area_footprint": 0.9078598902954895,
+    "status": "abstain",
+    "reason": "Need at least five prior harvest years and eight released calibration outcomes",
+    "models": {},
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016
+    ],
+    "training_rows": 7,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2018,
+    "forecast_at": "2018-08-15T12:00:00+00:00",
+    "target_month": "2018-09",
+    "usda_report_date": "2018-08-10",
+    "usda_published_at": "2018-08-10T16:00:00+00:00",
+    "usda_yield_bu_acre": 178.4,
+    "harvested_area_m_acres": 81.8,
+    "coverage": 0.97982849903,
+    "prior_area_footprint": 0.8952370812436987,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 178.4,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 14586.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 1684.0,
+        "conditional_stocks_to_use": 0.11241655540720961,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 179.12,
+        "predicted_revision_bu_acre": 0.7199999999999989,
+        "conditional_production_m_bu": 14644.896,
+        "conditional_production_change_m_bu": 58.89599999999991,
+        "conditional_ending_stocks_m_bu": 1742.896,
+        "conditional_stocks_to_use": 0.11634819759679572,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 179.28262996746983,
+        "predicted_revision_bu_acre": 0.8826299674698289,
+        "conditional_production_m_bu": 14658.199131339032,
+        "conditional_production_change_m_bu": 72.19913133903201,
+        "conditional_ending_stocks_m_bu": 1756.199131339032,
+        "conditional_stocks_to_use": 0.11723625709873378,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.9346420024416116,
+            0.4444444444444444
+          ],
+          "training_scales": [
+            4.298189855161581,
+            0.4969039949999533
+          ],
+          "standardized_coefficients": [
+            0.2613033918041384,
+            0.06736485091546615
+          ],
+          "intercept_revision_bu_acre": 0.8333333333333334
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 179.2577446046371,
+        "predicted_revision_bu_acre": 0.8577446046371027,
+        "conditional_production_m_bu": 14656.163508659314,
+        "conditional_production_change_m_bu": 70.163508659315,
+        "conditional_ending_stocks_m_bu": 1754.163508659315,
+        "conditional_stocks_to_use": 0.1171003677342667,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.9346420024416116,
+            0.4444444444444444,
+            0.5096937115888215
+          ],
+          "training_scales": [
+            4.298189855161581,
+            0.4969039949999533,
+            0.493020301226848
+          ],
+          "standardized_coefficients": [
+            0.2541445502570239,
+            0.07017809164210047,
+            -0.021907301265223986
+          ],
+          "intercept_revision_bu_acre": 0.8333333333333334
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017
+    ],
+    "training_rows": 9,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2018,
+    "forecast_at": "2018-09-15T12:00:00+00:00",
+    "target_month": "2018-10",
+    "usda_report_date": "2018-09-12",
+    "usda_published_at": "2018-09-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 181.3,
+    "harvested_area_m_acres": 81.8,
+    "coverage": 0.85797839767,
+    "prior_area_footprint": 0.7839066502564432,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 181.3,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 14827.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 1774.0,
+        "conditional_stocks_to_use": 0.11744455478318437,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 182.275,
+        "predicted_revision_bu_acre": 0.9750000000000014,
+        "conditional_production_m_bu": 14906.755000000001,
+        "conditional_production_change_m_bu": 79.75500000000011,
+        "conditional_ending_stocks_m_bu": 1853.755,
+        "conditional_stocks_to_use": 0.12272459450513076,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 182.3284094459479,
+        "predicted_revision_bu_acre": 1.0284094459478963,
+        "conditional_production_m_bu": 14911.123892678537,
+        "conditional_production_change_m_bu": 84.12389267853791,
+        "conditional_ending_stocks_m_bu": 1858.123892678538,
+        "conditional_stocks_to_use": 0.12301382937295849,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.9346420024416116,
+            0.4444444444444444
+          ],
+          "training_scales": [
+            4.298189855161581,
+            0.4969039949999533
+          ],
+          "standardized_coefficients": [
+            0.2613033918041384,
+            0.06736485091546615
+          ],
+          "intercept_revision_bu_acre": 0.8333333333333334
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 182.33502549080833,
+        "predicted_revision_bu_acre": 1.03502549080831,
+        "conditional_production_m_bu": 14911.665085148119,
+        "conditional_production_change_m_bu": 84.66508514811976,
+        "conditional_ending_stocks_m_bu": 1858.6650851481197,
+        "conditional_stocks_to_use": 0.12304965807005096,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.9346420024416116,
+            0.4444444444444444,
+            0.5096937115888215
+          ],
+          "training_scales": [
+            4.298189855161581,
+            0.4969039949999533,
+            0.493020301226848
+          ],
+          "standardized_coefficients": [
+            0.2541445502570239,
+            0.07017809164210047,
+            -0.021907301265223986
+          ],
+          "intercept_revision_bu_acre": 0.8333333333333334
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017
+    ],
+    "training_rows": 9,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2019,
+    "forecast_at": "2019-08-15T12:00:00+00:00",
+    "target_month": "2019-09",
+    "usda_report_date": "2019-08-12",
+    "usda_published_at": "2019-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 169.5,
+    "harvested_area_m_acres": 82.0,
+    "coverage": 0.997118051908,
+    "prior_area_footprint": 0.8376836969241347,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 169.5,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 13901.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 2181.0,
+        "conditional_stocks_to_use": 0.1543524416135881,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 170.58333333333334,
+        "predicted_revision_bu_acre": 1.0833333333333333,
+        "conditional_production_m_bu": 13989.833333333334,
+        "conditional_production_change_m_bu": 88.83333333333333,
+        "conditional_ending_stocks_m_bu": 2269.8333333333335,
+        "conditional_stocks_to_use": 0.16063930172210428,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 170.32075251478008,
+        "predicted_revision_bu_acre": 0.820752514780074,
+        "conditional_production_m_bu": 13968.301706211965,
+        "conditional_production_change_m_bu": 67.30170621196608,
+        "conditional_ending_stocks_m_bu": 2248.301706211966,
+        "conditional_stocks_to_use": 0.15911547814663596,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            4.277543929183553,
+            0.45454545454545453
+          ],
+          "training_scales": [
+            3.955483232249338,
+            0.49792959773196915
+          ],
+          "standardized_coefficients": [
+            0.2610228364345657,
+            -0.10482814980857455
+          ],
+          "intercept_revision_bu_acre": 0.8909090909090893
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 169.7929050007117,
+        "predicted_revision_bu_acre": 0.2929050007116919,
+        "conditional_production_m_bu": 13925.018210058359,
+        "conditional_production_change_m_bu": 24.018210058358736,
+        "conditional_ending_stocks_m_bu": 2205.018210058359,
+        "conditional_stocks_to_use": 0.15605224416548893,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            4.277543929183553,
+            0.45454545454545453,
+            0.5355048433555324
+          ],
+          "training_scales": [
+            3.955483232249338,
+            0.49792959773196915,
+            0.4664530976079681
+          ],
+          "standardized_coefficients": [
+            0.3042597757303618,
+            -0.11350525715656777,
+            0.13028535206084954
+          ],
+          "intercept_revision_bu_acre": 0.8909090909090893
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018
+    ],
+    "training_rows": 11,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2019,
+    "forecast_at": "2019-09-15T12:00:00+00:00",
+    "target_month": "2019-10",
+    "usda_report_date": "2019-09-12",
+    "usda_published_at": "2019-09-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 168.2,
+    "harvested_area_m_acres": 82.0,
+    "coverage": 0.997118051908,
+    "prior_area_footprint": 0.8376836969241347,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 168.2,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 13799.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 2190.0,
+        "conditional_stocks_to_use": 0.1552640907479617,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 168.85999999999999,
+        "predicted_revision_bu_acre": 0.6599999999999966,
+        "conditional_production_m_bu": 13853.119999999999,
+        "conditional_production_change_m_bu": 54.11999999999972,
+        "conditional_ending_stocks_m_bu": 2244.12,
+        "conditional_stocks_to_use": 0.1591010280042538,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 168.8733182617697,
+        "predicted_revision_bu_acre": 0.6733182617697051,
+        "conditional_production_m_bu": 13854.212097465115,
+        "conditional_production_change_m_bu": 55.21209746511582,
+        "conditional_ending_stocks_m_bu": 2245.2120974651157,
+        "conditional_stocks_to_use": 0.15917845426906171,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            4.277543929183553,
+            0.45454545454545453
+          ],
+          "training_scales": [
+            3.955483232249338,
+            0.49792959773196915
+          ],
+          "standardized_coefficients": [
+            0.2610228364345657,
+            -0.10482814980857455
+          ],
+          "intercept_revision_bu_acre": 0.8909090909090893
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 168.41343894238938,
+        "predicted_revision_bu_acre": 0.21343894238938754,
+        "conditional_production_m_bu": 13816.50199327593,
+        "conditional_production_change_m_bu": 17.501993275929777,
+        "conditional_ending_stocks_m_bu": 2207.5019932759296,
+        "conditional_stocks_to_use": 0.1565049268540184,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            4.277543929183553,
+            0.45454545454545453,
+            0.5355048433555324
+          ],
+          "training_scales": [
+            3.955483232249338,
+            0.49792959773196915,
+            0.4664530976079681
+          ],
+          "standardized_coefficients": [
+            0.3042597757303618,
+            -0.11350525715656777,
+            0.13028535206084954
+          ],
+          "intercept_revision_bu_acre": 0.8909090909090893
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018
+    ],
+    "training_rows": 11,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2020,
+    "forecast_at": "2020-08-15T12:00:00+00:00",
+    "target_month": "2020-09",
+    "usda_report_date": "2020-08-12",
+    "usda_published_at": "2020-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 181.8,
+    "harvested_area_m_acres": 84.0,
+    "coverage": 0.9981880328,
+    "prior_area_footprint": 0.7710649938647118,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 181.8,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 15278.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 2756.0,
+        "conditional_stocks_to_use": 0.18653130287648054,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 182.54285714285714,
+        "predicted_revision_bu_acre": 0.7428571428571412,
+        "conditional_production_m_bu": 15340.4,
+        "conditional_production_change_m_bu": 62.399999999999864,
+        "conditional_ending_stocks_m_bu": 2818.3999999999996,
+        "conditional_stocks_to_use": 0.1907546531302876,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 182.21737791537146,
+        "predicted_revision_bu_acre": 0.41737791537145846,
+        "conditional_production_m_bu": 15313.059744891203,
+        "conditional_production_change_m_bu": 35.05974489120251,
+        "conditional_ending_stocks_m_bu": 2791.0597448912026,
+        "conditional_stocks_to_use": 0.18890421285219647,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.964433575918665,
+            0.46153846153846156
+          ],
+          "training_scales": [
+            3.716606394559517,
+            0.49851851526214314
+          ],
+          "standardized_coefficients": [
+            0.32173007270997245,
+            -0.04069418656652762
+          ],
+          "intercept_revision_bu_acre": 0.6692307692307684
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 182.57853062606327,
+        "predicted_revision_bu_acre": 0.7785306260632701,
+        "conditional_production_m_bu": 15343.396572589314,
+        "conditional_production_change_m_bu": 65.39657258931469,
+        "conditional_ending_stocks_m_bu": 2821.3965725893145,
+        "conditional_stocks_to_use": 0.1909574668419164,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.964433575918665,
+            0.46153846153846156,
+            0.2761716184345924
+          ],
+          "training_scales": [
+            3.716606394559517,
+            0.49851851526214314,
+            0.7461697658218382
+          ],
+          "standardized_coefficients": [
+            0.35483352065625845,
+            -0.05319072584029417,
+            0.3040336348033049
+          ],
+          "intercept_revision_bu_acre": 0.6692307692307684
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019
+    ],
+    "training_rows": 13,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2020,
+    "forecast_at": "2020-09-15T12:00:00+00:00",
+    "target_month": "2020-10",
+    "usda_report_date": "2020-09-11",
+    "usda_published_at": "2020-09-11T16:00:00+00:00",
+    "usda_yield_bu_acre": 178.5,
+    "harvested_area_m_acres": 83.5,
+    "coverage": 0.9981880328,
+    "prior_area_footprint": 0.7710649938647118,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 178.5,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 14900.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 2503.0,
+        "conditional_stocks_to_use": 0.17056218057921635,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 179.08333333333334,
+        "predicted_revision_bu_acre": 0.5833333333333334,
+        "conditional_production_m_bu": 14948.708333333334,
+        "conditional_production_change_m_bu": 48.708333333333336,
+        "conditional_ending_stocks_m_bu": 2551.7083333333335,
+        "conditional_stocks_to_use": 0.17388131743327656,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 178.81310613410363,
+        "predicted_revision_bu_acre": 0.31310613410363014,
+        "conditional_production_m_bu": 14926.144362197652,
+        "conditional_production_change_m_bu": 26.144362197653116,
+        "conditional_ending_stocks_m_bu": 2529.144362197653,
+        "conditional_stocks_to_use": 0.17234373848024895,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.964433575918665,
+            0.46153846153846156
+          ],
+          "training_scales": [
+            3.716606394559517,
+            0.49851851526214314
+          ],
+          "standardized_coefficients": [
+            0.32173007270997245,
+            -0.04069418656652762
+          ],
+          "intercept_revision_bu_acre": 0.6692307692307684
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 178.7888797566994,
+        "predicted_revision_bu_acre": 0.2888797566993985,
+        "conditional_production_m_bu": 14924.1214596844,
+        "conditional_production_change_m_bu": 24.121459684399778,
+        "conditional_ending_stocks_m_bu": 2527.1214596843997,
+        "conditional_stocks_to_use": 0.1722058916309642,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.964433575918665,
+            0.46153846153846156,
+            0.2761716184345924
+          ],
+          "training_scales": [
+            3.716606394559517,
+            0.49851851526214314,
+            0.7461697658218382
+          ],
+          "standardized_coefficients": [
+            0.35483352065625845,
+            -0.05319072584029417,
+            0.3040336348033049
+          ],
+          "intercept_revision_bu_acre": 0.6692307692307684
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019
+    ],
+    "training_rows": 13,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2021,
+    "forecast_at": "2021-08-15T12:00:00+00:00",
+    "target_month": "2021-09",
+    "usda_report_date": "2021-08-12",
+    "usda_published_at": "2021-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 174.6,
+    "harvested_area_m_acres": 84.5,
+    "coverage": 0.997407807209,
+    "prior_area_footprint": 0.950448265019857,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 174.6,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 14750.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 1242.0,
+        "conditional_stocks_to_use": 0.08477815699658703,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 174.83749999999998,
+        "predicted_revision_bu_acre": 0.23749999999999716,
+        "conditional_production_m_bu": 14770.06875,
+        "conditional_production_change_m_bu": 20.06874999999976,
+        "conditional_ending_stocks_m_bu": 1262.0687499999997,
+        "conditional_stocks_to_use": 0.08614803754266209,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 174.98986010676902,
+        "predicted_revision_bu_acre": 0.38986010676902577,
+        "conditional_production_m_bu": 14782.943179021982,
+        "conditional_production_change_m_bu": 32.94317902198268,
+        "conditional_ending_stocks_m_bu": 1274.9431790219826,
+        "conditional_stocks_to_use": 0.0870268381584971,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.501048124394905,
+            0.4666666666666667
+          ],
+          "training_scales": [
+            3.656420087504093,
+            0.4988876515698588
+          ],
+          "standardized_coefficients": [
+            0.4546190996590701,
+            0.08353052483195886
+          ],
+          "intercept_revision_bu_acre": 0.3533333333333322
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 175.0553759590437,
+        "predicted_revision_bu_acre": 0.45537595904368844,
+        "conditional_production_m_bu": 14788.479268539191,
+        "conditional_production_change_m_bu": 38.47926853919167,
+        "conditional_ending_stocks_m_bu": 1280.4792685391917,
+        "conditional_stocks_to_use": 0.08740472822793117,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.501048124394905,
+            0.4666666666666667,
+            0.34174295328025567
+          ],
+          "training_scales": [
+            3.656420087504093,
+            0.4988876515698588,
+            0.7322639086483146
+          ],
+          "standardized_coefficients": [
+            0.4736252256718287,
+            0.08451865575406607,
+            0.1293214842445825
+          ],
+          "intercept_revision_bu_acre": 0.3533333333333322
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "training_rows": 15,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2021,
+    "forecast_at": "2021-09-15T12:00:00+00:00",
+    "target_month": "2021-10",
+    "usda_report_date": "2021-09-10",
+    "usda_published_at": "2021-09-10T16:00:00+00:00",
+    "usda_yield_bu_acre": 176.3,
+    "harvested_area_m_acres": 85.1,
+    "coverage": 0.997273351042,
+    "prior_area_footprint": 0.9503201392621494,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 176.3,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 14996.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 1408.0,
+        "conditional_stocks_to_use": 0.09513513513513513,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 176.7857142857143,
+        "predicted_revision_bu_acre": 0.48571428571428654,
+        "conditional_production_m_bu": 15037.334285714285,
+        "conditional_production_change_m_bu": 41.334285714285784,
+        "conditional_ending_stocks_m_bu": 1449.3342857142857,
+        "conditional_stocks_to_use": 0.09792799227799227,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 176.76445281532799,
+        "predicted_revision_bu_acre": 0.46445281532798083,
+        "conditional_production_m_bu": 15035.524934584411,
+        "conditional_production_change_m_bu": 39.52493458441116,
+        "conditional_ending_stocks_m_bu": 1447.524934584411,
+        "conditional_stocks_to_use": 0.09780573882327102,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.501048124394905,
+            0.4666666666666667
+          ],
+          "training_scales": [
+            3.656420087504093,
+            0.4988876515698588
+          ],
+          "standardized_coefficients": [
+            0.4546190996590701,
+            0.08353052483195886
+          ],
+          "intercept_revision_bu_acre": 0.3533333333333322
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 176.85473208752987,
+        "predicted_revision_bu_acre": 0.5547320875298488,
+        "conditional_production_m_bu": 15043.20770064879,
+        "conditional_production_change_m_bu": 47.20770064879013,
+        "conditional_ending_stocks_m_bu": 1455.20770064879,
+        "conditional_stocks_to_use": 0.09832484463843176,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.501048124394905,
+            0.4666666666666667,
+            0.34174295328025567
+          ],
+          "training_scales": [
+            3.656420087504093,
+            0.4988876515698588,
+            0.7322639086483146
+          ],
+          "standardized_coefficients": [
+            0.4736252256718287,
+            0.08451865575406607,
+            0.1293214842445825
+          ],
+          "intercept_revision_bu_acre": 0.3533333333333322
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "training_rows": 15,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2022,
+    "forecast_at": "2022-08-15T12:00:00+00:00",
+    "target_month": "2022-09",
+    "usda_report_date": "2022-08-12",
+    "usda_published_at": "2022-08-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 175.4,
+    "harvested_area_m_acres": 81.8,
+    "coverage": 0.997894531279,
+    "prior_area_footprint": 0.7970362394134767,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 175.4,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 14359.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 1388.0,
+        "conditional_stocks_to_use": 0.0955593803786575,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 175.8,
+        "predicted_revision_bu_acre": 0.39999999999999936,
+        "conditional_production_m_bu": 14391.72,
+        "conditional_production_change_m_bu": 32.71999999999995,
+        "conditional_ending_stocks_m_bu": 1420.72,
+        "conditional_stocks_to_use": 0.09781204819277109,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 174.9943176239276,
+        "predicted_revision_bu_acre": -0.40568237607239804,
+        "conditional_production_m_bu": 14325.815181637277,
+        "conditional_production_change_m_bu": -33.18481836272216,
+        "conditional_ending_stocks_m_bu": 1354.8151816372779,
+        "conditional_stocks_to_use": 0.09327471130032894,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.565619686287,
+            0.47058823529411764
+          ],
+          "training_scales": [
+            3.4415412882998115,
+            0.4991341984846218
+          ],
+          "standardized_coefficients": [
+            0.45857516079725225,
+            0.02824196151405436
+          ],
+          "intercept_revision_bu_acre": 0.4235294117647052
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 174.96798341478322,
+        "predicted_revision_bu_acre": -0.4320165852167856,
+        "conditional_production_m_bu": 14323.661043329266,
+        "conditional_production_change_m_bu": -35.33895667073306,
+        "conditional_ending_stocks_m_bu": 1352.661043329267,
+        "conditional_stocks_to_use": 0.09312640573695469,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.565619686287,
+            0.47058823529411764,
+            0.391690614359311
+          ],
+          "training_scales": [
+            3.4415412882998115,
+            0.4991341984846218,
+            0.7017891940300609
+          ],
+          "standardized_coefficients": [
+            0.479553887913762,
+            0.02792999919838846,
+            0.14448504698985823
+          ],
+          "intercept_revision_bu_acre": 0.4235294117647052
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021
+    ],
+    "training_rows": 17,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2022,
+    "forecast_at": "2022-09-15T12:00:00+00:00",
+    "target_month": "2022-10",
+    "usda_report_date": "2022-09-12",
+    "usda_published_at": "2022-09-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 172.5,
+    "harvested_area_m_acres": 80.8,
+    "coverage": 0.997831342294,
+    "prior_area_footprint": 0.7969857692388441,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 172.5,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 13944.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 1219.0,
+        "conditional_stocks_to_use": 0.08539404553415061,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 172.95,
+        "predicted_revision_bu_acre": 0.4499999999999993,
+        "conditional_production_m_bu": 13980.36,
+        "conditional_production_change_m_bu": 36.35999999999994,
+        "conditional_ending_stocks_m_bu": 1255.36,
+        "conditional_stocks_to_use": 0.08794115586690017,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 172.16439315758348,
+        "predicted_revision_bu_acre": -0.33560684241652944,
+        "conditional_production_m_bu": 13916.882967132744,
+        "conditional_production_change_m_bu": -27.117032867255578,
+        "conditional_ending_stocks_m_bu": 1191.8829671327444,
+        "conditional_stocks_to_use": 0.08349442852068262,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            3.565619686287,
+            0.47058823529411764
+          ],
+          "training_scales": [
+            3.4415412882998115,
+            0.4991341984846218
+          ],
+          "standardized_coefficients": [
+            0.45857516079725225,
+            0.02824196151405436
+          ],
+          "intercept_revision_bu_acre": 0.4235294117647052
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 172.3401911068548,
+        "predicted_revision_bu_acre": -0.15980889314518848,
+        "conditional_production_m_bu": 13931.087441433869,
+        "conditional_production_change_m_bu": -12.912558566131228,
+        "conditional_ending_stocks_m_bu": 1206.0874414338687,
+        "conditional_stocks_to_use": 0.08448948801638309,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            3.565619686287,
+            0.47058823529411764,
+            0.391690614359311
+          ],
+          "training_scales": [
+            3.4415412882998115,
+            0.4991341984846218,
+            0.7017891940300609
+          ],
+          "standardized_coefficients": [
+            0.479553887913762,
+            0.02792999919838846,
+            0.14448504698985823
+          ],
+          "intercept_revision_bu_acre": 0.4235294117647052
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021
+    ],
+    "training_rows": 17,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2023,
+    "forecast_at": "2023-08-15T12:00:00+00:00",
+    "target_month": "2023-09",
+    "usda_report_date": "2023-08-11",
+    "usda_published_at": "2023-08-11T16:00:00+00:00",
+    "usda_yield_bu_acre": 175.1,
+    "harvested_area_m_acres": 86.3,
+    "coverage": 0.995028603209,
+    "prior_area_footprint": 0.897298374342037,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 175.1,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 15111.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 2202.0,
+        "conditional_stocks_to_use": 0.15302293259207783,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 175.17,
+        "predicted_revision_bu_acre": 0.06999999999999887,
+        "conditional_production_m_bu": 15117.041,
+        "conditional_production_change_m_bu": 6.040999999999902,
+        "conditional_ending_stocks_m_bu": 2208.0409999999997,
+        "conditional_stocks_to_use": 0.15344273801250866,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 175.14660189818352,
+        "predicted_revision_bu_acre": 0.046601898183523255,
+        "conditional_production_m_bu": 15115.021743813239,
+        "conditional_production_change_m_bu": 4.021743813238057,
+        "conditional_ending_stocks_m_bu": 2206.021743813238,
+        "conditional_stocks_to_use": 0.1533024144415037,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            2.936919440395576,
+            0.47368421052631576
+          ],
+          "training_scales": [
+            3.735968647139001,
+            0.4993069989739547
+          ],
+          "standardized_coefficients": [
+            0.6110579916133184,
+            0.10343682316545981
+          ],
+          "intercept_revision_bu_acre": 0.19473684210526257
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 175.244223771182,
+        "predicted_revision_bu_acre": 0.14422377118200644,
+        "conditional_production_m_bu": 15123.446511453007,
+        "conditional_production_change_m_bu": 12.446511453007155,
+        "conditional_ending_stocks_m_bu": 2214.446511453007,
+        "conditional_stocks_to_use": 0.1538878743191805,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            2.936919440395576,
+            0.47368421052631576,
+            0.4485236368504867
+          ],
+          "training_scales": [
+            3.735968647139001,
+            0.4993069989739547,
+            0.7024871176142958
+          ],
+          "standardized_coefficients": [
+            0.6396622869970572,
+            0.0960548975274964,
+            0.1443388593387743
+          ],
+          "intercept_revision_bu_acre": 0.19473684210526257
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022
+    ],
+    "training_rows": 19,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  },
+  {
+    "year": 2023,
+    "forecast_at": "2023-09-15T12:00:00+00:00",
+    "target_month": "2023-10",
+    "usda_report_date": "2023-09-12",
+    "usda_published_at": "2023-09-12T16:00:00+00:00",
+    "usda_yield_bu_acre": 173.8,
+    "harvested_area_m_acres": 87.1,
+    "coverage": 0.995028603209,
+    "prior_area_footprint": 0.897298374342037,
+    "status": "ready",
+    "reason": "",
+    "models": {
+      "usda": {
+        "predicted_yield_bu_acre": 173.8,
+        "predicted_revision_bu_acre": 0.0,
+        "conditional_production_m_bu": 15134.0,
+        "conditional_production_change_m_bu": 0.0,
+        "conditional_ending_stocks_m_bu": 2221.0,
+        "conditional_stocks_to_use": 0.15434329395413482,
+        "calibration": {}
+      },
+      "bias": {
+        "predicted_yield_bu_acre": 174.13333333333335,
+        "predicted_revision_bu_acre": 0.3333333333333333,
+        "conditional_production_m_bu": 15163.033333333333,
+        "conditional_production_change_m_bu": 29.03333333333333,
+        "conditional_ending_stocks_m_bu": 2250.0333333333333,
+        "conditional_stocks_to_use": 0.1563608987722956,
+        "calibration": {}
+      },
+      "weather": {
+        "predicted_yield_bu_acre": 174.08342444443994,
+        "predicted_revision_bu_acre": 0.283424444439934,
+        "conditional_production_m_bu": 15158.686269110718,
+        "conditional_production_change_m_bu": 24.686269110718246,
+        "conditional_ending_stocks_m_bu": 2245.686269110718,
+        "conditional_stocks_to_use": 0.15605880952819445,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september"
+          ],
+          "training_means": [
+            2.936919440395576,
+            0.47368421052631576
+          ],
+          "training_scales": [
+            3.735968647139001,
+            0.4993069989739547
+          ],
+          "standardized_coefficients": [
+            0.6110579916133184,
+            0.10343682316545981
+          ],
+          "intercept_revision_bu_acre": 0.19473684210526257
+        }
+      },
+      "satellite": {
+        "predicted_yield_bu_acre": 174.25420693757366,
+        "predicted_revision_bu_acre": 0.4542069375736434,
+        "conditional_production_m_bu": 15173.561424262665,
+        "conditional_production_change_m_bu": 39.56142426266434,
+        "conditional_ending_stocks_m_bu": 2260.5614242626643,
+        "conditional_stocks_to_use": 0.1570925242712067,
+        "calibration": {
+          "features": [
+            "weather_anomaly_bu_acre",
+            "is_september",
+            "ndvi_increment_bu_acre"
+          ],
+          "training_means": [
+            2.936919440395576,
+            0.47368421052631576,
+            0.4485236368504867
+          ],
+          "training_scales": [
+            3.735968647139001,
+            0.4993069989739547,
+            0.7024871176142958
+          ],
+          "standardized_coefficients": [
+            0.6396622869970572,
+            0.0960548975274964,
+            0.1443388593387743
+          ],
+          "intercept_revision_bu_acre": 0.19473684210526257
+        }
+      }
+    },
+    "training_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022
+    ],
+    "training_rows": 19,
+    "data_status": "Historical research inputs; county data are revised archives",
+    "original_vintage_operational_verification": false,
+    "trading_alpha_verified": false
+  }
+]

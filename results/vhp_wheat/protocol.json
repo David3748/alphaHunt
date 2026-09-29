@@ -1,0 +1,85 @@
+{
+  "created_at_utc": "2026-09-27T02:52:42.906679+00:00",
+  "status": "Frozen before any feature/outcome join or forecast metric",
+  "hypothesis": "March crop-masked smoothed NDVI and brightness temperature measure Texas winter-wheat condition, adding information beyond ground precipitation, temperature, technology trend and last yield.",
+  "spatial_crop_scope": "NOAA province44 Texas WHEA mask. No crop/state/window search. Current crop mask and reprocessing unknown.",
+  "satellite": {
+    "fields": [
+      "SMN",
+      "SMT"
+    ],
+    "weeks": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "aggregate": "arithmetic mean, require all five weeks",
+    "history": "1982\u20132025",
+    "latency_days": 56,
+    "last_week_end_rule": "January1 +13*7 days -1; conservative through April1 in leap years",
+    "available_date": "last_week_end+56days",
+    "excluded": "VCI,TCI,VHI normalized to future climatology"
+  },
+  "issue": "June15. Corrected from proposed June1 before fitting to allow May monthly ground data +14days. Before final annual yield, but harvest and USDA forecasts already underway.",
+  "ground_weather": {
+    "source": "NOAA NCEI Climate-at-a-Glance statewide Texas41 monthly ground station climate",
+    "period": "October prior calendar year through May current year",
+    "features": [
+      "sum_precip_inches",
+      "mean_temperature_F"
+    ],
+    "complete_required": 8,
+    "available_date": "May31+14days",
+    "vintage": "current archive, original releases unverified"
+  },
+  "labels": {
+    "source": "USDA NASS official QuickStats crops bulk20260926; survey,stateTexas,winterwheat,annual,total,allproductionpractices",
+    "primary": "yield_bushels_per_harvested_acre",
+    "secondary": "production_bushels / final_planted_acres (captures abandonment)",
+    "secondary_status": "Mechanistically specified before fit, report regardless of sign; not a rescue of primary. Final planted acreage is target normalization only, not current-year input. No claim of total production forecast without original contemporaneous planted-acreage forecasts.",
+    "assumed_available_date": "November1 harvest year; revised labels remain a vintage limitation"
+  },
+  "model": {
+    "form": "Ridge with intercept unpenalized, all predictors standardized using prior training rows only",
+    "alpha": 5.0,
+    "baseline": [
+      "year",
+      "prior_target",
+      "sum_precip_inches",
+      "mean_temperature_F"
+    ],
+    "satellite_add": [
+      "SMN",
+      "SMT"
+    ],
+    "other_comparators": [
+      "historical_mean",
+      "prior_target",
+      "trend",
+      "prior_year_satellite_placebo"
+    ],
+    "placebo": "same baseline plus prior-year MarchSMN/SMT; diagnostic predeclared, no model selection",
+    "minimum_training_years": 15,
+    "training": "expanding complete common support only; labels strictly prior and assumed released before issue",
+    "predictions": "unclipped linear output"
+  },
+  "evaluation": {
+    "years": [
+      2000,
+      2025
+    ],
+    "all_available": true,
+    "metrics": [
+      "RMSE",
+      "MAE",
+      "annual_win_fraction"
+    ],
+    "uncertainty": "10,000 paired circular two-calendar-year block bootstrap, seed20260927; gaps retained",
+    "gate": "primary satellite RMSE>=5%better,MAEbetter,and95%RMSEgainCI lower>0 versus ground-weather baseline; also point RMSE/MAE better than historical mean,persistence,trend; report placebo separately",
+    "minimum_heldout_years": 20,
+    "selection_caveat": "Exploratory candidate after many earlier failed satellite candidates; no family-wise significance claim. Official NASS May/June forecast comparator and original vintages required for market-value proof."
+  },
+  "prohibited": "No sweeps of horizon, crop, state, week window, model, ridge penalty or gate after outcomes; retain failed primary and secondary."
+}

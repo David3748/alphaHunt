@@ -1,0 +1,30 @@
+# Preserve source snapshots byte-for-byte for the committed SHA-256 manifests.
+# Upstream HTML, fixed-width observations and CSVs retain their original spacing.
+results/satellite_validation/**/inputs/** -text -whitespace
+results/satellite_validation/gas/ground_hdd/metadata/** -text -whitespace
+results/satellite_validation/gas/ground_hdd/raw/** -text -whitespace
+results/satellite_validation/gas/ground_hdd/monthly_hdd.csv -text -whitespace
+results/satellite_validation/snow/sbf_monthly_fnf.csv -text -whitespace
+results/satellite_validation/snow/sbf_station_metadata.html -text -whitespace
+
+# Additional original source snapshots: keep downloaded bytes and checksums.
+results/satellite_validation/**/metadata/** -text -whitespace
+results/satellite_validation/**/raw/** -text -whitespace
+results/satellite_validation/**/ground/**/raw/** -text -whitespace
+results/vhp_wheat/raw/** -text -whitespace
+results/vhp_wheat_panel/raw/** -text -whitespace
+results/satellite_validation/cybench_maize/source_quality/** -text -whitespace
+results/satellite_validation/goes_solar/reporting_frequency/evidence/** -text -whitespace
+results/satellite_validation/snow_daily/ground/*.csv -text -whitespace
+results/satellite_validation/snow_daily/ground/*.html -text -whitespace
+results/satellite_validation/snow_daily/ground/usgs_site.txt -text -whitespace
+results/satellite_validation/snow_daily/sbf_monthly_fnf.csv -text -whitespace
+results/satellite_validation/snow_kings/ground/*.csv -text -whitespace
+results/satellite_validation/snow_kings/ground/*.html -text -whitespace
+results/satellite_validation/snow_kings/kgf_monthly_fnf.csv -text -whitespace
+results/satellite_validation/snow_summer/sbf_monthly_fnf.csv -text -whitespace
+
+# Corn model snapshots retain the published bytes used by their source hashes.
+results/corn_model/inputs/** -text -whitespace
+results/satellite_ice_markets/raw/** -text -whitespace
+results/satellite_ice_markets/quote_replay_2025/raw/** -text -whitespace

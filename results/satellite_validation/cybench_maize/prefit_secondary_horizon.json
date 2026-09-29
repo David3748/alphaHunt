@@ -1,0 +1,10 @@
+{
+  "frozen_at_utc": "2026-09-27T03:41:48.240907+00:00",
+  "actual_forecast_models_fitted": false,
+  "prior_first_attempt": "Stopped at source validation before training because unsupported zero labels; source-quality repair is documented separately.",
+  "primary_unchanged": "August15, April\u2013July observations. All original gates remain.",
+  "prespecified_secondary": "September15 12UTC forecast with April\u2013August raw8day NDVI and reanalysis weather. Same14day buffer/fullendday, monthlycoverage rules, geographicuniverse, targetrelease, forwardyears, countytrend, model/hyperparameters, comparators, yearblockCI, count and post-reference-year signgates. Store separately and labelsecondary regardless performance.",
+  "scientific_rationale": "Corn grain filling extends intoAugust; a later forecast may trade one month of lead time for informative plant condition. This is a second fixed operating date, not a search across dates or a replacement of primary failure.",
+  "multiplicity": "Adds one declared secondary hypothesis before any forecast results. Neither confidence interval is family-wise adjusted; both results must be reported.",
+  "source_data": "Reuse same frozen sourcearchive and quality-repairedlabels; no newcountry/crop/data product selection."
+}

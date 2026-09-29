@@ -1,0 +1,8 @@
+{
+  "created_at_utc": "2026-09-27T03:08:19.102836+00:00",
+  "status": "Frozen before maizeoutcome extraction or any fit/metric",
+  "reason": "FAOSTATpublicationlagdoesnotmeanlocalfarmerslackcurrentharvestinformation; officialSouthAfricaCECestimatesexistbyAugust/September.",
+  "strong_information_stress": "Repeat identical modelandheldoutperiod allowingfinal current-completedharvestyield asofSeptember30at00UTC ofitsyear;latestreleasedyieldandtrainingthenincludeharvestyear\u22121fornextyearforecast. This is an optimisticfinal-revision/oracle-information control, notcertifiedhistoricalfinaldataavailability.",
+  "decision": "Primary lag3 result alwaysreported. Robustforecastutility requiresprimarygateand samegateinstrong-informationstress; no movingmodel,window,threshold or choosingbetterregime.",
+  "source_evidence": "https://www.namc.co.za/wp-content/uploads/2024/10/September-2024-SASDE-report.-1-Oct-2024-FINAL.pdf"
+}

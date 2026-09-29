@@ -1,0 +1,87 @@
+{
+  "n_test_winters": 29,
+  "first_test_winter": 1998,
+  "last_test_winter": 2026,
+  "metrics": {
+    "satellite": {
+      "rmse_inches": 1.603911981844249,
+      "mae_inches": 1.2381404052603149
+    },
+    "climatology": {
+      "rmse_inches": 1.7769343815161556,
+      "mae_inches": 1.4579638909836574
+    },
+    "persistence": {
+      "rmse_inches": 2.5157414756714953,
+      "mae_inches": 2.127931034482758
+    }
+  },
+  "comparisons": {
+    "climatology": {
+      "rmse_reduction_fraction": 0.09737129376959684,
+      "rmse_reduction_inches": 0.17302239967190647,
+      "rmse_reduction_ci95_inches": [
+        -0.15040551425764906,
+        0.45702381083852217
+      ],
+      "mae_reduction_fraction": 0.15077430043554252,
+      "winters_lower_squared_error": 20
+    },
+    "persistence": {
+      "rmse_reduction_fraction": 0.3624496009010079,
+      "rmse_reduction_inches": 0.9118294938272462,
+      "rmse_reduction_ci95_inches": [
+        0.31428403153694445,
+        1.5342705362086966
+      ],
+      "mae_reduction_fraction": 0.4181482457859482,
+      "winters_lower_squared_error": 21
+    }
+  },
+  "predefined_forecast_gate_passed": false,
+  "status": "provisional_point_improvement_uncertainty_gate_failed",
+  "original_vintage_operational_verification": false,
+  "incremental_satellite_vs_in_situ_verified": false,
+  "trading_alpha_verified": false,
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T01:31:50.661956+00:00",
+    "predictor": "September monthly NOAA CPC OISST Nino3.4 absolute SST (equivalent to a fixed September anomaly with regression intercept)",
+    "target": "Texas total precipitation in ensuing December-February, indexed by February year",
+    "forecast_at": "October 15 after September observations; two-week final-product latency assumption",
+    "model": "Expanding OLS with intercept and September SST; initial 15 winters train, all subsequent winters test; no horizon/state/parameter search",
+    "comparators": [
+      "expanding historical winter mean",
+      "previous winter precipitation"
+    ],
+    "uncertainty": "paired RMSE reduction with circular 2-winter blocks, 10000 draws",
+    "gate": "At least 5% lower RMSE than both comparators; positive 95% paired block interval vs climatology; improvement in MAE too",
+    "data_vintage": "current NOAA archived indexes and revised precipitation; not original vintage",
+    "reason": "Prior established ENSO mechanism; root fixed September->Texas DJF before outcome calculation",
+    "planned_files": [
+      "sstoi.indices",
+      "texas_winter.csv"
+    ]
+  },
+  "source_urls": {
+    "sstoi.indices": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
+    "texas_winter.csv": "https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/time-series/41/pcp/3/2/1982-2026.csv"
+  },
+  "documentation_urls": {
+    "cpc_index_definition": "https://www.cpc.ncep.noaa.gov/data/indices/",
+    "cpc_revision_history": "https://www.cpc.ncep.noaa.gov/data/indices/Readme.index.shtml",
+    "oisst_satellite_and_in_situ_inputs": "https://www.ncei.noaa.gov/products/optimum-interpolation-sst",
+    "oisst_final_two_week_latency": "https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc%3AC01606",
+    "physical_mechanism": "https://www.climate.gov/news-features/blogs/enso/la-ninas-delayed-effect-sizzling-texas-summers"
+  },
+  "input_sha256": {
+    "sstoi.indices": "6d85461bbcde83bcdccfd69a67f54381d0a4688f8a7021d6d6a22a0803cdb2cd",
+    "texas_winter.csv": "6b300a177dacd08bb52504cd3b3090dd9e7c80d36fc10c673e1e9ec980756fb3"
+  },
+  "source_code_sha256": "c862cfa3e8e69a15161afc466808d4470147f2aa20107f972de0a236ae41966e",
+  "forecast_minimum_lead_days": 47,
+  "availability": {
+    "predictor": "Assumed September end +14 days, from OISST final latency; CPC monthly original release timestamps not preserved",
+    "labels": "Assumed April 1 after target winter; current revised NCEI archive",
+    "vintage": "Current OISST index includes historical reprocessing and in-situ inputs; chronological hindcast only"
+  }
+}

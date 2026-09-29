@@ -1,0 +1,19 @@
+year,publication_date,url,original_july_extent,current_july_extent,current_minus_original,original_units,definition,publication_evidence
+2007,2007-08-10,https://nsidc.org/ru/node/366796,8.1,7.94,-0.16,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2009,2009-08-04,https://nsidc.org/sea-ice-today/analyses/arctic-ice-melts-quickly-through-july,8.81,8.47,-0.34,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2010,2010-08-04,https://nsidc.org/sea-ice-today/analyses/july-sea-ice-second-lowest-oldest-ice-begins-melt,8.39,8.07,-0.32,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2011,2011-08-03,https://nsidc.org/sea-ice-today/analyses/arctic-sea-ice-record-low-july,7.92,7.72,-0.2,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2012,2012-08-06,https://nsidc.org/sea-ice-today/analyses/most-interesting-arctic-summer,7.94,7.67,-0.27,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2013,2013-08-07,https://nsidc.org/sea-ice-today/analyses/month-two-halves-and-no-hole,8.45,8.13,-0.32,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2014,2014-08-06,https://nsidc.org/sea-ice-today/analyses/sled-dog-days-summer,8.25,8.11,-0.14,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2015,2015-08-05,https://nsidc.org/sea-ice-today/analyses/open-and-shut,8.77,8.38,-0.39,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2016,2016-08-03,https://nsidc.org/sea-ice-today/analyses/cool-and-stormy-arctic-july,8.13,7.94,-0.19,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2017,2017-08-03,https://nsidc.org/sea-ice-today/analyses/which-august-will-we-get,8.21,7.94,-0.27,million km2,pre-v3 monthly-concentration method,dated NSIDC monthly report currently hosted; not immutable web archive
+2018,2018-08-02,https://nsidc.org/sea-ice-today/analyses/ice-loss-speeds-during-second-half-july,8.22,8.27,0.05,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive
+2019,2019-08-06,https://nsidc.org/sea-ice-today/analyses/europes-heat-wave-moves-north,7.59,7.59,0.0,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive
+2020,2020-08-04,https://nsidc.org/sea-ice-today/analyses/steep-decline-sputters-out,7.28,7.29,0.01,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive
+2021,2021-08-03,https://nsidc.org/sea-ice-today/analyses/change-pace-july,7.69,7.65,-0.04,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive
+2022,2022-08-02,https://nsidc.org/sea-ice-today/analyses/unknowns-lie-ahead,8.25,8.29,0.04,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive
+2023,2023-08-02,https://nsidc.org/sea-ice-today/analyses/odd-summer,8.18,8.21,0.03,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive
+2024,2024-08-06,https://nsidc.org/sea-ice-today/analyses/chill-gone,7.89,7.87,-0.02,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive
+2025,2025-08-11,https://nsidc.org/sea-ice-today/analyses/peak-summer-depths-winter,7.66,7.66,0.0,million km2,mean of daily extents,dated NSIDC monthly report currently hosted; not immutable web archive

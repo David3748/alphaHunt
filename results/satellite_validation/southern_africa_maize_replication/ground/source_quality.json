@@ -1,0 +1,49 @@
+{
+  "source": "CPC Unified gauge-based daily precipitation; interpolated field, not station counts",
+  "countries": {
+    "ZM": {
+      "months": 86,
+      "eligible_months": 83,
+      "mask_cells": 249,
+      "ineligible_months": [
+        {
+          "year": 1985,
+          "month": 8,
+          "minimum_valid_cells": 0
+        },
+        {
+          "year": 1986,
+          "month": 9,
+          "minimum_valid_cells": 0
+        },
+        {
+          "year": 2004,
+          "month": 9,
+          "minimum_valid_cells": 0
+        }
+      ]
+    },
+    "ZW": {
+      "months": 86,
+      "eligible_months": 83,
+      "mask_cells": 135,
+      "ineligible_months": [
+        {
+          "year": 1985,
+          "month": 8,
+          "minimum_valid_cells": 0
+        },
+        {
+          "year": 1986,
+          "month": 9,
+          "minimum_valid_cells": 0
+        },
+        {
+          "year": 2004,
+          "month": 9,
+          "minimum_valid_cells": 0
+        }
+      ]
+    }
+  }
+}

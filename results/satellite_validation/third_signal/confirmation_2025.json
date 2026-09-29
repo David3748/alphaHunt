@@ -1,0 +1,52 @@
+{
+  "crop": "wheat",
+  "gates": {
+    "beats_prior_year_ndvi_rmse": false,
+    "improves_weather_rmse": false
+  },
+  "improvement_vs_weather_pct": -8.188665342867907,
+  "independent_years": 1,
+  "inference": "Descriptive single-year confirmation only. No pooled p-value or independent trade-alpha claim.",
+  "limitations": "NOT UNTOUCHED. Current audit excluded2025 from model selection, but inherited full2011\u20132025 summary metrics had been read. The invalid-stage-order2025 run then exposed the bug and failed.2025 outcomes are therefore inspected before this corrected rerun. Preserve corrected pass/fail as diagnostic confirmation only.",
+  "metrics": [
+    {
+      "available_date": "2025-06-29",
+      "mae_anomaly_pct": 8.064477631262923,
+      "model": "ndvi_only",
+      "n": 12,
+      "rmse_anomaly_pct": 9.694373434255848
+    },
+    {
+      "available_date": "2025-06-29",
+      "mae_anomaly_pct": 6.583503465408364,
+      "model": "trend",
+      "n": 12,
+      "rmse_anomaly_pct": 8.241939469187285
+    },
+    {
+      "available_date": "2025-06-29",
+      "mae_anomaly_pct": 8.047966626849751,
+      "model": "weather_only",
+      "n": 12,
+      "rmse_anomaly_pct": 9.787917964547228
+    },
+    {
+      "available_date": "2025-06-29",
+      "mae_anomaly_pct": 8.746405364278369,
+      "model": "weather_plus_ndvi",
+      "n": 12,
+      "rmse_anomaly_pct": 10.58941781069845
+    },
+    {
+      "available_date": "2025-06-29",
+      "mae_anomaly_pct": 8.507095805344097,
+      "model": "weather_plus_prior_year_ndvi",
+      "n": 12,
+      "rmse_anomaly_pct": 9.952915485544214
+    }
+  ],
+  "protocol_sha256": "e503fcf252c0ff7a446d369e360f48ce62869338e33e416598e26b28feb89940",
+  "stage": "heading",
+  "status": "selected_secondary_confirmation_fail",
+  "year": 2025
+}

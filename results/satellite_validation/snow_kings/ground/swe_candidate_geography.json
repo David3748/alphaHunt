@@ -1,0 +1,362 @@
+[
+  {
+    "station": "SMD",
+    "name": "STATUM MEADOW",
+    "lon": -118.913,
+    "lat": 36.943,
+    "elevation_ft": "8,300",
+    "distance_km": 7.304443985636171,
+    "inside": true
+  },
+  {
+    "station": "RDC",
+    "name": "ROUND CORRAL",
+    "lon": -118.902,
+    "lat": 36.993,
+    "elevation_ft": "9,000",
+    "distance_km": 10.088250060032696,
+    "inside": true
+  },
+  {
+    "station": "RTT",
+    "name": "RATTLESNAKE CREEK BA",
+    "lon": -118.72,
+    "lat": 36.982,
+    "elevation_ft": "9,900",
+    "distance_km": 12.558394223630712,
+    "inside": true
+  },
+  {
+    "station": "WDH",
+    "name": "WOODCHUCK MEADOW",
+    "lon": -118.908,
+    "lat": 37.025,
+    "elevation_ft": "8,800",
+    "distance_km": 13.396338834453456,
+    "inside": true
+  },
+  {
+    "station": "WWC",
+    "name": "WEST WOODCHUCK MEADOW",
+    "lon": -118.914783,
+    "lat": 37.031033,
+    "elevation_ft": "9,100",
+    "distance_km": 14.273431249356573,
+    "inside": true
+  },
+  {
+    "station": "CLI",
+    "name": "CLIFF CAMP",
+    "lon": -118.975,
+    "lat": 36.987,
+    "elevation_ft": "6,300",
+    "distance_km": 14.456284404516476,
+    "inside": true
+  },
+  {
+    "station": "UWD",
+    "name": "UPPER WOODCHUCK MEADOW",
+    "lon": -118.903,
+    "lat": 37.038,
+    "elevation_ft": "9,100",
+    "distance_km": 14.496488601942323,
+    "inside": true
+  },
+  {
+    "station": "KNM",
+    "name": "KENNEDY MEADOWS",
+    "lon": -118.833,
+    "lat": 36.768,
+    "elevation_ft": "7,600",
+    "distance_km": 16.72167341228999,
+    "inside": true
+  },
+  {
+    "station": "BCB",
+    "name": "BLACKCAP BASIN",
+    "lon": -118.77303,
+    "lat": 37.066695,
+    "elevation_ft": "10,180",
+    "distance_km": 17.38377672138519,
+    "inside": true
+  },
+  {
+    "station": "HCM",
+    "name": "HORSE CORRAL MEADOW",
+    "lon": -118.75,
+    "lat": 36.752,
+    "elevation_ft": "7,600",
+    "distance_km": 20.05023780956173,
+    "inside": true
+  },
+  {
+    "station": "KUB",
+    "name": "UPPER BULL",
+    "lon": -119.0566,
+    "lat": 36.9669,
+    "elevation_ft": "8,073",
+    "distance_km": 20.295860459430862,
+    "inside": true
+  },
+  {
+    "station": "CUR",
+    "name": "COURTRIGHT",
+    "lon": -118.965,
+    "lat": 37.072,
+    "elevation_ft": "8,350",
+    "distance_km": 20.48911316952655,
+    "inside": true
+  },
+  {
+    "station": "RGT",
+    "name": "RIDGE TRAIL",
+    "lon": -118.9478,
+    "lat": 36.7513,
+    "elevation_ft": "7,500",
+    "distance_km": 21.044871697107258,
+    "inside": true
+  },
+  {
+    "station": "BMD",
+    "name": "BEARD MEADOW",
+    "lon": -118.837,
+    "lat": 37.113,
+    "elevation_ft": "9,800",
+    "distance_km": 21.568724218898,
+    "inside": true
+  },
+  {
+    "station": "DSM",
+    "name": "DODSONS MEADOW",
+    "lon": -118.958,
+    "lat": 37.092,
+    "elevation_ft": "8,050",
+    "distance_km": 22.05487716587458,
+    "inside": true
+  },
+  {
+    "station": "BIM",
+    "name": "BIG MEADOWS (DWR)",
+    "lon": -118.843773,
+    "lat": 36.715225,
+    "elevation_ft": "7,600",
+    "distance_km": 22.58327114652796,
+    "inside": true
+  },
+  {
+    "station": "BMS",
+    "name": "BIG MEADOWS",
+    "lon": -118.848558,
+    "lat": 36.715311,
+    "elevation_ft": "7,619",
+    "distance_km": 22.58947916631883,
+    "inside": true
+  },
+  {
+    "station": "GNG",
+    "name": "GRANT GROVE",
+    "lon": -118.963,
+    "lat": 36.742,
+    "elevation_ft": "6,600",
+    "distance_km": 22.604921533580427,
+    "inside": true
+  },
+  {
+    "station": "SMO",
+    "name": "SAND MEADOW",
+    "lon": -118.967,
+    "lat": 37.098,
+    "elevation_ft": "8,050",
+    "distance_km": 23.03021518847664,
+    "inside": true
+  },
+  {
+    "station": "MTM",
+    "name": "MITCHELL MEADOW",
+    "lon": -118.712167,
+    "lat": 36.73615,
+    "elevation_ft": "10,026",
+    "distance_km": 23.105374332757012,
+    "inside": true
+  },
+  {
+    "station": "PRM",
+    "name": "POST CORRAL MEADOW",
+    "lon": -118.895,
+    "lat": 37.122,
+    "elevation_ft": "8,200",
+    "distance_km": 23.153595826854243,
+    "inside": true
+  },
+  {
+    "station": "STL",
+    "name": "STATE LAKES",
+    "lon": -118.57325,
+    "lat": 36.926483,
+    "elevation_ft": "10,400",
+    "distance_km": 23.501556848832962,
+    "inside": true
+  },
+  {
+    "station": "RWM",
+    "name": "ROWELL MEADOW",
+    "lon": -118.737,
+    "lat": 36.717,
+    "elevation_ft": "8,850",
+    "distance_km": 24.085344047071278,
+    "inside": true
+  },
+  {
+    "station": "FDM",
+    "name": "FRED MEADOW",
+    "lon": -119.08,
+    "lat": 37.023,
+    "elevation_ft": "6,950",
+    "distance_km": 24.555492896280413,
+    "inside": true
+  },
+  {
+    "station": "LMD",
+    "name": "LONG MEADOW (KINGS R)",
+    "lon": -118.92,
+    "lat": 37.13,
+    "elevation_ft": "8,500",
+    "distance_km": 24.59523111731441,
+    "inside": true
+  },
+  {
+    "station": "BEG",
+    "name": "BEAR RIDGE",
+    "lon": -119.087,
+    "lat": 37.037,
+    "elevation_ft": "7,400",
+    "distance_km": 25.85851760257251,
+    "inside": true
+  },
+  {
+    "station": "HLM",
+    "name": "HELMS MEADOW",
+    "lon": -119.005,
+    "lat": 37.122,
+    "elevation_ft": "8,250",
+    "distance_km": 27.078537569932454,
+    "inside": true
+  },
+  {
+    "station": "UBC",
+    "name": "UPPER BURNT CORRAL",
+    "lon": -118.938293,
+    "lat": 37.183296,
+    "elevation_ft": "9,700",
+    "distance_km": 30.725642151755338,
+    "inside": true
+  },
+  {
+    "station": "DSF",
+    "name": "DINKEY SAND FLAT",
+    "lon": -119.152,
+    "lat": 37.047,
+    "elevation_ft": "5,500",
+    "distance_km": 31.468432783009664,
+    "inside": true
+  },
+  {
+    "station": "BSH",
+    "name": "BISHOP PASS",
+    "lon": -118.557,
+    "lat": 37.1,
+    "elevation_ft": "11,200",
+    "distance_km": 32.02058086547113,
+    "inside": true
+  },
+  {
+    "station": "SMP",
+    "name": "SWAMP MEADOW",
+    "lon": -119.075,
+    "lat": 37.135,
+    "elevation_ft": "9,000",
+    "distance_km": 32.025173235001475,
+    "inside": true
+  },
+  {
+    "station": "MRM",
+    "name": "MORAINE MEADOWS",
+    "lon": -118.572,
+    "lat": 36.72,
+    "elevation_ft": "8,400",
+    "distance_km": 32.31542971024992,
+    "inside": true
+  },
+  {
+    "station": "SCE",
+    "name": "SCENIC MEADOW",
+    "lon": -118.597,
+    "lat": 36.685,
+    "elevation_ft": "9,650",
+    "distance_km": 33.62131013238767,
+    "inside": true
+  },
+  {
+    "station": "KUP",
+    "name": "UPPER PROVIDENCE",
+    "lon": -119.183,
+    "lat": 37.061,
+    "elevation_ft": "5,611",
+    "distance_km": 34.630505084656065,
+    "inside": true
+  },
+  {
+    "station": "BNH",
+    "name": "BENCH LAKE",
+    "lon": -118.445,
+    "lat": 36.958,
+    "elevation_ft": "10,600",
+    "distance_km": 35.177701756663296,
+    "inside": true
+  },
+  {
+    "station": "CRL",
+    "name": "CHARLOTTE LAKE",
+    "lon": -118.42601,
+    "lat": 36.777523,
+    "elevation_ft": "10,400",
+    "distance_km": 39.847137063094415,
+    "inside": true
+  },
+  {
+    "station": "JNM",
+    "name": "JUNCTION MEADOW",
+    "lon": -118.438,
+    "lat": 36.755,
+    "elevation_ft": "8,250",
+    "distance_km": 39.943478428868055,
+    "inside": true
+  },
+  {
+    "station": "CLT",
+    "name": "CHARLOTTE RIDGE",
+    "lon": -118.415795,
+    "lat": 36.77065,
+    "elevation_ft": "10,650",
+    "distance_km": 40.98762670396936,
+    "inside": true
+  },
+  {
+    "station": "VDM",
+    "name": "VIDETTE MEADOW",
+    "lon": -118.41,
+    "lat": 36.758,
+    "elevation_ft": "9,500",
+    "distance_km": 42.040390477691645,
+    "inside": true
+  },
+  {
+    "station": "BLF",
+    "name": "BULLFROG LAKE",
+    "lon": -118.398637,
+    "lat": 36.770497,
+    "elevation_ft": "10,560",
+    "distance_km": 42.40080168301392,
+    "inside": true
+  }
+]

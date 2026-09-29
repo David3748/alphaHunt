@@ -1,0 +1,22 @@
+{
+  "frozen_at_utc": "2026-09-27T01:53:51.010537+00:00",
+  "instrument": "UNG exchange-traded natural-gas futures fund; adjusted daily closes",
+  "evaluation": "Gas target months2008-2025 October-March for which forecasts and complete entry/exit prices exist",
+  "signal_rule": "Long when forecast residential demand exceeds baseline; short when below; zero flat. Strategies satellite-minus-temporal, HDD-minus-temporal, and combined-minus-HDD incremental satellite overlay. No tuning.",
+  "entry": "First trading session strictly after forecast_at; close execution",
+  "exit": "First session strictly after forecast_at plus1calendar month; close execution. No overlapping monthly event windows.",
+  "costs": "25basis points each side peractiveevent;3percent annual assumed borrowcost forshorts prorated actualcalendar days/365. ETFfundexpenses androll effects already inprices. Cashinterest, rebates andtaxes excluded.",
+  "returns": "Fixed initial dollar position each event, signed adjustedprice holdingreturn lesscosts; compound successive disjoint events, zero cashreturn between. Not annualized.",
+  "comparators": [
+    "always long onidenticaleventwindows withsamecosts",
+    "always short onidenticaleventwindows withsamecosts"
+  ],
+  "uncertainty": "Paired winteryear bootstrap10000draws seed20260927 formean neteventreturn andincremental difference fromalwaysshort. No search orclaimofreal-world tradability.",
+  "limits": [
+    "Current-vintage forecastfeatures and adjustedprices",
+    "Borrowavailability andactualfeesnot reconstructed",
+    "Signal target consumptionmonth hasalreadyended; pricesmayalreadyreflectcoldweather",
+    "Exploratory diagnostics, notprospective orfactoradjustedalpha"
+  ],
+  "gas_outcomes_or_trade_returns_inspected_before_freeze": false
+}

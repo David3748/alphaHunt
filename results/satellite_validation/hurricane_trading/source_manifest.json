@@ -1,0 +1,14 @@
+{
+  "KIE": {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/KIE?period1=1136073600&period2=1767225600&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "retrieved_at": "2026-09-27T02:37:54.354845+00:00",
+    "sha256": "ea37ccd495f8100779816d6fa9a126f9a9b8ccf32fd7c1b538765d81d2921cd1",
+    "bytes": 556506
+  },
+  "SPY": {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=1136073600&period2=1767225600&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "retrieved_at": "2026-09-27T02:37:54.366787+00:00",
+    "sha256": "acb4361f0524aff6fe8c47abe755ded54581619c7cab8e036748f8a6a15a2f10",
+    "bytes": 558699
+  }
+}

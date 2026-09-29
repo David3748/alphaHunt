@@ -1,0 +1,35 @@
+{
+  "frozen_at_utc": "2026-09-27T01:51:20.486214+00:00",
+  "mechanism": "Colder lower-troposphere USA48 satellite temperatures proxy surface cold, driving residential space-heating natural gas demand; economic target is reported later.",
+  "predictor": "UAH version 6.1 lower-troposphere USA48 monthly temperature anomaly, satellite MSU/AMSU record",
+  "outcome": "EIA monthly U.S. natural gas delivered to residential consumers, million cubic feet, divided by days in month to reduce month-length artefacts",
+  "season": "October through March only; calendar target months January 2000 through December 2025 inclusive",
+  "forecast_issue": "15th day of month immediately after target month, a delayed-release economic nowcast, not a future-weather forecast",
+  "availability": "UAH and ground HDD assumed available by month-end plus14days. EIA labels assumed available at end of second month after target month. Both current archives, not historical release-vintage proof.",
+  "models": {
+    "baseline": "Separate calendar-month OLS: intercept, linear year trend centered at target year, previous-year same-month residential gas/day",
+    "satellite": "Identical baseline plus current-month UAH USA48 anomaly",
+    "ground_hdd": "Identical baseline plus current-month official national ground heating degree days/day",
+    "ground_hdd_satellite": "Identical ground-HDD model plus current-month UAH USA48 anomaly",
+    "seasonal_persistence": "Previous-year same-month residential gas/day"
+  },
+  "training": "Exactly previous 10 years of the same calendar month, all labels before issue; missing required source/target/prior gas abstains; no future targets, no tuning or clipping",
+  "evaluation": "RMSE and MAE on identical complete months; evaluate direct satellite vs baseline and incremental combined vs ground-HDD",
+  "uncertainty": "Paired circular two-winter-year block bootstrap,10000draws,seed20260927. Winteryear=y+1 forOct-Dec else y; boundarywinters mayhave3months; samplewholewinterblocks.",
+  "gate": "At least5% RMSE reduction, lowerMAE, and strictlypositive95%RMSE-reductioninterval forboth satellite vsbaseline AND ground_hdd_satellite vsground_hdd. MissingHDD meansnoincrementalusefulnessverification.",
+  "planned_sensitivity": "Separately summarize calendar2021-2025, when all10 trainingyears followAug2010 EIAcollectionchange; descriptiveonly, noselection or newgate.",
+  "claim_limits": [
+    "Current-vintage rolling retrospective nowcast; nohistoricalpoint-in-time certification",
+    "UAH islayer temperature, notsurface orstation heatingdegree days",
+    "EIA national includesAK/HI whileUAH USA48andusuallyHDD CONUS; knowngeographicmismatch",
+    "EIAcalendar-monthestimation changedAug2010 andearlierhistorynotrevised",
+    "Multiplecandidateprojects inspected beforethiscandidate; nofamilywiseadjustedclaim",
+    "NoeconomicdecisionP&L, gaspricealpha, orprospectiveperformanceverified"
+  ],
+  "outcomes_inspected_before_freeze": false,
+  "source_urls": {
+    "satellite": "https://www.nsstc.uah.edu/data/msu/v6.1/tlt/uahncdc_lt_6.1.txt",
+    "gas": "https://www.eia.gov/dnav/ng/hist_xls/N3010US2m.xls",
+    "ground_hdd": "Official NOAA/CPC or EIA-sourced national ground HDD, retrieval by independent agent; source selection based on availability not outcomes"
+  }
+}

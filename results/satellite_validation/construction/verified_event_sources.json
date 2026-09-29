@@ -1,0 +1,44 @@
+{
+  "verified_as_of": "2026-09-26",
+  "events": [
+    {
+      "id": "coreweave_2025q3_delay",
+      "event_at": "2025-11-10T22:00:00Z",
+      "document_date": "2025-11-10",
+      "source": "https://s205.q4cdn.com/133937190/files/doc_events/2025/Nov/10/CORRECTED-TRANSCRIPT-CoreWeave-Inc-CRWV-US-Q3-2025-Earnings-Call-10-November-2025-5-00-PM-ET.pdf",
+      "type": "issuer-hosted corrected earnings-call transcript",
+      "locator": "pages 4, 8, 10",
+      "verified_claim": "Management disclosed third-party powered-shell delays affecting Q4 and a 2025 revenue outlook of $5.05-5.15 billion.",
+      "attribution_limit": "Management explicitly declined to name the provider; Denton is not mentioned. Corrected transcript posting time is not archived here; event_at is call start, not proof every statement was known at that second.",
+      "use": "subsequent issuer outcome, never a pre-event signal feature"
+    },
+    {
+      "id": "core_scientific_2025q3_prior_public_warning",
+      "document_date": "2025-10-24",
+      "source": "https://investors.corescientific.com/sec-filings/all-sec-filings/content/0001628280-25-046272/core-20250930.htm",
+      "type": "original issuer 10-Q",
+      "locator": "MD&A, three-month colocation revenue discussion",
+      "verified_claim": "Weather and construction delays moved delivery later in 2025; Denton halls were completed in Q2 and Q3.",
+      "attribution_limit": "The filing says delays were previously disclosed, so this is not established as first public disclosure. This document describes delays inside fiscal 2025, distinct from CoreWeave's later guidance impact.",
+      "use": "announcement-only baseline and counterevidence to interpreting a flat exterior as no progress"
+    },
+    {
+      "id": "apld_phase1_on_time",
+      "document_date": "2025-10-27",
+      "source": "https://www.globenewswire.com/news-release/2025/10/27/3174518/0/en/index.html",
+      "type": "issuer press release distributed by GlobeNewswire",
+      "verified_claim": "Applied Digital reported the first 50 MW phase of Building 1 at Polaris Forge 1 ready for service on time.",
+      "attribution_limit": "Issuer-reported milestone, not an independent engineering inspection.",
+      "use": "positive completion control"
+    },
+    {
+      "id": "apld_phase2_on_time",
+      "document_date": "2025-11-24",
+      "source": "https://ir.applieddigital.com/news-events/press-releases/detail/137/applied-digital-completes-phase-ii-ready-for-service-at",
+      "type": "issuer press release",
+      "verified_claim": "Applied Digital reported the second 50 MW phase on time, with Building 1 fully energized at 100 MW.",
+      "attribution_limit": "Issuer-reported milestone, not an independent engineering inspection.",
+      "use": "positive completion control"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "name": "mdr",
+    "url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.mon.mean.nc?var=sst&north=20&south=10&west=280&east=340&horizStride=1&time_start=1982-06-01T00%3A00%3A00Z&time_end=2025-06-01T00%3A00%3A00Z&timeStride=12&accept=netcdf4",
+    "path": "inputs/oisst_june_mdr.nc",
+    "retrieved_at_utc": "2026-09-27T02:34:59.507447+00:00",
+    "sha256": "179235b19ca84b68de0ba6d3ebafd5fb4bf64076e55fcfb121441e7109ea1a83",
+    "http_last_modified": null,
+    "bounds": {
+      "north": 20,
+      "south": 10,
+      "west": 280,
+      "east": 340
+    }
+  },
+  {
+    "name": "nino34",
+    "url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.mon.mean.nc?var=sst&north=5&south=-5&west=190&east=240&horizStride=1&time_start=1982-06-01T00%3A00%3A00Z&time_end=2025-06-01T00%3A00%3A00Z&timeStride=12&accept=netcdf4",
+    "path": "inputs/oisst_june_nino34.nc",
+    "retrieved_at_utc": "2026-09-27T02:35:01.853857+00:00",
+    "sha256": "b606385e47e1caa65a12f8e43596d9621b0cd7cab1e30a9a817e73bf33112c6a",
+    "http_last_modified": null,
+    "bounds": {
+      "north": 5,
+      "south": -5,
+      "west": 190,
+      "east": 240
+    }
+  },
+  {
+    "name": "derived_june_sst",
+    "path": "inputs/june_sst.csv",
+    "sha256": "7b0c34d86b2de73dc8c33777d91ef74f64019e41db8b08973d9d55df0a7281c0",
+    "method": "Equal-longitude cell area weighted bycos(latitude); exclude cellcentersoutsidefixedboxes; exclude oceanmissingvalues; Juneonly."
+  },
+  {
+    "name": "hurdat2_1851_2025.txt.gz",
+    "url": "https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2025-091226.txt",
+    "path": "inputs/hurdat2_1851_2025.txt.gz",
+    "retrieved_at_utc": "2026-09-27T02:35:03.128885+00:00",
+    "sha256": "d1b2da222181e6c5fb93ccabfacea6de924472269ff6030531916ef9c60afb6e",
+    "uncompressed_download_sha256": "df63fabce0ad824d20447e241bd27a2a65ae36cb2f9b62aa3caacd9171c34f11",
+    "http_last_modified": "Thu, 17 Sep 2026 21:02:47 GMT"
+  },
+  {
+    "name": "oisst_metadata.html",
+    "url": "https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C01606",
+    "path": "metadata/oisst_metadata.html",
+    "retrieved_at_utc": "2026-09-27T02:35:04.390688+00:00",
+    "sha256": "51e728dee43c8e3611230b3777ca5eb1da36e7657b9f656e028012e5cfba8c7b",
+    "uncompressed_download_sha256": "51e728dee43c8e3611230b3777ca5eb1da36e7657b9f656e028012e5cfba8c7b",
+    "http_last_modified": null
+  },
+  {
+    "name": "oisst_product.html",
+    "url": "https://www.ncei.noaa.gov/products/optimum-interpolation-sst",
+    "path": "metadata/oisst_product.html",
+    "retrieved_at_utc": "2026-09-27T02:35:04.560567+00:00",
+    "sha256": "51ed218332529148aab16704f3a78c64903abb6d7f9553558ccaad90c8ea3164",
+    "uncompressed_download_sha256": "51ed218332529148aab16704f3a78c64903abb6d7f9553558ccaad90c8ea3164",
+    "http_last_modified": "Sat, 26 Sep 2026 16:41:54 GMT"
+  },
+  {
+    "name": "nhc_data_page.html",
+    "url": "https://www.nhc.noaa.gov/data/",
+    "path": "metadata/nhc_data_page.html",
+    "retrieved_at_utc": "2026-09-27T02:35:04.775290+00:00",
+    "sha256": "af341907f5f291d0279dce44c83c10a22c1cfced9e2b4c06ba51afbb64094282",
+    "uncompressed_download_sha256": "af341907f5f291d0279dce44c83c10a22c1cfced9e2b4c06ba51afbb64094282",
+    "http_last_modified": null
+  },
+  {
+    "name": "ace_definition.html",
+    "url": "https://www.cpc.ncep.noaa.gov/products/outlooks/hurricane2020/August/Background.html",
+    "path": "metadata/ace_definition.html",
+    "retrieved_at_utc": "2026-09-27T02:35:04.869882+00:00",
+    "sha256": "1a9918b4566f65046c58a9a2dd1b2769e4eba6c13cd75571e6f37cd85a9fee7b",
+    "uncompressed_download_sha256": "1a9918b4566f65046c58a9a2dd1b2769e4eba6c13cd75571e6f37cd85a9fee7b",
+    "http_last_modified": null
+  },
+  {
+    "name": "mechanism.html",
+    "url": "https://www.aoml.noaa.gov/general/project/hrdls3.html",
+    "path": "metadata/mechanism.html",
+    "retrieved_at_utc": "2026-09-27T02:35:05.077830+00:00",
+    "sha256": "d2fa5a0b56d4ca032148dc8893e08bd45d0b22375a5624ef4f87dc18cd285f51",
+    "uncompressed_download_sha256": "d2fa5a0b56d4ca032148dc8893e08bd45d0b22375a5624ef4f87dc18cd285f51",
+    "http_last_modified": null
+  }
+]

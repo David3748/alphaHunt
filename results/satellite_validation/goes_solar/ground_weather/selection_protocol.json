@@ -1,0 +1,14 @@
+{
+  "frozen_at_utc": "2026-09-27T02:16:07.515657+00:00",
+  "target_latitude": 35.383,
+  "target_longitude": -120.067,
+  "variables": [
+    "TMAX",
+    "TMIN",
+    "PRCP"
+  ],
+  "coverage_period": "2015-01-01 through2025-12-31",
+  "selection": "Closest GHCND station with>=90percent valid unflagged daily coverage for each variable, inspected in distance order; prefer complete calendar record for matched forecastcomparisons; no generation outcomes used",
+  "monthly_aggregation": "Mean TMAX/TMIN inCelsius, totalPRCPmm; eachmonthlyfeature requires>=90percent of calendar days valid; no imputation",
+  "availability": "Monthlyend+14day assumption; GHCNDupdateddaily but original historical publication timestamps are not preserved"
+}

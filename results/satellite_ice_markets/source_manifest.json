@@ -1,0 +1,128 @@
+{
+  "nsidc_daily.csv": {
+    "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/north/daily/data/N_seaice_extent_daily_v4.0.csv",
+    "retrieved_at_utc": "2026-09-29T00:57:16.494215+00:00",
+    "sha256": "919433e24c6d402032092e3ddaefc9e711fa4c908fd811fe04c5ff8115f3e9f6",
+    "bytes": 1900700,
+    "http_last_modified": "Mon, 28 Sep 2026 11:45:01 GMT"
+  },
+  "nsidc_daily_workbook.xlsx": {
+    "url": "https://noaadata.apps.nsidc.org/NOAA/G02135/seaice_analysis/Sea_Ice_Index_Daily_Extent_G02135_v4.0.xlsx",
+    "retrieved_at_utc": "2026-09-29T00:57:16.566594+00:00",
+    "sha256": "cfe7a869ccf4dd53ececf15e7dd1327cbd30682342661d3fc61d09b818835a43",
+    "bytes": 719636,
+    "http_last_modified": "Mon, 28 Sep 2026 11:45:46 GMT"
+  },
+  "kalshi_event.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/events/KXARCTICICEMIN-26OCT01?with_nested_markets=true",
+    "retrieved_at_utc": "2026-09-29T00:57:16.695259+00:00",
+    "sha256": "2eda6223c5b0f1790631ee4e5ded32efcd82e922fc8d9e9945f4f2d2e794981d",
+    "bytes": 18458,
+    "http_last_modified": null
+  },
+  "polymarket_event.json": {
+    "url": "https://gamma-api.polymarket.com/events?slug=min-arctic-sea-ice-extent-this-summer",
+    "retrieved_at_utc": "2026-09-29T00:57:16.784885+00:00",
+    "sha256": "c219238f65e5b33964f8ffa2c8477e3a4bbf4655f2dfe8d17bcc23d3b3f3b678",
+    "bytes": 31645,
+    "http_last_modified": "Tue, 29 Sep 2026 00:53:19 GMT"
+  },
+  "poly_693869_yes_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=18551885381311190346694344305259668694385517658853102333808521637816121529823",
+    "retrieved_at_utc": "2026-09-29T00:57:16.934626+00:00",
+    "sha256": "b452b16e5be37261afdf3cd9346780b433ec9e4c61a7e220df03aa9b1a2e2ecf",
+    "bytes": 1409,
+    "http_last_modified": null
+  },
+  "poly_693869_no_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=9096312778440908520692432725059403614189930001760380938918847687296943329387",
+    "retrieved_at_utc": "2026-09-29T00:57:17.054359+00:00",
+    "sha256": "5975e96f112e85a824f0d4cf5b9fc34afb213ae0166ac7fd99fab561381796cb",
+    "bytes": 1408,
+    "http_last_modified": null
+  },
+  "poly_693870_yes_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=4748258730063866743154225440817741601898634545205498086062514908018085180762",
+    "retrieved_at_utc": "2026-09-29T00:57:17.160857+00:00",
+    "sha256": "bdcfb5eafb8ab347b9542e52e36b6b64316ceff38829435418ffa4fb14b85f61",
+    "bytes": 1262,
+    "http_last_modified": null
+  },
+  "poly_693870_no_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=40460851964794034276344575891314554282287606731199261123089897212134155757236",
+    "retrieved_at_utc": "2026-09-29T00:57:17.274438+00:00",
+    "sha256": "36d50796bfbbfe49a8fcd562d012799950e472c845dd2f0924b4a9d28d4da039",
+    "bytes": 1263,
+    "http_last_modified": null
+  },
+  "poly_693871_yes_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=41777695986599556245403457274126821715197922370040738175165004173596946317622",
+    "retrieved_at_utc": "2026-09-29T00:57:17.384236+00:00",
+    "sha256": "c75c6e2539fcaa0528c19942111fcd88ccb08e781a4963977664fbd0e3db6a66",
+    "bytes": 1334,
+    "http_last_modified": null
+  },
+  "poly_693871_no_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=26797813471975030087859518037900267141548328274504733649846687375079292615236",
+    "retrieved_at_utc": "2026-09-29T00:57:17.499752+00:00",
+    "sha256": "8d14455cfa5f3a0f0fd26280e09dd9e18fec920fbe0ad1628d3a8617b9c323c6",
+    "bytes": 1334,
+    "http_last_modified": null
+  },
+  "poly_693872_yes_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=14498449069171140091048210767776675275470228043361909433802738866555161832365",
+    "retrieved_at_utc": "2026-09-29T00:57:17.611296+00:00",
+    "sha256": "ee492eb7cbaee02b503fbf29045c6819f73d644ba31cbf4d6a2f61a3d9106b86",
+    "bytes": 1213,
+    "http_last_modified": null
+  },
+  "poly_693872_no_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=98472882426703135322986392088398913409842886502229843982890694665612639942233",
+    "retrieved_at_utc": "2026-09-29T00:57:17.717102+00:00",
+    "sha256": "d869b2798588d26c6fcd433fa541096065b1f6ff3bbffc2b9fbe34cbe53b7ea1",
+    "bytes": 1213,
+    "http_last_modified": null
+  },
+  "poly_693873_yes_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=83156357589992408901293982783019969776078410163429767712590914241969504679657",
+    "retrieved_at_utc": "2026-09-29T00:57:17.822177+00:00",
+    "sha256": "d64795e472cd93159b0d21797a2f980769a2c7f2fc6120e32ce7d9b69163d48a",
+    "bytes": 1588,
+    "http_last_modified": null
+  },
+  "poly_693873_no_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=108044899170097225210694825399120238022536508936860846989957850203775347889788",
+    "retrieved_at_utc": "2026-09-29T00:57:17.932718+00:00",
+    "sha256": "4db96dabe1f9ea5157aaba35242f73f4ff0887d47b89fd797b9d860c88603b9b",
+    "bytes": 1589,
+    "http_last_modified": null
+  },
+  "poly_693874_yes_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=56174832519546664583565006174218478528179424017318292485896876171656596667823",
+    "retrieved_at_utc": "2026-09-29T00:57:18.040165+00:00",
+    "sha256": "4722bf8d9062a93541dd263098d3f6d63dd1f754d39c38c952ef4b4fdd9c0a14",
+    "bytes": 1446,
+    "http_last_modified": null
+  },
+  "poly_693874_no_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=112681993004854169211280681652964877492713408756479770464709329240422582754083",
+    "retrieved_at_utc": "2026-09-29T00:57:18.149716+00:00",
+    "sha256": "d1612533bf6f2e77573de137dcb8d71eab2bf9909d1dad5b9454bd8d29f09e94",
+    "bytes": 1447,
+    "http_last_modified": null
+  },
+  "poly_693875_yes_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=57894756357699905449615485881755475566930526182419306343844135508888631613168",
+    "retrieved_at_utc": "2026-09-29T00:57:18.261436+00:00",
+    "sha256": "2ef8272c25673dfe12f29241d12e1f2e11e29719f832f13417149a72996a1960",
+    "bytes": 1387,
+    "http_last_modified": null
+  },
+  "poly_693875_no_book.json": {
+    "url": "https://clob.polymarket.com/book?token_id=26008431342848095208338776687137181732666596173798693708537357332133080145563",
+    "retrieved_at_utc": "2026-09-29T00:57:18.382073+00:00",
+    "sha256": "09fbcf0776165db7e48e3ada0179cf43f101b8b1ed5a88988e692bf0eac4fbf7",
+    "bytes": 1387,
+    "http_last_modified": null
+  }
+}

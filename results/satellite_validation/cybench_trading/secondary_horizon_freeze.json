@@ -1,0 +1,8 @@
+{
+  "frozen_at_utc": "2026-09-27T03:43:41.742597+00:00",
+  "primary_protocol_sha256": "bdb8e6faabac89a8995af961c584de2fe8e51adcb50657297f014a392ef8f85a",
+  "secondary_protocol_sha256": "0099015016d3d970fa71f42df7f359926f0fed8919b76a45d9e5e64cccc246d8",
+  "forecast_prefit_secondary_horizon_sha256": "bd6c1613ec6886b4f579c8bcbd9942c624d812f94cdb9f002c56bf5f5e4ddcfd",
+  "forecast_or_price_directions_joined": false,
+  "rules": "Same aggregation,coverage,costs,controls,Oct31exit; Sep15issue/firstsessionstrictlyafterSep15. PrimaryAugust15andsecondarySeptember15bothreported."
+}

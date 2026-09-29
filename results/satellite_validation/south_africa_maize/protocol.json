@@ -1,0 +1,47 @@
+{
+  "created_at_utc": "2026-09-27T03:06:59.457668+00:00",
+  "status": "Frozen before any SouthAfrica maize outcome extraction, feature/label join or forecast metric",
+  "hypothesis": "September OISST Ni\u00f1o3.4 anticipates ensuing austral summer water stress and next-calendar-year SouthAfrican maize yield.",
+  "scope": "Single country SouthAfrica, maizegrain crop, singleSeptemberSSTtofollowingharvest horizon; no country,crop,month,model orthresholdsearch.",
+  "target": "FAOSTAT QCL SouthAfricaMaize(corn), yield computedproductiontonnes/areaharvestedha; calendar year ofbulkharvest perFAOmethodology. No futurearea usedasfeature.",
+  "feature": "Cosinelatitude-weighted Septembermean absoluteOISSTNi\u00f1o3.4SST from5S\u20135N170W\u2013120W; satellite+in-situ blend, not satelliteexclusive. NoIOD.",
+  "ground": "CPCgauge-only daily precipitation, coordinatecenters24\u201330S25\u201331E, fixedmaizebeltboxselectedbeforeoutcomes, cosinelatitudeaveragevalidcells; separateAugustandSeptembermonthlytotals; requireallcalendar days and>=90%fixedboxcells perday.",
+  "issue": "October20 12:00UTC precedingharvestyear; earlyplanting, not universally beforeplanting; targetMay\u2013Augustnextyear. SSTSept30+20daylag (17dayfinalprocessing+3daybuffer);groundSept30 23:59+10days.",
+  "label_timing": "FAOSTATannualharvestyearend+12months; labelassumedreleased December31year+1 at23:59; onlyearlierreleasedlabelsfortraining and latestreleasedyieldpredictor. AtOct20ofharvestyear\u22121thismeanslatestharvestyear\u22123. Historicalpublicationvintagesunverified.",
+  "model": {
+    "form": "Ridge alpha5, train-only standardizedpredictors,unpenalizedintercept,unclippedprediction",
+    "baseline": [
+      "harvest_year",
+      "latest_released_yield",
+      "august_ground_mm",
+      "september_ground_mm"
+    ],
+    "satellite_add": [
+      "september_nino34_sst_c"
+    ],
+    "training": "expanding,minimum15eligiblehistoricalyears with assumedlabelavailable<issue; same train/testsupportallmodels",
+    "test_harvest_years": [
+      2000,
+      2024
+    ]
+  },
+  "comparators": [
+    "baseline",
+    "historicalmean",
+    "mostrecent10releasedlabelsmean",
+    "latestreleasedyield persistence",
+    "unpenalizedOLStrend",
+    "samebaselineplusprior-yearSeptemberSSTplacebo"
+  ],
+  "placebo": "Diagnostic predeclared; fitted onitsavailablecommonsupport. Primarymodeldoesnotdiscard firstsourceyearsolelytoaccommodateplacebo; report diagnostic support separately.",
+  "uncertainty": "10000paired circular5-calendar-yearblockbootstrap seed20260927, retaininggaps; paired annual errors, not satellitegridpixels as independent samples.",
+  "gate": "Atleast20eligibleheldoutharvestyears; satelliteRMSE>=5%betterthanstrongestbaseline amongbaseline,mean,recentmean,persistence,trend;MAEbetterand95%pairedRMSEgain lower>0 againstALL thosebaselines. Reportplacebo separatelywithoutchanginggate.",
+  "limitations": "Current FAO/CPC/OISSTarchives,reprocessing,originalreleasesandcropyieldreportingvintagesunverified. No claimincrementalsatellitevsin-situENSO, officialseasonalforecastsuperiority,ortradedprofits. Exploratorycandidateaftermanyfailures, no family-wise discoveryclaim.",
+  "source_urls": {
+    "FAOSTAT": "https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+    "calendar_definition": "https://files-faostat.fao.org/production/QCL/QCL_methodology_e.pdf",
+    "yield_release": "https://www.fao.org/statistics/events/events-detail/agricultural-production-statistics-2010-2025.-december-2025-update/",
+    "CPC": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.YEAR.nc",
+    "OISST": "https://psl.noaa.gov/thredds/dodsC/Datasets/noaa.oisst.v2.highres/sst.mon.mean.nc"
+  }
+}

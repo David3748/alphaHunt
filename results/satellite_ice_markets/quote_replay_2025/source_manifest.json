@@ -1,0 +1,62 @@
+{
+  "markets.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets?event_ticker=KXARCTICICEMIN-25OCT01&limit=200",
+    "retrieved_at_utc": "2026-09-29T01:13:46.019180+00:00",
+    "sha256": "16467412ec21ca763d38e74c788610d05bee8ca61d87d25ffa945359c89403c4",
+    "bytes": 25259
+  },
+  "KXARCTICICEMIN-25OCT01-T4.4_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T4.4/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:46.050040+00:00",
+    "sha256": "0d0164f4dd1611f9d481c419b5f77f53d57206926eba09e3a3bc8c4ec6e24912",
+    "bytes": 14482
+  },
+  "KXARCTICICEMIN-25OCT01-T4.2_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T4.2/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:47.197981+00:00",
+    "sha256": "170bf11de61a567f295a3dd88c4d6d48a8a053144c645124890d47a27830837e",
+    "bytes": 14256
+  },
+  "KXARCTICICEMIN-25OCT01-T4.0_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T4.0/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:48.334995+00:00",
+    "sha256": "99639cf98ac01b4d00080ac6765113b7564dd5f9c5e891e734c9ffbfd36cb32d",
+    "bytes": 14042
+  },
+  "KXARCTICICEMIN-25OCT01-T3.8_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T3.8/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:49.469477+00:00",
+    "sha256": "24c8e5060de9f325fa446629439a296aa616099b262e53c063710fe08156335d",
+    "bytes": 14018
+  },
+  "KXARCTICICEMIN-25OCT01-T3.6_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T3.6/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:50.612503+00:00",
+    "sha256": "e2e59a9466c76aa3883430e9de64eb2d48adf6377275639236b40f081f46b3bf",
+    "bytes": 13895
+  },
+  "KXARCTICICEMIN-25OCT01-T5.2_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T5.2/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:51.754139+00:00",
+    "sha256": "147f3dc65767d343d98ab08fc1c278d9eceb4ccfd1f996d7974043f22261a289",
+    "bytes": 5065
+  },
+  "KXARCTICICEMIN-25OCT01-T5.0_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T5.0/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:52.889815+00:00",
+    "sha256": "dd686d93d5f2d95ef3bfd07c7f3705b6d866ddfc5957925554b4300f268ade53",
+    "bytes": 5065
+  },
+  "KXARCTICICEMIN-25OCT01-T4.8_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T4.8/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:54.040176+00:00",
+    "sha256": "c0d5befbc1c986a2901255b4a7a15e80ed87e24e5c4f4836f6bda9c10147f091",
+    "bytes": 5127
+  },
+  "KXARCTICICEMIN-25OCT01-T4.6_candles.json": {
+    "url": "https://external-api.kalshi.com/trade-api/v2/historical/markets/KXARCTICICEMIN-25OCT01-T4.6/candlesticks?start_ts=1755129600&end_ts=1758888000&period_interval=1440",
+    "retrieved_at_utc": "2026-09-29T01:13:55.177019+00:00",
+    "sha256": "94f5913a0dede86b4cbe68f32ed385ead299d08034008a06c255b7960760ceed",
+    "bytes": 14126
+  }
+}

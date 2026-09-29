@@ -1,0 +1,6 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/UNG?period1=1177977600&period2=1772323200&interval=1d&events=history&includeAdjustedClose=true",
+  "retrieved_at_utc": "2026-09-27T01:53:51.155614+00:00",
+  "sha256": "747efb94939b8fb90f599de6ca27c5aa6b9c8aeb185585b9673f2466ea785098",
+  "fund_primary_documentation": "https://www.uscfinvestments.com/ung"
+}

@@ -1,0 +1,8 @@
+{
+  "recorded_at_utc": "2026-09-27T02:19:00.015220+00:00",
+  "selection_before_generation_join": true,
+  "reason": "Root authorized GHCND station or airport. The closest all-network qualifying station is cooperative TwitchellDam with several incomplete months; closest qualifying ASOS airport selected as primary for documented real-time ASOS data pathway, independently of outcomes. Both retained; no forecast optimization.",
+  "primary": "USW00093206",
+  "coverage_only_alternative": "USC00049111",
+  "original_vintage_operational_verification": false
+}

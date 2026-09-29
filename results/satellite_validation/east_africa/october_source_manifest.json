@@ -1,0 +1,1591 @@
+[
+  {
+    "path": "inputs/cpc_october1to9_1982.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1982.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1982-10-01T00:00:00Z",
+      "time_end": "1982-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:09.172882+00:00",
+    "sha256": "c9c5fd0033b4ea58b54491ee2c0f22158d66107a3b77dae84ebefa78ee05c032",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1983.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1983.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1983-10-01T00:00:00Z",
+      "time_end": "1983-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:09.165602+00:00",
+    "sha256": "871532741f5189cc756f2b269d351554deebeb0a25c418bcd33c744e0d027d6e",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1984.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1984.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1984-10-01T00:00:00Z",
+      "time_end": "1984-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:09.177584+00:00",
+    "sha256": "bd9a4dbec4e8014050f249359f29c7bf161769d60f3ba1010487d713a168ce1c",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1985.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1985.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1985-10-01T00:00:00Z",
+      "time_end": "1985-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:09.166349+00:00",
+    "sha256": "de275b0158ffda1a55deb4ce3abf0a104b6aa4a58e0b7032eda1bff2a5839b5c",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1986.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1986.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1986-10-01T00:00:00Z",
+      "time_end": "1986-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:10.168447+00:00",
+    "sha256": "01345a3c5fa8aaa35692369916548978c119329cceeb3b62abf1916c2ee45610",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1987.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1987.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1987-10-01T00:00:00Z",
+      "time_end": "1987-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:10.162693+00:00",
+    "sha256": "02f0af1774c8e722a7d94ac38512e150d276d3dc3fdb402f5cff2cad891e15a1",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1988.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1988.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1988-10-01T00:00:00Z",
+      "time_end": "1988-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:10.162677+00:00",
+    "sha256": "f6db05b96e6e603a183eb5cf0578e4e755e09c66c81afa126755ae275a6b3fa8",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1989.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1989.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1989-10-01T00:00:00Z",
+      "time_end": "1989-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:10.190321+00:00",
+    "sha256": "62b5fc09c6b1fda2fa467a341cf032b5743ed7c25bb1b8a96c15341b42d16b20",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1990.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1990.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1990-10-01T00:00:00Z",
+      "time_end": "1990-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:11.176946+00:00",
+    "sha256": "e2856582c11397182a693e32c1e165a00c5f1a72debc6bf71ee8d3e692312455",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1991.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1991.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1991-10-01T00:00:00Z",
+      "time_end": "1991-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:11.150781+00:00",
+    "sha256": "c798511826ce0401d9f2f68405f4ba88f1ae7a414f46e11a95dfa1990c927096",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1992.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1992.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1992-10-01T00:00:00Z",
+      "time_end": "1992-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:11.150823+00:00",
+    "sha256": "a00514a3e39615d4b3cb75d763202dd2bc6b7828610717aff9c685a8a80851f0",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1993.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1993.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1993-10-01T00:00:00Z",
+      "time_end": "1993-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:11.173621+00:00",
+    "sha256": "b37c65b00a5927ae19bd5c1817398005ebc826bd0d234500a9889341424caf62",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1994.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1994.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1994-10-01T00:00:00Z",
+      "time_end": "1994-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:12.267725+00:00",
+    "sha256": "4c3be4fa69423a2705a1a75ed0bdf9d1754224e2a58f2d7c4392dacf934f0321",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1995.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1995.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1995-10-01T00:00:00Z",
+      "time_end": "1995-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:12.321064+00:00",
+    "sha256": "241f37b9d90b6845df4747319afa10bd446f673b019e0aa9d5da8790252b85dc",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1996.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1996.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1996-10-01T00:00:00Z",
+      "time_end": "1996-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:12.143338+00:00",
+    "sha256": "b73fab6d3315f3fa948bb8b0fc4fd3be043756f21a3084030f6d05b72a420343",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1997.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1997.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1997-10-01T00:00:00Z",
+      "time_end": "1997-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:12.193767+00:00",
+    "sha256": "e7becd4050c2bf198fceaf1674c2ab81ca80ed1138fef1f982b30435dcad4f5a",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1998.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1998.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1998-10-01T00:00:00Z",
+      "time_end": "1998-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:13.124867+00:00",
+    "sha256": "3579adbfbd76887a01bd5c574d46ecadfb0de516b8853a2a36b6588f3d9db002",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_1999.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1999.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "1999-10-01T00:00:00Z",
+      "time_end": "1999-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:13.171456+00:00",
+    "sha256": "0f693ca06bfb52e9d7f4a93245697f3d256fdfb0bcfd737a3a7bbf096074780b",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2000.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2000.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2000-10-01T00:00:00Z",
+      "time_end": "2000-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:13.259086+00:00",
+    "sha256": "474bd10a3b67e487b3c0636218648ca88e17460d82982214fa889b20afa67eb7",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2001.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2001.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2001-10-01T00:00:00Z",
+      "time_end": "2001-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:13.308462+00:00",
+    "sha256": "48c478e44ddae94e89bfcdafd2bb783369c8d8930bdb50f6e1e36616c04af78c",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2002.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2002.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2002-10-01T00:00:00Z",
+      "time_end": "2002-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:14.100069+00:00",
+    "sha256": "ebb3008ccbd0e88fe813c840cf4b64b25fe954e8078e202ef6cf0337b901a294",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2003.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2003.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2003-10-01T00:00:00Z",
+      "time_end": "2003-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:14.151183+00:00",
+    "sha256": "8389a0feecb24f16437f6570f8b32e346adc9de8989d63a13c1d52299cd68611",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2004.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2004.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2004-10-01T00:00:00Z",
+      "time_end": "2004-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:14.242387+00:00",
+    "sha256": "c0a714c4ac80672b2e0b3fa84d6c2faef584f5f9c645983b09e76e632f783265",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2005.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2005.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2005-10-01T00:00:00Z",
+      "time_end": "2005-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:14.335557+00:00",
+    "sha256": "042ffd546587906e2798d5708100f4664107d690434df65ee0f85fc2d5a91adc",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2006.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2006.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2006-10-01T00:00:00Z",
+      "time_end": "2006-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:15.114318+00:00",
+    "sha256": "92e622f0ac1047ceeac80788a19643da6270529b3c57a1eba88045b9e7d7a6f8",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2007.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2007.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2007-10-01T00:00:00Z",
+      "time_end": "2007-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:15.331287+00:00",
+    "sha256": "65369904c0ecc7c964080410e09ab44e60c57206e3ae3c471a1c097b510fcb0b",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2008.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2008.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2008-10-01T00:00:00Z",
+      "time_end": "2008-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:15.217156+00:00",
+    "sha256": "717b31cd30692985a4b026570464eeb7b7c0f98aba788d9dae4b8ccd3e57a71d",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2009.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2009.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2009-10-01T00:00:00Z",
+      "time_end": "2009-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:15.298366+00:00",
+    "sha256": "8dcb19695ef4861c696a2738dcc5bbff8e455db276cd79f0f8801b242bd5bf8f",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2010.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2010.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2010-10-01T00:00:00Z",
+      "time_end": "2010-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:16.106490+00:00",
+    "sha256": "88f1d9fa001d8ece4f416520d7dd64ce4db9e248a718b8a00b5f54432ac14b21",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2011.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2011.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2011-10-01T00:00:00Z",
+      "time_end": "2011-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:16.229900+00:00",
+    "sha256": "acc6eb765bf3b0cd74256305d9f920bdb4a6e7376d16a5a11ec2393f65cd4a14",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2012.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2012.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2012-10-01T00:00:00Z",
+      "time_end": "2012-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:16.275755+00:00",
+    "sha256": "f8a7c1a7b086e9e40e23766be12b49b7f17cc61bc05801713401268bae26af86",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2013.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2013.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2013-10-01T00:00:00Z",
+      "time_end": "2013-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:16.540546+00:00",
+    "sha256": "274f27b6f76b620c80c40234e1ffd7f7a6047af90da67770cbb50af7e5c54873",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2014.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2014.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2014-10-01T00:00:00Z",
+      "time_end": "2014-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:17.100502+00:00",
+    "sha256": "040e16df2d761a986152a6bd096034600238e2dbe42793d42c525460bc0639db",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2015.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2015.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2015-10-01T00:00:00Z",
+      "time_end": "2015-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:17.225127+00:00",
+    "sha256": "fa82675c2bdecb637338d9b2cb99eeb6a070b120e077bedc2e2ec6636c40c9cb",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2016.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2016.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2016-10-01T00:00:00Z",
+      "time_end": "2016-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:17.292855+00:00",
+    "sha256": "df4b75b30cc0675dc9fb8d3e1fbd7b611050fb782e0ebb53ddff74ce547fd44e",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2017.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2017.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2017-10-01T00:00:00Z",
+      "time_end": "2017-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:17.859737+00:00",
+    "sha256": "468bc6955782bd7d98b2d3427702593d3dd38537721ed9b75b572b5ccdd58eb7",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2018-01-02 23:30:40"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2018.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2018.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2018-10-01T00:00:00Z",
+      "time_end": "2018-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:18.108734+00:00",
+    "sha256": "a748b5d091d8156a2a92cf9db92bd48d4ffd030cb8a30df496117086a68f600f",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2019-01-28 17:33:20"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2019.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2019.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2019-10-01T00:00:00Z",
+      "time_end": "2019-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:18.214689+00:00",
+    "sha256": "a35016a1d5c8f939113f1a61010fc4569d2d3cdb271f6d69c0e39d580ff99a22",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2020-01-02 23:31:10"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2020.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2020.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2020-10-01T00:00:00Z",
+      "time_end": "2020-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:18.292853+00:00",
+    "sha256": "ae4d8fa4814adc4e558c8bb924f3f1700553812e2ce13a5048b62a21b4776e9e",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2021-01-02 23:31:03"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2021.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2021.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2021-10-01T00:00:00Z",
+      "time_end": "2021-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:18.911858+00:00",
+    "sha256": "7da015ade45c49c37bec088cef18ff368a0a1525177d8f01d23be9d75c1f6fbd",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2022-01-02 23:30:58"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2022.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2022.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2022-10-01T00:00:00Z",
+      "time_end": "2022-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:19.098752+00:00",
+    "sha256": "be8c978c0b129bf2549a219f2f57109c67ebf41202ca3828e1701d965a8e2b1d",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2023-01-02 23:31:13"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2023.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2023.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2023-10-01T00:00:00Z",
+      "time_end": "2023-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:19.200152+00:00",
+    "sha256": "4699c9b8da8ab9b3abcec15e7f7d093858d76a3c3a3f6c590cd6054da7355177",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2024-01-02 23:30:47"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2024.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2024.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2024-10-01T00:00:00Z",
+      "time_end": "2024-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        274,
+        1,
+        282
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:19.277856+00:00",
+    "sha256": "2d961f11ce45d63db889053da4362ff132b7bd13e94b42043f64bc60ca9c5f0d",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2025-01-02 23:30:43"
+  },
+  {
+    "path": "inputs/cpc_october1to9_2025.nc",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2025.nc",
+    "request": {
+      "var": "precip",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42,
+      "horizStride": 1,
+      "time_start": "2025-10-01T00:00:00Z",
+      "time_end": "2025-10-09T23:59:59Z",
+      "timeStride": 1,
+      "accept": "netcdf4"
+    },
+    "indices": {
+      "time": [
+        273,
+        1,
+        281
+      ],
+      "lat": [
+        170,
+        189
+      ],
+      "lon": [
+        68,
+        83
+      ]
+    },
+    "retrieved_at_utc": "2026-09-27T03:02:19.967072+00:00",
+    "sha256": "39fbd04b477fdea45632a82a945ee199d98bdfd5ec29e6e7a6f3cb254a88f47c",
+    "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+    "source_title": "CPC GLOBAL PRCP V1.0 RT",
+    "source_history": "Updated 2026-01-02 23:30:30"
+  },
+  {
+    "path": "inputs/cpc_october_controls.csv",
+    "sha256": "1b127d4ad6541dba3116f73195eb3a1199d0ce43b270a8842c83a9a4341d2c3c",
+    "method": "Cosine-latitude weighted mean of fixed Kenya-centered land rectangle; sum October1-9only; exactly9dailyobservations required."
+  }
+]

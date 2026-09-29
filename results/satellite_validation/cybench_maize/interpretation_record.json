@@ -1,0 +1,10 @@
+{
+  "recorded_at_utc": "2026-09-27T03:47:03.874909+00:00",
+  "recorded_after_primary_results": true,
+  "user_definition": "Forecast improvement counts; test trading value separately.",
+  "unchanged_original_decision": "forecast_gate_passed remains false for the primary because its RMSE reduction is below the frozen5percent materiality threshold. No original gate is relabeled as passed.",
+  "independently_verified_components": "The primary passes all originally specified statistical, comparator, coverage and post-reference-year sign components. RMSE reduction1.826448percent versus strongestweather comparator;95percent paired5yearblock interval1.266350to2.574815percent;10of11yearwins; lowerMAEandpositivegainintervalagainst everycomparator.",
+  "interpretation": "This satisfies the user definition only as a SMALL CURRENT-VINTAGE HISTORICAL forecast improvement. It does not establish the larger practical effect targeted by the original gate, original-release operational usefulness, economic value or tradingalpha.",
+  "changes_to_fit_or_scoring": "None. This record distinguishes the alreadycomputed statistical evidence from the self-imposed effect-size threshold after observing the primary. Both fixed horizon outcomes remain fully reported.",
+  "selection_limit": "Exploratory mechanism after many candidates;11yearclusters and conditional source/reporting coverage, no family-wise adjusted inference. Prospective verification remains outstanding."
+}

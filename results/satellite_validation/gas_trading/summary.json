@@ -1,0 +1,112 @@
+{
+  "models": {
+    "always_long": {
+      "n_events": 108,
+      "compound_net_event_return": -0.9821596993952945,
+      "mean_net_event_return": -0.02594046828386059,
+      "net_win_fraction": 0.4166666666666667,
+      "mean_net_event_return_winter_bootstrap_ci95": [
+        -0.05332341085073005,
+        0.0017906714436220514
+      ],
+      "long_events": 108,
+      "short_events": 0
+    },
+    "always_short": {
+      "n_events": 108,
+      "compound_net_event_return": 0.1248339421627076,
+      "mean_net_event_return": 0.013459494159050836,
+      "net_win_fraction": 0.5370370370370371,
+      "mean_net_event_return_winter_bootstrap_ci95": [
+        -0.014270015866322653,
+        0.04083842380889369
+      ],
+      "long_events": 0,
+      "short_events": 108
+    },
+    "satellite": {
+      "n_events": 108,
+      "compound_net_event_return": -0.9428695500664287,
+      "mean_net_event_return": -0.015110591420706884,
+      "net_win_fraction": 0.4722222222222222,
+      "mean_net_event_return_winter_bootstrap_ci95": [
+        -0.03881385972441737,
+        0.012571805247349523
+      ],
+      "long_events": 48,
+      "short_events": 60,
+      "mean_net_advantage_vs_always_short_ci95": [
+        -0.07264886246561565,
+        0.02033110944677248
+      ]
+    },
+    "satellite_overlay": {
+      "n_events": 108,
+      "compound_net_event_return": -0.8957268541680032,
+      "mean_net_event_return": -0.007943456804365347,
+      "net_win_fraction": 0.4537037037037037,
+      "mean_net_event_return_winter_bootstrap_ci95": [
+        -0.04040231951683956,
+        0.022186345935601304
+      ],
+      "long_events": 62,
+      "short_events": 46,
+      "mean_net_advantage_vs_always_short_ci95": [
+        -0.07018470887072552,
+        0.02354767274046591
+      ]
+    },
+    "weather": {
+      "n_events": 108,
+      "compound_net_event_return": -0.9438507963186638,
+      "mean_net_event_return": -0.013338366398177611,
+      "net_win_fraction": 0.5092592592592593,
+      "mean_net_event_return_winter_bootstrap_ci95": [
+        -0.040743304441981675,
+        0.015035707589369696
+      ],
+      "long_events": 56,
+      "short_events": 52,
+      "mean_net_advantage_vs_always_short_ci95": [
+        -0.06738540757825025,
+        0.01250286817623311
+      ]
+    }
+  },
+  "n_winter_blocks": 19,
+  "first_target_month": "2008-01-01",
+  "last_target_month": "2025-12-01",
+  "trading_alpha_verified": false,
+  "original_vintage_operational_verification": false,
+  "interpretation": "Exploratory historical ETF strategy diagnostic; not annualized, not risk-adjusted alpha, and no complete original-vintage or borrow archive",
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T01:53:51.010537+00:00",
+    "instrument": "UNG exchange-traded natural-gas futures fund; adjusted daily closes",
+    "evaluation": "Gas target months2008-2025 October-March for which forecasts and complete entry/exit prices exist",
+    "signal_rule": "Long when forecast residential demand exceeds baseline; short when below; zero flat. Strategies satellite-minus-temporal, HDD-minus-temporal, and combined-minus-HDD incremental satellite overlay. No tuning.",
+    "entry": "First trading session strictly after forecast_at; close execution",
+    "exit": "First session strictly after forecast_at plus1calendar month; close execution. No overlapping monthly event windows.",
+    "costs": "25basis points each side peractiveevent;3percent annual assumed borrowcost forshorts prorated actualcalendar days/365. ETFfundexpenses androll effects already inprices. Cashinterest, rebates andtaxes excluded.",
+    "returns": "Fixed initial dollar position each event, signed adjustedprice holdingreturn lesscosts; compound successive disjoint events, zero cashreturn between. Not annualized.",
+    "comparators": [
+      "always long onidenticaleventwindows withsamecosts",
+      "always short onidenticaleventwindows withsamecosts"
+    ],
+    "uncertainty": "Paired winteryear bootstrap10000draws seed20260927 formean neteventreturn andincremental difference fromalwaysshort. No search orclaimofreal-world tradability.",
+    "limits": [
+      "Current-vintage forecastfeatures and adjustedprices",
+      "Borrowavailability andactualfeesnot reconstructed",
+      "Signal target consumptionmonth hasalreadyended; pricesmayalreadyreflectcoldweather",
+      "Exploratory diagnostics, notprospective orfactoradjustedalpha"
+    ],
+    "gas_outcomes_or_trade_returns_inspected_before_freeze": false
+  },
+  "source_manifest": {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/UNG?period1=1177977600&period2=1772323200&interval=1d&events=history&includeAdjustedClose=true",
+    "retrieved_at_utc": "2026-09-27T01:53:51.155614+00:00",
+    "sha256": "747efb94939b8fb90f599de6ca27c5aa6b9c8aeb185585b9673f2466ea785098",
+    "fund_primary_documentation": "https://www.uscfinvestments.com/ung"
+  },
+  "prediction_file_sha256": "e7e6adb7977189aaadd1927b8b6263c6c5ac7f8cf1ede58813dea949df2263b1",
+  "skipped_events": []
+}

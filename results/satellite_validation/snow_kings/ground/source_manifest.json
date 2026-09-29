@@ -1,0 +1,8 @@
+{
+  "results/satellite_validation/snow_daily/ground/rebuild.py": "98e1b987b800a38447aa4b328d40ede1335d4fc2d5e3f9c241b51b5b46b14b64",
+  "results/satellite_validation/snow_daily/ground/five_station_monthly.csv": "7c37013bfb45b58b87e9509d00cc48db61a356322c4f27f77e10a69e08078d61",
+  "results/satellite_validation/snow_kings/ground/wwc_swe.csv": "c8d4ed493630842c612edf885b4d19d5fd1b7c5c60dfbcefdcad1ccb140e5b49",
+  "results/satellite_validation/snow_kings/ground/basin_full.geojson": "ef20fa440f039fece1e0576f1b59f31d7463217fd42102074ffd368ce1d31aa3",
+  "results/satellite_validation/snow_kings/ground/selection_protocol.json": "234f7a40ff2d25cfc55a75d8c5d05f403d172cb835b9944271ed5566f692339f",
+  "results/satellite_validation/snow_kings/ground/kgf_metadata.html": "549f17188c96b2dcf1e8b4413e6ef68f6f95b923690c4911299607f7de0544e6"
+}

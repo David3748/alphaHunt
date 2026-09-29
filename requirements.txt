@@ -2,6 +2,7 @@
 duckdb==1.4.4
 numpy>=2,<3
 pandas>=2,<4
+openpyxl>=3.1
 scipy>=1.13
 scikit-learn>=1.5
 matplotlib>=3.8
@@ -11,7 +12,12 @@ lxml>=5,<7
 Pillow>=10
 pytest>=8
 
-# Side experiments only (crop / REIT backtests; TypeSafe evaluator)
+# Side experiments only (crop / REIT backtests; TypeSafe evaluator; Sentinel-2 site pilot)
 yfinance>=0.2
+rasterio>=1.3
 msgspec>=0.18
 typesafe-sdk>=0.6
+
+# Reproducible satellite validation inputs and binary-format semantic tests
+h5py>=3.11
+pyarrow>=16

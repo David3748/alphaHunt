@@ -1,0 +1,203 @@
+{
+  "method": "Manually read monthly mean from linked NSIDC August reports. August2008 article supplies only July31 daily extent, so excluded. All reports appeared before fixedAugust15 issue. Pre2017 definition differs from current archive.",
+  "rows": [
+    {
+      "year": 2007,
+      "publication_date": "2007-08-10",
+      "url": "https://nsidc.org/ru/node/366796",
+      "original_july_extent": 8.1,
+      "current_july_extent": 7.94,
+      "current_minus_original": -0.16,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2009-08-04",
+      "year": 2009,
+      "url": "https://nsidc.org/sea-ice-today/analyses/arctic-ice-melts-quickly-through-july",
+      "original_july_extent": 8.81,
+      "current_july_extent": 8.47,
+      "current_minus_original": -0.34,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2010-08-04",
+      "year": 2010,
+      "url": "https://nsidc.org/sea-ice-today/analyses/july-sea-ice-second-lowest-oldest-ice-begins-melt",
+      "original_july_extent": 8.39,
+      "current_july_extent": 8.07,
+      "current_minus_original": -0.32,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2011-08-03",
+      "year": 2011,
+      "url": "https://nsidc.org/sea-ice-today/analyses/arctic-sea-ice-record-low-july",
+      "original_july_extent": 7.92,
+      "current_july_extent": 7.72,
+      "current_minus_original": -0.2,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2012-08-06",
+      "year": 2012,
+      "url": "https://nsidc.org/sea-ice-today/analyses/most-interesting-arctic-summer",
+      "original_july_extent": 7.94,
+      "current_july_extent": 7.67,
+      "current_minus_original": -0.27,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2013-08-07",
+      "year": 2013,
+      "url": "https://nsidc.org/sea-ice-today/analyses/month-two-halves-and-no-hole",
+      "original_july_extent": 8.45,
+      "current_july_extent": 8.13,
+      "current_minus_original": -0.32,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2014-08-06",
+      "year": 2014,
+      "url": "https://nsidc.org/sea-ice-today/analyses/sled-dog-days-summer",
+      "original_july_extent": 8.25,
+      "current_july_extent": 8.11,
+      "current_minus_original": -0.14,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2015-08-05",
+      "year": 2015,
+      "url": "https://nsidc.org/sea-ice-today/analyses/open-and-shut",
+      "original_july_extent": 8.77,
+      "current_july_extent": 8.38,
+      "current_minus_original": -0.39,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2016-08-03",
+      "year": 2016,
+      "url": "https://nsidc.org/sea-ice-today/analyses/cool-and-stormy-arctic-july",
+      "original_july_extent": 8.13,
+      "current_july_extent": 7.94,
+      "current_minus_original": -0.19,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2017-08-03",
+      "year": 2017,
+      "url": "https://nsidc.org/sea-ice-today/analyses/which-august-will-we-get",
+      "original_july_extent": 8.21,
+      "current_july_extent": 7.94,
+      "current_minus_original": -0.27,
+      "original_units": "million km2",
+      "definition": "pre-v3 monthly-concentration method",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2018-08-02",
+      "year": 2018,
+      "url": "https://nsidc.org/sea-ice-today/analyses/ice-loss-speeds-during-second-half-july",
+      "original_july_extent": 8.22,
+      "current_july_extent": 8.27,
+      "current_minus_original": 0.05,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2019-08-06",
+      "year": 2019,
+      "url": "https://nsidc.org/sea-ice-today/analyses/europes-heat-wave-moves-north",
+      "original_july_extent": 7.59,
+      "current_july_extent": 7.59,
+      "current_minus_original": 0.0,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2020-08-04",
+      "year": 2020,
+      "url": "https://nsidc.org/sea-ice-today/analyses/steep-decline-sputters-out",
+      "original_july_extent": 7.28,
+      "current_july_extent": 7.29,
+      "current_minus_original": 0.01,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2021-08-03",
+      "year": 2021,
+      "url": "https://nsidc.org/sea-ice-today/analyses/change-pace-july",
+      "original_july_extent": 7.69,
+      "current_july_extent": 7.65,
+      "current_minus_original": -0.04,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2022-08-02",
+      "year": 2022,
+      "url": "https://nsidc.org/sea-ice-today/analyses/unknowns-lie-ahead",
+      "original_july_extent": 8.25,
+      "current_july_extent": 8.29,
+      "current_minus_original": 0.04,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2023-08-02",
+      "year": 2023,
+      "url": "https://nsidc.org/sea-ice-today/analyses/odd-summer",
+      "original_july_extent": 8.18,
+      "current_july_extent": 8.21,
+      "current_minus_original": 0.03,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2024-08-06",
+      "year": 2024,
+      "url": "https://nsidc.org/sea-ice-today/analyses/chill-gone",
+      "original_july_extent": 7.89,
+      "current_july_extent": 7.87,
+      "current_minus_original": -0.02,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    },
+    {
+      "publication_date": "2025-08-11",
+      "year": 2025,
+      "url": "https://nsidc.org/sea-ice-today/analyses/peak-summer-depths-winter",
+      "original_july_extent": 7.66,
+      "current_july_extent": 7.66,
+      "current_minus_original": 0.0,
+      "original_units": "million km2",
+      "definition": "mean of daily extents",
+      "publication_evidence": "dated NSIDC monthly report currently hosted; not immutable web archive"
+    }
+  ]
+}

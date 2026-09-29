@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "path": "august.csv",
+      "source_path": "results/satellite_validation/cybench_trading/aggregate_forecasts.csv",
+      "sha256": "e823c4888839d4b3ed71379e2be8e82f847670a73666e294260c9e62303d4586"
+    },
+    {
+      "path": "september.csv",
+      "source_path": "results/satellite_validation/cybench_trading/late/aggregate_forecasts.csv",
+      "sha256": "5695d55f6d4ccfa44be60efa509c1223eb291394f522a5d9e73690298ef4ce66"
+    }
+  ],
+  "t_ha_per_bushel_acre": 0.0628,
+  "vintage": "Current-vintage county forecasts with fixed2021cropmap; historical dates are hypothetical research issue times, not proof of original release availability.",
+  "coverage": "Prior reported eligible county area, not all national planted/harvested acres.",
+  "underlying_protocols": [
+    "results/satellite_validation/cybench_maize/protocol.json",
+    "results/satellite_validation/cybench_maize_late/protocol.json"
+  ]
+}

@@ -1,0 +1,19 @@
+site_id,independent_campus,public_since,aoi_drawn,rows,post_baseline_rows,max_acquisition_gap_days,endpoint_lag_over_30d_rows,post_baseline_known_publication_leak_rows,max_endpoint_publication_lag_days,config_delay_disclosed,mode,alert_episodes,alerts_before_nov10_2025,alerts_before_oct24_2025_public_delay,alerts_before_oct27_2025_apld_rfs,first_alert_at,coverage_eligible_decisions,total_decisions
+corz_denton,True,2024-06-03,hindsight: fitted to the campus on 2026-08 imagery,139,101,33,4,51,1096.9,2025-11-10,endpoint_only,1,1,1,1,2025-10-08 23:40:46.181967+00:00,99,101
+corz_denton,True,2024-06-03,hindsight: fitted to the campus on 2026-08 imagery,139,101,33,4,51,1096.9,2025-11-10,dependency_guard,0,0,0,0,,45,54
+apld_ellendale,True,2024-01-01,hindsight: fitted to the campus on 2025-09 imagery,79,57,168,4,25,1115.97,,endpoint_only,1,1,1,1,2024-11-11 22:13:23.817986+00:00,51,57
+apld_ellendale,True,2024-01-01,hindsight: fitted to the campus on 2025-09 imagery,79,57,168,4,25,1115.97,,dependency_guard,1,1,1,1,2025-03-22 00:14:34.266843+00:00,25,33
+orcl_abilene,True,2025-01-21,hindsight: fitted to the campus on 2026-08 imagery,288,202,17,14,151,1096.9,,endpoint_only,2,1,1,1,2025-06-21 23:27:30.556000+00:00,154,154
+orcl_abilene,True,2025-01-21,hindsight: fitted to the campus on 2026-08 imagery,288,202,17,14,151,1096.9,,dependency_guard,1,0,0,0,2026-08-18 21:37:43.856078+00:00,46,60
+orcl_jupiter,True,2025-09-23,hindsight: fitted to the campus on 2026-08 imagery,139,87,20,4,25,552.83,2026-09-24,endpoint_only,0,0,0,0,,67,67
+orcl_jupiter,True,2025-09-23,hindsight: fitted to the campus on 2026-08 imagery,139,87,20,4,25,552.83,2026-09-24,dependency_guard,0,0,0,0,,41,43
+wulf_lake_mariner,True,2024-10-01,hindsight: fitted to the campus on 2026-06 imagery,142,102,185,5,72,1104.9,,endpoint_only,2,1,1,1,2025-10-05 22:03:15.843017+00:00,81,85
+wulf_lake_mariner,True,2024-10-01,hindsight: fitted to the campus on 2026-06 imagery,142,102,185,5,72,1104.9,,dependency_guard,1,0,0,0,2026-09-08 21:22:14.878007+00:00,22,31
+xai_colossus1,True,2024-06-05,hindsight: fitted to the building on 2025-09 imagery,97,72,70,4,27,1095.9,,endpoint_only,1,1,1,1,2025-10-09 23:34:50.508806+00:00,69,72
+xai_colossus1,True,2024-06-05,hindsight: fitted to the building on 2025-09 imagery,97,72,70,4,27,1095.9,,dependency_guard,1,0,0,0,2025-12-01 21:28:31.078149+00:00,37,47
+corz_denton_blind,False,2024-06-03,"blind: 2 km square on the Denton Energy Center coordinates next door (8161 vs 8171 Jim Christal Rd), no imagery used",135,99,35,4,51,1096.9,2025-11-10,endpoint_only,1,1,1,1,2025-10-08 23:40:46.181967+00:00,97,99
+corz_denton_blind,False,2024-06-03,"blind: 2 km square on the Denton Energy Center coordinates next door (8161 vs 8171 Jim Christal Rd), no imagery used",135,99,35,4,51,1096.9,2025-11-10,dependency_guard,0,0,0,0,,44,52
+glxy_helios,True,2025-03-28,hindsight: fitted to the campus on 2026-08 imagery,152,110,40,4,39,1053.88,,endpoint_only,1,0,0,0,2026-06-11 22:27:46.860467+00:00,77,77
+glxy_helios,True,2025-03-28,hindsight: fitted to the campus on 2026-08 imagery,152,110,40,4,39,1053.88,,dependency_guard,2,0,0,0,2026-06-19 05:06:19.626085+00:00,52,56
+meta_hyperion,True,2024-12-04,hindsight: fitted to the campus on 2025-10 and 2026-08 imagery,157,106,55,4,47,1095.9,,endpoint_only,0,0,0,0,,85,85
+meta_hyperion,True,2024-12-04,hindsight: fitted to the campus on 2025-10 and 2026-08 imagery,157,106,55,4,47,1095.9,,dependency_guard,0,0,0,0,,44,50

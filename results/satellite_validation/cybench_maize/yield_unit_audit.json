@@ -1,0 +1,23 @@
+{
+  "rows": 34179,
+  "finite_positive_triplets": 33961,
+  "duplicate_county_years": 0,
+  "relative_yield_vs_production_per_area": {
+    "0": -0.018263824134052253,
+    "0.01": -0.002975512910957878,
+    "0.5": 0.0005968503937008318,
+    "0.99": 0.00457380050103311,
+    "1": 0.013707491563554663
+  },
+  "source_units": {
+    "yield": "t/ha",
+    "production": "t",
+    "harvest_area": "ha"
+  },
+  "upstream_us_conversion_factors": {
+    "yield": 0.0628,
+    "harvest_area": 0.4047,
+    "production": 0.0254
+  },
+  "interpretation": "Rounded source conversion factors and published NASS quantities can cause small differences. This is an audit only; no labels are excluded based on this discrepancy and no prediction is scored."
+}

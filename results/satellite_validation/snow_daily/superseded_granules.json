@@ -1,0 +1,145 @@
+[
+  {
+    "id": "MOD10A1.A2022074.h08v05.061.2022076045257",
+    "date": "2022-03-15",
+    "created": "2022-03-17T04:53:01Z",
+    "updated": "2022-03-16T22:56:59.614000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022074/MOD10A1.A2022074.h08v05.061.2022076045257_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022074/MOD10A1.A2022074.h08v05.061.2022076045257_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "c8e51dc79511b37362ed309b02f84f2e529e8eb76e391dfb6c6933dcab0eeb15"
+  },
+  {
+    "id": "MOD10A1.A2022075.h08v05.061.2022077033135",
+    "date": "2022-03-16",
+    "created": "2022-03-18T03:31:39Z",
+    "updated": "2022-03-17T21:35:45.397000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022075/MOD10A1.A2022075.h08v05.061.2022077033135_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022075/MOD10A1.A2022075.h08v05.061.2022077033135_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "41fc65925c0959f64a0f05890868b29d41f2ac17d6c97a6ee71b642466a10dc1"
+  },
+  {
+    "id": "MOD10A1.A2022076.h08v05.061.2022078042832",
+    "date": "2022-03-17",
+    "created": "2022-03-19T04:28:38Z",
+    "updated": "2022-03-18T22:31:54.218000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022076/MOD10A1.A2022076.h08v05.061.2022078042832_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022076/MOD10A1.A2022076.h08v05.061.2022078042832_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "bf079e53da235d7dc9ddef9fb818d50b97e37b8e16ff0b517084ef9193e0f65c"
+  },
+  {
+    "id": "MOD10A1.A2022077.h08v05.061.2022079043554",
+    "date": "2022-03-18",
+    "created": "2022-03-20T04:35:58Z",
+    "updated": "2022-03-19T22:40:04.068000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022077/MOD10A1.A2022077.h08v05.061.2022079043554_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022077/MOD10A1.A2022077.h08v05.061.2022079043554_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "8b979e8f35d3f80a929753df4978a1a5ab1304347e70bd4b656ed3784e8e62b5"
+  },
+  {
+    "id": "MOD10A1.A2022078.h08v05.061.2022080125324",
+    "date": "2022-03-19",
+    "created": "2022-03-21T12:53:28Z",
+    "updated": "2022-03-21T07:14:51.036000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022078/MOD10A1.A2022078.h08v05.061.2022080125324_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022078/MOD10A1.A2022078.h08v05.061.2022080125324_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "0fabee85e5b355f9dd052bafafc6c8333175e3719d9e14d10955c64652928ddc"
+  },
+  {
+    "id": "MOD10A1.A2022079.h08v05.061.2022081043311",
+    "date": "2022-03-20",
+    "created": "2022-03-22T04:33:21Z",
+    "updated": "2022-03-21T22:38:00.201000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022079/MOD10A1.A2022079.h08v05.061.2022081043311_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022079/MOD10A1.A2022079.h08v05.061.2022081043311_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "76486953b9e73e1374200532bc1738115f34b508101b1fc8e04f71833b597d60"
+  },
+  {
+    "id": "MOD10A1.A2022080.h08v05.061.2022082044952",
+    "date": "2022-03-21",
+    "created": "2022-03-23T04:49:58Z",
+    "updated": "2022-03-22T22:53:01.302000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022080/MOD10A1.A2022080.h08v05.061.2022082044952_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022080/MOD10A1.A2022080.h08v05.061.2022082044952_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "1612e100f68ff3c8870ba4af123c8e60c709b5cba034de71e4420f6b34c08c63"
+  },
+  {
+    "id": "MOD10A1.A2022081.h08v05.061.2022083052625",
+    "date": "2022-03-22",
+    "created": "2022-03-24T05:26:31Z",
+    "updated": "2022-03-23T23:35:06.936000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022081/MOD10A1.A2022081.h08v05.061.2022083052625_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022081/MOD10A1.A2022081.h08v05.061.2022083052625_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "6411d23664e13f68e200e8e08ea92d6f3d7aa8b3838c436f10453a484825a20f"
+  },
+  {
+    "id": "MOD10A1.A2022082.h08v05.061.2022084033244",
+    "date": "2022-03-23",
+    "created": "2022-03-25T03:32:47Z",
+    "updated": "2022-03-24T21:37:15.942000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022082/MOD10A1.A2022082.h08v05.061.2022084033244_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022082/MOD10A1.A2022082.h08v05.061.2022084033244_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "162c041bb1511e2c5921cedcb9fa8b93c44d96b10c242282230e5b63411c0689"
+  },
+  {
+    "id": "MOD10A1.A2022083.h08v05.061.2022085035154",
+    "date": "2022-03-24",
+    "created": "2022-03-26T03:51:58Z",
+    "updated": "2022-03-25T21:55:38.717000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022083/MOD10A1.A2022083.h08v05.061.2022085035154_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022083/MOD10A1.A2022083.h08v05.061.2022085035154_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "24381968bc9d0e1f9e2e5298bc3d75e85a31f67cde336f4c738cd28d341b10a7"
+  },
+  {
+    "id": "MOD10A1.A2022084.h08v05.061.2022087175139",
+    "date": "2022-03-25",
+    "created": "2022-03-28T17:51:45Z",
+    "updated": "2022-03-28T11:56:46.786000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022084/MOD10A1.A2022084.h08v05.061.2022087175139_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2022084/MOD10A1.A2022084.h08v05.061.2022087175139_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "ebf0477af8455e0142a633dd7a8d82679a4b11292b5877edcc1ab81e49b9b015"
+  },
+  {
+    "id": "MOD10A1.A2023089.h08v05.061.2023091030135",
+    "date": "2023-03-30",
+    "created": "2023-04-01T03:03:50Z",
+    "updated": "2023-03-31T21:25:27.463000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2023089/MOD10A1.A2023089.h08v05.061.2023091030135_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2023089/MOD10A1.A2023089.h08v05.061.2023091030135_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "f2e1d1ff183c13d5edd5f1e8e644e12ee971104876eab48daf404cecf3b70497"
+  },
+  {
+    "id": "MOD10A1.A2023090.h08v05.061.2023092031354",
+    "date": "2023-03-31",
+    "created": "2023-04-02T03:16:57Z",
+    "updated": "2023-04-01T22:01:33.312000Z",
+    "assets": {
+      "NDSI_Snow_Cover": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2023090/MOD10A1.A2023090.h08v05.061.2023092031354_NDSI_Snow_Cover.tif",
+      "NDSI_Snow_Cover_Basic_QA": "https://modiseuwest.blob.core.windows.net/modis-061-cogs/MOD10A1/08/05/2023090/MOD10A1.A2023090.h08v05.061.2023092031354_NDSI_Snow_Cover_Basic_QA.tif"
+    },
+    "item_sha256": "6ca4a3511abbadc3f970d5c4176137c68cd0ab515d17560eefd2c1f75952664f"
+  }
+]

@@ -1,0 +1,163 @@
+{
+  "status": "forecast_gate_failed",
+  "forecast_gate_passed": false,
+  "n_test_years": 23,
+  "test_years": [
+    2002,
+    2003,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "n_abstentions": 4,
+  "n_pending_outcomes": 0,
+  "metrics": {
+    "baseline": {
+      "rmse_mm": 74.31482263800896,
+      "mae_mm": 57.523758443530696
+    },
+    "satellite": {
+      "rmse_mm": 64.49544895255492,
+      "mae_mm": 51.79913628727253
+    },
+    "climatology": {
+      "rmse_mm": 70.63003288519099,
+      "mae_mm": 55.1959408971319
+    },
+    "recent_climatology": {
+      "rmse_mm": 74.23577076506916,
+      "mae_mm": 58.64279919603215
+    },
+    "persistence": {
+      "rmse_mm": 110.97694296802186,
+      "mae_mm": 89.7502715525923
+    }
+  },
+  "comparisons": {
+    "baseline": {
+      "rmse_reduction_fraction": 0.1321321014689717,
+      "mae_reduction_fraction": 0.09951752651694079,
+      "rmse_gain_ci95_mm": [
+        -6.8537613443046785,
+        22.172709554081692
+      ],
+      "years_lower_squared_error": 14
+    },
+    "climatology": {
+      "rmse_reduction_fraction": 0.08685517593638703,
+      "mae_reduction_fraction": 0.061540840769250704,
+      "rmse_gain_ci95_mm": [
+        -7.839905994901538,
+        20.48010097932423
+      ],
+      "years_lower_squared_error": 12
+    },
+    "recent_climatology": {
+      "rmse_reduction_fraction": 0.1312079299794573,
+      "mae_reduction_fraction": 0.11670082265143089,
+      "rmse_gain_ci95_mm": [
+        -4.442267472914744,
+        23.990519030214898
+      ],
+      "years_lower_squared_error": 14
+    },
+    "persistence": {
+      "rmse_reduction_fraction": 0.418839200038702,
+      "mae_reduction_fraction": 0.4228525954161707,
+      "rmse_gain_ci95_mm": [
+        23.60761750056166,
+        66.32231935092601
+      ],
+      "years_lower_squared_error": 18
+    }
+  },
+  "strongest_baseline": "climatology",
+  "original_vintage_operational_verification": false,
+  "satellite_only_incremental_attribution": false,
+  "official_forecast_superiority_tested": false,
+  "economic_output_forecast_verified": false,
+  "trading_alpha_verified": false,
+  "prospective_verification": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T02:52:33.089287+00:00",
+    "outcome_values_inspected_before_freeze": false,
+    "hypothesis": "September Indian Ocean Dipole and ENSO have established physical influence on East African short rains; predict future November-December rainfall, not economic output or market return.",
+    "region": {
+      "name": "Kenya-centered rectangular land region, not exact national boundaries",
+      "south": -5,
+      "north": 5,
+      "west": 34,
+      "east": 42
+    },
+    "target": "Cos(latitude) area-weighted mean GPCC gauge-only monitoring monthly land precipitation, November plus December in mm; current archive v2020 at NOAA PSL; 1982-2025. Missing months never zero-filled.",
+    "satellite": "NOAA OISST v2.1 September-only mean ocean SST: IOD west10S-10N50-70E minus east10S-0N90-110E, plus Nino3.4 5S-5N170-120W. Exact coordinate-center bounds, cosine-latitude weights. Satellite-enhanced in-situ blend, not isolated satellite-only attribution.",
+    "forecast_issue": "October20 12:00UTC; target starts November1. No current partial September 2026 forecast: data incomplete at research date.",
+    "availability": {
+      "sst": "September30+20days at00UTC (17dayfinalization +3daybuffer), strictly before issue12UTC; archive vintage unverified",
+      "current_ground": "NOAA CPC Unified daily gauge-only August and September regional totals; end-of-month+10day availability assumption. Used because GPCC monitoring has 2month latency and cannot supply September controls at October20. Current archive revisions disclosed.",
+      "target_labels": "Each December31+90days; never current target available before issue. Prior-season same release rule."
+    },
+    "training": "Expanding1982 to forecastyear-1, minimum17 fully observed trainingrows. First complete row expected1983 because GPCC prior-season1981 unavailable. Training-only standardization. All models share eligible support.",
+    "test": "Every year1999-2025 inclusive; expected1999 abstention for fewer17 trainingrows, so26 forecasts2000-2025. Any additional source missingness explicitly abstains, no horizon extension or row selection.",
+    "models": {
+      "baseline": "Intercept plus yeartrend, prior Nov-Dec GPCC rainfall, current August CPC gauge rainfall, current September CPC gauge rainfall. Fixed ridge alpha5, training mean/std, unpenalized intercept. Clip prediction at0.",
+      "satellite": "Same four baseline predictors plus September IOD west-east SST difference and September Nino3.4 SST; same fixed ridge alpha5.",
+      "climatology": "All past training target mean",
+      "recent_climatology": "Last10 complete training years mean",
+      "persistence": "Previous year Nov-Dec GPCC rainfall"
+    },
+    "uncertainty": "Paired circular5year block bootstrap10000draws seed20260927, preserve calendar gaps, report all baselines.",
+    "gate": "Satellite RMSE at least5%below strongest of four baseline RMSEs; lower MAE and positive95%RMSE-gain lower bound versus each baseline. No geographic, target, month, parameter or baseline search after observing outcomes.",
+    "source_quality": "Gauge-only target independent of satellite SST. Ground network coverage/interpolation and archive revisions may affect values. GPCC and CPC share some gauges, acceptable for ground baseline. OISST blended in-situ; original vintages unverified.",
+    "claim_limits": [
+      "Risk forecast of regional rainfall only, not crop/hydropower production or trading alpha",
+      "Known consensus relationship, no superiority to official forecast claimed",
+      "Region/mechanism selected after other failed satellite studies; no familywise correction",
+      "Current archived datasets, no historical release reconstruction",
+      "No tuning or alternative box/target after first result"
+    ]
+  },
+  "prefit_information_set_amendment": {
+    "amended_at_utc": "2026-09-27T03:02:05.511894+00:00",
+    "original_protocol_sha256": "9d4d595000b9cf92b2a10f9e7d8a62d36917ca8f3cb651be1619b645bb8c77ce",
+    "outcome_values_or_model_metrics_inspected": false,
+    "reason": "Source/timing audit: October20issue permits already observed October1-9ground rainfall with10daybuffer. Strengthen both models equally before first fit. Parent approved explicitly.",
+    "primary_change": "Add October1-9 CPC regional rainfall total to both regression models. Ground latest observation October9 23:59, assumed available October19 23:59, beforeOctober20 12:00. No other feature, box, target, model, penalty, gate or evaluation change.",
+    "secondary": "Preserve original August/September-only model pair as secondary diagnostic on identical primary support; secondary pass cannot replace primary failure."
+  },
+  "prefit_gpcc_source_repair": {
+    "recorded_at_utc": "2026-09-27T03:04:43.759171+00:00",
+    "forecast_metrics_inspected": false,
+    "reason": "PSL GPCC v2020 mirror has 528monthlytime coordinates but allregionalvalues missing May2021-December2025; inspected missingness, not model scores. Source history CASJul2021 despite filemtime2026.",
+    "repair": "Use official DWD GPCC Monitoring v2022 1degree for all November/December1982-2025, not splice old/new products. Fixed region, gauge-only target, model, predictors, priorlag, gate and chronology unchanged. Include regional gauge counts from same source. Retain stale original snapshot and its provenance as rejected source diagnostic.",
+    "doi": "10.5676/DWD_GPCC/MP_M_V2022_100",
+    "old_missing_months": 56,
+    "old_first_missing": "2021-05",
+    "source_url_pattern": "https://opendata.dwd.de/climate_environment/GPCC/monitoring_v2022/{year}/monitoring_v2022_10_{year}_{month:02d}.nc.gz"
+  },
+  "source_code_sha256": "a3b482ab8c57e5701272d321229d0a2ae855fd3035981a744ad45affcf349d83",
+  "source_manifest_sha256": "6597a9f04f03587e46e31456c81fc8b76dce3129a11ebdd0e29db6e2303e071a",
+  "october_source_manifest_sha256": "757f751f11d6e19c805ae6f35fcf87c94a98668eae96f3c728ee31c3cc95bd70",
+  "gpcc_source_manifest_sha256": "2f63709514445a113da66a88a191bc1068c85ed240c755f7c997853e93202ed3",
+  "protocol_sha256": "9d4d595000b9cf92b2a10f9e7d8a62d36917ca8f3cb651be1619b645bb8c77ce",
+  "interpretation": "Current-archive October20 forecast of November-December gauge rainfall in a fixed Kenya-centered land rectangle. Satellite-enhanced OISST vs same local gauge-rainfall and history controls; not isolated satellite attribution, original-vintage certification, production or market alpha."
+}

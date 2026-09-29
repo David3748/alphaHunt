@@ -1,0 +1,192 @@
+{
+  "reviewed_at_utc": "2026-09-27T03:52:21.349751+00:00",
+  "findings": [],
+  "tests": "13 passed independently",
+  "corporate_actions_in_price_snapshot": {},
+  "source_checksums": {
+    "results/satellite_validation/cybench_trading/protocol.json": "bdb8e6faabac89a8995af961c584de2fe8e51adcb50657297f014a392ef8f85a",
+    "results/satellite_validation/cybench_trading/late/protocol.json": "0099015016d3d970fa71f42df7f359926f0fed8919b76a45d9e5e64cccc246d8"
+  },
+  "horizons": {
+    "8": {
+      "events": 11,
+      "dates": [
+        {
+          "year": 2013,
+          "entry": "2013-08-16",
+          "exit": "2013-10-31",
+          "holding_days": 76,
+          "prior_area_coverage": 0.8156621456174711
+        },
+        {
+          "year": 2014,
+          "entry": "2014-08-18",
+          "exit": "2014-10-31",
+          "holding_days": 74,
+          "prior_area_coverage": 0.9938176614201436
+        },
+        {
+          "year": 2015,
+          "entry": "2015-08-17",
+          "exit": "2015-10-30",
+          "holding_days": 74,
+          "prior_area_coverage": 0.9928276429771018
+        },
+        {
+          "year": 2016,
+          "entry": "2016-08-16",
+          "exit": "2016-10-31",
+          "holding_days": 76,
+          "prior_area_coverage": 0.9982553045745035
+        },
+        {
+          "year": 2017,
+          "entry": "2017-08-16",
+          "exit": "2017-10-31",
+          "holding_days": 76,
+          "prior_area_coverage": 0.9962483415619202
+        },
+        {
+          "year": 2018,
+          "entry": "2018-08-16",
+          "exit": "2018-10-31",
+          "holding_days": 76,
+          "prior_area_coverage": 0.9798284990296805
+        },
+        {
+          "year": 2019,
+          "entry": "2019-08-16",
+          "exit": "2019-10-31",
+          "holding_days": 76,
+          "prior_area_coverage": 0.9971180519079937
+        },
+        {
+          "year": 2020,
+          "entry": "2020-08-17",
+          "exit": "2020-10-30",
+          "holding_days": 74,
+          "prior_area_coverage": 0.9981880327998071
+        },
+        {
+          "year": 2021,
+          "entry": "2021-08-16",
+          "exit": "2021-10-29",
+          "holding_days": 74,
+          "prior_area_coverage": 0.9974078072094457
+        },
+        {
+          "year": 2022,
+          "entry": "2022-08-16",
+          "exit": "2022-10-31",
+          "holding_days": 76,
+          "prior_area_coverage": 0.9978945312792074
+        },
+        {
+          "year": 2023,
+          "entry": "2023-08-16",
+          "exit": "2023-10-31",
+          "holding_days": 76,
+          "prior_area_coverage": 0.9950286032090258
+        }
+      ],
+      "all_weight_forecast_price_cost_checks_passed": true,
+      "shared_calendar_year_bootstrap_reproduced": true,
+      "gate": false,
+      "summary_sha256": "065b4fc95fb022050793d7c40623de2f8c64d769ec5a605a15a8e16165302a4a"
+    },
+    "9": {
+      "events": 11,
+      "dates": [
+        {
+          "year": 2013,
+          "entry": "2013-09-16",
+          "exit": "2013-10-31",
+          "holding_days": 45,
+          "prior_area_coverage": 0.8157389973450683
+        },
+        {
+          "year": 2014,
+          "entry": "2014-09-16",
+          "exit": "2014-10-31",
+          "holding_days": 45,
+          "prior_area_coverage": 0.9938176614201436
+        },
+        {
+          "year": 2015,
+          "entry": "2015-09-16",
+          "exit": "2015-10-30",
+          "holding_days": 44,
+          "prior_area_coverage": 0.9955421250112402
+        },
+        {
+          "year": 2016,
+          "entry": "2016-09-16",
+          "exit": "2016-10-31",
+          "holding_days": 45,
+          "prior_area_coverage": 0.9982553045745035
+        },
+        {
+          "year": 2017,
+          "entry": "2017-09-18",
+          "exit": "2017-10-31",
+          "holding_days": 43,
+          "prior_area_coverage": 0.9962483415619202
+        },
+        {
+          "year": 2018,
+          "entry": "2018-09-17",
+          "exit": "2018-10-31",
+          "holding_days": 44,
+          "prior_area_coverage": 0.8579783976699098
+        },
+        {
+          "year": 2019,
+          "entry": "2019-09-16",
+          "exit": "2019-10-31",
+          "holding_days": 45,
+          "prior_area_coverage": 0.9971180519079937
+        },
+        {
+          "year": 2020,
+          "entry": "2020-09-16",
+          "exit": "2020-10-30",
+          "holding_days": 44,
+          "prior_area_coverage": 0.9981880327998071
+        },
+        {
+          "year": 2021,
+          "entry": "2021-09-16",
+          "exit": "2021-10-29",
+          "holding_days": 43,
+          "prior_area_coverage": 0.997273351042029
+        },
+        {
+          "year": 2022,
+          "entry": "2022-09-16",
+          "exit": "2022-10-31",
+          "holding_days": 45,
+          "prior_area_coverage": 0.9978313422938541
+        },
+        {
+          "year": 2023,
+          "entry": "2023-09-18",
+          "exit": "2023-10-31",
+          "holding_days": 43,
+          "prior_area_coverage": 0.9950286032090258
+        }
+      ],
+      "all_weight_forecast_price_cost_checks_passed": true,
+      "shared_calendar_year_bootstrap_reproduced": true,
+      "gate": false,
+      "summary_sha256": "226bd43a285c8785a5778e7750e2fd25df4c6d89da5d9cd120391fc36d225d51"
+    }
+  },
+  "scope": "Independent reconstruction from raw committed sources; no strategy changes or parameter fitting.",
+  "limitations": [
+    "Original area/yield/feature release vintages and historical short borrow availability are not reconstructed.",
+    "Return is a fixed entry-notional fully collateralized diagnostic; execution and borrow rates are explicit assumptions.",
+    "Only11 shared annual events per horizon; circular5year blocks do not create new independent years; confidence intervals are not candidate-search adjusted.",
+    "No corporate actions appear in the snapshot, so adjusted-close short arithmetic has no dividend reinvestment ambiguity for these events.",
+    "Area denominators use all earlier valid source yields for reporting-history eligibility, whereas county model training starts2003; missing county forecasts still remain in the denominator, conservatively."
+  ]
+}

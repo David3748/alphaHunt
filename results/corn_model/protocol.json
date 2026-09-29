@@ -1,0 +1,39 @@
+{
+  "written_at_utc": "2026-09-27T22:48:39.817924+00:00",
+  "status": "Fixed basic model specification before the new USDA revision/price join. Exploratory extension: earlier satellite and CORN research already examined 2013\u20132023, so these dates are not an untouched final holdout.",
+  "task": "Basic corn forecast and paper-trading research model; no required positive result.",
+  "issues": "August 15 and September 15 at 12:00 UTC, county proxy years 2013\u20132023. Never carry stale county observations forward.",
+  "anchor": "Latest USDA WASDE US corn table published strictly before issue for marketing year y/(y+1). Preserve as-published vintages.",
+  "target": "First WASDE release in the NEXT CALENDAR MONTH for same marketingyear. Missing/cancelled report has no label, never substituted from a later month. Forecast can still be emitted without an outcome.",
+  "features": {
+    "weather": [
+      "(covered-county weather forecast - matched county trend) / 0.0628",
+      "1 for a September issue, otherwise 0"
+    ],
+    "satellite": [
+      "the same weather features",
+      "(covered-county satellite forecast - matched weather forecast) / 0.0628"
+    ]
+  },
+  "calibration": "Standardized ridge with alpha 10 and an unpenalized intercept. Train only on strictly earlier harvest years whose target report was published before issue. Require at least 5 distinct years and 8 rows. Fit scaling on training data only; set zero-variance feature scale to 1. No parameter or model selection on results.",
+  "models": [
+    "Latest USDA unchanged",
+    "Same-horizon past mean revision",
+    "USDA plus calibrated weather revision",
+    "USDA plus calibrated weather and satellite revision"
+  ],
+  "production": "USDA production plus predicted yield revision times current USDA harvested million acres. Preserve official rounding and hold area fixed. Ending stocks change by the same production amount, holding all other balance-sheet items fixed. This is a conditional scenario, not a demand forecast.",
+  "trade": "Default reference is latest USDA, not analyst consensus. A yield forecast more than 0.5 bu/ac below the reference gives a long paper position; more than 0.5 above gives a short; otherwise flat. No return probability is claimed. Positions use 1x notional only.",
+  "execution": "Use the CORN futures ETF as an explicitly labeled proxy; authentic individual December-contract history was not available from the checked free endpoints. Enter on the first New York session after the issue date and exit 20 sessions after entry. Charge 25 bp per side and 3% annual short borrow. Do not compound overlapping windows. Do not interpret continuous futures roll gaps as returns.",
+  "evaluation": "Chronological 2018\u20132023 after warmup, on matched support with equal-year MSE/MAE. Use paired 2-calendar-year circular blocks, 10,000 draws, seed 20260927; show event/year counts. Report mean and compounded event returns, all model and always-long/always-short controls, plus doubled execution costs. No significance or alpha promotion gate.",
+  "limitations": [
+    "County proxies use revised archives and a fixed 2021 crop map, not verified original-release features.",
+    "The covered-county proxy is not assumed to represent national yield directly.",
+    "A difference from USDA is not a difference from market expectations.",
+    "Only six evaluation harvest years, with related information across the two horizons.",
+    "No live execution or scheduled automation.",
+    "County inputs end in 2023; a later issue needs fresh matching-year inputs."
+  ],
+  "config_sha256": "719e15655a21d26c487e8a55bb7882d8dabf77a6440280c7f68e2f8ecfb58df9",
+  "consensus": "No historical analyst consensus is supplied. The optional user input must identify its source, publication timestamp, crop year, target month and expected national yield."
+}

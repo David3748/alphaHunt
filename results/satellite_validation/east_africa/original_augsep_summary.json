@@ -1,0 +1,101 @@
+{
+  "status": "forecast_gate_failed",
+  "forecast_gate_passed": false,
+  "n_test_years": 23,
+  "test_years": [
+    2002,
+    2003,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "n_abstentions": 4,
+  "n_pending_outcomes": 0,
+  "metrics": {
+    "baseline": {
+      "rmse_mm": 73.2854068649574,
+      "mae_mm": 62.84867733651004
+    },
+    "satellite": {
+      "rmse_mm": 61.08927866792333,
+      "mae_mm": 50.076027160033085
+    },
+    "climatology": {
+      "rmse_mm": 70.63003288519099,
+      "mae_mm": 55.1959408971319
+    },
+    "recent_climatology": {
+      "rmse_mm": 74.23577076506916,
+      "mae_mm": 58.64279919603215
+    },
+    "persistence": {
+      "rmse_mm": 110.97694296802186,
+      "mae_mm": 89.7502715525923
+    }
+  },
+  "comparisons": {
+    "baseline": {
+      "rmse_reduction_fraction": 0.1664196013744974,
+      "mae_reduction_fraction": 0.20322862338197645,
+      "rmse_gain_ci95_mm": [
+        -3.9943047856336196,
+        26.040893186749464
+      ],
+      "years_lower_squared_error": 15
+    },
+    "climatology": {
+      "rmse_reduction_fraction": 0.1350806990671537,
+      "mae_reduction_fraction": 0.09275888143008093,
+      "rmse_gain_ci95_mm": [
+        -6.823723821464626,
+        25.558048753494546
+      ],
+      "years_lower_squared_error": 14
+    },
+    "recent_climatology": {
+      "rmse_reduction_fraction": 0.17709107027055715,
+      "mae_reduction_fraction": 0.14608395495177362,
+      "rmse_gain_ci95_mm": [
+        -3.5092381448075134,
+        28.971127225048804
+      ],
+      "years_lower_squared_error": 14
+    },
+    "persistence": {
+      "rmse_reduction_fraction": 0.44953179431581314,
+      "mae_reduction_fraction": 0.4420515248169551,
+      "rmse_gain_ci95_mm": [
+        23.615729900661464,
+        71.72260017843448
+      ],
+      "years_lower_squared_error": 17
+    }
+  },
+  "strongest_baseline": "climatology",
+  "original_vintage_operational_verification": false,
+  "satellite_only_incremental_attribution": false,
+  "official_forecast_superiority_tested": false,
+  "economic_output_forecast_verified": false,
+  "trading_alpha_verified": false,
+  "prospective_verification": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "interpretation": "Original August/September-only controls, retained as a secondary diagnostic. Primary gate uses the stronger early-October information set; this result cannot replace a failed primary gate."
+}

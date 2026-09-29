@@ -1,0 +1,206 @@
+{
+  "audit_passed": true,
+  "forecast_gate_passed": false,
+  "metrics": {
+    "weather": {
+      "rmse_t_ha": 1.532237944009103,
+      "mae_t_ha": 1.1699707982773686
+    },
+    "satellite": {
+      "rmse_t_ha": 1.4844339726568174,
+      "mae_t_ha": 1.130423705195293
+    },
+    "trend": {
+      "rmse_t_ha": 1.6668234254617025,
+      "mae_t_ha": 1.2743790696344612
+    },
+    "persistence": {
+      "rmse_t_ha": 1.9003667205883668,
+      "mae_t_ha": 1.3836298139383205
+    },
+    "recent_mean": {
+      "rmse_t_ha": 1.6022384800628544,
+      "mae_t_ha": 1.2743284375317492
+    }
+  },
+  "statistical_skill_components_passed": true,
+  "forecast_issue_month": 9,
+  "comparisons": {
+    "weather": {
+      "rmse_reduction": 0.03119879098360301,
+      "mae_reduction": 0.03380177790787908,
+      "rmse_reduction_ci95": [
+        0.028726392624593977,
+        0.034152601876476396
+      ],
+      "years_lower_mse": 11
+    },
+    "trend": {
+      "rmse_reduction": 0.10942337983662787,
+      "mae_reduction": 0.11296118075798278,
+      "rmse_reduction_ci95": [
+        0.040629173892371195,
+        0.1555691442294168
+      ],
+      "years_lower_mse": 10
+    },
+    "persistence": {
+      "rmse_reduction": 0.21886972836630902,
+      "mae_reduction": 0.18300133908094218,
+      "rmse_reduction_ci95": [
+        0.0860693600198994,
+        0.3062126842519346
+      ],
+      "years_lower_mse": 9
+    },
+    "recent_mean": {
+      "rmse_reduction": 0.07352495204173082,
+      "mae_reduction": 0.11292593659385464,
+      "rmse_reduction_ci95": [
+        0.0467941551572254,
+        0.09074466192833774
+      ],
+      "years_lower_mse": 10
+    }
+  },
+  "strongest_baseline": "weather",
+  "post_reference_year_signs": [
+    {
+      "year": 2022,
+      "n_counties": 1438,
+      "weather_mse": 2.365763663401093,
+      "satellite_mse": 2.1634386716690446,
+      "trend_mse": 2.671632328865343,
+      "persistence_mse": 3.473432248261474,
+      "recent_mean_mse": 2.333256319944367,
+      "weather_mae": 1.1595932578399486,
+      "satellite_mae": 1.0992168877805553,
+      "trend_mae": 1.2168257255770467,
+      "persistence_mae": 1.416703059805285,
+      "recent_mean_mae": 1.14590264255911
+    },
+    {
+      "year": 2023,
+      "n_counties": 1379,
+      "weather_mse": 1.5329752657632834,
+      "satellite_mse": 1.4258719888458153,
+      "trend_mse": 1.5707860363366801,
+      "persistence_mse": 3.0739388854242207,
+      "recent_mean_mse": 1.6958896511675126,
+      "weather_mae": 0.9506533470335368,
+      "satellite_mae": 0.9199422982519493,
+      "trend_mae": 0.9773640899553192,
+      "persistence_mae": 1.3235902828136332,
+      "recent_mean_mae": 1.0475211022480058
+    }
+  ],
+  "coverage": [
+    {
+      "year": 2013,
+      "rows": 3025,
+      "forecasts": 1431,
+      "unknown_outcome_forecasts": 207,
+      "scored": 1224,
+      "abstentions": 1594
+    },
+    {
+      "year": 2014,
+      "rows": 3025,
+      "forecasts": 1639,
+      "unknown_outcome_forecasts": 240,
+      "scored": 1399,
+      "abstentions": 1386
+    },
+    {
+      "year": 2015,
+      "rows": 3025,
+      "forecasts": 1675,
+      "unknown_outcome_forecasts": 353,
+      "scored": 1322,
+      "abstentions": 1350
+    },
+    {
+      "year": 2016,
+      "rows": 3025,
+      "forecasts": 1712,
+      "unknown_outcome_forecasts": 321,
+      "scored": 1391,
+      "abstentions": 1313
+    },
+    {
+      "year": 2017,
+      "rows": 3025,
+      "forecasts": 1743,
+      "unknown_outcome_forecasts": 338,
+      "scored": 1405,
+      "abstentions": 1282
+    },
+    {
+      "year": 2018,
+      "rows": 3025,
+      "forecasts": 1600,
+      "unknown_outcome_forecasts": 436,
+      "scored": 1164,
+      "abstentions": 1425
+    },
+    {
+      "year": 2019,
+      "rows": 3025,
+      "forecasts": 1779,
+      "unknown_outcome_forecasts": 569,
+      "scored": 1210,
+      "abstentions": 1246
+    },
+    {
+      "year": 2020,
+      "rows": 3025,
+      "forecasts": 1791,
+      "unknown_outcome_forecasts": 219,
+      "scored": 1572,
+      "abstentions": 1234
+    },
+    {
+      "year": 2021,
+      "rows": 3025,
+      "forecasts": 1802,
+      "unknown_outcome_forecasts": 399,
+      "scored": 1403,
+      "abstentions": 1223
+    },
+    {
+      "year": 2022,
+      "rows": 3025,
+      "forecasts": 1796,
+      "unknown_outcome_forecasts": 358,
+      "scored": 1438,
+      "abstentions": 1229
+    },
+    {
+      "year": 2023,
+      "rows": 3025,
+      "forecasts": 1820,
+      "unknown_outcome_forecasts": 441,
+      "scored": 1379,
+      "abstentions": 1205
+    }
+  ],
+  "maximum_comparator_difference": 9.237055564881302e-14,
+  "source_aggregation": {
+    "ndvi_observations": 1102162,
+    "monthly_weather_statistics": 317625,
+    "all_composites_complete_before_issue": true,
+    "aggregation_recomputed": true
+  },
+  "implementation": {
+    "forecast_code_sha256": "5c87fed6c01fa59ea04242a4fbf223fcfc5b8b19cf4aca8f3efb91fcda589f3c",
+    "current_code_sha256": "173c326b68bccc085489e88c2b70cb8293aabf0e877e3fd725273ca566653f02",
+    "exact_fitted_snapshot_verified": true,
+    "non_score_code_unchanged": true
+  },
+  "source_hashes_verified": true,
+  "predictions_sha256": "8baf41f2eb453e53e22cc7f40f22913ba7c12294bc50acedfcb609a19b2f06f9",
+  "summary_sha256": "7d7d32492d8e82c7f6fe9ed241d783e4c52643a20d35d916042acdc3574ab630",
+  "audit_code_sha256": "4352fb8f7007d74ec4835e2eec7d65a54d4d2ab3a67831b350e21054c1cc0f09",
+  "original_vintage_operational_verification": false,
+  "scope": "Independent arithmetic, chronology, source coverage and comparator reconstruction; no estimator retuning or refit."
+}

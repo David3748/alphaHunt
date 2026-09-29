@@ -1,0 +1,14 @@
+[
+  {
+    "slot": "2025-04-10T16:00:00+00:00",
+    "full_download_bytes": 22495716,
+    "full_sha256": "90dbe9534403d649107158304925e43b9f149f91ea18d8d483ff2ae8a4f5478e",
+    "whole_file_error": "Can't synchronously read data (filter returned failure during read)"
+  },
+  {
+    "slot": "2025-04-10T18:00:00+00:00",
+    "full_download_bytes": 32377501,
+    "full_sha256": "16dd5596763c278e09232cdea76c49233803550eea7c4a0598665ce83d0787b8",
+    "whole_file_error": "Can't synchronously read data (filter returned failure during read)"
+  }
+]

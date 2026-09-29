@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "semantic_tests_passed": 15,
+  "test_command": "python3 -m pytest -q tests/test_corn_market_data.py",
+  "independent_review": {
+    "reviewer": "audit_construction",
+    "findings": [],
+    "additional_check": "Independently enumerated all22 August/September2013\u20132023 windows; correct20 sessions after entry, future September27 event unavailable."
+  },
+  "market_status": {
+    "symbol": "CORN",
+    "asset_kind": "corn_futures_etf_proxy",
+    "snapshot_as_of_utc": "2026-09-27T22:52:00.936236+00:00",
+    "first_price_date": "2010-06-09",
+    "latest_price_date": "2026-09-25",
+    "latest_completed_session": "2026-09-25",
+    "missing_completed_sessions_after_latest_price": 0,
+    "is_live_quote": false,
+    "price_basis": "Yahoo adjusted daily close, current retrieved vintage"
+  },
+  "price_rows": 4100,
+  "missing_sessions_between_first_last": 0,
+  "code_sha256": "1d55c835fb5063d0461fc2ed0ecf1e51ffa66cf67e4f72f994f3781fca763b6b",
+  "manifest_sha256": "d96a788cb363f342bd34bbc52a88eaf7add996183ddc3d5d7916bfb6a425bcfd",
+  "future_event_check": "unavailable",
+  "signal_or_return_optimization_performed": false,
+  "orders_submitted": false
+}

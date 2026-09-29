@@ -1,0 +1,7 @@
+{
+  "frozen_at_utc": "2026-09-27T03:03:46.186322+00:00",
+  "source_sha256": "e6a3f9444c8bd53c37e8d498eed260c6b9179412dcde669e9da87c47f79f947a",
+  "amendment_sha256": "1678579f5e717bb598da2d8ca769994935887bd713abd130b925511207145f22",
+  "forecast_metrics_inspected": false,
+  "tests_passed_before_fit": 9
+}

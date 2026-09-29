@@ -1,0 +1,20 @@
+[
+  {
+    "path": "metadata/gpcc_v2022_product.html",
+    "url": "https://opendata.dwd.de/climate_environment/GPCC/html/gpcc_monitoring_v2022_doi_download.html",
+    "sha256": "91b4fa51a4facbbf3ddf265134c1b9795363d7a348ca4789ccc02569cc3534e5",
+    "retrieved_at_utc": "2026-09-27T03:08:31.655451+00:00"
+  },
+  {
+    "path": "metadata/oisst.das",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/noaa.oisst.v2.highres/sst.mon.mean.nc.das",
+    "sha256": "11ae1b245879d6048a09f067f1420b0862936a11260be082fdbe86078373cde7",
+    "retrieved_at_utc": "2026-09-27T03:08:30.778215+00:00"
+  },
+  {
+    "path": "metadata/cpc_2025.das",
+    "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2025.nc.das",
+    "sha256": "505a1de0aae2f51ea0ef2af86ce51341e1a790aeb414fa8fdb6861eea50c0e96",
+    "retrieved_at_utc": "2026-09-27T03:08:30.779396+00:00"
+  }
+]

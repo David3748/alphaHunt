@@ -1,0 +1,9 @@
+{
+  "changed_at_utc": "2026-09-27T03:47:34.994316+00:00",
+  "change": "Fail closed if secondary issue_month used with primary output directory; load only prediction columns used forsignals (neveractualtarget), eliminating unrelated mixed-type read warning. No strategy/model parameters changed.",
+  "first_run_code_sha256": "9491eb0c020d3ac3f6c4b419ec877240d4418db91905b42e55fbb3ec937b4da0",
+  "current_code_sha256": "4c1be7ce4da8917f25ea809e79a2f102d1221d2f7b8b96f2e31a13f54e1e7d83",
+  "primary_scores_coverage_and_cost_sensitivity_exactly_unchanged": true,
+  "before_secondary_first_join": true,
+  "tests_passed": 13
+}

@@ -1,0 +1,36 @@
+{
+  "path": "inputs/cpc_augsep_2018.nc",
+  "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2018.nc",
+  "request": {
+    "var": "precip",
+    "south": -30,
+    "north": -24,
+    "west": 25,
+    "east": 31,
+    "horizStride": 1,
+    "time_start": "2018-08-01T00:00:00Z",
+    "time_end": "2018-09-30T23:59:59Z",
+    "timeStride": 1,
+    "accept": "netcdf4"
+  },
+  "indices": {
+    "time": [
+      212,
+      1,
+      272
+    ],
+    "lat": [
+      228,
+      239
+    ],
+    "lon": [
+      50,
+      61
+    ]
+  },
+  "retrieved_at_utc": "2026-09-27T03:13:51.556467+00:00",
+  "sha256": "a990ca8a8f2cdf202a86e135271f11fa942aaf0735564ccd2a5f25f8aad464d0",
+  "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+  "source_title": "CPC GLOBAL PRCP V1.0 RT",
+  "source_history": "Updated 2019-01-28 17:33:20"
+}

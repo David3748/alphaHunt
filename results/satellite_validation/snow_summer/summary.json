@@ -1,0 +1,323 @@
+{
+  "primary": {
+    "status": "evaluated",
+    "evaluated_years": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "n_evaluation": 14,
+    "models": {
+      "weather_flow": {
+        "rmse_af": 128916.85137596916,
+        "mae_af": 91405.22685896895
+      },
+      "weather_flow_snow": {
+        "rmse_af": 115878.84213698267,
+        "mae_af": 75275.86277139922
+      },
+      "climatology": {
+        "rmse_af": 281602.93991651776,
+        "mae_af": 225851.52862976302
+      },
+      "persistence": {
+        "rmse_af": 363881.3389371792,
+        "mae_af": 266626.85714285716
+      }
+    },
+    "comparisons": {
+      "weather_flow": {
+        "rmse_reduction": 0.10113502695596277,
+        "mae_reduction": 0.17645997545037628,
+        "rmse_reduction_ci95": [
+          0.024170987180441018,
+          0.32657977308574826
+        ]
+      },
+      "climatology": {
+        "rmse_reduction": 0.5885027259611161,
+        "mae_reduction": 0.6667020000790056,
+        "rmse_reduction_ci95": [
+          0.5354061965669427,
+          0.7188612683522699
+        ]
+      },
+      "persistence": {
+        "rmse_reduction": 0.6815477197169815,
+        "mae_reduction": 0.7176733672742246,
+        "rmse_reduction_ci95": [
+          0.5809594588355596,
+          0.8269565269281899
+        ]
+      }
+    },
+    "frozen_gate_passed": true,
+    "claims": "Current-vintage chronological scientific forecast study only; no first-release availability or market-alpha verification.",
+    "abstentions": [
+      {
+        "year": 2000,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2001,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2002,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2003,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2004,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2005,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2006,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2007,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2008,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2009,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2024,
+        "reason": "Missing feature or insufficient snow pixel coverage"
+      }
+    ]
+  },
+  "ground_swe": {
+    "n_evaluation": 9,
+    "evaluated_years": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2016,
+      2017,
+      2018,
+      2021,
+      2022
+    ],
+    "models": {
+      "weather_flow": {
+        "rmse_af": 118919.74441920388,
+        "mae_af": 85802.50017466888
+      },
+      "weather_flow_snow": {
+        "rmse_af": 93262.71862529611,
+        "mae_af": 65884.93959661487
+      },
+      "weather_flow_swe": {
+        "rmse_af": 474878.0545993179,
+        "mae_af": 208281.85413668107
+      },
+      "weather_flow_swe_snow": {
+        "rmse_af": 435483.8978860372,
+        "mae_af": 188937.32589781948
+      }
+    },
+    "rmse_reduction_vs_ground_swe": 0.08295636391645822,
+    "mae_reduction_vs_ground_swe": 0.09287668538886307,
+    "rmse_reduction_ci95": [
+      -0.20350931211375806,
+      0.31757743556788376
+    ],
+    "limitation": "Matched training and test support; one upper-basin ground SWE station is not official basin-wide DWR forecasting skill."
+  },
+  "fresh_may_flow": {
+    "status": "evaluated",
+    "evaluated_years": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "n_evaluation": 14,
+    "models": {
+      "weather_flow": {
+        "rmse_af": 127564.59810449934,
+        "mae_af": 85953.23677332161
+      },
+      "weather_flow_snow": {
+        "rmse_af": 121366.49276187003,
+        "mae_af": 76945.43142623172
+      },
+      "climatology": {
+        "rmse_af": 281602.93991651776,
+        "mae_af": 225851.52862976302
+      },
+      "persistence": {
+        "rmse_af": 363881.3389371792,
+        "mae_af": 266626.85714285716
+      }
+    },
+    "comparisons": {
+      "weather_flow": {
+        "rmse_reduction": 0.048587973738230206,
+        "mae_reduction": 0.10479890793229274,
+        "rmse_reduction_ci95": [
+          -0.0058304228386142016,
+          0.20883035170155265
+        ]
+      },
+      "climatology": {
+        "rmse_reduction": 0.5690155337233,
+        "mae_reduction": 0.6593096717429445,
+        "rmse_reduction_ci95": [
+          0.5160873918568037,
+          0.7573144324062238
+        ]
+      },
+      "persistence": {
+        "rmse_reduction": 0.6664668402167695,
+        "mae_reduction": 0.711411550018741,
+        "rmse_reduction_ci95": [
+          0.553529632263433,
+          0.8450477831025118
+        ]
+      }
+    },
+    "frozen_gate_passed": false,
+    "claims": "Current-vintage chronological scientific forecast study only; no first-release availability or market-alpha verification.",
+    "abstentions": [
+      {
+        "year": 2000,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2001,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2002,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2003,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2004,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2005,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2006,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2007,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2008,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2009,
+        "reason": "Fewer than ten prior eligible training years"
+      },
+      {
+        "year": 2024,
+        "reason": "Missing feature or insufficient snow pixel coverage"
+      }
+    ]
+  },
+  "fresh_may_flow_ground_swe": {
+    "n_evaluation": 9,
+    "evaluated_years": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2016,
+      2017,
+      2018,
+      2021,
+      2022
+    ],
+    "models": {
+      "weather_flow": {
+        "rmse_af": 108592.27823491348,
+        "mae_af": 74400.17688838392
+      },
+      "weather_flow_snow": {
+        "rmse_af": 93379.83418624852,
+        "mae_af": 64874.1210263067
+      },
+      "weather_flow_swe": {
+        "rmse_af": 453073.552637265,
+        "mae_af": 188092.94894913616
+      },
+      "weather_flow_swe_snow": {
+        "rmse_af": 423121.4504755577,
+        "mae_af": 180098.56719122268
+      }
+    },
+    "rmse_reduction_vs_ground_swe": 0.06610869689338772,
+    "mae_reduction_vs_ground_swe": 0.04250229369350422,
+    "rmse_reduction_ci95": [
+      -0.20490525301237678,
+      0.22310196882306144
+    ],
+    "limitation": "Matched training and test support; one upper-basin ground SWE station is not official basin-wide DWR forecasting skill."
+  },
+  "candidate": "May snow -> July-September natural runoff, June15 issue",
+  "estimator": "Training-standardized ridge alpha5, unpenalized intercept, nonnegative forecasts",
+  "all_strong_comparator_gates_passed": false,
+  "limitations": [
+    "Exploratory horizon selected after failed March experiment; source target table previously available",
+    "Current-vintage scientific forecast only; historical releases unverified",
+    "PC mirror missing May2024 onward; years remain abstentions",
+    "Single basin and small annual sample; no familywise discovery or market alpha claim"
+  ],
+  "input_sha256": {
+    "annual_snow.csv": "0f9935e64f84edd5472aead9e660316d7acf4ec5bb1a606a2711ec35353e5dae",
+    "ground/summer_ground.csv": "137d28af7501fe7b626701a73b954b154bdcec0a0412a505ef5cd16ea572695f",
+    "sbf_monthly_fnf.csv": "ea453f623b0b119a5f1d8a89e5b00601bdddf3a4bc94abae6a4e2cf90267b8fa",
+    "protocol.json": "051472afc11983474075f8338c1e82c8fa40b0bbca5f91cc9dfc35d7aa84ba90"
+  },
+  "code_sha256": {
+    "satellite_snow_summer_validation.py": "1fc5200ea68d4e7e4fff049595f0c118076aaa573ded16e1ec4267df8c240e9c",
+    "satellite_snow_daily_validation.py": "9a5daccaec352f7113fc50968456f469a92f26d6e841b3300e53cc9ba060278e"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "noon_release_notice.html.gz": {
+    "url": "https://www.nass.usda.gov/Newsroom/Notices/2013/01_08_2013.php",
+    "sha256": "98fc2e194abee87e9f029ad96ef330edd4d775aa3a8a29cb327b184256707bdc"
+  },
+  "october2013_cancelled.pdf": {
+    "url": "https://www.nass.usda.gov/Statistics_by_State/South_Dakota/Publications/Crop_Progress_%26_Condition/2013/ShutdownSD2013.pdf",
+    "sha256": "bd885fe54280f00e200433d3b2d581b1c251c482dd7b6ed783c6241672b934d0"
+  },
+  "wasde20180912.pdf": {
+    "url": "https://esmis.nal.usda.gov/sites/default/release-files/3t945q76s/4b29b6406/fx719m747/wasde-09-12-2018.pdf",
+    "sha256": "62c1aeda6ada9c78f8c03f5060abb519df9abf27e0b4988d452917857affbc6c"
+  },
+  "wasde20230912.pdf": {
+    "url": "https://esmis.nal.usda.gov/sites/default/release-files/3t945q76s/9880x805c/v405tt51d/wasde0923.pdf",
+    "sha256": "52da4e98eb3adc85b4464b1e4c1cff7aa3524d74fe823d9d75f0fa98ceb07083"
+  },
+  "august2013_release.html.gz": {
+    "url": "https://esmis.nal.usda.gov/publication/world-agricultural-supply-and-demand-estimates/2013-08-12",
+    "sha256": "51d7feaf4e877df7c095e54186676f0710ccaea8e92a1652f1610c5accaaa4e9"
+  },
+  "wasde20130812.pdf": {
+    "url": "https://esmis.nal.usda.gov/sites/default/release-files/3t945q76s/bk128b299/rb68xc267/ORIGwasde-08-12-2013.pdf",
+    "sha256": "e15c2299316118cde87f01cc27958b6124d923cdcb0c26cdb925e57a6c06ec5a"
+  }
+}

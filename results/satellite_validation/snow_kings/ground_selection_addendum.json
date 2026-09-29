@@ -1,0 +1,8 @@
+{
+  "frozen_at_utc": "2026-09-27T03:11:17.894358+00:00",
+  "kings_target_join_or_forecast_scores_seen": false,
+  "metadata_change": "Remove the extra requirement that a groundSWE station have all10 initial2000-2009 readings. Retain nearestin-basin daily station beginningby2000 with>=20/24 valid years. The forecast model still requires10 actualprior complete trainingyears, so the SWE diagnostic starts later and uses matched support.",
+  "reason": "All five closest daily stations had only8-9 valid initial years despite20-23/24 overall; declaring available ground snow unusable would omit an available benchmark. This is source-coverage selection before outcomes, not relaxed modeling/training or performance criteria.",
+  "chosen_station": "WWC West Woodchuck Meadow, nearestdaily at14.273km,22/24 years; no imputation.",
+  "unchanged": "Target,horizon,satellitefeature,qualitygates,ridge5,trainingminimum10,forecastevaluationandconfirmationgates; currentvintagecaveats remain."
+}

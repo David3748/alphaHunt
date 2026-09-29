@@ -1,0 +1,8 @@
+{
+  "amended_at_utc": "2026-09-27T03:02:05.511894+00:00",
+  "original_protocol_sha256": "9d4d595000b9cf92b2a10f9e7d8a62d36917ca8f3cb651be1619b645bb8c77ce",
+  "outcome_values_or_model_metrics_inspected": false,
+  "reason": "Source/timing audit: October20issue permits already observed October1-9ground rainfall with10daybuffer. Strengthen both models equally before first fit. Parent approved explicitly.",
+  "primary_change": "Add October1-9 CPC regional rainfall total to both regression models. Ground latest observation October9 23:59, assumed available October19 23:59, beforeOctober20 12:00. No other feature, box, target, model, penalty, gate or evaluation change.",
+  "secondary": "Preserve original August/September-only model pair as secondary diagnostic on identical primary support; secondary pass cannot replace primary failure."
+}

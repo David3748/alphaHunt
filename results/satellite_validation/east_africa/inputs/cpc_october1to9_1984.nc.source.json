@@ -1,0 +1,36 @@
+{
+  "path": "inputs/cpc_october1to9_1984.nc",
+  "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.1984.nc",
+  "request": {
+    "var": "precip",
+    "south": -5,
+    "north": 5,
+    "west": 34,
+    "east": 42,
+    "horizStride": 1,
+    "time_start": "1984-10-01T00:00:00Z",
+    "time_end": "1984-10-09T23:59:59Z",
+    "timeStride": 1,
+    "accept": "netcdf4"
+  },
+  "indices": {
+    "time": [
+      274,
+      1,
+      282
+    ],
+    "lat": [
+      170,
+      189
+    ],
+    "lon": [
+      68,
+      83
+    ]
+  },
+  "retrieved_at_utc": "2026-09-27T03:02:09.177584+00:00",
+  "sha256": "bd9a4dbec4e8014050f249359f29c7bf161769d60f3ba1010487d713a168ce1c",
+  "storage": "Lossless numeric OPeNDAP subset saved in local HDF5; same source archive as NCSS.",
+  "source_title": "CPC GLOBAL PRCP V1.0",
+  "source_history": "created 9/2016 by CAS NOAA/ESRL PSD"
+}

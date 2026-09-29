@@ -1,0 +1,14 @@
+{
+  "frozen_at_utc": "2026-09-27T03:45:51.308097+00:00",
+  "before_first_forecast_price_join": true,
+  "tests_passed": 12,
+  "files": {
+    "src/satellite_cybench_trading.py": "9491eb0c020d3ac3f6c4b419ec877240d4418db91905b42e55fbb3ec937b4da0",
+    "tests/test_satellite_cybench_trading.py": "e3e905cb8c53bd2ca0d6aa6c50e28a26eb9b4f084b2d5ec7ddf30dccafe14ccb",
+    "src/satellite_hurricane_trading.py": "812742c05c3dcd14f4ba7fa95177019e494f33867378972944aef0e0ea8e0e94"
+  },
+  "protocols": {
+    "protocol.json": "bdb8e6faabac89a8995af961c584de2fe8e51adcb50657297f014a392ef8f85a",
+    "late/protocol.json": "0099015016d3d970fa71f42df7f359926f0fed8919b76a45d9e5e64cccc246d8"
+  }
+}

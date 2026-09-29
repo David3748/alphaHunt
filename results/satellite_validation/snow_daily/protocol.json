@@ -1,0 +1,33 @@
+{
+  "frozen_at_utc": "2026-09-27T02:39:46.268554+00:00",
+  "candidate": "Raw daily Terra MODIS March snow detection -> subsequent April-July San Joaquin full-natural runoff at Friant (CDEC SBF)",
+  "prior_selection": "Continuation after earlier satellite mechanisms failed; SPIRES rejected for future same-year background inputs; this raw daily product selected on physical mechanism and data access only.",
+  "forecast_issue": "April1 each year; no satellite acquisition later than March31",
+  "predictor": "Terra-only MOD10A1 Collection6.1 NDSI_Snow_Cover, daily March1-31 over authoritative upstream Friant basin polygon. Modern reprocessing accepted for scientific current-vintage forecasting; historical first-release availability explicitly not certified.",
+  "snow_rule": "Use screened NDSI_Snow_Cover values0-100 with Basic_QA0or1; snow presence=screenedNDSI>0. Do not misread NDSI as percent fractional snow cover. For each equal-area basin pixel average daily presence across valid March observations, requiring at least3 valid days. Basin predictor is unweightedmean of these per-pixel frequencies; at least90percent basin pixels must qualify. Cloud/no-decision/night/water/fill are missing, never snow-free. No data fromAprilor later; no gapfilling fromfuture days.",
+  "basin": "Authoritative upstream basin of USGS11251000 San Joaquin River below Friant / CDEC SBF endpoint; source chosen geographically without runoff fit. Ground-source manifest will freeze exact polygon and station before joining.",
+  "ground_predictors": [
+    "Total October-March precipitation from fixed representative upper-basin station or official basin aggregate, chosen by geography and data coverage, not outcomes",
+    "Total preceding October-February SBF full-natural flow, deliberately excluding March to avoid relying on immediately released naturalization estimates"
+  ],
+  "outcome": "Sum CDEC SBF sensor65 monthly full-natural flow for April-July, acre-feet; current official archive. All4months required.",
+  "models": {
+    "weather_flow": "Expanding OLS of runoff acre-feet on intercept, winterprecipitation, preceding October-February naturalflow",
+    "weather_flow_snow": "Identical matched-row model plus one March snow-frequency feature",
+    "climatology": "Expanding mean prior April-July runoff",
+    "persistence": "Previousyear April-July runoff"
+  },
+  "negative_predictions": "Both OLS predictions clipped at0 acre-feet for physical nonnegativity; no learned clipping or tuning",
+  "initial_training": "Ten eligible complete years beginning2000; first evaluationyear2010 when all10training years exist. Expanding prior-year training only through2025. Allmissing years and abstentions reported. No train/testyear or featurethreshold search.",
+  "uncertainty": "Paired circular2year block bootstrap of annual errors,10000draws,seed20260927. Compare RMSE and MAE on exactcommon evaluation years; yearly labels, notdailyimages, determine sample size.",
+  "gate": "Atleast5percent lowerRMSE and lowerMAE than weather_flow; strictlypositive lower95percent pairedRMSEgain interval. Also report comparisonswithpersistence/climatology and any readilypublishedDWRgroundSWE or seasonalforecast as criticaldiagnostics; no original-vintage or market-alpha claim.",
+  "outcome_or_heldout_join_examined_before_freeze": false,
+  "limitations": [
+    "Snow presence/frequency is not snow-water equivalent or depth",
+    "Cloud and forest/topography errors remain, despite per-pixel March aggregation",
+    "Current MODIS and CDEC archives have revisions and historical delivery times are unverified",
+    "Precipitationstation may not fully characterize basin-elevation precipitation; groundSWE/officialforecasts remain stronger possiblebenchmarks",
+    "Single basin and small annual OOS sample",
+    "Multiplemechanisms alreadyexamined; nofamilywise discovery or financialalpha claim"
+  ]
+}

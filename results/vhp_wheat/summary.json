@@ -1,0 +1,259 @@
+{
+  "primary_yield": {
+    "n_evaluation": 23,
+    "evaluated_years": [
+      2000,
+      2001,
+      2002,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "abstentions": [
+      {
+        "year": 2003,
+        "reason": "Incomplete or unavailable features"
+      },
+      {
+        "year": 2004,
+        "reason": "Incomplete or unavailable features"
+      },
+      {
+        "year": 2005,
+        "reason": "Incomplete or unavailable features"
+      }
+    ],
+    "models": {
+      "weather": {
+        "rmse": 3.2654975034072686,
+        "mae": 2.550294649360389
+      },
+      "satellite": {
+        "rmse": 3.052090575471312,
+        "mae": 2.2827949441899182
+      },
+      "mean": {
+        "rmse": 3.881317381056097,
+        "mae": 2.9236298652420345
+      },
+      "persistence": {
+        "rmse": 6.093474770819085,
+        "mae": 5.391304347826087
+      },
+      "trend": {
+        "rmse": 3.8352296676199016,
+        "mae": 3.079223476285181
+      },
+      "placebo": {
+        "rmse": 3.3488397860618857,
+        "mae": 2.624286797085953
+      }
+    },
+    "comparisons": {
+      "weather": {
+        "rmse_reduction": 0.0653520413698937,
+        "mae_reduction": 0.10488972528627605,
+        "annual_wins": 14,
+        "rmse_reduction_ci95": [
+          -0.045734997545767805,
+          0.2341242975597649
+        ]
+      },
+      "mean": {
+        "rmse_reduction": 0.2136457094779387,
+        "mae_reduction": 0.2191915360664386,
+        "annual_wins": 12,
+        "rmse_reduction_ci95": [
+          0.055615635090786014,
+          0.3887032525977527
+        ]
+      },
+      "persistence": {
+        "rmse_reduction": 0.4991214881060302,
+        "mae_reduction": 0.5765783571260635,
+        "annual_wins": 20,
+        "rmse_reduction_ci95": [
+          0.3346220768257363,
+          0.6435702342883065
+        ]
+      },
+      "trend": {
+        "rmse_reduction": 0.20419613948037596,
+        "mae_reduction": 0.25864590154920664,
+        "annual_wins": 13,
+        "rmse_reduction_ci95": [
+          -0.05278066805659379,
+          0.4245365089664094
+        ]
+      },
+      "placebo": {
+        "rmse_reduction": 0.08861254331296031,
+        "mae_reduction": 0.13012748960031062,
+        "annual_wins": 15,
+        "rmse_reduction_ci95": [
+          -0.01769612737433161,
+          0.25025976508925024
+        ]
+      }
+    },
+    "frozen_gate_passed": false,
+    "official_june_comparison": {
+      "n": 23,
+      "official": {
+        "rmse": 3.0574214768259416,
+        "mae": 2.391304347826087
+      },
+      "satellite": {
+        "rmse": 3.052090575471312,
+        "mae": 2.2827949441899182
+      },
+      "rmse_reduction": 0.0017435938731494849,
+      "mae_reduction": 0.04537665970239779,
+      "rmse_reduction_ci95": [
+        -0.3283553877845547,
+        0.2353611438888698
+      ],
+      "warning": "QuickStats named historicalJune forecasts; exact initial issue dates and revision audit not reconstructed."
+    }
+  },
+  "secondary_production_intensity": {
+    "n_evaluation": 23,
+    "evaluated_years": [
+      2000,
+      2001,
+      2002,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "abstentions": [
+      {
+        "year": 2003,
+        "reason": "Incomplete or unavailable features"
+      },
+      {
+        "year": 2004,
+        "reason": "Incomplete or unavailable features"
+      },
+      {
+        "year": 2005,
+        "reason": "Incomplete or unavailable features"
+      }
+    ],
+    "models": {
+      "weather": {
+        "rmse": 3.24809882226997,
+        "mae": 2.7891951764606544
+      },
+      "satellite": {
+        "rmse": 3.0452161739957995,
+        "mae": 2.5443210609048053
+      },
+      "mean": {
+        "rmse": 4.771692014448781,
+        "mae": 3.8678280398534417
+      },
+      "persistence": {
+        "rmse": 7.378175151704197,
+        "mae": 6.049354783644676
+      },
+      "trend": {
+        "rmse": 4.677548640776305,
+        "mae": 3.878406875989959
+      },
+      "placebo": {
+        "rmse": 3.265671899394347,
+        "mae": 2.804466896907911
+      }
+    },
+    "comparisons": {
+      "weather": {
+        "rmse_reduction": 0.06246196910116908,
+        "mae_reduction": 0.08779382583996209,
+        "annual_wins": 12,
+        "rmse_reduction_ci95": [
+          -0.06541489864999653,
+          0.17389671868009415
+        ]
+      },
+      "mean": {
+        "rmse_reduction": 0.36181627716650133,
+        "mae_reduction": 0.34218351108463096,
+        "annual_wins": 19,
+        "rmse_reduction_ci95": [
+          0.15400937512053095,
+          0.5101754761756212
+        ]
+      },
+      "persistence": {
+        "rmse_reduction": 0.5872670258725938,
+        "mae_reduction": 0.5794062091078287,
+        "annual_wins": 18,
+        "rmse_reduction_ci95": [
+          0.44857586725351045,
+          0.6785184753675385
+        ]
+      },
+      "trend": {
+        "rmse_reduction": 0.3489717781982481,
+        "mae_reduction": 0.3439777872053792,
+        "annual_wins": 15,
+        "rmse_reduction_ci95": [
+          0.15697573554632197,
+          0.4750898260703277
+        ]
+      },
+      "placebo": {
+        "rmse_reduction": 0.0675070038234501,
+        "mae_reduction": 0.09276124324731094,
+        "annual_wins": 13,
+        "rmse_reduction_ci95": [
+          -0.05683064562376984,
+          0.19292544526676766
+        ]
+      }
+    },
+    "frozen_gate_passed": false
+  },
+  "protocol_sha256": "1a9b09a94efce9c3a3706ac48cecd62bc88639df083f584f825bb7c1870cb91d",
+  "protocol_addendum_sha256": "56b009046ef015154f2ed24452098626c2d63e935c26d8af8872643f46856562",
+  "code_sha256": "dee9aedac176b20cdd97c8573fc0b9609c5958f77842c9dcb4585f6f7174e93f",
+  "archive_sha256": "fd5697c4c934f944621e9104ea7da9e3cb1266fb5f69c57661ab3436a5e5fa2d",
+  "original_vintage_operational_verification": false,
+  "trading_alpha_verified": false,
+  "claims": "Exploratory current-vintage, chronologically held-out June15 pre-final-report nowcast. Not fully preharvest or a family-wise discovery. Current masks, processing, weather and labels have vintage limitations."
+}

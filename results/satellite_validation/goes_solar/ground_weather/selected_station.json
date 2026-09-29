@@ -1,0 +1,19 @@
+{
+  "station_id": "USC00049111",
+  "latitude": 34.9881,
+  "longitude": -120.3211,
+  "distance_km": 49.61260739669646,
+  "name": "TWITCHELL DAM",
+  "elevation_m": 177.4,
+  "coverage": {
+    "TMAX": 0.9634146341463414,
+    "TMIN": 0.9240915878546541,
+    "PRCP": 0.9967645594823296
+  },
+  "pass": true,
+  "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00049111.dly",
+  "retrieved_at_utc": "2026-09-27T02:17:15.216259+00:00",
+  "http_last_modified": "Sat, 26 Sep 2026 12:00:03 GMT",
+  "sha256": "cb590e8739f70ecea83f35cba4c69455e1f0182115e03478d30abe8382bb930e",
+  "bytes": 1871910
+}

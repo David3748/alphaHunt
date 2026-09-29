@@ -1,0 +1,539 @@
+{
+  "primary_yield": {
+    "units": "tonnes per harvested hectare",
+    "fao_lag": {
+      "n_test_years": 22,
+      "test_harvest_years": [
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 0.8904053219187749,
+          "mae": 0.7330188190240221
+        },
+        "satellite": {
+          "rmse": 0.8565702689142555,
+          "mae": 0.6676282799435564
+        },
+        "mean": {
+          "rmse": 2.0721824907486357,
+          "mae": 1.9037013346051246
+        },
+        "recent_mean": {
+          "rmse": 1.2444093981038895,
+          "mae": 1.0648435499959341
+        },
+        "persistence": {
+          "rmse": 0.9241013287167286,
+          "mae": 0.8100645756840915
+        },
+        "trend": {
+          "rmse": 0.7893205372724917,
+          "mae": 0.654564984280374
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.03799960778716671,
+          "mae_reduction": 0.08920717638263354,
+          "rmse_reduction_ci95": [
+            -0.03028685401536954,
+            0.19072274468000722
+          ],
+          "annual_wins": 13
+        },
+        "mean": {
+          "rmse_reduction": 0.5866337676635831,
+          "mae_reduction": 0.6492998834388908,
+          "rmse_reduction_ci95": [
+            0.41177482968813106,
+            0.7535752863942963
+          ],
+          "annual_wins": 21
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.3116652202889063,
+          "mae_reduction": 0.3730268827321106,
+          "rmse_reduction_ci95": [
+            0.20796786177280735,
+            0.48156653922613496
+          ],
+          "annual_wins": 19
+        },
+        "persistence": {
+          "rmse_reduction": 0.07307754864528915,
+          "mae_reduction": 0.17583326072523175,
+          "rmse_reduction_ci95": [
+            -0.1646407395787178,
+            0.39476587638328364
+          ],
+          "annual_wins": 17
+        },
+        "trend": {
+          "rmse_reduction": -0.08519952093752203,
+          "mae_reduction": -0.019957217353360424,
+          "rmse_reduction_ci95": [
+            -0.22501210098003455,
+            0.15436844086101498
+          ],
+          "annual_wins": 12
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2000,
+          "reason": "Fewerthan15 prior eligible releasedlabels"
+        },
+        {
+          "harvest_year": 2001,
+          "reason": "Fewerthan15 prior eligible releasedlabels"
+        },
+        {
+          "harvest_year": 2005,
+          "reason": "Incomplete or unavailableinput"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 21,
+        "matched_satellite": {
+          "rmse": 0.8735268383601937,
+          "mae": 0.6894204448577855
+        },
+        "placebo": {
+          "rmse": 0.9210235789566846,
+          "mae": 0.7551700579881294
+        },
+        "rmse_reduction": 0.0515695164398442,
+        "rmse_reduction_ci95": [
+          -0.012310459233571274,
+          0.19097693593458698
+        ]
+      }
+    },
+    "completed_harvest_stress": {
+      "n_test_years": 24,
+      "test_harvest_years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 0.8149602377986439,
+          "mae": 0.6554541333524283
+        },
+        "satellite": {
+          "rmse": 0.7284965355620935,
+          "mae": 0.5562952367406123
+        },
+        "mean": {
+          "rmse": 1.8856866718591925,
+          "mae": 1.6900734301342322
+        },
+        "recent_mean": {
+          "rmse": 1.0242914255228674,
+          "mae": 0.8652309886931283
+        },
+        "persistence": {
+          "rmse": 0.8722802584344108,
+          "mae": 0.6610057569107302
+        },
+        "trend": {
+          "rmse": 0.7202212643922413,
+          "mae": 0.5901015297626245
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.10609560838220111,
+          "mae_reduction": 0.15128273904483824,
+          "rmse_reduction_ci95": [
+            0.03717145471425227,
+            0.25753801921775676
+          ],
+          "annual_wins": 17
+        },
+        "mean": {
+          "rmse_reduction": 0.6136704223274632,
+          "mae_reduction": 0.6708455225543488,
+          "rmse_reduction_ci95": [
+            0.4904288283763636,
+            0.7484032100952301
+          ],
+          "annual_wins": 23
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.28878001181136537,
+          "mae_reduction": 0.35705581051730717,
+          "rmse_reduction_ci95": [
+            0.16031756553603682,
+            0.45238723272846826
+          ],
+          "annual_wins": 21
+        },
+        "persistence": {
+          "rmse_reduction": 0.1648366124098507,
+          "mae_reduction": 0.15841090501161725,
+          "rmse_reduction_ci95": [
+            -0.19477789623480843,
+            0.3881300381803962
+          ],
+          "annual_wins": 15
+        },
+        "trend": {
+          "rmse_reduction": -0.011489901199786434,
+          "mae_reduction": 0.05728894320204725,
+          "rmse_reduction_ci95": [
+            -0.1113186857460987,
+            0.16506198731078203
+          ],
+          "annual_wins": 12
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2005,
+          "reason": "Incomplete or unavailableinput"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 23,
+        "matched_satellite": {
+          "rmse": 0.7425402494743251,
+          "mae": 0.5641890711268407
+        },
+        "placebo": {
+          "rmse": 0.841819136896615,
+          "mae": 0.6707586172852938
+        },
+        "rmse_reduction": 0.11793374974615545,
+        "rmse_reduction_ci95": [
+          0.0577305082022251,
+          0.25658755172330183
+        ]
+      }
+    },
+    "robust_forecast_gate_passed": false
+  },
+  "secondary_production": {
+    "units": "million tonnes",
+    "fao_lag": {
+      "n_test_years": 22,
+      "test_harvest_years": [
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 2.6455479652198948,
+          "mae": 2.233823312599553
+        },
+        "satellite": {
+          "rmse": 2.5064559817276892,
+          "mae": 2.003704225295831
+        },
+        "mean": {
+          "rmse": 4.064722559475728,
+          "mae": 3.513660195507381
+        },
+        "recent_mean": {
+          "rmse": 2.930954350049357,
+          "mae": 2.5044829000000006
+        },
+        "persistence": {
+          "rmse": 2.9452501248947587,
+          "mae": 2.606063863636364
+        },
+        "trend": {
+          "rmse": 2.4053133716690382,
+          "mae": 1.9739535263407681
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.052575869090562666,
+          "mae_reduction": 0.1030157962833359,
+          "rmse_reduction_ci95": [
+            -0.05157297433441444,
+            0.17493460213391143
+          ],
+          "annual_wins": 12
+        },
+        "mean": {
+          "rmse_reduction": 0.3833635764673261,
+          "mae_reduction": 0.4297387585009509,
+          "rmse_reduction_ci95": [
+            0.17526373849859003,
+            0.5340937090585639
+          ],
+          "annual_wins": 20
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.14483281471597098,
+          "mae_reduction": 0.19995292229951722,
+          "rmse_reduction_ci95": [
+            0.03697561641561184,
+            0.2600653259419925
+          ],
+          "annual_wins": 15
+        },
+        "persistence": {
+          "rmse_reduction": 0.14898365998125496,
+          "mae_reduction": 0.23113771183643683,
+          "rmse_reduction_ci95": [
+            -0.015216807552570271,
+            0.3154426757647624
+          ],
+          "annual_wins": 14
+        },
+        "trend": {
+          "rmse_reduction": -0.04204966024384116,
+          "mae_reduction": -0.015071630896099864,
+          "rmse_reduction_ci95": [
+            -0.1887134002375857,
+            0.08756861793272713
+          ],
+          "annual_wins": 12
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2000,
+          "reason": "Fewerthan15 prior eligible releasedlabels"
+        },
+        {
+          "harvest_year": 2001,
+          "reason": "Fewerthan15 prior eligible releasedlabels"
+        },
+        {
+          "harvest_year": 2005,
+          "reason": "Incomplete or unavailableinput"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 21,
+        "matched_satellite": {
+          "rmse": 2.565302935641104,
+          "mae": 2.101374492240223
+        },
+        "placebo": {
+          "rmse": 2.7238146254294566,
+          "mae": 2.281783681916336
+        },
+        "rmse_reduction": 0.05819474214893039,
+        "rmse_reduction_ci95": [
+          -0.043083948764529804,
+          0.14765100525640615
+        ]
+      }
+    },
+    "completed_harvest_stress": {
+      "n_test_years": 24,
+      "test_harvest_years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "metrics": {
+        "baseline": {
+          "rmse": 2.595016113732558,
+          "mae": 2.177223762026754
+        },
+        "satellite": {
+          "rmse": 2.3469472586763747,
+          "mae": 1.9559300668601585
+        },
+        "mean": {
+          "rmse": 3.803426723167121,
+          "mae": 3.230537268336386
+        },
+        "recent_mean": {
+          "rmse": 2.633063370078645,
+          "mae": 2.184443041666667
+        },
+        "persistence": {
+          "rmse": 3.28823075080056,
+          "mae": 2.488564333333333
+        },
+        "trend": {
+          "rmse": 2.388402109260792,
+          "mae": 1.9921801308208857
+        }
+      },
+      "strongest_baseline": "trend",
+      "comparisons": {
+        "baseline": {
+          "rmse_reduction": 0.09559434091504415,
+          "mae_reduction": 0.1016403086472818,
+          "rmse_reduction_ci95": [
+            -0.016131555516415392,
+            0.18894192809094723
+          ],
+          "annual_wins": 15
+        },
+        "mean": {
+          "rmse_reduction": 0.38293874721423127,
+          "mae_reduction": 0.3945496044788258,
+          "rmse_reduction_ci95": [
+            0.16468190172620994,
+            0.5317417092212655
+          ],
+          "annual_wins": 18
+        },
+        "recent_mean": {
+          "rmse_reduction": 0.108662827736548,
+          "mae_reduction": 0.10460926215414601,
+          "rmse_reduction_ci95": [
+            -0.01778189452151699,
+            0.21457035779210135
+          ],
+          "annual_wins": 15
+        },
+        "persistence": {
+          "rmse_reduction": 0.2862583448241941,
+          "mae_reduction": 0.21403274946070305,
+          "rmse_reduction_ci95": [
+            0.05905566949671999,
+            0.4086893677215116
+          ],
+          "annual_wins": 14
+        },
+        "trend": {
+          "rmse_reduction": 0.017356730017814126,
+          "mae_reduction": 0.018196177845519523,
+          "rmse_reduction_ci95": [
+            -0.14830694480245496,
+            0.12633478104889437
+          ],
+          "annual_wins": 14
+        }
+      },
+      "forecast_gate_passed": false,
+      "abstentions": [
+        {
+          "harvest_year": 2005,
+          "reason": "Incomplete or unavailableinput"
+        }
+      ],
+      "placebo_diagnostic": {
+        "n": 23,
+        "matched_satellite": {
+          "rmse": 2.3933430483377007,
+          "mae": 1.9894872599137197
+        },
+        "placebo": {
+          "rmse": 2.6930087926797053,
+          "mae": 2.174019081630388
+        },
+        "rmse_reduction": 0.11127544223270769,
+        "rmse_reduction_ci95": [
+          -0.03648996007650593,
+          0.19648956408142185
+        ]
+      }
+    },
+    "robust_forecast_gate_passed": false
+  },
+  "robust_primary_forecast_gate_passed": false,
+  "prespecified_secondary_forecast_gate_passed": false,
+  "protocol_sha256": "ad7afb92afdd33137fc29ccfa7469df9169fe76156a9546222c27f495cafd58e",
+  "protocol_addendum_sha256": "23097e14a3f7764d9f038906544c05fb471f7d2c07a0a1e0707fa853b5610fc1",
+  "secondary_protocol_sha256": "b93a7517a4e7b50d9df574b287d464e3e9b76328824996ed8459a1a491899ba3",
+  "code_sha256": "13874d5c3792c4894960e9505b74d6295a5880cdf6349518e94abf7dfdbfa8df",
+  "source_manifest_sha256": "39c83ace488b18d1fb8896dc07760c6471143546833243e4545e9549a611d7c5",
+  "original_vintage_operational_verification": false,
+  "satellite_only_incremental_attribution": false,
+  "official_forecast_superiority_tested": false,
+  "trading_alpha_verified": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "claims": "Current-vintage, chronologicallyheldout earlyplantingforecast of next-calendarharvestyield andprespecifiedsecondaryproduction; optimisticcompletedharvestinformationstress retained; nooriginal-vintage ortradedalphaclaim."
+}

@@ -1,0 +1,100 @@
+{
+  "audit_limits": [
+    "No local vendor data, first-seen timestamp audit, trade reconstruction or recent-period test.",
+    "Sales regression is not a heldout satellite-ablation forecast benchmark.",
+    "Borrow-fee-adjusted event spread is not net of data licenses and complete execution costs.",
+    "Historical sample ends2017; current commercial availability and profitability remain unverified.",
+    "Not a substitute for locally verifying the user requirement."
+  ],
+  "audit_utc": "2026-09-27T01:37:51.746487+00:00",
+  "local_replication": false,
+  "requirement_satisfied_by_this_audit": false,
+  "returns": {
+    "after_stock_loan_factor_adjusted_t": 3.9,
+    "annualized_return_claim": false,
+    "buy_minus_sell_pct": {
+      "after_stock_loan_factor_adjusted": 4.73,
+      "after_stock_loan_market_adjusted": 4.62,
+      "after_stock_loan_raw": 4.57,
+      "gross_factor_adjusted": 4.76,
+      "gross_market_adjusted": 4.64,
+      "gross_raw": 4.6
+    },
+    "costs_explicitly_deducted": [
+      "stock-loan fees"
+    ],
+    "formation": "buy top and short bottom utilization-growth quartiles; cutoffs from fiscal quarters ending in trailing3months",
+    "full_implementation_costs_verified": false,
+    "page": 562,
+    "table": "3",
+    "window": "earnings announcement days[-1,+1]"
+  },
+  "sales_regression": {
+    "adjusted_r_squared_pct": 71.9,
+    "all_columns_include_satellite": true,
+    "controls": [
+      "lagged same-store sales growth",
+      "quarter stock return",
+      "time-varying firm characteristics",
+      "firm fixed effects",
+      "quarter fixed effects"
+    ],
+    "outcome": "domestic same-store sales YoY growth; not earnings per share",
+    "page": 561,
+    "r_squared_increment_attributable_to_satellite": null,
+    "satellite_coefficient": 0.008,
+    "satellite_t_statistic": 4.41,
+    "standard_errors": "clustered by time",
+    "table": "2A column3",
+    "temporal_holdout_rmse_reported": false
+  },
+  "sample": {
+    "end": "2017Q4",
+    "final_daily_observations_approx": 3400000,
+    "final_stores": 53647,
+    "firm_quarters": 650,
+    "firms": 44,
+    "source_pages": [
+      556,
+      557
+    ],
+    "start": "2011Q1",
+    "vendor": "RS Metrics",
+    "vendor_access": "commercial agreement; raw dataset not obtained"
+  },
+  "signal": {
+    "aggregation": "quarterly cars divided by spaces; locations observed in both year-over-year quarters",
+    "definition": "YoY same-store parking-lot fill-rate growth"
+  },
+  "source": {
+    "article_url": "https://doi.org/10.1017/S0022109023001448",
+    "direct_quotation_words": 0,
+    "doi": "10.1017/S0022109023001448",
+    "inspected_pdf_pages": [
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      27
+    ],
+    "issue": 2,
+    "journal": "JFQA",
+    "journal_pages": [
+      551,
+      579
+    ],
+    "pdf_sha256": "1a2069878e04cffcf2d3d49e4ef0e1acd35c211bd82f05b7c8921e1163c0472b",
+    "pdf_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2F5F99D68D1F8940F61578F198D6C005/S0022109023001448a.pdf/div-class-title-on-the-capital-market-consequences-of-big-data-evidence-from-outer-space-div.pdf",
+    "publication_year": 2025,
+    "tables_visually_verified": [
+      2,
+      3
+    ],
+    "volume": 60
+  },
+  "status": "external_published_historical_evidence_only",
+  "verified_local_forecast": false
+}

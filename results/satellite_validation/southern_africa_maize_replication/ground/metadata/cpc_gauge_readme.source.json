@@ -1,0 +1,6 @@
+{
+  "url": "https://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_GLB/DOCU/PRCP_CU_GAUGE_V1.0GLB_0.50deg_README.txt",
+  "sha256": "25805f396dce3ee073e77419a1203c8db896d88ea28fc8cf6ab532052b6e0e09",
+  "copied_from_audited_snapshot": "results/satellite_validation/east_africa/metadata/cpc_gauge_readme.txt",
+  "limitation": "CPC warns of degraded precipitation analysis quality in tropical Africa and network/method changes between retrospective1979\u20132005 and realtime2006onward. Valid grid coverage does not establish station density or accuracy. Current archives may be revised."
+}

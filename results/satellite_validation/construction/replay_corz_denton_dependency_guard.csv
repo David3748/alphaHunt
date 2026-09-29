@@ -1,0 +1,55 @@
+site_id,mode,decision_at,latest_acquired,latest_age_days,recent_observations,record_date,record_ha,no_progress_days,coverage_eligible,warning,strict_point_in_time_certified
+corz_denton,dependency_guard,2024-06-09 00:22:31.818067+00:00,2024-06-07 00:00:00+00:00,2.0156,1,,,0,False,False,False
+corz_denton,dependency_guard,2024-06-15 14:43:25.445399+00:00,2024-06-12 00:00:00+00:00,3.6135,2,,,0,False,False,False
+corz_denton,dependency_guard,2024-12-15 22:22:51.367439+00:00,2024-12-14 00:00:00+00:00,1.9325,1,,,0,False,False,False
+corz_denton,dependency_guard,2024-12-20 22:47:14.066854+00:00,2024-12-19 00:00:00+00:00,1.9495,2,,,0,False,False,False
+corz_denton,dependency_guard,2024-12-30 22:47:40.334983+00:00,2024-12-29 00:00:00+00:00,1.9498,3,,,0,True,False,False
+corz_denton,dependency_guard,2025-01-04 23:54:34.823487+00:00,2025-01-03 00:00:00+00:00,1.9962,4,,,0,True,False,False
+corz_denton,dependency_guard,2025-01-14 22:18:53.498389+00:00,2025-01-13 00:00:00+00:00,1.9298,5,,,0,True,False,False
+corz_denton,dependency_guard,2025-01-19 22:15:51.084869+00:00,2025-01-18 00:00:00+00:00,1.9277,6,,,0,True,False,False
+corz_denton,dependency_guard,2025-01-25 00:00:58.269961+00:00,2025-01-23 00:00:00+00:00,2.0007,7,,,0,True,False,False
+corz_denton,dependency_guard,2025-02-23 22:11:39.930565+00:00,2025-02-22 00:00:00+00:00,1.9248,8,,,0,True,False,False
+corz_denton,dependency_guard,2025-03-05 22:14:11.125586+00:00,2025-03-04 00:00:00+00:00,1.9265,7,,,0,True,False,False
+corz_denton,dependency_guard,2025-03-15 23:55:39.798517+00:00,2025-03-14 00:00:00+00:00,1.997,7,,,0,True,False,False
+corz_denton,dependency_guard,2025-03-20 23:56:05.867683+00:00,2025-03-19 00:00:00+00:00,1.9973,7,,,0,True,False,False
+corz_denton,dependency_guard,2025-03-22 22:29:48.501562+00:00,2025-03-21 00:00:00+00:00,1.9374,8,,,0,True,False,False
+corz_denton,dependency_guard,2025-03-25 23:53:12.297279+00:00,2025-03-24 00:00:00+00:00,1.9953,9,,,0,True,False,False
+corz_denton,dependency_guard,2025-04-10 00:39:24.550544+00:00,2025-04-08 00:00:00+00:00,2.0274,7,,,0,True,False,False
+corz_denton,dependency_guard,2025-04-12 03:21:13.152130+00:00,2025-04-10 00:00:00+00:00,2.1397,8,,,0,True,False,False
+corz_denton,dependency_guard,2025-05-04 23:24:08.932881+00:00,2025-05-03 00:00:00+00:00,1.9751,9,,,0,True,False,False
+corz_denton,dependency_guard,2025-05-14 22:30:56.201831+00:00,2025-05-13 00:00:00+00:00,1.9382,9,,,0,True,False,False
+corz_denton,dependency_guard,2025-05-22 01:18:25.227108+00:00,2025-05-20 00:00:00+00:00,2.0545,9,,,0,True,False,False
+corz_denton,dependency_guard,2025-05-24 22:29:26.181873+00:00,2025-05-23 00:00:00+00:00,1.9371,10,,,0,True,False,False
+corz_denton,dependency_guard,2025-06-03 22:40:32.614470+00:00,2025-06-02 00:00:00+00:00,1.9448,9,,,0,True,False,False
+corz_denton,dependency_guard,2025-06-11 00:22:12.435235+00:00,2025-06-09 00:00:00+00:00,2.0154,8,2025-06-09 00:00:00+00:00,1.38,0,True,False,False
+corz_denton,dependency_guard,2025-06-18 23:33:25.300310+00:00,2025-06-17 00:00:00+00:00,1.9815,9,2025-06-09 00:00:00+00:00,1.38,8,True,False,False
+corz_denton,dependency_guard,2025-07-01 00:02:18.917573+00:00,2025-06-29 00:00:00+00:00,2.0016,8,2025-06-09 00:00:00+00:00,1.38,20,True,False,False
+corz_denton,dependency_guard,2026-02-03 22:32:58.674647+00:00,2026-02-02 00:00:00+00:00,1.9396,1,2026-02-02 00:00:00+00:00,3.59,0,False,False,False
+corz_denton,dependency_guard,2026-02-08 23:17:22.250349+00:00,2026-02-07 00:00:00+00:00,1.9704,2,2026-02-02 00:00:00+00:00,3.59,5,False,False,False
+corz_denton,dependency_guard,2026-02-13 22:28:27.561910+00:00,2026-02-12 00:00:00+00:00,1.9364,3,2026-02-02 00:00:00+00:00,3.59,10,True,False,False
+corz_denton,dependency_guard,2026-02-23 22:01:58.802294+00:00,2026-02-22 00:00:00+00:00,1.918,4,2026-02-02 00:00:00+00:00,3.59,20,True,False,False
+corz_denton,dependency_guard,2026-02-28 22:11:57.737644+00:00,2026-02-27 00:00:00+00:00,1.925,5,2026-02-02 00:00:00+00:00,3.59,25,True,False,False
+corz_denton,dependency_guard,2026-03-16 00:09:09.355381+00:00,2026-03-14 00:00:00+00:00,2.0064,6,2026-02-02 00:00:00+00:00,3.59,40,True,False,False
+corz_denton,dependency_guard,2026-03-20 23:41:11.093145+00:00,2026-03-19 00:00:00+00:00,1.9869,7,2026-02-02 00:00:00+00:00,3.59,45,True,False,False
+corz_denton,dependency_guard,2026-03-25 22:43:58.272467+00:00,2026-03-24 00:00:00+00:00,1.9472,8,2026-02-02 00:00:00+00:00,3.59,50,True,False,False
+corz_denton,dependency_guard,2026-03-28 05:16:07.899311+00:00,2026-03-26 00:00:00+00:00,2.2195,9,2026-02-02 00:00:00+00:00,3.59,52,True,False,False
+corz_denton,dependency_guard,2026-03-30 22:13:50.353060+00:00,2026-03-29 00:00:00+00:00,1.9263,10,2026-02-02 00:00:00+00:00,3.59,55,True,False,False
+corz_denton,dependency_guard,2026-04-09 22:21:45.770313+00:00,2026-04-08 00:00:00+00:00,1.9318,11,2026-02-02 00:00:00+00:00,3.59,65,True,False,False
+corz_denton,dependency_guard,2026-04-24 23:56:38.525783+00:00,2026-04-23 00:00:00+00:00,1.9977,10,2026-02-02 00:00:00+00:00,3.59,80,True,False,False
+corz_denton,dependency_guard,2026-05-04 23:23:09.183820+00:00,2026-05-03 00:00:00+00:00,1.9744,10,2026-05-03 00:00:00+00:00,4.19,0,True,False,False
+corz_denton,dependency_guard,2026-05-09 22:20:20.431176+00:00,2026-05-08 00:00:00+00:00,1.9308,10,2026-05-03 00:00:00+00:00,4.19,5,True,False,False
+corz_denton,dependency_guard,2026-05-14 23:44:07.922108+00:00,2026-05-13 00:00:00+00:00,1.989,10,2026-05-03 00:00:00+00:00,4.19,10,True,False,False
+corz_denton,dependency_guard,2026-06-03 23:49:22.115401+00:00,2026-06-02 00:00:00+00:00,1.9926,9,2026-05-03 00:00:00+00:00,4.19,30,True,False,False
+corz_denton,dependency_guard,2026-06-08 22:10:10.967390+00:00,2026-06-07 00:00:00+00:00,1.9237,9,2026-06-07 00:00:00+00:00,4.75,0,True,False,False
+corz_denton,dependency_guard,2026-07-03 23:37:35.243322+00:00,2026-07-02 00:00:00+00:00,1.9844,7,2026-06-07 00:00:00+00:00,4.75,25,True,False,False
+corz_denton,dependency_guard,2026-08-18 08:26:03.864446+00:00,2026-07-02 00:00:00+00:00,47.3514,2,2026-06-07 00:00:00+00:00,4.75,25,False,False,False
+corz_denton,dependency_guard,2026-08-18 21:01:07.590080+00:00,2026-07-02 00:00:00+00:00,47.8758,2,2026-06-07 00:00:00+00:00,4.75,25,False,False,False
+corz_denton,dependency_guard,2026-08-18 21:24:52.983082+00:00,2026-07-02 00:00:00+00:00,47.8923,2,2026-06-07 00:00:00+00:00,4.75,25,False,False,False
+corz_denton,dependency_guard,2026-08-18 21:38:23.576461+00:00,2026-08-16 00:00:00+00:00,2.9017,11,2026-07-04 00:00:00+00:00,5.08,43,True,False,False
+corz_denton,dependency_guard,2026-09-01 23:52:21.558979+00:00,2026-08-31 00:00:00+00:00,1.9947,11,2026-07-04 00:00:00+00:00,5.08,58,True,False,False
+corz_denton,dependency_guard,2026-09-04 05:07:50.936480+00:00,2026-09-02 00:00:00+00:00,2.2138,12,2026-07-04 00:00:00+00:00,5.08,60,True,False,False
+corz_denton,dependency_guard,2026-09-06 22:28:21.154312+00:00,2026-09-05 00:00:00+00:00,1.9364,13,2026-07-04 00:00:00+00:00,5.08,63,True,False,False
+corz_denton,dependency_guard,2026-09-11 23:53:35.428405+00:00,2026-09-10 00:00:00+00:00,1.9955,14,2026-07-04 00:00:00+00:00,5.08,68,True,False,False
+corz_denton,dependency_guard,2026-09-16 22:15:54.632021+00:00,2026-09-15 00:00:00+00:00,1.9277,14,2026-07-04 00:00:00+00:00,5.08,73,True,False,False
+corz_denton,dependency_guard,2026-09-24 04:57:32.969386+00:00,2026-09-22 00:00:00+00:00,2.2066,13,2026-07-04 00:00:00+00:00,5.08,80,True,False,False
+corz_denton,dependency_guard,2026-09-26 23:38:48.563252+00:00,2026-09-25 00:00:00+00:00,1.9853,14,2026-07-04 00:00:00+00:00,5.08,83,True,False,False

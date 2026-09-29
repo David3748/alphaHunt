@@ -1,0 +1,572 @@
+[
+  {
+    "station_id": "USC00044767",
+    "latitude": 35.3833,
+    "longitude": -120.1667,
+    "distance_km": 9.038565537090845,
+    "name": "LA PANZA RCH",
+    "elevation_m": 473.0,
+    "coverage": {
+      "TMAX": 0,
+      "TMIN": 0,
+      "PRCP": 0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00044767.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:41.792025+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:10:44 GMT",
+    "sha256": "8b01cc7556198eba2ab983881159d6b386fb3bcde337d6e3cc9e1b67e9b52fc7",
+    "bytes": 11340
+  },
+  {
+    "station_id": "USR0000CLAP",
+    "latitude": 35.3811,
+    "longitude": -120.1875,
+    "distance_km": 10.926361277701343,
+    "name": "LA PANZA CALIFORNIA",
+    "elevation_m": 496.8,
+    "coverage": {
+      "TMAX": 0.9997511199601792,
+      "TMIN": 0.9995022399203584,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USR0000CLAP.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:42.014030+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 12:18:33 GMT",
+    "sha256": "7f395968af96601740cab4d41ed6491244bb6d8c99aed31ae6840ba8d81dc43e",
+    "bytes": 353970
+  },
+  {
+    "station_id": "USR0000CBRA",
+    "latitude": 35.1889,
+    "longitude": -120.0833,
+    "distance_km": 21.633584376174646,
+    "name": "BRANCH MOUNTAIN CALIFORNIA",
+    "elevation_m": 1149.1,
+    "coverage": {
+      "TMAX": 0.9957690393230463,
+      "TMIN": 0.9955201592832255,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USR0000CBRA.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:41.963514+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 12:18:24 GMT",
+    "sha256": "73a28c86abafe9136d47c1a8b75c751fdf04739be34352a18a48e7621df90a52",
+    "bytes": 294030
+  },
+  {
+    "station_id": "USC00045602",
+    "latitude": 35.5,
+    "longitude": -119.8167,
+    "distance_km": 26.14213393483679,
+    "name": "MIDDLEWATER",
+    "elevation_m": 244.1,
+    "coverage": {
+      "TMAX": 0,
+      "TMIN": 0,
+      "PRCP": 0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00045602.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:42.045764+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:10:54 GMT",
+    "sha256": "fd3ec3c07aa38479e3d243e5aa779309a3598e6a7bf6a4c8c6f8d45407f90767",
+    "bytes": 1033290
+  },
+  {
+    "station_id": "USC00040875",
+    "latitude": 35.6167,
+    "longitude": -119.9,
+    "distance_km": 30.06380071701427,
+    "name": "BLACKWELLS CORNER",
+    "elevation_m": 217.0,
+    "coverage": {
+      "TMAX": 0,
+      "TMIN": 0,
+      "PRCP": 0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00040875.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:41.846238+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:09:53 GMT",
+    "sha256": "f19af3f4dd71c12296413336e7d2ac969086bb0cb58640a701cbfcea7b28bd52",
+    "bytes": 164700
+  },
+  {
+    "station_id": "US1CASL0001",
+    "latitude": 35.3805,
+    "longitude": -120.4525,
+    "distance_km": 34.94996907753928,
+    "name": "SANTA MARGARITA 8.9 ESE",
+    "elevation_m": 611.1,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.24763563962170235
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/US1CASL0001.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:42.046750+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 00:37:05 GMT",
+    "sha256": "889d122c9485afb2addafec0340db6740cbb2e7240ee3629edf72104b8344928",
+    "bytes": 62100
+  },
+  {
+    "station_id": "USR0000CAGD",
+    "latitude": 35.1792,
+    "longitude": -120.3919,
+    "distance_km": 37.192750385078,
+    "name": "ARROYO GRANDE CALIFORNIA",
+    "elevation_m": 319.4,
+    "coverage": {
+      "TMAX": 0.3743155798904928,
+      "TMIN": 0.3743155798904928,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USR0000CAGD.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:42.377167+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:51:10 GMT",
+    "sha256": "fbfe1d41c4838a6c455a52c9fada59f5ea963be4097629d1f263af957c516830",
+    "bytes": 196020
+  },
+  {
+    "station_id": "USC00047672",
+    "latitude": 35.3372,
+    "longitude": -120.5039,
+    "distance_km": 39.94530095742933,
+    "name": "SALINAS DAM",
+    "elevation_m": 424.3,
+    "coverage": {
+      "TMAX": 0.05276256844201095,
+      "TMIN": 0.05276256844201095,
+      "PRCP": 1.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00047672.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:42.335118+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:59:54 GMT",
+    "sha256": "32aa4b38f9391680ee7d49f5b895832777706afe5ce925b8a3ff18d36229ac6a",
+    "bytes": 776250
+  },
+  {
+    "station_id": "USC00041743",
+    "latitude": 35.7167,
+    "longitude": -120.25,
+    "distance_km": 40.631658268889844,
+    "name": "CHOLAME ALLEY RCH",
+    "elevation_m": 534.0,
+    "coverage": {
+      "TMAX": 0,
+      "TMIN": 0,
+      "PRCP": 0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00041743.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:42.181395+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:10:04 GMT",
+    "sha256": "465e11c2e3fa2346c5b615dd4f59ee96a192b2a1c46fb9c0b2da2ef0adbac986",
+    "bytes": 12690
+  },
+  {
+    "station_id": "USR0000CCAR",
+    "latitude": 35.0964,
+    "longitude": -119.7728,
+    "distance_km": 41.587021895341515,
+    "name": "CARRIZO CALIFORNIA",
+    "elevation_m": 759.0,
+    "coverage": {
+      "TMAX": 0.998755599800896,
+      "TMIN": 0.998755599800896,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USR0000CCAR.dly",
+    "retrieved_at_utc": "2026-09-27T02:16:42.712403+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 12:18:25 GMT",
+    "sha256": "ca430a6430b34324aa20738c1f4e9bb22403dec6f7fc58142ad390d5d0fd56f3",
+    "bytes": 340200
+  },
+  {
+    "station_id": "USC00047942",
+    "latitude": 35.0167,
+    "longitude": -120.2,
+    "distance_km": 42.485635003668364,
+    "name": "SANTA MARIA 14 ENE",
+    "elevation_m": 249.9,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00047942.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.772165+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:11:26 GMT",
+    "sha256": "720c1536c7b153ce00ccf033fcfdff07ad1fead2696807b814f8d6b5354046af",
+    "bytes": 30510
+  },
+  {
+    "station_id": "USC00045151",
+    "latitude": 35.6181,
+    "longitude": -119.6892,
+    "distance_km": 43.04713327181067,
+    "name": "LOST HILLS",
+    "elevation_m": 87.8,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.4054255848680936
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00045151.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.486555+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:59:40 GMT",
+    "sha256": "c109a19e5fe8c17a635618e9c81b1439eb54c6fec7c39dfe986af8c42cc0bdff",
+    "bytes": 35640
+  },
+  {
+    "station_id": "USC00044144",
+    "latitude": 35.0833,
+    "longitude": -120.3833,
+    "distance_km": 43.99838654164395,
+    "name": "HUASNA",
+    "elevation_m": 222.5,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00044144.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.086244+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:10:34 GMT",
+    "sha256": "2008dbdcfe9b54e42f407def9914d183cafa561b492e55acab69c1bbd267ac74",
+    "bytes": 14310
+  },
+  {
+    "station_id": "USC00049111",
+    "latitude": 34.9881,
+    "longitude": -120.3211,
+    "distance_km": 49.61260739669646,
+    "name": "TWITCHELL DAM",
+    "elevation_m": 177.4,
+    "coverage": {
+      "TMAX": 0.9634146341463414,
+      "TMIN": 0.9240915878546541,
+      "PRCP": 0.9967645594823296
+    },
+    "pass": true,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00049111.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:15.216259+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 12:00:03 GMT",
+    "sha256": "cb590e8739f70ecea83f35cba4c69455e1f0182115e03478d30abe8382bb930e",
+    "bytes": 1871910
+  },
+  {
+    "station_id": "USC00049456",
+    "latitude": 34.9667,
+    "longitude": -119.8667,
+    "distance_km": 49.74170458040376,
+    "name": "WASIOJA FORBES RANCH",
+    "elevation_m": 719.3,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00049456.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.138410+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:11:46 GMT",
+    "sha256": "ee9843a0eb4601b682c98983e30a787044568d2a5a9e98aa2646f822ca1ee96d",
+    "bytes": 35100
+  },
+  {
+    "station_id": "USC00047930",
+    "latitude": 35.3667,
+    "longitude": -120.6333,
+    "distance_km": 51.37625905459241,
+    "name": "SANTA MARGARITA 2 SW",
+    "elevation_m": 366.1,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00047930.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.333747+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:11:26 GMT",
+    "sha256": "d7135fbdc5ebae04bbf2bd589f76a687e9ea323aa219b597d8881efb5b673f0b",
+    "bytes": 366120
+  },
+  {
+    "station_id": "USC00048627",
+    "latitude": 35.0,
+    "longitude": -120.3833,
+    "distance_km": 51.37944352659881,
+    "name": "SUEY RCH",
+    "elevation_m": 118.9,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00048627.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.390620+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:11:34 GMT",
+    "sha256": "70090729b736faf52c03c80d4a0ebdd9639c7952d1910517c86e98b8310b0fcb",
+    "bytes": 177930
+  },
+  {
+    "station_id": "USC00047933",
+    "latitude": 35.3742,
+    "longitude": -120.6375,
+    "distance_km": 51.73192715808341,
+    "name": "SANTA MARGARITA BOOST",
+    "elevation_m": 349.9,
+    "coverage": {
+      "TMAX": 0.05276256844201095,
+      "TMIN": 0.05276256844201095,
+      "PRCP": 1.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00047933.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.629884+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:59:57 GMT",
+    "sha256": "18ccda0b08bc62a6eceeb3e8b46c9a8475f6ad1d8b13bacddceab952e5b7d412",
+    "bytes": 801900
+  },
+  {
+    "station_id": "US1CASL0037",
+    "latitude": 35.0488,
+    "longitude": -120.4741,
+    "distance_km": 52.42788791476769,
+    "name": "NIPOMO 1.2 NNE",
+    "elevation_m": 112.2,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.22274763563962172
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/US1CASL0037.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.593412+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:39:39 GMT",
+    "sha256": "2d44e008bdded63de38446e13a441cd378c1fae519266900d06b03a1e0d62343",
+    "bytes": 29160
+  },
+  {
+    "station_id": "USC00046207",
+    "latitude": 35.0667,
+    "longitude": -120.5,
+    "distance_km": 52.76305563240653,
+    "name": "NIPOMO 2 NW",
+    "elevation_m": 110.0,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00046207.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.708722+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:11:01 GMT",
+    "sha256": "822be855aa3efb7b9ada5d59761fbf19a486f29847a730b27548123ecf2342de",
+    "bytes": 172530
+  },
+  {
+    "station_id": "US1CASL0042",
+    "latitude": 35.1315,
+    "longitude": -120.569,
+    "distance_km": 53.475799731463226,
+    "name": "ARROYO GRANDE 0.9 ENE",
+    "elevation_m": 78.0,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.04803384768541563
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/US1CASL0042.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.755116+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:39:39 GMT",
+    "sha256": "8b929e24b48acc44777706a476003237043b8648f9b923cb3ca005d26a713cac",
+    "bytes": 9180
+  },
+  {
+    "station_id": "USC00040543",
+    "latitude": 34.9167,
+    "longitude": -119.9167,
+    "distance_km": 53.62064329388606,
+    "name": "BATES RIDGE",
+    "elevation_m": 1577.0,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00040543.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.783131+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:09:50 GMT",
+    "sha256": "320cf118399df2dba9f2845b5707c02cd0c7978b54bdd7d75167781fa5a2fc0c",
+    "bytes": 1890
+  },
+  {
+    "station_id": "US1CASL0034",
+    "latitude": 35.4749,
+    "longitude": -120.6489,
+    "distance_km": 53.70443499059291,
+    "name": "ATASCADERO 2.3 ESE",
+    "elevation_m": 280.7,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.3369835739173718
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/US1CASL0034.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.868083+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:39:39 GMT",
+    "sha256": "97b1f571f857032bee1c8055936ca2d8a03c84ffec9dfa2fb38f27210bb0400e",
+    "bytes": 30240
+  },
+  {
+    "station_id": "USC00045314",
+    "latitude": 34.9,
+    "longitude": -120.0833,
+    "distance_km": 53.72759597947314,
+    "name": "MANZANITA MTN",
+    "elevation_m": 954.9,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00045314.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:13.923996+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:10:50 GMT",
+    "sha256": "409a066711cc1bc0261a0696d889c29d91ecfc729d331c7b1634b93d94461c91",
+    "bytes": 6210
+  },
+  {
+    "station_id": "USC00041244",
+    "latitude": 35.4028,
+    "longitude": -119.47,
+    "distance_km": 54.16038111583102,
+    "name": "BUTTONWILLOW",
+    "elevation_m": 68.6,
+    "coverage": {
+      "TMAX": 0.6824290691886511,
+      "TMIN": 0.6739671478347437,
+      "PRCP": 0.7190144350423096
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00041244.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:14.144703+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:59:18 GMT",
+    "sha256": "e336c28c0fde76aa20b9f4ce05c10c801a0bd8de68eff1b32aeff371e6e3d017",
+    "bytes": 1490400
+  },
+  {
+    "station_id": "USC00040320",
+    "latitude": 35.1167,
+    "longitude": -120.5667,
+    "distance_km": 54.18297869922529,
+    "name": "ARROYO GRANDE",
+    "elevation_m": 34.1,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00040320.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:14.039686+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:09:46 GMT",
+    "sha256": "d41bff78c423822efdb35064900b882817054ce3841b17b67266af856bd14a26",
+    "bytes": 199800
+  },
+  {
+    "station_id": "USC00047851",
+    "latitude": 35.3056,
+    "longitude": -120.6619,
+    "distance_km": 54.6398009935531,
+    "name": "SAN LUIS OBISPO POLY",
+    "elevation_m": 93.9,
+    "coverage": {
+      "TMAX": 1.0,
+      "TMIN": 0.9992533598805375,
+      "PRCP": 1.0
+    },
+    "pass": true,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00047851.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:14.320906+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 11:59:56 GMT",
+    "sha256": "2444314898dd539073c76ab2a3af4fafc38f6bcd07b28a7d3701a02cff2e7cae",
+    "bytes": 1759860
+  },
+  {
+    "station_id": "USW00093206",
+    "latitude": 35.2381,
+    "longitude": -120.6442,
+    "distance_km": 54.796484783809184,
+    "name": "SAN LUIS OBISPO MCCHESNEY FLD",
+    "elevation_m": 55.8,
+    "coverage": {
+      "TMAX": 0.9985067197610752,
+      "TMIN": 0.9982578397212544,
+      "PRCP": 0.9982578397212544
+    },
+    "pass": true,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USW00093206.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:14.256287+00:00",
+    "http_last_modified": "Sat, 26 Sep 2026 12:28:05 GMT",
+    "sha256": "a88973c3efd1ecd3a103ef32780e34e31af4e402808a4d8334d3e01a201be061",
+    "bytes": 1107540
+  },
+  {
+    "station_id": "US1CASL0022",
+    "latitude": 35.155,
+    "longitude": -120.6103,
+    "distance_km": 55.45759605049586,
+    "name": "ARROYO GRANDE 2.5 NW",
+    "elevation_m": 149.7,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0587356893977103
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/US1CASL0022.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:14.175697+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 00:37:05 GMT",
+    "sha256": "762edcde9eb04fbb27b077afbcfed77b6099ae1697711b18df533f377633bc36",
+    "bytes": 2700
+  },
+  {
+    "station_id": "USC00041444",
+    "latitude": 35.3333,
+    "longitude": -120.6833,
+    "distance_km": 56.16169592722905,
+    "name": "CAMP SAN LUIS OBISPO",
+    "elevation_m": 189.0,
+    "coverage": {
+      "TMAX": 0.0,
+      "TMIN": 0.0,
+      "PRCP": 0.0
+    },
+    "pass": false,
+    "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00041444.dly",
+    "retrieved_at_utc": "2026-09-27T02:17:14.401775+00:00",
+    "http_last_modified": "Tue, 22 Sep 2026 01:10:00 GMT",
+    "sha256": "0ef28bd02cd332296919c2c4e5a8771cfc1326cd2e2df9bfac8ed6d69f95b7c0",
+    "bytes": 215190
+  }
+]

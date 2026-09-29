@@ -1,0 +1,16 @@
+site_id,mode,decision_at,latest_acquired,latest_age_days,recent_observations,record_date,record_ha,no_progress_days,coverage_eligible,warning,strict_point_in_time_certified
+corz_denton,endpoint_only,2025-10-08 23:40:46.181967+00:00,2025-10-07 00:00:00+00:00,1.9866,7,2025-06-09 00:00:00+00:00,1.38,120,True,True,False
+apld_ellendale,endpoint_only,2024-11-11 22:13:23.817986+00:00,2024-11-10 00:00:00+00:00,1.926,8,2024-07-03 00:00:00+00:00,2.4,130,True,True,False
+apld_ellendale,dependency_guard,2025-03-22 00:14:34.266843+00:00,2025-03-20 00:00:00+00:00,2.0101,3,2024-09-21 00:00:00+00:00,1.98,180,True,True,False
+orcl_abilene,endpoint_only,2025-06-21 23:27:30.556000+00:00,2025-06-20 00:00:00+00:00,1.9774,17,2025-02-15 00:00:00+00:00,7.76,125,True,True,False
+orcl_abilene,endpoint_only,2026-06-28 22:04:35.918675+00:00,2026-06-27 00:00:00+00:00,1.9199,14,2026-02-27 00:00:00+00:00,30.76,120,True,True,False
+orcl_abilene,dependency_guard,2026-08-18 21:37:43.856078+00:00,2026-08-16 00:00:00+00:00,2.9012,21,2026-02-27 00:00:00+00:00,30.76,170,True,True,False
+wulf_lake_mariner,endpoint_only,2025-10-05 22:03:15.843017+00:00,2025-10-04 00:00:00+00:00,1.9189,17,2025-06-06 00:00:00+00:00,2.18,120,True,True,False
+wulf_lake_mariner,endpoint_only,2026-09-08 21:22:14.878007+00:00,2026-09-07 00:00:00+00:00,1.8904,15,2026-05-02 00:00:00+00:00,13.25,128,True,True,False
+wulf_lake_mariner,dependency_guard,2026-09-08 21:22:14.878007+00:00,2026-09-07 00:00:00+00:00,1.8904,15,2026-05-02 00:00:00+00:00,13.25,128,True,True,False
+xai_colossus1,endpoint_only,2025-10-09 23:34:50.508806+00:00,2025-10-08 00:00:00+00:00,1.9825,7,2025-06-08 00:00:00+00:00,9.99,122,True,True,False
+xai_colossus1,dependency_guard,2025-12-01 21:28:31.078149+00:00,2025-11-30 00:00:00+00:00,1.8948,3,2025-06-08 00:00:00+00:00,9.99,175,True,True,False
+corz_denton_blind,endpoint_only,2025-10-08 23:40:46.181967+00:00,2025-10-07 00:00:00+00:00,1.9866,7,2025-06-09 00:00:00+00:00,1.44,120,True,True,False
+glxy_helios,endpoint_only,2026-06-11 22:27:46.860467+00:00,2026-06-10 00:00:00+00:00,1.936,11,2026-02-05 00:00:00+00:00,3.41,125,True,True,False
+glxy_helios,dependency_guard,2026-06-19 05:06:19.626085+00:00,2026-06-17 00:00:00+00:00,2.2127,11,2026-02-15 00:00:00+00:00,3.68,122,True,True,False
+glxy_helios,dependency_guard,2026-08-18 08:23:05.666377+00:00,2026-08-09 00:00:00+00:00,9.3494,12,2026-02-05 00:00:00+00:00,3.41,185,True,True,False

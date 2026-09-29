@@ -1,0 +1,9 @@
+{
+  "created_at_utc": "2026-09-27T02:55:36.514089+00:00",
+  "status": "Before first joined fit or metric",
+  "changes": [
+    "Additional direct NASS YEAR\u2013JUN FORECAST yield comparator discovered in source schema; no model alteration or gate replacement. Named forecasts assumed available byJune15; exact release/revision vintage unverified.",
+    "Simple trend comparator is unpenalized OLS, all expanded regressions retain fixed standardized ridgealpha5.",
+    "Calendar week13 endsJanuary1+90days (April1nonleap orMarch31leap); corrects prose of original protocol; 56daybuffer beforeJune15 unchanged."
+  ]
+}

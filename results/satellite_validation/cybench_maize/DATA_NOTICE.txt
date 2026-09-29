@@ -1,0 +1,15 @@
+CY-Bench dataset attribution and license
+
+CY-Bench: A comprehensive benchmark dataset for subnational crop yield forecasting
+Version 1.10; fixed record DOI: https://doi.org/10.5281/zenodo.17279151
+Creators: Kallenberg, Michiel, Paudel, Dilli, Ofori-Ampofo, Stella, Baja, Hilmy, van Bree, Ron, Potze, Aike, Poudel, Pratishtha, Saleh, Abdelrahman, Anderson, Weston, von Bloh, Malte, Castellano, Andres, Ennaji, Oumnia, Hamed, Raed, Laudien, Rahel, Lee, Donghoon, Luna, Inti, Masiliūnas, Dainius, Meroni, Michele, Mutuku, Janet Mumo, Mkuhlani, Siyabusa, Richetti, Jonathan, Ruane, Alex C., Sahajpal, Ritvik, Shuai, Guanyuan, Sitokonstantinou, Vasileios, de Souza Noia Junior, Rogerio, Srivastava, Amit Kumar, Strong, Robert, Sweet, Lily-belle, Vojnović, Petar, de Wit, Allard, Zachow, Maximilian, Athanasiadis, Ioannis N.
+
+The source dataset is licensed under EUPL-1.2, as declared by the source record. The copied source data and derived monthly feature/statistics files in this folder retain that license and attribution. The EUPL text is included in EUPL-1.2.txt. This notice addresses the dataset and its derivatives; independently authored analysis code is governed by the repository license.
+
+Source: https://zenodo.org/records/17279151
+Published dataset paper: https://doi.org/10.5194/essd-18-3997-2026
+Author preparation code: https://github.com/WUR-AI/AgML-CY-Bench
+Official EUPL page: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+License text mirror: https://github.com/spdx/license-list-data/blob/main/text/EUPL-1.2.txt
+
+Modifications: selected U.S. maize counties and 2003–2023; averaged eligible raw 8-day NDVI composites and aggregated daily weather to fixed April–July months; retained complete finite-day counts and missingness; limited features to an August 15 issue under an assumed 14-day satellite buffer; preserved separate independent NASS labels. No authors endorse these modifications or validation claims. Static 2021 crop masks, current-vintage inputs, and revised yields preclude original operational availability claims.

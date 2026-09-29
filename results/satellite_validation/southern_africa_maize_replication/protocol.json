@@ -1,0 +1,30 @@
+{
+  "created_at_utc": "2026-09-27T03:20:27.651786+00:00",
+  "status": "FrozenbeforeextractingZambia/Zimbabwelabels,feature/outcomejoinsornewmodelfits. SouthAfricafailedoldmodelknown;SouthAfricaisdevelopmentonly.",
+  "countries": {
+    "South Africa": "development diagnostic only",
+    "Zambia": "joint geographic confirmation",
+    "Zimbabwe": "joint geographic confirmation"
+  },
+  "targets": {
+    "primary": "FAOSTATmaizeyieldtonnes/ha",
+    "prespecifiedsecondary": "FAOSTATtotalmaizeproductionmilliontonnes"
+  },
+  "unchanged": "SeptemberNi\u00f1o3.4absoluteOISST;Oct20earlyplantingissue; nextcalendarharvestyear2000\u20132024;AugSepgroundprecip;sourceavailability20daySST/10dayground;currentarchives; expandingmin15eligiblepastlabels;FAOlag3andoptimisticlatestcompletedharvestregimesbothretained.",
+  "model": "PARTIAL RIDGE: unpenalized U=[intercept,time], remainingpredictors Z=[priorreleasedoutcome,Augustgroundrain,Septembergroundrain] and satelliteaddsSeptemberNi\u00f1oSST. StandardizeZwithtrainingmeans/stdonly. Residualize y,Z onU(trainingonly). beta=(ZresidualtransposeZresidual+5I)^\u22121 Zresidualtransposeyresidual; gamma=OLS(U,y\u2212Zbeta); predict Unewgamma+Znewbeta. Noclipping. Alpha5unchanged.",
+  "comparators": [
+    "samepartialridgewithoutsatellite",
+    "expandingreleasedhistorymean",
+    "recent10releasedlabelsmean",
+    "latestreleasedoutcomepersistence",
+    "unpenalizedOLStrend",
+    "prior-yearSSTplaceboseparatediagnostic"
+  ],
+  "geography": "Independentagenttofreezenationalcountrymask orofficialcropbeltboxforbothcountries basedONLYmetadata/geography beforevaluesorlabels; nooutcomefitforselection; fixedallcalendarAug/Sepdaysand>=90%cells/daycoverage.",
+  "normalized_pool": "For eachcountry/target/releaseregime,freeze scale as mean ofthefirst15eligible releasedtraininglabels atitsfirsteligibleheldoutforecast; neverrecompute withtestlabels. Normalizealltesterrorsbythispositivescale. PoolmeanMSEequallybycountrythenroot;poolMAEequallybycountry.",
+  "uncertainty": "10000pairedcircular5-calendar-yearblockbootstrap seed20260927, samecalendarindicesacrosscountries;retainmissingcells. Noindependenceassumptionacrosscountryyears.",
+  "gate": "Eachconfirmationcountry>=20eligibleholdoutyears and satellitepointRMSEbetterthanitsownstrongestbaseline; jointly>=5%normalizedRMSEgainoverstrongestpooledmainbaseline,andlowernormalizedMAEandpositive95%pairedRMSEgainCIvsEACHmainbaseline. Bothlabelreleaseregimesmustpassforthatoutcome. Yieldandprespecifiedproductionsecondaryreportedseparately. Neverchooseonlywinningcountry. SouthAfricadevelopmentcannotcertify.",
+  "prohibited": "Noarchitecture,alpha,window,country,crop,weight,coverageorclassificationtuningafterthisfreeze; preserveallfailures. CorrectionmotivatedbyalreadyseenSAunderprediction, so notindependentSAconfirmation.",
+  "source_method_paper": "https://journals.ametsoc.org/view/journals/apme/39/9/1520-0450_2000_039_1473_smffsa_2.0.co_2.xml",
+  "limitations": "Currentrevisedarchives, unverifiedoriginalrelease, blendedsatellite+in-situSST,noofficialforecastsuperiority ortradedalphaproof; exploratoryaftermultiplecandidates, nofamily-wiseguarantee."
+}

@@ -1,0 +1,28 @@
+{
+  "recorded_at_utc": "2026-09-27T03:07:42.375527+00:00",
+  "forecast_metrics_inspected": false,
+  "rule": "Missing daily gauge data makes that monthly control missing; never sum available subset or treat missing as zero. Training rows with missing controls excluded; forecasts with missing current controls abstain.",
+  "incomplete_ground_months": [
+    {
+      "date": "1985-08-01",
+      "n_days": 31,
+      "n_valid_days": 30,
+      "minimum_valid_cells": 0,
+      "maximum_valid_cells": 302
+    },
+    {
+      "date": "1986-09-01",
+      "n_days": 30,
+      "n_valid_days": 29,
+      "minimum_valid_cells": 0,
+      "maximum_valid_cells": 302
+    },
+    {
+      "date": "2004-09-01",
+      "n_days": 30,
+      "n_valid_days": 29,
+      "minimum_valid_cells": 0,
+      "maximum_valid_cells": 302
+    }
+  ]
+}

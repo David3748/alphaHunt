@@ -1,0 +1,3 @@
+-r requirements.txt
+requests
+exchange_calendars==4.13.2

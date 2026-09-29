@@ -1,0 +1,325 @@
+{
+  "created_at_utc": "2026-09-27T02:30:36.377265+00:00",
+  "method": "Read Page 6 Plant Frame, select plant IDs 57439 and 57695; read frequency definitions from File Layout. Subsequently ingest annual Net Generation (Megawatthours) for exact PV/SUN rows in Page 1, verify monthly sums within 1 MWh. No model fitting. Current final archives, not original monthly snapshots.",
+  "sources": [
+    {
+      "year": 2015,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2015.zip",
+      "http_last_modified": "Fri, 05 Aug 2022 13:43:22 GMT",
+      "retrieved_at_utc": "2026-09-27T02:25:09.151390+00:00",
+      "zip_sha256": "da903cbf95e36c2e047356e56c8ce2f2dd2c8bcda701b52c0854200048ead0f3",
+      "zip_bytes": 20071619,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2015_Final_Revision.xlsx",
+      "workbook_sha256": "e64e35bdb86a6fffc79810274953f4dcd913724946928de8ddf5339729435cec",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2016,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2016.zip",
+      "http_last_modified": "Fri, 05 Aug 2022 14:18:25 GMT",
+      "retrieved_at_utc": "2026-09-27T02:25:09.330385+00:00",
+      "zip_sha256": "86a306a07db6f3f7f19c898694c735bef7ce94fc254a088a305570547006fdbe",
+      "zip_bytes": 19648061,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2016_Final_Revision.xlsx",
+      "workbook_sha256": "4599e6c6103172577421ceb66d53386320a3b26b4daca256214ab0379a581795",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2017,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2017.zip",
+      "http_last_modified": "Fri, 05 Aug 2022 14:33:01 GMT",
+      "retrieved_at_utc": "2026-09-27T02:25:09.256994+00:00",
+      "zip_sha256": "36a30bf77c40b9e8651967afe14c619904769fe4b67e3ec4785e218dfde0ac1f",
+      "zip_bytes": 21584197,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2017_Final_Revision.xlsx",
+      "workbook_sha256": "2389feed43446ba49c5d52747ef8f10da95c1111ab9e220894258831e7b9e671",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2018,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2018.zip",
+      "http_last_modified": "Tue, 06 Dec 2022 15:15:17 GMT",
+      "retrieved_at_utc": "2026-09-27T02:25:13.485273+00:00",
+      "zip_sha256": "44e6447730d755fb5d41d6c0c91e34ae0b9fab9f8b4c17559627bdad1e030007",
+      "zip_bytes": 21305966,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2018_Final_Revision.xlsx",
+      "workbook_sha256": "1d873be87a085d44d48c495e4563f6aa6de7e96466c31798e197e84dce467724",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2019,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2019.zip",
+      "http_last_modified": "Wed, 15 Feb 2023 14:40:04 GMT",
+      "retrieved_at_utc": "2026-09-27T02:26:06.913288+00:00",
+      "zip_sha256": "c2fd692e7994dda8e7b04645c3cac4881c471003d417d8419da20ba015be7cce",
+      "zip_bytes": 21885522,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2019_Final_Revision.xlsx",
+      "workbook_sha256": "8a7144dd5389335c11b07760e7ad53482ebb5097a418c2ef01bbedc914e17075",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2020,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2020.zip",
+      "http_last_modified": "Wed, 17 Aug 2022 16:56:18 GMT",
+      "retrieved_at_utc": "2026-09-27T02:26:06.846253+00:00",
+      "zip_sha256": "b8c6516cc0ae306abffc03a4af393de496d52b84b41347521f7acb184a4f7bf9",
+      "zip_bytes": 21465660,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2020_Final_Revision.xlsx",
+      "workbook_sha256": "0e5afa8f0c38124017b01688a8a7e0583a0d04785b90c65c848f70dbaf102e44",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "Specifies what time period data has to be reported (i.e. monthly data or annual totals) and how often the power plant reports this data to EIA."
+        ],
+        [
+          "                           A",
+          "The respondent only provides an annual total(s) for this record via the EIA-923 annual survey form.  Any monthly data in this record is estimated based on the respondent's reported annual total(s) and power plants with similar characteristics to this plant."
+        ],
+        [
+          "                           AM",
+          "The respondent provides monthly values for this record, but does so once per year via the EIA-923 annual survey form."
+        ],
+        [
+          "                           M",
+          "The respondent provides monthly values for this record and does so via the EIA-923 monthly survey form."
+        ]
+      ]
+    },
+    {
+      "year": 2021,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2021.zip",
+      "http_last_modified": "Wed, 08 Mar 2023 14:45:48 GMT",
+      "retrieved_at_utc": "2026-09-27T02:26:11.354329+00:00",
+      "zip_sha256": "9db69876593a669a0a02aa67ea3abaebf7dc0ea961424912c75156432851ccd8",
+      "zip_bytes": 22281584,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2021_Final_Revision.xlsx",
+      "workbook_sha256": "8bf9004e2ee8606f1b726e374b7d10025e0fcaac294a3a14f3cbc448cc054e71",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "Specifies what time period data has to be reported (i.e. monthly data or annual totals) and how often the power plant reports this data to EIA."
+        ],
+        [
+          "                           A",
+          "The respondent only provides an annual total(s) for this record via the EIA-923 annual survey form.  Any monthly data in this record is estimated based on the respondent's reported annual total(s) and power plants with similar characteristics to this plant."
+        ],
+        [
+          "                           AM",
+          "The respondent provides monthly values for this record, but does so once per year via the EIA-923 annual survey form."
+        ],
+        [
+          "                           M",
+          "The respondent provides monthly values for this record and does so via the EIA-923 monthly survey form."
+        ]
+      ]
+    },
+    {
+      "year": 2022,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2022.zip",
+      "http_last_modified": "Thu, 03 Oct 2024 13:27:48 GMT",
+      "retrieved_at_utc": "2026-09-27T02:26:10.312956+00:00",
+      "zip_sha256": "2f030b7da3802b9310ecd93ef98014890d3519e6d1db55e5a49173121e5e82e4",
+      "zip_bytes": 22871857,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2022_Final_Revision.xlsx",
+      "workbook_sha256": "6d41d56652dcae5267b6e5653e29c84526755ecf81f921b5baced0bd7d842d60",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2023,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2023.zip",
+      "http_last_modified": "Tue, 19 Aug 2025 13:42:05 GMT",
+      "retrieved_at_utc": "2026-09-27T02:26:11.894301+00:00",
+      "zip_sha256": "f96326c003bcdc0534144718c96fa8c31f803190e92b936b97d210db27acc557",
+      "zip_bytes": 22359936,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2023_Final_Revision.xlsx",
+      "workbook_sha256": "cec9a4b5c380d461026354d0dca8cc317a44231486b770cba1bb126743b7d526",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2024,
+      "url": "https://www.eia.gov/electricity/data/eia923/archive/xls/f923_2024.zip",
+      "http_last_modified": "Mon, 12 Jan 2026 20:59:57 GMT",
+      "retrieved_at_utc": "2026-09-27T02:26:13.202028+00:00",
+      "zip_sha256": "272055f2d748f6486fc3076abd5a40ec736dbff45458bdb4c895761278c50f2b",
+      "zip_bytes": 22755334,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2024_Final.xlsx",
+      "workbook_sha256": "c7c4d3d3dc79ba136920a38563ff28bad156fe35aa9d18d4a740fdf650f8e395",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    },
+    {
+      "year": 2025,
+      "url": "https://www.eia.gov/electricity/data/eia923/xls/f923_2025.zip",
+      "http_last_modified": "Fri, 11 Sep 2026 13:28:33 GMT",
+      "retrieved_at_utc": "2026-09-27T02:26:14.392364+00:00",
+      "zip_sha256": "1bff7092a86f6678c069c986829da5a23104048fc1aafb65b0776e3c904284de",
+      "zip_bytes": 23340452,
+      "workbook": "EIA923_Schedules_2_3_4_5_M_12_2025_Final.xlsx",
+      "workbook_sha256": "95684212d89ac688a355a5c8b51935111247e6f60716eba250464b28d14cfd2c",
+      "sheet": "Page 6 Plant Frame",
+      "frequency_definition_rows": [
+        [
+          "Respondent Frequency",
+          "One character designates the reporting frequency for the plant. Alphanumeric:"
+        ],
+        [
+          "                           M",
+          "Monthly respondent"
+        ],
+        [
+          "                           A",
+          "Annual respondent"
+        ],
+        [
+          "Primary/Secondary  Mode of Transportation",
+          "Mode for the longest / second longest distance."
+        ]
+      ]
+    }
+  ]
+}

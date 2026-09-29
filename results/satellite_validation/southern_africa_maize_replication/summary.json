@@ -1,0 +1,1926 @@
+{
+  "primary_yield": {
+    "fao_lag": {
+      "countries": {
+        "ZA": {
+          "n_test_years": 22,
+          "test_harvest_years": [
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.8207170465216902,
+              "mae": 0.6734625609160396
+            },
+            "satellite": {
+              "rmse": 0.7597676104223023,
+              "mae": 0.5855698830979911
+            },
+            "mean": {
+              "rmse": 2.0721824907486357,
+              "mae": 1.9037013346051246
+            },
+            "recent_mean": {
+              "rmse": 1.2444093981038895,
+              "mae": 1.0648435499959341
+            },
+            "persistence": {
+              "rmse": 0.9241013287167286,
+              "mae": 0.8100645756840915
+            },
+            "trend": {
+              "rmse": 0.7893205372724917,
+              "mae": 0.654564984280374
+            }
+          },
+          "strongest_baseline": "trend",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": 0.07426364099259275,
+              "mae_reduction": 0.13050863243013455,
+              "rmse_reduction_ci95": [
+                -0.020580908300106948,
+                0.2939943162040025
+              ],
+              "annual_wins": 14
+            },
+            "mean": {
+              "rmse_reduction": 0.6333490830009791,
+              "mae_reduction": 0.6924045424281573,
+              "rmse_reduction_ci95": [
+                0.47304708196865025,
+                0.8044475120343151
+              ],
+              "annual_wins": 21
+            },
+            "recent_mean": {
+              "rmse_reduction": 0.38945526160445054,
+              "mae_reduction": 0.4500883410523293,
+              "rmse_reduction_ci95": [
+                0.288067401610747,
+                0.592084744087354
+              ],
+              "annual_wins": 19
+            },
+            "persistence": {
+              "rmse_reduction": 0.1778308429905966,
+              "mae_reduction": 0.2771318476635235,
+              "rmse_reduction_ci95": [
+                -0.0458664335165218,
+                0.5231855917140381
+              ],
+              "annual_wins": 14
+            },
+            "trend": {
+              "rmse_reduction": 0.03744097037220129,
+              "mae_reduction": 0.10540603735202225,
+              "rmse_reduction_ci95": [
+                -0.08136490408823009,
+                0.2749326999595367
+              ],
+              "annual_wins": 15
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2000,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2001,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 21,
+            "matched_satellite": {
+              "rmse": 0.7704864374301761,
+              "mae": 0.5993180446791709
+            },
+            "placebo": {
+              "rmse": 0.8475428292929712,
+              "mae": 0.6991944870668794
+            },
+            "rmse_reduction": 0.09091740169293427,
+            "rmse_reduction_ci95": [
+              0.0022770711710943777,
+              0.30699300168399823
+            ]
+          }
+        },
+        "ZM": {
+          "n_test_years": 22,
+          "test_harvest_years": [
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.5619090090235861,
+              "mae": 0.4799487097942082
+            },
+            "satellite": {
+              "rmse": 0.5650019209086475,
+              "mae": 0.48356875245997966
+            },
+            "mean": {
+              "rmse": 0.6083776171301304,
+              "mae": 0.5296969881629771
+            },
+            "recent_mean": {
+              "rmse": 0.5152326899483467,
+              "mae": 0.42333155030940284
+            },
+            "persistence": {
+              "rmse": 0.3676897705564079,
+              "mae": 0.29859829757530254
+            },
+            "trend": {
+              "rmse": 0.5237611546335305,
+              "mae": 0.4529371405433966
+            }
+          },
+          "strongest_baseline": "persistence",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": -0.0055042931068784995,
+              "mae_reduction": -0.007542561511049151,
+              "rmse_reduction_ci95": [
+                -0.01613126913827991,
+                0.004986715203083511
+              ],
+              "annual_wins": 9
+            },
+            "mean": {
+              "rmse_reduction": 0.07129732422783219,
+              "mae_reduction": 0.08708419480158469,
+              "rmse_reduction_ci95": [
+                -0.5250643002312273,
+                0.3973498072426598
+              ],
+              "annual_wins": 12
+            },
+            "recent_mean": {
+              "rmse_reduction": -0.09659563907967539,
+              "mae_reduction": -0.14229320282542357,
+              "rmse_reduction_ci95": [
+                -0.6928821541413889,
+                0.17921597489663868
+              ],
+              "annual_wins": 7
+            },
+            "persistence": {
+              "rmse_reduction": -0.5366267058603678,
+              "mae_reduction": -0.6194625233522304,
+              "rmse_reduction_ci95": [
+                -0.8851543458745139,
+                -0.11919144612164773
+              ],
+              "annual_wins": 4
+            },
+            "trend": {
+              "rmse_reduction": -0.07873964288927215,
+              "mae_reduction": -0.06762883670752573,
+              "rmse_reduction_ci95": [
+                -0.36722248421492815,
+                0.10912751151519282
+              ],
+              "annual_wins": 9
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2000,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2001,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 21,
+            "matched_satellite": {
+              "rmse": 0.5466378403608986,
+              "mae": 0.46916233332445906
+            },
+            "placebo": {
+              "rmse": 0.5485531756775843,
+              "mae": 0.4765801111920029
+            },
+            "rmse_reduction": 0.003491612849237269,
+            "rmse_reduction_ci95": [
+              -0.05069292903625288,
+              0.04720116717088439
+            ]
+          }
+        },
+        "ZW": {
+          "n_test_years": 22,
+          "test_harvest_years": [
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.41954362243643495,
+              "mae": 0.3422865493236016
+            },
+            "satellite": {
+              "rmse": 0.43327812542810096,
+              "mae": 0.34746697634813334
+            },
+            "mean": {
+              "rmse": 0.4375400759189145,
+              "mae": 0.3792706373665936
+            },
+            "recent_mean": {
+              "rmse": 0.3922689674453692,
+              "mae": 0.3114268827991958
+            },
+            "persistence": {
+              "rmse": 0.3897467642460299,
+              "mae": 0.3286255328909426
+            },
+            "trend": {
+              "rmse": 0.414597686909008,
+              "mae": 0.31265412247875424
+            }
+          },
+          "strongest_baseline": "persistence",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": -0.03273676980692741,
+              "mae_reduction": -0.01513476657136792,
+              "rmse_reduction_ci95": [
+                -0.19608726241742422,
+                0.06126264853217209
+              ],
+              "annual_wins": 9
+            },
+            "mean": {
+              "rmse_reduction": 0.00974070885246947,
+              "mae_reduction": 0.08385479360934456,
+              "rmse_reduction_ci95": [
+                -0.3111700404566701,
+                0.22216626244838134
+              ],
+              "annual_wins": 14
+            },
+            "recent_mean": {
+              "rmse_reduction": -0.10454346733008646,
+              "mae_reduction": -0.11572569851709225,
+              "rmse_reduction_ci95": [
+                -0.2117658773424443,
+                -0.021050149613195002
+              ],
+              "annual_wins": 9
+            },
+            "persistence": {
+              "rmse_reduction": -0.11169139855794064,
+              "mae_reduction": -0.057334082630285055,
+              "rmse_reduction_ci95": [
+                -0.3419822796087222,
+                0.1150582414572457
+              ],
+              "annual_wins": 9
+            },
+            "trend": {
+              "rmse_reduction": -0.045056784224637436,
+              "mae_reduction": -0.11134621732596783,
+              "rmse_reduction_ci95": [
+                -0.37076915766255913,
+                0.1020583763041556
+              ],
+              "annual_wins": 9
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2000,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2001,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 21,
+            "matched_satellite": {
+              "rmse": 0.4538180026324283,
+              "mae": 0.37703872102015007
+            },
+            "placebo": {
+              "rmse": 0.45738470673808523,
+              "mae": 0.3822708093523328
+            },
+            "rmse_reduction": 0.00779803970948989,
+            "rmse_reduction_ci95": [
+              -0.1451958696591197,
+              0.07782798900473072
+            ]
+          }
+        }
+      },
+      "confirmation": {
+        "confirmation_gate_passed": false,
+        "n_per_country": {
+          "ZM": 22,
+          "ZW": 22
+        },
+        "n_calendar_years": 22,
+        "country_improves_over_own_strongest": {
+          "ZM": false,
+          "ZW": false
+        },
+        "normalization_scales": {
+          "ZM": 1.6912344837892637,
+          "ZW": 1.2562527910503851
+        },
+        "normalized_metrics": {
+          "baseline": {
+            "rmse": 0.33310719236345676,
+            "mae": 0.2781261617900451
+          },
+          "satellite": {
+            "rmse": 0.339530046708704,
+            "mae": 0.2812582554824247
+          },
+          "mean": {
+            "rmse": 0.35405307344111187,
+            "mae": 0.3075538462519386
+          },
+          "recent_mean": {
+            "rmse": 0.30847447802366995,
+            "mae": 0.24910532264318222
+          },
+          "persistence": {
+            "rmse": 0.26787962081143263,
+            "mae": 0.21907414895999927
+          },
+          "trend": {
+            "rmse": 0.32002101909906744,
+            "mae": 0.258346432028038
+          }
+        },
+        "strongest_pooled_baseline": "persistence",
+        "comparisons": {
+          "baseline": {
+            "rmse_reduction": -0.019281644144864885,
+            "mae_reduction": -0.011261413425551758,
+            "rmse_reduction_ci95": [
+              -0.06663662094114348,
+              0.03659930875333864
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.04101934941915819,
+            "mae_reduction": 0.08549914458872787,
+            "rmse_reduction_ci95": [
+              -0.22450386684426193,
+              0.25507831755839194
+            ]
+          },
+          "recent_mean": {
+            "rmse_reduction": -0.10067467780154926,
+            "mae_reduction": -0.12907364843945257,
+            "rmse_reduction_ci95": [
+              -0.2708596779065884,
+              0.05469338904576519
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": -0.2674724776757391,
+            "mae_reduction": -0.2838495861681043,
+            "rmse_reduction_ci95": [
+              -0.4911552366625735,
+              -0.0908838872038288
+            ]
+          },
+          "trend": {
+            "rmse_reduction": -0.06096170702961623,
+            "mae_reduction": -0.08868643268856968,
+            "rmse_reduction_ci95": [
+              -0.21376610559069686,
+              0.08154329750518416
+            ]
+          }
+        },
+        "description": "Equal-country normalizederrors; sharedfive-calendar-yearblocks; ZambiaandZimbabwe jointlyrequired."
+      }
+    },
+    "completed_harvest_stress": {
+      "countries": {
+        "ZA": {
+          "n_test_years": 24,
+          "test_harvest_years": [
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.7595818413235853,
+              "mae": 0.6178159268271151
+            },
+            "satellite": {
+              "rmse": 0.6617774039125137,
+              "mae": 0.5098578917067768
+            },
+            "mean": {
+              "rmse": 1.8856866718591925,
+              "mae": 1.6900734301342322
+            },
+            "recent_mean": {
+              "rmse": 1.0242914255228674,
+              "mae": 0.8652309886931283
+            },
+            "persistence": {
+              "rmse": 0.8722802584344108,
+              "mae": 0.6610057569107302
+            },
+            "trend": {
+              "rmse": 0.7202212643922413,
+              "mae": 0.5901015297626245
+            }
+          },
+          "strongest_baseline": "trend",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": 0.12876089460043638,
+              "mae_reduction": 0.17474142448022134,
+              "rmse_reduction_ci95": [
+                0.0420509419771091,
+                0.3051886453081993
+              ],
+              "annual_wins": 17
+            },
+            "mean": {
+              "rmse_reduction": 0.6490522981423874,
+              "mae_reduction": 0.6983220476602121,
+              "rmse_reduction_ci95": [
+                0.5239777401399384,
+                0.785717955149665
+              ],
+              "annual_wins": 23
+            },
+            "recent_mean": {
+              "rmse_reduction": 0.35391687617154666,
+              "mae_reduction": 0.4107262703606098,
+              "rmse_reduction_ci95": [
+                0.24590111055301392,
+                0.5292793661102208
+              ],
+              "annual_wins": 19
+            },
+            "persistence": {
+              "rmse_reduction": 0.24132479496866366,
+              "mae_reduction": 0.22866346264570603,
+              "rmse_reduction_ci95": [
+                -0.1317679638594835,
+                0.473034177156658
+              ],
+              "annual_wins": 15
+            },
+            "trend": {
+              "rmse_reduction": 0.08114709099716111,
+              "mae_reduction": 0.13598276569140022,
+              "rmse_reduction_ci95": [
+                -0.03239317552403336,
+                0.27406954458440524
+              ],
+              "annual_wins": 16
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 23,
+            "matched_satellite": {
+              "rmse": 0.6688580205395558,
+              "mae": 0.518215714458059
+            },
+            "placebo": {
+              "rmse": 0.7853760579725558,
+              "mae": 0.645010263437768
+            },
+            "rmse_reduction": 0.14835954858846956,
+            "rmse_reduction_ci95": [
+              0.05798233660800658,
+              0.3229251620475405
+            ]
+          }
+        },
+        "ZM": {
+          "n_test_years": 24,
+          "test_harvest_years": [
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.46003934407937463,
+              "mae": 0.3635732544643105
+            },
+            "satellite": {
+              "rmse": 0.4751164282661517,
+              "mae": 0.38460164533622504
+            },
+            "mean": {
+              "rmse": 0.551375447134258,
+              "mae": 0.4708370714347281
+            },
+            "recent_mean": {
+              "rmse": 0.4018672978592176,
+              "mae": 0.3292612129552172
+            },
+            "persistence": {
+              "rmse": 0.25901212757925507,
+              "mae": 0.21075372413027213
+            },
+            "trend": {
+              "rmse": 0.41060407749721417,
+              "mae": 0.34557299957406656
+            }
+          },
+          "strongest_baseline": "persistence",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": -0.032773466836731435,
+              "mae_reduction": -0.05783811271513306,
+              "rmse_reduction_ci95": [
+                -0.09235014700126776,
+                -0.014030441036223407
+              ],
+              "annual_wins": 8
+            },
+            "mean": {
+              "rmse_reduction": 0.13830688193400364,
+              "mae_reduction": 0.18315343317323696,
+              "rmse_reduction_ci95": [
+                -0.3998697555174735,
+                0.4622562233030555
+              ],
+              "annual_wins": 14
+            },
+            "recent_mean": {
+              "rmse_reduction": -0.18227193602748626,
+              "mae_reduction": -0.16807455662424076,
+              "rmse_reduction_ci95": [
+                -0.48876586019977664,
+                0.05954183916063866
+              ],
+              "annual_wins": 11
+            },
+            "persistence": {
+              "rmse_reduction": -0.8343404716474943,
+              "mae_reduction": -0.824886591795138,
+              "rmse_reduction_ci95": [
+                -1.5367951942124392,
+                -0.13467898683382154
+              ],
+              "annual_wins": 8
+            },
+            "trend": {
+              "rmse_reduction": -0.15711570903573224,
+              "mae_reduction": -0.11293893275881772,
+              "rmse_reduction_ci95": [
+                -0.32132807392507556,
+                0.058913054439122085
+              ],
+              "annual_wins": 13
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 23,
+            "matched_satellite": {
+              "rmse": 0.48612013816002414,
+              "mae": 0.39819521779974687
+            },
+            "placebo": {
+              "rmse": 0.46779610080349,
+              "mae": 0.39307307126355406
+            },
+            "rmse_reduction": -0.03917099207338559,
+            "rmse_reduction_ci95": [
+              -0.08822774079254814,
+              0.009354624596564507
+            ]
+          }
+        },
+        "ZW": {
+          "n_test_years": 24,
+          "test_harvest_years": [
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.40025195105336786,
+              "mae": 0.29665456423424746
+            },
+            "satellite": {
+              "rmse": 0.4259305297133072,
+              "mae": 0.3332923766768443
+            },
+            "mean": {
+              "rmse": 0.4063010738185005,
+              "mae": 0.3433847354525752
+            },
+            "recent_mean": {
+              "rmse": 0.3596198286656016,
+              "mae": 0.2703540709753616
+            },
+            "persistence": {
+              "rmse": 0.4128019585247379,
+              "mae": 0.33078710340420114
+            },
+            "trend": {
+              "rmse": 0.37886979729250686,
+              "mae": 0.2758145373498358
+            }
+          },
+          "strongest_baseline": "recent_mean",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": -0.06415603619759858,
+              "mae_reduction": -0.12350328246986453,
+              "rmse_reduction_ci95": [
+                -0.2742094708963569,
+                0.029400394682478466
+              ],
+              "annual_wins": 10
+            },
+            "mean": {
+              "rmse_reduction": -0.0483125867975811,
+              "mae_reduction": 0.029390819491231457,
+              "rmse_reduction_ci95": [
+                -0.37666119498166345,
+                0.1802569311989294
+              ],
+              "annual_wins": 15
+            },
+            "recent_mean": {
+              "rmse_reduction": -0.18439111462167368,
+              "mae_reduction": -0.232799548660092,
+              "rmse_reduction_ci95": [
+                -0.3047978720176852,
+                -0.09973556189551223
+              ],
+              "annual_wins": 5
+            },
+            "persistence": {
+              "rmse_reduction": -0.03180355838302673,
+              "mae_reduction": -0.007573672754653593,
+              "rmse_reduction_ci95": [
+                -0.20950881186825562,
+                0.13498127031735344
+              ],
+              "annual_wins": 12
+            },
+            "trend": {
+              "rmse_reduction": -0.12421347058305376,
+              "mae_reduction": -0.20839307412612973,
+              "rmse_reduction_ci95": [
+                -0.4063523497955664,
+                -0.008928676882527633
+              ],
+              "annual_wins": 6
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 23,
+            "matched_satellite": {
+              "rmse": 0.4457199686382405,
+              "mae": 0.3532990946639001
+            },
+            "placebo": {
+              "rmse": 0.4436054207533782,
+              "mae": 0.3376337617663434
+            },
+            "rmse_reduction": -0.0047667313922159504,
+            "rmse_reduction_ci95": [
+              -0.13902322765722902,
+              0.04982488174354662
+            ]
+          }
+        }
+      },
+      "confirmation": {
+        "confirmation_gate_passed": false,
+        "n_per_country": {
+          "ZM": 24,
+          "ZW": 24
+        },
+        "n_calendar_years": 24,
+        "country_improves_over_own_strongest": {
+          "ZM": false,
+          "ZW": false
+        },
+        "normalization_scales": {
+          "ZM": 1.6912344837892637,
+          "ZW": 1.2562527910503851
+        },
+        "normalized_metrics": {
+          "baseline": {
+            "rmse": 0.2962283888781698,
+            "mae": 0.22555874189424546
+          },
+          "satellite": {
+            "rmse": 0.3113477233637937,
+            "mae": 0.24635779961887516
+          },
+          "mean": {
+            "rmse": 0.32472386389375146,
+            "mae": 0.2758694665427014
+          },
+          "recent_mean": {
+            "rmse": 0.2630676796688576,
+            "mae": 0.2049468254510004
+          },
+          "persistence": {
+            "rmse": 0.25635072359945604,
+            "mae": 0.19396392539515295
+          },
+          "trend": {
+            "rmse": 0.2737688404282244,
+            "mae": 0.211942590320083
+          }
+        },
+        "strongest_pooled_baseline": "persistence",
+        "comparisons": {
+          "baseline": {
+            "rmse_reduction": -0.05103945149511646,
+            "mae_reduction": -0.09221126855895245,
+            "rmse_reduction_ci95": [
+              -0.1158991240335519,
+              0.015353366756321705
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.04119235454261039,
+            "mae_reduction": 0.10697692388243396,
+            "rmse_reduction_ci95": [
+              -0.20246698253980425,
+              0.25392872529916827
+            ]
+          },
+          "recent_mean": {
+            "rmse_reduction": -0.18352708229193992,
+            "mae_reduction": -0.20205716325074508,
+            "rmse_reduction_ci95": [
+              -0.2912705017581662,
+              -0.07452342030401135
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": -0.21453811010211776,
+            "mae_reduction": -0.27012174618029006,
+            "rmse_reduction_ci95": [
+              -0.5452176578787657,
+              0.022154456124846122
+            ]
+          },
+          "trend": {
+            "rmse_reduction": -0.13726501115608714,
+            "mae_reduction": -0.16237986544760608,
+            "rmse_reduction_ci95": [
+              -0.3029012561300381,
+              0.0042449467924026985
+            ]
+          }
+        },
+        "description": "Equal-country normalizederrors; sharedfive-calendar-yearblocks; ZambiaandZimbabwe jointlyrequired."
+      }
+    },
+    "robust_confirmation_gate_passed": false
+  },
+  "secondary_production": {
+    "fao_lag": {
+      "countries": {
+        "ZA": {
+          "n_test_years": 22,
+          "test_harvest_years": [
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 2.5896383163531085,
+              "mae": 2.1814155510467916
+            },
+            "satellite": {
+              "rmse": 2.3621808150868064,
+              "mae": 1.880483106385077
+            },
+            "mean": {
+              "rmse": 4.064722559475728,
+              "mae": 3.513660195507381
+            },
+            "recent_mean": {
+              "rmse": 2.930954350049357,
+              "mae": 2.5044829000000006
+            },
+            "persistence": {
+              "rmse": 2.9452501248947587,
+              "mae": 2.606063863636364
+            },
+            "trend": {
+              "rmse": 2.4053133716690382,
+              "mae": 1.9739535263407681
+            }
+          },
+          "strongest_baseline": "trend",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": 0.08783369470166857,
+              "mae_reduction": 0.13795282816119403,
+              "rmse_reduction_ci95": [
+                -0.04092619382861215,
+                0.23366758709802718
+              ],
+              "annual_wins": 13
+            },
+            "mean": {
+              "rmse_reduction": 0.4188580449162358,
+              "mae_reduction": 0.4648079205867741,
+              "rmse_reduction_ci95": [
+                0.17792636443732804,
+                0.5784940322604994
+              ],
+              "annual_wins": 18
+            },
+            "recent_mean": {
+              "rmse_reduction": 0.19405745263585306,
+              "mae_reduction": 0.2491531459907047,
+              "rmse_reduction_ci95": [
+                0.029975259347675497,
+                0.3298916881787078
+              ],
+              "annual_wins": 17
+            },
+            "persistence": {
+              "rmse_reduction": 0.19796936935153742,
+              "mae_reduction": 0.27842017510608885,
+              "rmse_reduction_ci95": [
+                0.03583811371241112,
+                0.36034893393746054
+              ],
+              "annual_wins": 14
+            },
+            "trend": {
+              "rmse_reduction": 0.017932198394715715,
+              "mae_reduction": 0.04735188478776531,
+              "rmse_reduction_ci95": [
+                -0.11252516636994075,
+                0.1405246737329395
+              ],
+              "annual_wins": 10
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2000,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2001,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 21,
+            "matched_satellite": {
+              "rmse": 2.427373948936507,
+              "mae": 1.965100990242507
+            },
+            "placebo": {
+              "rmse": 2.6289064509035325,
+              "mae": 2.185755753668781
+            },
+            "rmse_reduction": 0.07666020291355768,
+            "rmse_reduction_ci95": [
+              -0.0281930653652715,
+              0.1830130118250251
+            ]
+          }
+        },
+        "ZM": {
+          "n_test_years": 22,
+          "test_harvest_years": [
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.9286481682512059,
+              "mae": 0.6939885170105313
+            },
+            "satellite": {
+              "rmse": 0.9213159748347877,
+              "mae": 0.7013639425545397
+            },
+            "mean": {
+              "rmse": 1.3026741971543976,
+              "mae": 1.0929621756611518
+            },
+            "recent_mean": {
+              "rmse": 1.0333619988956717,
+              "mae": 0.8449942139090908
+            },
+            "persistence": {
+              "rmse": 0.8154745111582721,
+              "mae": 0.5942249304545454
+            },
+            "trend": {
+              "rmse": 0.9911304449986609,
+              "mae": 0.8166363680843648
+            }
+          },
+          "strongest_baseline": "persistence",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": 0.00789555578430301,
+              "mae_reduction": -0.01062759017365189,
+              "rmse_reduction_ci95": [
+                -0.03397389418353928,
+                0.03746041900601866
+              ],
+              "annual_wins": 12
+            },
+            "mean": {
+              "rmse_reduction": 0.2927502695245371,
+              "mae_reduction": 0.35829074585287235,
+              "rmse_reduction_ci95": [
+                -0.08977925961044537,
+                0.5707190769542226
+              ],
+              "annual_wins": 12
+            },
+            "recent_mean": {
+              "rmse_reduction": 0.10842862828382005,
+              "mae_reduction": 0.16997781640431875,
+              "rmse_reduction_ci95": [
+                -0.25799824098637264,
+                0.35844571687439625
+              ],
+              "annual_wins": 13
+            },
+            "persistence": {
+              "rmse_reduction": -0.12979125923406487,
+              "mae_reduction": -0.18030043273014407,
+              "rmse_reduction_ci95": [
+                -0.46302320560479165,
+                0.10871584829678452
+              ],
+              "annual_wins": 9
+            },
+            "trend": {
+              "rmse_reduction": 0.07043923483146308,
+              "mae_reduction": 0.1411551457109691,
+              "rmse_reduction_ci95": [
+                -0.18626553321383607,
+                0.28300982619680315
+              ],
+              "annual_wins": 10
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2000,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2001,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 21,
+            "matched_satellite": {
+              "rmse": 0.9527084288932687,
+              "mae": 0.7387827077933391
+            },
+            "placebo": {
+              "rmse": 0.9514973594635651,
+              "mae": 0.7156630354690963
+            },
+            "rmse_reduction": -0.0012728037736082776,
+            "rmse_reduction_ci95": [
+              -0.062023233732922685,
+              0.019210917166091416
+            ]
+          }
+        },
+        "ZW": {
+          "n_test_years": 22,
+          "test_harvest_years": [
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.5550993287242285,
+              "mae": 0.46069529875898513
+            },
+            "satellite": {
+              "rmse": 0.5748515851837316,
+              "mae": 0.44451868840882297
+            },
+            "mean": {
+              "rmse": 0.6158737061737016,
+              "mae": 0.5371481255984779
+            },
+            "recent_mean": {
+              "rmse": 0.522681795796529,
+              "mae": 0.4471736427727272
+            },
+            "persistence": {
+              "rmse": 0.636817542272895,
+              "mae": 0.5410476427272727
+            },
+            "trend": {
+              "rmse": 0.5119746306365689,
+              "mae": 0.4195226485844556
+            }
+          },
+          "strongest_baseline": "trend",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": -0.035583282914247505,
+              "mae_reduction": 0.03511346956163541,
+              "rmse_reduction_ci95": [
+                -0.11901030243705726,
+                0.11431716984992903
+              ],
+              "annual_wins": 11
+            },
+            "mean": {
+              "rmse_reduction": 0.06660800839320147,
+              "mae_reduction": 0.17244672889149415,
+              "rmse_reduction_ci95": [
+                -0.1762551870631301,
+                0.35139450503680797
+              ],
+              "annual_wins": 13
+            },
+            "recent_mean": {
+              "rmse_reduction": -0.09981175890715632,
+              "mae_reduction": 0.005937188845572483,
+              "rmse_reduction_ci95": [
+                -0.2474217950794057,
+                0.13093263409095104
+              ],
+              "annual_wins": 11
+            },
+            "persistence": {
+              "rmse_reduction": 0.09730566916859396,
+              "mae_reduction": 0.17841119098472313,
+              "rmse_reduction_ci95": [
+                -0.019396818212086508,
+                0.22974529464247984
+              ],
+              "annual_wins": 15
+            },
+            "trend": {
+              "rmse_reduction": -0.12281263715935298,
+              "mae_reduction": -0.059582098627352975,
+              "rmse_reduction_ci95": [
+                -0.20355287835002972,
+                0.0518125461187667
+              ],
+              "annual_wins": 11
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2000,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2001,
+              "reason": "Fewerthan15eligiblepriorlabels"
+            },
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 21,
+            "matched_satellite": {
+              "rmse": 0.5558165699339994,
+              "mae": 0.4405550864633932
+            },
+            "placebo": {
+              "rmse": 0.5441446938033958,
+              "mae": 0.4392581015889346
+            },
+            "rmse_reduction": -0.021449949367365884,
+            "rmse_reduction_ci95": [
+              -0.09814309537394555,
+              0.05824436360528962
+            ]
+          }
+        }
+      },
+      "confirmation": {
+        "confirmation_gate_passed": false,
+        "n_per_country": {
+          "ZM": 22,
+          "ZW": 22
+        },
+        "n_calendar_years": 22,
+        "country_improves_over_own_strongest": {
+          "ZM": false,
+          "ZW": false
+        },
+        "normalization_scales": {
+          "ZM": 1.105056866666667,
+          "ZW": 1.6418235333333333
+        },
+        "normalized_metrics": {
+          "baseline": {
+            "rmse": 0.640515404108428,
+            "mae": 0.4543056765489901
+          },
+          "satellite": {
+            "rmse": 0.6394106796671433,
+            "mae": 0.45271638577083106
+          },
+          "mean": {
+            "rmse": 0.874743375295489,
+            "mae": 0.658110353778862
+          },
+          "recent_mean": {
+            "rmse": 0.6984987564349385,
+            "mae": 0.5185126525992326
+          },
+          "persistence": {
+            "rmse": 0.5894964061100209,
+            "mae": 0.43363656208398627
+          },
+          "trend": {
+            "rmse": 0.6714452332814768,
+            "mae": 0.49726089051466027
+          }
+        },
+        "strongest_pooled_baseline": "persistence",
+        "comparisons": {
+          "baseline": {
+            "rmse_reduction": 0.0017247429713613815,
+            "mae_reduction": 0.003498285097891962,
+            "rmse_reduction_ci95": [
+              -0.04466325254110336,
+              0.039570838864686
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.26903055487427974,
+            "mae_reduction": 0.3120965455544973,
+            "rmse_reduction_ci95": [
+              -0.0837421795052632,
+              0.5291860838478871
+            ]
+          },
+          "recent_mean": {
+            "rmse_reduction": 0.08459295914766463,
+            "mae_reduction": 0.1268942358466547,
+            "rmse_reduction_ci95": [
+              -0.24702332798240723,
+              0.31703481234626607
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": -0.08467273598239156,
+            "mae_reduction": -0.04399957327202819,
+            "rmse_reduction_ci95": [
+              -0.2781443621627107,
+              0.10581447037906583
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.047709853352856046,
+            "mae_reduction": 0.08957974695682591,
+            "rmse_reduction_ci95": [
+              -0.1851286281874266,
+              0.24471542054454054
+            ]
+          }
+        },
+        "description": "Equal-country normalizederrors; sharedfive-calendar-yearblocks; ZambiaandZimbabwe jointlyrequired."
+      }
+    },
+    "completed_harvest_stress": {
+      "countries": {
+        "ZA": {
+          "n_test_years": 24,
+          "test_harvest_years": [
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 2.528467591911224,
+              "mae": 2.1720110699370063
+            },
+            "satellite": {
+              "rmse": 2.2568236427683397,
+              "mae": 1.8936322209302467
+            },
+            "mean": {
+              "rmse": 3.803426723167121,
+              "mae": 3.230537268336386
+            },
+            "recent_mean": {
+              "rmse": 2.633063370078645,
+              "mae": 2.184443041666667
+            },
+            "persistence": {
+              "rmse": 3.28823075080056,
+              "mae": 2.488564333333333
+            },
+            "trend": {
+              "rmse": 2.388402109260792,
+              "mae": 1.9921801308208857
+            }
+          },
+          "strongest_baseline": "trend",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": 0.1074342222189818,
+              "mae_reduction": 0.12816640433367277,
+              "rmse_reduction_ci95": [
+                -0.01295335201448109,
+                0.20698081270330132
+              ],
+              "annual_wins": 17
+            },
+            "mean": {
+              "rmse_reduction": 0.4066341204835733,
+              "mae_reduction": 0.41383365563047625,
+              "rmse_reduction_ci95": [
+                0.15023220799554046,
+                0.5668656057734595
+              ],
+              "annual_wins": 18
+            },
+            "recent_mean": {
+              "rmse_reduction": 0.14289049461770742,
+              "mae_reduction": 0.13312813160582104,
+              "rmse_reduction_ci95": [
+                -0.04174671014086428,
+                0.2721718509194331
+              ],
+              "annual_wins": 15
+            },
+            "persistence": {
+              "rmse_reduction": 0.3136662801967628,
+              "mae_reduction": 0.23906639841864097,
+              "rmse_reduction_ci95": [
+                0.09352579569091286,
+                0.4280147642270074
+              ],
+              "annual_wins": 14
+            },
+            "trend": {
+              "rmse_reduction": 0.05509058377660525,
+              "mae_reduction": 0.0494673691229075,
+              "rmse_reduction_ci95": [
+                -0.1173206091057972,
+                0.1673503445940636
+              ],
+              "annual_wins": 14
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 23,
+            "matched_satellite": {
+              "rmse": 2.3036867053653305,
+              "mae": 1.9367178634006426
+            },
+            "placebo": {
+              "rmse": 2.603354156594655,
+              "mae": 2.115321764364412
+            },
+            "rmse_reduction": 0.1151082154804891,
+            "rmse_reduction_ci95": [
+              -0.049254031885532304,
+              0.21323826807203272
+            ]
+          }
+        },
+        "ZM": {
+          "n_test_years": 24,
+          "test_harvest_years": [
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.734422713266143,
+              "mae": 0.5808015291648335
+            },
+            "satellite": {
+              "rmse": 0.7396253479744584,
+              "mae": 0.5943312707084797
+            },
+            "mean": {
+              "rmse": 1.1846663517144482,
+              "mae": 0.9650413144005802
+            },
+            "recent_mean": {
+              "rmse": 0.8416328051764199,
+              "mae": 0.6834454600833332
+            },
+            "persistence": {
+              "rmse": 0.7028457051082443,
+              "mae": 0.55432037875
+            },
+            "trend": {
+              "rmse": 0.8154037411085076,
+              "mae": 0.6665123738903221
+            }
+          },
+          "strongest_baseline": "persistence",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": -0.0070839784967682284,
+              "mae_reduction": -0.023294948212518207,
+              "rmse_reduction_ci95": [
+                -0.03588383037411561,
+                0.01442353662784829
+              ],
+              "annual_wins": 10
+            },
+            "mean": {
+              "rmse_reduction": 0.375667801399041,
+              "mae_reduction": 0.3841390396040827,
+              "rmse_reduction_ci95": [
+                0.038729408837420536,
+                0.5300167359762625
+              ],
+              "annual_wins": 15
+            },
+            "recent_mean": {
+              "rmse_reduction": 0.12120185498303981,
+              "mae_reduction": 0.13038961347989309,
+              "rmse_reduction_ci95": [
+                -0.22798179878358,
+                0.31964247971498344
+              ],
+              "annual_wins": 16
+            },
+            "persistence": {
+              "rmse_reduction": -0.052329611746791294,
+              "mae_reduction": -0.07218008482514171,
+              "rmse_reduction_ci95": [
+                -0.44980722425730907,
+                0.13583965599999398
+              ],
+              "annual_wins": 12
+            },
+            "trend": {
+              "rmse_reduction": 0.09293358530711615,
+              "mae_reduction": 0.1082967188749,
+              "rmse_reduction_ci95": [
+                -0.16743113098237045,
+                0.2695528697977356
+              ],
+              "annual_wins": 14
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 23,
+            "matched_satellite": {
+              "rmse": 0.7527311125722809,
+              "mae": 0.6145585488995938
+            },
+            "placebo": {
+              "rmse": 0.7033522461521758,
+              "mae": 0.5717834463918263
+            },
+            "rmse_reduction": -0.07020503124891064,
+            "rmse_reduction_ci95": [
+              -0.1455296487359259,
+              -0.0281474601589777
+            ]
+          }
+        },
+        "ZW": {
+          "n_test_years": 24,
+          "test_harvest_years": [
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "metrics": {
+            "baseline": {
+              "rmse": 0.514221851987108,
+              "mae": 0.4155250945381755
+            },
+            "satellite": {
+              "rmse": 0.5395526703793148,
+              "mae": 0.4080948238571794
+            },
+            "mean": {
+              "rmse": 0.5756348410959178,
+              "mae": 0.48586331289591933
+            },
+            "recent_mean": {
+              "rmse": 0.49706516098143644,
+              "mae": 0.40588520079166673
+            },
+            "persistence": {
+              "rmse": 0.5586918482369908,
+              "mae": 0.4296397129166667
+            },
+            "trend": {
+              "rmse": 0.4862182985882268,
+              "mae": 0.36007611461216404
+            }
+          },
+          "strongest_baseline": "trend",
+          "comparisons": {
+            "baseline": {
+              "rmse_reduction": -0.049260486100154655,
+              "mae_reduction": 0.017881641274287596,
+              "rmse_reduction_ci95": [
+                -0.15801957889266183,
+                0.12155987185640173
+              ],
+              "annual_wins": 15
+            },
+            "mean": {
+              "rmse_reduction": 0.06268239540175902,
+              "mae_reduction": 0.16006248460130057,
+              "rmse_reduction_ci95": [
+                -0.14900447340320389,
+                0.3496025420368761
+              ],
+              "annual_wins": 13
+            },
+            "recent_mean": {
+              "rmse_reduction": -0.08547673973768011,
+              "mae_reduction": -0.005443960659819114,
+              "rmse_reduction_ci95": [
+                -0.20452896382164237,
+                0.13804327451965387
+              ],
+              "annual_wins": 11
+            },
+            "persistence": {
+              "rmse_reduction": 0.03425712746314746,
+              "mae_reduction": 0.05014640968179351,
+              "rmse_reduction_ci95": [
+                -0.13933936862237528,
+                0.21986393215908334
+              ],
+              "annual_wins": 11
+            },
+            "trend": {
+              "rmse_reduction": -0.10969223483762036,
+              "mae_reduction": -0.13335710783464783,
+              "rmse_reduction_ci95": [
+                -0.23617256257641428,
+                0.04715526537453788
+              ],
+              "annual_wins": 8
+            }
+          },
+          "forecast_gate_passed": false,
+          "abstentions": [
+            {
+              "harvest_year": 2005,
+              "reason": "Missingorunavailablefeature"
+            }
+          ],
+          "placebo_diagnostic": {
+            "n": 23,
+            "matched_satellite": {
+              "rmse": 0.5468582170750849,
+              "mae": 0.4201615040198158
+            },
+            "placebo": {
+              "rmse": 0.5372072002844367,
+              "mae": 0.41756933709221
+            },
+            "rmse_reduction": -0.01796516648611224,
+            "rmse_reduction_ci95": [
+              -0.08451122790539878,
+              0.054520483261263436
+            ]
+          }
+        }
+      },
+      "confirmation": {
+        "confirmation_gate_passed": false,
+        "n_per_country": {
+          "ZM": 24,
+          "ZW": 24
+        },
+        "n_calendar_years": 24,
+        "country_improves_over_own_strongest": {
+          "ZM": false,
+          "ZW": false
+        },
+        "normalization_scales": {
+          "ZM": 1.105056866666667,
+          "ZW": 1.6418235333333333
+        },
+        "normalized_metrics": {
+          "baseline": {
+            "rmse": 0.5195145557772873,
+            "mae": 0.38933637236790375
+          },
+          "satellite": {
+            "rmse": 0.527244400148573,
+            "mae": 0.3931953019372886
+          },
+          "mean": {
+            "rmse": 0.7975579424960858,
+            "mae": 0.584612342261695
+          },
+          "recent_mean": {
+            "rmse": 0.5795355426179131,
+            "mae": 0.4328434721594837
+          },
+          "persistence": {
+            "rmse": 0.5100615208524059,
+            "mae": 0.38165302579572175
+          },
+          "trend": {
+            "rmse": 0.562216494842429,
+            "mae": 0.4112311635888401
+          }
+        },
+        "strongest_pooled_baseline": "persistence",
+        "comparisons": {
+          "baseline": {
+            "rmse_reduction": -0.014878975546162243,
+            "mae_reduction": -0.00991155680091027,
+            "rmse_reduction_ci95": [
+              -0.059367407455182056,
+              0.02346510270598179
+            ]
+          },
+          "mean": {
+            "rmse_reduction": 0.3389265255155295,
+            "mae_reduction": 0.32742558869672445,
+            "rmse_reduction_ci95": [
+              0.017126250858484567,
+              0.5022577482577117
+            ]
+          },
+          "recent_mean": {
+            "rmse_reduction": 0.09022939685998788,
+            "mae_reduction": 0.09159932578950047,
+            "rmse_reduction_ci95": [
+              -0.20967900962297073,
+              0.28595219738358924
+            ]
+          },
+          "persistence": {
+            "rmse_reduction": -0.033687856452004894,
+            "mae_reduction": -0.03024285243776581,
+            "rmse_reduction_ci95": [
+              -0.3253999378764972,
+              0.13861699159872165
+            ]
+          },
+          "trend": {
+            "rmse_reduction": 0.062203964157361735,
+            "mae_reduction": 0.04385820737453705,
+            "rmse_reduction_ci95": [
+              -0.15536497428708979,
+              0.2312803491994669
+            ]
+          }
+        },
+        "description": "Equal-country normalizederrors; sharedfive-calendar-yearblocks; ZambiaandZimbabwe jointlyrequired."
+      }
+    },
+    "robust_confirmation_gate_passed": false
+  },
+  "protocol_sha256": "95fb9b7f3011c4e27655159b5a98d8577f311605497f9f27e4e1a0e6b38389ef",
+  "code_sha256": "162034c9a974e31deaa74fa1616586d98ccbb758277cdd21f1f7c82b870dd365",
+  "core_code_sha256": "13874d5c3792c4894960e9505b74d6295a5880cdf6349518e94abf7dfdbfa8df",
+  "original_vintage_operational_verification": false,
+  "labels_manifest_sha256": "7e7fc760f82f025ccb41b9d110542c115c5a71461bb129df47dda46af47c87fe",
+  "ground_manifest_sha256": "30da316aa7a5b352ec2c70f9f35ce75733a0c75a3a83832bb88393b18c3afe0a",
+  "geography_freeze_sha256": "30dea1d528c27adbeee1057a612f364313b3b2ab51a3be46f49fbfad164a30da",
+  "trading_alpha_verified": false,
+  "cross_candidate_multiple_testing_adjusted": false,
+  "claims": "SouthAfricaisdevelopmentafterobservingoldmodelbias. OnlyfixedZambiaandZimbabwejointreplicationcanqualify;primaryyieldandprespecifiedproductionsecondaryseparate,current-vintageonly."
+}

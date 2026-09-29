@@ -1,0 +1,5 @@
+year,strategy,available_date,entry_date,exit_date,side,status,reason,gross_return,net_return,rolls,total_cost_bps,weekly_observations
+2025,weather_only,2025-06-29,2025-07-04,2025-09-26,-1,eligible,,0.09927645290536136,0.0932374006556771,1,55.0,12
+2025,weather_plus_ndvi,2025-06-29,2025-07-04,2025-09-26,1,eligible,,-0.0940851402613212,-0.09905776675079325,1,55.0,12
+2025,incremental_satellite,2025-06-29,2025-07-04,2025-09-26,1,eligible,,-0.0940851402613212,-0.09905776675079325,1,55.0,12
+2025,always_long_control,2025-06-29,2025-07-04,2025-09-26,1,eligible,,-0.0940851402613212,-0.09905776675079325,1,55.0,12

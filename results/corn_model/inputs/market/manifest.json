@@ -1,0 +1,57 @@
+{
+  "symbol": "CORN",
+  "asset_kind": "corn_futures_etf_proxy",
+  "currency": "USD",
+  "retrieved_at_utc": "2026-09-27T22:52:00.936236+00:00",
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/CORN?period1=1262304000&period2=1790549520&interval=1d&events=div%2Csplits",
+  "price_basis": "Yahoo adjusted daily close; retrospectively adjusted current vintage",
+  "original_vintage_prices_verified": false,
+  "actual_december_futures": false,
+  "calendar": {
+    "name": "XNYS",
+    "library": "exchange_calendars",
+    "version": "4.13.2",
+    "url": "https://github.com/gerrymanoim/exchange_calendars",
+    "scope": "US equity core sessions, used for NYSE Arca ETF daily closes; includes early closes"
+  },
+  "coverage": {
+    "symbol": "CORN",
+    "asset_kind": "corn_futures_etf_proxy",
+    "snapshot_as_of_utc": "2026-09-27T22:52:00.936236+00:00",
+    "first_price_date": "2010-06-09",
+    "latest_price_date": "2026-09-25",
+    "latest_completed_session": "2026-09-25",
+    "missing_completed_sessions_after_latest_price": 0,
+    "is_live_quote": false,
+    "price_basis": "Yahoo adjusted daily close, current retrieved vintage"
+  },
+  "prior_audited_snapshot": {
+    "path": "results/satellite_validation/cybench_trading/source_manifest.json",
+    "sha256": "34cb58ea5202d7180d03741ca1a84609622947f4d672adbe05d636ea5eabf32b",
+    "raw_price_sha256": "8296d2375d68beb16cd86e5ec956e061c582db70cd8d190c37cbd1feccdf5a26",
+    "overlap_rows": 2768,
+    "missing_overlap_rows": 0,
+    "max_absolute_adjusted_price_change": 4.843769829676603e-11
+  },
+  "limitations": [
+    "ETF holds multiple futures maturities; not December futures or spot corn",
+    "Adjusted-close ratios are a total-return proxy, not historical executable adjusted prices",
+    "Execution and borrow fees are assumptions, not verified spreads or locates",
+    "Fund expenses and rolling effects are already reflected in ETF prices",
+    "Snapshot completion does not prove contemporaneous original-vintage availability"
+  ],
+  "files": [
+    {
+      "path": "corn_yahoo_chart.json",
+      "sha256": "53f8a05cc9472ad94a328300b54e9ab77fb4eb36aea747c12d6e330bd78153a2"
+    },
+    {
+      "path": "adjusted_prices.csv",
+      "sha256": "e487655d358539002f519b4ba1583bcc3bf406085baafc5f52dee34c78491880"
+    },
+    {
+      "path": "xnys_schedule.csv",
+      "sha256": "f39296ffa4efd2d1b1be6c4f5b3b6c32f6c43ddbc5d232fc73f541980b196b82"
+    }
+  ]
+}

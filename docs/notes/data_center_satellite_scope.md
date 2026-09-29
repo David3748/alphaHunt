@@ -1,5 +1,25 @@
 # Data-center buildout from satellite data: scoped research plan
 
+> **Follow-up availability audit.** The original charts are retrospective:
+> 437/837 post-baseline rows across eight campuses include known inputs published
+> after their endpoint timestamp. Publication-aware replay removes the Denton
+> warning, while an APLD false alarm survives. Core Scientific already discussed
+> delays on October 24, 2025. See the [satellite validation](../../results/satellite_validation/report.md)
+> before using the older pilot's apparent leads.
+
+> **Pilot run, September 2026.** Eight campuses (and three copper smelters) were
+> measured from free Sentinel-2 imagery; see
+> [`reports/satellite_sites.html`](../../reports/satellite_sites.html) and
+> [`src/sentinel2_sites.py`](../../src/sentinel2_sites.py). Three findings change
+> this plan:
+>
+> - Exterior progress is lumpy. Ten pauses of 120+ days showed up across the eight
+>   campuses and only one (Denton, summer 2025) came before a disclosed delay, so
+>   "delivery surprise" needs each building's guided date, not the image alone.
+> - Spectral rules fail on some roofs (Abilene's rust-coloured halls read as
+>   soil). Capacity estimates need a segmentation model or sharper imagery.
+> - Snowy winters and tropical monsoons leave months with no clear view.
+
 ## Decision
 
 This is feasible, but the investable wedge is narrower than reproducing the

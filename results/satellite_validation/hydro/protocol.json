@@ -1,0 +1,28 @@
+{
+  "frozen_at_utc": "2026-09-27T02:15:28.981893+00:00",
+  "target": "Sobradinho mean monthly actual generation MW, ONS verified hourly readings; reservoir selected for storage-controlled hydro mechanism before generation values inspected",
+  "satellite": "NASA GWM 000345 Sobradinho TPJOJS2.5; Jason2/3/Sentinel6 data from2008-07 onward only; exclude compromised olderTP merger",
+  "forecast": "First day00UTC of targetmonth; genuine future calendar-month generation",
+  "satellite_timing": "Conservative fixed90day input latency all records, because Jason3GDR delivery<90days; historical NASA GWM publication/vintages not independently proven. Current-version mission bias corrections may involve later calibration. No smoothing/interpolation. Use latest valid height with sensing+90days<issue, age<=130days, and change from reading at least30days earlier; earlier reading maxage180days.",
+  "ground_timing": "Calendar-month ONS generation and hydrology assumed available30days after monthend; use lag2calendar-month and lag12generation. Inflow provides realized hydro-weather comparator; ground reservoir level separately required comparator. Historical original publication dates unavailable.",
+  "quality": "Use16column records, valid dates, finite height relativeJason2 abs<100, error0\u20131m, iceflag0; no future quality selection; noTOPEX/POSDN",
+  "training": "Expanding Jan2010 onwards, at least72complete prior months, outcomes30dayassumedrelease strictlybeforeissue. No tuning or holdout search.",
+  "test": "Jan2018 throughDec2025 inclusive; fixed single site,96targetmonths; all models identical complete-month support.",
+  "models": {
+    "baseline": "OLS intercept + sin/cos annual andsemiannual + centeredlinearyear + generationlag2 + generationlag12 + inflowlag2",
+    "satellite": "baseline plus latestasofsatelliteheight and30dayheightchange",
+    "ground_storage": "baseline plus lag2ONSreservoirlevel",
+    "ground_storage_satellite": "ground_storage plus satelliteheight andchange",
+    "persistence": "lag2generation"
+  },
+  "uncertainty": "Paired circular12monthblockbootstrap10000drawsseed20260927; annualpairedlosses reported; boundary/gaps disclosed",
+  "gate": "Satellite vsbaseline andground_storage_satellite vsground_storage musteach improveRMSE>=5%, improveMAE,and95%blockbootstrapRMSEgainlowerbound>0. No operationalverificationfromassumedrelease dates; trading untested.",
+  "outcome_values_inspected_before_freeze": false,
+  "status": "pre_fit_frozen",
+  "claim_limits": [
+    "Revisedcurrentarchivehindcast; nothistoricalreleasecertified",
+    "Groundstoragepubliclyavailablemaydominate satellite",
+    "Sobradinhogroundtrack farfromdam narrowcrossing; missionmergeradvisory pre2008excluded",
+    "No cross-candidate multiple-testing correction; candidate selected after other mechanismsfailed"
+  ]
+}

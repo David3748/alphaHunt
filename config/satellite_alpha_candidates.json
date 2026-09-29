@@ -1,0 +1,330 @@
+{
+  "research_status": "Exploratory satellite research: small historical county-yield forecast gains verified; original 5% materiality gates and trading gates remain failed.",
+  "usefulness_definition": "User accepts independently measured forecast improvement; trading value is a separate test",
+  "candidates": [
+    {
+      "id": "industrial_heat",
+      "source": "Copernicus Sentinel-2 short-wave infrared via Element 84's public AWS archive",
+      "observable": "Fraction of clear acquisitions with furnace heat in a fixed smelter area",
+      "forecast": "Quarterly copper smelter throughput and refined copper production",
+      "possible_alpha": "Production surprises at concentrated listed producers, or aggregate copper supply",
+      "examples": [
+        "RIO",
+        "FCX",
+        "copper futures"
+      ],
+      "baseline": [
+        "previous-quarter production",
+        "same-quarter prior-year production"
+      ],
+      "timing": "Use only images created before the forecast cutoff; compare with the later company production release",
+      "limitations": [
+        "Hot slag and neighboring units can be mistaken for furnaces",
+        "Clouds hide heat",
+        "Refinery output can differ from smelter throughput",
+        "Public outage schedules may already explain the signal"
+      ],
+      "results": "results/satellite_validation/smelters/summary.json"
+    },
+    {
+      "id": "construction_progress",
+      "source": "Copernicus Sentinel-2 visible/NIR/SWIR reflectance",
+      "observable": "Season-matched new exterior built area at publicly identified data-center campuses",
+      "forecast": "Delivery and revenue-recognition delays relative to building-specific schedules",
+      "possible_alpha": "Guidance surprises at operators where one project is material",
+      "examples": [
+        "CORZ",
+        "CRWV",
+        "APLD",
+        "GLXY",
+        "WULF"
+      ],
+      "baseline": [
+        "company disclosures and guided completion dates",
+        "permit progress"
+      ],
+      "timing": "Gate on public site identity and every composite input's publication time; never backdate an alarm to the start of a retrospectively identified pause",
+      "limitations": [
+        "Interior work is invisible",
+        "Completed roofs look stalled",
+        "Historical areas of interest were chosen with hindsight",
+        "Legacy CSVs lack full constituent scene lineage"
+      ],
+      "results": "results/satellite_validation/construction/summary.json"
+    },
+    {
+      "id": "crop_vegetation",
+      "source": "NASA MODIS vegetation imagery through USDA NASS VegScape",
+      "observable": "Growing-season county NDVI and its change across crop stages",
+      "forecast": "State corn, soybean and wheat yield anomalies before final annual outcomes",
+      "possible_alpha": "Crop supply surprises versus expectations in grain futures and exposed businesses",
+      "examples": [
+        "corn futures",
+        "soybean futures",
+        "wheat futures"
+      ],
+      "baseline": [
+        "expanding yield trend",
+        "weather-only model",
+        "prior-year NDVI placebo"
+      ],
+      "timing": "Weekly imagery is usable only after the composite ends plus an explicit publication lag; train on earlier crop years",
+      "limitations": [
+        "One county is a proxy for a state",
+        "Current-vintage weather and yield labels are not an original-vintage archive",
+        "Forecast skill is not the same as predicting market surprises"
+      ],
+      "results": "results/satellite_validation/third_signal/summary.json"
+    },
+    {
+      "id": "solar_irradiance",
+      "source": "Satellite-constrained CERES surface irradiance via NASA POWER",
+      "observable": "Monthly all-sky surface shortwave radiation at a solar plant",
+      "forecast": "Solar electricity output before independent EIA reporting",
+      "possible_alpha": "Weather-driven output and revenue surprises for solar assets",
+      "examples": [
+        "solar asset revenues",
+        "power-market supply forecasts"
+      ],
+      "baseline": [
+        "calendar-month effects plus time trend",
+        "previous-year same-month generation",
+        "previous-year irradiance placebo"
+      ],
+      "timing": "Downloaded historical SYN1DEG has 3-4 month latency and cannot certify month-end nowcasts; original FLASHFlux vintages required",
+      "limitations": [
+        "Current-vintage estimation test only",
+        "One plant and six evaluation years",
+        "Contemporaneous market expectations not measured"
+      ],
+      "results": "results/satellite_validation/solar/summary.json"
+    },
+    {
+      "id": "satellite_ocean_temperature",
+      "source": "NOAA CPC OISST Ni\u00f1o3.4, combining satellite and in-situ temperatures",
+      "observable": "September tropical Pacific sea-surface temperature",
+      "forecast": "Following December-February Texas precipitation",
+      "possible_alpha": "Seasonal rainfall risk relevant to agriculture, hydroelectric output and energy supply",
+      "examples": [
+        "grain supply research",
+        "hydropower supply research"
+      ],
+      "baseline": [
+        "expanding historical winter rainfall mean",
+        "previous winter rainfall"
+      ],
+      "timing": "October 15 forecast after September data and assumed 14-day OISST final-product latency; original CPC vintages unavailable",
+      "limitations": [
+        "An established public ENSO mechanism, not proprietary information",
+        "Current-vintage reprocessing",
+        "Satellite-specific contribution not isolated from in-situ inputs",
+        "Uncertainty gate fails"
+      ],
+      "results": "results/satellite_validation/enso/summary.json"
+    },
+    {
+      "id": "passive_microwave_sea_ice",
+      "source": "NOAA/NSIDC Sea Ice Index passive-microwave satellite observations",
+      "observable": "July mean Arctic sea-ice extent",
+      "forecast": "September mean Arctic sea-ice extent, forecast August 15",
+      "possible_alpha": "Seasonal conditions relevant to Arctic shipping and energy logistics; route-specific access and economic exposure remain untested",
+      "examples": [
+        "shipping logistics research",
+        "Arctic energy transport research"
+      ],
+      "baseline": [
+        "expanding linear trend plus previous September extent",
+        "expanding linear trend",
+        "previous September extent",
+        "expanding historical mean"
+      ],
+      "timing": "Current-vintage archive with explicit August 14 assumed availability; audit original August press releases and disclose revisions",
+      "limitations": [
+        "Physical forecast target uses the same product family at a future date, not independent shipping output",
+        "Current revised archive; original-vintage operational performance uncertified",
+        "Exploratory sixth candidate; no cross-candidate multiple-testing adjustment",
+        "No financial returns or contemporaneous market expectations evaluated for this signal"
+      ],
+      "results": "results/satellite_validation/seaice/summary.json"
+    },
+    {
+      "id": "satellite_atmospheric_temperature",
+      "source": "UAH MSU/AMSU lower-troposphere satellite temperatures, USA48 monthly series",
+      "observable": "Monthly lower-atmosphere temperature anomaly",
+      "forecast": "Winter residential natural-gas demand before EIA monthly reporting",
+      "possible_alpha": "Demand surprises in gas markets or utility revenue forecasts",
+      "examples": [
+        "natural-gas demand forecasts",
+        "UNG research"
+      ],
+      "baseline": [
+        "calendar-month trend plus prior-year demand",
+        "CPC gas-customer-weighted ground heating-degree days",
+        "previous-year same-month demand"
+      ],
+      "timing": "Issue next-month 15th after assumed feature availability; earlier EIA labels embargoed until two months after their month-end; current-vintage inputs",
+      "limitations": [
+        "Adds no forecast value beyond ground heating-degree days in fixed test",
+        "Layer temperature is not surface temperature",
+        "Historical source revisions and EIA methodology change",
+        "Separate costed UNG test is negative"
+      ],
+      "results": "results/satellite_validation/gas/summary.json"
+    },
+    {
+      "id": "operational_solar_irradiance",
+      "source": "NOAA GOES-17/18 ABI surface shortwave radiation, public operational S3 objects",
+      "observable": "Two-hour irradiance sampling integrated over fixed geographic cells",
+      "forecast": "Topaz monthly measured production before EIA release; annual CVSR confirmation",
+      "possible_alpha": "Solar output and asset revenue surprises with timely satellite data",
+      "baseline": [
+        "same-month persistence",
+        "two-year seasonal mean",
+        "season/trend",
+        "local ground temperature and rain"
+      ],
+      "timing": "Month-end plus14days; both object creation and S3 archive time gated",
+      "limitations": [
+        "Fixed physical model is8.05percent worse than weather",
+        "Only42eligible monthly outcomes; product changes April2024",
+        "Annual confirmation lacks complete coverage and fails point improvement"
+      ],
+      "results": "results/satellite_validation/goes_solar/summary.json"
+    },
+    {
+      "id": "reservoir_altimetry",
+      "source": "NASA Global Water Monitor satellite radar altimetry, independent ONS power/flow labels",
+      "observable": "Sobradinho reservoir water elevation",
+      "forecast": "Following monthly hydropower output",
+      "possible_alpha": "Hydropower supply, fuel substitution and electricity revenue surprises, especially where ground storage is unavailable",
+      "baseline": [
+        "seasonality/trend plus pastgeneration and inflow",
+        "same model plus publicgroundstorage",
+        "persistence"
+      ],
+      "timing": "Conservative90day satellite availability proxy and30day ground-data proxy; original vintages not certified",
+      "limitations": [
+        "19.25percent gain over generation/inflow baseline",
+        "Publicgroundstorage model isstronger; satelliteincrement only0.17percent withuncertainty spanningzero",
+        "Useful substitute hypothesis needsactual deployment wheregroundstorage unavailable"
+      ],
+      "results": "results/satellite_validation/hydro/summary.json"
+    },
+    {
+      "id": "hurricane_ocean_temperature",
+      "source": "NOAA OISST AVHRR-enhanced satellite/in-situ temperature blend; NHC independent storm wind records",
+      "observable": "June Atlantic main-development-region and tropical Pacific sea temperatures",
+      "forecast": "August\u2013November Atlantic accumulated cyclone energy, issued August1",
+      "possible_alpha": "Insurance and offshore-energy risk; doesnotpredict insured landfallloss directly",
+      "baseline": [
+        "priorseason andtrend plusJuneJulyactivity",
+        "full and10year climatology",
+        "persistence"
+      ],
+      "timing": "June SST plus31day finalization/publication buffer, no target-seasonSST; current revisedbesttracks",
+      "limitations": [
+        "5.16percent gain overmatched model notrobust; recentclimatology isbetter",
+        "Knownpublicmechanism and NOAA forecast competition",
+        "Separatefixed insuranceETF spreadtest fails netreturn evidence"
+      ],
+      "results": "results/satellite_validation/hurricane/summary.json"
+    },
+    {
+      "id": "snow_melt_timing",
+      "source": "NASA Terra MOD10A1.061 daily snow observations",
+      "observable": "May basin snow occurrence from clear raw daily pixels",
+      "forecast": "July\u2013September full-natural-flow at California reservoirs, issued June15",
+      "possible_alpha": "Hydropower and irrigation supply surprises",
+      "baseline": [
+        "rainfall plus prior flow",
+        "same controls including latest May flow",
+        "ground snow-water equivalent"
+      ],
+      "timing": "May observations plus14days; no future background or temporal gap-fill",
+      "limitations": [
+        "Current archive revisions are not original publication vintages",
+        "Two basins and14 independent evaluation years",
+        "Fresh-flow geographic confirmation fails"
+      ],
+      "results": "results/satellite_validation/snow_kings/summary.json"
+    },
+    {
+      "id": "crop_masked_vegetation",
+      "source": "NOAA AVHRR/VIIRS Vegetation Health Product",
+      "observable": "Crop-masked March vegetation reflectance and temperature",
+      "forecast": "Texas, Kansas and Oklahoma winter-wheat yield and production per planted acre",
+      "possible_alpha": "Grain production and abandonment risk",
+      "baseline": [
+        "May weather plus prior yield and trend",
+        "USDA June forecast"
+      ],
+      "timing": "Eight-week buffer for retrospective smoothing; issue June15",
+      "limitations": [
+        "Current crop masks and source revisions",
+        "Official June forecasts dominate geographic panel",
+        "Total production per final planted acre is an intensity outcome, not an acreage forecast"
+      ],
+      "results": "results/vhp_wheat_panel/summary.json"
+    },
+    {
+      "id": "ocean_temperature_crop_risk",
+      "source": "NOAA OISST satellite-enhanced ocean temperature",
+      "observable": "September Ni\u00f1o3.4 temperature",
+      "forecast": "Following calendar-year South African maize yield and total production",
+      "possible_alpha": "Early planting-season maize supply risk",
+      "baseline": [
+        "Prior yield or production plus time trend and preplanting ground rain",
+        "Latest completed-harvest information stress",
+        "Historical means and persistence"
+      ],
+      "timing": "October20 forecast after September OISST finalization; harvest following May\u2013August",
+      "limitations": [
+        "Blended satellite and in-situ source does not isolate satellite-only contribution",
+        "Current-vintage historical study",
+        "Trading value and official forecast superiority require separate evidence"
+      ],
+      "results": "results/satellite_validation/south_africa_maize/summary.json"
+    },
+    {
+      "id": "ocean_temperature_short_rains",
+      "source": "NOAA OISST satellite-enhanced ocean temperature",
+      "observable": "September Indian Ocean Dipole and Ni\u00f1o3.4 temperature",
+      "forecast": "November\u2013December gauge rainfall in fixed Kenya-centered region",
+      "possible_alpha": "Seasonal crop and hydropower rainfall risk",
+      "baseline": [
+        "Ground rain available byOctober20, prior season and trend",
+        "Historical and recent rainfall means"
+      ],
+      "timing": "October20 issue before November target, with explicit source buffers",
+      "limitations": [
+        "Rainfall forecast is not an economic output forecast",
+        "Incremental confidence intervals include zero",
+        "Sparse African gauge network and current archive revisions"
+      ],
+      "results": "results/satellite_validation/east_africa/summary.json"
+    },
+    {
+      "id": "county_crop_vegetation",
+      "source": "NASA MODIS MOD09CMG raw eight-day vegetation through CY-Bench v1.10",
+      "observable": "Crop-weighted monthly county NDVI, with complete-window and publication buffers",
+      "forecast": "US county maize yield before final annual county reporting, at fixed August15 and September15 dates",
+      "possible_alpha": "Local crop shortfall and grain-supply expectations for procurement, crop insurance and commodity research",
+      "baseline": [
+        "Matched reanalysis weather model",
+        "County linear yield trend",
+        "Latest released county yield",
+        "Five-year county mean"
+      ],
+      "timing": "Only complete eight-day image windows plus14days; expanding prior-year labels; current archive and static2021 geography explicitly not historical original-release certified",
+      "limitations": [
+        "Small gains below original 5% materiality threshold",
+        "Fixed2021 geography and revised reanalysis",
+        "Eleven year clusters and exploratory selection",
+        "CORN ETF tests do not verify trading alpha"
+      ],
+      "results": "results/satellite_validation/cybench_maize/summary.json",
+      "secondary_results": "results/satellite_validation/cybench_maize_late/summary.json",
+      "trading_results": "results/satellite_validation/cybench_trading/summary.json"
+    }
+  ]
+}

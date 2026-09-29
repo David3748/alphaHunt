@@ -1,0 +1,95 @@
+{
+  "sources": [
+    {
+      "path": "evidence/eia_2020_early.html",
+      "url": "https://www.eia.gov/about/new/index.php?r=1920",
+      "data_year": 2020,
+      "announced_release_date": "2021-06-11",
+      "type": "early",
+      "sha256": "69f30d9023be12535d754024d9884c136611eb504e7d0a84c19aa94c79ce3649",
+      "retrieved_at_utc": "2026-09-27T02:30:05.882112+00:00"
+    },
+    {
+      "path": "evidence/eia_2021_early.html",
+      "url": "https://www.eia.gov/about/new/?r=1560",
+      "data_year": 2021,
+      "announced_release_date": "2022-06-15",
+      "type": "early",
+      "sha256": "3e0cd0974d91709055b954dcd6a3cc57780a42aa08fed25c21105e75f4c66b58",
+      "retrieved_at_utc": "2026-09-27T02:30:06.321712+00:00"
+    },
+    {
+      "path": "evidence/eia_2021_final.html",
+      "url": "https://www.eia.gov/about/new/?r=1440",
+      "data_year": 2021,
+      "announced_release_date": "2022-10-14",
+      "type": "final",
+      "sha256": "257b6ced5d1a6964f58f4f8d8e85ffcc9ef233f850af3e0c6d1faccd6969434a",
+      "retrieved_at_utc": "2026-09-27T02:30:06.538443+00:00"
+    },
+    {
+      "path": "evidence/eia_2023_early.html",
+      "url": "https://www.eia.gov/about/new/?r=790",
+      "data_year": 2023,
+      "announced_release_date": "2024-07-09",
+      "type": "early",
+      "sha256": "f1e4b2543536f4afc6915b346f5a8022d9bfdb5e3a9e09d4bfd31fcf9ba8acf3",
+      "retrieved_at_utc": "2026-09-27T02:30:06.776415+00:00"
+    },
+    {
+      "path": "evidence/eia_2024_early.html",
+      "url": "https://www.eia.gov/about/new/index.php?r=450",
+      "data_year": 2024,
+      "announced_release_date": "2025-06-16",
+      "type": "early",
+      "sha256": "bff0257a4a888a515438b2e9aeac6a23859885e9e3241fd526db270d0b855922",
+      "retrieved_at_utc": "2026-09-27T02:30:07.041293+00:00"
+    },
+    {
+      "path": "evidence/eia_2025_early.html",
+      "url": "https://www.eia.gov/about/new/?r=70",
+      "data_year": 2025,
+      "announced_release_date": "2026-07-01",
+      "type": "early",
+      "sha256": "53668638f4cbabc431ed0eb83c5bfaf9514a8184b090bd5f71bb8641dc2ed992",
+      "retrieved_at_utc": "2026-09-27T02:30:07.501074+00:00"
+    },
+    {
+      "path": "evidence/eia_corrections.html",
+      "url": "https://www.eia.gov/electricity/data/eia923/correction.php",
+      "data_year": 2024,
+      "announced_release_date": "2025-09-18",
+      "type": "final",
+      "sha256": "35ee41cc4aaf6769c340b2cdbdccf7f5332601a311e020c34d6eb21bd2aac8c0",
+      "retrieved_at_utc": "2026-09-27T02:30:07.899835+00:00"
+    },
+    {
+      "path": "evidence/eia_current.html",
+      "url": "https://www.eia.gov/electricity/data/eia923/",
+      "data_year": 2025,
+      "announced_release_date": "2026-09-14",
+      "type": "final",
+      "sha256": "67cae6e67b38c3f9ecf789340af58aa6d02a4e99a7ad1098825ca7d7f417a687",
+      "retrieved_at_utc": "2026-09-27T02:30:08.003354+00:00"
+    },
+    {
+      "path": "evidence/eia_2022_change_notice.pdf",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2022-11-21/pdf/2022-25287.pdf",
+      "data_year": null,
+      "announced_release_date": "2022-11-21",
+      "type": "reporting_change_notice",
+      "sha256": "c4a5a5fc65779d812618f0e5ad211c48932c1c59989363826354a7001cffc1aa",
+      "retrieved_at_utc": "2026-09-27T02:30:08.239986+00:00"
+    },
+    {
+      "path": "evidence/eia_current_instructions.pdf",
+      "url": "https://www.eia.gov/survey/form/eia_923/instructions.pdf",
+      "data_year": null,
+      "announced_release_date": null,
+      "type": "instructions",
+      "sha256": "152bb26f657e4928292bbeeb69e598ffac2918410801e5cb0a765e8bc6e14c55",
+      "retrieved_at_utc": "2026-09-27T02:30:08.631936+00:00"
+    }
+  ],
+  "caveat": "Release announcements establish product dates, not whether these two plants appeared in each early release or absence of earlier third-party reports. Relative-offset EIA URLs may change their page contents; local snapshots preserve the retrieved evidence. No original plant-label vintage reconstructed."
+}

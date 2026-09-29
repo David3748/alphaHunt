@@ -1,0 +1,235 @@
+{
+  "strategies": {
+    "always_long": {
+      "n_seasons": 20,
+      "mean_net_season_return": -0.003294581252809904,
+      "compound_net_event_return": -0.07179444226338771,
+      "mean_net_return_ci95": [
+        -0.015669059243141815,
+        0.00960678372007112
+      ],
+      "paired_mean_net_advantage_vs_baseline_ci95": [
+        -0.017483118486283623,
+        0.03307852858921656
+      ],
+      "long_events": 20,
+      "short_events": 0
+    },
+    "always_short": {
+      "n_seasons": 20,
+      "mean_net_season_return": -0.01058076121294352,
+      "compound_net_event_return": -0.1986882220907351,
+      "mean_net_return_ci95": [
+        -0.023479093994146088,
+        0.0018139752583814196
+      ],
+      "paired_mean_net_advantage_vs_baseline_ci95": [
+        0.0,
+        0.0
+      ],
+      "long_events": 0,
+      "short_events": 20
+    },
+    "baseline": {
+      "n_seasons": 20,
+      "mean_net_season_return": -0.01058076121294352,
+      "compound_net_event_return": -0.1986882220907351,
+      "mean_net_return_ci95": [
+        -0.023479093994146088,
+        0.0018139752583814196
+      ],
+      "paired_mean_net_advantage_vs_baseline_ci95": [
+        0.0,
+        0.0
+      ],
+      "long_events": 0,
+      "short_events": 20
+    },
+    "cash": {
+      "n_seasons": 20,
+      "mean_net_season_return": 0.0,
+      "compound_net_event_return": 0.0,
+      "mean_net_return_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_net_advantage_vs_baseline_ci95": [
+        -0.001813975258381427,
+        0.023479093994146084
+      ],
+      "long_events": 0,
+      "short_events": 0
+    },
+    "incremental_overlay": {
+      "n_seasons": 20,
+      "mean_net_season_return": -0.009629377383161643,
+      "compound_net_event_return": -0.18317200503202424,
+      "mean_net_return_ci95": [
+        -0.022834069915596177,
+        0.0026733331022541105
+      ],
+      "paired_mean_net_advantage_vs_baseline_ci95": [
+        -0.008165646590971713,
+        0.010854351744103999
+      ],
+      "long_events": 7,
+      "short_events": 13
+    },
+    "satellite": {
+      "n_seasons": 20,
+      "mean_net_season_return": -0.009658312681240079,
+      "compound_net_event_return": -0.18366303287431907,
+      "mean_net_return_ci95": [
+        -0.02265854832892094,
+        0.002687363010452887
+      ],
+      "paired_mean_net_advantage_vs_baseline_ci95": [
+        0.0,
+        0.002359038034929588
+      ],
+      "long_events": 2,
+      "short_events": 18
+    }
+  },
+  "economic_gate_passed": false,
+  "trading_alpha_verified": false,
+  "interpretation": "Exploratory broad-insurance ETF spread test, not isolated catastrophe pricing or risk-adjusted alpha. Returns include both-leg execution and short borrow costs. No trades executed.",
+  "double_execution_cost_sensitivity": {
+    "strategies": {
+      "always_long": {
+        "n_seasons": 20,
+        "mean_net_season_return": -0.0052945812528099045,
+        "compound_net_event_return": -0.10837421085189858,
+        "mean_net_return_ci95": [
+          -0.017669059243141817,
+          0.007606783720071116
+        ],
+        "paired_mean_net_advantage_vs_baseline_ci95": [
+          -0.017483118486283623,
+          0.03307852858921655
+        ],
+        "long_events": 20,
+        "short_events": 0
+      },
+      "always_short": {
+        "n_seasons": 20,
+        "mean_net_season_return": -0.01258076121294352,
+        "compound_net_event_return": -0.2304963259406121,
+        "mean_net_return_ci95": [
+          -0.02547909399414609,
+          -0.00018602474161858078
+        ],
+        "paired_mean_net_advantage_vs_baseline_ci95": [
+          0.0,
+          0.0
+        ],
+        "long_events": 0,
+        "short_events": 20
+      },
+      "baseline": {
+        "n_seasons": 20,
+        "mean_net_season_return": -0.01258076121294352,
+        "compound_net_event_return": -0.2304963259406121,
+        "mean_net_return_ci95": [
+          -0.02547909399414609,
+          -0.00018602474161858078
+        ],
+        "paired_mean_net_advantage_vs_baseline_ci95": [
+          0.0,
+          0.0
+        ],
+        "long_events": 0,
+        "short_events": 20
+      },
+      "cash": {
+        "n_seasons": 20,
+        "mean_net_season_return": 0.0,
+        "compound_net_event_return": 0.0,
+        "mean_net_return_ci95": [
+          0.0,
+          0.0
+        ],
+        "paired_mean_net_advantage_vs_baseline_ci95": [
+          0.00018602474161857332,
+          0.025479093994146086
+        ],
+        "long_events": 0,
+        "short_events": 0
+      },
+      "incremental_overlay": {
+        "n_seasons": 20,
+        "mean_net_season_return": -0.011629377383161643,
+        "compound_net_event_return": -0.21556560878860376,
+        "mean_net_return_ci95": [
+          -0.02483406991559618,
+          0.0006733331022541093
+        ],
+        "paired_mean_net_advantage_vs_baseline_ci95": [
+          -0.008165646590971713,
+          0.010854351744103992
+        ],
+        "long_events": 7,
+        "short_events": 13
+      },
+      "satellite": {
+        "n_seasons": 20,
+        "mean_net_season_return": -0.011658312681240079,
+        "compound_net_event_return": -0.21603817356361243,
+        "mean_net_return_ci95": [
+          -0.024658548328920938,
+          0.0006873630104528867
+        ],
+        "paired_mean_net_advantage_vs_baseline_ci95": [
+          0.0,
+          0.0023590380349295887
+        ],
+        "long_events": 2,
+        "short_events": 18
+      }
+    },
+    "economic_gate_passed": false,
+    "trading_alpha_verified": false,
+    "interpretation": "Exploratory broad-insurance ETF spread test, not isolated catastrophe pricing or risk-adjusted alpha. Returns include both-leg execution and short borrow costs. No trades executed."
+  },
+  "protocol": {
+    "frozen_at_utc": "2026-09-27T02:37:34.973134+00:00",
+    "forecast_or_market_results_examined": false,
+    "purpose": "Separate fixed insurance-sector trading diagnostic for hurricane-risk satellite forecasts; no orders",
+    "assets": "KIE insurance ETF versus SPY market ETF; broad insurance-sector proxy includes businesses not directly exposed to Atlantic losses",
+    "evaluation": "2006\u20132025 inclusive, complete common price windows and available frozen forecasts only; no tuning",
+    "signal": "For satellite and nonsatellite baseline separately, short KIE/longSPY when predicted AugNov ACE > expanding prior-year mean ACE; longKIE/shortSPY when below; flat if equal. Incremental overlay instead compares satellite to baseline. Two legs each50%notional on capital, 100%gross exposure.",
+    "entry": "First common trading close on or after August1, after forecast issued00UTC; exit last common trading close on or before November30. Same windows allstrategies.",
+    "costs": "10bps perleg pertrade times0.5notional =20bps fullroundtrip; borrow3percent annual on0.5shortleg overactualdaycount. Doubledexecutioncost sensitivity. No leverage financing beyondshortborrow.",
+    "comparators": [
+      "sameACEforecastbaseline/trend direction",
+      "alwayslongKIEshortSPY",
+      "alwaysshortKIE longSPY",
+      "cash zero",
+      "incremental satellite-minus-baseline direction"
+    ],
+    "prices": "Yahoo Finance adjusted closes account fordistributions/splits inlongreturn; shortreturn usesnegativeadjustedtotalreturn (includesdistributionsowed). Currentadjustedvintage.",
+    "uncertainty": "Whole-season bootstrap10000seed20260927, mean netreturns and paired differences;20events maximum. Report eventcompounding only, not annualized or risk-adjustedalpha.",
+    "gate": "Tradingalpha isnotcertified bythis exploratory test. Reportpositive neteconomicresults only ifmean netreturns andpairedadvantageoverbaseline bothhavepositive95percent intervals; otherwiseunverified.",
+    "limits": [
+      "ACE isbasinwide stormenergy, notinsured landfalllosses",
+      "NOAA/publicforecasts alreadyusesimilar climateinformation; no claim tobeatconsensus",
+      "No originalhistoricalborrowavailabilityarchive or completeoriginalvintage data",
+      "Exploratory broadsectorproxy; do notclaimpredictionutility impliestradingvalue"
+    ]
+  },
+  "source_manifest": {
+    "KIE": {
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/KIE?period1=1136073600&period2=1767225600&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+      "retrieved_at": "2026-09-27T02:37:54.354845+00:00",
+      "sha256": "ea37ccd495f8100779816d6fa9a126f9a9b8ccf32fd7c1b538765d81d2921cd1",
+      "bytes": 556506
+    },
+    "SPY": {
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=1136073600&period2=1767225600&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+      "retrieved_at": "2026-09-27T02:37:54.366787+00:00",
+      "sha256": "acb4361f0524aff6fe8c47abe755ded54581619c7cab8e036748f8a6a15a2f10",
+      "bytes": 558699
+    }
+  },
+  "predictions_sha256": "2e24e7e8e25bc36e3c6bdded9d6ff7f83b7f115704c7bc079b065d51ec85986e"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "ridge_alpha": 10.0,
+  "min_training_years": 5,
+  "min_training_rows": 8,
+  "minimum_reported_area_coverage": 0.8,
+  "yield_signal_threshold_bu_acre": 0.5,
+  "holding_sessions": 20,
+  "entry_cost_bps": 25.0,
+  "exit_cost_bps": 25.0,
+  "annual_short_borrow_rate": 0.03,
+  "bootstrap_draws": 10000,
+  "bootstrap_year_block": 2,
+  "random_seed": 20260927
+}

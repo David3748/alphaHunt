@@ -1,0 +1,100 @@
+{
+  "archive_timing_samples": [
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2004-03-20%2F2004-03-31&limit=2",
+      "created": "2020-05-01T07:21:44Z",
+      "end_datetime": "2004-04-05T23:59:59Z",
+      "item_id": "MYD10A2.A2004089.h08v05.061.2020122072137",
+      "start_datetime": "2004-03-29T00:00:00Z"
+    },
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2004-03-20%2F2004-03-31&limit=2",
+      "created": "2020-05-01T05:03:36Z",
+      "end_datetime": "2004-04-05T23:59:59Z",
+      "item_id": "MOD10A2.A2004089.h08v05.061.2020122050332",
+      "start_datetime": "2004-03-29T00:00:00Z"
+    },
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2014-03-20%2F2014-03-31&limit=2",
+      "created": "2021-09-09T10:42:20Z",
+      "end_datetime": "2014-04-06T23:59:59Z",
+      "item_id": "MYD10A2.A2014089.h08v05.061.2021252104155",
+      "start_datetime": "2014-03-30T00:00:00Z"
+    },
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2014-03-20%2F2014-03-31&limit=2",
+      "created": "2021-09-10T00:42:14Z",
+      "end_datetime": "2014-04-06T23:59:59Z",
+      "item_id": "MOD10A2.A2014089.h08v05.061.2021253004159",
+      "start_datetime": "2014-03-30T00:00:00Z"
+    },
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2018-03-20%2F2018-03-31&limit=2",
+      "created": "2021-11-18T15:19:35Z",
+      "end_datetime": "2018-04-06T23:59:59Z",
+      "item_id": "MYD10A2.A2018089.h08v05.061.2021322151931",
+      "start_datetime": "2018-03-30T00:00:00Z"
+    },
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2018-03-20%2F2018-03-31&limit=2",
+      "created": "2021-11-19T10:31:05Z",
+      "end_datetime": "2018-04-06T23:59:59Z",
+      "item_id": "MOD10A2.A2018089.h08v05.061.2021323103051",
+      "start_datetime": "2018-03-30T00:00:00Z"
+    },
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2020-03-20%2F2020-03-31&limit=2",
+      "created": "2020-11-30T08:45:48Z",
+      "end_datetime": "2020-04-05T23:59:59Z",
+      "item_id": "MYD10A2.A2020089.h08v05.061.2020335084543",
+      "start_datetime": "2020-03-29T00:00:00Z"
+    },
+    {
+      "api_query_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=modis-10A2-061&bbox=-120.2%2C37.0%2C-118.5%2C38.5&datetime=2020-03-20%2F2020-03-31&limit=2",
+      "created": "2020-11-30T06:12:29Z",
+      "end_datetime": "2020-04-05T23:59:59Z",
+      "item_id": "MOD10A2.A2020089.h08v05.061.2020335061221",
+      "start_datetime": "2020-03-29T00:00:00Z"
+    }
+  ],
+  "available_data": {
+    "ftp": "ftp://dtn.rc.colorado.edu/shares/snow-today",
+    "historical_product": "https://nsidc.org/data/spires_hist/versions/1",
+    "independent_runoff_label": "DWR full natural flow, monthly, SBF sensor65; not satellite-inferred runoff",
+    "modis_science": "https://modis-snow-ice.gsfc.nasa.gov/?c=MOD10A2",
+    "nrt_product": "https://nsidc.org/data/spires_nrt/versions/1",
+    "runoff_csv": "https://cdec.water.ca.gov/dynamicapp/req/CSVDataServlet?Stations=SBF&SensorNums=65&dur_code=M&Start=2000-01-01&End=2025-12-31",
+    "runoff_end": "20251201 0000",
+    "runoff_metadata": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SBF",
+    "runoff_records": 312,
+    "runoff_start": "20000101 0000",
+    "runoff_units": "acre-feet",
+    "satellite_stac": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/modis-10A2-061",
+    "snow_today_access": "https://nsidc.org/snow-today/get-snow-data"
+  },
+  "checked_at": "2026-09-27T01:49:41.462387+00:00",
+  "forecast_fit_performed": false,
+  "input_sha256": {
+    "modis_archive_timing_samples.json": "076716676d69e8f7f66fbf146c72b9b4278ebf259ad2de14fd7f036674a2db82",
+    "sbf_monthly_fnf.csv": "72c54031b570e19793d039952b93dd148c4332cb3c68e71c3c85db12804196bd",
+    "sbf_station_metadata.html": "549d22e205914899d8b0334df123fe725259d38249bb22e4731eb28adb2d15d4",
+    "snow_today_README.txt": "f2945fc34f40c7c6cb793d0c12a8cdcd9bc821a6b34d22246d21ba29be9597dc",
+    "snow_today_ftp_listing.json": "46c48187de65bd698ff3263e8b21c2a487f1ded99be7522491a51f61200a9263"
+  },
+  "needed_before_validation": [
+    "Fixed basin polygon matched to runoff endpoint",
+    "Causally available satellite archive with cloud/no-data policy",
+    "Strong baseline: observed AprilSWE/winterprecipitation or contemporaneous DWRseasonalforecast",
+    "Chronological holdout fixed before evaluation and water-year-block uncertainty",
+    "No annual-sample inflation by treating correlatedbasins or dailyimages as independent seasons"
+  ],
+  "primary_blockers": [
+    "SPIRES_HIST includes same-year August-September background reflectance and retrospective smoothing; April features may use future observations.",
+    "Open MODIS Collection6.1 historical scenes sampled over Sierra were created in2020\u20132021, years after acquisition; original release availability cannot be inferred from acquisition dates.",
+    "No long homogeneous original April-release regional snow-cover series established. Recent causally eligible MODIS seasons are few independent annual test outcomes."
+  ],
+  "signal": "MODIS Sierra snow cover to April-July San Joaquin runoff",
+  "status": "not_validated_temporal_data_blocker",
+  "verified_forecast_utility": false,
+  "verified_trading_alpha": false
+}

@@ -1,0 +1,58 @@
+{
+  "decision": "Use CORN ETF as explicitly labeled multi-maturity corn futures proxy; no authentic December contract archive used.",
+  "bounded_check_date": "2026-09-27",
+  "absence_claim": "No usable credential-free complete December2013\u20132023 settlement archive was found in this bounded check; this is not a claim that none exists.",
+  "checks": [
+    {
+      "source": "CME Group settlement data FAQ",
+      "url": "https://www.cmegroup.com/articles/faqs/access-to-cme-group-settlement-data-faq.html",
+      "finding": "Historical FTP settlement files migrated to DataMine; published FAQ describes fees and a CME login ordering process. Delayed website viewing does not supply the requested full historical contract archive."
+    },
+    {
+      "source": "Yahoo chart ZCZ23.CBT",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/ZCZ23.CBT?period1=1356998400&period2=1704067200&interval=1d",
+      "http_status": 404,
+      "bars": 0,
+      "finding": "Not Found / No data found, symbol may be delisted"
+    },
+    {
+      "source": "Yahoo chart ZCZ13.CBT",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/ZCZ13.CBT?period1=1356998400&period2=1704067200&interval=1d",
+      "http_status": 200,
+      "bars": 0,
+      "finding": "No historical bars returned"
+    },
+    {
+      "source": "CME continuous price series",
+      "url": "https://www.cmegroup.com/market-data/cme-group-continuous-price-series.html",
+      "finding": "Continuous active/front-contract series cannot be silently labeled actual December delivery contracts."
+    }
+  ],
+  "fund_primary_metadata": [
+    {
+      "path": "teucrium_fund_facts.html",
+      "url": "https://etfs.teucrium.com/CORN/fund_facts",
+      "sha256": "2dcb958ae23e4cf681c68898cd78db2db2e236938a3248e5fbd8158927de0a50",
+      "retrieved_at_utc": "2026-09-27T03:38:13.693816+00:00",
+      "copied_from": "results/satellite_validation/cybench_trading/inputs/teucrium_fund_facts.html"
+    },
+    {
+      "path": "teucrium_corn.html",
+      "url": "https://teucrium.com/corn",
+      "sha256": "6cb2dd6bf6d7e2cad6315c992a2181da982ebc65e842bb04fc0d4e3df3240995",
+      "retrieved_at_utc": "2026-09-27T03:38:13.814282+00:00",
+      "copied_from": "results/satellite_validation/cybench_trading/inputs/teucrium_corn.html"
+    }
+  ],
+  "fund_facts": {
+    "inception": "2010-06-09",
+    "exchange": "NYSE Arca",
+    "scope": "Unleveraged corn futures fund holding multiple maturities; does not hold physical corn."
+  },
+  "not_done": [
+    "No credentials or paid access",
+    "No orders",
+    "No optimization or forecast/price join",
+    "No construction of synthetic December futures prices"
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "candidate": "CERES solar irradiance -> Topaz monthly EIA electricity generation",
+  "plant_code": "57695",
+  "coordinates": [
+    35.383,
+    -120.067
+  ],
+  "model_specification": "Rolling 48 eligible months; OLS log daily MWh on calendar month + linear time, plus log GHI; two-month outcome embargo; same sample for all ablations",
+  "evaluation_period": [
+    "2020-01",
+    "2025-12"
+  ],
+  "metrics": {
+    "n_months": 72,
+    "n_year_blocks": 6,
+    "models": {
+      "season_trend": {
+        "mae_mwh": 11555.8539181814,
+        "rmse_mwh": 14566.511662773557
+      },
+      "satellite": {
+        "mae_mwh": 8590.583820125372,
+        "rmse_mwh": 10925.365846449391,
+        "rmse_improvement_pct": 24.996690358128394,
+        "mae_improvement_pct": 25.660328687528843
+      },
+      "prior_year_placebo": {
+        "mae_mwh": 11577.855127626484,
+        "rmse_mwh": 14894.238510101608
+      },
+      "seasonal_persistence": {
+        "mae_mwh": 11450.241516146689,
+        "rmse_mwh": 14531.551160205338
+      }
+    },
+    "satellite_rmse_improvement_95pct_year_block_ci": [
+      14.313331789556273,
+      35.770432148534894
+    ]
+  },
+  "by_year": {
+    "2020": {
+      "n": 12,
+      "baseline_rmse_mwh": 15346.329633539768,
+      "satellite_rmse_mwh": 10514.427908764788,
+      "improvement_pct": 31.485715738926544
+    },
+    "2021": {
+      "n": 12,
+      "baseline_rmse_mwh": 11818.112933923265,
+      "satellite_rmse_mwh": 5302.003986609643,
+      "improvement_pct": 55.136627850369216
+    },
+    "2022": {
+      "n": 12,
+      "baseline_rmse_mwh": 6978.932348854298,
+      "satellite_rmse_mwh": 9142.582123560936,
+      "improvement_pct": -31.00258988843525
+    },
+    "2023": {
+      "n": 12,
+      "baseline_rmse_mwh": 16460.418715364987,
+      "satellite_rmse_mwh": 11764.139393921867,
+      "improvement_pct": 28.530740333229655
+    },
+    "2024": {
+      "n": 12,
+      "baseline_rmse_mwh": 13624.409169579547,
+      "satellite_rmse_mwh": 9392.176016592488,
+      "improvement_pct": 31.063608706326505
+    },
+    "2025": {
+      "n": 12,
+      "baseline_rmse_mwh": 19815.31073071874,
+      "satellite_rmse_mwh": 16350.000576685165,
+      "improvement_pct": 17.48804346863695
+    }
+  },
+  "retrospective_estimation_improvement_pass": true,
+  "forecast_usefulness_verified": false,
+  "original_vintage_operational_verification": false,
+  "trading_alpha_verified": false,
+  "availability": {
+    "downloaded_product": "NASA POWER historical SYN1DEG, current vintage",
+    "historical_latency": "Approximately 3-4 months; cannot be backdated to month-end +7d",
+    "potential_live_product": "FLASHFlux has 5-7 day latency but is a different product; original releases not used here",
+    "meaning": "Independent measurement-to-outcome validation only. A pre-release nowcast backtest remains uncertified."
+  },
+  "limitations": [
+    "One plant selected for size and stable operating history, not a representative asset sample",
+    "No contemporaneous analyst expectations or market-return test",
+    "Current-vintage EIA generation can include revisions",
+    "Year-block bootstrap has only six blocks",
+    "Added after negative results in other mechanisms; exploratory selection must be disclosed"
+  ],
+  "sources": [
+    "https://api.eia.gov/v2/electricity/facility-fuel/data/",
+    "https://power.larc.nasa.gov/api/temporal/monthly/point",
+    "https://power.larc.nasa.gov/docs/methodology/data/sources/",
+    "https://power.larc.nasa.gov/docs/services/api/temporal/monthly/",
+    "https://www.eia.gov/electricity/data/browser/#/plant/57695"
+  ],
+  "input_sha256": {
+    "eia.json": "6c77e92ad5c59ebb47ef3541023d406fccf8dc589942ce340d26a9b38f2c552b",
+    "power.json": "1da616c39b4d2c428a8f6e6a20f83067a51b2b9d0fd70b031af89a2072aebfd7"
+  }
+}

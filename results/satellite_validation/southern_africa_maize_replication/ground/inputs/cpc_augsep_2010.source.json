@@ -1,0 +1,25 @@
+{
+  "path": "inputs/cpc_augsep_2010.h5",
+  "url": "https://psl.noaa.gov/thredds/dodsC/Datasets/cpc_global_precip/precip.2010.nc",
+  "sha256": "b9aaac9dc7d2384e422f5d98dee852a0d6b0b6c0b51c41d1c7e31ddf6d47ef3b",
+  "retrieved_at_utc": "2026-09-27T03:27:40.939907+00:00",
+  "variable_units": "mm",
+  "variable_long_name": "Daily total of precipitation",
+  "source_title": "CPC GLOBAL PRCP V1.0 RT",
+  "source_history": "created 9/2016 by CAS NOAA/ESRL PSD",
+  "indices": {
+    "time": [
+      212,
+      272
+    ],
+    "lat": [
+      196,
+      224
+    ],
+    "lon": [
+      44,
+      66
+    ]
+  },
+  "storage": "Lossless numeric OPeNDAP subset in HDF5, August/September only; national mask applied offline."
+}

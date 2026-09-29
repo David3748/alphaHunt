@@ -1,0 +1,6 @@
+{
+  "results/satellite_validation/snow_daily/ground/rebuild.py": "98e1b987b800a38447aa4b328d40ede1335d4fc2d5e3f9c241b51b5b46b14b64",
+  "results/satellite_validation/snow_daily/ground/five_station_monthly.csv": "7c37013bfb45b58b87e9509d00cc48db61a356322c4f27f77e10a69e08078d61",
+  "results/satellite_validation/snow_daily/ground/huntington_swe.csv": "148803ec8e4acea888f7038631ee25bdb5ac7b7da542ec4b13700e363ae2f1ab",
+  "results/satellite_validation/snow_summer/ground/basin_full.geojson": "d8fe9c31143587feff9c820b309e6994200348fc437fb4aed16271d7ceeac243"
+}

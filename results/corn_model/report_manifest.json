@@ -1,0 +1,26 @@
+{
+  "renderer_sha256": "7ce99c481b8bff10409cf1505456aeeea52b0457d5a9e6a23ed233c1c5f3b913",
+  "source_hashes": {
+    "summary.json": "1704884cb113dd3b0def07d30f333cac74d1420282c1aa522c30a469b0de2e97",
+    "predictions.csv": "ec87f21a3108e81362358671f851d2d5fac76d6c2f2d8f5c1c4fd49c302a50ca",
+    "paper_trades.csv": "5b668f316f1cface9bb65c6d289c5f0f0e176f4f77bcd9560512d08f29f112db",
+    "historical_example.json": "8b2a8365ebae419628ffbbae2b2698a9d7684eb881775c131e78af2bc7501f44",
+    "protocol.json": "dc1e704805e43ee41319210cfb0d85408459802a5239c1bbce01b1ce3b8d7595"
+  },
+  "output_hashes": {
+    "report.md": "9912d4e7ca8619571fb7a5bcda33fb635e80e44611b29de08e53b407e24699ac",
+    "corn_model_results.png": "90bbe1a10812ff194acb01aa5e5564aebe3b73428b31eb98cfd7e303b1d924ec",
+    "corn_model_results.pdf": "f5dbe9b32acc319649483baec653a338a2c54dd9203b98d97e949f27c1e1b8d6"
+  },
+  "forecast_events": 12,
+  "evaluation_years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "trading_alpha_verified": false,
+  "no_new_fit_or_parameter_selection": true
+}

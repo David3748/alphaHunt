@@ -1,0 +1,48 @@
+{
+  "prices": {
+    "path": "inputs/corn_yahoo_chart.json",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/CORN?period1=1356998400&period2=1704067200&interval=1d&events=div%2Csplits",
+    "retrieved_at_utc": "2026-09-27T03:38:13.226130+00:00",
+    "sha256": "8296d2375d68beb16cd86e5ec956e061c582db70cd8d190c37cbd1feccdf5a26"
+  },
+  "metadata_sources": [
+    {
+      "path": "inputs/teucrium_fund_facts.html",
+      "url": "https://etfs.teucrium.com/CORN/fund_facts",
+      "sha256": "2dcb958ae23e4cf681c68898cd78db2db2e236938a3248e5fbd8158927de0a50",
+      "retrieved_at_utc": "2026-09-27T03:38:13.693816+00:00"
+    },
+    {
+      "path": "inputs/teucrium_corn.html",
+      "url": "https://teucrium.com/corn",
+      "sha256": "6cb2dd6bf6d7e2cad6315c992a2181da982ebc65e842bb04fc0d4e3df3240995",
+      "retrieved_at_utc": "2026-09-27T03:38:13.814282+00:00"
+    }
+  ],
+  "county_stats": {
+    "path": "inputs/county_yield_area.csv.gz",
+    "sha256": "5eddb6e85cd567a2aab035a07d7712487e33236f097cafae0e042e37c4a3e40c",
+    "raw_member_sha256": "6e5939d5f3e1e8c6ea274c55bbf7100ebc58cf9cd82848bcc0284b5e70b53b03",
+    "source_record": "https://zenodo.org/records/17279151",
+    "archive_member": "cybench-data/maize/US/yield_maize_US.csv",
+    "units": {
+      "yield": "t/ha",
+      "harvest_area": "ha"
+    },
+    "availability_assumption": "harvestyear+1 June30; exactprior-yearareaonly"
+  },
+  "locations": {
+    "path": "inputs/locations.csv",
+    "sha256": "08a375223f41419aff8ec3707dcd7daa2da42f2da0d0cf4b67ff4da5e93cd7b7",
+    "source": "Fixed county validation Census universe; source provenance in cybench_maize/source_manifest.json"
+  },
+  "calendar": {
+    "path": "inputs/xnys_sessions.csv",
+    "sha256": "1faa15cafa92bb812e71f151c77d4d336f84f023c1d360ea705cd3562f78931f",
+    "library": "exchange_calendars",
+    "version": "4.13.2",
+    "calendar": "XNYS",
+    "source": "https://github.com/gerrymanoim/exchange_calendars",
+    "purpose": "Frozen normal US-equity trading sessions; NYSEArca CORN endpoint calendar2013\u20132023"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "frozen_at_utc": "2026-09-27T03:25:53.270796+00:00",
+  "status": "Fixed before county yield/feature join or forecast fitting. Other crop and climate failures already known; this is a distinct exploratory candidate, not family-wise preregistration.",
+  "source": "CY-Bench v1.12, Zenodo17279151, US maize county NASS labels, raw MOD09CMG 8-day NDVI and AgERA5 weather; EUPL1.2. No FAPAR or soil moisture.",
+  "claim_scope": "Current-vintage scientific county yield forecast conditional on fixed2021crop geography, NOT original-vintage operational or trading verification. Separate post-map2022/2023 signs required.",
+  "geography": "All source US maize counties, omit FIPS000/998/999 noncounty aggregates; no states selected on outcomes.",
+  "years": "Inputs2003\u20132023. Initial training2003\u20132012. Forward test everyyear2013\u20132023. Each forecast county requires8 prior released yield labels; at least500 scored counties peryear and8scoredyears including2022/2023 required.",
+  "forecast": "August15 12UTC; April\u2013July features. Eight-day satellite dates are window starts, ending start+7days. Keep only windows with end+14days strictly beforeissue. Monthly bin by windowstart. Weather throughJuly31, plus14day assumedlag; revised AgERA5 is an idealized strong weather comparator, not certified firstrelease.",
+  "coverage": "Each satellite month\u22652finiteNDVIcomposites and\u226550%expected eligible composites; no gapfill/interpolation. Each weather variable in each month has allcalendar days finite; partial sums invalid. NDVIphysicallyvalid\u22121..1. Report all forecast abstentions and coverage.",
+  "labels": "FAO not used. Independent USDA NASS county maizeyield in t/ha. Conservative availabilityJune30followingharvest. Trainingonly prioravailablelabels. Unknown current target does not suppress a forecast.",
+  "trend": "At each testyear, fit independent OLS intercept+linear time percounty to ALL priorreleased yields, min8years, independent of weathercoverage. Historicaltraining residuals calculated relative to those same past-only trends. No currentor futuretarget in transformation. Exclude nonpositive trend predictions as modelinvalid with explicitabstention.",
+  "features": [
+    "all8weather variables permonth April\u2013July: tmin,tmax,tavg,vpd mean; prec,rad,et0,cwb sum",
+    "county latitude/longitude ifsourceavailable, otherwise freeze omission beforefit",
+    "county predictedtrend atrowyear",
+    "latest prior availableyield residual relative to currentfold trend, with each historicaltrainingrow priorlabel restricted beforeits own issue"
+  ],
+  "satellite_addition": "Four monthly NDVImeans. Matched weather model has exactly same rows, targettransform and allotherinputs.",
+  "estimator": "HistGradientBoostingRegressor(loss=squared_error,learning_rate=.05,max_iter=200,max_leaf_nodes=7,max_depth=3,min_samples_leaf=30,l2_regularization=10,early_stopping=False,random_state=20260927). Fixed for both weather and weather+satellite. No hyperparameter search.",
+  "comparators": [
+    "matched weather gradientboost",
+    "countyOLS trend",
+    "latest releasedyield persistence",
+    "last5 released county yields mean"
+  ],
+  "scoring": "Score independent observed targets only, on identical support. Equal county weights withinyear, equal yearweights acrossyears: sqrt(mean annualMSE), mean annualMAE. At least500 scored countyyears peryear; cannot drop a poor year afterfit. Preserve all predictions.",
+  "uncertainty": "Paired circular5-calendar-year block bootstrap10000 draws seed20260927, sharedyearindices for all counties/models, preserve calendar gaps. Do not treat countyrows as independent uncertainty units.",
+  "gate": "Satellite RMSE\u22655%lower than strongest of4comparators; lowerMAE and positive95%pairedRMSE-gain lowerbound versus everycomparator. Both2022and2023 separately must have lowerMSEthan weatherANDtrend. Satisfydata-count requirements. No tuning or subsetpromotion afterfirstfit.",
+  "limitations": [
+    "fixed2021 cropmask introduces geographic hindsight in earlier decades; postmask2022/23check is only two years",
+    "Current revised inputs and outcomes; no original-release certification",
+    "No comparison with official same-horizon countyforecast (not provided), no tradingclaim",
+    "Exploratory after multiple hypotheses; interval not family-wise adjusted"
+  ]
+}
