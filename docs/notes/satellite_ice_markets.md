@@ -25,11 +25,27 @@ The September 25 perfect continuous score reflects the fact that, in these 18 cu
 
 This model is a closer settlement match than the [corn model](corn_model.md): the sea-ice market directly resolves from satellite-derived NSIDC values. It does not make the earlier July-to-September [physical sea-ice forecast](satellite_seaice_validation.md) a demonstrated trading strategy. The 2026 market and model choices were made after viewing current contract prices, so the September 2026 price screen is exploratory rather than untouched validation.
 
+## 2025 Kalshi quote replay
+
+A separate [one-season replay](../../results/satellite_ice_markets/quote_replay_2025/summary.json) uses Kalshi's [historical bid/ask candlesticks](https://docs.kalshi.com/api-reference/historical/get-historical-market-candlesticks) and actual 2025 contract resolutions. Thirteen markets were archived. Four had a later data-source clarification, and two of those also have contradictory “Above” wording, so all four are excluded. Of the nine with unambiguous archived “below” wording, 52 side/date quotes are usable at the four fixed issue dates. The signal uses only NSIDC observations through three days before each issue and prior-year outcomes; a candle must end before the 12:00 UTC decision. One position at most is selected at the *first* issue with a positive cost-adjusted edge.
+
+| Replay rule | Chosen quote | Hypothetical P&L for five contracts after $0.02/contract allowance |
+|---|---|---:|
+| Satellite remaining-melt model | Aug 15, NO below 4.4m, ask $0.14; settlement NO | **+$4.20** |
+| Same model, require ≥5 contracts of recent *market-wide* volume | Sep 1, NO below 4.4m, ask $0.49; settlement NO | **+$2.45** |
+| No-further-melt persistence benchmark | Aug 15, NO below 5.2m, ask $0.02; settlement YES | **−$0.20** |
+
+These are **hypothetical quote payoffs, not realized or fill-verified returns**. The selected August 15 candle had **zero trades** and historical candles do not preserve order-book size; even the September 1 market-wide volume of 230 contracts does not establish executable NO depth at the displayed ask. The 2025 event warned of a potential NSIDC data-source change, the archived daily values are revised, and this replay was designed after 2025 resolved. One season and one chosen position cannot validate trading alpha. The [full quote-decision table](../../results/satellite_ice_markets/quote_replay_2025/all_quote_decisions.csv), [raw Kalshi responses](../../results/satellite_ice_markets/quote_replay_2025/raw), and [hash manifest](../../results/satellite_ice_markets/quote_replay_2025/source_manifest.json) show the selection and exclusions.
+
 ## Reproduce
 
 ```sh
 python3 -m src.satellite_ice_markets
+python3 -m src.satellite_ice_quote_replay
 python3 -m pytest -q tests/test_satellite_ice_markets.py
+python3 -m pytest -q tests/test_satellite_ice_quote_replay.py
 ```
 
 The default run uses captured provider files, verifies every SHA-256 checksum, checks the two NSIDC formats, regenerates [all hindcasts](../../results/satellite_ice_markets/hindcasts.csv) and [metrics](../../results/satellite_ice_markets/backtest.json), and marks a market snapshot expired five minutes after capture. `--refresh` explicitly downloads a new set of public source and book snapshots. The event identifiers and exact rules are currently 2026-specific and fail closed if those market rules change. The source [manifest](../../results/satellite_ice_markets/source_manifest.json) records retrieval times, URLs, and hashes; quote timestamps and every outcome are in the paper screen.
+
+The quote-replay command uses captured 2025 Kalshi market metadata and daily bid/ask candles. Its own `--refresh` explicitly refreshes that historical snapshot.

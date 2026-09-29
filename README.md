@@ -400,6 +400,8 @@ The read-only [Kalshi and Polymarket ice model](docs/notes/satellite_ice_markets
 uses NSIDC daily satellite observations to price the platforms' 2026 Arctic
 minimum-extent contracts. It checks exact rule windows, public asks and book
 sizes, and a chronological 2008–2025 hindcast. The saved September 29, 2026
-screen abstains; no market-return edge is verified. Run
+screen abstains. A 2025 Kalshi quote replay has a positive hypothetical payoff,
+but no historical quote depth or fill verification; no market-return edge is
+verified. Run
 `python3 -m src.satellite_ice_markets` against committed snapshots or add
 `--refresh` for a fresh public-data snapshot. It never submits orders.
