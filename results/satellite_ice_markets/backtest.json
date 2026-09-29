@@ -1,0 +1,52 @@
+{
+  "status": "current_vintage_historical_hindcast",
+  "metrics_by_issue": {
+    "08-15": {
+      "years": 18,
+      "analog_rmse": 0.2852525589307538,
+      "all_years_rmse": 0.27081196799050866,
+      "persistence_rmse": 1.3362287312515857,
+      "analog_brier": 0.13413872452333991,
+      "analog_poly_multiclass_brier": 0.769035095958173,
+      "all_years_brier": 0.1328921723370883,
+      "all_years_poly_multiclass_brier": 0.74949744393815
+    },
+    "09-01": {
+      "years": 18,
+      "analog_rmse": 0.11797957358776395,
+      "all_years_rmse": 0.1120348057648129,
+      "persistence_rmse": 0.4005337411227396,
+      "analog_brier": 0.05836620644312952,
+      "analog_poly_multiclass_brier": 0.5778732663348047,
+      "all_years_brier": 0.052891980846825705,
+      "all_years_poly_multiclass_brier": 0.586215388607487
+    },
+    "09-15": {
+      "years": 18,
+      "analog_rmse": 0.05621946359064396,
+      "all_years_rmse": 0.054994286419136944,
+      "persistence_rmse": 0.07031950890992711,
+      "analog_brier": 0.024095989480604867,
+      "analog_poly_multiclass_brier": 0.34710873172411627,
+      "all_years_brier": 0.02434271932677275,
+      "all_years_poly_multiclass_brier": 0.3443761634379979
+    },
+    "09-25": {
+      "years": 18,
+      "analog_rmse": 0.0,
+      "all_years_rmse": 0.0,
+      "persistence_rmse": 0.0,
+      "analog_brier": 0.0005259697567389876,
+      "analog_poly_multiclass_brier": 0.003834413449798064,
+      "all_years_brier": 0.0001233725576666214,
+      "all_years_poly_multiclass_brier": 0.0008321261924155083
+    }
+  },
+  "historical_market_return_verified": false,
+  "original_release_verified": false,
+  "prospective_calibration_verified": false,
+  "polymarket_workbook_check": {
+    "matching_daily_values_2000_to_2026": 9767,
+    "sheet": "NH-Daily-Extent"
+  }
+}

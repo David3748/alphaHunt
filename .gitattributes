@@ -26,3 +26,4 @@ results/satellite_validation/snow_summer/sbf_monthly_fnf.csv -text -whitespace
 
 # Corn model snapshots retain the published bytes used by their source hashes.
 results/corn_model/inputs/** -text -whitespace
+results/satellite_ice_markets/raw/** -text -whitespace
